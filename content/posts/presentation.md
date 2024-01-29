@@ -6,8 +6,8 @@ weight: 1
 tags: ["team"]
 author: ["Thomas Edvardsen"]
 cover:
-  image: teamphoto.jpeg
-  hiddenInList: true
+  image: /cover.webp
+  hiddenInList: false
 showtoc: true
 ---
 
