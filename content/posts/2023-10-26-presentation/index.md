@@ -2,11 +2,11 @@
 title: "Team Digital Preservation"
 summary:
 date: 2023-10-26
-weight: 1
+weight: 
 tags: ["team"]
 author: ["Thomas Edvardsen"]
 cover:
-  image:   /posts/2023-10-26-presentation/teamphoto.jpeg
+  image: /posts/2023-10-26-presentation/teamphoto.jpeg
   hiddenInList: true
 showtoc: true
 aliases: /team-digital-preservation-70f5805ba536
@@ -19,9 +19,6 @@ The team’s responsibilities involve ingesting, checking, storing, preserving, 
 ## Organisation
 The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page about Digital Preservation at NLN") team consist of 7 members:
 
-![From the back, left to right: Johannes Karlsen, Siarhei Kulakou, Torbjørn Pedersen, Thomas Edvardsen, Daniel Aaorn Salwerowicz, Vigdis Marie Sørensen, Trond Teigen](teamphoto.jpeg)
-
-From the back, left to right:
 - Junior Application Developer: [Johannes Karlsen](https://www.linkedin.com/in/johannes-karlsen-476197267)
 - Application Developer: [Siarhei Kulakou](https://www.linkedin.com/in/siarhei-kulakou-0702ba245)
 - Product Lead: [Torbjørn Pedersen](https://www.linkedin.com/in/torbjørn-pedersen-57617b227b) 
@@ -29,6 +26,8 @@ From the back, left to right:
 - Application Developer: [Daniel Aaron Salwerowicz](https://www.linkedin.com/in/salwerowicz)  
 - Senior Platform Developer: [Vigdis Marie Sørensen](https://www.linkedin.com/in/vigdis-sørensen-8a3618a6)  
 - Team Lead: [Trond Teigen](https://www.linkedin.com/in/trond-teigen-191954ab)  
+
+{{< figure src="teamphoto.jpeg" attr="From the back, left to right: Johannes Karlsen, Siarhei Kulakou, Torbjørn Pedersen, Thomas Edvardsen, Daniel Aaorn Salwerowicz, Vigdis Marie Sørensen, Trond Teigen" align=center >}}
  
 This team reports to a committee of leaders responsible for this area in the National Library. The members are:
 - IT Director (Product owner)
