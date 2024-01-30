@@ -1,0 +1,8 @@
+:root {
+    --nav-width: 800px;
+    --main-width: 800px;
+}
+
+.logo a img, .logo a svg {
+    margin-inline-end: 0px;
+}
