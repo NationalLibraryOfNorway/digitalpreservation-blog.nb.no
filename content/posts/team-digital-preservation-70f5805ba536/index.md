@@ -6,7 +6,7 @@ weight: 1
 tags: ["team"]
 author: ["Thomas Edvardsen"]
 cover:
-  image: /cover.webp
+  image:   /posts/team-digital-preservation-70f5805ba536/teamphoto.jpeg
   hiddenInList: false
 showtoc: true
 ---
