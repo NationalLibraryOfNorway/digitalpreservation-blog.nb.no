@@ -71,7 +71,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Digital Preservation at the National Library of Norway"
-    Content: This is the blog of the Digital Preservation team of the National Library of Norway.
+    Content: This is the blog of the Digital Preservation team of the [National Library of Norway](https://nb.no).
 
   socialIcons:
 #    - name: x
@@ -135,7 +135,7 @@ markup:
   highlight:
     noClasses: false
     # anchorLineNos: true
-    # codeFences: true
-    # guessSyntax: true
+    codeFences: true
+    guessSyntax: true
     # lineNos: true
-    # style: monokai
+    style: monokai
