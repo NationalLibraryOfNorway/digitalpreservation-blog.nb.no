@@ -1,4 +1,4 @@
-baseURL: https://nationallibraryofnorway.github.io/digitalpreservation-blog.nb.no/
+baseURL: 
 languageCode: en-us
 title: Digital Preservation at the National Library of Norway
 theme: PaperMod
@@ -80,6 +80,8 @@ params:
 #      url: "https://stackoverflow.com"
     - name: github
       url: "https://github.com/NationalLibraryOfNorway"
+    - name: "rss"
+      url: "https://nationallibraryofnorway.github.io/digitalpreservation-blog.nb.no/index.xml"
 
 #  analytics:
 #    google:
@@ -116,17 +118,17 @@ menu:
       name: tags
       url: /tags/
       weight: 20
-    - identifier: search
-      name: search
-      url: /search/
-      weight: 20
+  #  - identifier: search
+  #    name: search
+  #    url: /search/
+  #    weight: 20
     - identifier: archive
       name: archive
       url: /archives/
       weight: 10
     - identifier: example
       name: nb.no
-      url: https://nb.no
+      url: https://www.nb.no/en/digital-preservation/
       weight: 30
       
 # Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
