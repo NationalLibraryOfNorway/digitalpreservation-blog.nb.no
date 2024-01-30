@@ -4,11 +4,12 @@ summary:
 date: 2023-10-26
 weight: 1
 tags: ["team"]
-author: ["Thomas Edvardsen"]
+author: ["Thomas Edvardsen", "Torbjørn"]
 cover:
-  image:   /posts/team-digital-preservation-70f5805ba536/teamphoto.jpeg
+  image:   /posts/2023-10-26-presentation/teamphoto.jpeg
   hiddenInList: false
 showtoc: true
+aliases: /team-digital-preservation-70f5805ba536
 ---
 
 In June 2022 the IT Department established a team dedicated to preserving the [National Library’s](https://nb.no/) digital collection. This team handles all kinds of digital content, whether it’s digitized from physical sources or born digital. This includes media types like web pages, text documents, images, audio, and moving images.
