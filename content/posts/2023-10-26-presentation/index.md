@@ -4,10 +4,10 @@ summary:
 date: 2023-10-26
 weight: 1
 tags: ["team"]
-author: ["Thomas Edvardsen", "Torbjørn"]
+author: ["Thomas Edvardsen"]
 cover:
   image:   /posts/2023-10-26-presentation/teamphoto.jpeg
-  hiddenInList: false
+  hiddenInList: true
 showtoc: true
 aliases: /team-digital-preservation-70f5805ba536
 ---
