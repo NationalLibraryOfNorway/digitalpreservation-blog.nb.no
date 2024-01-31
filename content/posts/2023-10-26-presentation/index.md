@@ -6,8 +6,8 @@ weight:
 tags: ["team"]
 author: ["Thomas Edvardsen"]
 cover:
-  image: /posts/2023-10-26-presentation/teamphoto.jpeg
-  hiddenInList: true
+  image: /cover.webp
+  hiddenInList: false
 showtoc: true
 aliases: /team-digital-preservation-70f5805ba536
 ---
@@ -52,11 +52,11 @@ This team reports to a committee of leaders responsible for this area in the Nat
 - Photos: 2%
 
 ## Technology choices used when working with digital preservation
-- Apache Kafka for messaging
-- Apache NiFi for running the data flows that validate, move, and package data
-- MariaDB as the database engine
-- DROID for identifying fileformats
-- Grafana for statistics and reporting
-- IBM High Performance Storage System (HPSS) as bit repository
-- GlusterFS for shared temporary storage
-- CentOS Linux as server platform
+- [Apache Kafka](https://kafka.apache.org) for messaging
+- [Apache NiFi](https://nifi.apache.org) for running the data flows that validate, move, and package data
+- [MariaDB](https://mariadb.org) as the database engine
+- [DROID](https://digital-preservation.github.io/droid) for identifying fileformats
+- [Grafana](https://grafana.com) for statistics and reporting
+- [IBM High Performance Storage System (HPSS)](https://www.hpss-collaboration.org) as bit repository
+- [GlusterFS](https://www.gluster.org) for shared temporary storage
+- [CentOS](https://www.centos.org) Linux as server platform
