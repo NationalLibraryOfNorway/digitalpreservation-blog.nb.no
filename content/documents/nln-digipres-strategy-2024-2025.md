@@ -1,28 +1,19 @@
 ---
-title: "Strategy digital preservation 2024-2025"
+title: "Digital preservation strategy for the period 2024-2025"
 date: 2024-02-01
+weight: 1
 draft: true
 tags: ["Strategy", "Policy", "Principles"]
-author: ["Team Digital Preservation"]
-cover:
-  image: /cover.webp
-  hiddenInList: true 
-showtoc: true 
+author: ["Digital Preservation Team"]
+showtoc: true
+ShowReadingTime: false
+hideMeta: false
+hideSummary: true
 ---
 
-## Background
-
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis commodo odio aenean sed adipiscing. Ipsum dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Proin libero nunc consequat interdum varius sit amet. Mauris ultrices eros in cursus turpis. Sit amet consectetur adipiscing elit duis tristique sollicitudin. Lorem mollis aliquam ut porttitor leo a diam. Scelerisque fermentum dui faucibus in ornare. In cursus turpis massa tincidunt dui ut ornare. Sit amet purus gravida quis. Lectus arcu bibendum at varius. Sed felis eget velit aliquet. Et netus et malesuada fames. Lorem ipsum dolor sit amet consectetur adipiscing elit. Amet nisl suscipit adipiscing bibendum. Viverra nam libero justo laoreet. Morbi tincidunt augue interdum velit. Orci porta non pulvinar neque.
-
----
-
-Link til norsk original.
-
-## Strategy 2024-2025
 ### The Legal Deposit Act of Publicly Available Documents (Legal Deposit Act)
 
->§1 [...] testaments of Norwegian culture and social life should be preserved and be available as source material for research and documentation.
-
+>*§1 [...] testaments of Norwegian culture and social life should be preserved and be available as source material for research and documentation.*
 
 ### Ambition for Digital Preservation:
 

@@ -1,8 +1,8 @@
 ---
 title: "Team Digital Preservation"
 summary:
+category: blog
 date: 2023-10-26
-weight: 
 tags: ["team"]
 author: ["Thomas Edvardsen"]
 cover:
