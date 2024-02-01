@@ -3,7 +3,7 @@
     --main-width: 850px;
 }
 
-.post-title {
+.post-title, .page-header h1 {
     font-size: 36px;
 }
 
