@@ -8,6 +8,10 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 
+pluralizeListTitles: false
+
+# enableGitInfo: true # can be set up to pull dates etc from github
+
 minify:
   disableXML: true
   minifyOutput: true
@@ -18,20 +22,20 @@ params:
   description: "Blog of the digital preservation team at the National Library of Norway"
   keywords: [Blog]
   # author: ["Me", "You"] # multiple authors
-  images: ["<link or path of image for opengraph, twitter-cards>"]
+  images: ["cover.webp"]
   DateFormat: "2006-01-02"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
   ShowReadingTime: true
-  ShowShareButtons: true
+  ShowShareButtons: false
   ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: false
+  ShowBreadCrumbs: false
+  ShowCodeCopyButtons: true
   ShowWordCount: true
-  ShowRssButtonInSectionTermList: true
+  ShowRssButtonInSectionTermList: false
   UseHugoToc: true
-  disableSpecial1stPost: false
+  disableSpecial1stPost: true
   disableScrollToTop: false
   comments: false
   hidemeta: false
@@ -50,28 +54,13 @@ params:
 
   label:
     text: "Home"
-    icon: /apple-touch-icon.png
+    icon: /cover.webp
     iconHeight: 35
-
-  # profile-mode
-  profileMode:
-    enabled: false # needs to be explicitly set
-    title: ExampleSite
-    subtitle: "This is subtitle"
-    imageUrl: "<img location>"
-    imageWidth: 120
-    imageHeight: 120
-    imageTitle: my image
-    buttons:
-      - name: Posts
-        url: posts
-      - name: Tags
-        url: tags
 
   # home-info mode
   homeInfoParams:
     Title: "Digital preservation at the National Library of Norway"
-    Content: #text under the header text on the front page
+    Content: #subtext under the title
 
   socialIcons:
 #    - name: x
@@ -98,7 +87,7 @@ params:
 
   editPost:
     URL: "https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no/tree/main/content"
-    Text: "Suggest Changes" # edit text
+    Text: "Github source document" # edit text
     appendFilePath: true # to append file path to Edit link
 
   # for search
@@ -114,22 +103,26 @@ params:
     keys: ["title", "permalink", "summary", "content"]
 menu:
   main:
-    - identifier: tags
-      name: tags
-      url: /tags/
-      weight: 20
+    - identifier: archives
+      name: blog
+      url: /archives/
+      weight: 1
+    - identifier: documents
+      name: documents
+      url: /documents/
+      weight: 2
+   # - identifier: tags
+   #   name: tags
+   #   url: /tags/
+   #   weight: 4
     - identifier: search
       name: search
       url: /search/
-      weight: 20
-    - identifier: archive
-      name: archive
-      url: /archives/
-      weight: 10
-    - identifier: example
+      weight: 5
+    - identifier: homepage
       name: nb.no
       url: https://www.nb.no/en/digital-preservation/
-      weight: 30
+      weight: 6
 
 outputs:
   home:

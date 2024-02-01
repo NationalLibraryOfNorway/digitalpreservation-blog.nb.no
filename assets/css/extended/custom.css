@@ -1,6 +1,14 @@
 :root {
-    --nav-width: 800px;
-    --main-width: 800px;
+    --nav-width: 850px;
+    --main-width: 850px;
+}
+
+.post-title {
+    font-size: 36px;
+}
+
+.first-entry {
+    min-height: auto;
 }
 
 .logo a img, .logo a svg {
