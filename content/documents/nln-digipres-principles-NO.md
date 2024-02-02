@@ -1,6 +1,6 @@
 ---
-title: "Digital preservation principles [NOR]"
-summary: "Norwegian primary document"
+title: "Digital preservation principles [NO]"
+summary: "🇳🇴 Norwegian primary document"
 date: 2024-02-01
 draft: true
 tags: ["Policy", "Principles"]

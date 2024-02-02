@@ -1,6 +1,6 @@
 ---
-title: "Digital preservation strategy for the period 2024-2025 [ENG]"
-Summary: "English translation"
+title: "Digital preservation strategy for the period 2024-2025 [EN]"
+Summary: "🇬🇧 English translation"
 date: 2024-02-01
 draft: true
 tags: ["Strategy", "Policy", "Principles"]

@@ -1,6 +1,6 @@
 ---
-title: "Digital preservation strategy for the period 2024-2025 [NOR]"
-summary: "Norwegian primary document"
+title: "Digital preservation strategy for the period 2024-2025 [NO]"
+summary: "🇳🇴 Norwegian primary document"
 date: 2024-02-01
 lastmod: 
 draft: true
