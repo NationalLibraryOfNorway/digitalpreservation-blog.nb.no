@@ -8,7 +8,7 @@
 {{- end }}
 
 {{- if and (not .Lastmod.IsZero) (ne $lastmod $date) -}}  {{/* Check if lastmod is not zero and does not match date */}}
-{{- $scratch.Add "meta" (slice (printf "<span title='%s'>(revised %s)</span>" (.Lastmod) $lastmod)) }}  {{/* Add lastmod to meta if conditions met */}}
+{{- $scratch.Add "meta" (slice (printf "<span title='%s'>[revised %s]</span>" (.Lastmod) $lastmod)) }}  {{/* Add lastmod to meta if conditions met */}}
 {{- end }}
 
 {{- if (.Param "ShowReadingTime") -}}
