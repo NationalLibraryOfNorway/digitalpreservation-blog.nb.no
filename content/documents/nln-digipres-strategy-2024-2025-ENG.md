@@ -1,14 +1,14 @@
 ---
-title: "Digital preservation strategy for the period 2024-2025"
+title: "Digital preservation strategy for the period 2024-2025 [ENG]"
+Summary: "English translation"
 date: 2024-02-01
-weight: 1
 draft: true
 tags: ["Strategy", "Policy", "Principles"]
 author: ["Digital Preservation Team"]
 showtoc: true
 ShowReadingTime: false
 hideMeta: false
-hideSummary: true
+hideSummary: false
 ---
 
 ### The Legal Deposit Act of Publicly Available Documents (Legal Deposit Act)
