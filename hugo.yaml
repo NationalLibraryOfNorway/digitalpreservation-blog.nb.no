@@ -10,7 +10,7 @@ buildExpired: false
 
 pluralizeListTitles: false
 
-# enableGitInfo: true # can be set up to pull dates etc from github
+enableGitInfo: true # can be set up to pull dates etc from github
 
 minify:
   disableXML: true
