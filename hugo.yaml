@@ -2,14 +2,11 @@ baseURL:
 languageCode: en-us
 title: Digital Preservation at the National Library of Norway
 theme: PaperMod
-
 enableRobotsTXT: true
 buildDrafts: false
 buildFuture: false
 buildExpired: false
-
 pluralizeListTitles: false
-
 enableGitInfo: true # can be set up to pull dates etc from github
 
 minify:
@@ -22,16 +19,13 @@ frontmatter:
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Digital Preservation at the National Library of Norway
-  description: "Blog of the digital preservation team at the National Library of Norway"
+  description: "webpage and blog of the digital preservation team at the National Library of Norway"
   keywords: [Blog]
-  # author: ["Me", "You"] # multiple authors
   images: ["cover.webp"]
   DateFormat: "2006-01-02"
   defaultTheme: auto # dark, light
   disableThemeToggle: false
-
-  ShowAllPagesInArchive: true
-
+  ShowAllPagesInArchive: false
   ShowReadingTime: true
   ShowShareButtons: false
   ShowPostNavLinks: true
@@ -68,10 +62,6 @@ params:
     Content: #subtext under the title
 
   socialIcons:
-#    - name: x
-#      url: "https://x.com/"
-#    - name: stackoverflow
-#      url: "https://stackoverflow.com"
     - name: github
       url: "https://github.com/NationalLibraryOfNorway"
     - name: "rss"
@@ -99,7 +89,7 @@ params:
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
 
-menu:
+menu: #define links in top navbar
   main:
     - identifier: archives
       name: archive
@@ -109,18 +99,18 @@ menu:
       name: documents
       url: /documents/
       weight: 2
-   # - identifier: tags
-   #   name: tags
-   #   url: /tags/
-   #   weight: 4
+#    - identifier: tags
+#      name: tags
+#      url: /tags/
+#      weight: 3
     - identifier: search
       name: search
       url: /search/
-      weight: 5
+      weight: 4
     - identifier: homepage
       name: nb.no
       url: https://www.nb.no/en/digital-preservation/
-      weight: 6
+      weight: 5
 
 outputs:
   home:
