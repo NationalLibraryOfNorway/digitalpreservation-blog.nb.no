@@ -16,6 +16,9 @@ minify:
   disableXML: true
   minifyOutput: true
 
+frontmatter:
+  lastmod: ["lastmod", ":git"] #Lastmod data in frontmatter has priority over data from git
+
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Digital Preservation at the National Library of Norway
@@ -44,9 +47,6 @@ params:
   hideSummary: false
   showtoc: false
   tocopen: false
-
-frontmatter:
-  lastmod: ["lastmod", ":git"]
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -77,16 +77,8 @@ frontmatter:
     - name: "rss"
       url: "https://nationallibraryofnorway.github.io/digitalpreservation-blog.nb.no/index.xml"
 
-#  analytics:
-#    google:
-#      SiteVerificationTag: "XYZabc"
-#    bing:
-#      SiteVerificationTag: "XYZabc"
-#    yandex:
-#      SiteVerificationTag: "XYZabc"
-
   cover:
-    hidden: true # hide everywhere but not in structured data
+    hidden: true # hide everywhere but not  in structured data
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
