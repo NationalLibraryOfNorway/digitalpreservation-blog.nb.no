@@ -23,3 +23,11 @@
 .logo a img, .logo a svg {
     margin-inline-end: 0px;
 }
+
+a {
+  color: black;
+}
+
+a:hover {
+  color: rgb(79, 79, 79);
+}
