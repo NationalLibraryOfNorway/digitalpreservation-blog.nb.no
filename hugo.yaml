@@ -27,6 +27,8 @@ params:
   defaultTheme: auto # dark, light
   disableThemeToggle: false
 
+  ShowAllPagesInArchive: true
+
   ShowReadingTime: true
   ShowShareButtons: false
   ShowPostNavLinks: true
@@ -42,6 +44,9 @@ params:
   hideSummary: false
   showtoc: false
   tocopen: false
+
+frontmatter:
+  lastmod: ["lastmod", ":git"]
 
   assets:
     # disableHLJS: true # to disable highlight.js
@@ -101,10 +106,11 @@ params:
     minMatchCharLength: 0
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
     keys: ["title", "permalink", "summary", "content"]
+
 menu:
   main:
     - identifier: archives
-      name: blog
+      name: archive
       url: /archives/
       weight: 1
     - identifier: documents
