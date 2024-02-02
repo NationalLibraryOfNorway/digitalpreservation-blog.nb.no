@@ -1,6 +1,7 @@
 ---
 title: "Team Digital Preservation"
 summary:
+draft: false
 category: blog
 date: 2023-10-26
 tags: ["team"]
@@ -19,15 +20,16 @@ The team’s responsibilities involve ingesting, checking, storing, preserving, 
 ## Organisation
 The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page about Digital Preservation at NLN") team consist of 7 members:
 
-- Junior Application Developer: [Johannes Karlsen](https://www.linkedin.com/in/johannes-karlsen-476197267)
-- Application Developer: [Siarhei Kulakou](https://www.linkedin.com/in/siarhei-kulakou-0702ba245)
-- Product Lead: [Torbjørn Pedersen](https://www.linkedin.com/in/torbjørn-pedersen-57617b227b) 
-- Tech Lead: [Thomas Edvardsen](https://www.linkedin.com/in/thomasedvardsen) 
-- Application Developer: [Daniel Aaron Salwerowicz](https://www.linkedin.com/in/salwerowicz)  
-- Senior Platform Developer: [Vigdis Marie Sørensen](https://www.linkedin.com/in/vigdis-sørensen-8a3618a6)  
-- Team Lead: [Trond Teigen](https://www.linkedin.com/in/trond-teigen-191954ab)  
+- **Team Lead**: [Trond Teigen](https://www.linkedin.com/in/trond-teigen-191954ab)
+- **Product Lead**: [Torbjørn Pedersen](https://www.linkedin.com/in/torbjørn-pedersen-57617b227b)
+- **Tech Lead**: [Thomas Edvardsen](https://www.linkedin.com/in/thomasedvardsen)
+- **Senior Platform Developer**: [Vigdis Marie Sørensen](https://www.linkedin.com/in/vigdis-sørensen-8a3618a6)
+- **Application Developer**: [Siarhei Kulakou](https://www.linkedin.com/in/siarhei-kulakou-0702ba245)
+- **Application Developer**: [Daniel Aaron Salwerowicz](https://www.linkedin.com/in/salwerowicz)
+- **Junior Application Developer**: [Johannes Karlsen](https://www.linkedin.com/in/johannes-karlsen-476197267)
 
-{{< figure src="teamphoto.jpeg" attr="From the back, left to right: Johannes Karlsen, Siarhei Kulakou, Torbjørn Pedersen, Thomas Edvardsen, Daniel Aaorn Salwerowicz, Vigdis Marie Sørensen, Trond Teigen" align=center >}}
+
+{{< figure src="teamphoto.jpeg" attr="Back, left to right: Johannes Karlsen, Siarhei Kulakou, Torbjørn Pedersen, Thomas Edvardsen.<br>Front, left to right: Daniel Aaron Salwerowicz, Vigdis Marie Sørensen, Trond Teigen" align=center >}}
  
 This team reports to a committee of leaders responsible for this area in the National Library. The members are:
 - IT Director (Product owner)
