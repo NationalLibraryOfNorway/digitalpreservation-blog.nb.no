@@ -23,3 +23,15 @@
 .logo a img, .logo a svg {
     margin-inline-end: 0px;
 }
+
+sup {
+    vertical-align: top; font-size: 0.7em;
+}
+
+.post-content table th,
+.post-content table:not(.highlighttable, .highlight table, .gist .highlight) td {
+    min-width: 80px;
+    padding: 8px 5px;
+    line-height: 1.5;
+    border: 1px solid var(--border);
+}
