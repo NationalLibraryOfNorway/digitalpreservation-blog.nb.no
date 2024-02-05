@@ -1,8 +1,7 @@
 ---
-title: "Digital preservation strategy for the period 2024-2025 [NO]"
+title: "Digital Preservation Strategy 2024-2025 [NO]"
 summary: "🇳🇴 Norwegian primary document"
 date: 2024-02-01
-lastmod: 
 draft: true
 tags: ["Strategy", "Policy", "Principles"]
 author: ["Digital Preservation Team"]
@@ -11,6 +10,12 @@ ShowReadingTime: false
 hideMeta: false
 hideSummary: false
 ---
+
+English translation [here](/documents/nln-digipres-strategy-2024-2025-en/)
+
+---
+
+# Strategi digital bevaring 2024-2025
 
 ## Lov om avleveringsplikt for allment tilgjengelege dokument (pliktavleveringslova)
  

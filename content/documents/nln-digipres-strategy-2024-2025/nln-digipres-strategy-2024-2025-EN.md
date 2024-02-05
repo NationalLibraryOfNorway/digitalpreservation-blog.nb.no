@@ -1,5 +1,5 @@
 ---
-title: "Digital preservation strategy for the period 2024-2025 [EN]"
+title: "Digital Preservation Strategy 2024-2025 [EN]"
 Summary: "🇬🇧 English translation"
 date: 2024-02-01
 draft: true
@@ -9,6 +9,10 @@ showtoc: true
 ShowReadingTime: false
 hideMeta: false
 hideSummary: false
+---
+
+Norwegian primary document [here](/documents/nln-digipres-strategy-2024-2025-no/)
+
 ---
 
 ### The Legal Deposit Act of Publicly Available Documents (Legal Deposit Act)
