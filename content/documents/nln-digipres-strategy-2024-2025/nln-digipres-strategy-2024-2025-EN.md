@@ -11,7 +11,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-Norwegian primary document [here](/documents/nln-digipres-strategy-2024-2025-no/)
+Norwegian primary document [here](/documents/nln-digipres-strategy-2024-2025/nln-digipres-strategy-2024-2025-no/)
 
 ---
 

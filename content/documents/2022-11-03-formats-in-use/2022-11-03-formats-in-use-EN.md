@@ -1,5 +1,5 @@
 ---
-title: "Preferred formats in the NLN [EN]"
+title: "Preferred formats in the National Library of Norway [EN]"
 summary: "🇬🇧 English translation"
 date: 2022-11-03
 draft: true
@@ -14,11 +14,11 @@ hideMeta: false
 hideSummary: false
 ---
 
-Norwegian primary document [here](/documents/2022-11-03-formats-in-use-no/)
+Norwegian primary document [here](/documents/2022-11-03-formats-in-use/2022-11-03-formats-in-use-no/)
 
 ---
 
-**Preferred file formats in the NLN:**
+**Preferred file formats in the National Library of Norway:**
 
 This list is the result of a collaboration between the NLN and The National Archives of Norway in the autumn of 2020, where the aim was to publish this list on digitalbevaring.no[^1] as a recommendation for the ABM community in Norway. The list corresponds well with a similar list organised by the Open Preservation Foundation. This list is designed for cultural and research institutions worldwide.
 

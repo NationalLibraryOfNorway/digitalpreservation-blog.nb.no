@@ -1,6 +1,7 @@
 ---
-title: "Digital Preservation Principles [NO]"
+title: "Prinsipper for digital bevaring i Nasjonalbiblioteket [NO]"
 summary: "🇳🇴 Norwegian primary document"
+weight: 1
 date: 2024-02-05
 draft: true
 tags: ["Policy", "Principles"]
@@ -11,17 +12,15 @@ hideMeta: false
 hideSummary: false
 ---
 
-English translation [here](/documents/nln-digipres-principles-en/)
+English translation [here](/documents/nln-digipres-principles/nln-digipres-principles-en/)
 
 ----
-
-# Prinsipper for Digital bevaring i Nasjonalbiblioteket
 
 ## Sørg for at digital bevaring skjer på en bærekraftig måte
 Digital bevaring over tid er en ressurskrevende prosess. Ha et bevisst forhold til hvilket utvalg av filer som skal bevares, og på hvilket format. Velg lagringsteknologier som er miljøvennlige og energiøkonomiske.
 
 ## Bruk veldokumenterte og åpne filformater hvis mulig
-Dette øker muligheten for at vi kan lese og forstå filen nå og i framtiden. Gode formatvalg gjør forvaltningen enklere over tid. Proprietære og udokumenterte filformater kan ha kort og uforutsigbar levetid. NB anbefaler å bruke følgende filformater: [foretrukne formater (revidert 2022-11-03)](/documents/2022-11-03-formats-in-use-en/)
+Dette øker muligheten for at vi kan lese og forstå filen nå og i framtiden. Gode formatvalg gjør forvaltningen enklere over tid. Proprietære og udokumenterte filformater kan ha kort og uforutsigbar levetid. NB anbefaler å bruke følgende filformater: [foretrukne formater (revidert 2022-11-03)](/documents/2022-11-03-formats-in-use/2022-11-03-formats-in-use-en/)
 
 ## Ta vare på originalfilen 
 Fremtidige formatkonverteringer inneholder alltid en risiko for at innholdet kan endres på en uønsket måte, enten bevisst, eller ved feil i konverteringsprogram. Å ta vare på originalfilen gjør at det alltid vil være mulig å konvertere på nytt. Med originalfilen menes den opprinnelige avleverte filen.

@@ -1,6 +1,7 @@
 ---
-title: "Preferred formats in the NLN [NO]"
+title: "Foretrukne digitale formater i Nasjonalbiblioteket [NO]"
 summary: "🇳🇴 Norwegian primary document"
+weight: 1
 date: 2022-11-03
 draft: true
 tags:
@@ -14,12 +15,11 @@ hideMeta: false
 hideSummary: false
 ---
 
-English translation [here](/documents/2022-11-03-formats-in-use-en/)
+English translation [here](/documents/2022-11-03-formats-in-use/2022-11-03-formats-in-use-en/)
 
 ---
 
-
-**Foretrukne digitale formater i NB:**
+**Foretrukne digitale formater i Nasjonalbiblioteket:**
 
 Listen er et resultat av samarbeid mellom NB og Arkivverket høsten 2020,
 der målet var å publisere denne listen på digitalbevaring.no[^1] som en
