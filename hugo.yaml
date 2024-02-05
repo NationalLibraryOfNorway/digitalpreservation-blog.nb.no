@@ -7,7 +7,7 @@ buildDrafts: false
 buildFuture: false
 buildExpired: false
 pluralizeListTitles: false
-enableGitInfo: true # can be set up to pull dates etc from github
+# enableGitInfo: true # can be set up to pull dates etc from github
 
 minify:
   disableXML: true
@@ -41,6 +41,8 @@ params:
   hideSummary: false
   showtoc: false
   tocopen: false
+  mainSections:
+    - blog
 
   assets:
     # disableHLJS: true # to disable highlight.js
