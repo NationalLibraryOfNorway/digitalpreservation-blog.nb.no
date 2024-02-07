@@ -29,7 +29,7 @@ The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page
 - **Junior Application Developer**: [Johannes Karlsen](https://www.linkedin.com/in/johannes-karlsen-476197267)
 
 
-{{< figure src="teamphoto.jpeg" attr="Back, left to right: Johannes Karlsen, Siarhei Kulakou, Torbjørn Pedersen, Thomas Edvardsen.<br>Front, left to right: Daniel Aaron Salwerowicz, Vigdis Marie Sørensen, Trond Teigen" align=center >}}
+{{< figure src="teamphoto.webp" attr="Back, left to right: Johannes Karlsen, Siarhei Kulakou, Torbjørn Pedersen, Thomas Edvardsen.<br>Front, left to right: Daniel Aaron Salwerowicz, Vigdis Marie Sørensen, Trond Teigen" align=center >}}
  
 This team reports to a committee of leaders responsible for this area in the National Library. The members are:
 - IT Director (Product owner)
