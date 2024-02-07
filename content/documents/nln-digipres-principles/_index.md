@@ -1,9 +1,9 @@
 ---
-title: "Digital Preservation Principles"
+title: "Principles for Digital Preservation"
 summary: ""
-draft: true
+draft: false
 layout: "list"
-date: 2024-02-05
+date: 2024-02-07
 lastmod: 
 ShowReadingTime: false
 ShowWordCount: false

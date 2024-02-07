@@ -1,8 +1,8 @@
 ---
-title: "Digital Preservation Principles [EN]"
+title: "Principles for Digital Preservation [EN]"
 summary: "🇬🇧 English translation"
-date: 2024-02-05
-draft: true
+date: 2024-02-07
+draft: false
 tags: ["Policy", "Principles"]
 author: ["Digital Preservation Team"]
 showtoc: true

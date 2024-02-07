@@ -1,8 +1,8 @@
 ---
-title: "Digital Preservation Strategy 2024-2025 [EN]"
+title: "Ambitions, goals and strategy for Digital Preservation [EN]"
 Summary: "🇬🇧 English translation"
-date: 2024-02-01
-draft: true
+date: 2024-02-07
+draft: false
 tags: ["Strategy", "Policy", "Principles"]
 author: ["Digital Preservation Team"]
 showtoc: true

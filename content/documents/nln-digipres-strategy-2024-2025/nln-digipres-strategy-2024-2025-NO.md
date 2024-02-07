@@ -1,9 +1,9 @@
 ---
-title: "Strategi digital bevaring 2024-2025 [NO]"
+title: "Ambisjon, mål og strategi for digital bevaring [NO]"
 summary: "🇳🇴 Norwegian primary document"
 weight: 1
-date: 2024-02-01
-draft: true
+date: 2024-02-07
+draft: false
 tags: ["Strategy", "Policy", "Principles"]
 author: ["Digital Preservation Team"]
 showtoc: true

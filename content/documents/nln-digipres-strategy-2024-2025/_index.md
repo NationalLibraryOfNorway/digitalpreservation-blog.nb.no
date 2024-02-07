@@ -1,9 +1,9 @@
 ---
-title: "Digital Preservation Strategy 2024-2025"
+title: "Ambitions, goals and strategy for Digital Preservation"
 summary: ""
-draft: true
+draft: false
 layout: "list"
-date: 2024-02-01
+date: 2024-02-07
 lastmod: 
 ShowReadingTime: false
 ShowWordCount: false

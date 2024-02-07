@@ -3,12 +3,9 @@ title: "Foretrukne digitale formater i Nasjonalbiblioteket [NO]"
 summary: "🇳🇴 Norwegian primary document"
 weight: 1
 date: 2022-11-03
-draft: true
-tags:
-  - Policy
-  - formats
-author:
-  - Digital Preservation Team
+draft: false
+tags: ["Policy", "formats"]
+author: ["Digital Preservation Team"]
 showtoc: true
 ShowReadingTime: false
 hideMeta: false
@@ -19,16 +16,9 @@ English translation [here](/documents/2022-11-03-formats-in-use/2022-11-03-forma
 
 ---
 
-**Foretrukne digitale formater i Nasjonalbiblioteket:**
+Listen er et resultat av samarbeid mellom NB og Arkivverket høsten 2020, der målet var å publisere denne listen på digitalbevaring.no[^1] som en anbefaling for ABM-miljøet i Norge. Listen samsvarer godt med tilsvarende liste som finnes i regi av Open Preservation Foundation. Den listen er laget for kultur og forskningsinstitusjoner på verdensbasis.
 
-Listen er et resultat av samarbeid mellom NB og Arkivverket høsten 2020,
-der målet var å publisere denne listen på digitalbevaring.no[^1] som en
-anbefaling for ABM-miljøet i Norge. Listen samsvarer godt med
-tilsvarende liste som finnes i regi av Open Preservation Foundation. Den
-listen er laget for kultur og forskningsinstitusjoner på verdensbasis.
-
-[^1]: [digitalbevaring.no](https://digitalbevaring.no). [Død lenke]
-
+[^1]: [digitalbevaring.no](https://digitalbevaring.no). [Død lenke per 2024-02-05]
 
 | Type | Foretrukne format | Akseptable formater |
 | ---- | ---- | ---- |
@@ -39,8 +29,7 @@ listen er laget for kultur og forskningsinstitusjoner på verdensbasis.
 | **Webarkiv** | WARC | WMA (Windows Media) |
 
 
-Følgende bevaringsformater er for tiden de mest brukte i
-Nasjonalbiblioteket:
+## Følgende bevaringsformater er for tiden de mest brukte i Nasjonalbiblioteket:
 
 -   JPG2000 tapsfri komprimering for bevaring av digitalisert tekst
     (bøker og aviser)

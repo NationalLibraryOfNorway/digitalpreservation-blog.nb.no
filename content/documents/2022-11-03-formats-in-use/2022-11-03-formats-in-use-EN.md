@@ -2,12 +2,9 @@
 title: "Preferred formats in the National Library of Norway [EN]"
 summary: "🇬🇧 English translation"
 date: 2022-11-03
-draft: true
-tags:
-  - Policy
-  - formats
-author:
-  - Digital Preservation Team
+draft: false
+tags: ["Policy", "formats"]
+author: ["Digital Preservation Team"]
 showtoc: true
 ShowReadingTime: false
 hideMeta: false
@@ -18,11 +15,9 @@ Norwegian primary document [here](/documents/2022-11-03-formats-in-use/2022-11-0
 
 ---
 
-**Preferred file formats in the National Library of Norway:**
-
 This list is the result of a collaboration between the NLN and The National Archives of Norway in the autumn of 2020, where the aim was to publish this list on digitalbevaring.no[^1] as a recommendation for the ABM community in Norway. The list corresponds well with a similar list organised by the Open Preservation Foundation. This list is designed for cultural and research institutions worldwide.
 
-[^1]: [digitalbevaring.no](https://digitalbevaring.no). [Dead link]
+[^1]: [digitalbevaring.no](https://digitalbevaring.no). [Dead link per 2024-02-05]
 
 | Type | Preferred format | Acceptable formats |
 | ---- | ---- | ---- |
@@ -32,8 +27,7 @@ This list is the result of a collaboration between the NLN and The National Arch
 | **Sound** | PCM Wave<br>Broadcast Wave<br>FLAC | AIFF<br>MP3<br> |
 | **Web archive** | WARC | WMA (Windows Media) |
 
-The following preservation formats are currently the most commonly used in
-the NLN:
+## The following preservation formats are currently the most commonly used in the NLN:
 
 - JPG2000 lossless compression for preservation of digitised text
     (books and newspapers)
