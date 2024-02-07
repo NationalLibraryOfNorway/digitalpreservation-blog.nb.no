@@ -20,7 +20,7 @@ English translation [here](/digitalpreservation-blog.nb.no/documents/nln-digipre
 Digital bevaring over tid er en ressurskrevende prosess. Ha et bevisst forhold til hvilket utvalg av filer som skal bevares, og på hvilket format. Velg lagringsteknologier som er miljøvennlige og energiøkonomiske.
 
 ## Bruk veldokumenterte og åpne filformater hvis mulig
-Dette øker muligheten for at vi kan lese og forstå filen nå og i framtiden. Gode formatvalg gjør forvaltningen enklere over tid. Proprietære og udokumenterte filformater kan ha kort og uforutsigbar levetid. NB anbefaler å bruke følgende filformater: [foretrukne formater (revidert 2022-11-03)](/documents/2022-11-03-formats-in-use/2022-11-03-formats-in-use-en/)
+Dette øker muligheten for at vi kan lese og forstå filen nå og i framtiden. Gode formatvalg gjør forvaltningen enklere over tid. Proprietære og udokumenterte filformater kan ha kort og uforutsigbar levetid. NB anbefaler å bruke følgende filformater: [foretrukne formater (revidert 2022-11-03)](/digitalpreservation-blog.nb.no/documents/2022-11-03-formats-in-use/2022-11-03-formats-in-use-en/)
 
 ## Ta vare på originalfilen 
 Fremtidige formatkonverteringer inneholder alltid en risiko for at innholdet kan endres på en uønsket måte, enten bevisst, eller ved feil i konverteringsprogram. Å ta vare på originalfilen gjør at det alltid vil være mulig å konvertere på nytt. Med originalfilen menes den opprinnelige avleverte filen.

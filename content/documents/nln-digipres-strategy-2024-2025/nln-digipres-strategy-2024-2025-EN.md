@@ -42,4 +42,4 @@ Ensure the protection of, and meaningful access to, national digital cultural he
 - **Standardization:** Establish uniform, standardized, and automated handling of digital content and metadata.
 - **Technology:** Further develop and ensure robust and scalable technological infrastructure that adheres to the principles[^1] for managing digital content in a secure and sustainable manner. This includes software, hardware, and other infrastructure.
 
-[^1]: <https://www.nb.no/digital-bevaring/>
+[^1]: [Principles for Digital Preservation](/digitalpreservation-blog.nb.no/documents/nln-digipres-principles/)
