@@ -12,9 +12,9 @@ hideMeta: false
 hideSummary: false
 ---
 
-English translation [here](/documents/nln-digipres-principles/nln-digipres-principles-en/)
+English translation [here](/digitalpreservation-blog.nb.no/documents/nln-digipres-principles/nln-digipres-principles-en/)
 
-----
+---
 
 ## Sørg for at digital bevaring skjer på en bærekraftig måte
 Digital bevaring over tid er en ressurskrevende prosess. Ha et bevisst forhold til hvilket utvalg av filer som skal bevares, og på hvilket format. Velg lagringsteknologier som er miljøvennlige og energiøkonomiske.

@@ -11,9 +11,9 @@ hideMeta: false
 hideSummary: false
 ---
 
-Norwegian primary document [here](/documents/nln-digipres-principles/nln-digipres-principles-no/)
+Norwegian primary document [here](/digitalpreservation-blog.nb.no/documents/nln-digipres-principles/nln-digipres-principles-no/)
 
-----
+---
 
 ## Ensure that digital preservation is done in a sustainable way
 Digital preservation is a resource-intensive process. Be deliberate when selecting what files to preserve and in what format. Choose storage technologies that are environmentally friendly and energy efficient.
