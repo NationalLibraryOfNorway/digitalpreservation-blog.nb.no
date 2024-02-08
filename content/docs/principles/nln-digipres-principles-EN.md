@@ -1,7 +1,8 @@
 ---
 title: "Principles for Digital Preservation [EN]"
 summary: "🇬🇧 English translation"
-date: 2024-02-07
+date: 2023-09-26
+lastmod: 2024-02-07
 draft: false
 tags: ["Policy", "Principles"]
 author: ["Digital Preservation Team"]
