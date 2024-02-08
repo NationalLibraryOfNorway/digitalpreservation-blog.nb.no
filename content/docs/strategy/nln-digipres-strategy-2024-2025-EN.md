@@ -11,7 +11,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-Norwegian primary document [here](/digitalpreservation-blog.nb.no/documents/nln-digipres-strategy-2024-2025/nln-digipres-strategy-2024-2025-no/)
+Norwegian primary document [here](/digitalpreservation-blog.nb.no/docs/strategy/nln-digipres-strategy-no/)
 
 ### The Legal Deposit Act of Publicly Available Documents (Legal Deposit Act)
 

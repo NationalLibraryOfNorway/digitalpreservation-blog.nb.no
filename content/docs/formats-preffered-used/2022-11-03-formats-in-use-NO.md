@@ -12,7 +12,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-English translation [here](/digitalpreservation-blog.nb.no/documents/2022-11-03-formats-in-use/2022-11-03-formats-in-use-en/)
+English translation [here](/digitalpreservation-blog.nb.no/docs/formats-preferred-used/2022-11-03-formats-in-use-en/)
 
 ---
 

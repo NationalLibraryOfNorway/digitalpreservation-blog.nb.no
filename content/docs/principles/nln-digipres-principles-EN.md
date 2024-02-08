@@ -11,7 +11,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-Norwegian primary document [here](/digitalpreservation-blog.nb.no/documents/nln-digipres-principles/nln-digipres-principles-no/)
+Norwegian primary document [here](/digitalpreservation-blog.nb.no/docs/principles/nln-digipres-principles-no/)
 
 ---
 

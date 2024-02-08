@@ -12,7 +12,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-English translation [here](/digitalpreservation-blog.nb.no/documents/nln-digipres-principles/nln-digipres-principles-en/)
+English translation [here](/digitalpreservation-blog.nb.no/docs/principles/nln-digipres-principles-en/)
 
 ---
 

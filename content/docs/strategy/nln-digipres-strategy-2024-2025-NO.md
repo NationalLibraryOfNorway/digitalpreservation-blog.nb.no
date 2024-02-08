@@ -12,7 +12,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-English translation [here](/digitalpreservation-blog.nb.no/documents/nln-digipres-strategy-2024-2025/nln-digipres-strategy-2024-2025-en/)
+English translation [here](/digitalpreservation-blog.nb.no/docs/strategy/nln-digipres-strategy-en/)
 
 ## Lov om avleveringsplikt for allment tilgjengelege dokument (pliktavleveringslova)
  
