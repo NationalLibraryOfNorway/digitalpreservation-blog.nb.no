@@ -11,7 +11,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-Norwegian primary document [here](/digitalpreservation-blog.nb.no/docs/formats-preferred-used/2022-11-03-formats-in-use-no/)
+Norwegian primary document [here](/digitalpreservation-blog.nb.no/docs/formats/2022-11-03-formats-in-use-no/)
 
 ---
 
@@ -21,7 +21,7 @@ This list is the result of a collaboration between the NLN and The National Arch
 
 | Type | Preferred format | Acceptable formats |
 | ---- | ---- | ---- |
-| **Tekstabaserte dokumenter** | TXT (plaintext, incl. CSV/TSV)<br>PDF/A <br>EPUB<br>XML<br>OOXML (Open Office XML)<br>ODF (OpenDocument) | MS Office<br>PDF |
+| **Text based documents** | TXT (plaintext, incl. CSV/TSV)<br>PDF/A <br>EPUB<br>XML<br>OOXML (Open Office XML)<br>ODF (OpenDocument) | MS Office<br>PDF |
 | **Photo** | TIFF<br>JPEG2000<br>PNG<br>DNG<br>SVG | EPS<br>GIF<br>BMP<br>JPEG |
 | **Moving images** (film/video) | DPX<br>JPEG2000 Sequence<br>Prores (MOV + 4444XQ/444/422HQ) | DV (Digital Video ++)<br> MPEG-2<br>MPEG-4 part 10 (AVC, h264)<br>WMV |
 | **Sound** | PCM Wave<br>Broadcast Wave<br>FLAC | AIFF<br>MP3<br> |
