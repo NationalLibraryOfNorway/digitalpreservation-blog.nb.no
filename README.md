@@ -27,8 +27,8 @@ Add new documents under content/documents, similarly to blog posts. These posts 
 
 ```
 Content
-├── documents
-    ├── Post1            <-- Page bundle for post 1
+└── documents
+    ├── Document1        <-- Page bundle for document 1
     │   ├── index.md     <------ document 1 in markdown
     │   └── image1.jpeg  <------ asset used in post
     ├── Document2.md     <-- document 2 in markdown (w/ no assets) straight under blog directory
