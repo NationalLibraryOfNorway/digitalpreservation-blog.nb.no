@@ -13,9 +13,11 @@ hideSummary: false
 
 Norwegian primary document [here](/digitalpreservation-blog.nb.no/docs/strategy/nln-digipres-strategy-no/)
 
+---
+
 ### The Legal Deposit Act of Publicly Available Documents (Legal Deposit Act)
 
->*§1 [...] testaments of Norwegian culture and social life should be preserved and be available as source material for research and documentation.*
+> §1 [...] *testaments of Norwegian culture and social life should be preserved and be available as source material for research and documentation.*
 
 ### Ambition for Digital Preservation:
 

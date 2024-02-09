@@ -14,9 +14,11 @@ hideSummary: false
 
 English translation [here](/digitalpreservation-blog.nb.no/docs/strategy/nln-digipres-strategy-en/)
 
+---
+
 ## Lov om avleveringsplikt for allment tilgjengelege dokument (pliktavleveringslova)
  
-> §1 *[...] vitnemåla om norsk kultur og samfunnsliv kan verta bevarte og gjorde tilgjengelege som kjeldemateriale for forsking og dokumentasjon.*
+> §1 [...] *vitnemåla om norsk kultur og samfunnsliv kan verta bevarte og gjorde tilgjengelege som kjeldemateriale for forsking og dokumentasjon.*
  
 ## Ambisjon for Digital Bevaring:
  
