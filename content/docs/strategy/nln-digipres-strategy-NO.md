@@ -12,7 +12,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-English translation [here](/digitalpreservation-blog.nb.no/docs/strategy/nln-digipres-strategy-en/)
+English translation [here](/docs/strategy/nln-digipres-strategy-en/)
 
 ---
 
@@ -45,5 +45,5 @@ Sørge for sikring av og meningsfull tilgang til nasjonal digital kulturarv for 
 - **Standardisering:** Etablere enhetlig, standardisert og automatisert håndtering av digitalt innhold og metadata.
 - **Teknologi:** Videreutvikle og sørge for robust og skalerbar teknologisk infrastruktur som ivaretar prinsippene [^1] for forvaltning av digitalt innhold på en sikker og bærekraftig måte. Dette inkluderer både programvare, maskinvare og annen infrastruktur.
  
-[^1]: [Prinsipper for digital bevaring](/digitalpreservation-blog.nb.no/docs/principles/)
+[^1]: [Prinsipper for digital bevaring](/docs/principles/)
  

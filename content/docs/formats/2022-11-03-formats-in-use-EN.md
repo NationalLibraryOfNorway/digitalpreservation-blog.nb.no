@@ -11,7 +11,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-Norwegian primary document [here](/digitalpreservation-blog.nb.no/docs/formats/2022-11-03-formats-in-use-no/)
+Norwegian primary document [here](/docs/formats/2022-11-03-formats-in-use-no/)
 
 ---
 

@@ -12,7 +12,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-Norwegian primary document [here](/digitalpreservation-blog.nb.no/docs/principles/nln-digipres-principles-no/)
+Norwegian primary document [here](/docs/principles/nln-digipres-principles-no/)
 
 ---
 
@@ -20,7 +20,7 @@ Norwegian primary document [here](/digitalpreservation-blog.nb.no/docs/principle
 Digital preservation is a resource-intensive process. Be deliberate when selecting what files to preserve and in what format. Choose storage technologies that are environmentally friendly and energy efficient.
 
 ## Use well-documented and open file formats wherever possible
-This increases the likelihood that we will be able to read and understand and utilize the file now and in the future. Good format choices make it easier to manage the file over time. Proprietary and undocumented file formats can have a short and unpredictable life spans. The NLN recommends the use of the following file formats: [Preferred formats](/digitalpreservation-blog.nb.no/docs/formats)
+This increases the likelihood that we will be able to read and understand and utilize the file now and in the future. Good format choices make it easier to manage the file over time. Proprietary and undocumented file formats can have a short and unpredictable life spans. The NLN recommends the use of the following file formats: [Preferred formats](/docs/formats)
 
 ## Preserve the original file 
 With future format conversions, there is always a risk that the content will be changed in an undesirable way, either deliberately or through errors in the conversion process. Preserving the original file means that it will always be possible to redo this process. In this context the original file refers to the file as it was originally preserved.

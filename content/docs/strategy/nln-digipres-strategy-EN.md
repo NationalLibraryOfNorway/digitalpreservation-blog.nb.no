@@ -11,7 +11,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-Norwegian primary document [here](/digitalpreservation-blog.nb.no/docs/strategy/nln-digipres-strategy-no/)
+Norwegian primary document [here](/docs/strategy/nln-digipres-strategy-no/)
 
 ---
 
@@ -44,4 +44,4 @@ Ensure the protection of, and meaningful access to, national digital cultural he
 - **Standardization:** Establish uniform, standardized, and automated handling of digital content and metadata.
 - **Technology:** Further develop and ensure robust and scalable technological infrastructure that adheres to the principles[^1] for managing digital content in a secure and sustainable manner. This includes software, hardware, and other infrastructure.
 
-[^1]: [Principles for Digital Preservation](/digitalpreservation-blog.nb.no/docs/principles/)
+[^1]: [Principles for Digital Preservation](/docs/principles/)
