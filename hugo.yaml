@@ -61,7 +61,7 @@ params:
   # home-info mode
   homeInfoParams:
     Title: "Digital preservation at the National Library of Norway"
-    Content: #subtext under the title
+    Content: #This is the webpage of the digital preservation team at the National Library of Norway.
 
   socialIcons:
     - name: github
@@ -98,7 +98,7 @@ menu: #define links in top navbar
       url: /archives/
       weight: 1
     - identifier: docs
-      name: documents
+      name: policy documents
       url: /docs/
       weight: 2
 #    - identifier: tags
