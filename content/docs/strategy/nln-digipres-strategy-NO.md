@@ -18,7 +18,7 @@ English translation [here](/docs/strategy/nln-digipres-strategy-en/)
 
 ## Lov om avleveringsplikt for allment tilgjengelege dokument (pliktavleveringslova)
  
-> §1 [...] *vitnemåla om norsk kultur og samfunnsliv kan verta bevarte og gjorde tilgjengelege som kjeldemateriale for forsking og dokumentasjon.*
+> §1 [...] *vitnemåla om norsk kultur og samfunnsliv kan verta bevarte og gjorde tilgjengelege som kjeldemateriale for forsking og dokumentasjon.*[^1]
  
 ## Ambisjon for Digital Bevaring:
  
@@ -43,7 +43,10 @@ Sørge for sikring av og meningsfull tilgang til nasjonal digital kulturarv for 
  
 - **Kompetanse:** Bygge kompetanse på digital bevaring og ha god kunnskap om gjeldende praksis på fagområdet. Bidra aktivt i nasjonalt og internasjonalt samarbeid og dele egne erfaringer.
 - **Standardisering:** Etablere enhetlig, standardisert og automatisert håndtering av digitalt innhold og metadata.
-- **Teknologi:** Videreutvikle og sørge for robust og skalerbar teknologisk infrastruktur som ivaretar prinsippene [^1] for forvaltning av digitalt innhold på en sikker og bærekraftig måte. Dette inkluderer både programvare, maskinvare og annen infrastruktur.
+- **Teknologi:** Videreutvikle og sørge for robust og skalerbar teknologisk infrastruktur som ivaretar prinsippene [^2] for forvaltning av digitalt innhold på en sikker og bærekraftig måte. Dette inkluderer både programvare, maskinvare og annen infrastruktur.
  
-[^1]: [Prinsipper for digital bevaring](/docs/principles/)
+
+[^1]: [Pliktavleveringsloven på lovdata.no](https://lovdata.no/dokument/NL/lov/1989-06-09-32)
+
+[^2]: [Prinsipper for digital bevaring](/docs/principles/)
  

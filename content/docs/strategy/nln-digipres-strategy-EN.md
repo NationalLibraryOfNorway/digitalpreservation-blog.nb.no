@@ -17,7 +17,8 @@ Norwegian primary document [here](/docs/strategy/nln-digipres-strategy-no/)
 
 ### The Legal Deposit Act of Publicly Available Documents (Legal Deposit Act)
 
-> §1 [...] *testaments of Norwegian culture and social life should be preserved and be available as source material for research and documentation.*
+> §1 [...] *testaments of Norwegian culture and social life should be preserved and be available as source material for research and documentation.*[^1]
+
 
 ### Ambition for Digital Preservation:
 
@@ -42,6 +43,9 @@ Ensure the protection of, and meaningful access to, national digital cultural he
 
 - **Developing expertise:** Build expertise in digital preservation and have a good knowledge of current practices in the field. Actively contribute to national and international initiatives and share experiences.
 - **Standardization:** Establish uniform, standardized, and automated handling of digital content and metadata.
-- **Technology:** Further develop and ensure robust and scalable technological infrastructure that adheres to the principles[^1] for managing digital content in a secure and sustainable manner. This includes software, hardware, and other infrastructure.
+- **Technology:** Further develop and ensure robust and scalable technological infrastructure that adheres to the principles[^2] for managing digital content in a secure and sustainable manner. This includes software, hardware, and other infrastructure.
 
-[^1]: [Principles for Digital Preservation](/docs/principles/)
+
+[^1]: [The legal depost act on lovdata.no](https://lovdata.no/dokument/NL/lov/1989-06-09-32) (in Norwegian)
+
+[^2]: [Principles for Digital Preservation](/docs/principles/)
