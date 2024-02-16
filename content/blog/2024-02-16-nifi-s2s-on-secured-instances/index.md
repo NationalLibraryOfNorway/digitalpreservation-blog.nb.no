@@ -1,5 +1,5 @@
 ---
-title: "S2S Connection Between Two Secured NiFi Instances"
+title: "NiFi S2S on Secured Instances"
 summary: "Guide to setting up a Site-to-Site (S2S) communication between two secured NiFi instances with user and policy management"
 draft: true
 category: blog
@@ -12,6 +12,8 @@ cover:
 showtoc: true
 aliases: /nifi-s2s-on-secured-instances-1a9b2e3c4d5e
 ---
+
+# S2S Connection Between Two Secured NiFi Instances
 
 When NiFi 1.14.0 released every instance is secure by default.
 In addition to it in proper production environments NiFi will have certificates, users, and policies to deal with.
