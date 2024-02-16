@@ -282,7 +282,7 @@ identity[CN=nifi.mj.xyz, OU=NIFI] does not have permission to access the request
     Returning Forbidden response.
 ```
 
-To fix that find the proper username and add a user with that name to the user list, then give it proper policies as outlined in [Set Instance User's Policies](#set-instance-user-s-policies).
+To fix that find the proper username and add a user with that name to the user list, then give it proper policies as outlined in [Set Instance User's Policies](#set-instance-users-policies).
 As seen above these messages log what username the connecting instance uses, so make sure to use the same name, in this case: `CN=nifi.mj.xyz, OU=NIFI`.
 In case it's not clear, here is how to add a new user:
 
@@ -312,6 +312,6 @@ identity[CN=nifi.mj.xyz, OU=NIFI] does not have permission to access the request
      Returning Forbidden response.
 ```
 
-To fix those issues give the instance user proper policies as outlined in [Set Instance User's Policies](#set-instance-user-s-policies).
+To fix those issues give the instance user proper policies as outlined in [Set Instance User's Policies](#set-instance-users-policies).
 
 This guide is available as a [PDF](./nifi-s2s-on-secured-instances.pdf) file.
