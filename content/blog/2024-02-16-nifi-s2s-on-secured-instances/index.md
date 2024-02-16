@@ -1,14 +1,20 @@
 ---
 title: "NiFi S2S on Secured Instances"
 summary: "Guide to setting up a Site-to-Site (S2S) communication between two secured NiFi instances with user and policy management"
-draft: true
+draft: false
 category: blog
 date: 2024-02-16
 tags: ["nifi", "site-to-site", "S2S", "security", "certificate", "reporting-task"]
 author: ["Daniel Aaron Salwerowicz"]
 cover:
-  image: /cover.png
+  image: cover.png
+  alt: "A remote input port for provenance events feeding data into an EvaluateJsonPath processor"
   hiddenInList: false
+  relative: true
+editPost:
+  URL: "https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no/blob/main/content/"
+  Text: "Suggest changes"
+  appendFilePath: true
 showtoc: true
 aliases: /nifi-s2s-on-secured-instances-1a9b2e3c4d5e
 ---
@@ -17,7 +23,7 @@ aliases: /nifi-s2s-on-secured-instances-1a9b2e3c4d5e
 
 When NiFi 1.14.0 released every instance is secure by default.
 In addition to it in proper production environments NiFi will have certificates, users, and policies to deal with.
-This is great for security, however it makes tasks like setting up a Site-to-Site (S2S) communication and Reporting Tasks difficult.
+This is great for security, however it makes tasks like setting up a <abbr title="Site-to-Site">S2S</abbr> communication and Reporting Tasks difficult.
 What makes this even more difficult is lack of proper guidance on how to deal with certificates, LDAP or Kerberos user management, and S2S.
 As such this guide aims to solve that issue by providing an example of how to set up a "`SiteToSiteProvenanceReportingTask`".
 
@@ -68,7 +74,7 @@ They make sure that the certificates have proper trust chains set up and that th
 
 For the purposes of this guide the `tls-toolkit` ran with following arguments:
 
-``` bash
+``` bash {hl_lines=[2,8]}
 ./nifi-toolkit-1.24.0/bin/tls-toolkit.sh standalone \
   -C "CN=nifi, O=MJ Industries, OU=NIFI, DC=nifi, DC=mj, DC=com" \
   -K "<CERTIFICATE_KEY>" \
@@ -91,13 +97,13 @@ The system administrator should also use the toolkit to encrypt NiFi files to av
 ### On TLS Toolkit and NiFi 2.0
 
 With release of NiFi 2.0, NiFi Toolkit will no longer have the `tls-toolkit` and so it requires other ways of generating a valid certificate.
-NiFi recommends to use other tools to create keystores and truststores, such as [cert-mananger](https://cert-manager.io/) for Kubernetes, [Let's Encrypt](https://letsencrypt.org/), [TinyCert](https://www.tinycert.org/), and others.
-Read more about it in [NiFi 2.0 Documentation](https://nifi.apache.org/documentation/v2/) under the "**Securing NiFi with mTLS**" section.
+NiFi recommends to use other tools to create keystores and truststores, such as [cert-mananger](https://cert-manager.io/ "Cert Manager main page") for Kubernetes, [Let's Encrypt](https://letsencrypt.org/ "Let's Encrypt main page"), [TinyCert](https://www.tinycert.org/ "Tiny Cert main page"), and others.
+Read more about it in [NiFi 2.0 Documentation](https://nifi.apache.org/documentation/v2/ "Documentation website for NiFi 2.0 version") under the "**Securing NiFi with mTLS**" section.
 The same concepts still apply with those certificates, they need to have proper trust chains to enable communication with TLS between instances.
 
 If for some reason none of these options are available or desired, it's possible to generate the needed certificates manually.
-The [NiFi 2.0 Documentation](https://nifi.apache.org/documentation/v2/) describes how to do it in the "**Manual Keystore Generation**" section.
-It requires the use of [OpenSSL](https://www.openssl.org/) and information such as host's IP address and DNS.
+The [NiFi 2.0 Documentation](https://nifi.apache.org/documentation/v2/ "Documentation website for NiFi 2.0 version") describes how to do it in the "**Manual Keystore Generation**" section.
+It requires the use of [OpenSSL](https://www.openssl.org/ "OpenSSL main page") and information such as host's IP address and DNS.
 This guide won't go into details on manual certificate generation as NiFi docs describe it well and will have more up to date information about that.
 As before make sure that the certificates have proper trust chains and other values so that instances using them can trust each other.
 
@@ -112,7 +118,7 @@ This also ensures that if they use different certificates they are able to build
 To create new service open the hamburger menu in top right corner.
 Once there open the "**Controller Settings**" menu.
 
-{{< figure src="open-controller-settings.png" attr="Opening the Controller Settings menu" align=center >}}
+{{< figure src="open-controller-settings.png" caption="Opening the Controller Settings menu" alt="Opening the Controller Settings menu" align=center >}}
 
 1.  Go to the "**Management Controller Services**" tab, add new `StandardRestrictedSSLContextService`
 2.  Open configuration menu for `StandardRestrictedSSLContextService` by clicking the "cog" icon
@@ -124,7 +130,7 @@ Once there open the "**Controller Settings**" menu.
 8.  **Keystore Password:** Keystore Password for main instance certificate
 9.  **Truststore Password:** Truststore Password for main instance certificate
 
-{{< figure src="config-ssl-service.png" attr="Configuring the SSL Context Service" align=center >}}
+{{< figure src="config-ssl-service.png" caption="Configuring the SSL Context Service" alt="Configuring the SSL Context Service" align=center >}}
 
 After closing the configuration menu let the service validate and then enable it by clicking the "lightning" icon.
 
@@ -144,7 +150,7 @@ Open the hamburger menu as before and go to the "**Controller Settings**" menu.
 8.  **Transport Protocol:** Set it to HTTP, now RAW
 9.  **Run Schedule:** Change it to appropriate value, it's found in the "**Settings**" tab
 
-{{< figure src="config-s2s-reporting-task.png" attr="Configuring S2S Reporting Task" align=center >}}
+{{< figure src="config-s2s-reporting-task.png" caption="Configuring S2S Reporting Task" alt="Configuring S2S Reporting Task" align=center >}}
 
 In case of Provenance reporting it's good idea to set filter by event type or source.
 Do not start the Reporting Task until the other instance set up and ready to receive the data over S2S.
@@ -161,10 +167,10 @@ Simple solution is to just place a `GenerateFlowFile` processor, connect it to a
 Start by creating a Process Group giving it appropriate name and going into it.
 
 1.  Create a Remote Input Port inside the group, to do it drag the "**Input Port**" icon onto the canvas
-2.  Give it the same name as the "**Input Port Name**" attribute in the Provenance Reporting Task
+2.  Give it the same name as the "**Input Port Name**" captionibute in the Provenance Reporting Task
 3.  From the drop-down menu "**Receive From**" choose: "**Remote connections (site-to-site)**"
 
-{{< figure src="config-remote-input-port.png" attr="Creating and configuring Remote Input Port" align=center >}}
+{{< figure src="config-remote-input-port.png" caption="Creating and configuring Remote Input Port" alt="Creating and configuring Remote Input Port" align=center >}}
 
 ## Create an Instance User
 
@@ -179,7 +185,7 @@ The DN in certificates that NiFi toolkit generates use the form: `CN=<HOSTNAME>,
 
 To create the user simply open the hamburger menu from the top right corner and open the users menu.
 
-{{< figure src="open-users.png" attr="Opening the Users menu" align=center >}}
+{{< figure src="open-users.png" caption="Opening the Users menu" alt="Opening the Users menu" align=center >}}
 
 Then just click on the plus icon and add a new user with the DN as username.
 If there are issues with finding the name or there is uncertainty as to what the certificate's DN is then that info can be easily found in logs.
@@ -187,7 +193,7 @@ The log file: `logs/nifi-user.log` of the reporting instance will log the names 
 Look for "**Authentication Started**" events for `/site-to-site` endpoint in the logs.
 Before finding that information the user can use a temporary username and then have it changed to proper name when it's found.
 
-``` log
+``` plain
 Authentication Started 127.0.0.1 [CN=nifi.mj.xyz, OU=NIFI]
   GET https://reporting.mj.xyz:9443/nifi-api/site-to-site/peers
 ```
@@ -197,23 +203,23 @@ Authentication Started 127.0.0.1 [CN=nifi.mj.xyz, OU=NIFI]
 After creating the Instance User give it the following Global Policy to "**retrieve site-to-site details**".
 To do this open the hamburger menu in top right corner, select "**Policies**" menu.
 
-{{< figure src="open-policies.png" attr="Opening the Policies menu" align=center >}}
+{{< figure src="open-policies.png" caption="Opening the Policies menu" alt="Opening the Policies menu" align=center >}}
 
 Find aforementioned policy in the drop-down menu.
 If it wasn't set before NiFi will ask to create that policy, it will show up above the drop-down menu.
 
-{{< figure src="create-new-policy.png" attr="Creating new policy" align=center >}}
+{{< figure src="create-new-policy.png" caption="Creating new policy" alt="Creating new policy" align=center >}}
 
-{{< figure src="add-user-to-policy.png" attr="Adding the instance user to 'retrieve site-to-site details' policy" align=center >}}
+{{< figure src="add-user-to-policy.png" caption="Adding the instance user to 'retrieve site-to-site details' policy" alt="Adding the instance user to 'retrieve site-to-site details' policy" align=center >}}
 
 Now find the Input Port from [Create the Input Port](#create-the-input-port) and right click on it.
 Select "**Manage access policies**", under "**receive data via site-to-site**" create new policy as before, and add the instance user to it.
 
-{{< figure src="open-port-policies.png" attr="Opening Input Port's policies" align=center >}}
+{{< figure src="open-port-policies.png" caption="Opening Input Port's policies" alt="Opening Input Port's policies" align=center >}}
 
 ## Basic Flow
 
-Add some basic flow connected to the input port, for testing it might even be a simple funnel or a `LogAttribute` processor.
+Add some basic flow connected to the input port, for testing it might even be a simple funnel or a `Logcaptionibute` processor.
 Start the Input Port and then go back to the main instance to enable the Reporting Task.
 This is a good moment to ensure that the Instance User has correct username, check the user log on reporting instance as mentioned in [Create an Instance User](#create-an-instance-user).
 
@@ -232,11 +238,11 @@ In addition knowing what the issue is doesn't help with fixing it, it took a lot
 Most important are the certificate issuer and DN, if they are correct then the certificates should work.
 In addition a SSL Context Service helps with ensuring that the communication proceeds as expected.
 
-{{< figure src="error-certificate.png" attr="Error messages given by S2S Reporting Task which has certificate issues" align=center >}}
+{{< figure src="error-certificate.png" caption="Error messages given by S2S Reporting Task which has certificate issues" alt="Error messages given by S2S Reporting Task which has certificate issues" align=center >}}
 
 If you look in the logs you can find more information about error (shortened here for brevity):
 
-``` log
+``` plain
 o.apache.nifi.remote.client.PeerSelector
   Could not communicate with reporting.mj.xyz:9443 to determine which node(s) exist
   in the remote NiFi instance, due to
@@ -270,11 +276,11 @@ If user exists but uses other name than the one in certificate it will also give
 From what I see the error messages in this case can differ from time to time as some other factor might affect what error message NiFi gives.
 The error I got most often was similar to this one:
 
-{{< figure src="error-no-user.png" attr="Error messages given by S2S Reporting Task when instance user is missing on reporting instance" align=center >}}
+{{< figure src="error-no-user.png" caption="Error messages given by S2S Reporting Task when instance user is missing on reporting instance" alt="Error messages given by S2S Reporting Task when instance user is missing on reporting instance" align=center >}}
 
 Looking at `nifi-user.log` in the reporting instance should yield a message like this one here:
 
-``` log
+``` plain
 Authentication Started 127.0.0.1 [CN=nifi.mj.xyz, OU=NIFI]
   GET https://reporting.mj.xyz:9443/nifi-api/site-to-site/peers
 Authentication Success [CN=nifi.mj.xyz, OU=NIFI] 127.0.0.1
@@ -288,22 +294,22 @@ To fix that find the proper username and add a user with that name to the user l
 As seen above these messages log what username the connecting instance uses, so make sure to use the same name, in this case: `CN=nifi.mj.xyz, OU=NIFI`.
 In case it's not clear, here is how to add a new user:
 
-{{< figure src="add-instance-user.png" attr="Adding new instance user in the user menu" align=center >}}
+{{< figure src="add-instance-user.png" caption="Adding new instance user in the user menu" alt="Adding new instance user in the user menu" align=center >}}
 
 ## Missing Policy Configuration
 
 If the user exists but it does not have the Global Policy to "**retrieve site-to-site details**" NiFi will give one type of error message.
 On the other hand if the user has the global policy but is missing the "**receive data via site-to-site**" policy on Remote Input Port, another error message should come up.
 
-{{< figure src="error-no-global-policy.png" attr="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>retrieve site-to-site details</strong>' policy" align=center >}}
+{{< figure src="error-no-global-policy.png" caption="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>retrieve site-to-site details</strong>' policy" alt="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>retrieve site-to-site details</strong>' policy" align=center >}}
 
-{{< figure src="error-no-policy-on-port.png" attr="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>receive data via site-to-site</strong>' policy on Remote Input Port" align=center >}}
+{{< figure src="error-no-policy-on-port.png" caption="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>receive data via site-to-site</strong>' policy on Remote Input Port" alt="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>receive data via site-to-site</strong>' policy on Remote Input Port" align=center >}}
 
 In case of missing global policy the user log on reporting instance will show the same error log as shown in [Missing Instance User](#missing-instance-user).
 In case of missing policy on port following message should show up in `nifi-user.log` instead.
 (IDs were removed for brevity, message was also re-formatted to fit the document better.)
 
-``` log
+``` plain
 Authentication Started 127.0.0.1 [CN=nifi.mj.xyz, OU=NIFI]
   POST https://reporting.mj.xyz:9443/nifi-api/data-transfer/input-ports/.../transactions
 Authentication Success [CN=nifi.mj.xyz, OU=NIFI] 127.0.0.1
