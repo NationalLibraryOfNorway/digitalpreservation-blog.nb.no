@@ -15,11 +15,11 @@ The Digital Preservation Team at the National Library (NLN) has developed its fi
 
 ## Strategy Design
 
-While writing the strategy, we wanted to prioritize brevity and clarity. We wanted to avoid overwhelming potential readers with a wall of text, or producing a document that gets tucked away and forgotten. We wanted to make a strategy document that could help us make key decisions as we build our digital preservation framework.
+In developing the strategy, we prioritized brevity and clarity. We wanted to avoid overwhelming potential readers with a wall of text, or producing a verbose document that would be of little practical use. We wanted to make a strategy document that could guide us when making key decisions in our work with digital preservation.
 
 Our design process was iterative, guided by a methodology that involved extensive review cycles. Over a span of roughly two months, a dedicated working group composed of team and departmental members met weekly. Each meeting began with a fresh review of the document’s text and structure, intentionally allowing time between sessions for reflection and idea maturation. 
 
-The initial meetings saw significant changes to the document’s structure, but we gradually achieved a stable framework, shifting our focus to refining the wording and content. It was also vital that the strategy remained flexible, avoiding putting constraints or lock-in in relation to external partners or financial considerations. The result is a concise, one-page document that we believe offers valuable guidance and direction for NLN’s digital preservation efforts.
+The initial meetings saw significant changes to the document’s structure, but we gradually achieved a stable framework, shifting our focus to refining the wording and content. It was also vital that the strategy remained flexible, avoiding putting constraints or lock-in in relation to external partners or financial considerations. The resulting concise, one-page document provides valuable guidance and a clear direction for NLN's digital preservation efforts.
 
 This strategy has been reviewed and ratified by the organization, initially by the team's board of owners and subsequently by the NLN board of directors.
 
@@ -33,16 +33,16 @@ The document is divided into five main sections:
 - The document also sheds light on some major challenges facing the NLN when it comes to digital preservation, acknowledging the evolving nature of these obstacles.
 - Finally, we specify three strategic priorities: enhancing knowledge of digital preservation in the organization, adhering to established standards, and employing tools and technology responsibly and sustainably. These are underpinned by the [current principles](/docs/principles/) of digital preservation at the NLN.
 
-## Operationalization of the Strategy in the Team
+## Utilization of the strategy in the team
 
-To make practical use of this strategy, the team has devised a comprehensive roadmap outlining key digital preservation initiatives for the next two years. This roadmap ties all activities back to our three strategic priorities.
+To make practical use of this strategy, the team has devised a roadmap outlining key digital preservation initiatives in the coming two years. All activities in the roadmap are tied back to the three strategic priorities.
 
-Activities are prioritized and detailed at the monthly meeting with the board of owners, subsequently organized into "Epics" within Atlassian Jira.
+Activities are prioritized and detailed at the monthly meeting with the board of owners, subsequently organized into “epics" within Atlassian Jira.
 
-For each "Epic," we outline specific Jira tasks, clarifying objectives and approaches, especially for tasks with unclear methodologies. This creates a cohesive thread from the overarching strategy document down to the granular tasks undertaken by the Digital Preservation Team.
+For each epic, we outline specific Jira tasks, clarifying objectives and approaches. For tasks with unclear methodologies, the first task will be a “spike” where we try to break the task into more manageable parts and clarify its scope and description. This creates a cohesive thread from the overarching strategy down to the concrete tasks to be carried out by the digital preservation team.
 
 {{< figure src="picture.webp" alt="figure of documents" align=center >}}
 
-This structured approach has proven effective. It has set a clear direction for NLN’s digital preservation work, constantly reminding the team of our strategic goals through daily tasks and activities.
+This structured approach has proven effective. It has set a clear direction for NLN’s digital preservation work, constantly reminding the team of our strategic goals through daily Jira tasks and activities.
 
-The strategy document is available [here](/docs/strategy/).
+The strategy is available [here](/docs/strategy/).
