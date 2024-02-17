@@ -37,9 +37,9 @@ The document is divided into five main sections:
 
 To make practical use of this strategy, the team has devised a comprehensive roadmap outlining key digital preservation initiatives for the next two years. This roadmap ties all activities back to our three strategic priorities.
 
-Activities are prioritized and detailed at the monthly meeting with the board of owners, subsequently organized into “Epics” within Atlassian Jira.
+Activities are prioritized and detailed at the monthly meeting with the board of owners, subsequently organized into "Epics" within Atlassian Jira.
 
-For each “Epic,” we outline specific Jira tasks, clarifying objectives and approaches, especially for tasks with unclear methodologies. This creates a cohesive thread from the overarching strategy document down to the granular tasks undertaken by the Digital Preservation Team.
+For each "Epic," we outline specific Jira tasks, clarifying objectives and approaches, especially for tasks with unclear methodologies. This creates a cohesive thread from the overarching strategy document down to the granular tasks undertaken by the Digital Preservation Team.
 
 {{< figure src="picture.webp" alt="figure of documents" align=center >}}
 
