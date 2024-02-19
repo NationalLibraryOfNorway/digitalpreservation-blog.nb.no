@@ -118,7 +118,11 @@ This also ensures that if they use different certificates they are able to build
 To create new service open the hamburger menu in top right corner.
 Once there open the "**Controller Settings**" menu.
 
-{{< figure src="open-controller-settings.png" caption="Opening the Controller Settings menu" alt="Opening the Controller Settings menu" align=center >}}
+{{< figure src="open-controller-settings.png"
+  caption="Opening the Controller Settings menu"
+  alt="Opening the Controller Settings menu"
+  align=center
+>}}
 
 1.  Go to the "**Management Controller Services**" tab, add new `StandardRestrictedSSLContextService`
 2.  Open configuration menu for `StandardRestrictedSSLContextService` by clicking the "cog" icon
@@ -130,7 +134,11 @@ Once there open the "**Controller Settings**" menu.
 8.  **Keystore Password:** Keystore Password for main instance certificate
 9.  **Truststore Password:** Truststore Password for main instance certificate
 
-{{< figure src="config-ssl-service.png" caption="Configuring the SSL Context Service" alt="Configuring the SSL Context Service" align=center >}}
+{{< figure src="config-ssl-service.png"
+  caption="Configuring the SSL Context Service"
+  alt="Configuring the SSL Context Service"
+  align=center
+>}}
 
 After closing the configuration menu let the service validate and then enable it by clicking the "lightning" icon.
 
@@ -150,7 +158,11 @@ Open the hamburger menu as before and go to the "**Controller Settings**" menu.
 8.  **Transport Protocol:** Set it to HTTP, now RAW
 9.  **Run Schedule:** Change it to appropriate value, it's found in the "**Settings**" tab
 
-{{< figure src="config-s2s-reporting-task.png" caption="Configuring S2S Reporting Task" alt="Configuring S2S Reporting Task" align=center >}}
+{{< figure src="config-s2s-reporting-task.png"
+  caption="Configuring S2S Reporting Task"
+  alt="Configuring S2S Reporting Task"
+  align=center
+>}}
 
 In case of Provenance reporting it's good idea to set filter by event type or source.
 Do not start the Reporting Task until the other instance set up and ready to receive the data over S2S.
@@ -170,7 +182,11 @@ Start by creating a Process Group giving it appropriate name and going into it.
 2.  Give it the same name as the "**Input Port Name**" captionibute in the Provenance Reporting Task
 3.  From the drop-down menu "**Receive From**" choose: "**Remote connections (site-to-site)**"
 
-{{< figure src="config-remote-input-port.png" caption="Creating and configuring Remote Input Port" alt="Creating and configuring Remote Input Port" align=center >}}
+{{< figure src="config-remote-input-port.png"
+  caption="Creating and configuring Remote Input Port"
+  alt="Creating and configuring Remote Input Port"
+  align=center
+>}}
 
 ## Create an Instance User
 
@@ -185,7 +201,11 @@ The DN in certificates that NiFi toolkit generates use the form: `CN=<HOSTNAME>,
 
 To create the user simply open the hamburger menu from the top right corner and open the users menu.
 
-{{< figure src="open-users.png" caption="Opening the Users menu" alt="Opening the Users menu" align=center >}}
+{{< figure src="open-users.png"
+  caption="Opening the Users menu"
+  alt="Opening the Users menu"
+  align=center
+>}}
 
 Then just click on the plus icon and add a new user with the DN as username.
 If there are issues with finding the name or there is uncertainty as to what the certificate's DN is then that info can be easily found in logs.
@@ -203,19 +223,35 @@ Authentication Started 127.0.0.1 [CN=nifi.mj.xyz, OU=NIFI]
 After creating the Instance User give it the following Global Policy to "**retrieve site-to-site details**".
 To do this open the hamburger menu in top right corner, select "**Policies**" menu.
 
-{{< figure src="open-policies.png" caption="Opening the Policies menu" alt="Opening the Policies menu" align=center >}}
+{{< figure src="open-policies.png"
+  caption="Opening the Policies menu"
+  alt="Opening the Policies menu"
+  align=center
+>}}
 
 Find aforementioned policy in the drop-down menu.
 If it wasn't set before NiFi will ask to create that policy, it will show up above the drop-down menu.
 
-{{< figure src="create-new-policy.png" caption="Creating new policy" alt="Creating new policy" align=center >}}
+{{< figure src="create-new-policy.png"
+  caption="Creating new policy"
+  alt="Creating new policy"
+  align=center
+>}}
 
-{{< figure src="add-user-to-policy.png" caption="Adding the instance user to 'retrieve site-to-site details' policy" alt="Adding the instance user to 'retrieve site-to-site details' policy" align=center >}}
+{{< figure src="add-user-to-policy.png"
+  caption="Adding the instance user to 'retrieve site-to-site details' policy"
+  alt="Adding the instance user to 'retrieve site-to-site details' policy"
+  align=center
+>}}
 
 Now find the Input Port from [Create the Input Port](#create-the-input-port) and right click on it.
 Select "**Manage access policies**", under "**receive data via site-to-site**" create new policy as before, and add the instance user to it.
 
-{{< figure src="open-port-policies.png" caption="Opening Input Port's policies" alt="Opening Input Port's policies" align=center >}}
+{{< figure src="open-port-policies.png"
+  caption="Opening Input Port's policies"
+  alt="Opening Input Port's policies"
+  align=center
+>}}
 
 ## Basic Flow
 
@@ -238,7 +274,11 @@ In addition knowing what the issue is doesn't help with fixing it, it took a lot
 Most important are the certificate issuer and DN, if they are correct then the certificates should work.
 In addition a SSL Context Service helps with ensuring that the communication proceeds as expected.
 
-{{< figure src="error-certificate.png" caption="Error messages given by S2S Reporting Task which has certificate issues" alt="Error messages given by S2S Reporting Task which has certificate issues" align=center >}}
+{{< figure src="error-certificate.png"
+  caption="Error messages given by S2S Reporting Task which has certificate issues"
+  alt="Error messages given by S2S Reporting Task which has certificate issues"
+  align=center
+>}}
 
 If you look in the logs you can find more information about error (shortened here for brevity):
 
@@ -276,7 +316,11 @@ If user exists but uses other name than the one in certificate it will also give
 From what I see the error messages in this case can differ from time to time as some other factor might affect what error message NiFi gives.
 The error I got most often was similar to this one:
 
-{{< figure src="error-no-user.png" caption="Error messages given by S2S Reporting Task when instance user is missing on reporting instance" alt="Error messages given by S2S Reporting Task when instance user is missing on reporting instance" align=center >}}
+{{< figure src="error-no-user.png"
+  caption="Error messages given by S2S Reporting Task when instance user is missing on reporting instance"
+  alt="Error messages given by S2S Reporting Task when instance user is missing on reporting instance"
+  align=center
+>}}
 
 Looking at `nifi-user.log` in the reporting instance should yield a message like this one here:
 
@@ -294,16 +338,28 @@ To fix that find the proper username and add a user with that name to the user l
 As seen above these messages log what username the connecting instance uses, so make sure to use the same name, in this case: `CN=nifi.mj.xyz, OU=NIFI`.
 In case it's not clear, here is how to add a new user:
 
-{{< figure src="add-instance-user.png" caption="Adding new instance user in the user menu" alt="Adding new instance user in the user menu" align=center >}}
+{{< figure src="add-instance-user.png"
+  caption="Adding new instance user in the user menu"
+  alt="Adding new instance user in the user menu"
+  align=center
+>}}
 
 ## Missing Policy Configuration
 
 If the user exists but it does not have the Global Policy to "**retrieve site-to-site details**" NiFi will give one type of error message.
 On the other hand if the user has the global policy but is missing the "**receive data via site-to-site**" policy on Remote Input Port, another error message should come up.
 
-{{< figure src="error-no-global-policy.png" caption="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>retrieve site-to-site details</strong>' policy" alt="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>retrieve site-to-site details</strong>' policy" align=center >}}
+{{< figure src="error-no-global-policy.png"
+  caption="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>retrieve site-to-site details</strong>' policy"
+  alt="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>retrieve site-to-site details</strong>' policy"
+  align=center
+>}}
 
-{{< figure src="error-no-policy-on-port.png" caption="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>receive data via site-to-site</strong>' policy on Remote Input Port" alt="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>receive data via site-to-site</strong>' policy on Remote Input Port" align=center >}}
+{{< figure src="error-no-policy-on-port.png"
+  caption="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>receive data via site-to-site</strong>' policy on Remote Input Port"
+  alt="Error messages given by S2S Reporting Task when instance user doesn't have '<strong>receive data via site-to-site</strong>' policy on Remote Input Port"
+  align=center
+>}}
 
 In case of missing global policy the user log on reporting instance will show the same error log as shown in [Missing Instance User](#missing-instance-user).
 In case of missing policy on port following message should show up in `nifi-user.log` instead.
