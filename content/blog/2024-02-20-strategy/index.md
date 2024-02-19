@@ -42,7 +42,7 @@ The document is divided into five main sections:
   Acknowledging that immediate accessibility is a precondition for long-term preservation.
 - The document also sheds light on some major challenges facing the NLN when it comes to digital preservation, acknowledging the evolving nature of these obstacles.
 - Finally, we specify three strategic priorities: enhancing knowledge of digital preservation in the organization, adhering to established standards, and employing tools and technology responsibly and sustainably.
-  These are underpinned by the [current principles](/docs/principles/) of digital preservation at the NLN.
+  These are underpinned by the [current principles](/docs/principles/ "Link to our principles page") of digital preservation at the NLN.
 
 ## Utilization of the strategy in the team
 
@@ -56,7 +56,7 @@ For tasks with unclear methodologies, the first task will be a “spike” where
 This creates a cohesive thread from the overarching strategy down to the concrete tasks to be carried out by the digital preservation team.
 
 {{< figure src="picture.webp"
-  captions="Figure of documents"
+  caption="Figure of documents"
   alt="Figure of documents"
   align=center
 >}}
@@ -64,4 +64,4 @@ This creates a cohesive thread from the overarching strategy down to the concret
 This structured approach has proven effective.
 It has set a clear direction for NLN’s digital preservation work, constantly reminding the team of our strategic goals through daily Jira tasks and activities.
 
-The strategy is available [here](/docs/strategy/).
+The strategy is available [here](/docs/strategy/ "Link to our strategy page").
