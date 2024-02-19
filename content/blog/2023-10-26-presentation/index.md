@@ -26,7 +26,7 @@ The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page
 - **Senior Platform Developer**: [Vigdis Marie Sørensen](https://www.linkedin.com/in/vigdis-sørensen-8a3618a6)
 - **Application Developer**: [Siarhei Kulakou](https://www.linkedin.com/in/siarhei-kulakou-0702ba245)
 - **Application Developer**: [Daniel Aaron Salwerowicz](https://www.linkedin.com/in/salwerowicz)
-- **Junior Application Developer**: [Johannes Karlsen](https://www.linkedin.com/in/johannes-karlsen-476197267)
+- **Application Developer**: [Johannes Karlsen](https://www.linkedin.com/in/johannes-karlsen-476197267)
 
 
 {{< figure src="teamphoto.webp" attr="Back, left to right: Johannes Karlsen, Siarhei Kulakou, Torbjørn Pedersen, Thomas Edvardsen.<br>Front, left to right: Daniel Aaron Salwerowicz, Vigdis Marie Sørensen, Trond Teigen" align=center >}}
