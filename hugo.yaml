@@ -1,4 +1,4 @@
-baseURL: 
+baseURL: https://digitalpreservation-blog.nb.no/
 languageCode: en-us
 title: Digital Preservation at the National Library of Norway
 theme: PaperMod
@@ -14,15 +14,15 @@ minify:
   minifyOutput: true
 
 frontmatter:
-  lastmod: ["lastmod", ":git"] #Lastmod data in frontmatter has priority over data from git
+  lastmod: [lastmod, ":git"] #Lastmod data in frontmatter has priority over data from git
 
 params:
   env: production # to enable google analytics, opengraph, twitter-cards and schema.
   title: Digital Preservation at the National Library of Norway
-  description: "webpage and blog of the digital preservation team at the National Library of Norway"
+  description: Webpage and blog of the Digital Preservation team at the National Library of Norway
   keywords: [Blog]
-  images: ["cover.webp"]
-  DateFormat: "2006-01-02"
+  images: [cover.webp]
+  DateFormat: 2006-01-02
   defaultTheme: auto # dark, light
   disableThemeToggle: false
   ShowAllPagesInArchive: false
@@ -47,36 +47,36 @@ params:
   assets:
     # disableHLJS: true # to disable highlight.js
     # disableFingerprinting: true
-    favicon: "/favicon.ico"
-    favicon16x16: "/favicon-16x16.png"
-    favicon32x32: "/favicon-32x32.png"
-    apple_touch_icon: "/apple-touch-icon.png"
-    safari_pinned_tab: "<link / abs url>"
+    favicon: /favicon.ico
+    favicon16x16: /favicon-16x16.png
+    favicon32x32: /favicon-32x32.png
+    apple_touch_icon: /apple-touch-icon.png
+    safari_pinned_tab: <link / abs url>
 
   label:
-    text: "Home"
+    text: Home
     icon: 
     iconHeight: 35
 
   # home-info mode
   homeInfoParams:
-    Title: "Digital preservation at the National Library of Norway"
-    Content: #This is the webpage of the digital preservation team at the National Library of Norway.
+    Title: Digital preservation at the National Library of Norway
+    Content: Webpage and blog of the Digital Preservation team at the National Library of Norway
 
   socialIcons:
     - name: github
-      url: "https://github.com/NationalLibraryOfNorway"
-    - name: "rss"
-      url: "https://nationallibraryofnorway.github.io/digitalpreservation-blog.nb.no/index.xml"
+      url: https://github.com/NationalLibraryOfNorway
+    - name: rss
+      url: https://nationallibraryofnorway.github.io/digitalpreservation-blog.nb.no/index.xml
 
   cover:
-    hidden: true # hide everywhere but not  in structured data
+    hidden: true # hide everywhere except for the structured data
     hiddenInList: true # hide on list pages and home
     hiddenInSingle: true # hide on single page
 
   editPost:
-    URL: "https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no/tree/main/content"
-    Text: "Github source document" # edit text
+    URL: https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no/tree/main/content
+    Text: Suggest changes # edit text
     appendFilePath: true # to append file path to Edit link
 
   # for search
@@ -89,7 +89,7 @@ params:
     threshold: 0.4
     minMatchCharLength: 0
     limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
-    keys: ["title", "permalink", "summary", "content"]
+    keys: [title, permalink, summary, content]
 
 menu: #define links in top navbar
   main:
@@ -101,10 +101,10 @@ menu: #define links in top navbar
       name: policy documents
       url: /docs/
       weight: 2
-#    - identifier: tags
-#      name: tags
-#      url: /tags/
-#      weight: 3
+    - identifier: tags
+      name: tags
+      url: /tags/
+      weight: 3
     - identifier: search
       name: search
       url: /search/
@@ -133,5 +133,5 @@ markup:
     # codeFences: true
     guessSyntax: true
     # lineNos: true
-    style: monokai
+    style: gruvbox
 
