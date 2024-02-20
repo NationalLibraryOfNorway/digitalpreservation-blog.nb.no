@@ -16,12 +16,7 @@ This strategy aims to steer, structure, and sharpen the focus of our digital pre
 
 ## Strategy Design
 
-<<<<<<< HEAD
-In developing the strategy, we prioritized brevity and clarity. We wanted to avoid overwhelming potential readers with a wall of text, or producing a verbose document that would be of little practical use.
-We wanted to make a strategy document that could guide us when making key decisions in our work with digital preservation.
-=======
 In developing the strategy, we aimed for writing a short and precise document. We wanted to avoid overwhelming the reader with a wall of text, or producing a verbose document that would be of little practical use. The point of the strategy would be to serve as a guideline for making key decisions in our digital preservation work. 
->>>>>>> dbf93fe (strategy post finishing touches)
 
 Our design process was iterative, guided by a methodology that involved extensive review cycles.
 Over a span of roughly two months, a dedicated working group composed of team and departmental members met weekly.
@@ -55,17 +50,6 @@ All activities in the roadmap are tied back to the three strategic priorities.
 
 Activities are prioritized and detailed at the monthly meeting with the board of owners, subsequently organized into "epics"[^1] within Atlassian Jira.
 
-<<<<<<< HEAD
-For each epic, we outline specific Jira tasks, clarifying objectives and approaches.
-For tasks with unclear methodologies, the first task will be a “spike” where we try to break the task into more manageable parts and clarify its scope and description.
-This creates a cohesive thread from the overarching strategy down to the concrete tasks to be carried out by the digital preservation team.
-
-{{< figure src="picture.webp"
-  caption="Figure of documents"
-  alt="Figure of documents"
-  align=center
->}}
-=======
 [^1]: "Epic.” The Agile Dictionary, [agiledictionary.org/309/epic/](https://www.agiledictionary.org/309/epic/). Accessed 19 Feb. 2024. 
 
 For each epic, we outline specific Jira tasks, clarifying objectives and approaches. For activities with unclear scope, the first task will be a "spike"[^2] where we try to break the activity into more manageable tasks, with clear specifications and "definition of done"[^3]. This creates a cohesive thread from the overarching strategy down to the specific tasks to be carried out by the digital preservation team.
@@ -75,7 +59,6 @@ For each epic, we outline specific Jira tasks, clarifying objectives and approac
 [^3]: "Definition of done.” The Agile Dictionary, [agiledictionary.org/8/definition-of-done/](https://www.agiledictionary.org/8/definition-of-done/). Accessed 19 Feb. 2024. 
 
 {{< figure src="figure.webp" alt="figure of documents" align=center >}}
->>>>>>> dbf93fe (strategy post finishing touches)
 
 This structured approach has proven effective.
 It has set a clear direction for NLN’s digital preservation work, constantly reminding the team of our strategic goals through daily Jira tasks and activities.

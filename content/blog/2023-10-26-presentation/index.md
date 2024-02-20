@@ -5,7 +5,7 @@ draft: false
 category: blog
 date: 2023-10-26
 tags: ["team"]
-author: ["Thomas Edvardsen"] # If I am not mistaken I think it was Trond who wrote this and I ported it to markdown?
+author: ["Thomas Edvardsen"] # If I am not mistaken I think it was Trond who wrote this and I (Daniel) ported it to markdown?
 cover:
   image: /cover.webp
   hiddenInList: false
