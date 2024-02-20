@@ -7,8 +7,8 @@ tags: ["Strategy", "Principles", "Policy"]
 author: ["Trond Teigen"]
 showtoc: true
 cover:
-  image: 
-  hiddenInList: true
+  image: figure.webp
+  hiddenInList: false
 ---
 
 The Digital Preservation Team at the National Library (NLN) has developed its first strategy for digital preservation. This strategy aims to steer, structure, and sharpen the focus of our digital preservation efforts over the coming two years.
