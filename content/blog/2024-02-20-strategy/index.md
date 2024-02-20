@@ -1,7 +1,7 @@
 ---
 title: "Ambitions, Goals, and Strategy for Digital Preservation at the National Library"
 summary:
-draft: true
+draft: false
 date: 2024-02-10
 tags: ["Strategy", "Principles", "Policy"]
 author: ["Trond Teigen"]
@@ -47,7 +47,7 @@ For each epic, we outline specific Jira tasks, clarifying objectives and approac
 
 [^3]: "Definition of done.” The Agile Dictionary, [agiledictionary.org/8/definition-of-done/](https://www.agiledictionary.org/8/definition-of-done/). Accessed 19 Feb. 2024. 
 
-{{< figure src="figure.webp" alt="figure of documents" align=center >}}
+{{< figure src="figure.webp" alt="figure of strategy, roadmap, delivery plan, epics, tasks" align=center >}}
 
 This structured approach has proven effective. It has set a clear direction for NLN’s digital preservation work, constantly reminding the team of our strategic goals through daily Jira tasks and activities.
 
