@@ -2,7 +2,7 @@
 title: "Ambitions, Goals, and Strategy for Digital Preservation at the National Library"
 summary:
 draft: false
-date: 2024-02-10
+date: 2024-02-20
 tags: ["Strategy", "Principles", "Policy"]
 author: ["Trond Teigen"]
 showtoc: true
