@@ -27,6 +27,18 @@ This is great for security, however it makes tasks like setting up a <abbr title
 What makes this even more difficult is lack of proper guidance on how to deal with certificates, LDAP or Kerberos user management, and S2S.
 As such this guide aims to solve that issue by providing an example of how to set up a "`SiteToSiteProvenanceReportingTask`".
 
+## Motivation
+
+We at National Library of Norway use NiFi to process large number of files and data.
+NiFi performs varying operations, ranging from simple file transfer to complex systems for creating data packages, validating them, and storing them.
+As such we end up with flows that might experience some performance issues that are hard to spot or find reason for them.
+Therefore we wanted to set up provenance reporting task to help us see what files were causing issues and when.
+
+However that requires setting up S2S communication between servers.
+As security is important to us our NiFi instances need to use both certificates and proper user authorization, as well as use proxies, firewalls, and encryption.
+This made the task of setting up a Site-to-Site communication hard.
+After some time finding the way to do it we decided to write this guide to help other NiFi users who might struggle with S2S on secured NiFi instances.
+
 ## Prerequisites
 
 This guide requires that you have following:
