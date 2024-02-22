@@ -38,7 +38,7 @@ This information should ensure that the files can be managed, understood, used a
 ## Use a standardized format to package files for preservation
 Standardization enables content and metadata to be exchanged efficiently and in a consistent way, regardless of the type of material or depositor. In the NLN, the eArchiving standard is used. The use of established standards enables the use of documentation and existing tools.
 
-## Standardise documentation preservation activities
+## Standardise documentation of preservation activities
 This strengthens the integrity of the collection and improves the quality of planned preservation activities related to format conversion, etc. The NLN uses PREMIS for this.
 
 ## Files should be readable and understandable in the present
