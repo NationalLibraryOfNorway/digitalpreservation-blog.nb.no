@@ -297,7 +297,7 @@ This is pre text
 
 ## Twitter Shortcode
 
-{{< twitter adityatelange 1724414854348357922 >}}
+{{< twitter user="adityatelange" id="1724414854348357922" >}}
 
 ---
 

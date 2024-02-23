@@ -1,6 +1,7 @@
 ---
 title: "Preferred formats in the National Library of Norway [EN]"
 summary: "🇬🇧 English translation"
+weight: 2
 date: 2022-11-03
 draft: false
 tags: ["Policy", "formats"]
@@ -11,7 +12,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-The primary document version in Norwegian can be found [here](/docs/formats/2022-11-03-formats-in-use-no/ "Link to Norwegian version of this document").
+The primary document version in Norwegian can be found [here](/docs/formats/2022-11-03-formats-in-use-no/ "Link to the Norwegian version of this document").
 
 ---
 
@@ -22,7 +23,7 @@ community in Norway.
 The list corresponds well with a similar list organised by the Open Preservation Foundation. 
 This list is designed for cultural and research institutions worldwide.
 
-[^1]: [digitalbevaring.no](https://digitalbevaring.no). [Dead link per 2024-02-05]
+[^1]: [digitalbevaring.no](https://digitalbevaring.no "Webpage with recommendations for digital preservation in Norwegian ABM institutions"). [Dead link per 2024-02-05]
 
 | Type                           | Preferred format                                                                                         | Acceptable formats                                                    |
 | ------------------------------ | -------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------- |
