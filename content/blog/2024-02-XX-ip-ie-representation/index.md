@@ -12,18 +12,12 @@ cover:
 showtoc: true
 ---
 
-<!-- INTRO + kontekst
-- behov for å standardisere på tvers av variert materiale. 
-- "DLOer" kan følge grunnlenngende samme struktur.
-- behov for å definere pakkestørrelse og regler for struktur
-- det følgende er en diskusjon om foreslått pakkestørrelse og representasjonsgrenser -->
-
 ## Background
-In our strategy we have defined standardization of how we work as a [strategic area of focus](/docs/strategy/nln-digipres-strategy-en/#strategic-areas-of-focus). This need for standardization includes all aspects of our digital preservation work, and stems from the constant high volumes of data flowing through our systems. To deal with these volumes, we are reliant on automation. Without standardization, automation becomes very difficult. 
+In our strategy we have defined standardization of how we work as a [strategic area of focus](/docs/strategy/nln-digipres-strategy-en/#strategic-areas-of-focus). This need for standardization includes all aspects of our digital preservation work, and stems from the constant high volumes of data flowing through and being managed by our systems. To deal with these volumes, we are reliant on automation, which in turn requires standardization to be effective.
 
-One of the core things to standardize is the formatting of our *preservation packages* <mark>LENKE TIL OAIS</mark>. Here I am talking about information packages as defined by the OAIS, which in extension also involved the definition of *data objects* <mark>LENKE TIL OAIS</mark>. In short though, we need to a clear understanding of what *kinds* of data objects we are operating with and what kind of *groups* of of these we want to put in each information package.
+One of the core things to standardize is the formatting of our *preservation packages* <mark>LENKE TIL OAIS</mark>. Here I am talking about information packages as defined by the OAIS, which in extension also involves the definition of *data objects* <mark>LENKE TIL OAIS</mark>. In short though, we need to a clear understanding of what *kinds* of data objects we are operating with and what kind of *groups* of objects we want to put in each information package.
 
-To standardize our package structures we are working towards implementing the eArchiving[^1] standards and specification developed in the E-ARK project[^2]. This is also stated in our [principles](/docs/principles/#use-a-standardized-format-to-package-files-for-preservation). In the end we hope to have a standardised package structure specification for all *cultural heritage objects* that the National Library deals with. In the long-term, if feasible, we will try to define one or multiple CITS for the kinds of material we deal with.
+To standardize our package structures we are working towards implementing the eArchiving[^1] standards and specification developed in the E-ARK project[^2]. This is also stated in our newly revised [digital preservation principles](/docs/principles/#use-a-standardized-format-to-package-files-for-preservation). In the end we hope to have a standardised package structure specification for all *cultural heritage objects* that the National Library deals with. In the long-term, if feasible, we will try to define one or multiple eArchiving Content Information Type Specifications (CITS) for our relevant content types.
 
 [^1]: https://dilcis.eu
 [^2]:https://www.eark-project.com
@@ -99,9 +93,9 @@ In an analog context the carrier refers to a single book, a single paper photo, 
 
 [^4]: Higgins, S. (2008). *The DCC Curation Lifecycle Model*. In International Journal of Digital Curation (Vol. 3, Issue 1, pp. 134–140). Edinburgh University Library. [The DCC Curation Lifecycle Model](https://doi.org/10.2218/ijdc.v3i1.48)
 
-We can try to simplify it even further, some package owners[^4] will not operate with a complex Asset Management System, and will thus not operate with a size easily recognisable as a carrier entity. However, every preservation package needs a unique identifier to function as key between the environments outside digital preservation and the package. We could adopt the carrier concept in a quite abstract sense here, to mean the size referred to using such an identifier key. In our asset management systems that identifier is typically the unique carrier ID (usually a URN).
+We can try to simplify it even further, some package owners[^5] will not operate with a complex Asset Management System, and will thus not operate with a size easily recognisable as a carrier entity. However, every preservation package needs a unique identifier to function as key between the environments outside digital preservation and the package. We could adopt the carrier concept in a quite abstract sense here, to mean the size referred to using such an identifier key. In our asset management systems that identifier is typically the unique carrier ID (usually a URN).
 
-[^4]: The environment delivering SIPs and owning their content
+[^5]: The environment delivering SIPs and owning their content
 
 Again, the scope of carriers can vary, its size is defined by what is a practical level of description in a given asset management system. If it makes sense to describe multiple individual objects as one carrier, you can do that (with all pros/cons that follow). _The carrier scope definition is the responsibility of the package owner._ In the digital preservation environment a SIP will be accepted regardless of its complexity or lack thereof.
 
