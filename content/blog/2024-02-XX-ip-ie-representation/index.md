@@ -7,8 +7,8 @@ date: 2024-02-27
 tags: ["team"]
 author: ["Torbjørn Pedersen"]
 cover:
-  image: 
-  hiddenInList: true
+  image: earkip.webp
+  hiddenInList: false
 showtoc: true
 ---
 
