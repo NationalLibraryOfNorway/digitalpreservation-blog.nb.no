@@ -14,9 +14,9 @@ showtoc: true
 
 In our strategy we have defined standardization of how we work as a [strategic area of focus](/docs/strategy/nln-digipres-strategy-en/#strategic-areas-of-focus). This aim includes all aspects of our digital preservation work, and stems from the constant high volumes of data flowing through and being managed by our systems. To deal with these volumes, we are reliant on automation, which in turn requires standardization to be effective.
 
-One of the core things to standardize is the formatting of our OAIS *preservation packages*. In short though, we need to a clear understanding of the different *kinds* of digital objects we are operating with and the kind of *sets* of objects we want to put in each information package.
+One of the core things to standardize is the formatting of our OAIS *preservation packages*. In short though, we need to a clear understanding of the different *kinds* of digital objects we are operating with and the kind of *sets* of objects we want to put in each information package. 
 
-## E-ARK
+## eArchiving standards and specifications
 To standardize our package structures we are working towards implementing the [eArchiving standards and specification](https://dilcis.eu) developed in the [E-ARK project](https://www.eark-project.com). This is also stated in our newly revised [digital preservation principles](/docs/principles/#use-a-standardized-format-to-package-files-for-preservation). In the end we hope to have a standardised package structure specification for all *cultural heritage objects* that the National Library deals with. In the long-term, if feasible, we will try to define one or multiple eArchiving Content Information Type Specifications (CITS) for our relevant content types.
 
 The eArhciving specifications and standards operate with different information packages. This document attempts to define a practical interpretation of key concepts in relation to logical Submission Information Packages (SIPs). The suggested SIP scope allows for AIP and DIP creation in a manageable manner.
@@ -61,7 +61,7 @@ Intellectual entities is also a concept we find in the various metadata systems 
 
 [^1]: I could called these systems "metadata systems", "collection management systems", "catalogs" etc. The point is that they are systems (in a wider sense) outside of the digital preservation environment, that manages the primary descriptive metadata for data objects within the digital preservation environment. 
 
-In our asset management systems, we tend to operate with a lot of different IEs, usually organised in some sort of hierarchy. In use-case examples of PREMIS and E-ARK, it is usually the highest level entity from these hierarchies, that is referred to as the IE and used to define _intellectual scope of packages_, ie. a *work* or *expression*. However, we find this impractical.
+In our asset management systems, we tend to operate with a lot of different IEs, usually organised in some sort of hierarchy. In use-case examples of PREMIS and E-ARK, it is usually the highest level entity from these hierarchies, that is referred to as the IE and used to define _intellectual scope of packages_, ie. a *work* or *expression*. However, we find this impractical for a variety of reasons.
 
 As an example, one of our more extensive intellectual hierarchies is found in our audiovisual catalog. It is a 4-level hierarchy based on the IFLA LRM and EN15907 conceptual models. It consist of these entities:
 - Work-expression
@@ -71,7 +71,7 @@ As an example, one of our more extensive intellectual hierarchies is found in ou
 
 This is a data model made for describing intellectual _content_. The 3 top level entities all describe abstract concepts in some manner. The carrier is the only entity describing a tangible object in this hierarchy.
 
-The more abstract a concept an IE describes, the more open it is to subjective interpretation. These entities are thus often subject to changes. Content is reinterpreted, new information appears, work definitions change, new work-expressions and manifestations are identified, and even items (which describes logical units of carriers) can be split or have its carriers rearranged. Furthermore cataloging rules and data models can be modified or replaced.
+The more abstract a concept an IE describes, the more open it is to subjective interpretation. These entities are thus often subject to changes in their asset management systems. Content is reinterpreted, new information appears, work definitions change, new work-expressions and manifestations are identified, and even items (which describes logical units of carriers) can be split or have its carriers rearranged. Furthermore cataloging rules and data models can be modified or replaced.
 
 Such intellectual hierarchies are not set in stone, but rather in constant flux. Despite all of this, our carriers will very rarely be split or merged, due to their inherent tangible nature.
 
