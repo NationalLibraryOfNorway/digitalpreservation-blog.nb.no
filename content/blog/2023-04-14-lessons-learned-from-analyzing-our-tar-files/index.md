@@ -1,10 +1,10 @@
 ---
-title: "Lessons Learned From Analyzing Our TAR Files"
+title: Lessons Learned From Analyzing Our TAR Files
 summary:
 draft: true
-date: 2024-XX-XX
-tags: ["TAR", "File identification", "DROID", "METS", "PRONOM"]
-author: ["Thomas Edvardsen"]
+date: 2023-04-14
+tags: [TAR, File identification, DROID, METS, PRONOM]
+author: [Thomas Edvardsen]
 showtoc: true
 cover:
   image: 

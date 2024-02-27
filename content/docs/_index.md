@@ -1,5 +1,5 @@
 ---
-title: "Policy documents"
-layout: "list"
-summary: "Policy and documents"
+title: Policy documents
+layout: list
+summary: Policies and documents regarding Digital Preservation at National Library of Norway
 ---
