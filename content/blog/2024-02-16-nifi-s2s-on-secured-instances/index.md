@@ -8,11 +8,11 @@ summary: Guide to setting up a Site-to-Site (S2S) communication between two secu
 draft: false
 category: blog
 date: 2024-02-16
-tags: ["nifi", "site-to-site", "S2S", "security", "certificate", "reporting-task"]
-author: ["Daniel Aaron Salwerowicz"]
+tags: [NiFi, Site-to-Site, S2S, Security, Certificate, Reporting task]
+author: [Daniel Aaron Salwerowicz]
 cover:
   image: cover.png
-  alt: "A remote input port for provenance events feeding data into an EvaluateJsonPath processor"
+  alt: A remote input port for provenance events feeding data into an EvaluateJsonPath processor
   hiddenInList: false
   relative: true
 showtoc: true

@@ -1,11 +1,11 @@
 ---
-title: "Team Digital Preservation"
-summary:
+title: Team Digital Preservation
+summary: Presentation of the Digital Preservation team at the National Library of Norway
 draft: false
 category: blog
 date: 2023-10-26
-tags: ["team"]
-author: ["Thomas Edvardsen"] # If I am not mistaken I think it was Trond who wrote this and I (Daniel) ported it to markdown?
+tags: [Team presentation]
+author: [Trond Teigen, Daniel Aaron Salwerowicz]
 cover:
   image: /cover.webp
   hiddenInList: false

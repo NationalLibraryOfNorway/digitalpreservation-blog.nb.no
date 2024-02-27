@@ -6,8 +6,8 @@ date: 2001-09-11 # Publication date. As long as this is not set in the future th
 draft: true # Marks the post as a draft, if true it will not be published even when pushed to main. Use it during writing and local testing to see how it looks.
 weight:  # To set page order or to pin a post to Top of list, lower the weight, higher the post will appear in the list
 category: # Category of the post, for now we just use Blog for all posts
-tags: ["tag 1", "tag 2"] # Tags for categorizing the article, will be shown in the Tag overview.
-author: ["Author 1", "Author 2"] # Author(s) of post. Accepts multiple values if more than one person contributed to the post.
+tags: [tag 1, tag 2] # Tags for categorizing the article, will be shown in the Tag overview.
+author: [Author 1, Author 2] # Author(s) of post. Accepts multiple values if more than one person contributed to the post.
 cover: # Settings for displaying a cover image for the post on the front page. 
   image: /cover.webp # Path to the image. '/cover.webp' is the same as 'assets/images/cover.webp' in the project root, while 'cover.webp' uses file in the blogpost folder.
   hiddenInList: false # Whether to show cover image or not
