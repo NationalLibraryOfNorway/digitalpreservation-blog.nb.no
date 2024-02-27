@@ -43,7 +43,7 @@ In general try to use:
 - Use oxford commas in the lists, for example: 
   **"My hobbies include reading, writing, hiking, and watching movies"** 
   this avoids confusion and makes the list easier to read.
-  In this example it's clear that "_hiking_" and "_watching movies_" are separate hobbies, and not a single hobby of hiking while watching movies.
+  In this example it's clear that "*hiking*" and "*watching movies*" are separate hobbies, and not a single hobby of hiking while watching movies.
 - Use the active voice, for example: **"The cat sat on the mat"** instead of **"The mat was sat on by the cat"**
 
 When writing the markdown files themselves try to:
@@ -471,14 +471,14 @@ When writing tables you can use inline markdown, such as links, inline code, and
 ```markdown
 | Italics   | Bold     | Code   | Link     |
 | --------- | -------- | ------ | -------- |
-| _italics_ | **bold** | `code` | [link]() |
+| *italics* | **bold** | `code` | [link]() |
 ```
 
 Will give you:
 
 | Italics   | Bold     | Code   | Link     |
 | --------- | -------- | ------ | -------- |
-| _italics_ | **bold** | `code` | [link]() |
+| *italics* | **bold** | `code` | [link]() |
 
 ## Comments
 
@@ -505,7 +505,7 @@ If you just wish to quickly quote something, you can use a blockquote without at
 ```markdown
 > Here is a sample quote from a famous person:
 > "Ouch!" - Albert Einstein after stubbing his toe, probably.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+> **Note** that you can use *Markdown syntax* within a blockquote.
 >
 > - You can use lists
 > 
@@ -522,7 +522,7 @@ Which will render as:
 
 > Here is a sample quote from a famous person:
 > "Ouch!" - Albert Einstein after stubbing his toe, probably.  
-> **Note** that you can use _Markdown syntax_ within a blockquote.
+> **Note** that you can use *Markdown syntax* within a blockquote.
 >
 > - You can use lists
 > 
