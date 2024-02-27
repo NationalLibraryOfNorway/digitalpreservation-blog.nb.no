@@ -868,7 +868,7 @@ It's the string of numbers and letters after the `/p/` in the URL.
 So if you have a URL like this:
 
 ```
-https://www.instagram.com/p/CxOWiQNP2MO/
+https://www.instagram.com/p/CxOWiQNP2MO
                             ↑ POST_ID ↑
 ```
 
@@ -949,7 +949,7 @@ https://www.youtube.com/watch?v=w7Ft2ymGmfc
                                 ↑ VIDEO_ID ↑
 
 https://youtu.be/w7Ft2ymGmfc
-                ↑ VIDEO_ID ↑
+                 ↑ VIDEO_ID ↑
 ```
 
 Use the shortcode like this:
