@@ -1,0 +1,131 @@
+---
+title: Lessons Learned From Analyzing Our TAR Files
+summary:
+draft: true
+date: 2023-04-14
+tags: [TAR, File identification, DROID, METS, PRONOM]
+author: [Thomas Edvardsen]
+showtoc: true
+cover:
+  image: 
+  hiddenInList: true
+---
+
+Digital preservation becomes increasingly important for cultural heritage institutions around the world.
+Therefore the [National Library of Norway](https://www.nb.no/) has taken on the challenge of preserving a large number of digital objects.
+Over the years, we have digitized billions of files totaling **14 PB** as of April 2023.
+This translates to 42 PB of preserved data, as we store three copies of each file.
+
+[comment]: <> (Maybe insert an image of our 3x3x2 system from Vegard?)
+
+In recent years we started receiving digitally born files from a variety of sources.
+This poses the challenge of ensuring that these files are valid and can be properly identified and preserved.
+In this blog post, we’ll explore how we approached the task of identifying and preserving information about file formats.
+We will focus in particular on our efforts to identify and analyze TAR files.
+
+## Our Digitization Strategy
+
+We started our digitization strategy in 2006 and have since then digitized physical objects on a large scale.
+Unfortunately, we have no overview of what file formats we have.
+It wasn't a problem until recent years, as most files were digitized internally within our facilities.
+That's because the files we produce use file formats well suited for long term preservation.
+So we trusted that the files we have produced were valid and suited for long term preservation.
+
+However, in the recent years, we started receiving digitally born files through legal deposit.
+We do not have as much control over which file formats we receive, as these files come from hundreds of depositors.
+Some of these depositors aren't even concerned if the files they deliver are valid, *but that is material for another blog post*.
+As a result we have a steadily growing collection of files in unknown or invalid formats.
+We knew that if we waited any longer, the problem would quickly get out of hands and be hard for us to handle.
+
+## Identifying and Analyzing the File Formats
+
+We have METS files for about 2/3 of our digital objects.
+In these METS files, we have some technical metadata, which includes information about file formats.
+To get an overview of that information would require reading, and parsing all of these METS files.
+This is a cumbersome and error prone process, which would require development of an automated system.
+That is something we didn't have time for, not to mention the debugging and improvements cycles it would require to be production ready.
+We would also have to store this information somewhere else and update it as we ingest more files.
+Not to mention the reading METS file **does not** guarantee that the files are *actually valid*.
+
+We needed a better solution.
+
+After some research we decided that we need a tool which can verify the file format, and a database for storing the validation results.
+Our plan was to store the complete overview of all file formats in a database, along with other important information.
+To start creating this overview we would identify formats during ingest and store this information during processing.
+This would also allow us to get overview of old files as they will be moved to new storage system.
+
+We decided to look at whether we could use [DROID](https://www.nationalarchives.gov.uk/information-management/manage-information/preserving-digital-records/droid/) to identify our file collection during processing.
+This tool may also help us discover files are not in the format they claim to be or are invalid in other ways.
+With it, we could feed two birds with one scone, identify and discover any malformed files.
+
+## Identifying the TAR Files
+
+We started by identifying a small selection of our files.
+A substantial percentage of the files we have tested were TAR format archives.
+When we started the identification with DROID, almost half of all TAR files failed identification.
+This was a surprising result, as TAR is a widely used file format for digital preservation.
+
+We immediately got quite nervous since we have produced millions of files in this format.
+Had we made a mistake when producing the files?
+Was there a bug in the software we were using?
+Do our files differ from the TAR standard?
+Did we just uncover a disaster that was years in the making?
+
+## Investigating the Issue
+
+We had to investigate why DROID was unable to identify the TAR files.
+DROID uses a [signature for TAR files](https://www.nationalarchives.gov.uk/PRONOM/Format/proFormatSearch.aspx?status=detailReport&id=385&strPageToDisplay=signatures), so we should get a match using this signature.
+Was there something wrong with the signature or with our files?
+We gradually saw that there was a pattern in the unidentifiable files.
+The problematic files were programmatically generated by our own program.
+
+These were TAR files generated by the Java program that uses the [Apache Commons Compress library](https://commons.apache.org/proper/commons-compress/).
+We took a small sample of files from each group and looked closely at them.
+They were opened in a hex editor to analyze the header, and see if there was any difference between the two types of files.
+This required us to read up on the TAR specification to see how the header was structured.
+It was not that easy, as TAR format has evolved over several years, and there have been multiple code bases involved in TAR generation.
+
+## Analyzing the TAR Header
+
+To get an overview of the different variants of TAR, we created a spreadsheet.
+In this spreadsheet, we described which fields the header consisted of and which variants we found for the different versions of the TAR specification.
+During this process we saw that there were different ways of terminating the header fields.
+
+[comment]: <> (Maybe insert a picture of the spreadsheet?)
+
+During this analysis, we found out that was the difference between our files.
+Some had fields terminated with the zero character (`0x00`), while others used the space character (`0x20`) for this purpose.
+As far as we know, both options have been allowed over the years.
+
+We then went back to the DROID signature for TAR and analyzed it.
+There we found that the signature did not account for both zero and space character termination.
+We concluded that this was the reason why some of our files could not be identified by DROID.
+
+To test our conclusion we had to modify the signature to support both termination variants.
+With great help from the [Signature development utility: 2.0](https://ffdev.info) by Ross Spencer we were able to create new signature.
+Using this new signature we tested identification with DROID, which was able to identify all TAR files without any further issues.
+
+## Submitting a New TAR Signature Proposal
+
+As we continued our investigation, we realized that our experience could benefit the wider digital preservation community.
+Therefore, we decided to submit a new proposal for the TAR signature to the [PRONOM technical registry](https://www.nationalarchives.gov.uk/PRONOM/).
+The PRONOM technical registry is a registry of file formats maintained by [The National Archives in the UK](https://www.nationalarchives.gov.uk/).
+It provides technical information about file formats, which is used by many to support their digital preservation activities.
+
+We submitted our new TAR signature proposal, which was approved after some review.
+Our proposal has now been added to the PRONOM registry, which means that it is available to everyone in the digital preservation community.
+
+## Conclusion
+
+We learned the hard way that even seemingly simple file formats like TAR could have unexpected variations that may impact their identification and preservation.
+Our investigation ultimately led to the creation of a new TAR signature proposal, which we hope will benefit the digital preservation community.
+This experience also emphasizes the importance of understanding the technical details of file formats and the need to continually update our knowledge as these formats evolve.
+
+As digital preservationists, we have a responsibility to ensure that digital objects are properly preserved for future generations.
+This task becomes increasingly more challenging as new file formats emerge and existing formats evolve.
+However, we must remain vigilant and continue to develop new strategies and tools to identify and preserve digital objects.
+Who knows, maybe one day our TAR files will be studied by future historians, who will marvel at how we managed to preserve so much data despite the challenges of evolving file formats and terminologies.
+
+***In the meantime, we’ll just keep calm and TAR on!***
+
+[comment]: <> (MEME)
