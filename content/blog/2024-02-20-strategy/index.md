@@ -18,11 +18,11 @@ This strategy aims to steer, structure, and sharpen the focus of our digital pre
 
 In developing the strategy, we aimed for writing a short and precise document.
 We wanted to avoid overwhelming the reader with a wall of text, or producing a verbose document that would be of little practical use.
-The point of the strategy would be to serve as a guideline for making key decisions in our digital preservation work. 
+The purpose of the strategy would be to serve as a guideline for making key decisions in our digital preservation work. 
 
-Our design process was iterative, guided by a methodology that involved extensive review cycles.
-Over a span of roughly two months, a dedicated working group composed of team and departmental members met weekly.
-Each meeting began with a fresh review of the document’s text and structure, intentionally allowing time between sessions for reflection and idea maturation.
+Our design process was iterative, based on extensive review cycles.
+Over a span of roughly two months, a dedicated working group of selected team and departmental members met weekly.
+Each meeting began with a fresh review of the entire document’s text and structure, intentionally allowing time between sessions for individual reflection and idea maturation.
 
 The initial meetings saw significant changes to the document’s structure, but we gradually achieved a stable framework, shifting our focus to refining the wording and content.
 It was also vital that the strategy remained flexible, avoiding putting constraints or lock-in in relation to external partners or financial considerations.

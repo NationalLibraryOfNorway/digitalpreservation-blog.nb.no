@@ -5,12 +5,12 @@ draft: false
 category: blog
 date: 2023-10-26
 tags: [Team presentation]
-author: [Trond Teigen, Daniel Aaron Salwerowicz]
+author: [Digital Preservation Team]
 cover:
   image: /cover.webp
   hiddenInList: false
 showtoc: true
-aliases: /team-digital-preservation-70f5805ba536
+aliases: ["/team-digital-preservation-70f5805ba536", "/about"]
 ---
 
 In June 2022 the IT Department established a team dedicated to preserving the [National Library’s](https://nb.no/ "National Library of Norway homepage") digital collection.
