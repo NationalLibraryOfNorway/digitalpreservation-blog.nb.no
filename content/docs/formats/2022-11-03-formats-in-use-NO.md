@@ -17,10 +17,10 @@ English translation can be found [here](/docs/formats/2022-11-03-formats-in-use-
 ---
 
 Denne listen er et resultat av samarbeid mellom NB og Arkivverket høsten 2020.
-Målet var å publisere denne listen på digitalbevaring.no[^1] som en anbefaling for 
+Målet var å publisere denne listen på digitalbevaring.no[^1] som en anbefaling for
   <abbr title="Arkiv, Bibliotek, og Museum">ABM-miljøet</abbr>
-i Norge. 
-Listen samsvarer godt med tilsvarende liste som finnes i regi av Open Preservation Foundation. 
+i Norge.
+Listen samsvarer godt med tilsvarende liste som finnes i regi av Open Preservation Foundation.
 Den listen er laget for kultur og forskningsinstitusjoner på verdensbasis.
 
 [^1]: [digitalbevaring.no](https://digitalbevaring.no "Nettside med anbefalinger for digitalbevaring i Norske ABM institusjoner"). [Død lenke per 2024-02-05]
@@ -36,7 +36,7 @@ Den listen er laget for kultur og forskningsinstitusjoner på verdensbasis.
 
 ## Følgende bevaringsformater er for tiden de mest brukte i Nasjonalbiblioteket:
 
-- [JPEG2000](https://www.loc.gov/preservation/digital/formats/fdd/fdd000214.shtml "Library of Congress nettside for JPEG2000 filformat") 
+- [JPEG2000](https://www.loc.gov/preservation/digital/formats/fdd/fdd000214.shtml "Library of Congress nettside for JPEG2000 filformat")
   tapsfri komprimering for bevaring av digitalisert tekst (bøker, aviser, tidsskrift, magasiner, ol.)
 - [TIFF](https://www.loc.gov/preservation/digital/formats/fdd/fdd000022.shtml "Library of Congress nettside for TIFF filformat")
   for fotografisk materiale (bilder, kart, plakater, postkort, ol.)
@@ -44,7 +44,7 @@ Den listen er laget for kultur og forskningsinstitusjoner på verdensbasis.
   [WAV](https://www.loc.gov/preservation/digital/formats/fdd/fdd000001.shtml "Library of Congress nettside for WAV filformat") /
   [FLAC](https://www.loc.gov/preservation/digital/formats/fdd/fdd000198.shtml "Library of Congress nettside for FLAC filformat")
   for audio(lyd)
-- [DPX 2K (16mm)/ 4K (35mm)](https://www.loc.gov/preservation/digital/formats/fdd/fdd000178.shtml "Library of Congress nettside for DPX filformat") 
+- [DPX 2K (16mm)/ 4K (35mm)](https://www.loc.gov/preservation/digital/formats/fdd/fdd000178.shtml "Library of Congress nettside for DPX filformat")
   for film
 - [MPEG-4 AVC tapsfri ukomprimert H.264 + PCM påsynskopi](https://www.loc.gov/preservation/digital/formats/fdd/fdd000081.shtml "Library of Congress nettside for MPEG-4 AVC filformat")
   (Mezzanin)
