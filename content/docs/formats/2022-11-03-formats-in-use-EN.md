@@ -1,11 +1,11 @@
 ---
-title: "Preferred formats in the National Library of Norway [EN]"
-summary: "🇬🇧 English translation"
+title: Preferred file formats in the National Library of Norway [EN]
+summary: 🇬🇧 English translation
 weight: 2
 date: 2022-11-03
 draft: false
-tags: ["Policy", "formats"]
-author: ["Digital Preservation Team"]
+tags: [Policy, File formats]
+author: [Digital Preservation Team]
 showtoc: true
 ShowReadingTime: false
 hideMeta: false

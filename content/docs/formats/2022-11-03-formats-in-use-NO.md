@@ -1,11 +1,11 @@
 ---
-title: "Foretrukne digitale formater i Nasjonalbiblioteket [NO]"
-summary: "🇳🇴 Norwegian primary document"
+title: Foretrukne digitale formater i Nasjonalbiblioteket [NO]
+summary: 🇳🇴 Norwegian primary document
 weight: 1
 date: 2022-11-03
 draft: false
-tags: ["Policy", "formats"]
-author: ["Digital Preservation Team"]
+tags: [Policy, File formats]
+author: [Digital Preservation Team]
 showtoc: true
 ShowReadingTime: false
 hideMeta: false
