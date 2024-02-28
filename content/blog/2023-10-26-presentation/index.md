@@ -30,7 +30,7 @@ The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page
 - **Senior Platform Developer**: [Vigdis Marie Sørensen](https://www.linkedin.com/in/vigdis-sørensen-8a3618a6 "Vigdis Marie Sørensen's LinkedIn Page")
 - **Application Developer**: [Siarhei Kulakou](https://www.linkedin.com/in/siarhei-kulakou-0702ba245 "Siarhei Kulakou's LinkedIn Page")
 - **Application Developer**: [Daniel Aaron Salwerowicz](https://www.linkedin.com/in/salwerowicz "Daniel Aaron Salwerowicz's LinkedIn Page")
-- **Junior Application Developer**: [Johannes Karlsen](https://www.linkedin.com/in/johannes-karlsen-476197267 "Johannes Karlsen's LinkedIn Page")
+- **Application Developer**: [Johannes Karlsen](https://www.linkedin.com/in/johannes-karlsen-476197267 "Johannes Karlsen's LinkedIn Page")
 
 {{< figure src="teamphoto.webp" 
   caption="Back, left to right: Johannes Karlsen, Siarhei Kulakou, Torbjørn Pedersen, Thomas Edvardsen.<br>Front, left to right: Daniel Aaron Salwerowicz, Vigdis Marie Sørensen, Trond Teigen" 
