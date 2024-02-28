@@ -24,6 +24,8 @@
   </h3>
 </div>
 
+[![](assets/images/homepage.png "Snapshot image of the homepage at 2024-02-28")](https://digitalpreservation-blog.nb.no/)
+
 ## Introduction
 
 This repository contains the source code for the website and blog of the Digital Preservation team at the [National Library of Norway (NLN, Nasjonalbiblioteket)](https://www.nb.no/ "National Library of Norway homepage").
