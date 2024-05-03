@@ -1,7 +1,5 @@
 ---
 title: Ambitions, Goals, and Strategy for Digital Preservation at the National Library
-summary: Blogpost describing our ambitions, goals, and strategy for digital preservation at the National Library of Norway
-draft: false
 date: 2024-02-20
 tags: [Strategy, Principles, Policy]
 author: [Trond Teigen]
