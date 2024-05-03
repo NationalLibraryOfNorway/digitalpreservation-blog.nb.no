@@ -3,6 +3,7 @@
 title: Sample post # Sets the article's title. The title that will be shown on the front page and at the top of the post.
 summary: Optional summary of the post # Optional. Short summary to display on the front page. If left empty, the first lines of text from the post will be shown instead.
 date: 2001-09-11 # Publication date. As long as this is not set in the future the post will be visible on the front page.
+expiryDate: 2001-09-11
 draft: true # Marks the post as a draft, if true it will not be published even when pushed to main. Use it during writing and local testing to see how it looks.
 weight:  # To set page order or to pin a post to Top of list, lower the weight, higher the post will appear in the list
 category: # Category of the post, for now we just use Blog for all posts
