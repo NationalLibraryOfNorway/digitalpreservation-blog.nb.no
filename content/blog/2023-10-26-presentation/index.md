@@ -27,7 +27,6 @@ The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page
 - **Tech Lead**: [Thomas Edvardsen](https://www.linkedin.com/in/thomasedvardsen "Thomas Edvardsen's LinkedIn Page")
 - **Senior Platform Developer**: [Vigdis Marie Sørensen](https://www.linkedin.com/in/vigdis-sørensen-8a3618a6 "Vigdis Marie Sørensen's LinkedIn Page")
 - **Application Developer**: [Siarhei Kulakou](https://www.linkedin.com/in/siarhei-kulakou-0702ba245 "Siarhei Kulakou's LinkedIn Page")
-- **Application Developer**: [Daniel Aaron Salwerowicz](https://www.linkedin.com/in/salwerowicz "Daniel Aaron Salwerowicz's LinkedIn Page")
 - **Application Developer**: [Johannes Karlsen](https://www.linkedin.com/in/johannes-karlsen-476197267 "Johannes Karlsen's LinkedIn Page")
 
 {{< figure src="teamphoto.webp" 
