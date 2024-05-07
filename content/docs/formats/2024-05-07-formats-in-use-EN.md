@@ -67,7 +67,7 @@ and ["Recommended Formats Statement"](https://www.loc.gov/preservation/resources
 ## Text
 | <div style="width:255px">Purpose</div> | Preferred formats                                                                                                 | Acceptable formats                              |
 | ---------------------------------------| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------|
-| Scabbed text                           | <li>JPEG 2000 Part 1 (Core) jp2 File [^29]                                                                        |                                                 |
+| Scanned text                           | <li>JPEG 2000 Part 1 (Core) jp2 File [^29]                                                                        |                                                 |
 | OCR                                    | <li>ALTO XML [^30]                                                                                                |                                                 |
 | Digital text                           | <li>PDF/A Family, PDF for Long-term Preservation [^2] <li> EPUB (Electronic Publication) File Format Family [^31] | <li>PDF (Portable Document Format) Family [^28] |
 | Access copies                          | <li>JPEG 2000 Part 2 (Extensions) jpf (jpx) [^3]                                                                  |                                                 |
