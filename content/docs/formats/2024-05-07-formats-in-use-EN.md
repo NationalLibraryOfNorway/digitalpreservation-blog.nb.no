@@ -55,7 +55,7 @@ and ["Recommended Formats Statement"](https://www.loc.gov/preservation/resources
 | <div style="width:255px">Purpose</div> | Preferred formats                                                                                          | Acceptable formats                                       |
 | ---------------------------------------| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------|
 | Master and sound digitisation          | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]  | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] |
-| Distribution- and access copies        | <li>AAC (.m4a/.mp4) [^7]                                                                                   |                                                          |
+| Distribution and access copies        | <li>AAC (.m4a/.mp4) [^7]                                                                                   |                                                          |
 
 
 ## Web archive
