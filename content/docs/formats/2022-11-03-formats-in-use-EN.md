@@ -3,6 +3,7 @@ title: Preferred file formats in the National Library of Norway [EN]
 summary: 🇬🇧 English translation
 weight: 2
 date: 2022-11-03
+expiryDate: 2024-05-07
 draft: false
 tags: [Policy, File formats]
 author: [Digital Preservation Team]
@@ -12,7 +13,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-The primary document version in Norwegian can be found [here](/docs/formats/2022-11-03-formats-in-use-no/ "Link to the Norwegian version of this document").
+The Norwegian primary document can be found [here](/docs/formats/2022-11-03-formats-in-use-no/).
 
 ---
 
