@@ -4,7 +4,7 @@ summary: Documentation of the preferred file formats in Digital Preservation at 
 draft: false
 layout: "list"
 date: 2022-11-03
-lastmod:
+lastmod: 2024-05-07
 ShowReadingTime: false
 ShowWordCount: false
 hideSummary: false
