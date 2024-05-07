@@ -31,7 +31,7 @@ Lista er inspirert av [Open Preservation Foundations (OPF)](https://openpreserva
 
 ## Bilder
 
-|  <div style="width:210px">Formål</div> | <div style="width:332px">Foretrukne formater</div>    | Akseptable formater                             |
+|  Formål                                | Foretrukne formater                                   | Akseptable formater                             |
 | -------------------------------------- | ----------------------------------------------------- | ----------------------------------------------- |
 | Bevaring av digitaliserte bilder       | <li>TIFF (Tagged Image File Format), revision 6 [^1]  |                                                 |
 | Bevaring av plakater                   | <li>PDF/A Family, PDF for Long-term Preservation [^2] | <li>PDF (Portable Document Format) Family [^28] |
@@ -39,36 +39,37 @@ Lista er inspirert av [Open Preservation Foundations (OPF)](https://openpreserva
 
 
 ## Levende bilder
-| <div style="width:210px">Formål</div>                     | <div style="width:332px">Foretrukne formater</div>                                                                                                                                                                             | Akseptable formater                                                                                                                 |
-| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
+| Formål                                                    | Foretrukne formater                                                                                                                                                                                                                                                                        | Akseptable formater                                                                                                                 |
+| --------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------- |
 | Filmmastere og filmdigitalisering                         | <li>Matroska/FFV1/PCM (Matroska File Format with FFV1 video encoding) [^8]<li>DPX (Digital Moving-Picture Exchange), Version 2.0 [^9] <li> TIFF sequence [^1] <li>MPEG-4 AVC lossless uncompressed H.264 + PCM (mezzanine)<li> OpenEXR [^11] <li> Apple Prores4444/mov [^12]<li> DNxHR444  | <li>Apple ProRes 422 High Quality/mov [^13]<li> DNxHR HQX/HQ                                                                        |
-| Fjernsyn (master/sendemaster), VOD,hjemmevideo og tilgang | <li>Interoperable Master Format (IMF) [^14]<li>MXF/XDCAM<li>MXF OP1a [^32]                                                                                                                                                     | <li>MPEG-4, Advanced Video Coding (Part 1) (H.264) [^15]<li> MPEG-2 Video Encoding (H.262) [^16] (50Mbit/s, bare Inter-frame-kodet) |
-| Filmdistribusjon (kino)                                   | <li>DCP, Version 1.0 (Digital Cinema Initiative Distribution Package) [^17] (ukryptert)<li> IMF (Interoperable Master Format) [^14]  (ukryptert)                                                                              |                                                                                                                                     |
-| Digitalisert video                                        | <li>Matroska/FFV1/PCM [^8]                                                                                                                                                                                                     |                                                                                                                                     |
-| Filmlyd (sluttmix/audiomaster)                            | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6]                                                              |                                                                                                                                     |
-| Undertekster                                              | <li>SRT (SubRip Subtitle format) [^25]<li> PAC (Presentation Audio/Video Coding)<li> XML                                                                                                                                       |                                                                                                                                     |
+| Fjernsyn (master/sendemaster), VOD,hjemmevideo og tilgang | <li>Interoperable Master Format (IMF) [^14]<li>MXF/XDCAM<li>MXF OP1a [^32]                                                                                                                                                                                                                 | <li>MPEG-4, Advanced Video Coding (Part 1) (H.264) [^15]<li> MPEG-2 Video Encoding (H.262) [^16] (50Mbit/s, bare Inter-frame-kodet) |
+| Filmdistribusjon (kino)                                   | <li>DCP, Version 1.0 (Digital Cinema Initiative Distribution Package) [^17] (ukryptert)<li> IMF (Interoperable Master Format) [^14]  (ukryptert)                                                                                                                                           |                                                                                                                                     |
+| Digitalisert video                                        | <li>Matroska/FFV1/PCM [^8]                                                                                                                                                                                                                                                                 |                                                                                                                                     |
+| Filmlyd (sluttmix/audiomaster)                            | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6]                                                                                                                          |                                                                                                                                     |
+| Undertekster                                              | <li>SRT (SubRip Subtitle format) [^25]<li> PAC (Presentation Audio/Video Coding)<li> XML                                                                                                                                                                                                   |                                                                                                                                     |
 
 
 ## Lyd
-| <div style="width:210px">Formål</div> | <div style="width:332px">Foretrukne formater</div>                                                         | Akseptable formater                                      |
+| Formål                                | Foretrukne formater                                                                                        | Akseptable formater                                      |
 | --------------------------------------| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------|
 | Mastere og lyddigitalisering          | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]  | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] |
 | Distribusjons- og tilgangskopier      | <li>AAC (.m4a/.mp4) [^7]                                                                                   |                                                          |
 
 
 ## Nettarkiv
-| <div style="width:210px">Formål</div> | <div style="width:332px">Foretrukne formater</div>                                      | Akseptable formater |
+| Formål                                | Foretrukne formater                                                                     | Akseptable formater |
 | --------------------------------------| --------------------------------------------------------------------------------------- | ------------------- |
 | Netthøsting                           | <li>WACZ (Web Archive Collection Zipped) [^26]<li>WARC (Web ARChive file format) [^27]  |                     |
 
 
 ## Tekst
-| <div style="width:210px">Formål</div> | <div style="width:332px">Foretrukne formater</div>                                                                | Akseptable formater                             |
+| Formål                                | Foretrukne formater                                                                                               | Akseptable formater                             |
 | --------------------------------------| ----------------------------------------------------------------------------------------------------------------- | ------------------------------------------------|
 | Skannet tekst                         | <li>JPEG 2000 Part 1 (Core) jp2 File [^29]                                                                        |                                                 |
 | OCR                                   | <li>ALTO XML [^30]                                                                                                |                                                 |
 | Digital tekst                         | <li>PDF/A Family, PDF for Long-term Preservation [^2] <li> EPUB (Electronic Publication) File Format Family [^31] | <li>PDF (Portable Document Format) Family [^28] |
 | Tilgangskopier                        | <li>JPEG 2000 Part 2 (Extensions) jpf (jpx) [^3]                                                                  |                                                 |
+
 
 
 
