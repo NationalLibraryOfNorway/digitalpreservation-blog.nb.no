@@ -10,10 +10,9 @@ showtoc: true
 ShowReadingTime: false
 hideMeta: false
 hideSummary: false
-aliases: ["/2024-05-07-formats-in-use-en"]
 ---
 
-The Norwegian primary document can be found [here](/docs/formats/preferred-formats-no/).
+The Norwegian primary document can be found [here](/docs/formats/2024-05-07-formats-in-use-no/).
 
 ---
 
