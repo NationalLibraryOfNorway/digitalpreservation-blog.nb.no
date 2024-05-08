@@ -1,5 +1,5 @@
 ---
-title: Preferred file formats in the National Library of Norway [EN]
+title: Preferred file formats at the National Library of Norway [EN]
 summary: 🇬🇧 English translation
 weight: 1
 date: 2024-05-07
@@ -26,8 +26,6 @@ The list is inspired by [Open Preservation Foundation's (OPF)](https://openprese
 ["International Comparison of Recommended File Formats"](https://docs.google.com/spreadsheets/d/1XjEjFBCGF3N1spNZc1y0DG8_Uyw18uG2j8V2bsQdYjk/edit#gid=1719869262) 
 and the Library of Congress's overviews ["Sustainability of Digital Formats: Planning for Library of Congress Collections"](https://www.loc.gov/preservation/digital/formats/fdd/descriptions.shtml) 
 and ["Recommended Formats Statement"](https://www.loc.gov/preservation/resources/rfs/index.html).
-
-
 
 ---
 
