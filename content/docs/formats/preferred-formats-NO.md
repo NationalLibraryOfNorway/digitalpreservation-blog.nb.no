@@ -10,9 +10,10 @@ showtoc: true
 ShowReadingTime: false
 hideMeta: false
 hideSummary: false
+aliases: ["/docs/formats/2024-05-07-formats-in-use-no"]
 ---
 
-English translation can be found [here](/docs/formats/2024-05-07-formats-in-use-en/).
+English translation can be found [here](/docs/formats/preferred-formats-en/).
 
 ---
 
