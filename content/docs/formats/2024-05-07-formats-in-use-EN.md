@@ -12,7 +12,7 @@ hideMeta: false
 hideSummary: false
 ---
 
-The Norwegian primary document can be found [here](/docs/formats/2024-05-07-formats-in-use-en/).
+The Norwegian primary document can be found [here](/docs/formats/2024-05-07-formats-in-use-no/).
 
 ---
 
