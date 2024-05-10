@@ -10,9 +10,10 @@ showtoc: true
 ShowReadingTime: false
 hideMeta: false
 hideSummary: false
+aliases: ["/docs/formats/2024-05-07-formats-in-use-en"]
 ---
 
-The Norwegian primary document can be found [here](/docs/formats/2024-05-07-formats-in-use-no/).
+The Norwegian primary document can be found [here](/docs/formats/preferred-formats-no/).
 
 ---
 
@@ -50,10 +51,10 @@ and ["Recommended Formats Statement"](https://www.loc.gov/preservation/resources
 
 
 ## Sound
-| <div style="width:255px">Purpose</div> | Preferred formats                                                                                          | Acceptable formats                                       |
-| ---------------------------------------| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------|
-| Master and sound digitisation          | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]  | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] |
-| Distribution and access copies        | <li>AAC (.m4a/.mp4) [^7]                                                                                   |                                                          |
+| <div style="width:255px">Purpose</div>                                                                                             | Preferred formats                                                                                                                                               | Acceptable formats                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Master and sound digitization<br><li>Minimum bit depth: 16 bit <li>Recommended bit depth: 24 bit <li>Minimum sample rate: 44100 Hz | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>MBWF/RF64 (Multichannel BWF) [EBU TECH 3306] [^35] | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] <li>AIFF LPCM (Audio Interchange File Format with LPCM Audio) [^36] |
+| Distribution and access copies<li>For speech: minimum bitrate 128Kbps <li> For music: minimum bitrate 192Kbps                      | <li>AAC (.m4a/.mp4) [^7]                                                                                                                                        |                                                                                                                              |
 
 
 ## Web archive
@@ -123,3 +124,7 @@ and ["Recommended Formats Statement"](https://www.loc.gov/preservation/resources
 [^33]: Sustainability of digital formats: Planning for Library of Congress Collections. JPEG Image Encoding Family. (2022, April 26). https://www.loc.gov/preservation/digital/formats/fdd/fdd000017.shtml 
 
 [^34]: Sustainability of digital formats: Planning for Library of Congress Collections. PNG, Portable Network Graphics. (2022, April 15). https://www.loc.gov/preservation/digital/formats/fdd/fdd000153.shtml 
+
+[^35]: MBWF / RF64: An extended file format for audio (EBU TECH 3306). (n.d.). https://tech.ebu.ch/docs/tech/tech3306v1_1.pdf
+
+[^36]: Sustainability of digital formats: Planning for Library of Congress Collections. AIFF File Format with LPCM Audio. (2010, June 28). https://www.loc.gov/preservation/digital/formats/fdd/fdd000116.shtml 
