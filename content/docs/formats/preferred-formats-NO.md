@@ -10,9 +10,10 @@ showtoc: true
 ShowReadingTime: false
 hideMeta: false
 hideSummary: false
+aliases: ["/docs/formats/2024-05-07-formats-in-use-no"]
 ---
 
-English translation can be found [here](/docs/formats/2024-05-07-formats-in-use-en/).
+English translation can be found [here](/docs/formats/preferred-formats-en/).
 
 ---
 
@@ -49,16 +50,16 @@ Lista er inspirert av [Open Preservation Foundations (OPF)](https://openpreserva
 
 
 ## Lyd
-| <div style="width:255px">Formål</div> | Foretrukne formater                                                                                        | Akseptable formater                                      |
-| --------------------------------------| ---------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------|
-| Mastere og lyddigitalisering          | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]  | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] |
-| Distribusjons- og tilgangskopier      | <li>AAC (.m4a/.mp4) [^7]                                                                                   |                                                          |
+| <div style="width:255px">Formål</div>                                                                                                    | Foretrukne formater                                                                                                                             | Akseptable formater                                                                                                          |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| Mastere og lyddigitalisering<br><li>Minimum bitdybde: 16 bit <li>Anbefalt bitdybde: 24 bit <li>Minimum samplingsfrekvens: 44100 Hz       | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>MBWF/RF64 (Multichannel BWF) [EBU TECH 3306] [^35] | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] <li>AIFF LPCM (Audio Interchange File Format with LPCM Audio) [^36] |
+| Distribusjons- og tilgangskopier<br><li>For opptak av tale: Minimum bitrate: 128 Kbps<li>For opptak av musikk: Minimum bitrate: 192 Kbps | <li>AAC (.m4a/.mp4) [^7]                                                                                                                        |                                                                                                                              |
 
 
 ## Nettarkiv
-| <div style="width:255px">Formål</div> | Foretrukne formater                                                                     | Akseptable formater |
-| --------------------------------------| --------------------------------------------------------------------------------------- | ------------------- |
-| Netthøsting                           | <li>WACZ (Web Archive Collection Zipped) [^26]<li>WARC (Web ARChive file format) [^27]  |                     |
+| <div style="width:255px">Formål</div> | Foretrukne formater                                                                    | Akseptable formater |
+| ------------------------------------- | -------------------------------------------------------------------------------------- | ------------------- |
+| Netthøsting                           | <li>WACZ (Web Archive Collection Zipped) [^26]<li>WARC (Web ARChive file format) [^27] |                     |
 
 
 ## Tekst
@@ -122,3 +123,7 @@ Lista er inspirert av [Open Preservation Foundations (OPF)](https://openpreserva
 [^33]: Sustainability of digital formats: Planning for Library of Congress Collections. JPEG Image Encoding Family. (2022, April 26). https://www.loc.gov/preservation/digital/formats/fdd/fdd000017.shtml 
 
 [^34]: Sustainability of digital formats: Planning for Library of Congress Collections. PNG, Portable Network Graphics. (2022, April 15). https://www.loc.gov/preservation/digital/formats/fdd/fdd000153.shtml 
+
+[^35]: MBWF / RF64: An extended file format for audio (EBU TECH 3306). (n.d.). https://tech.ebu.ch/docs/tech/tech3306v1_1.pdf
+
+[^36]: Sustainability of digital formats: Planning for Library of Congress Collections. AIFF File Format with LPCM Audio. (2010, June 28). https://www.loc.gov/preservation/digital/formats/fdd/fdd000116.shtml 
