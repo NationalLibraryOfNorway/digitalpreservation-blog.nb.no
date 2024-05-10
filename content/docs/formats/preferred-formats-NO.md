@@ -18,6 +18,7 @@ English translation can be found [here](/docs/formats/preferred-formats-en/).
 ---
 
 Dette er en liste over filformatene som er foretrukket av Nasjonalbiblioteket for digital bevaring. 
+Anbefalingene er utarbeidet av de respektive fagseksjonene, mens lista forvaltes av teamet for digital bevaring.
 
 Lista omfatter både formater Nasjonalbiblioteket produserer selv og formater Nasjonalbiblioteket mottar fra andre. 
 Formatene på lista er de som er anbefalt for bevaring av fagressurser i Nasjonalbiblioteket.
@@ -52,8 +53,8 @@ Lista er inspirert av [Open Preservation Foundations (OPF)](https://openpreserva
 ## Lyd
 | <div style="width:255px">Formål</div>                                                                                                    | Foretrukne formater                                                                                                                             | Akseptable formater                                                                                                          |
 | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Mastere og lyddigitalisering<br><li>Minimum bitdybde: 16 bit <li>Anbefalt bitdybde: 24 bit <li>Minimum samplingsfrekvens: 44100 Hz       | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>MBWF/RF64 (Multichannel BWF) [EBU TECH 3306] [^35] | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] <li>AIFF LPCM (Audio Interchange File Format with LPCM Audio) [^36] |
-| Distribusjons- og tilgangskopier<br><li>For opptak av tale: Minimum bitrate: 128 Kbps<li>For opptak av musikk: Minimum bitrate: 192 Kbps | <li>AAC (.m4a/.mp4) [^7]                                                                                                                        |                                                                                                                              |
+| Mastere og lyddigitalisering<br><sub><li>Minimum bitdybde: 16 bit <li>Anbefalt bitdybde: 24 bit <li>Minimum samplingsfrekvens: 44100 Hz       | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>MBWF/RF64 (Multichannel BWF) [EBU TECH 3306] [^35] | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] <li>AIFF LPCM (Audio Interchange File Format with LPCM Audio) [^36] |
+| Distribusjons- og tilgangskopier<br><sub><li>For opptak av tale: Minimum bitrate: 128 Kbps<li>For opptak av musikk: Minimum bitrate: 192 Kbps | <li>AAC (.m4a/.mp4) [^7]                                                                                                                        |                                                                                                                              |
 
 
 ## Nettarkiv

@@ -17,7 +17,8 @@ The Norwegian primary document can be found [here](/docs/formats/preferred-forma
 
 ---
 
-This is a list over the preferred file formats for preservation at the National Library of Norway. 
+This is a list over the preferred file formats for preservation at the National Library of Norway.
+The recommendations are prepared by the respective media departments, while the list is managed by the digital preservation team. 
 
 The list covers both files produced by the National Library and files the National Library acquire from external actors.
 The preferred formats are those our departments would prefer to have, while the acceptable ones will also be accepted without conversion/normalization. 
@@ -53,8 +54,8 @@ and ["Recommended Formats Statement"](https://www.loc.gov/preservation/resources
 ## Sound
 | <div style="width:255px">Purpose</div>                                                                                             | Preferred formats                                                                                                                                               | Acceptable formats                                                                                                           |
 | ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Master and sound digitization<br><li>Minimum bit depth: 16 bit <li>Recommended bit depth: 24 bit <li>Minimum sample rate: 44100 Hz | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>MBWF/RF64 (Multichannel BWF) [EBU TECH 3306] [^35] | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] <li>AIFF LPCM (Audio Interchange File Format with LPCM Audio) [^36] |
-| Distribution and access copies<li>For speech: minimum bitrate 128Kbps <li> For music: minimum bitrate 192Kbps                      | <li>AAC (.m4a/.mp4) [^7]                                                                                                                                        |                                                                                                                              |
+| Masters and sound digitization<br><sub><li>Minimum bit depth: 16 bit <li>Recommended bit depth: 24 bit <li>Minimum sample rate: 44100 Hz | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>MBWF/RF64 (Multichannel BWF) [EBU TECH 3306] [^35] | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] <li>AIFF LPCM (Audio Interchange File Format with LPCM Audio) [^36] |
+| Distribution and access copies<sub><li>For speech: minimum bitrate 128Kbps <li> For music: minimum bitrate 192Kbps                      | <li>AAC (.m4a/.mp4) [^7]                                                                                                                                        |                                                                                                                              |
 
 
 ## Web archive
