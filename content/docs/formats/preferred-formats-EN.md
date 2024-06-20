@@ -22,7 +22,7 @@ The recommendations are prepared by the respective media departments, while the 
 
 The list covers both files produced by the National Library and files the National Library acquire from external actors.
 The preferred formats are those our departments would prefer to have, while the acceptable ones will also be accepted without conversion/normalization. 
-Any other formats must be discussed with relevant departments before acceptance.
+Any other formats should be discussed with relevant departments before acceptance.
 
 The list is inspired by [Open Preservation Foundation's (OPF)](https://openpreservation.org) list 
 ["International Comparison of Recommended File Formats"](https://docs.google.com/spreadsheets/d/1XjEjFBCGF3N1spNZc1y0DG8_Uyw18uG2j8V2bsQdYjk/edit#gid=1719869262) 
@@ -52,10 +52,10 @@ and ["Recommended Formats Statement"](https://www.loc.gov/preservation/resources
 
 
 ## Sound
-| <div style="width:255px">Purpose</div>                                                                                             | Preferred formats                                                                                                                                               | Acceptable formats                                                                                                           |
-| ---------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
+| <div style="width:255px">Purpose</div>                                                                                                   | Preferred formats                                                                                                                                               | Acceptable formats                                                                                                           |
+| ---------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | Masters and sound digitization<br><sub><li>Minimum bit depth: 16 bit <li>Recommended bit depth: 24 bit <li>Minimum sample rate: 44100 Hz | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>MBWF/RF64 (Multichannel BWF) [EBU TECH 3306] [^35] | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] <li>AIFF LPCM (Audio Interchange File Format with LPCM Audio) [^36] |
-| Distribution and access copies<sub><li>For speech: minimum bitrate 128Kbps <li> For music: minimum bitrate 192Kbps                      | <li>AAC (.m4a/.mp4) [^7]                                                                                                                                        |                                                                                                                              |
+
 
 
 ## Web archive

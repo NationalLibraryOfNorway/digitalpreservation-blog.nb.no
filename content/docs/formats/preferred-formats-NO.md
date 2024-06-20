@@ -23,7 +23,7 @@ Anbefalingene er utarbeidet av de respektive fagseksjonene, mens lista forvaltes
 Lista omfatter både formater Nasjonalbiblioteket produserer selv og formater Nasjonalbiblioteket mottar fra andre. 
 Formatene på lista er de som er anbefalt for bevaring av fagressurser i Nasjonalbiblioteket.
 De foretrukne formatene er det vi helst vil ha, mens de akseptable også vil bli godtatt uten konvertering/normalisering. 
-Alle andre formater må diskuteres med relevante fagseksjoner, før de eventuelt blir akseptert går inn i forvaltningen. 
+Alle andre formater bør diskuteres med relevante fagseksjoner, før de eventuelt blir akseptert går inn i forvaltningen. 
 
 Lista er inspirert av [Open Preservation Foundations (OPF)](https://openpreservation.org) liste ["International Comparison of Recommended File Formats"](https://docs.google.com/spreadsheets/d/1XjEjFBCGF3N1spNZc1y0DG8_Uyw18uG2j8V2bsQdYjk/edit#gid=1719869262) og Library of Congress sine oversikter ["Sustainability of Digital Formats: Planning for Library of Congress Collections"](https://www.loc.gov/preservation/digital/formats/fdd/descriptions.shtml) og ["Recommended Formats Statement"](https://www.loc.gov/preservation/resources/rfs/index.html).
 
@@ -54,8 +54,6 @@ Lista er inspirert av [Open Preservation Foundations (OPF)](https://openpreserva
 | <div style="width:255px">Formål</div>                                                                                                    | Foretrukne formater                                                                                                                             | Akseptable formater                                                                                                          |
 | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
 | Mastere og lyddigitalisering<br><sub><li>Minimum bitdybde: 16 bit <li>Anbefalt bitdybde: 24 bit <li>Minimum samplingsfrekvens: 44100 Hz       | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>MBWF/RF64 (Multichannel BWF) [EBU TECH 3306] [^35] | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] <li>AIFF LPCM (Audio Interchange File Format with LPCM Audio) [^36] |
-| Distribusjons- og tilgangskopier<br><sub><li>For opptak av tale: Minimum bitrate: 128 Kbps<li>For opptak av musikk: Minimum bitrate: 192 Kbps | <li>AAC (.m4a/.mp4) [^7]                                                                                                                        |                                                                                                                              |
-
 
 ## Nettarkiv
 | <div style="width:255px">Formål</div> | Foretrukne formater                                                                    | Akseptable formater |
