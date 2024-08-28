@@ -5,8 +5,8 @@ date: 2024-08-28
 tags: [Digital Preservation]  
 author: [Digital Preservation Team]  
 cover:  
-	image: retro-4601416_1280.webp
-	hiddenInList: false
+  image: retro-4601416_1280.webp
+  hiddenInList: false
 showtoc: true
 ---  
 
