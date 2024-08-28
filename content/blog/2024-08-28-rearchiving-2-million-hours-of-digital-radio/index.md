@@ -5,13 +5,15 @@ date: 2024-08-28
 tags: [Digital Preservation]  
 author: [Digital Preservation Team]  
 cover:  
-  image: retro-4601416_1280.webp
+  image: "retro-4601416_1280.webp"
   hiddenInList: false
 showtoc: true
 ---  
 
 
 The National Library is in the process of a major overhaul of its 2007 bit-repository, replacing it with a contemporary digital preservation system. This new solution is based on an in-house developed system called DPS (Digital Preservation Services), which uses IBM-HPSS as the underlying bit repository for data storage. This transition, which is expected to span over a couple of years, is necessary to ensure the long-term preservation and accessibility of the National Library's digital collection.
+
+![Old radio](retro-4601416_1280.webp)
 
 ## Transition to a New Preservation Solution
 
@@ -43,32 +45,32 @@ The generation of new MP4 files was time-consuming, but an infrastructure runnin
 
 During the process, discrepancies were found in 577 out of 2.2 million objects. None of the errors occurred while the data was stored in the Oracle HSM bit repository. Most errors are related to inadequate control routines when the material was first received and archived.
 
-### Checksum mismatch (4 cases):
+### Checksum mismatch (4 cases)
 - **Cause:** Objects failed due to a checksum mismatch, where the recorded checksum and the actual calculated checksum during re-archiving differed.
 - **Action:** For each of these objects, all three copies in Oracle HSM (disk, tape, tape) were checked and found to be identical. This means the discrepancy between the actual checksum and the recorded checksum must have occurred before the object was first archived. For these four objects, we chose to include the mp3 file in the preserved object, as it had the correct checksum. Additionally, an "event" was recorded describing why we also preserved the mp3 file.
 
 
-### Null-byte file (1 case):
+### Null-byte file (1 case)
 - **Cause:** An object where the wav file was null byte, causing a checksum mismatch.
 - **Action:** We checked all three copies in Oracle HSM and found they were identical. The discrepancy between the actual checksum and the recorded checksum must have occurred before the object was stored in Oracle HSM. For this object, we chose to include the mp3 file in the preserved object, as it had content and the correct checksum. An "event" was also recorded to explain why the mp3 file was preserved.
 
 
-### Corrupt file (1 case):
+### Corrupt file (1 case)
 - **Cause:** A file with the correct checksum that failed because we couldn't extract "duration" from Mediainfo, revealing that the file was corrupt.
 - **Action:** We chose to archive the corrupt file in the absence of alternatives and recorded an "event" describing our findings.
 
 
-### URN validation failed (507 cases):
+### URN validation failed (507 cases)
 - **Cause:** Objects with a URN that was not in the expected format. The URN validator extracts data from the URN and uses it to build MODS metadata for the object to be archived. In this case, the validator indicated that the URN content did not match what it expected. The discrepancy appears to be due to file delivery errors related to a broadcaster for a short period in October 2011.
 - **Action:** URNs were changed to the correct format.
 
 
-### Duplicate files (48 cases):
+### Duplicate files (48 cases)
 - **Cause:** During the re-archiving process, it was discovered that 48 objects from DSM were already archived in DPS. This is related to the transition of radio production workflows on March 21, 2023. At that time, daily legal deposit of radio was moved from DSM to the new DPS. In this process, the first datasets were manually loaded into the new DPS to ensure the transition was correct. By mistake, they were also captured by the old production workflow and archived in DSM. The data from the transition day was therefore stored in both the new DPS and the old DSM. When we started re-archiving the radio, we encountered duplicate errors for the programs from that day since they were already archived in DPS.
 - **Action:** No action was needed as the data is correctly archived in DPS.
 
 
-### Duplicate files (16 cases):
+### Duplicate files (16 cases)
 - **Cause:** After re-archiving was completed, there were 16 objects that, for various reasons, remained in the queue marked as not archived but were actually archived in DPS. These are mostly related to a cleanup after a backup-related incident on March 1, 2024.
 - **Action:** No action was needed as the data is correctly archived in DPS.
 
