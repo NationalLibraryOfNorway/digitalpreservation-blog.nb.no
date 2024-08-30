@@ -7,6 +7,7 @@ showtoc: true
 cover:
   image: figure.webp
   hiddenInList: false
+  relative: true
 ---
 
 The Digital Preservation Team at the National Library (NLN) has developed its first strategy for digital preservation.

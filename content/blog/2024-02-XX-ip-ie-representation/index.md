@@ -10,6 +10,7 @@ author: [Torbjørn Pedersen]
 cover:
   image: earkip.webp
   hiddenInList: false
+  relative: true
 showtoc: true
 ---
 

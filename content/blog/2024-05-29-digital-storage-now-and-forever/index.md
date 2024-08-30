@@ -5,8 +5,9 @@ date: 2024-05-29
 tags: [Digital Preservation]
 author: [Torbjørn Pedersen]
 cover:
-  image: /blog/2024-05-29-digital-storage-now-and-forever/growth.webp
+  image: growth.webp
   hiddenInList: false
+  relative: true
 showtoc: true
 ---
 

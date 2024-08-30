@@ -5,8 +5,9 @@ date: 2024-07-05
 tags: [Digital Preservation]
 author: [Digital Preservation Team]
 cover:
-  image: /blog/2024-07-05-preferred-digital-formats-at-the-national-library/preferred-digital-formats.png
+  image: preferred-digital-formats.png
   hiddenInList: false
+  relative: true
 showtoc: true
 ---
 
