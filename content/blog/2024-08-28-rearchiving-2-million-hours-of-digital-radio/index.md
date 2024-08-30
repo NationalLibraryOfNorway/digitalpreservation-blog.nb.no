@@ -4,12 +4,12 @@ category: blog
 date: 2024-08-28  
 tags: [Digital Preservation]  
 author: [Digital Preservation Team]  
-cover:  
-  image: "retro-4601416_1280.webp"
+cover:
+  relative: true  
+  image: retro-4601416_1280.webp
   hiddenInList: false
 showtoc: true
----  
-
+---
 
 The National Library is in the process of a major overhaul of its 2007 bit-repository, replacing it with a contemporary digital preservation system. This new solution is based on an in-house developed system called DPS (Digital Preservation Services), which uses IBM-HPSS as the underlying bit repository for data storage. This transition, which is expected to span over a couple of years, is necessary to ensure the long-term preservation and accessibility of the National Library's digital collection.
 
