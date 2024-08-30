@@ -1,7 +1,6 @@
 ---
 title: Intellectual package scope, intellectual entities and representations
-summary: To enable effective automation of data handling the National Library of Norway needs to standardize as many aspects of digital preservation as possible.
-         This post discusses some key concepts related to information package scope and the eArchviving standards and specifications.
+summary: This post discusses some key concepts related to information package scope and the eArchviving standards and specifications.
 draft: true
 category: blog
 date: 2024-02-27
