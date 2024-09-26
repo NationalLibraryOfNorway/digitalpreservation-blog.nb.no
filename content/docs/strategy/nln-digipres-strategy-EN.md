@@ -4,11 +4,9 @@ Summary: 🇬🇧 English translation
 date: 2024-02-07
 draft: false
 tags: [Strategy, Policy, Principles]
-author: [Digital Preservation Team]
-showtoc: true
-ShowReadingTime: false
-hideMeta: false
-hideSummary: false
+authors: 
+  - name: Digital Preservation Team
+    image: /images/NB-svart.png
 ---
 
 The primary document version in Norwegian can be found [here](/docs/strategy/nln-digipres-strategy-no/ "Link to the Norwegian version of this document").

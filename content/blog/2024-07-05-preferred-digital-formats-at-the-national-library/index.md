@@ -1,14 +1,12 @@
 ---
 title: "Preferred Digital Formats at the National Library"
-category: blog
 date: 2024-07-05
-tags: [Digital Preservation]
-author: Digital Preservation Team
-cover:
-  image: preferred-digital-formats.png
-  hiddenInList: false
-  relative: true
-showtoc: true
+tags: [Digital Preservation, file formats]
+authors: 
+  - name: Digital Preservation Team
+    image: /apple-touch-icon.png
+images: 
+  - preferred-digital-formats.png
 ---
 
 This is an overview of the digital formats preferred for digital preservation at the National Library. 

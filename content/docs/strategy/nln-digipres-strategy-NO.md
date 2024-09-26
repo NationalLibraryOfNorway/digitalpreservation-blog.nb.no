@@ -5,11 +5,9 @@ weight: 1
 date: 2024-02-07
 draft: false
 tags: [Strategy, Policy, Principles]
-author: [Digital Preservation Team]
-showtoc: true
-ShowReadingTime: false
-hideMeta: false
-hideSummary: false
+authors: 
+  - name: Digital Preservation Team
+    image: /images/NB-svart.png
 ---
 
 English translation can be found [here](/docs/strategy/nln-digipres-strategy-en/ "Link to the English version of this document").

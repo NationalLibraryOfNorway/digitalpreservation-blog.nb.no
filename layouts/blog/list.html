@@ -11,47 +11,63 @@
         <div class="content">{{ .Content }}</div>
         {{- $pages := partial "utils/sort-pages" (dict "page" . "by" site.Params.blog.list.sortBy "order" site.Params.blog.list.sortOrder) -}}
         {{- range $pages }}
-          <div class="hx-mb-10 hx-border hx-border-gray-200 dark:hx-border-gray-700 hx-rounded-lg hx-shadow-md hx-overflow-hidden hx-bg-white dark:hx-bg-gray-800">
-            <div class="hx-p-6">
-              {{ $coverImage := .Params.cover.image }}
-              {{ if $coverImage }}
-                {{ $image := .Resources.GetMatch $coverImage }}
-                {{ if $image }}
-                  <a href="{{ .RelPermalink }}" class="hx-block hx-overflow-hidden hx-rounded-lg hx-mb-6">
-                    <img src="{{ $image.RelPermalink }}" alt="Cover image for {{ .Title }}" class="hx-w-full hx-h-48 hx-object-cover hx-rounded-lg hx-transition-transform hx-duration-300 hx-ease-in-out hover:hx-scale-105"/>
-                  </a>
-                {{ end }}
+        <div class="hx-mb-10 hx-border hx-border-gray-200 dark:hx-border-gray-700 hx-rounded-lg hx-shadow-md hx-overflow-hidden">
+          <div class="hx-p-6">
+            {{ $images := .Params.images }}
+            {{ if $images }}
+              {{ $firstImage := index $images 0 }}
+              {{ $image := .Resources.GetMatch $firstImage }}
+              {{ if $image }}
+                <a href="{{ .RelPermalink }}" class="hx-block hx-overflow-hidden hx-rounded-lg hx-mb-6">
+                  <img src="{{ $image.RelPermalink }}" alt="Cover image for {{ .Title }}" class="hx-w-full hx-h-48 hx-object-cover hx-rounded-lg hx-transition-transform hx-duration-300 hx-ease-in-out hover:hx-scale-105"/>
+                </a>
               {{ end }}
-              <h3>
-                <a href="{{ .RelPermalink }}" class="hx-block hx-font-semibold hx-text-2xl hx-text-gray-900 dark:hx-text-white hx-hover:hx-text-primary-600 dark:hx-hover:hx-text-primary-400">
-                  {{ .Title }}
-                </a>
-              </h3>
-              {{- if site.Params.blog.list.displayTags -}}
-                {{ with .Params.tags }}
-                  <p class="hx-mt-2 hx-text-sm hx-text-gray-600 dark:hx-text-gray-400">
-                    {{- range . }}<a class="hx-inline-block hx-mr-2 hx-hover:hx-text-primary-600 dark:hx-hover:hx-text-primary-400">#{{ . }}</a>{{ end -}}
-                  </p>
-                {{ end -}}
+            {{ end }}
+            <h3><a style="color: inherit; text-decoration: none;" class="hx-block hx-font-semibold hx-mt-8 hx-text-2xl " href="{{ .RelPermalink }}">{{ .Title }}</a></h3>
+            {{- if site.Params.blog.list.displayTags -}}
+              {{ with .Params.tags }}
+                <p class="hx-opacity-50 hx-text-sm hx-leading-7">
+                  {{- range . }}<a class="hx-inline-block hx-mr-2">#{{ . }}</a>{{ end -}}
+                </p>
+              {{ end -}}
+            {{- end -}}
+            <div class="hx-mt-2 hx-mb-4 hx-opacity-50 hx-text-sm hx-flex hx-items-center hx-flex-wrap hx-gap-y-2">
+              {{- with $date := .Date }}<span class="hx-mr-1">{{ partial "utils/format-date" $date }}</span>{{ end -}}
+              {{- $lazyLoading := site.Params.enableImageLazyLoading | default true -}}
+              {{ if and .Date .Params.authors }}<span class="hx-mx-1">·</span>{{ end -}}
+              {{- with .Params.authors -}}
+                {{- range $i, $author := . -}}
+                  {{- if reflect.IsMap $author -}}
+                    {{- if and $i (not $author.image) }}<span class="hx-mr-1">,</span>{{ end -}}
+                    <a
+                      {{ with $author.link }}href="{{ . }}" target="_blank"{{ end }}
+                      class="hx-group hx-inline-flex hx-items-center hx-text-current hx-gap-x-1.5 hx-mx-1"
+                      {{ with $author.name }}title="{{ . }}"{{ end }}
+                    >
+                      {{- with $image := $author.image }}
+                        {{- $isLocal := not (urls.Parse $image).Scheme -}}
+                        {{- $startsWithSlash := hasPrefix $image "/" -}}
+                        {{- if and $isLocal $startsWithSlash }}
+                          {{- $image = (relURL (strings.TrimPrefix "/" $image)) -}}
+                        {{ end -}}
+                        <img src="{{ $image | safeURL }}" alt="{{ $author.name }}" class="hx-inline-block hx-h-4 hx-w-4 hx-rounded-full" {{ if $lazyLoading }}loading="lazy"{{ end }} />
+                      {{ end -}}
+                      <div class="group-hover:hx-underline">{{ $author.name }}</div>
+                    </a>
+                  {{- else -}}
+                    {{- if $i }}<span class="hx-mr-1">,</span>{{ end -}}<span class="hx-mx-1">{{ $author }}</span>
+                  {{- end -}}
+                {{- end -}}
               {{- end -}}
-              <p class="hx-mt-2 hx-text-sm hx-text-gray-600 dark:hx-text-gray-400">
-                {{ partial "utils/format-date" .Date }} • 
-                {{ with .Params.author }}By {{ . }}{{ end }}
-              </p>
-              <p class="hx-mt-4 hx-text-gray-700 dark:hx-text-gray-300">
-                {{ with .Params.summary }}
-                  {{ . }}
-                {{ else }}
-                  {{ .Summary | truncate 300 }}
-                {{ end }}
-              </p>
-              <p class="hx-mt-4">
-                <a class="hx-text-primary-600 dark:hx-text-primary-400 hx-hover:hx-underline hx-font-medium" href="{{ .RelPermalink }}">
-                  {{- $readMore -}}
-                </a>
-              </p>
             </div>
+            <p class="hx-opacity-80 hx-mt-4 hx-leading-7">{{- partial "utils/page-description" . -}}</p>
+            <p class="hx-opacity-80 hx-mt-1 hx-leading-7">
+              <a class="hx-text-[color:hsl(var(--primary-hue),100%,50%)] hx-underline hx-underline-offset-2 hx-decoration-from-font" href="{{ .RelPermalink }}">
+                {{- $readMore -}}
+              </a>
+            </p>
           </div>
+        </div>
         {{ end -}}
       </main>
     </article>

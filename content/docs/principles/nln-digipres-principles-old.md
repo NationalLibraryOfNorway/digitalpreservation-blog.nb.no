@@ -4,11 +4,9 @@ summary: "🇳🇴 Norwegian primary document. First version. Deprecated"
 date: 2023-09-26
 expiryDate: 2024-02-07 
 tags: ["Policy", "Principles"]
-author: ["Digital Preservation Team"]
-showtoc: true
-ShowReadingTime: false
-hideMeta: false
-hideSummary: false
+authors: 
+  - name: Digital Preservation Team
+    image: /images/NB-svart.png
 ---
 
 Digital bevaring i Nasjonalbiblioteket baserer seg på følgende prinsipper:

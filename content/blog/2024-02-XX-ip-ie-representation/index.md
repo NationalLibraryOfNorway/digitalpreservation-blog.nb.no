@@ -5,12 +5,11 @@ draft: true
 category: blog
 date: 2024-09-23
 tags: [Systems architecture]
-author: Torbjørn Pedersen
-cover:
-  image: arkitektur.png
-  hiddenInList: false
-  relative: true
-showtoc: true
+authors: 
+  - name: Torbjørn Bakken Pedersen
+    image: https://avatars.githubusercontent.com/u/113333557?v=4
+images: 
+  - arkitektur.png
 ---
 
 The digital preservation team uses the [OAIS model](https://en.wikipedia.org/wiki/Open_Archival_Information_System#The_functional_model "Wikipedia page explaining the OAIS functional model") as a reference point.

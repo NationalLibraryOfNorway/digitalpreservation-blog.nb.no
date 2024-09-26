@@ -1,19 +1,12 @@
 ---
 title: Documentation
 breadcrumbs: false
-next: first-page
 ---
 
-This is a demo of the theme's documentation layout.
+This is the documentation landing page for the Digital Preservation team
 
-## Hello, World!
-
-```go {filename="main.go"}
-package main
-
-import "fmt"
-
-func main() {
-    fmt.Println("Hello, World!")
-}
-```
+{{< cards >}}
+  {{< card link="principles" title="Principles" icon="document-text" >}} 
+  {{< card link="strategy" title="Strategy" icon="document-text" >}}
+  {{< card link="formats" title="Preferred file formats" icon="table" >}}
+{{< /cards >}}

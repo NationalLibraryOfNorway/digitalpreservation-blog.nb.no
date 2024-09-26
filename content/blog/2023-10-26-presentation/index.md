@@ -3,12 +3,11 @@ title: Team Digital Preservation
 category: blog
 date: 2023-10-26
 tags: [Team presentation, team organization, product teams]
-author: Digital Preservation Team
-toc: false
-cover:
-  image: cover.webp
-  hiddenInList: false
-showtoc: true
+authors: 
+  - name: Digital Preservation Team
+    image: /apple-touch-icon.png
+images: 
+  - cover.webp
 aliases: ["/team-digital-preservation-70f5805ba536", "/about"]
 breadcrumbs: false
 ---

@@ -5,11 +5,9 @@ weight: 1
 date: 2024-05-07
 draft: false
 tags: [Policy, File formats]
-author: [Digital Preservation Team]
-showtoc: true
-ShowReadingTime: false
-hideMeta: false
-hideSummary: false
+authors: 
+  - name: Digital Preservation Team
+    image: /images/NB-svart.png
 aliases: ["/docs/formats/2024-05-07-formats-in-use-en"]
 ---
 

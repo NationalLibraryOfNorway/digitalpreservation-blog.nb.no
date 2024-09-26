@@ -4,11 +4,8 @@ summary:
 draft: true
 date: 2023-04-14
 tags: [TAR, File identification, DROID, METS, PRONOM]
-author: [Thomas Edvardsen]
-showtoc: true
-cover:
-  image: 
-  hiddenInList: true
+authors: 
+  name: Thomas Edvardsen
 ---
 
 Digital preservation becomes increasingly important for cultural heritage institutions around the world.

@@ -1,5 +1,6 @@
 ---
 title: Demo Page
+draft: true
 type: docs
 prev: /
 next: docs/folder/
