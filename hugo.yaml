@@ -4,7 +4,7 @@ title: Digital Preservation at the National Library of Norway
 
 enableRobotsTXT: true
 enableGitInfo: true
-enableEmoji: false
+enableEmoji: true
 hasCJKLanguage: true
 
 # import hextra as module
@@ -39,7 +39,7 @@ menu:
         type: search
     - name: GitHub
       weight: 5
-      url: "https://github.com/imfing/hextra-starter-template"
+      url: "https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no"
       params:
         icon: github
     - name: NB.no ↗
