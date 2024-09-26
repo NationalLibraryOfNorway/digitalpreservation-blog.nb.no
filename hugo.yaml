@@ -48,7 +48,7 @@ menu:
 
 params:
   navbar:
-    width: normal
+    width: full
     displayTitle: true
     displayLogo: true
     logo:
@@ -57,7 +57,7 @@ params:
       width: 20
 
   page:
-    width: normal
+    width: full
 
   footer:
     displayCopyright: false
