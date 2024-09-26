@@ -2,7 +2,7 @@
 title: Team Digital Preservation
 category: blog
 date: 2023-10-26
-tags: [Team presentation]
+tags: [Team presentation, team organization, product teams]
 author: Digital Preservation Team
 toc: false
 cover:
