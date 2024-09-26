@@ -21,20 +21,16 @@ We work closely with several other specialized media teams in the library.
 In addition we are members of the [Digital Preservation Coalition (DPC)](https://www.dpconline.org/ "Digital Preservation Coalition homepage").
 
 ## Organisation
-The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page about Digital Preservation at NLN") team consist of 7 members:
+The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page about Digital Preservation at NLN") team consist of 6 members:
 
-- **Team Lead**: [Trond Teigen](https://www.linkedin.com/in/trond-teigen-191954ab "Trond Teigen's LinkedIn Page")
-- **Product Lead**: [Torbjørn Pedersen](https://www.linkedin.com/in/torbjørn-pedersen-57617b227b "Torbjørn Pedersen's LinkedIn Page")
-- **Tech Lead**: [Thomas Edvardsen](https://www.linkedin.com/in/thomasedvardsen "Thomas Edvardsen's LinkedIn Page")
-- **Senior Platform Developer**: [Vigdis Marie Sørensen](https://www.linkedin.com/in/vigdis-sørensen-8a3618a6 "Vigdis Marie Sørensen's LinkedIn Page")
-- **Application Developer**: [Siarhei Kulakou](https://www.linkedin.com/in/siarhei-kulakou-0702ba245 "Siarhei Kulakou's LinkedIn Page")
-- **Application Developer**: [Johannes Karlsen](https://www.linkedin.com/in/johannes-karlsen-476197267 "Johannes Karlsen's LinkedIn Page")
-
-{{< figure src="teamphoto.webp" 
-  caption="Back, left to right: Johannes Karlsen, Siarhei Kulakou, Torbjørn Pedersen, Thomas Edvardsen.<br>Front, left to right: Daniel Aaron Salwerowicz, Vigdis Marie Sørensen, Trond Teigen" 
-  alt="Group photo of the Digital Preservation team members. Back, left to right: Johannes Karlsen, Siarhei Kulakou, Torbjørn Pedersen, Thomas Edvardsen. Front, left to right: Daniel Aaron Salwerowicz, Vigdis Marie Sørensen, Trond Teigen" 
-  align=center
->}}
+{{< cards cols="6" minWidth="120px" >}}
+  {{< card link="/" title="Trond Teigen" image="trond.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Team lead" method="resize">}}
+  {{< card link="/" title="Torbjørn Bakken Pedersen" image="torbjorn.jpeg" link="https://www.linkedin.com/in/torbjørn-pedersen-57617b227b" subtitle="Product lead" >}}
+  {{< card link="/" title="Thomas Edvardsen" image="thomas.jpeg" link="https://www.linkedin.com/in/thomasedvardsen" subtitle="Tech lead" >}}
+  {{< card link="/" title="Vigdis Marie Sørensen" image="vigdis.jpeg" link="https://www.linkedin.com/in/vigdis-sørensen-8a3618a6" subtitle="Senior platform developer" >}}
+  {{< card link="/" title="Siarhei Kulakou" image="siarhei.jpeg" link="https://www.linkedin.com/in/siarhei-kulakou-0702ba245" subtitle="Application developer" >}}
+  {{< card link="/" title="Johannes Karlsen" image="johannes.jpeg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Application developer" >}}
+{{< /cards >}}
 
 This team reports to a committee of leaders responsible for this area in the National Library. The members are:
 - IT Director (Product owner)
