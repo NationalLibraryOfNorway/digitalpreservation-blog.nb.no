@@ -3,7 +3,7 @@ title: "Preferred Digital Formats at the National Library"
 category: blog
 date: 2024-07-05
 tags: [Digital Preservation]
-author: [Digital Preservation Team]
+author: Digital Preservation Team
 cover:
   image: preferred-digital-formats.png
   hiddenInList: false

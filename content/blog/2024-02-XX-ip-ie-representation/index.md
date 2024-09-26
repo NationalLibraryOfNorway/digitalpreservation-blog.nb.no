@@ -1,191 +1,81 @@
 ---
-title: Intellectual package scope, intellectual entities and representations
-summary: This post discusses some key concepts related to information package scope and the eArchviving standards and specifications.
+title: Data and metadata architecture
+summary: This post discusses high-level metadata and data handling at the National Library of Norway
 draft: true
 category: blog
-date: 2024-02-27
-tags: [team, IP, E-ARK, eArchiving]
-author: [Torbjørn Pedersen]
+date: 2024-09-23
+tags: [Systems architecture]
+author: Torbjørn Pedersen
 cover:
-  image: earkip.webp
+  image: arkitektur.png
   hiddenInList: false
   relative: true
 showtoc: true
 ---
 
-In our strategy we have defined standardization of how we work as a [strategic area of focus](/docs/strategy/nln-digipres-strategy-en/#strategic-areas-of-focus).
-This aim includes all aspects of our digital preservation work, and stems from the constant high volumes of data flowing through and being managed by our systems.
-To deal with these volumes, we are reliant on automation, which in turn requires standardization to be effective.
+The digital preservation team uses the [OAIS model](https://en.wikipedia.org/wiki/Open_Archival_Information_System#The_functional_model "Wikipedia page explaining the OAIS functional model") as a reference point.
+However, as our systems architecture is complex and has been built over several years, you can't simply overlay the OAIS drawing over our systems and make sense of it.
+The digital preservation team develops and manages the Digital Preservation Services (DPS) software, but this is only one aspect of data and metadata management in the National Library.
+The responsibilities for any digital object in the National Library is spread between a triad of different system domains each holding a part of the "truth":
 
-One of the core things to standardize is the formatting of our OAIS *preservation packages*.
-In short though, we need to a clear understanding of the different *kinds* of digital objects we are operating with and the kind of *sets* of objects we want to put in each information package.
+- **Asset management systems**
+	- Manages descriptive metadata
+	- Holds the unique identifier for asset entities
+- **Digital Preservation Services**
+	- Manages preservation data
+	- Has a **copy** of metadata from asset management systems
+- **Public access services**
+	- Manages access data
+	- Has a **copy** of metadata from asset management systems
 
-## eArchiving standards and specifications
+The glue that holds everything together is a unique identifier (typically a URN) shared by all systems, but managed in the asset management systems.
+This needs to be unique across systems and should not be reused. 
 
-To standardize our package structures we are working towards implementing the [eArchiving standards and specification](https://dilcis.eu "Website with standards and specifications for E-ARK") developed in the [E-ARK project](https://www.eark-project.com "Link to the E-ARK project website, historic and not updated").
-This is also stated in our newly revised [digital preservation principles](/docs/principles/nln-digipres-principles-en/#use-a-standardized-format-to-package-files-for-preservation "Section discussing format for packaging files for preservation").
-In the end we hope to have a standardised package structure specification for all *cultural heritage objects* that the National Library deals with.
-In the long-term, if feasible, we will try to define one or multiple eArchiving Content Information Type Specifications (CITS) for our relevant content types.
+### Asset management systems
+Our asset management systems are the authoritative "truth" for descriptive metadata and assets. 
+I'm using the term "asset management systems" in this text, but I could have called these "catalogs" or "metadata systems". 
+Put very simply, they are systems in a wider sense that manage the metadata of assets.
+In PREMIS terms the asset management systems manage intellectual entities, representations, (+ their descriptive metadata).
 
-The eArhciving specifications and standards operate with different information packages.
-This document attempts to define a practical interpretation of key concepts in relation to logical Submission Information Packages (SIPs).
-The suggested SIP scope allows for AIP and DIP creation in a manageable manner.
+The asset management systems are the systems used for internal discovery.
+If a user needs to find a specific asset, they should use the asset management systems.
+The asset management systems holds the key unique identifier that allows for identification of access and preservation data.
 
-The key concepts discussed is the intellectual entity used to define logical package scope, as well as the representation level below it.
+### Digital Preservation Services
+Our Digital Preservation Services (DPS) manages all data in our bit-repository and controls data integrity and access for long-term storage. 
+It is in this environment the standardization of packages is essential. 
+Along with the preserved data, we store a *copy* of select descriptive data to make the digital asset identifiable and usable in the long-term.
+In PREMIS terms the Digital Preservation Services manage files and bitstreams (+ their technical metadata=.
 
-## SIP mirrors intellectual Entity
+We do not aim to replicate the metadata structures or functionality of our asset management systems in the DPS. 
+The DPS is not a discovery system for descriptive metadata.
+Users should already have identified the assets they are seeking before interfacing with the DPS.
 
-In the E-ARK SIP specification a SIP is a package holding *metadata* and *representations*.
-The representations are again composed of *data* and *metadata* of their own.
-The representation concept is defined in PREMIS:
+### Public access services
+Our public access services manages access representations of preserved data on streaming servers. 
+These are typically smaller and lossy proxy files of the much larger preservation files in the DPS. 
+The public access services also *harvests* select metadata from our various asset management systems, to provide public access to metadata and access copies on our webpages [NB.no](https://www.nb.no/search "National library online portal").
 
-> A **Representation** is the set of all file objects needed to render an Intellectual Entity.
-> For example, a journal article may be complete in one PDF file; this single file constitutes the Representation.
-> Another journal article may consist of one SGML file and two image files; these three files constitute the Representation.
-> A third article may be represented by one TIFF image for each of 12 pages plus an XML file of structural metadata showing the order of the pages; these 13 files constitute the Representation.
+The public access services are our public facing discovery and access systems.
+They provide access to a subset of harvested metadata from the asset management systems and related access data online.
 
-A package can consist of multiple representations.
-The metadata sitting at the SIP core is metadata that that describes the whole package and all the representations equally.
+## Architecture
+This is an idealized and simplified version of our architecture, but still helpful to understand the kind of systems interactions we deal with.
+While we use the OAIS framework to discuss our architecture, the various OAIS components and flows becomes quite abstract in this context[^1]. 
 
-The representation definition also introduces the concept of the *Intellectual Entity* (subsequently referred to as IE).
-It is also defined in PREMIS:
+[^1]: You could apply the DIP concept to the public access services' dissemination of access copies, but traditionally we have only used the OAIS terminology in the digital preservation domain.
 
-> An **Intellectual Entity** is a distinct intellectual or artistic creation that is considered relevant to a designated community in the context of digital preservation: for example, a particular book, map, photograph, database, or hardware or software.
+![architecture drawing](arkitektur.png)
 
-IEs tend to describe *intellectual content*.
-In our suggested implementation of the SIP there is a 1:1 relationship between SIP and IE.
-The metadata at the core describes the IE that the SIP represents.
-The representations are different data renditions of the IE.
-SIPs thus have metadata about and representations of intellectual content.
+The SIP in this drawing contains data for preservation in addition to a copy of metadata from the asset management systems in a standardized format (e.g. MODS).
+Our DPS is currently not exposed to the public. 
+Any public access to preserved data goes through other internal services built on top of the DPS first. Access copies that can easily/automatically be derived from a preserved master file are out of principle not preserved in the DPS.
 
-**Simplified view of E-ARK SIP structure:**
+## Ramifications?
+In our ongoing work with the [eArchiving standards and specification](https://dilcis.eu "Website with standards and specifications for E-ARK"), we are in the process of defining package scope, intellectual entitites to be used and representation ruleset. 
+With this context it becomes clear that how we define package scope has wide-ranging concequences.
+It is essential that our three environments needs to stay in sync somehow, and operate with similar concepts.
+We do not want to end up in a situation where we have paralell, and possibly opposing, "truths" in different systems.
 
-```
-SIP
-├── metadata
-└── representations
-    ├── representationID
-    │   ├── data
-    │   └── metadata
-    ├── representationID
-    │   ├── data
-    │   └── metadata
-    ├── ...
-    │   ├── ...
-    │   └── ...
-    └── representationID
-        ├── data
-        └── metadata
-```
-
-## Intellectual entity and catalogs
-
-Intellectual entities is also a concept we find in the various metadata systems outside the digital preservation environment.
-I'm going to refer to these metadata systems as *asset management systems* for the purposes of this text[^1].
-
-[^1]: I could called these systems "metadata systems", "collection management systems", "catalogs" etc.
-      The point is that they are systems (in a wider sense) outside of the digital preservation environment, that manages the primary descriptive metadata for data objects within the digital preservation environment.
-
-In our asset management systems, we tend to operate with a lot of different IEs, usually organised in some sort of hierarchy.
-In use-case examples of PREMIS and E-ARK, it is usually the highest level entity from these hierarchies, that is referred to as the IE and used to define *intellectual scope of packages*, ie. a *work* or *expression*.
-However, we find this impractical for a variety of reasons.
-
-As an example, one of our more extensive intellectual hierarchies is found in our audiovisual catalog.
-It is a 4-level hierarchy based on the IFLA LRM and EN15907 conceptual models.
-It consist of these entities:
-
-- Work-expression
-- Manifestation
-- Item
-- Carrier
-
-This is a data model made for describing intellectual *content*.
-The 3 top level entities all describe abstract concepts in some manner.
-The carrier is the only entity describing a tangible object in this hierarchy.
-
-The more abstract a concept an IE describes, the more open it is to subjective interpretation.
-These entities are thus often subject to changes in their asset management systems.
-Content is reinterpreted, new information appears, work definitions change, new work-expressions and manifestations are identified, and even items (which describes logical units of carriers) can be split or have its carriers rearranged.
-Furthermore cataloging rules and data models can be modified or replaced.
-
-Such intellectual hierarchies are not set in stone, but rather in constant flux.
-Despite all of this, our carriers will very rarely be split or merged, due to their inherent tangible nature.
-
-We *could* model multiple complex hierarchies of IEs in PREMIS, but this would introduce a difficult complication of ever-changing package structures in our digital preservation environment.
-It will increase the complexity of managing the relationships between SIPs and AIPs over time.
-We prefer if the data in our packages and representations do not have to move between packages and representations, due to external metadata changes.
-
-We do not want to mirror and manage entire hierarchical catalogs in the preservation environment.
-Instead, we would prefer to keep the information packages in a flat structure.
-We also find it beneficial to operate with a 1:1 relationship between information packages and some IE in an external Asset Management system.
-This is to avoid operating with unique metadata "sizes" in the preservation environment, as well as to ease the metadata ingest processes.
-
-### Carrier
-
-To create a flat structure in the digital preservation environment, we intend to define SIP scope using IE describing the *smallest* described size in any of our asset management systems.
-I'm going to refer to this size as the *carrier* for the purposes of this text, even though it is not necessarily called a carrier in all of our asset management systems.
-
-The reason for wanting to use the carrier, is because it represents an actual tangible object, and, as such, it is a *persistent* Intellectual entity in our asset management systems.
-
-In an analog context the carrier refers to a single book, a single paper photo, or a single film reel.
-In a digital context the carrier concept refers to a digital objects.
-It can refer to both *simple digital objects* (discrete individual files), as well as *complex digital objects*[^2](groups of files).
-For a digital book it tends to refers to the whole "book" (a PDF, or a sequence of images per page, etc), for digital photos it tends to refer to a single TIFF, and for a film scan it refers to a single DPX *sequence*.
-
-[^2]: Higgins, Sarah. “The DCC Curation Lifecycle Model.” *International Journal of Digital Curation*, vol. 3, no. 1, Dec. 2008, pp. 134–40. DOI.org (Crossref), [https://doi.org/10.2218/ijdc.v3i1.48](https://doi.org/10.2218/ijdc.v3i1.48).
-
-
-We can try to simplify it even further, some package owners[^3] will not operate with a complex Asset Management System, and will thus not operate with a size easily recognisable as a carrier entity.
-However, every preservation package needs a unique identifier to function as key between the environments outside digital preservation and the package.
-We could adopt the carrier concept in a quite abstract sense here, to mean the size referred to using such an identifier key.
-In our asset management systems that identifier is typically the unique carrier ID (usually a URN).
-
-[^3]: The environment delivering SIPs and owning their content
-
-Again, the scope of carriers can vary, its size is defined by what is a practical level of description in a given asset management system.
-If it makes sense to describe multiple individual objects as one carrier, you can do that (with all pros/cons that follow).
-*The carrier scope definition is the responsibility of the package owner.* In the digital preservation environment a SIP will be accepted regardless of its complexity or lack thereof.
-
-## Representation and carrier
-
-Operating with the carrier as our IE, the *representation* is then what is needed to render the *whole* of the carrier.
-
-It is important to keep in mind *what kind* or *which* carrier we want to use as IE to define package scope.
-We are talking about a digital carrier that describe the digital object (simple or complex) that is contained in the preservation package.
-
-In the case of analog materials having been digitised we are referring to the digital carrier that describes the digital *derivate*, **not** the carrier representing the analog *original* it has been derived from.
-
-If we for example digitise a film reel, producing both an image sequence and a sound stream, whether it should be structured as one SIP with one representation (containing both sound and image), or whether we describe it as two SIPs with one representation each, depends on how the carrier(s) is described by the package owner in the asset management system.
-
-In a use-case where the sound and image is described using a single carrier, the option of creating one package with two representations (one for sound and one for images), is no longer relevant.
-Neither of those representations represent the whole of the carrier.
-The higher-level entities used as IEs, and the more abstract concepts these describe, the more complex your SIPs become.
-
-Another reason for going down this route is that we need a flexible model.
-Some packages stem from package owner environments that are completely flat.
-Package owners do not necessarily operate with data in intellectual hierarchies.
-It is beneficial to keep the package scope definition as general as possible across material types.
-Generalist solutions allow more unified interfacing for all materials.
-
-## SIPs, representations and versioning/updates
-
-In practical terms, this means the logic surrounding whether content of a received SIP should be dealt with as a new package, new files being added to an existing package, or existing files in an existing package being updated, lies with the package owner.
-Usually through metadata practices in an asset management system.
-
-For example: if a new digital object is dealt with as a new carrier in an asset management systems, it needs to be a new package.
-If it is described using an existing carrier entity in the asset management systems, then the new files would either need to be added to an existing package, or existing files needs to be updated/versioned.
-
-The vast majority of such operations would lead to the creation of new packages, as well as updates to core metadata for existing packages.
-
-Over time format migrations for preservation purposes will result in new representations, with new data appearing within existing packages.
-
-The usual practice in our asset management systems is to create new carriers when new digitisations are made, but there are instances where we would do mere updates.
-Versioning of core metadata will be a common occurrence, while versioning of already existing representations and their data will happen very rarely.
-All additions and file changes will be handled using OCFL.
-
-## Representation structure
-
-Within the representation folders data and representation metadata will sit in their own folders.
-The file structure within those folders will be defined by the various package owners.
-It should allow for human identification of its content and be understandable with minimal effort in the long term.
+As the long term goal is to expose the DPS to 
 

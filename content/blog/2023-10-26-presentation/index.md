@@ -3,12 +3,14 @@ title: Team Digital Preservation
 category: blog
 date: 2023-10-26
 tags: [Team presentation]
-author: [Digital Preservation Team]
+author: Digital Preservation Team
+toc: false
 cover:
-  image: /cover.webp
+  image: cover.webp
   hiddenInList: false
 showtoc: true
 aliases: ["/team-digital-preservation-70f5805ba536", "/about"]
+breadcrumbs: false
 ---
 
 In June 2022 the IT Department established a team dedicated to preserving the [National Library’s](https://nb.no/ "National Library of Norway homepage") digital collection.

@@ -9,7 +9,7 @@ draft: false
 category: blog
 date: 2024-02-16
 tags: [NiFi, Site-to-Site, S2S, Security, Certificate, Reporting task]
-author: [Daniel Aaron Salwerowicz]
+author: Daniel Aaron Salwerowicz
 cover:
   image: cover.png
   alt: A remote input port for provenance events feeding data into an EvaluateJsonPath processor

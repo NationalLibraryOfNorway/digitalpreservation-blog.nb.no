@@ -1,0 +1,56 @@
+{{ define "main" }}
+  {{- $readMore := (T "readMore") | default "Read more →" -}}
+  <div class="hx-mx-auto hx-flex {{ partial `utils/page-width` . }}">
+    {{ partial "sidebar.html" (dict "context" . "disableSidebar" true "displayPlaceholder" true) }}
+    <article class="hx-w-full hx-break-words hx-flex hx-min-h-[calc(100vh-var(--navbar-height))] hx-min-w-0 hx-justify-center hx-pb-8 hx-pr-[calc(env(safe-area-inset-right)-1.5rem)]">
+      <main class="hx-w-full hx-min-w-0 hx-max-w-6xl hx-px-6 hx-pt-4 md:hx-px-12">
+        <br class="hx-mt-1.5 hx-text-sm" />
+        {{ if .Title }}
+          <h1 class="hx-text-center hx-mt-2 hx-text-4xl hx-font-bold hx-tracking-tight hx-text-slate-900 dark:hx-text-slate-100">{{ .Title }}</h1>
+        {{ end }}
+        <div class="content">{{ .Content }}</div>
+        {{- $pages := partial "utils/sort-pages" (dict "page" . "by" site.Params.blog.list.sortBy "order" site.Params.blog.list.sortOrder) -}}
+        {{- range $pages }}
+          <div class="hx-mb-10 hx-border hx-border-gray-200 dark:hx-border-gray-700 hx-rounded-lg hx-shadow-md hx-overflow-hidden hx-bg-white dark:hx-bg-gray-800">
+            {{ $coverImage := .Params.cover.image }}
+            {{ if $coverImage }}
+              {{ $image := .Resources.GetMatch $coverImage }}
+              {{ if $image }}
+                <img src="{{ $image.RelPermalink }}" alt="Cover image for {{ .Title }}" class="hx-w-full hx-h-48 hx-object-cover"/>
+              {{ else }}
+                <p class="hx-text-red-500 hx-p-4">Image not found: {{ $coverImage }}</p>
+              {{ end }}
+            {{ else }}
+              <p class="hx-text-yellow-500 hx-p-4">No cover image specified for: {{ .Title }}</p>
+            {{ end }}
+            <div class="hx-p-6">
+              <h3>
+                <a href="{{ .RelPermalink }}" class="hx-block hx-font-semibold hx-text-2xl hx-text-gray-900 dark:hx-text-white hx-hover:hx-text-primary-600 dark:hx-hover:hx-text-primary-400">
+                  {{ .Title }}
+                </a>
+              </h3>
+              {{- if site.Params.blog.list.displayTags -}}
+                {{ with .Params.tags }}
+                  <p class="hx-mt-2 hx-text-sm hx-text-gray-600 dark:hx-text-gray-400">
+                    {{- range . }}<a class="hx-inline-block hx-mr-2 hx-hover:hx-text-primary-600 dark:hx-hover:hx-text-primary-400">#{{ . }}</a>{{ end -}}
+                  </p>
+                {{ end -}}
+              {{- end -}}
+              <p class="hx-mt-2 hx-text-sm hx-text-gray-600 dark:hx-text-gray-400">
+                {{ partial "utils/format-date" .Date }} • 
+                {{ with .Params.author }}By {{ . }}{{ end }}
+              </p>
+              <p class="hx-mt-4 hx-text-gray-700 dark:hx-text-gray-300">{{- partial "utils/page-description" . -}}</p>
+              <p class="hx-mt-4">
+                <a class="hx-text-primary-600 dark:hx-text-primary-400 hx-hover:hx-underline hx-font-medium" href="{{ .RelPermalink }}">
+                  {{- $readMore -}}
+                </a>
+              </p>
+            </div>
+          </div>
+        {{ end -}}
+      </main>
+    </article>
+    <div class="max-xl:hx-hidden hx-h-0 hx-w-64 hx-shrink-0"></div>
+  </div>
+{{- end -}}

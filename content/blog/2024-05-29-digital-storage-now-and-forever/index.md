@@ -3,7 +3,7 @@ title: "Presentation from the Digital libraries: storage for now and forever con
 category: blog
 date: 2024-05-29
 tags: [Digital Preservation]
-author: [Torbjørn Pedersen]
+author: Torbjørn Pedersen
 cover:
   image: growth.webp
   hiddenInList: false
