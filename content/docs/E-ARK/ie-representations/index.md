@@ -1,5 +1,5 @@
 ---
-title: Intellectual entities, representations and assets
+title: Intellectual entities and representations
 summary: This post discusses some key concepts related to information package scope and the eArchviving standards and specifications.
 draft: true
 date: 2024-09-23

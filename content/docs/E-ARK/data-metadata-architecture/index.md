@@ -19,6 +19,7 @@ The digital preservation team develops and manages the Digital Preservation Serv
 As we contintue to develop the DPS and standardizing packages, awareness of the different systems' domains responsibilities and their interaction is essential.
 
 
+## System domains
 The responsibilities for any digital object in the National Library is spread between a triad of different system domains each holding a part of the "truth":
 
 - **Asset management systems**
@@ -60,8 +61,8 @@ The producer environments' owns the intellectual entity definitions, based on de
 The DPS holds the "truth" for technical *file* metadata.
 
 We do not aim to replicate the metadata structures or functionality of our asset management systems in the DPS. 
-The DPS is a discovery system for **files** (through technical metadata), but this is still a rare use-case in our organization.
 Users should already have identified the intellectual entities they are seeking before interfacing with the DPS.
+The DPS can be a discovery system for *files* (through technical metadata), but this is still a rare use-case in our organization.
 
 ### Public access services (NB.no)
 The public access services manages a *harvested* subset of descriptive metadata from our asset management systems and access *files*.
@@ -88,7 +89,7 @@ Our DPS is currently not exposed to the public.
 Any public access to preserved data goes through other internal services built on top of the DPS. 
 Access copies that can easily/automatically be derived from a preserved master file are out of principle not preserved in the DPS.
 
-## PREMIS
+## Representations
 In our ongoing work with the [eArchiving standards and specification](https://dilcis.eu "Website with standards and specifications for E-ARK"), we are in the process of defining package scope, intellectual entitites to be used and representation ruleset.
 These terms come from PREMIS, which again is a model mainly used in the digital preservation environment.
 What becomes clear when drawing up this map is that management responsibility of the *representation* entity is quite opaque.
@@ -97,11 +98,11 @@ Responsibility of the representation level seem to fall between the cracks of di
 However, we still need to be able to define it's scope in terms of the E-ARK standardization, it is also a useful concept to determine overarching organziational architecture.
 
 In the asset management system domain other metadata models are used - MARC, LRM, RDA, ISAD(G) etc.
-All of these models operate with a myriad different intellectual entities, that can be mapped to PREMIS.
+All of these models operate with a myriad different intellectual entities, that can be used to define package scope.
 
-The representation level is an outlier here, as it is only described in the preservation packages, and not in the asset management systems. However, the intellectual entity describing the representation's *content* is defined in the asset management systems. The representation thus only exists in the DPS, but is practically defined in the asset management systems environment.
+The representation level is an outlier here, as it is only described in the preservation packages, and not in the asset management systems. However, the intellectual entity describing the representation's *content* is defined in the asset management systems. The representation thus only exists in the DPS, but is practically defined in the asset management environment.
 
-The responsibility for managing the relevant PREMIS entities are mostly clear cut, but the representation is shared.
+The responsibility for managing the relevant PREMIS entities are mostly clear cut, but the representation is shared between environments.
 
 ![PREMIS entity responsibility](premis.png)
 
@@ -109,9 +110,9 @@ I'm ignoring the public access environment for now, as both the data and the met
 
 ### Ramifications
 With this context it becomes clear that how we define package scope has wide-ranging concequences.
-It is essential that our three environments needs to stay in sync somehow, and operate with similar concepts.
+It is essential that our three environments needs to stay in sync, and operate with similar concepts and sizes.
 We do not want to end up in a situation where we have paralell, and possibly opposing, "truths" in different systems.
 
-The next text discusses intellectual entities and the representation level, attempting to define clear definitions of responsibilities for practical implementation.
+The next text discusses intellectual entities and the representation level, attempting to define clear definitions for practical use in SIP creation.
 
 
