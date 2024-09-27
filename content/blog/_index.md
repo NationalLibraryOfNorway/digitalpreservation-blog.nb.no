@@ -1,5 +1,5 @@
 ---
-title: Digital preservation at the National Library of Norway
+title: Blog
 summary: Blogposts written by the members of Digital Preservation team at the National Library of Norway
 ---
 <br>
