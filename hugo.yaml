@@ -52,8 +52,8 @@ params:
     displayTitle: true
     displayLogo: true
     logo:
-      path: images/NB-svart.png
-      dark: images/NB-hvit.png
+      path: images/NB-svart.svg
+      dark: images/NB-hvit.svg
       width: 25
 
   page:
