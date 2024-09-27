@@ -1,7 +1,7 @@
 ---  
 title: "Rearchiving 2 million hours of digital radio, a comprehensive process"  
 date: 2024-08-28  
-tags: [Digital Preservation]  
+tags: [Broadcasting, Rearchiving, HPSS, SAM-FS]  
 authors: 
   - name: Digital Preservation Team
     image: /apple-touch-icon.png
