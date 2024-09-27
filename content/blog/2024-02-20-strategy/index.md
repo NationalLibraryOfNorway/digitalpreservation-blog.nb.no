@@ -2,12 +2,11 @@
 title: Ambitions, Goals, and Strategy for Digital Preservation at the National Library
 date: 2024-02-20
 tags: [Strategy, Principles, Policy]
-author: [Trond Teigen]
+authors: 
+  - name: Trond Teigen
 showtoc: true
-cover:
-  image: figure.webp
-  hiddenInList: false
-  relative: true
+images: 
+  - figure.webp
 ---
 
 The Digital Preservation Team at the National Library (NLN) has developed its first strategy for digital preservation.

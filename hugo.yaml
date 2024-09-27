@@ -1,140 +1,84 @@
-# baseURL: https://digitalpreservation-blog.nb.no/
-languageCode: en-us
-title: Digital Preservation at the National Library of Norway
-theme: PaperMod
+# Hugo configuration file
+baseURL: "https://digitalpreservation-blog.nb.no/"
+title: "NLN Digipres"
+
 enableRobotsTXT: true
-buildDrafts: false
-buildFuture: false
-buildExpired: false
-pluralizeListTitles: false
-# enableGitInfo: true # can be set up to pull dates etc from github
+enableGitInfo: true
+enableEmoji: true
+hasCJKLanguage: true
 
-minify:
-  disableXML: true
-  minifyOutput: true
-
-frontmatter:
-  lastmod: [lastmod, ":git"] #Lastmod data in frontmatter has priority over data from git
-
-params:
-  env: production # to enable google analytics, opengraph, twitter-cards and schema.
-  title: Digital Preservation at the National Library of Norway
-  description: Webpage and blog of the Digital Preservation team at the National Library of Norway
-  keywords: [Blog]
-  images: [cover.webp]
-  DateFormat: 2006-01-02
-  defaultTheme: auto # dark, light
-  disableThemeToggle: false
-  ShowAllPagesInArchive: false
-  ShowReadingTime: true
-  ShowShareButtons: false
-  ShowPostNavLinks: true
-  ShowBreadCrumbs: true
-  ShowCodeCopyButtons: true
-  ShowWordCount: true
-  ShowRssButtonInSectionTermList: false
-  UseHugoToc: true
-  disableSpecial1stPost: true
-  disableScrollToTop: false
-  comments: false
-  hidemeta: false
-  hideSummary: false
-  showtoc: false
-  tocopen: false
-  mainSections:
-    - blog
-
-  assets:
-    # disableHLJS: true # to disable highlight.js
-    # disableFingerprinting: true
-    favicon: /favicon.ico
-    favicon16x16: /favicon-16x16.png
-    favicon32x32: /favicon-32x32.png
-    apple_touch_icon: /apple-touch-icon.png
-    safari_pinned_tab: <link / abs url>
-
-  label:
-    text: Home
-    icon: 
-    iconHeight: 35
-
-  # home-info mode
-  homeInfoParams:
-    Title: Digital preservation at the National Library of Norway
-    Content: Webpage and blog of the Digital Preservation team at the National Library of Norway
-
-  socialIcons:
-    - name: github
-      url: https://github.com/NationalLibraryOfNorway
-    - name: rss
-      url: https://nationallibraryofnorway.github.io/digitalpreservation-blog.nb.no/index.xml
-
-  cover:
-    hidden: true # hide everywhere except for the structured data
-    hiddenInList: true # hide on list pages and home
-    hiddenInSingle: true # hide on single page
-
-  editPost:
-    URL: https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no/tree/main/content
-    Text: Github source document # edit text
-    appendFilePath: true # to append file path to Edit link
-
-  # for search
-  # https://fusejs.io/api/options.html
-  fuseOpts:
-    isCaseSensitive: false
-    shouldSort: true
-    location: 0
-    distance: 1000
-    threshold: 0.4
-    minMatchCharLength: 0
-    limit: 10 # refer: https://www.fusejs.io/api/methods.html#search
-    keys: [title, permalink, summary, content]
-
-menu: #define links in top navbar
-  main:
-    - identifier: archives
-      name: archive
-      url: /archives/
-      weight: 1
-    - identifier: docs
-      name: policy documents
-      url: /docs/
-      weight: 2
-    - identifier: search
-      name: search
-      url: /search/
-      weight: 3
-    - identifier: about
-      name: about
-      url: /about/
-      weight: 4
-#    - identifier: tags
-#      name: tags
-#      url: /tags/
-#      weight: 3
-    - identifier: homepage
-      name: nb.no
-      url: https://www.nb.no/en/digital-preservation/
-      weight: 5
-
-outputs:
-  home:
-    - HTML
-    - RSS
-    - JSON # necessary for search
-      
-# Read: https://github.com/adityatelange/hugo-PaperMod/wiki/FAQs#using-hugos-syntax-highlighter-chroma
-pygmentsUseClasses: true
+# import hextra as module
+module:
+  imports:
+  - path: github.com/imfing/hextra
 
 markup:
+  # allow raw html
   goldmark:
     renderer:
       unsafe: true
+
+  # enable hextra syntax highlight
   highlight:
-    noClasses: true
-    # anchorLineNos: true
-    # codeFences: true
-    guessSyntax: true
-    # lineNos: true
-    style: gruvbox
+    noClasses: false
+
+menu:
+  main:
+    - name: Blog
+      pageRef: /blog
+      weight: 1
+    - name: Docs
+      pageRef: /Docs
+      weight: 2
+    - name: About
+      pageRef: /About
+      weight: 3
+    - name: Search
+      weight: 4
+      params:
+        type: search
+    - name: GitHub
+      weight: 5
+      url: "https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no"
+      params:
+        icon: github
+    - name: NB.no ↗
+      weight: 6
+      url: "https://nb.no/"
+
+params:
+  navbar:
+    width: full
+    displayTitle: true
+    displayLogo: true
+    logo:
+      path: images/NB-svart.png
+      dark: images/NB-hvit.png
+      width: 25
+
+  page:
+    width: full
+
+  footer:
+    displayCopyright: false
+    displayPoweredBy: false
+
+  editURL:
+    enable: false
+    base: ""
+
+  dateFormat: "2006-01-02"
+
+  displayUpdatedDate: true
+
+  theme:
+    default: system
+    displayToggle: true
+
+  blog:
+    list:
+      displayTags: true
+      displayAuthor: true
+      # date | lastmod | publishDate | title | weight
+      sortBy: date
+      sortOrder: desc # or "asc"

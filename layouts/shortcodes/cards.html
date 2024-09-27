@@ -1,0 +1,11 @@
+{{- $cols := .Get "cols" | default 3 -}}
+{{- $minWidth := .Get "minWidth" | default "250px" -}}
+<div class="hextra-cards hx-mt-4 hx-gap-4 not-prose">
+  <style>
+    .hextra-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax({{ $minWidth }}, 1fr));
+    }
+  </style>
+  {{- .Inner -}}
+</div>

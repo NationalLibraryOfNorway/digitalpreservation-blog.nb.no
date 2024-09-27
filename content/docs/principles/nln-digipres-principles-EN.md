@@ -6,11 +6,9 @@ date: 2023-09-26
 lastmod: 2024-02-07
 draft: false
 tags: [Policy, Principles]
-author: [Digital Preservation Team]
-showtoc: true
-ShowReadingTime: false
-hideMeta: false
-hideSummary: false
+authors: 
+  - name: Digital Preservation Team
+    image: /images/NB-svart.png
 ---
 
 The primary document version in Norwegian can be found [here](/docs/principles/nln-digipres-principles-no/ "Link to the Norwegian version of this document").

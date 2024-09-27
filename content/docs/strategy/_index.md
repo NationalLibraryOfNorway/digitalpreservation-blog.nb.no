@@ -1,11 +1,10 @@
 ---
-title: Ambitions, goals and strategy for Digital Preservation
+title: Strategy
 summary: Ambitions, goals and strategy for Digital Preservation at the National Library of Norway
-draft: false
-layout: list
-date: 2024-02-07
-lastmod: 
-ShowReadingTime: false
-ShowWordCount: false
-hideSummary: false
+weight: 98
 ---
+
+{{< cards >}}
+  {{< card link="nln-digipres-strategy-no/" title="Norwegian document 🇳🇴" >}}
+  {{< card link="nln-digipres-strategy-en/" title="English translation 🇬🇧" >}}
+{{< /cards >}}

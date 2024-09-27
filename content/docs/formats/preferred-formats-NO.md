@@ -5,11 +5,9 @@ weight: 1
 date: 2024-05-07
 draft: false
 tags: [Policy, File formats]
-author: [Digital Preservation Team]
-showtoc: true
-ShowReadingTime: false
-hideMeta: false
-hideSummary: false
+authors: 
+  - name: Digital Preservation Team
+    image: /images/NB-svart.png
 aliases: ["/docs/formats/2024-05-07-formats-in-use-no"]
 ---
 
@@ -53,7 +51,7 @@ Lista er inspirert av [Open Preservation Foundations (OPF)](https://openpreserva
 ## Lyd
 | <div style="width:255px">Formål</div>                                                                                                    | Foretrukne formater                                                                                                                             | Akseptable formater                                                                                                          |
 | ---------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| Mastere og lyddigitalisering<br><sub><li>Minimum bitdybde: 16 bit <li>Anbefalt bitdybde: 24 bit <li>Minimum samplingsfrekvens: 44100 Hz       | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>MBWF/RF64 (Multichannel BWF) [EBU TECH 3306] [^35] | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] <li>AIFF LPCM (Audio Interchange File Format with LPCM Audio) [^36] |
+| Mastere og lyddigitalisering<br><li>Minimum bitdybde: 16 bit <li>Anbefalt bitdybde: 24 bit <li>Minimum samplingsfrekvens: 44100 Hz       | <li>BWF (Broadcast WAVE Audio File Format), Version 2 [^4]<li>WAVE Audio File Format with LPCM audio [^5]<li>MBWF/RF64 (Multichannel BWF) [EBU TECH 3306] [^35] | <li>FLAC (Free Lossless Audio Codec), Version 1.1.2 [^6] <li>AIFF LPCM (Audio Interchange File Format with LPCM Audio) [^36] |
 
 ## Nettarkiv
 | <div style="width:255px">Formål</div> | Foretrukne formater                                                                    | Akseptable formater |
