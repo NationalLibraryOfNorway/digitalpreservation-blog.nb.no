@@ -6,7 +6,7 @@ images:
 ---
 
 {{< cards >}}
-  {{< card link="blog" title="Blog" icon="light-bulb" image="images/blog.png" method="Resize" options="600x q85 webp" >}}
+  {{< card link="blog" title="Blog" icon="light-bulb" image="/images/blog.png" method="Resize" options="600x q85 webp" >}}
   {{< card link="docs" title="Docs" icon="book-open" image="images/docs.png" method="Resize" options="600x q85 webp" >}}
   {{< card link="about" title="About" icon="user" image="images/datacenter.jpeg" method="Resize" options="600x q85 webp" >}}
 {{< /cards >}}
