@@ -28,10 +28,10 @@ menu:
       pageRef: /blog
       weight: 1
     - name: Docs
-      pageRef: /Docs
+      pageRef: /docs
       weight: 2
     - name: About
-      pageRef: /About
+      pageRef: /about
       weight: 3
     - name: Search
       weight: 4
