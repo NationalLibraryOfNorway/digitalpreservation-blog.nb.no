@@ -17,11 +17,13 @@
 <meta property="og:type" content="{{ if .IsPage }}article{{ else }}website{{ end }}" />
 <meta property="og:url" content="{{ .Permalink }}" />
 
-{{ $ogImage := "/images/cover.webp" | absURL }}
+{{ $ogImage := "/images/datacenter.jpeg" | absURL }}
 {{ with .Params.images }}
   {{ $pageImage := $.Page.Resources.GetMatch (index . 0) }}
   {{ if $pageImage }}
     {{ $ogImage = $pageImage.Permalink }}
+  {{ else }}
+    {{ $ogImage = index . 0 | absURL }}
   {{ end }}
 {{ end }}
 <meta property="og:image" content="{{ $ogImage }}" />

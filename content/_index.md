@@ -1,6 +1,8 @@
 ---
 title: Digital preservation at the National Library of Norway
 toc: false
+images:
+  - /images/datacenter.jpeg
 ---
 
 {{< cards >}}
