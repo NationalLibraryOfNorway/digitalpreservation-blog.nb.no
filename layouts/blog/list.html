@@ -19,7 +19,23 @@
               {{ $image := .Resources.GetMatch $firstImage }}
               {{ if $image }}
                 <a href="{{ .RelPermalink }}" class="hx-block hx-overflow-hidden hx-rounded-lg hx-mb-6">
-                  <img src="{{ $image.RelPermalink }}" alt="Cover image for {{ .Title }}" class="hx-w-full hx-h-48 hx-object-cover hx-rounded-lg hx-transition-transform hx-duration-300 hx-ease-in-out hover:hx-scale-105"/>
+                  {{ $tinyw := $image.Resize "500x webp" }}
+                  {{ $smallw := $image.Resize "800x webp" }}
+                  {{ $mediumw := $image.Resize "1200x webp" }}
+                  {{ $largew := $image.Resize "1500x webp" }}
+                  <picture>
+                    <source media="(max-width: 376px)" srcset="{{ $tinyw.RelPermalink }}">
+                    <source media="(max-width: 992px)" srcset="{{ $smallw.RelPermalink }}">
+                    <source media="(max-width: 1400px)" srcset="{{ $mediumw.RelPermalink }}">
+                    <source media="(min-width: 1600px)" srcset="{{ $largew.RelPermalink }}">
+                    <img 
+                      src="{{ $image.RelPermalink }}" 
+                      alt="Cover image for {{ .Title }}" 
+                      class="hx-w-full hx-h-48 hx-object-cover hx-rounded-lg hx-transition-transform hx-duration-300 hx-ease-in-out hover:hx-scale-105"
+                      width="{{ $image.Width }}"
+                      height="{{ $image.Height }}"
+                    >
+                  </picture>
                 </a>
               {{ end }}
             {{ end }}
