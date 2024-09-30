@@ -1,7 +1,8 @@
 ---
 title: "Digital preservation poster"  
-date: 2024-09-30  
-tags: [Digital preservation, Poster, IPres]  
+date: 2024-09-30 
+description: "As part of our internal outreach mission, the digital preservation had a poster made illustrating the whys and hows of digital preservation."
+tags: [Digital preservation, Poster, iPRES]  
 authors: 
   - name: Digital Preservation Team
     image: /apple-touch-icon.png
