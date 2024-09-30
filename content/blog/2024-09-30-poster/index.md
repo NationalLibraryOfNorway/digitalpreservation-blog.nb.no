@@ -21,11 +21,11 @@ Of course, that means we don't have to save it for IPres any longer, and can sha
 [^1]:However, our poster showing our Grafana monitoring dashboards was accepted!
 
 ## English version
-[![English language digital preservation poster](2023-10-04-Digital-preservation-vector.jpg "click the image for full resolution")](2023-10-04-Digital-preservation-vector.jpg)
+[![English language digital preservation poster](2023-10-04-digital-preservation-vector.jpg "click the image for full resolution")](2023-10-04-digital-preservation-vector.jpg)
 
-Full resolution PDF (16 MB) can be found [here](2023-10-04-Digital-preservation-vector.jpg). 
+Full resolution PDF (16 MB) can be found [here](2023-10-04-digital-preservation-vector.jpg). 
 
 ## Norwegian version
-[![Norwegian language digital preservation poster](2023-03-05-digital-bevaring-horisontal.jpg "click the image for full resolution PDF (16 MB)")](2023-03-05-Digital-bevaring-horisontal.jpg)
+[![Norwegian language digital preservation poster](2023-03-05-digital-bevaring-horisontal.jpg "click the image for full resolution PDF (16 MB)")](2023-03-05-digital-bevaring-horisontal.jpg)
 
-Full resolution PDF (16 MB) can be found [here](2023-03-05-Digital-bevaring-horisontal.pdf). 
+Full resolution PDF (16 MB) can be found [here](2023-03-05-digital-bevaring-horisontal.pdf). 
