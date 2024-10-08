@@ -19,7 +19,9 @@ This is not attempt to draw up an ideal systems architecture of how it *should* 
 The following documents describe the current systems architecture context we are working within, and, define Intellectual Entity and SIP scope that functions in this context.
 
 {{< cards >}}
-  {{< card link="systems-architecture" title="Systems architecture" icon="document-text" >}} 
+  {{< card link="systems-architecture" title="Systems domain architecture" icon="document-text" >}} 
   {{< card link="premis-architecture" title="Entity management architecture" icon="document-text" >}}
-  {{< card link="ie-representations" title="Intellectual antities and SIPs" icon="document-text" >}}
+  {{< card link="representation-types" title="Representation types" icon="document-text" >}}
+  {{< card link="ie-representations" title="Intellectual scope of SIPs" icon="document-text" >}}
+  {{< card link="proposed-e-ark-sips" title="Proposed E-ARK SIPs" icon="document-text" >}}
 {{< /cards >}}
