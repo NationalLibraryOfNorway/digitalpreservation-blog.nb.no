@@ -86,7 +86,8 @@ SIP
 
 ## Intellectual entities, catalogs and asset management systems
 
-Intellectual entities is also a concept we find in the various metadata systems outside the digital preservation environment. It is our asset management systems that is the authoritative "truth" for descriptive metadata, while the preservation environment holds a copy of it.
+Intellectual entities is also a concept we find in the various metadata systems outside the digital preservation environment. 
+It is our asset management systems that is the authoritative "truth" for descriptive metadata, while the preservation environment holds a copy of it.
 I'm going to refer to these metadata systems as *asset management systems* for the purposes of this text[^1].
 
 [^1]: I could have called these systems "metadata systems", "collection management systems", "catalogs" etc.
@@ -216,7 +217,6 @@ The usual practice in our asset management systems is to create new carriers whe
 Versioning of core *metadata* will be a common occurrence, while versioning of already existing representations and their data will happen more rarely. 
 All additions and file changes will (most likely) be handled using OCFL and additionally be documented using PREMIS events. 
 
-
 ### Multiple representations
 If we perform format migrations for preservation purposes, this will result in new representations with new data appearing within existing packages.
 However, if we chose to describe the migrated copy as it's own carrier in the asset management systems (with their own unique ID), these would instead be handled as new packages.
@@ -226,4 +226,3 @@ Access copies (proxies) that can easily/automatically be derived from a preserve
 Access copies that cannot be readily derived from our master copies are, however, kept in the preservation environment.
 An example would be access copies that are the result of labour intensive manual processing (e.g. additional colour correction), but which are not given their own URN in the asset management systems.
 At the moment this is the case for digitized photo negatives.
-
