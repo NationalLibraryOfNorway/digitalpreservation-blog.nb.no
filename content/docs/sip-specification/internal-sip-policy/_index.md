@@ -21,7 +21,7 @@ The following documents describe the current systems architecture context we are
 {{< cards >}}
   {{< card link="systems-architecture" title="Systems domain architecture" icon="document-text" >}} 
   {{< card link="premis-architecture" title="Entity management architecture" icon="document-text" >}}
-  {{< card link="representation-types" title="Representation types" icon="document-text" >}}
-  {{< card link="ie-representations" title="Intellectual scope of SIPs" icon="document-text" >}}
+  {{< card link="intellectual-sip-scope" title="Intellectual scope of SIPs" icon="document-text" >}}
+  {{< card link="representation-types" title="Representation types" icon="document-text" >}}  
   {{< card link="proposed-e-ark-sips" title="Proposed E-ARK SIPs" icon="document-text" >}}
 {{< /cards >}}
