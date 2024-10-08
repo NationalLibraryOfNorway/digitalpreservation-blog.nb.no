@@ -1,6 +1,5 @@
 ---
-title: Proposed E-ARK SIPs
-draft: true
+title: Proposed E-ARK SIP
 weight: 90
 ---
 
