@@ -22,9 +22,9 @@ In these systems we tend to operate with a lot of different IEs, usually organiz
 In use-case examples of PREMIS and E-ARK, it is usually the highest level entity from these hierarchies, that is referred to as the IE and used to define *intellectual scope of packages/SIPs*, ie. a *work* or *expression*.
 However, we have to define scope differently, using an entity that sits at a lower level of description: 
 
-- SIP scope is defined by the metadata management system IE that holds the UID linking the IE to the SIP.
+- SIP scope is defined by the metadata management system IE that holds the UID linking the IE to the SIP. 
 
-This is a necessity for keeping all components of our [systems architecture](/systems-architecture) in sync.
+This is a necessity for keeping all components of our [system architecture](/system-architecture) in sync.
 The UID sits at specifically defined IEs in our metadata mangement systems.
 
 ## Hierarchies and flatness

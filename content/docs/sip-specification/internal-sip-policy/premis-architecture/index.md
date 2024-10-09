@@ -2,7 +2,7 @@
 title: Entity management architecture
 summary: This post discusses high-level metadata and data handling at the National Library of Norway
 date: 2024-10-04
-tags: [Systems architecture, PREMIS, Intellectual entities, representations]
+tags: [System architecture, PREMIS, Intellectual entities, representations]
 authors: 
   - name: Torbjørn Bakken Pedersen
     image: https://avatars.githubusercontent.com/u/113333557?v=4
@@ -21,15 +21,13 @@ Some of these terms come from PREMIS, which again is a framework mainly used in 
 
 IEs tend to describe *intellectual content*.
 In our suggested implementation of the SIP there is a 1:1 relationship between SIP and IE.
-At the National Library of Norway the IE is the entity that is identified by the UID linking the our three different system environments together.
+At the National Library of Norway, the IE is the entity that is identified by the UID linking our three different system environments together.
 Typically, this is the **smallest** described size in any of our metadata management systems.
-This is expanded upon in the following text about [intellectual entities and unique IDs FIKS LENKE](/intellectual-scope).
+This is expanded upon in the following text about [intellectual entities and unique IDs](/intellectual-sip-scope).
 
 The metadata at the core describes the IE that the SIP represents.
 The representations are different data renditions of the IE, and thus do not have their own discrete descriptive metadata.
 SIPs therefore have metadata about, and representations of, intellectual content.
-<!-- In our metadata management systems, we tend to operate with a lot of different IEs, usually organized in some sort of hierarchy.
-In use-case examples of PREMIS and E-ARK, it is usually the highest level entity from these hierarchies, that is referred to as the IE and used to define *intellectual scope of packages*, ie. a *work* or *expression*. -->
 
 ### Representations
 In the E-ARK SIP specification a SIP is a package holding *metadata* and *representations*.
@@ -71,7 +69,7 @@ These files are *organized* by intellectual entities and representations.
 
 Files are ingested to the DPS through the delivery of SIPs, which again mirror intellectual entities found in the Metadata management systems.
 For the majority of SIPs handled in the National Library, there is a single representation per package.
-As mentioned in the [systems architecture description](/systems-architecture), access copies automatically derived from the preserved master file are usually not handled by the DPS.
+As mentioned in the [system architecture description](/system-architecture), access copies automatically derived from the preserved master file are usually not handled by the DPS.
 
 [^2]: The bitstream level is not yet described in the DPS, but it could be in the future.
 
@@ -83,7 +81,7 @@ However, If you are seeking files based solely on their technical properties, yo
 The public access services manage and provide access to *access representations* and *files*, in addition to harvested intellectual entity descriptive metadata.
 The data and metadata here is a subset of what is found in the metadata management systems and the DPS.
 
-The public access services transforms harvested metadata in a flattened structure of intellectual entities with a single representation each.
+The public access services transform harvested metadata into a flattened structure of intellectual entities with a single representation each.
 The intellectual entities found online, does not necessarily mirror a single intellectual entity found in the metadata management systems.
 
 ## Architecture
@@ -92,7 +90,7 @@ We can draw up another idealized architecture diagram, using PREMIS entities, to
 {{< figure src="premis.svg" alt="Diagram showing various systems' responsibility for PREMIS entities" caption="PREMIS entities across our systems" >}}
 
 The representation entity is somewhat complicated to understand here. 
-There is a a 1:1 relationship between the IE used to define the package scope and its primary representation in the metadata management systems. 
+There is a 1:1 relationship between the IE used to define the package scope and its primary representation in the metadata management systems. 
 This means the primary representation per package often *is* described in technical terms in these systems, even though they do not operate with a representation level as a discrete entity.
 Any *additional* representations, however, are *not* described in the metadata management systems. 
 They are only described in the DPS.

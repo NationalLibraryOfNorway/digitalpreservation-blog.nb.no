@@ -7,7 +7,7 @@ authors:
   - name: Torbjørn Bakken Pedersen
     image: https://avatars.githubusercontent.com/u/113333557?v=4
 images: 
-  - avsip.pn
+  - avsip.png
 weight: 4
 aliases: ["/representation-types"]
 ---
@@ -28,24 +28,24 @@ They are used as a proxy/stand-in for the primary representation.
 They typically contain much smaller, lossy (or lossier) files.
 
 Any representation can in theory have an access representation, but these are primarily managed and stored in the public access environment alone.
-Access representations are only kept in the DPS if they are the result of significant labour and/or cannot be easily derived from the primary representation.
-The public access environment on the other hand, only supports a single access representatation per UID.
+Access representations are only kept in the DPS if they are the result of significant labor and/or cannot be easily derived from the primary representation.
+The public access environment, on the other hand, only supports a single access representation per UID.
 
 ## Preservation derivate
 In the case where the primary data object is normalized or converted to a different format for preservation, you can use the preservation derivate representation type.
 This enables us to preserve both the primary data object and its preservation derivate.
-Currently this is more of a hypothetical use-case, than something that regularly happens in the organization.
+Currently, this is more of a hypothetical use-case, than something that regularly happens in the organization.
 
-Below is a few examples showing typical SIPs with representations:
+Below are a few examples showing typical SIPs with representations:
 
 ## Examples:
 ### Example showing a typical SIP with a single representation
 {{< figure src="1repsip.svg" alt="Film digitization SIP with 1 representation" >}}
 
 ### Example with two representations
-In-house digitization of photo negatives currently produce a large TIFF file for preservation and an inverted and heavily post-processed access JP2-file. 
+In-house digitization of photo negatives currently produces a large TIFF file for preservation and an inverted and heavily post-processed access JP2-file. 
 Only the TIFF is described using a carrier in the metadata management system, but both digital objects are preserved in the DPS.
-The JP2 is the result of extensive manual labour and can not be automatically or easily reproduced from the primary TIFF.
+The JP2 is the result of extensive manual labor and cannot be automatically or easily reproduced from the primary TIFF.
 
 The TIFF file is contained in the primary representation in the SIP, while the JP2 is contained in an access derivate representation.
 
