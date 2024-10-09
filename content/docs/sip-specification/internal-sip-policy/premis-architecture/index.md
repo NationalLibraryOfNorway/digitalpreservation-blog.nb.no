@@ -64,7 +64,7 @@ If a user needs to find an intellectual entity or their related digital objects,
 The metadata management systems handle the UIDs that link an intellectual entity to a SIP/AIP in the DPS.
 
 ### Digital Preservation Services (DPS)
-The DPS currently manage **files**[^2].
+The DPS currently manages **files**[^2].
 These files are *organized* by intellectual entities and representations.
 
 Files are ingested to the DPS through the delivery of SIPs, which again mirror intellectual entities found in the Metadata management systems.
@@ -82,7 +82,7 @@ The public access services manage and provide access to *access representations*
 The data and metadata here is a subset of what is found in the metadata management systems and the DPS.
 
 The public access services transform harvested metadata into a flattened structure of intellectual entities with a single representation each.
-The intellectual entities found online, does not necessarily mirror a single intellectual entity found in the metadata management systems.
+The intellectual entities found online, do not necessarily mirror a single intellectual entity found in the metadata management systems.
 
 ## Architecture
 We can draw up another idealized architecture diagram, using PREMIS entities, to illustrate the responsibilities of the different system domains:

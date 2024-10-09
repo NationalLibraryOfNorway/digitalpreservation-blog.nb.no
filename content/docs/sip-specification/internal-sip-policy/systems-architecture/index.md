@@ -2,7 +2,7 @@
 title: System domain architecture
 summary: This post discusses high-level metadata and data handling at the National Library of Norway
 date: 2024-09-30
-tags: [Systems architecture]
+tags: [System architecture]
 authors: 
   - name: Torbjørn Bakken Pedersen
     image: https://avatars.githubusercontent.com/u/113333557?v=4
@@ -78,5 +78,3 @@ Our DPS is currently not exposed to the public.
 Any public access to preserved data goes through other internal services built on top of the DPS. 
 The DPS does not preserve access copies that can be automatically derived from preservation files. 
 Such copies are managed in the public access services.
-
-

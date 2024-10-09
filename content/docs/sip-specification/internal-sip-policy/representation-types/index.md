@@ -2,7 +2,7 @@
 title: Representation types
 summary: This post discusses high-level metadata and data handling at the National Library of Norway
 date: 2024-09-30
-tags: [Systems architecture, PREMIS, Intellectual entities, representations]
+tags: [System architecture, PREMIS, Intellectual entities, representations]
 authors: 
   - name: Torbjørn Bakken Pedersen
     image: https://avatars.githubusercontent.com/u/113333557?v=4

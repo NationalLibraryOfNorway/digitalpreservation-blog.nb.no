@@ -17,15 +17,15 @@ To understand the complexity in our organizational architecture better we first 
 
 ## Intellectual entities in the metadata management systems
 Intellectual entities (IE) is a concept we find in the various metadata systems outside the digital preservation environment. 
-In these systems we tend to operate with a lot of different IEs, usually organized in some sort of hierarchy.
+In these systems, we tend to operate with a lot of different IEs, usually organized in some sort of hierarchy.
 
-In use-case examples of PREMIS and E-ARK, it is usually the highest level entity from these hierarchies, that is referred to as the IE and used to define *intellectual scope of packages/SIPs*, ie. a *work* or *expression*.
+In use-case examples of PREMIS and E-ARK, it is usually the highest level entity from these hierarchies, that is referred to as the IE and used to define *intellectual scope of packages/SIPs*, i.e. a *work* or *expression*.
 However, we have to define scope differently, using an entity that sits at a lower level of description: 
 
 - SIP scope is defined by the metadata management system IE that holds the UID linking the IE to the SIP. 
 
 This is a necessity for keeping all components of our [system architecture](/system-architecture) in sync.
-The UID sits at specifically defined IEs in our metadata mangement systems.
+The UID sits at specifically defined IEs in our metadata management systems.
 
 ## Hierarchies and flatness
 A change in architecture could open for using a different key UID placed at a different location of these metadata hierarchies.
@@ -33,7 +33,7 @@ However, we believe it is impractical to do so as it introduces multiple issues 
 
 Intellectual scope defined by abstract high-level entities introduce different challenges with:
 - Vast package sizes (dozens of terabytes)
-- Huge amount of representations within SIPs
+- Huge number of representations within SIPs
 - Content description metadata changes leading to restructuring of stored data
 - Preservation of unidentified digital objects having no relationships to IEs holding the key UID
 - Increased complexity in keeping our three system domains in sync
@@ -65,7 +65,8 @@ In our systems the essential UID that holds all our systems together sits or ref
 
 Our more complex metadata management systems (e.g. Axiell Collections), are advanced asset management systems and describe the actual data object in technical detail using a *carrier* IE. The URN identifies the carrier IE, and in extension the SIP.
 
-Our MARC based metadata management systems (e.g. Alma), use the URN to *link* to the SIP and it's primary representation, while not actually describing the data object in the metadata management system. The URN identifies the SIP, but no the record holding it.
+Our MARC-based metadata management systems (e.g. Alma), use the URN to *link* to the SIP and it's primary representation, while not actually describing the data object in the metadata management system. 
+The URN identifies the SIP, but not the record holding the URN.
 
 Using the smallest size of description has multiple positive side effects:
 - Package size is kept small
