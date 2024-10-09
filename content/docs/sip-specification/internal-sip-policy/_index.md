@@ -15,6 +15,7 @@ Currently there are 29 such workflows processing data and sending packages.
 Our internal SIP structuring policy thus needs to function and scale for all existing data workflows.
 
 This is not attempt to draw up an ideal systems architecture of how it *should* be, but rather an attempt draw the map as it is (from the point of view of the digital preservation team).
+These documents serves as the basis for our ongoing E-ARK standardization work, where we will create different more specific profiles for various content types.
 
 The following documents describe the current systems architecture context we are working within, and, define Intellectual Entity and SIP scope that functions in this context.
 
