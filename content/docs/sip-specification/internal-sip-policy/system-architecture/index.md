@@ -9,7 +9,7 @@ authors:
 images: 
   - arkitektur.png
 weight: 1
-aliases: ["/systems-architecture"]
+aliases: ["/system-architecture"]
 ---
 
 The digital preservation team uses the [Open Archival Information system functional model](https://en.wikipedia.org/wiki/Open_Archival_Information_System#The_functional_model "Wikipedia page explaining the OAIS functional model") (OAIS) as a reference point.
