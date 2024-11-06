@@ -4,7 +4,7 @@ date: 2024-05-29
 tags: [Digital Preservation, IFLA, presentation]
 authors: 
   - name: Torbjørn Bakken Pedersen
-    image: https://avatars.githubusercontent.com/u/113333557?v=4
+    image: /images/team/torbjorn.jpeg
 images: 
   - growth.webp
 ---
