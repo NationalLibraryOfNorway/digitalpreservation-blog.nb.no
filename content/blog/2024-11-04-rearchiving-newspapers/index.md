@@ -1,8 +1,7 @@
 ---
 title: "Moving 4.3 million digital newspapers"
 date: 2024-11-06T12:46:00+01:00
-description: "The National Library of Norway has undertaken a massive re-archiving project to migrate 4.3 million digital newspapers (2.5 petabytes) from their 2007 bit-repository to our new Digital Preservation Services system. The project involved extensive data cleanup, checksum generation, and quality improvements, achieving migration speeds of up to 42TB per day."
-draft: true
+description: "The National Library of Norway has undertaken a massive re-archiving project to migrate 4.3 million digital newspapers (2.5 petabytes) from their 2007 bit-repository to our new Digital Preservation Services system. The project involved extensive data cleanup, checksum generation, and quality improvements, achieving migration speeds of up to 42TB per day.
 tags: [Checksums, data migration, SAM-FS, newspapers]  
 authors: 
   - name: Digital Preservation Team
