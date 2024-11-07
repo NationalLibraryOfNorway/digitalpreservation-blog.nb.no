@@ -1,5 +1,5 @@
 ---
-title: Legal deposit radio (timespan
+title: Legal deposit radio (timespan)
 weight: 1
 ---
 
