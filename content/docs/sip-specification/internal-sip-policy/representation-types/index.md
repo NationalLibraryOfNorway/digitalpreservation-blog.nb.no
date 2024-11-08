@@ -18,7 +18,7 @@ Secondary representations are produced in the organization, but there are only a
 We operate with three types of representations:
 
 ## Primary
-The initial primary representation is the representation containing the data object described using an IE in the relevant metadata management system[^1].
+The initial primary representation is the representation containing the digital object described using an IE in the relevant metadata management system[^1].
 
 [^1]: Not described in our [MARC-based systems](http://localhost:1313/docs/sip-specification/internal-sip-policy/intellectual-sip-scope/#metadata-management-system-ies). 
 
@@ -32,8 +32,8 @@ Access representations are only kept in the DPS if they are the result of signif
 The public access environment, on the other hand, only supports a single access representation per UID.
 
 ## Preservation derivate
-In the case where the primary data object is normalized or converted to a different format for preservation, you can use the preservation derivate representation type.
-This enables us to preserve both the primary data object and its preservation derivate.
+In the case where the primary digital object is normalized or converted to a different format for preservation, you can use the preservation derivate representation type.
+This enables us to preserve both the primary digital object and its preservation derivate.
 Currently, this is more of a hypothetical use-case, than something that regularly happens in the organization.
 
 Below are a few examples showing typical SIPs with representations:
@@ -52,6 +52,6 @@ The TIFF file is contained in the primary representation in the SIP, while the J
 {{< figure src="tiffjp2.svg" alt="Photo negative digitization SIP with 2 representations" >}}
 
 ### Example showing all three representation types
-An example showing a video master, with an access representation and a representation holding a data object resulting from a hypothetical format migration/normalization.
+An example showing a video master, with an access representation and a representation holding a digital object resulting from a hypothetical format migration/normalization.
 
 {{< figure src="avsip.svg" alt="Video SIP with 3 representations" >}}

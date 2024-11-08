@@ -47,8 +47,8 @@ This is to avoid operating with unique metadata entities or "sizes" in the prese
 ## Intellectual package scope
 The ruleset we end up with is thus:
 
-- A **data object** is described as an **IE** in the metadata management systems.
-- The **data object** is packaged as the **primary representation** in a **SIP**
+- A **digital object** is described as an **IE** in the metadata management systems.
+- The **digital object** is packaged as the **primary representation** in a **SIP**
 - The **SIP** and the **IE** share a **URN**, managed in the metadata management system.
 - Any new digital object is described as a new **IE**, which receives a **new URN**, and thus has to be represented as a primary representation in a **new SIP**
 
@@ -63,9 +63,9 @@ If you only have a single URN but still want to preserve a second derivate digit
 ## Metadata management system IEs
 In our systems the essential UID that holds all our systems together sits or refers to the *lowest* level of description in our asset management systems.
 
-Our more complex metadata management systems (e.g. Axiell Collections), are advanced asset management systems and describe the actual data object in technical detail using a *carrier* IE. The URN identifies the carrier IE, and in extension the SIP.
+Our more complex metadata management systems (e.g. Axiell Collections), are advanced asset management systems and describe the actual digital object in technical detail using a *carrier*[^1] IE. The URN identifies the carrier IE, and in extension the SIP.
 
-Our MARC-based metadata management systems (e.g. Alma), use the URN to *link* to the SIP and it's primary representation, while not actually describing the data object in the metadata management system. 
+Our MARC-based metadata management systems (e.g. Alma), use the URN to *link* to the SIP and it's primary representation, while not actually describing the digital object in the metadata management system. 
 The URN identifies the SIP, but not the record holding the URN.
 
 Using the smallest size of description has multiple positive side effects:
@@ -76,3 +76,5 @@ Using the smallest size of description has multiple positive side effects:
 - Package restructuring due to descriptive metadata changes are kept to a minimum
 
 
+
+[^1]: The carrier entity in our metadata management systems, is the smallest described entity in these systems. The higher level entities describe abstract concepts, while the carrier describes the actual, tangible *object* - the *thing*. This goes for both analogue and digital objects. I refer to these small, tangible IEs as "carrier", even though it is not necessarily called "carrier" in all of these systems.
