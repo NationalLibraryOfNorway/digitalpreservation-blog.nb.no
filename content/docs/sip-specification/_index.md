@@ -1,6 +1,6 @@
 ---
 title: SIP specification
-weight: 1
+weight: 4
 ---
 
 {{< callout type="warning" >}}
