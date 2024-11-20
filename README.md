@@ -18,6 +18,11 @@ description: "A brief description of your post that will appear in previews and 
 tags: ["tag1", "tag2"]
 categories: ["category1"]
 draft: true  # Set to false when ready to publish
+authors: 
+  - name: Digital Preservation Team # Name of author
+    image: /apple-touch-icon.png # Author thumbnail image
+images: 
+  - image1.jpg # cover image for sharing (does not support svg)
 ---
 ```
 
@@ -66,8 +71,9 @@ hugo server -D #-D builds drafts
 ## Example Post Structure
 ```
 content/blog/2024-03-20-my-new-post/
-├── featured.jpg
-├── diagram.png
+├── image1.jpg
+├── image2.png
+├── diagram.svg
 └── index.md
 ```
 
