@@ -1,83 +1,90 @@
-# Hextra Starter Template
+Here's a simple guide for publishing a new blog post:
 
-[![Deploy Hugo site to Pages](https://github.com/imfing/hextra-starter-template/actions/workflows/pages.yaml/badge.svg)](https://github.com/imfing/hextra-starter-template/actions/workflows/pages.yaml)
-[![Netlify Status](https://api.netlify.com/api/v1/badges/6e83fd88-5ffe-4808-9689-c0f3b100bfe3/deploy-status)](https://app.netlify.com/sites/hextra-starter-template/deploys)
-![Vercel Deployment Status](https://img.shields.io/github/deployments/imfing/hextra-starter-template/production?logo=vercel&logoColor=white&label=vercel&labelColor=black&link=https%3A%2F%2Fhextra-starter-template.vercel.app%2F)
+# How to Create a New Blog Post
 
-
-🐣 Minimal template for getting started with [Hextra](https://github.com/imfing/hextra)
-
-![hextra-template](https://github.com/imfing/hextra-starter-template/assets/5097752/c403b9a9-a76c-47a6-8466-513d772ef0b7)
-
-[🌐 Demo ↗](https://imfing.github.io/hextra-starter-template/)
-
-## Quick Start
-
-Use this template to create your own repository:
-
-<img src="https://docs.github.com/assets/cb-77734/mw-1440/images/help/repository/use-this-template-button.webp" width=400 />
-
-You can also quickly start developing using the following online development environment:
-
-- [GitHub Codespaces](https://github.com/codespaces) 
-    
-    [![Open in GitHub Codespaces](https://github.com/codespaces/badge.svg)](https://codespaces.new/imfing/hextra-starter-template)
-
-    Create a new codespace and follow the [Local Development](#local-development) to launch the preview
-
-- [Gitpod](https://gitpod.io)
-
-    [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/imfing/hextra-starter-template)
-
-
-## Deployment
-
-### GitHub Pages
-
-A GitHub Actions workflow is provided in [`.github/workflows/pages.yaml`](./.github/workflows/pages.yaml) to [publish to GitHub Pages](https://github.blog/changelog/2022-07-27-github-pages-custom-github-actions-workflows-beta/) for free. 
-
-For details, see [Publishing with a custom GitHub Actions workflow](https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site#publishing-with-a-custom-github-actions-workflow).
-
-Note: in the settings, make sure to set the Pages deployment source to **GitHub Actions**:
-
-<img src="https://github.com/imfing/hextra-starter-template/assets/5097752/99676430-884e-42ab-b901-f6534a0d6eee" width=600 />
-
-[Run the workflow manually](https://docs.github.com/en/actions/using-workflows/manually-running-a-workflow) if it's not triggered automatically.
-
-### Netlify
-
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/imfing/hextra-starter-template)
-
-### Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fimfing%2Fhextra-starter-template&env=HUGO_VERSION)
-
-Override the configuration:
-
-<img src="https://github.com/imfing/hextra-starter-template/assets/5097752/e2e3cecd-c884-47ec-b064-14f896fee08d" width=600 />
-
-## Local Development
-
-Pre-requisites: [Hugo](https://gohugo.io/getting-started/installing/), [Go](https://golang.org/doc/install) and [Git](https://git-scm.com)
-
-```shell
-# Clone the repo
-git clone https://github.com/imfing/hextra-starter-template.git
-
-# Change directory
-cd hextra-starter-template
-
-# Start the server
-hugo mod tidy
-hugo server --logLevel debug --disableFastRender -p 1313
+## 1. Create the File
+Create a new markdown file in the `content/blog/` directory with the format:
+```
+content/blog/YYYY-MM-DD-post-title/index.md
 ```
 
-### Update theme
-
-```shell
-hugo mod get -u
-hugo mod tidy
+## 2. Add Frontmatter
+At the top of your markdown file, add the following frontmatter:
+```yaml
+---
+title: "Your Post Title"
+date: YYYY-MM-DD
+description: "A brief description of your post that will appear in previews and meta tags"
+tags: ["tag1", "tag2"]
+categories: ["category1"]
+draft: true  # Set to false when ready to publish
+---
 ```
 
-See [Update modules](https://gohugo.io/hugo-modules/use-modules/#update-modules) for more details.
+## 3. Adding Images
+1. Put the images in your post directory:
+```
+content/blog/YYYY-MM-DD-post-title/
+├── image1.jpg
+├── image2.png
+├── diagram.svg
+└── index.md
+```
 
+2. Reference images in your markdown using either:
+   - Standard markdown syntax for regular images (does not work for SVG):
+   ```markdown
+   ![Image description](image1.jpg)
+   ```
+   - Hugo figure shortcode for SVG graphics:
+   ```markdown
+   {{< figure src="diagram.svg" alt="alt text" >}}
+   ```
+
+Images are automatically resized to responsive sizes and converted to webp for optimal file sizes, so you can use any format. Avoid using webp, as the reencode will lower quality further and mess with contrast. SVG files are served as-is and maintain their vector quality.
+
+## 4. Writing Content
+- Write your content using standard markdown syntax
+- Use headings starting with `##` (h2) since the title will be h1
+- Code blocks can be added using triple backticks with language identifier:
+  ````markdown
+  ```python
+  def hello_world():
+      print("Hello, World!")
+  ```
+  ````
+- For advanced formatting options and additional shortcodes (callouts, cards, tabs, etc.), refer to the [Hextra Documentation](https://imfing.github.io/hextra/docs/guide/)
+
+## 5. Preview & Publish
+1. Run the local server to preview:
+```bash
+hugo server
+```
+2. Once ready to publish, to draft: false in frontmatter, and commit when ready to publish and push your changes to the repository
+3. The github workflow will build and publish the site (if a page with draft: true is committed to the repository, the page will not published)
+
+## Example Post Structure
+```
+content/blog/2024-03-20-my-new-post/
+├── featured.jpg
+├── diagram.png
+└── index.md
+```
+
+```markdown:content/blog/2024-03-20-my-new-post/index.md
+---
+title: "My New Blog Post"
+date: 2024-03-20
+description: "A comprehensive guide about something interesting"
+tags: ["tutorial", "guide"]
+categories: ["tutorials"]
+---
+
+## Introduction
+Your content starts here...
+
+![Diagram explaining the concept](diagram.png)
+
+## More Content
+Continue writing...
+```
