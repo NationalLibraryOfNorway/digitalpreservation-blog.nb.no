@@ -1,17 +1,13 @@
 ---
-title: Ambisjon, mål og strategi for digital bevaring [NO]
+title: Ambisjon, mål og strategi
 summary: 🇳🇴 Norwegian primary document
-weight: 1
+weight: 2
 date: 2024-02-07
 draft: false
 tags: [Strategy, Policy, Principles]
 authors: 
   - name: Digital Preservation Team
     image: /images/NB-svart.png
----
-
-English translation can be found [here](/docs/strategy/nln-digipres-strategy-en/ "Link to the English version of this document").
-
 ---
 
 ## Lov om avleveringsplikt for allment tilgjengelege dokument (pliktavleveringslova)
