@@ -58,7 +58,7 @@ Images are automatically resized to responsive sizes and converted to webp for o
 ## 5. Preview & Publish
 1. Run the local server to preview:
 ```bash
-hugo server
+hugo server -D #-D builds drafts
 ```
 2. Once ready to publish, to draft: false in frontmatter, and commit when ready to publish and push your changes to the repository
 3. The github workflow will build and publish the site (if a page with draft: true is committed to the repository, the page will not published)
