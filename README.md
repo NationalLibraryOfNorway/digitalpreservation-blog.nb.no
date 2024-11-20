@@ -22,7 +22,7 @@ authors:
   - name: Digital Preservation Team # Name of author
     image: /apple-touch-icon.png # Author thumbnail image
 images: 
-  - image1.jpg # cover image for sharing (does not support svg)
+  - image1.jpg # cover image for sharing. If no image is selected/parameter is not used, the image of our datacenter will be used
 ---
 ```
 
@@ -84,6 +84,11 @@ date: 2024-03-20
 description: "A comprehensive guide about something interesting"
 tags: ["tutorial", "guide"]
 categories: ["tutorials"]
+authors: 
+  - name: Digital Preservation Team # Name of author
+    image: /apple-touch-icon.png # Author thumbnail image
+images: 
+  - image1.jpg # cover image for sharing. If no image is selected/parameter is not used, the image of our datacenter will be used
 ---
 
 ## Introduction
