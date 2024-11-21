@@ -48,16 +48,6 @@ menu:
     - name: NB.no ↗
       weight: 6
       url: "https://nb.no/"
-    - identifier: language-switch
-      name: Language
-      weight: 49
-      params:
-        type: language-switch
-    - identifier: theme-toggle
-      name: Theme Toggle
-      weight: 50
-      params:
-        type: theme-toggle
 
 defaultContentLanguage: en
 languages:
@@ -97,7 +87,7 @@ params:
 
   theme:
     default: system
-    displayToggle: false
+    displayToggle: true
     toggle:
       displayText: false
 
