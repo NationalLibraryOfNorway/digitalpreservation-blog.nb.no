@@ -8,6 +8,7 @@ tags: [Strategy, Policy, Principles]
 authors: 
   - name: Digital Preservation Team
     image: /images/NB-svart.png
+aliases: ["/docs/strategy/nln-digipres-strategy-en/"]
 ---
 
 ## The Legal Deposit Act of Publicly Available Documents (Legal Deposit Act)

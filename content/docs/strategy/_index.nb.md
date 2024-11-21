@@ -8,6 +8,7 @@ tags: [Strategy, Policy, Principles]
 authors: 
   - name: Digital Preservation Team
     image: /images/NB-svart.png
+aliases: ["/docs/strategy/nln-digipres-strategy-no/"]
 ---
 
 ## Lov om avleveringsplikt for allment tilgjengelege dokument (pliktavleveringslova)

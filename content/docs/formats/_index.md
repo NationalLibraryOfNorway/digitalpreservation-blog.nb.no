@@ -8,7 +8,7 @@ tags: [Policy, File formats]
 authors: 
   - name: Digital Preservation Team
     image: /images/NB-svart.png
-aliases: ["/docs/formats/2024-05-07-formats-in-use-en", "docs/formats/preferred-formats-EN"]
+aliases: ["/docs/formats/2024-05-07-formats-in-use-en", "/docs/formats/preferred-formats-en"]
 ---
 
 This is a list over the preferred file formats for preservation at the National Library of Norway.

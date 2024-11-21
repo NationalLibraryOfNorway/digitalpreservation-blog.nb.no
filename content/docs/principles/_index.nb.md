@@ -9,6 +9,7 @@ tags: [Policy, Principles]
 authors: 
   - name: Digital Preservation Team
     image: /images/NB-svart.png
+aliases: ["/docs/principles/nln-digipres-principles-no/"]
 ---
 
 ## Sørg for at digital bevaring skjer på en bærekraftig måte

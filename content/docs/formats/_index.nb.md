@@ -8,7 +8,7 @@ tags: [Policy, File formats]
 authors: 
   - name: Digital Preservation Team
     image: /images/NB-svart.png
-aliases: ["/docs/formats/2024-05-07-formats-in-use-no", "/docs/formats/preferred-formats-NO/"]
+aliases: ["/docs/formats/2024-05-07-formats-in-use-no", "/docs/formats/preferred-formats-no/"]
 ---
 
 Dette er en liste over filformatene som er foretrukket av Nasjonalbiblioteket for digital bevaring. 
