@@ -6,3 +6,5 @@ dist
 tmp
 /content/posts/drafts/
 .directory
+/.vscode/
+
