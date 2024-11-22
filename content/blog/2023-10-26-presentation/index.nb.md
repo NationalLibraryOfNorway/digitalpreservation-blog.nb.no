@@ -21,7 +21,7 @@ Teamets ansvarsområder har å gjøre med inntak, kontroll, lagring, bevaring av
 Teamets ansvarsområder omfatter innlesning, kontroll, lagring, forvaltning av materiale i Nasjonalbibliotekets løsning for langtidsbevaring.
 De langtidsbevarte filene er typisk store filer av høy kvalitet (i motsetning til lavoppløselige eller komprimerte tilgangsfiler).
 Vi samarbeider tett med flere andre spesialiserte medieteam i biblioteket som produserer data gjennom digitalisering eller mottak fra eksterne avleverere.
-I tillegg er vi medlemmer av [Digital Preservation Coalition (DPC)] (https://www.dpconline.org/ "Digital Preservation Coalitions hjemmesider").
+I tillegg er vi medlemmer av [Digital Preservation Coalition (DPC)](https://www.dpconline.org/ "Digital Preservation Coalitions hjemmesider").
 
 ## Organisasjon
 Team digital bevaring består i dag av 6 medlemmer:
@@ -60,9 +60,9 @@ Teamet svarer til en eiergruppe bestående av:
 ## Teknologi som brukes i arbeidet med digital bevaring
 - [Apache Kafka](https://kafka.apache.org "Apache Kafkas hjemmeside") for kommunikasjon mellom systemer
 - [Apache NiFi](https://nifi.apache.org "Apache NiFi's hjemmeside") for å kjøre prosesser som validerer, flytter og pakker data
-- MariaDB](https://mariadb.org "MariaDBs hjemmeside") som databasemotor
+- [MariaDB](https://mariadb.org "MariaDBs hjemmeside") som databasemotor
 - [DROID](https://digital-preservation.github.io/droid "DROIDs hjemmeside") for identifisering av filformater
-- Grafana](https://grafana.com "Grafanas hjemmeside") for statistikk og rapportering
+- [Grafana](https://grafana.com "Grafanas hjemmeside") for statistikk og rapportering
 - [IBM High Performance Storage System (HPSS)](https://www.hpss-collaboration.org "HPSSs hjemmeside") som bit-repository
 - [GlusterFS](https://www.gluster.org "GlusterFSs hjemmeside") for delt midlertidig lagring
 - [CentOS](https://www.centos.org "CentOS' hjemmeside") Linux som serverplattform
