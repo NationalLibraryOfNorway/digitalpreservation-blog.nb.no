@@ -2,7 +2,7 @@
 title: "Better Late Than Never: Adding Checksums to 16 Million Legacy Files"
 date: 2024-11-06T12:45:00+01:00 
 description: "Case study on verifying 2.5 Petabytes of legacy data during migration at the National Library of Norway. Details how checksums validated 16 million files across multiple storage copies, finding zero corruptions after 20 years."
-tags: [Checksums, data migration, SAM-FS]  
+tags: ["Digital Preservation", "Checksums", "Data Migration", "Data Integrity", "Digital Storage", "File Verification", "Legacy Systems", "Digital Archives", "SAM-FS", "Long-term Storage"]  
 authors: 
   - name: Digital Preservation Team
     image: /apple-touch-icon.png
