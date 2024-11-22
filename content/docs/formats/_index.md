@@ -1,6 +1,6 @@
 ---
 title: Preferred file formats
-summary: 🇬🇧 English translation
+description: "List of preferred file formats for digital preservation at the National Library of Norway"
 weight: 3
 date: 2024-05-07
 draft: false

@@ -1,6 +1,6 @@
 ---
 title: Team digital bevaring
-category: blog
+description: Presentasjon av team digital bevaring ved Nasjonalbiblioteket
 date: 2023-10-26
 tags: [Team presentation, team organization, product teams]
 authors: 

@@ -1,6 +1,6 @@
 ---
 title: Foretrukne filformater
-summary: 🇳🇴 Norwegian primary document
+description: "Liste over foretrukne filformater for digital bevaring ved Nasjonalbiblioteket"
 weight: 3
 date: 2024-05-07
 draft: false

@@ -1,6 +1,6 @@
 ---
 title: Blogg
-summary: Bloggposter skrevet av medlemmer på team digital bevaring.
+description: "Bloggposter skrevet av medlemmer på team digital bevaring."
 ---
 <br>
 <div style="text-align: right;">

@@ -1,7 +1,8 @@
 ---
 title: "Preferred Digital Formats at the National Library"
 date: 2024-07-05
-tags: [Digital Preservation, file formats]
+description: "The National Library has revised its list of file formats preferred for digital preservation."
+tags: ["Digital Preservation", "File Formats", "Digital Archives", "Data Standards", "Digital Collections", "Preservation Planning", "Digital Libraries", "Best Practices"]
 authors: 
   - name: Digital Preservation Team
     image: /apple-touch-icon.png

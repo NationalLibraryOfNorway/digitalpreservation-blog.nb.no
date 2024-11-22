@@ -1,6 +1,6 @@
 ---
 title: Prinsipper
-summary: 🇳🇴 Norwegian primary document
+description: "Prinsipper for digital bevaring ved Nasjonalbiblioteket"
 weight: 1
 date: 2023-09-26
 lastmod: 2024-02-07

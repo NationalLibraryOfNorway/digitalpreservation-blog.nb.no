@@ -1,7 +1,8 @@
 ---
 title: "Presentation from the Digital libraries: storage for now and forever conference"
+description: "Presentation from the Digital libraries: storage for now and forever conference"
 date: 2024-05-29
-tags: [Digital Preservation, IFLA, presentation]
+tags: ["Digital Preservation", "Digital Storage", "IFLA", "Library Technology", "Conference Presentations", "National Libraries", "Digital Libraries", "Long-term Preservation"]
 authors: 
   - name: Torbjørn Bakken Pedersen
     image: /images/team/torbjorn.jpeg

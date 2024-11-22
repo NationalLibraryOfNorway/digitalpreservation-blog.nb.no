@@ -1,10 +1,10 @@
 ---
 title: NiFi S2S on Secured Instances
-summary: Guide to setting up a Site-to-Site (S2S) communication between two secured NiFi instances with user and policy management. 
+description: "Guide to setting up a Site-to-Site (S2S) communication between two secured NiFi instances with user and policy management. 
          This guide is based on experiences from National Library of Norway.
          Where NiFi is used to process large number of files and data, and it's important to have proper security in place.
          This guide aims to help others who might struggle with S2S on secured NiFi instances, and make it easier to set up a SiteToSiteProvenanceReportingTask or similar.
-         Since we couldn't find a guide that would help us with this task we decided to write one ourselves.
+         Since we couldn't find a guide that would help us with this task we decided to write one ourselves."
 date: 2024-02-16
 tags: [NiFi, Site-to-Site, S2S, Security, Certificate, Reporting task]
 authors: 

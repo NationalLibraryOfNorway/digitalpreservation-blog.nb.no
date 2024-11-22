@@ -1,6 +1,6 @@
 ---
 title: Team Digital Preservation
-category: blog
+description: "Presentation of the Digital Preservation team at the National Library of Norway"
 date: 2023-10-26
 tags: [Team presentation, team organization, product teams]
 authors: 

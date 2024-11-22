@@ -1,6 +1,6 @@
 ---
 title: Ambitions, goals and strategy
-summary: 🇬🇧 English translation
+description: "Translation of the strategy for digital preservation at the National Library of Norway"
 weight: 2
 date: 2024-02-07
 draft: false
