@@ -1,6 +1,6 @@
 ---
 title: Team Digital Preservation
-category: blog
+description: "Presentation of the Digital Preservation team at the National Library of Norway"
 date: 2023-10-26
 tags: [Team presentation, team organization, product teams]
 authors: 
@@ -18,7 +18,7 @@ This includes media types like web pages, text documents, images, audio, and mov
 
 The team’s responsibilities involve ingesting, checking, storing, preserving, and providing access to high-quality digital files.
 We work closely with several other specialized media teams in the library.
-In addition we are members of the [Digital Preservation Coalition (DPC)](https://www.dpconline.org/ "Digital Preservation Coalition homepage").
+In addition we are members of the [Digital Preservation Coalition](https://www.dpconline.org/ "Digital Preservation Coalition homepage").
 
 ## Organisation
 The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page about Digital Preservation at NLN") team consist of 6 members:

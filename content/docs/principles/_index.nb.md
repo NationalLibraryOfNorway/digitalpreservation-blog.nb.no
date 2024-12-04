@@ -1,6 +1,6 @@
 ---
-title: Prinsipper for digital bevaring [NO]
-summary: 🇳🇴 Norwegian primary document
+title: Prinsipper
+description: "Prinsipper for digital bevaring ved Nasjonalbiblioteket"
 weight: 1
 date: 2023-09-26
 lastmod: 2024-02-07
@@ -9,10 +9,7 @@ tags: [Policy, Principles]
 authors: 
   - name: Digital Preservation Team
     image: /images/NB-svart.png
----
-
-English translation can be found [here](/docs/principles/nln-digipres-principles-en/ "Link to the English version of this document").
-
+aliases: ["/docs/principles/nln-digipres-principles-no/"]
 ---
 
 ## Sørg for at digital bevaring skjer på en bærekraftig måte

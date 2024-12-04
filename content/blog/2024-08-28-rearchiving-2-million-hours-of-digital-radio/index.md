@@ -1,7 +1,8 @@
 ---  
-title: "Rearchiving 2 million hours of digital radio, a comprehensive process"  
+title: "Rearchiving 2 million hours of digital radio, a comprehensive process"
+description: "Learn how the National Library successfully migrated 2.2 million hours of digital radio archives (1 Petabyte) from a 2007 bit-repository to a modern Digital Preservation System, including the technical challenges, improvements, and lessons learned during this massive preservation project."
 date: 2024-08-28  
-tags: [Broadcasting, Rearchiving, HPSS, SAM-FS]  
+tags: ["Digital Preservation", "Radio Archives", "Data Migration", "Digital Storage", "HPSS", "Oracle HSM", "Audio Preservation", "Broadcasting"]  
 authors: 
   - name: Digital Preservation Team
     image: /apple-touch-icon.png

@@ -5,7 +5,6 @@ title: "NLN Digipres"
 enableRobotsTXT: true
 enableGitInfo: true
 enableEmoji: true
-hasCJKLanguage: true
 
 # import hextra as module
 module:
@@ -24,27 +23,41 @@ markup:
 
 menu:
   main:
-    - name: Blog
+    - identifier: blog
+      name: Blog
       pageRef: /blog
       weight: 1
-    - name: Docs
+    - identifier: docs
+      name: Docs
       pageRef: /docs
       weight: 2
-    - name: About
+    - identifier: about
+      name: About
       pageRef: /about
       weight: 3
-    - name: Search
+    - identifier: search
+      name: Search
       weight: 4
       params:
         type: search
-    - name: GitHub
-      weight: 5
-      url: "https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no"
-      params:
-        icon: github
+    # - name: GitHub
+    #   weight: 5
+    #   url: "https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no"
+    #   params:
+    #     icon: github
     - name: NB.no ↗
       weight: 6
       url: "https://nb.no/"
+
+defaultContentLanguage: en
+languages:
+  en:
+    languageName: English
+    weight: 1
+  nb:
+    languageName: Norsk
+    weight: 2
+    title: NB Digital bevaring
 
 params:
   navbar:
@@ -62,6 +75,7 @@ params:
   footer:
     displayCopyright: false
     displayPoweredBy: false
+    enableSwitches: false
 
   editURL:
     enable: false
@@ -74,6 +88,8 @@ params:
   theme:
     default: system
     displayToggle: true
+    toggle:
+      displayText: false
 
   blog:
     list:

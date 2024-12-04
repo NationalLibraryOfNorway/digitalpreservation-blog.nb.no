@@ -3,10 +3,6 @@ title: Internal SIP policy
 weight: 1
 ---
 
-{{< callout type="warning" >}}
-This is the current draft for a SIP policy for **in-house** SIPs.
-{{< /callout >}}
-
 The majority of preserved data in the National Library is either: 
 - produced through in-house digitization workflows
 - deposited from external producers, but processed and structured through internal workflows

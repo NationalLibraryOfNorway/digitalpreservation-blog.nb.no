@@ -1,0 +1,43 @@
+{{- $page := .context -}}
+{{- $grow := .grow -}}
+{{- $hideLabel := .hideLabel | default false -}}
+{{- $changeLanguage := (T "changeLanguage") | default "Change language" -}}
+
+{{- if hugo.IsMultilingual -}}
+  {{- $otherLangs := where site.Languages "Lang" "!=" site.Language.Lang -}}
+  
+  {{- if eq (len $otherLangs) 1 -}}
+    {{/* Simple toggle for two languages */}}
+    {{- $otherLang := index $otherLangs 0 -}}
+    {{- $link := partial "utils/lang-link" (dict "lang" $otherLang.Lang "context" $page) -}}
+    <a
+      href="{{ $link }}"
+      title="{{ $changeLanguage }}"
+      class="hx-flex hx-items-center hx-gap-2 hx-h-7 hx-rounded-md hx-px-2 hx-text-left hx-text-xs hx-font-medium hx-text-gray-600 hx-transition-colors dark:hx-text-gray-400 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 {{ if $grow }}hx-grow{{ end }}"
+    >
+      {{- partial "utils/icon" (dict "name" "globe-alt" "attributes" "height=18") -}}
+      {{- if not $hideLabel }}<span class="hx-capitalize">{{ $otherLang.LanguageName }}</span>{{ end -}}
+    </a>
+  {{- else -}}
+    {{/* Dropdown for three or more languages */}}
+    <div class="hx-relative">
+      <button
+        class="hx-flex hx-items-center hx-gap-2 hx-h-7 hx-rounded-md hx-px-2 hx-text-left hx-text-xs hx-font-medium hx-text-gray-600 hx-transition-colors dark:hx-text-gray-400 hover:hx-bg-gray-100 hover:hx-text-gray-900 dark:hover:hx-bg-primary-100/5 dark:hover:hx-text-gray-50 {{ if $grow }}hx-grow{{ end }}"
+      >
+        {{- partial "utils/icon" (dict "name" "globe-alt" "attributes" "height=18") -}}
+        {{- if not $hideLabel }}<span class="hx-capitalize">{{ site.Language.LanguageName }}</span>{{ end -}}
+      </button>
+      <div class="hx-absolute hx-right-0 hx-mt-2 hx-w-48 hx-rounded-md hx-bg-white hx-shadow-lg hx-ring-1 hx-ring-black hx-ring-opacity-5 dark:hx-bg-neutral-800">
+        {{- range $otherLangs -}}
+          {{- $link := partial "utils/lang-link" (dict "lang" .Lang "context" $page) -}}
+          <a
+            href="{{ $link }}"
+            class="hx-block hx-px-4 hx-py-2 hx-text-sm hx-text-gray-700 hover:hx-bg-gray-100 dark:hx-text-gray-200 dark:hover:hx-bg-neutral-700"
+          >
+            {{ .LanguageName }}
+          </a>
+        {{- end -}}
+      </div>
+    </div>
+  {{- end -}}
+{{- end -}}

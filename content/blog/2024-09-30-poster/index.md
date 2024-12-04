@@ -1,7 +1,7 @@
 ---
 title: "Digital preservation poster"  
 date: 2024-09-30 
-description: "As part of our internal outreach mission, the digital preservation had a poster made illustrating the whys and hows of digital preservation."
+description: "Explore our digital preservation awareness poster, available in both English and Norwegian, which visualizes key principles and practices of digital preservation at the National Library of Norway."
 tags: [Digital preservation, Poster, iPRES]  
 authors: 
   - name: Digital Preservation Team

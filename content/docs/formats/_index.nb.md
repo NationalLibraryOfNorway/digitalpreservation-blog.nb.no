@@ -1,18 +1,14 @@
 ---
-title: Foretrukne digitale formater i Nasjonalbiblioteket [NO]
-summary: 🇳🇴 Norwegian primary document
-weight: 1
+title: Foretrukne filformater
+description: "Liste over foretrukne filformater for digital bevaring ved Nasjonalbiblioteket"
+weight: 3
 date: 2024-05-07
 draft: false
 tags: [Policy, File formats]
 authors: 
   - name: Digital Preservation Team
     image: /images/NB-svart.png
-aliases: ["/docs/formats/2024-05-07-formats-in-use-no"]
----
-
-English translation can be found [here](/docs/formats/preferred-formats-en/).
-
+aliases: ["/docs/formats/2024-05-07-formats-in-use-no", "/docs/formats/preferred-formats-no/"]
 ---
 
 Dette er en liste over filformatene som er foretrukket av Nasjonalbiblioteket for digital bevaring. 
