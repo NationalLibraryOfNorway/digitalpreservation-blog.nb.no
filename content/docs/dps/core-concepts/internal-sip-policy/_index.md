@@ -1,6 +1,6 @@
 ---
 title: Internal SIP policy
-weight: 1
+weight: 4
 ---
 
 The majority of preserved data in the National Library is either: 
