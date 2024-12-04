@@ -13,7 +13,7 @@ Retningslinjene må legge til rette for forskjellige kompleksitetsnivåer, medie
 
 Dette er ikke et forsøk på å beskrive hvordan en ideell systemarkitektur i Nasjonalbiblioteket *bør* se ut, men heller vise hvordan de eksisterende systemene fungerer i dag.
 Disse dokumentene er grunnlaget for arbeidet vårt med innføring av E-ARK-standardiserte informasjonspakker.
-Over tid vil vi definere mer spesifikke retningslinjer tilpasset de forskjellige <mark>medietypene vi mottar</mark> .[^2]
+Over tid vil vi definere mer spesifikke retningslinjer tilpasset de forskjellige medietypene Nasjonalbiblioteket mottar.
 
 I de følgende dokumentene vil vi først beskrive den overordnede systemarkitekturen i Nasjonalbiblioteket. 
 Med utgangspunkt i dette vil vi definere et praktisk omfang for informasjonspakker som går til bevaring.
@@ -25,6 +25,5 @@ Med utgangspunkt i dette vil vi definere et praktisk omfang for informasjonspakk
   {{< card link="representation-types" title="Representasjonstyper" icon="document-text" >}}  
   {{< card link="proposed-e-ark-sips" title="Foreslåtte E-ARK-pakker" icon="document-text" >}}
 {{< /cards >}}
-[^2]: <mark>Pek til contenttypes</mark>
 [^1]: I disse dokumentene vil informasjonspakke være brukt om SIP-er, med mindre noe annet er spesifisert. Se OAIS-skriv LENKE.
 
