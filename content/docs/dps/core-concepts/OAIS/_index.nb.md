@@ -8,7 +8,7 @@ Open Archival Information System (OAIS) er en referansemodell for langsiktig bev
 Et OAIS er et arkiv, bestående av en organisasjon, som kan være en del av en større organisasjon, av mennesker og systemer som har påtatt seg ansvaret for å bevare informasjon og gjøre den tilgjengelig for et “angitt fellesskap” (designated community). 
 Referansemodellen er også en ISO standard: 14721:2012.
 
-{{< figure src="/OAIS_Functional_Model_(en).svg" alt="OAIS-modellen" caption="" attr="Mathieualexhache (original work); Mess (SVG conversion & English translation), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons" >}}
+{{< figure src="OAIS_Functional_Model_(en).svg" alt="OAIS-modellen" caption="" attr="Mathieualexhache (original work); Mess (SVG conversion & English translation), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons" >}}
 
 ## Funksjonelle komponenter
 
