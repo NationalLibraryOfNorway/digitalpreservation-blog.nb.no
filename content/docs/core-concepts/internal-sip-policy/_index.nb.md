@@ -25,5 +25,5 @@ Med utgangspunkt i dette vil vi definere et praktisk omfang for informasjonspakk
   {{< card link="representation-types" title="Representasjonstyper" icon="document-text" >}}  
   {{< card link="proposed-e-ark-sips" title="Foreslåtte E-ARK-pakker" icon="document-text" >}}
 {{< /cards >}}
-[^1]: I disse dokumentene vil informasjonspakke være brukt om SIP-er, med mindre noe annet er spesifisert. Se OAIS-skriv LENKE.
+[^1]: I disse dokumentene vil informasjonspakke være brukt om SIP-er, med mindre noe annet er spesifisert. Se [OAIS](/nb/oais/).
 
