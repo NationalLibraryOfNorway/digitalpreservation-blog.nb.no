@@ -96,6 +96,5 @@ params:
     list:
       displayTags: true
       displayAuthor: true
-      # date | lastmod | publishDate | title | weight
-      sortBy: date
+      sortBy: date # date | lastmod | publishDate | title | weight
       sortOrder: desc # or "asc"
