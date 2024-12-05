@@ -20,7 +20,7 @@ We operate with three types of representations:
 ## Primary
 The initial primary representation is the representation containing the digital object described using an IE in the relevant metadata management system[^1].
 
-[^1]: Not described in our [MARC-based systems](http://localhost:1313/docs/sip-specification/internal-sip-policy/intellectual-sip-scope/#metadata-management-system-ies). 
+[^1]: Not described in our MARC-based systems. See [previous document](/intellectual-sip-scope). 
 
 ## Access derivate
 Access derivate representations are used for digital objects derived from the digital object in the *primary* representation, to provide easier access. 

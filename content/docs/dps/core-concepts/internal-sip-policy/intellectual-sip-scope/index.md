@@ -31,9 +31,14 @@ The UID sits at specifically defined IEs in our metadata management systems.
 A change in architecture could open for using a different key UID placed at a different location of these metadata hierarchies.
 However, we believe it is impractical to do so as it introduces multiple issues related that prohibits scale across our systems.
 
+The higher level entities in such metadata hiearchies tend to describe abstract concepts. 
+Further down the hierarchy the intellectual entities describe increasingly concrete and tangible concepts.
+The lowest level IE in these hierarchies is thus the most specific and tend to describe tangible physical or digital objects.
+
 Intellectual scope defined by abstract high-level entities introduce different challenges with:
-- Vast package sizes (dozens of terabytes)
+- Vast package sizes (tens of terabytes)
 - Huge number of representations within SIPs
+- Complex representation-to-representation relationhips
 - Content description metadata changes leading to restructuring of stored data
 - Preservation of unidentified digital objects having no relationships to IEs holding the key UID
 - Increased complexity in keeping our three system domains in sync
@@ -41,7 +46,7 @@ Intellectual scope defined by abstract high-level entities introduce different c
 Some of this complexity stems from complex metadata structures found in our metadata management systems.
 We do not want to mirror and manage entire hierarchical catalogs in the preservation environment. This is after all what the metadata managements systems excels at!
 
-We prefer keeping the structure of information packages in a flat structure, with a 1:1 relationship between information packages and a tangible IE in the metadata management systems.
+We prefer keeping the structure of information packages in a flat structure, with a 1:1 relationship between information packages and an IE in the metadata management systems describing something tangible.
 This is to avoid operating with unique metadata entities or "sizes" in the preservation environment, as well as to ease the metadata ingest processes.
 
 ## Intellectual package scope
@@ -58,9 +63,9 @@ Due to how URNs link everything together, the ruleset deciding whether you shoul
 
 If you only have a single URN but still want to preserve a second derivate digital object in the DPS, you will create a second representation in the same SIP as the primary digital object.
 
-{{< figure src="ie-sip.svg" alt="Diagram showing relationship between IE in metadata management system and SIP in DPS" caption="IE to SIP/IE relationship" >}}
+{{< figure src="ie-sip.svg" alt="Diagram showing relationship between IE in metadata management system and SIP in DPS" caption="IE to SIP relationship" >}}
 
-## Metadata management system IEs
+## UID, IE and SIP
 In our systems the essential UID that holds all our systems together sits or refers to the *lowest* level of description in our asset management systems.
 
 Our more complex metadata management systems (e.g. Axiell Collections), are advanced asset management systems and describe the actual digital object in technical detail using a *carrier*[^1] IE. The URN identifies the carrier IE, and in extension the SIP.
@@ -68,7 +73,7 @@ Our more complex metadata management systems (e.g. Axiell Collections), are adva
 Our MARC-based metadata management systems (e.g. Alma), use the URN to *link* to the SIP and it's primary representation, while not actually describing the digital object in the metadata management system. 
 The URN identifies the SIP, but not the record holding the URN.
 
-Using the smallest size of description has multiple positive side effects:
+Using the least abstract IE of description has multiple positive side effects:
 - Package size is kept small
 - Representation ruleset is kept simple
 - Package scope definition sits in producer environment
@@ -77,4 +82,4 @@ Using the smallest size of description has multiple positive side effects:
 
 
 
-[^1]: The carrier entity in our metadata management systems, is the smallest described entity in these systems. The higher level entities describe abstract concepts, while the carrier describes the actual, tangible *object* - the *thing*. This goes for both analogue and digital objects. I refer to these small, tangible IEs as "carrier", even though it is not necessarily called "carrier" in all of these systems.
+[^1]: The carrier entity in our metadata management systems, is the most specific described entity in these systems. The carrier describes the actual, tangible *object* - the *thing*. This goes for both analogue and digital objects. I refer to these spesific, tangible IEs as "carrier", even though it is not necessarily called "carrier" in all of these systems.
