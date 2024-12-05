@@ -139,7 +139,7 @@ Akkurat som OAIS -referansemodellen ikke foreskriver noen spesiell tilnærming t
 
 Sammen beskriver disse fire typene metadata alle aspekter ved en informasjonspakke som er nødvendige for å bevare og gjenopprette innholdet på en pålitelig måte. Ved å bruke disse metadataene kan OAIS-arkiver sikre at informasjonspakkene kan bevares over tid, og at de kan gjenopprettes og brukes på en pålitelig måte når de er nødvendige.
  -->
-## Relevante dokumenter
+### Relevante dokumenter
 
 [OAIS Reference Model: Introductory Guide (2nd Edition)](https://www.dpconline.org/docs/technology-watch-reports/1359-dpctw14-02/file)
 
