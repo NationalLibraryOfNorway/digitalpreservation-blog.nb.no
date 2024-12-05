@@ -24,7 +24,7 @@ Vi samarbeider tett med flere andre spesialiserte medieteam i biblioteket som pr
 I tillegg er vi medlemmer av [Digital Preservation Coalition (DPC)](https://www.dpconline.org/ "Digital Preservation Coalitions hjemmesider").
 
 ## Organisasjon
-Team digital bevaring består i dag av 6 medlemmer:
+Team digital bevaring består i dag av 8 medlemmer:
 
 {{< cards cols="6" minWidth="120px" >}}
   {{< card link="/" title="Trond Teigen" image="images/team/trond.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Teamleder" method="Resize" options="250x q85 webp" >}}
@@ -33,6 +33,8 @@ Team digital bevaring består i dag av 6 medlemmer:
   {{< card link="/" title="Vigdis Marie Sørensen" image="images/team/vigdis.jpeg" link="https://www.linkedin.com/in/vigdis-sørensen-8a3618a6" subtitle="Senior platformutvikler" method="Resize" options="250x q85 webp" >}}
   {{< card link="/" title="Siarhei Kulakou" image="images/team/siarhei.jpeg" link="https://www.linkedin.com/in/siarhei-kulakou-0702ba245" subtitle="Applikasjonsutvikler" method="Resize" options="250x q85 webp" >}}
   {{< card link="/" title="Johannes Karlsen" image="images/team/johannes.jpeg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Applikasjonsutvikler" method="Resize" options="250x q85 webp" >}}
+  {{< card link="/" title="Lise lotte Melkild" image="images/team/Blank_woman_placeholder.png" link="" subtitle="" method="Resize" options="250x q85 webp" >}}
+  {{< card link="/" title="Sandra Kråkstad" image="images/team/Blank_woman_placeholder.png" link="" subtitle="" method="Resize" options="250x q85 webp" >}}
 {{< /cards >}}
 
 Teamet svarer til en eiergruppe bestående av:
