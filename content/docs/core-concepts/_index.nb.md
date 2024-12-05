@@ -1,4 +1,4 @@
 ---
 title: Grunnleggende konsepter
-weight: 1
+weight: 3
 ---

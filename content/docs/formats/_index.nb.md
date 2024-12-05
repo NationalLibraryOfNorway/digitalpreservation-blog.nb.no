@@ -1,7 +1,7 @@
 ---
 title: Foretrukne filformater
 description: "Liste over foretrukne filformater for digital bevaring ved Nasjonalbiblioteket"
-weight: 3
+weight: 6
 date: 2024-05-07
 draft: false
 tags: [Policy, File formats]

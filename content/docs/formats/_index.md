@@ -1,7 +1,7 @@
 ---
 title: Preferred file formats
 description: "List of preferred file formats for digital preservation at the National Library of Norway"
-weight: 3
+weight: 6
 date: 2024-05-07
 draft: false
 tags: [Policy, File formats]
