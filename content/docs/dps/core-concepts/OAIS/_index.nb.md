@@ -43,11 +43,12 @@ Det er tre typer informasjonspakker i OAIS-referansemodellen:
 
 Disse tre informasjonspakkene kan være identiske med hverandre, men trenger ikke å være det.
 
+<!--
 Arkivverket: Når en ny AIP genereres av et OAIS, krever OAIS-standarden at den mottatte SIP-versjonen innlemmes i tillegg. 
 For å gjøre det mulig å spore operasjoner skal en opprinnelig SIP bevares *uendret* og *integritetssikret* – for alltid. 
 Dette gjelder uavhengig av om en opprinnelig SIP fortsatt er tolkbar.
 
-<!-- ## Informasjonsmodellen
+## Informasjonsmodellen
 
 I OAIS-modellen defineres en informasjonspakke som en samling av data som skal bevares og som er underlagt samme bevaringsstrategi og metadata. En informasjonspakke kan bestå av flere komponenter, som alle er nødvendige for å bevare og gjenopprette informasjonen på en pålitelig måte.
 
