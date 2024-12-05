@@ -13,4 +13,4 @@ Metadata, som beskriver ressursen, dens opphav og tilhørende rettigheter, spill
 DPS garanterer bevaring av viktige nasjonale ressurser som finnes i biblioteker, arkiver og museer. 
 Digitale kulturarvsressurser inkluderer både digitaliserte og opprinnelig digitale ressurser: publikasjoner omfattet av pliktavleveringsloven, statlige publikasjoner som tilhører nasjonal kulturarv, og andre digitale ressurser verdt å bevare, skapt av organisasjoner underlagt Kultur- og likestillingsdepartementet.
 
-{{< figure src="dps-current.svg" alt="Dagens DPS-arkitektur" >}}
+{{< figure src="dps-current.svg" alt="Et diagram som viser dataflyt i DPS-programvaren" caption="Dagens DPS-arkitektur" >}}
