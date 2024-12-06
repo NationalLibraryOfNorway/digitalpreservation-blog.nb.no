@@ -12,9 +12,9 @@ weight: 1
 aliases: ["/nb/systemarkitektur"]
 ---
 
-Nasjonalbiblioteket arbeider med digital bevaring med utgangspunkt i OAIS-modellen[^3]. 
+Nasjonalbiblioteket baserer sitt arbeid med digital bevaring på OAIS-modellen[^3]. 
 Når det er sagt, så kan man ikke uten videre kan ta utgangspunkt i OAIS modellen for å forstå hvordan løsningene i Nasjonalbiblioteket er satt sammen.
-Dette skyldes at systemarkitekturen vår har blitt utvikler over flere år, samtidig som vi har høy kompleksitet med mange involverte systemer.
+Dette skyldes at systemarkitekturen vår har blitt utvikler over flere år, samtidig som mange involverte systemer øker kompleksiteten.
 
 {{% details title="OAIS-terminologi" closed="true" %}}
 
@@ -37,7 +37,7 @@ Når vi snakker om informasjonspakker i de følgende dokumentene snakker vi om S
 {{% /details %}}
 
 Team digital bevaring utvikler og administrerer programvaren Digital Preservation Services (DPS), men dette er kun ett aspekt ved data- og metadatahåndtering i Nasjonalbiblioteket. 
-Når vi fortsetter å utvikle DPS og standardisere informasjonspakker, er bevissthet om de forskjellige systemdomenenes ansvar, og hvordan disse samhandler, avgjørende.
+Når vi fortsetter å utvikle DPS og standardisere informasjonspakker, er kunnskap om de forskjellige systemdomenenes ansvar, og hvordan disse samhandler, avgjørende.
  
 ## Systemdomener
 Ansvaret for digitale objekter[^1] i Nasjonalbiblioteket er delt mellom en trio av forskjellige systemdomener, som forvalter forskjellige aspekter ved objektene.
@@ -59,7 +59,7 @@ Identifikatoren må være unik på tvers av de ulike systemene og bør ikke gjen
 ### Metadatasystemer
 Metadatasystemene er "master" og hovedkilde for deskriptive metadata i Nasjonalbiblioteket. 
 Med metadatasystemer refererer vi til biblioteksystemer, kataloger, registre, forvaltningssystemer og andre fagsystemer som forvalter metadata.
-Eksempler på noen slike systemer som er i bruk i NB i dag er Alma, Mavis og Hanske.
+Eksempler på noen slike systemer som er i bruk i Nasjonalbiblioteket i dag er Alma, Mavis og Hanske.
 Enkelt forklart er dette ulike systemer som forvalter deskriptive metadata for ulike digitale og ikke-digitale objekter i Nasjonalbiblioteket.
 
 Metadatasystemene er systemene som brukes i organisasjonen til å gjenfinne og få oversikt over objektene i Nasjonalbibliotekets samling[^2].
@@ -81,7 +81,7 @@ DPS kan også brukes til å identifisere og gjenfinne *filer* (gjennom tekniske 
 De offentlige tilgangstjenestene[^5] til Nasjonalbiblioteket lar eksterne brukere få tilgang til et utvalg av deskriptive metadata *høstet* fra metadatasystemene våre, samt *filer* ment for tilgang.
 Hovedtjenestene våre for slik offentlig tilgang er: [Nettbiblioteket](https://www.nb.no/search "lenke til nettbiblioteket på nb.no"), som lar deg *søke* i og *få tilgang* til et utvalg av digitale objekter fra våre digitale samlinger; og, [Oria](http://nb.oria.no/ "lenke til søketjenesten Oria"), som lar deg *søke* i våre trykte samlinger.
 
-Metadataene som de offentlige tilgangstjenestene gir tilgang til er høstet fra metadatasystemene.
+Metadataene i offentlige tilgangstjenestene er høstet fra de interne metadatasystemene.
 På samme måte er tilgangsdataene proxy-kopier utledet fra bevarte høykvalitetsfiler i DPS. 
 Disse filene er typisk mindre og komprimerte varianter av digitale objekter i DPS. 
 

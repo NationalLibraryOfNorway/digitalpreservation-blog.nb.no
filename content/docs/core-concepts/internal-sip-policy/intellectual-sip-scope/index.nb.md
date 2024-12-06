@@ -13,34 +13,34 @@ aliases: ["/nb/sip-omfang"]
 ---
 
 I den foregående teksten var det lagt vekt på kompleksiteten i håndtering av representasjoner i Nasjonalbiblioteket. 
-For å forstå denne kompleksiteten bedre, må vi først se på hvordan metadatasystemene våre våre er modellert.
+For å forstå denne kompleksiteten bedre, må vi først se på hvordan metadatasystemene våre er modellert.
 
 ## Intellektuelle entiteter i metadatasystemene
 Intellektuelle entiteter (IE) er et begrep vi finner i de ulike forvaltning/katalogsystemene utenfor det digitale bevaringsmiljøet. 
 I disse systemene opereres det ofte med mange forskjellige IE-er, vanligvis organisert i et slags hierarki. 
  
-Ved bruk av PREMIS og E-ARK er det vanligvis entiteten på høyeste nivå fra disse hierarkiene, som refereres til som IE og brukes til å definere omfang av informasjonspakker
+Ved bruk av PREMIS og E-ARK er det vanligvis entiteten på høyeste nivå fra disse hierarkiene, som refereres til som IE og brukes til å definere omfang av informasjonspakker.
 Dette vil for eksempel være et *verk* eller *uttrykk*. 
 Vi velger derimot å definere informasjonspakkeomfanget annerledes, ved å bruke en entitet som sitter på et lavere beskrivelsesnivå:
 
 - Omfanget på informasjonspakker er definert av typen IE i metadatasystemet, som holder UID-en som knytter en IE til en informasjonspakke.
 
-Dette er en nødvendighet for å holde alle komponenter i [systemarkitekturen](/nb/systemarkitektur) vår synkronisert. 
+Dette er nødvendig for å holde alle komponenter i [systemarkitekturen](/nb/systemarkitektur) vår synkronisert. 
 UID-en er kun brukt på spesifikke typer intellektuelle entiteter i våre metadatasystemer.
 
 ## Hierarkiske og flate strukturer
-En endring i arkitekturen vår kunne åpnet for bruk av en annen UID, plassert på en annet IE i disse metadatahierarkiene.
+En endring i arkitekturen vår kunne åpnet for bruk av en annen UID, plassert på en annen IE i disse metadatahierarkiene.
 Vi mener imidlertid at dette er upraktisk da det introduserer unødvendig kompleksitet, som igjen kan hindre skalerbarhet på tvers av systemene våre.
 
 Intellektuelle entiteter høyt i disse metadatahierarkiene, beskriver gjerne abstrakte konsepter.
 Nedover i hierarkiene beskriver entitetene mer og mer spesifikke og håndfaste konsepter.
-Det nederste nivået er det mest spesifikke og beskriver som regel håndfaste fysiske eller digitale objekter.
+Det nederste nivået er det mest spesifikke og beskriver som regel fysiske eller digitale objekter.
  
-Omfang på informasjonspakker definert av intellektuelle entiteter, som beskriver abstrakte konsepter, introduserer en rekke utfordringer:
+Informasjonspakker definert av intellektuelle entiteter, som beskriver abstrakte konsepter, introduserer en rekke utfordringer:
 - Svært store pakkestørrelser (titalls terabyte)
 - Et stort antall representasjoner per informasjonspakke
 - Komplekse relasjoner mellom representasjoner i informasjonspakkene
-- Endringer i deskriptive metadata kan fære til omstrukturering av bevarte data
+- Endringer i deskriptive metadata kan føre til omstrukturering av bevarte data
 - Bevaring av uidentifiserte digitale objekter uten relasjoner til en IE med nødvendig UID
 - Økt kompleksitet i synkroniseringen av våre tre systemdomener
 
@@ -48,8 +48,9 @@ Noen av disse utfordingene stammer fra komplekse metadatastrukturer i metadatasy
 Vi ønsker ikke å speile eller forvalte komplette hierarkiske katalogstrukturer i bevaringsomgivelsene.
 Dette er tross alt det metadatasystemene er ment for!
 
-Vi foretrekker å holde strukturen til informasjonspakkene i en flat struktur, med et én-til-én-forhold mellom informasjonspakker og en IE i metadatasystemene som beskriver noe håndfast. 
-Dette er for å unngå å operere med unike metadataentiteter eller "størrelser" i bevaringsmiljøet, samt for å lette prosessene for inntak av metadata.
+Vi foretrekker å holde strukturere informasjonspakker i en flat struktur.
+Det vil si at det er et én-til-én-forhold mellom en informasjonspakke i DPS og en intellektuell entitet i metadatasystemene. 
+Dette for å unngå å operere med unike metadataentiteter eller "størrelser" i bevaringsmiljøet, samt for å lette prosessene for inntak av metadata.
 
 ## Intellektuelt pakkeomfang
 Regelsettet vi ender opp med er som følger:
@@ -73,7 +74,7 @@ I metadatasystemene *sitter* eller *peker* den essensielle UID-en til det *laves
 Våre mer komplekse metadatasystemer (f.eks. Axiell Collections) er avanserte forvaltningssystemer, som beskriver det faktiske digitale objektet i teknisk detalj ved hjelp av en *bærer*[^1]-IE. 
 URN-en identifiserer bærer-IE-en, og dermed også informasjonspakken som sendes til og deretter forvaltes av DPS.
 
-Vår MARC-baserte metadatasystemer (f.eks. ALMA) bruker URN til å *peke til* informasjonspakken og dens primære representasjon.
+Våre MARC-baserte metadatasystemer (f.eks. ALMA) bruker URN til å *peke til* informasjonspakken og dens primære representasjon.
 Det digitale objektet blir derimot ikke beskrevet i disse metadatasystemene.
 I disse systemene identifiserer URN-en kun informasjonspakka som sendes til og forvaltes av DPS, men *ikke* den intellektuelle posten som holder URN-en.
 Informasjonspakka i DPS er dermed det eneste stedet man kan finne teknisk metadata for slike digitale objekter.

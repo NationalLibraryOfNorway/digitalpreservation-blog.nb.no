@@ -12,8 +12,8 @@ weight: 2
 aliases: ["/nb/forvaltningsarkitektur"]
 ---
 
-I vårt pågående arbeid med innføring av [eArchiving-standardene for pakkestruktur](https://dilcis.eu "Website with standards and specifications for E-ARK"), må vi definere hva som er et fornuftig pakkeomfang og regler for bruk av "representasjoner". 
-Noen av disse begrepene kommer fra PREMIS[^1], som igjen er et rammeverk som hovedsakelig brukes i det digitale bevaringsmiljøet. 
+I vårt pågående arbeid med innføring av [eArchiving-standardene for pakkestruktur](https://dilcis.eu "Website with standards and specifications for E-ARK"), er det viktig å definere hva som er et fornuftig pakkeomfang og regler for bruk av "representasjoner". 
+Noen av disse begrepene kommer fra PREMIS[^1], som igjen er et rammeverk som hovedsakelig brukes internasjonalt i forbindelse med digital bevaring. 
   
 {{% details title="PREMIS-terminologi" closed="true" %}}
 
@@ -66,7 +66,7 @@ Data og metadata kommer i form av filer:
 ### Metadatasystemer
 Metadatasystemene forvalter intellektuelle entiteter.
 Representasjonsnivået er vanligvis *ikke* beskrevet i våre metadatasystemer.
-Hvis en bruker skal finne en intellektuell entitet eller deres relaterte digitale objekter, bør de bruke metadatasystemene for oppslag.
+Hvis en bruker skal finne en intellektuell entitet eller dens relaterte digitale objekter, bør metadatasystemene benyttes.
 
 Metadatasystemene forvalter en rekke forskjellige intellektuelle entiteter, men det er kun en delmengde av disse som beskriver digitale objekter.
 Disse systemene forvalter UID-ene som knytter en intellektuell entitet til en informasjonspakke (AIP) forvaltet av DPS. 
@@ -93,7 +93,7 @@ De offentlige tilgangstjenestene opererer for eksempel ikke med komplekse IE-til
 De intellektuelle entitetene som finnes på nettet, speiler derfor ikke nødvendigvis enkelte intellektuell entiteteter fra metadatasystemene. 
 
 ## Arkitektur
-Vi kan synliggjøre forskjellene i hva som forvaltes i de forskjellige systemdomenene, ved å tegne opp et diagram over systemer og PREMIS-entiteter man finner der:
+Vi kan synliggjøre ulikhetene i hva som forvaltes i de forskjellige systemdomenene, ved å tegne opp et diagram over systemer og PREMIS-entiteter man finner der:
 
 {{< figure src="premis.svg" alt="Diagram som viser de forskjellige systemenes ansvar for PREMIS entiteter" caption="PREMIS entiteter i forskjellige systemer" >}}
 

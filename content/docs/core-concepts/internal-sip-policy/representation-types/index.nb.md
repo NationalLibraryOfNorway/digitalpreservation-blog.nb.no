@@ -17,20 +17,20 @@ Ytterligere representasjoner produseres i organisasjonen, men det finnes kun noe
 
 Vi opererer med tre typer representasjoner:
  
-## Primærrepresentasjoner
-Den første pg primære representasjonen er representasjonen som inneholder det digitale objektet som er beskrevet ved hjelp av en IE i det relevante metadatasystemet[^1].
+## Primærrepresentasjoner (primary)
+Den første og primære representasjonen er den som inneholder det digitale objektet som er beskrevet ved hjelp av en IE i det relevante metadatasystemet[^1].
 [^1]: Ikke beskrevet i våre MARC-baserte systemer. Se [forrige dokument](/nb/sip-omfang).
  
-## Tilgangsrepresentasjoner
+## Tilgangsrepresentasjoner (access derivate)
 Tilgangsrepresentasjoner brukes for digitale objekter utledet fra det digitale objektet i primærrepresentasjonen, for å gi enklere tilgang.
 De brukes som proxy, eller stedfortreder, for den primære representasjonen.
-Disse representasjosnene inneholder vanligvis mye mindre, komprimerte (eller mer komprimerte) filer.
+Disse representasjonene inneholder vanligvis filer av lavere kvalitet (for eksempel med lavere oppløsning eller høyere grad av komprinmering).
  
 Enhver representasjon kan i teorien ha en tilgangsrepresentasjon, men disse administreres og forvaltes primært av de offentlige tilgangstjenestene. 
 Tilgangsrepresentasjoner forvaltes kun i DPS, hvis de er et resultat av betydelig arbeid og/eller ikke kan utledes maskinelt fra den primære representasjonen. 
 De offentlige tilgangsjenestene støtter på sin side kun én enkelt (tilgangs)representasjon per UID.
  
-## Bevaringsrepresentasjoner
+## Bevaringsrepresentasjoner (preservation derivate)
 I tilfeller hvor det primære digitale objektet er normalisert eller konvertert til et annet format for bevaring, kan du bruke dette formatet som representasjonstype. 
 Dette gjør oss i stand til å bevare både det primære digitale objektet og en antatt mer bestandig bevaringsrepresentasjon. 
 Foreløpig er dette et hovedsaklig hypotetisk brukstilfelle, enn noe som skjer regelmessig i organisasjonen.
