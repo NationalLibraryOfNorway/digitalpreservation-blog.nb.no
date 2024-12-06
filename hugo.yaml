@@ -98,3 +98,7 @@ params:
       displayAuthor: true
       sortBy: date # date | lastmod | publishDate | title | weight
       sortOrder: desc # or "asc"
+
+  github:
+    repository: https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no
+    showHistory: true

@@ -1,0 +1,21 @@
+{{- $lastUpdated := (T "lastUpdated") | default "Last updated on" -}}
+{{- if site.Params.displayUpdatedDate -}}
+  {{- with .Lastmod -}}
+    {{ $datetime := (time.Format "2006-01-02T15:04:05.000Z" .) }}
+    <div class="hx-mt-12 hx-mb-8 hx-block hx-text-xs hx-text-gray-500 ltr:hx-text-right rtl:hx-text-left dark:hx-text-gray-400">
+      {{ $lastUpdated }} <time datetime="{{ $datetime }}">{{ partial "utils/format-date" . }}</time>
+      {{- with $.File -}}
+        {{- if and site.Params.github.repository site.Params.github.showHistory -}}
+          <a href="{{ site.Params.github.repository }}/commits/main/content/{{ .Path }}" 
+             class="hx-ml-1 hx-text-primary-600 hover:hx-text-primary-800 dark:hx-text-primary-400 dark:hover:hx-text-primary-200" 
+             target="_blank" 
+             rel="noopener noreferrer"> - Github commit history ↗</a>
+        {{- end -}}
+      {{- end -}}
+    </div>
+  {{- else -}}
+    <div class="hx-mt-16"></div>
+  {{- end -}}
+{{- else -}}
+  <div class="hx-mt-16"></div>
+{{- end -}}
