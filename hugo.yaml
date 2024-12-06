@@ -79,8 +79,8 @@ params:
 
   editURL:
     enable: false
-    base: ""
-    enable: true
+    base: "https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no/tree/main/content/"
+    enable: false
 
   dateFormat: "2006-01-02"
 
