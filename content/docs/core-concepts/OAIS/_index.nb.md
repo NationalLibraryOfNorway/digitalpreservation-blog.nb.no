@@ -5,33 +5,9 @@ aliases: ["/nb/oais/"]
 ---
 
 Open Archival Information System (OAIS) er en referansemodell for langsiktig bevaring av digitale informasjonsressurser.
-Et OAIS er et arkiv, bestående av en organisasjon, som kan være en del av en større organisasjon, av mennesker og systemer som har påtatt seg ansvaret for å bevare informasjon og gjøre den tilgjengelig for et “angitt fellesskap” (designated community). 
 Referansemodellen er også en ISO standard: 14721:2012.
 
 {{< figure src="OAIS_Functional_Model_(en).svg" alt="OAIS-modellen" caption="" attr="Mathieualexhache (original work); Mess (SVG conversion & English translation), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0), via Wikimedia Commons" >}}
-
-## Funksjonelle komponenter
-
-OAIS-modellen består av seks funksjonelle komponenter:
-
-- **Ingest:** håndterer mottak og validering av informasjon som skal bevares. Ingest oppretter en AIP fra SIP, og overfører den nyopprettede AIP til arkivlageret.
-- **Archival Storage:** er ansvarlig for å lagre informasjonen på en sikker måte.
-- **Data Management:** håndterer beskrivende metadata, organisering og gjenfinning av informasjonen. Håndterer også oppslag mot databasen, og genererer rapporter.
-- **Administration:** håndterer administrative oppgaver som styring av tilgang og autorisasjon.
-- **Preservation Planning:** sikrer at informasjonen bevares i tråd med best practice og retningslinjer. Støtter alle oppgaver for å holde arkivmaterialet tilgjengelig og forståelig over lang tid selv om det opprinnelige datasystemet blir utdatert, f.eks. utvikling av detaljerte bevaring/migreringsplaner, teknologiovervåking, evaluering og risikoanalyse av innhold og anbefaling av oppdatering og migrering.
-- **Access:** muliggjør tilgang til informasjonen for autoriserte brukere.
-- Denne funksjonen inkluderer brukergrensesnittet som lar brukere hente informasjon fra arkivet.
-- Den genererer en DIP fra den aktuelle AIP og leverer den til kunden som har bedt om informasjonen.
-
-OAIS-modellen legger også vekt på bruk av metadata for å beskrive informasjonen som lagres, slik at det er mulig å forstå og bruke informasjonen på lang sikt.
-
-OAIS-modellen har blitt mye brukt innenfor vitenskapelige og kulturelle institusjoner som arkiver, biblioteker og museer for å bevare digitale informasjonsressurser.
-
-## Bevaringsobjekter
-
-Hvert bevaringsobjekt skal i henhold til OAIS lagres som en autonom og selvdokumenterende arkivpakke, permanent forbundet med alle tilhørende logiske og tekniske metadata.
-
-Bevaringsobjektet i en OAIS-arkivpakke kan være *et enkelt dokument* eller *et sammensatt objekt* bestående av flere filer.
 
 ## Ulike varianter av informasjonspakker
 
@@ -42,6 +18,27 @@ Det er tre typer informasjonspakker i OAIS-referansemodellen:
 - **DIP (Dissemination Information Package):** Utleveringspakken som sendes til en bruker på forespørsel
 
 Disse tre informasjonspakkene kan være identiske med hverandre, men trenger ikke å være det.
+
+## Funksjonelle komponenter
+
+OAIS-modellen består av seks funksjonelle komponenter:
+
+- **Ingest:** håndterer mottak og validering av informasjon som skal bevares. Ingest oppretter en AIP fra SIP, og overfører den nyopprettede AIP til arkivlageret.
+- **Archival Storage:** er ansvarlig for å lagre informasjonen på en sikker måte.
+- **Data Management:** håndterer beskrivende metadata, organisering og gjenfinning av informasjonen. Håndterer også oppslag i informasjon, og genererer rapporter.
+- **Administration:** håndterer administrative oppgaver som styring av tilgang og autorisasjon.
+- **Preservation Planning:** sikrer at informasjonen bevares i tråd med best practice og retningslinjer. Støtter alle oppgaver for å holde arkivmaterialet tilgjengelig og forståelig over lang tid selv om det opprinnelige datasystemet blir utdatert, f.eks. utvikling av detaljerte bevaring/migreringsplaner, teknologiovervåking, evaluering og risikoanalyse av innhold og anbefaling av oppdatering og migrering.
+- **Access:** muliggjør tilgang til informasjonen for autoriserte brukere. Denne funksjonen inkluderer brukergrensesnittet som lar brukere hente informasjon fra arkivet. Den genererer en DIP fra den aktuelle AIP og leverer den til kunden som har bedt om informasjonen.
+
+OAIS-modellen legger også vekt på bruk av metadata for å beskrive informasjonen som lagres, slik at det er mulig å forstå og bruke informasjonen på lang sikt.
+
+OAIS-modellen brukes mye innen vitenskapelige og kulturelle institusjoner som arkiver, biblioteker og museer for å bevare digitale informasjonsressurser.
+
+## Bevaringsobjekter
+
+Hvert bevaringsobjekt skal i henhold til OAIS lagres som en autonom og selvdokumenterende arkivpakke, permanent forbundet med alle tilhørende logiske og tekniske metadata.
+
+Bevaringsobjektet i en OAIS-arkivpakke kan være *et enkelt dokument* eller *et sammensatt objekt* bestående av flere filer.
 
 <!--
 Arkivverket: Når en ny AIP genereres av et OAIS, krever OAIS-standarden at den mottatte SIP-versjonen innlemmes i tillegg. 
