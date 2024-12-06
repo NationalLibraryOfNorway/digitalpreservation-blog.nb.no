@@ -1,6 +1,5 @@
 ---
-title: Modell for rollebasert tilgang
-draft: true
+title: Modell for rollebasert tilgan
 tags: [Digital bevaring, OAIS-modell, Rollebasert tilgang, Bevaringsavtaler, Informasjonspakker, Autorisasjonssystemer, Tilgangsstyring, Digitale arkiv]
 ---
 
