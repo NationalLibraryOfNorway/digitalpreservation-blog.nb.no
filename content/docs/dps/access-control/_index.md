@@ -8,7 +8,6 @@ The model governing access to submit data to or retrieve data from DPS has five 
 
 ### Clients
 All users who need to communicate with the DPS will be given a client (with a clientID) by the National Library.
-
 All clients can be assigned multiple roles.
 
 ### Roles
@@ -38,7 +37,7 @@ Submission agreements are linked to one or more information packages.
 When data or metadata is to be submitted to or retrieved from DPS, this is done in the form of information packages.
 Individual information packages are linked to one (and only one) submission agreement.
 
-{{< figure src="rettigheter-auth.svg" alt="A diagram showing the relationships between components relevant for access control" caption="Components governing role-based access" >}}
+{{< figure src="tilgangskontroll.svg" alt="A diagram showing the relationships between components relevant for access control" caption="Components governing role-based access" >}}
 
 ### Example: Submit information packages
 A client submitting an information package to the DPS must specify which submission agreement should apply to the package.

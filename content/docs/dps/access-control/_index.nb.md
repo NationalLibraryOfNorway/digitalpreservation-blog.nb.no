@@ -8,7 +8,6 @@ Modellen som styrer tilgang til å avlevere data til eller hente data fra DPS, h
 
 ### Klienter
 Alle brukere som skal snakke med DPS får tildelt en klient (med en klientID) av Nasjonalbiblioteket.
-
 Klienter kan tildeles flere roller.
 
 ### Roller
@@ -39,7 +38,7 @@ Bevaringsavtaler er knyttet til én eller flere informasjonspakker.
 Når data eller metadata skal leveres til eller hentes ut fra DPS, gjøres dette i form av informasjonspakker[^2].
 Individuelle informasjonspakker er knyttet til én (og kun én) bevaringsavtale.
 
-{{< figure src="rettigheter-auth.svg" alt="Et diagram som viser relasjonene mellom komponentene som er relevante for tilgangsstyring" caption="Komponentene som styrer rollebasert tilgang" >}}
+{{< figure src="tilgangskontroll.svg" alt="Et diagram som viser relasjonene mellom komponentene som er relevante for tilgangsstyring" caption="Komponentene som styrer rollebasert tilgang" >}}
 
 ### Eksempel: Innlevering av informasjonspakker
 En klient som skal levere en informasjonspakke til DPS, er nødt til å spesifisere hvilken bevaringsavtale som skal gjelde for pakka.
