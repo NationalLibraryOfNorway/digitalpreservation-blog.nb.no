@@ -18,12 +18,5 @@ Over tid vil vi definere mer spesifikke retningslinjer tilpasset de forskjellige
 I de følgende dokumentene vil vi først beskrive den overordnede systemarkitekturen i Nasjonalbiblioteket. 
 Med utgangspunkt i dette vil vi definere et praktisk omfang for informasjonspakker som går til bevaring.
 
-{{< cards >}}
-  {{< card link="system-architecture" title="Systemdomener" icon="document-text" >}} 
-  {{< card link="premis-architecture" title="Forvaltningsarkitektur" icon="document-text" >}}
-  {{< card link="intellectual-sip-scope" title="Omfang på informasjonspakker" icon="document-text" >}}
-  {{< card link="representation-types" title="Representasjonstyper" icon="document-text" >}}  
-  {{< card link="proposed-e-ark-sips" title="Foreslåtte E-ARK-pakker" icon="document-text" >}}
-{{< /cards >}}
 [^1]: I disse dokumentene vil informasjonspakke være brukt om SIP-er, med mindre noe annet er spesifisert. Se [OAIS](/nb/oais/).
 
