@@ -1,5 +1,6 @@
 ---
 title: Model for Role-Based Access
+draft: true
 tags: [Digital Preservation, OAIS Model, Role-Based Access Control, Preservation Agreements, Information Packages, Authorization Systems, Access Management, Digital Archives]
 ---
 
