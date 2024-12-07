@@ -43,14 +43,14 @@
         el.dataset.original = el.innerHTML;
       });
 
-      const theme = document.documentElement.classList.contains("dark") ? "dark" : "default";
+      const theme = document.documentElement.classList.contains("dark") ? "dark" : "neutral";
       mermaid.initialize({ startOnLoad: true, theme: theme });
 
       let timeout;
       new MutationObserver(() => {
         clearTimeout(timeout);
         timeout = setTimeout(() => {
-          const theme = document.documentElement.classList.contains("dark") ? "dark" : "default";
+          const theme = document.documentElement.classList.contains("dark") ? "dark" : "neutral";
           document.querySelectorAll(".mermaid").forEach(el => {
             // Reset to original content, preserving HTML
             el.innerHTML = el.dataset.original;
