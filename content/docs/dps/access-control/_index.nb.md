@@ -1,5 +1,5 @@
 ---
-title: Modell for rollebasert tilgan
+title: Modell for rollebasert tilgang
 tags: [Digital bevaring, OAIS-modell, Rollebasert tilgang, Bevaringsavtaler, Informasjonspakker, Autorisasjonssystemer, Tilgangsstyring, Digitale arkiv]
 ---
 
@@ -53,7 +53,7 @@ Hvis man har de riktige rollene, vil DPS gi informasjonspakka en DPS-ID, sende D
 ```mermaid
 sequenceDiagram
     participant C as Client
-    participant K as AuAU System
+    participant K as AuAu System
     participant DPS as DPS API
     
     C->>K: 1. Request token with client credentials
@@ -80,7 +80,7 @@ Hvis klienten har en konsumentrolle knyttet til bevaringsavtalen som gjelder for
 ```mermaid
 sequenceDiagram
     participant C as Client
-    participant K as AuAU System
+    participant K as AuAu System
     participant DPS as DPS API
     
     C->>K: 1. Request token with client credentials
@@ -106,7 +106,7 @@ En klient som vil gjøre oppslag i DPS, vil kunne gjøre oppslag på alle inform
 ```mermaid
 sequenceDiagram
     participant C as Client
-    participant K as AuAU System
+    participant K as AuAu System
     participant DPS as DPS API
     
     C->>K: 1. Request token with client credentials

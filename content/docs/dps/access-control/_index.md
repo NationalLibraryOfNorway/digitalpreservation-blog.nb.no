@@ -1,5 +1,5 @@
 ---
-title: Model for Role-Based Acces
+title: Model for Role-Based Access
 tags: [Digital Preservation, OAIS Model, Role-Based Access Control, Preservation Agreements, Information Packages, Authorization Systems, Access Management, Digital Archives]
 ---
 
@@ -46,7 +46,7 @@ If one has the correct roles, the DPS will initiate the ingest process, mint a D
 ```mermaid
 sequenceDiagram
     participant C as Client
-    participant K as AuAU System
+    participant K as AuAu System
     participant DPS as DPS API
     
     C->>K: 1. Request token with client credentials
@@ -73,7 +73,7 @@ If the client has a consumer role linked to the preservation agreement governing
 ```mermaid
 sequenceDiagram
     participant C as Client
-    participant K as AuAU System
+    participant K as AuAu System
     participant DPS as DPS API
     
     C->>K: 1. Request token with client credentials
@@ -99,7 +99,7 @@ A client wishing to search for contents managed by the DPS, will be able to sear
 ```mermaid
 sequenceDiagram
     participant C as Client
-    participant K as AuAU System
+    participant K as AuAu System
     participant DPS as DPS API
     
     C->>K: 1. Request token with client credentials
