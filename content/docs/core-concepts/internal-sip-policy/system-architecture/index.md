@@ -51,7 +51,7 @@ These systems hold the key UID that allows for identification of access and pres
 
 ### Digital Preservation Services (DPS)
 Our Digital Preservation Services manage all data in our bit-repository and controls data integrity and access for long-term storage. 
-It is in this environment we operate with the OAIS concepts[^4] of SIP, AIP, DIP, etc. 
+It is in this environment we operate with the OAIS concepts of SIP, AIP, DIP, etc. 
 Along with the preserved data, we store a *copy* of select descriptive data, to make the digital object identifiable and usable in the long term.
 
 SIPs received for preservation in the DPS, represents some described entity in the metadata management systems.
@@ -86,5 +86,3 @@ Such copies are managed in the public access services.
 [^1]: A digital object or asset can encompass both *simple digital objects* (discrete individual files), and *complex digital objects* (groups of files). An example of a simple digital objects can be singular images in TIFF-format, while an example of a complex digital object can be a DCP (which is a directory containing image and audio streams in MXF containers and xml-files) (Higgins, Sarah. “The DCC Curation Lifecycle Model.” *International Journal of Digital Curation*, vol. 3, no. 1, Dec. 2008, pp. 134–40. DOI.org (Crossref), [https://doi.org/10.2218/ijdc.v3i1.48](https://doi.org/10.2218/ijdc.v3i1.48)).
 [^2]: Some of these systems are also exposed externally.
 [^3]: You could apply the DIP concept to the public access services' dissemination of access copies, but traditionally, we have only used the OAIS terminology in the digital preservation domain.
-[^4]: <mark>LENKE TIL OAIS-DOKUMENT</mark>
-

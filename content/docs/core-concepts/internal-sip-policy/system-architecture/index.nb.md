@@ -68,7 +68,7 @@ Disse systemene forvalter UID-en som brukes som muliggjør gjenfinning av data f
 ### Digital Preservation Services (DPS)
 DPS-programvaren forvalter alle data i Nasjonalbibliotekets bit repository. 
 Systemet tar i mot bevaringsdata, sikrer dataintegritet og styrer tilgangen til bevarte data.
-Det er i dette domenet vi opererer med de forskjellige OAIS-konseptene,[^4] som SIP, AIP. DIP, etc. 
+Det er i dette domenet vi opererer med de forskjellige OAIS-konseptene,[^4] som SIP, AIP, DIP, etc. 
 Sammen med de bevarte dataene lagrer vi en *kopi* av utvalgte deskriptive metadata fra de relevante metadatasystemene. 
 Dette gjøres for å sikre at de digitale objektene er gjenfinnbare, kontekstualiserte og anvendelige i et langsiktig perspektiv, uavhengig av omgivelsene utenfor DPS.
 
