@@ -81,7 +81,7 @@ DPS kan også brukes til å identifisere og gjenfinne *filer* (gjennom tekniske 
 De offentlige tilgangstjenestene[^5] til Nasjonalbiblioteket lar eksterne brukere få tilgang til et utvalg av deskriptive metadata *høstet* fra metadatasystemene våre, samt *filer* ment for tilgang.
 Hovedtjenestene våre for slik offentlig tilgang er: [Nettbiblioteket](https://www.nb.no/search "lenke til nettbiblioteket på nb.no"), som lar deg *søke* i og *få tilgang* til et utvalg av digitale objekter fra våre digitale samlinger; og, [Oria](http://nb.oria.no/ "lenke til søketjenesten Oria"), som lar deg *søke* i våre trykte samlinger.
 
-Metadataene i offentlige tilgangstjenestene er høstet fra de interne metadatasystemene.
+Metadataene i de offentlige tilgangstjenestene er høstet fra de interne metadatasystemene.
 På samme måte er tilgangsdataene proxy-kopier utledet fra bevarte høykvalitetsfiler i DPS. 
 Disse filene er typisk mindre og komprimerte varianter av digitale objekter i DPS. 
 

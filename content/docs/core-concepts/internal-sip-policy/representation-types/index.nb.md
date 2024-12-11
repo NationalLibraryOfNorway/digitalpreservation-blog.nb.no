@@ -46,7 +46,7 @@ Intern digitalisering av fotonegativer produserer per i dag, én stor TIFF-fil f
 Kun TIFF-fila er beskrevet ved hjelp av en *bærer* i metadatasystemet, men begge digitale objekter bevares i DPS.
 JP2-fila er resultatet av omfattende manuelt arbeid og kan ikke automatisk eller enkelt reproduseres fra den primære TIFF-fila.
 
-TIFF-fila ligger i den primære representasjonen i informasjonspakka, mens JP2-fila er ligger i en tilgangsrepresentasjon.
+TIFF-fila ligger i den primære representasjonen i informasjonspakka, mens JP2-fila ligger i en tilgangsrepresentasjon.
 
 {{< figure src="tiffjp2.svg" alt="Informasjonspakke som inneholder digitalisering av fotonegative med to representasjoner" >}}
 

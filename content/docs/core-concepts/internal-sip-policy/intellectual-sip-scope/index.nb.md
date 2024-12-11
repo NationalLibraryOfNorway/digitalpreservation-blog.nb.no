@@ -79,7 +79,7 @@ Det digitale objektet blir derimot ikke beskrevet i disse metadatasystemene.
 I disse systemene identifiserer URN-en kun informasjonspakka som sendes til og forvaltes av DPS, men *ikke* den intellektuelle posten som holder URN-en.
 Informasjonspakka i DPS er dermed det eneste stedet man kan finne teknisk metadata for slike digitale objekter.
 
-Å bruke den minst abstrakte IE-en for å definere omfang på informasjonspakker har flere positivbe effekter:
+Å bruke den minst abstrakte IE-en for å definere omfang på informasjonspakker har flere positive effekter:
 
 - Pakkestørrelsen holdes liten
 - Representasjonsreglene holdes enkle
