@@ -36,6 +36,12 @@ Submission agreements are linked to one or more information packages.
 When data or metadata is to be submitted to or retrieved from DPS, this is done in the form of information packages.
 Individual information packages are linked to one (and only one) submission agreement.
 
+
+### DPS-ID
+The DPS generates a DPS-ID for all information packages received.
+The DPS-ID is unique within our systems.
+The DPS-ID is issued as a receipt to the party who delivered the information package at the time of delivery.
+
 {{< figure src="tilgangskontroll.svg" alt="A diagram showing the relationships between components relevant for access control" caption="Components governing role-based access" >}}
 
 ### Example: Submit information packages
