@@ -38,12 +38,12 @@ Bevaringsavtaler er knyttet til én eller flere informasjonspakker.
 Når data eller metadata skal leveres til eller hentes ut fra DPS, gjøres dette i form av informasjonspakker[^2].
 Individuelle informasjonspakker er knyttet til én (og kun én) bevaringsavtale.
 
-{{< figure src="tilgangskontroll.svg" alt="Et diagram som viser relasjonene mellom komponentene som er relevante for tilgangsstyring" caption="Komponentene som styrer rollebasert tilgang" >}}
-
 ### DPS-ID
 DPS oppretter en DPS-ID for alle informasjonspakker som mottas.
 DPS-ID-en er unik innenfor våre systemer.
 DPS-ID-en utleveres til den som har avlevert informasjonspakken, når pakken avleveres.
+
+{{< figure src="tilgangskontroll.svg" alt="Et diagram som viser relasjonene mellom komponentene som er relevante for tilgangsstyring" caption="Komponentene som styrer rollebasert tilgang" >}}
 
 ### Eksempel: Innlevering av informasjonspakker
 En klient som skal levere en informasjonspakke til DPS, er nødt til å spesifisere hvilken bevaringsavtale som skal gjelde for pakka.
