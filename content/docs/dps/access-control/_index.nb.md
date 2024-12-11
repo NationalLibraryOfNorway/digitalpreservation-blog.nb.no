@@ -3,7 +3,7 @@ title: Modell for rollebasert tilgang
 tags: [Digital bevaring, OAIS-modell, Rollebasert tilgang, Bevaringsavtaler, Informasjonspakker, Autorisasjonssystemer, Tilgangsstyring, Digitale arkiv]
 ---
 
-Modellen som styrer tilgang til å avlevere data til eller hente data fra DPS, har fem hovedkomponenter: *klienter*, *roller*, *bevaringsavtaler*, *informasjonspakker* og *DPS-IDer*.
+Modellen som styrer tilgang til å avlevere data til eller hente data fra DPS, har fire hovedkomponenter: *klienter*, *roller*, *bevaringsavtaler*, og *informasjonspakker*.
 
 ### Klienter
 Alle brukere som skal snakke med DPS får tildelt en klient (med en klientID) av Nasjonalbiblioteket.
