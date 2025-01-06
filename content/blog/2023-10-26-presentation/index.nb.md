@@ -13,7 +13,7 @@ breadcrumbs: false
 ---
 
 I juni 2022 ble det etablert et eget team med ansvar for bevaring av [Nasjonalbibliotekets](https://nb.no/ "National Library of Norway homepage") digitale samling.
-Teamet håndterer alle typer digitalt materiale, uavhengig om materialet er digitaiisert fra analoge kilder eller om det er født digitalt.
+Teamet håndterer alle typer digitalt materiale, uavhengig om materialet er digitalisert fra analoge kilder eller om det er født digitalt.
 Dette inkluderer medietyper som websider, tekstdokumenter, bilder, lyd og levende bilder.
 
 Teamets ansvarsområder har å gjøre med inntak, kontroll, lagring, bevaring av data tilgjengeliggjøring av bevarte data.
@@ -39,7 +39,7 @@ Team digital bevaring består i dag av 8 medlemmer:
 
 Teamet svarer til en eiergruppe bestående av:
 - Direktør for IT (produkteier)
-- Direktor for Kulturarvdigitalisering
+- Direktør for Kulturarvdigitalisering
 - Seksjonsleder for Tilvekst og kunnskapsorganisering utvikling
 - Seksjonsleder for IT-plattform
 
@@ -51,8 +51,8 @@ Teamet svarer til en eiergruppe bestående av:
 - Gjennomsnittlig daglig tilvekst av over 4 Terabyte nye data
 
 ## Datavolum etter type
-- Video og TV: 22 prosent
-- Film: 21 prosent
+- Video og TV: 22%
+- Film: 21%
 - Aviser 19%
 - Webarkiv: 16%
 - Radio og lyd 12%
