@@ -13,14 +13,14 @@ images:
 The National Library of Norway, in collaboration with [KulturIT](https://kulturit.org/en) and commissioned by the Ministry of Culture, has initiated a pilot project focused on ensuring the long-term preservation of museums' digital cultural heritage.
 This pilot represents a strategic initiative in preserving Norway's digital cultural heritage for future generations.
 
-The primary objective is to evaluate whether the National Library's digital preservation solution can be integrated with KulturIT's collection management systems currently utilized by museums.
+The primary objective is to evaluate whether the National Library's digital preservation solution can be integrated with KulturIT's collection management systems currently used by museums.
 The pilot emphasizes security protocols, user experience optimization, and process automation, with subsequent evaluation based on cost-benefit analysis.
 
 ## Key Objectives and Technical Components
 
 The pilot project encompasses several critical technical and operational elements:
 
-- **Technical Integration:** Implementation of machine-to-machine communication between KulturIT's systems and the National Library's preservation infrastructure, utilizing REST API technology. This integration facilitates efficient ingestion and retrieval of archival files.
+- **Technical Integration:** Implementation of machine-to-machine communication between KulturIT's systems and the National Library's preservation infrastructure, using REST API technology. This integration facilitates efficient ingestion and retrieval of archival files.
 - **Intermediate Storage:** Development of an S3-protocol-based intermediate storage platform, ensuring secure and efficient file transfer operations between systems.
 - **Standardized Package Formats:** Implementation of E-ARK standards to maintain interoperability and ensure consistency in long-term data preservation.
 - **Authentication and Authorization:** Development of robust security mechanisms to ensure that only authorized users and systems can access preserved files and associated functionality.
@@ -52,5 +52,5 @@ The pilot is managed by the National Library of Norway in partnership with Kultu
 The project team will maintain regular reporting cycles to the Ministry of Culture.
 A comprehensive final report, including findings, cost estimates, and recommendations for future development, will be submitted by December 1, 2025.
 
-The National Library of Norway anticipates productive collaboration with KulturIT in developing solutions that enhance museums' capabilities for preserving and accessing digital cultural heritage materials.
+The National Library of Norway is looking forward to productive collaboration with KulturIT in developing solutions that will enhance museums' capabilities for preserving and accessing digital cultural heritage materials.
 This pilot represents a significant step toward ensuring the long-term preservation of Norway's digital cultural heritage.
