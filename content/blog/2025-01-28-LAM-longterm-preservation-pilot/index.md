@@ -8,7 +8,7 @@ authors:
   - name: Digital Preservation Team
     image: /apple-touch-icon.png
 images: 
-  - 
+  - dps-skisse-v2.png
 ---
 The National Library of Norway, in collaboration with [KulturIT](https://kulturit.org/en) and commissioned by the Ministry of Culture, has initiated a pilot project focused on ensuring the long-term preservation of museums' digital cultural heritage.
 This pilot represents a strategic initiative in preserving Norway's digital cultural heritage for future generations.
@@ -33,7 +33,7 @@ Beyond technical infrastructure testing, the solution will validate that all arc
 
 The following architectural diagram illustrates the proposed solution framework:
 
-DIAGRAM
+{{< figure src="dps-skisse-v2.svg" alt="A diagram showing proposed data flow in the DPS software" caption="Proposed DPS Architecture" >}}
 
 - **Clients:** Entities responsible for submitting or retrieving materials preserved by the National Library.
 - **Intermediate Storage:** Platform services implementing shared intermediate storage solutions based on S3 protocol.

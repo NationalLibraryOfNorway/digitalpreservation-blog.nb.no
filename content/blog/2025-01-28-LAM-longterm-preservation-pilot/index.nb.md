@@ -8,7 +8,7 @@ authors:
   - name: Digital Preservation Team
     image: /apple-touch-icon.png
 images: 
-  - 
+  - dps-skisse-v2.png
 ---
 Nasjonalbiblioteket har, i samarbeid med [KulturIT](https://kulturit.org/) og på oppdrag fra Kulturdepartementet, startet arbeidet med en pilot for å sikre langtidsbevaring av museenes digitale kulturarv.
 Piloten er et ledd i arbeidet med å bevare Norges digitale kulturarv for fremtidige generasjoner.
@@ -32,7 +32,7 @@ I tillegg til testing av teknisk infrastruktur, vil løsningen validere at alle 
 
 Arkitekturskissen nedenfor viser hvordan oppdraget tenkes løst:
 
-DIAGRAM
+{{< figure src="dps-skisse-v2.svg" alt="Et diagram som viser foreslått dataflyt i DPS-løsningen" caption="Foreslått DPS-arkitektur" >}}
 
 - **Clients:** De som skal levere inn eller hente ut materiale som Nasjonalbiblioteket har ansvar for å bevare.
 - **Intermediate storage:** Teknologiske plattformtjenester for felles mellomlagrings-løsning basert på S3.
