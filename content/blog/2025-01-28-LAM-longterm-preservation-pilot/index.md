@@ -1,7 +1,7 @@
 ---
 title: "Pilot Project for Long-term Digital Preservation of Museum Collections"
-draft: true
-date: 2025-01-28T12:00:00+01:00
+draft: false
+date: 2025-01-28T08:00:00+01:00
 description: "The National Library of Norway, in collaboration with KulturIT and commissioned by the Ministry of Culture, has initiated a pilot project to ensure long-term preservation of the LAM sector's digital cultural heritage."
 tags: [Digital Preservation, Museums, Cultural Heritage, Pilot Project, National Library, E-ARK, REST API, S3 Storage, Digital Preservation Services, OAIS, KulturIT, Ministry of Culture, Security, Automation]
 authors: 

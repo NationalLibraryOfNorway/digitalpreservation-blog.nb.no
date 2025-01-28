@@ -1,7 +1,7 @@
 ---
 title: "Pilot for langtidsbevaring av museenes digitale kulturarv"
-draft: true
-date: 2025-01-28T12:00:00+01:00
+draft: false
+date: 2025-01-28T08:00:00+01:00
 description: "Nasjonalbiblioteket har, i samarbeid med KulturIT, og på oppdrag fra Kulturdepartementet, startet arbeidet med en pilot for å sikre langtidsbevaring av museenes digitale kulturarv."
 tags: [Digital bevaring, Museer, Kulturarv, Pilotprosjekt, Nasjonalbiblioteket, E-ARK, REST API, S3 mellomlagring, Digital Preservation Services, OAIS, KulturIT, Kulturdepartementet, Sikkerhet, Automatisering]
 authors: 
