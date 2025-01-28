@@ -8,7 +8,7 @@ authors:
   - name: Digital Preservation Team
     image: /apple-touch-icon.png
 images: 
-  - dps-skisse-v2.png
+  - dps-skisse-v2.jpg
 ---
 Nasjonalbiblioteket har, i samarbeid med [KulturIT](https://kulturit.org/) og på oppdrag fra Kulturdepartementet, startet arbeidet med en pilot for å sikre langtidsbevaring av museenes digitale kulturarv.
 Piloten er et ledd i arbeidet med å bevare Norges digitale kulturarv for fremtidige generasjoner.

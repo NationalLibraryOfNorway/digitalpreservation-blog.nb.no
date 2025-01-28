@@ -8,7 +8,7 @@ authors:
   - name: Digital Preservation Team
     image: /apple-touch-icon.png
 images: 
-  - dps-skisse-v2.png
+  - dps-skisse-v2.jpg
 ---
 The National Library of Norway, in collaboration with [KulturIT](https://kulturit.org/en) and commissioned by the Ministry of Culture, has initiated a pilot project focused on ensuring the long-term preservation of museums' digital cultural heritage.
 This pilot represents a strategic initiative in preserving Norway's digital cultural heritage for future generations.
