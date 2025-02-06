@@ -1,6 +1,7 @@
 ---
 title: Pliktavlevert radio (sendeflater)
 weight: 1
+draft: true
 ---
 
 ## Vanlig bruk

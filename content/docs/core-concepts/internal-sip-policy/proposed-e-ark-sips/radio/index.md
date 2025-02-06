@@ -1,6 +1,7 @@
 ---
 title: Legal deposit radio (timespan)
 weight: 1
+draft: true
 ---
 
 ## Normal use-case
