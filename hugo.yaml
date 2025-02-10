@@ -1,5 +1,5 @@
 # Hugo configuration file
-baseURL: "https://digitalpreservation-blog.nb.no/"
+baseURL: "https://digitalpreservation.no/"
 title: "NLN Digipres"
 
 enableRobotsTXT: true
