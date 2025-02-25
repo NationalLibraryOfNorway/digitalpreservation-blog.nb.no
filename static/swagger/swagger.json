@@ -1,0 +1,366 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Submission API",
+    "version": "1.0.0",
+    "description": "API for managing submissions with file uploads to S3, based on OAIS concepts."
+  },
+  "servers": [
+    {
+      "url": "https://api.nb.no",
+      "description": "Production environment"
+    }
+  ],
+  "paths": {
+    "/contracts/{contractId}/submissions": {
+      "post": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Create a new submission",
+        "operationId": "createSubmission",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/contractId"
+          }
+        ],
+        "responses": {
+          "201": {
+            "description": "Submission created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "submissionId": {
+                      "type": "string",
+                      "description": "Unique identifier for the submission"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "registered"
+                      ],
+                      "description": "Status of the submission"
+                    }
+                  },
+                  "required": [
+                    "submissionId",
+                    "status"
+                  ]
+                },
+                "example": {
+                  "submissionId": "abc123",
+                  "status": "registered"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/contracts/{contractId}/submissions/{submissionId}/files": {
+      "post": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Register file and receive upload URL",
+        "operationId": "registerFile",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/contractId"
+          },
+          {
+            "$ref": "#/components/parameters/submissionId"
+          }
+        ],
+        "requestBody": {
+          "description": "Metadata for the file to be uploaded",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "filePath": {
+                    "type": "string",
+                    "description": "Path or name of the file"
+                  },
+                  "checksum": {
+                    "type": "string",
+                    "description": "Checksum for the file"
+                  }
+                },
+                "required": [
+                  "filePath",
+                  "checksum"
+                ]
+              },
+              "example": {
+                "filePath": "/path/to/file.txt",
+                "checksum": "abcde12345"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "File registered and upload URL generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "fileId": {
+                      "type": "string",
+                      "description": "Unique identifier for the file"
+                    },
+                    "uploadUrl": {
+                      "type": "string",
+                      "format": "uri",
+                      "description": "URL for direct upload to S3"
+                    }
+                  },
+                  "required": [
+                    "fileId",
+                    "uploadUrl"
+                  ]
+                },
+                "example": {
+                  "fileId": "file456",
+                  "uploadUrl": "https://s3.example.com/upload/url"
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/contracts/{contractId}/submissions/{submissionId}/finalize": {
+      "post": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Finalize submission",
+        "description": "Once all files have been uploaded, call this endpoint to finalize the submission.",
+        "operationId": "finalizeSubmission",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/contractId"
+          },
+          {
+            "$ref": "#/components/parameters/submissionId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Submission finalized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "submissionId": {
+                      "type": "string",
+                      "description": "Unique identifier for the submission"
+                    },
+                    "status": {
+                      "type": "string",
+                      "enum": [
+                        "registered",
+                        "finalized"
+                      ],
+                      "description": "Updated status of the submission"
+                    },
+                    "files": {
+                      "type": "array",
+                      "description": "List of files associated with the submission",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "fileId": {
+                            "type": "string"
+                          },
+                          "filePath": {
+                            "type": "string"
+                          },
+                          "checksum": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "fileId",
+                          "filePath",
+                          "checksum"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "submissionId",
+                    "status",
+                    "files"
+                  ]
+                },
+                "example": {
+                  "submissionId": "abc123",
+                  "status": "finalized",
+                  "files": [
+                    {
+                      "fileId": "file456",
+                      "filePath": "/path/to/file.txt",
+                      "checksum": "efefefefefefefef"
+                    },
+                    {
+                      "fileId": "file789",
+                      "filePath": "/path/to/file2.txt",
+                      "checksum": "abababababababa"
+                    }
+                  ]
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/contracts/{contractId}/submissions/{submissionId}": {
+      "get": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Retrieve submission status",
+        "operationId": "getSubmissionStatus",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/contractId"
+          },
+          {
+            "$ref": "#/components/parameters/submissionId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Submission found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "submissionId": {
+                      "type": "string",
+                      "description": "Unique identifier for the submission"
+                    },
+                    "status": {
+                      "type": "string",
+                      "description": "Status of the submission"
+                    },
+                    "files": {
+                      "type": "array",
+                      "description": "List of files associated with the submission",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "fileId": {
+                            "type": "string"
+                          },
+                          "filePath": {
+                            "type": "string"
+                          },
+                          "checksum": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "fileId",
+                          "filePath",
+                          "checksum"
+                        ]
+                      }
+                    }
+                  },
+                  "required": [
+                    "submissionId",
+                    "status"
+                  ]
+                },
+                "example": {
+                  "submissionId": "abc123",
+                  "status": "registered",
+                  "files": []
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Submission not found"
+          }
+        },
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    }
+  },
+  "components": {
+    "parameters": {
+      "contractId": {
+        "name": "contractId",
+        "in": "path",
+        "required": true,
+        "description": "ID of the contract",
+        "schema": {
+          "type": "string"
+        }
+      },
+      "submissionId": {
+        "name": "submissionId",
+        "in": "path",
+        "required": true,
+        "description": "ID of the submission",
+        "schema": {
+          "type": "string"
+        }
+      }
+    },
+    "securitySchemes": {
+      "OAuth2": {
+        "type": "oauth2",
+        "flows": {
+          "clientCredentials": {
+            "tokenUrl": "https://auth.nb.no/oauth/token",
+            "scopes": {}
+          }
+        }
+      }
+    }
+  },
+  "security": [
+    {
+      "OAuth2": []
+    }
+  ],
+  "tags": [
+    {
+      "name": "Submissions",
+      "description": "Operations related to submissions"
+    }
+  ]
+}
