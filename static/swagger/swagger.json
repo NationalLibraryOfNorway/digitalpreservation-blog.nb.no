@@ -3,7 +3,7 @@
   "info": {
     "title": "Submission API",
     "version": "1.0.0",
-    "description": "API for managing submissions with file uploads to S3, based on OAIS concepts."
+    "description": "API for managing submissions with file uploads to S3"
   },
   "servers": [
     {
@@ -59,12 +59,96 @@
                   "$ref": "#/components/schemas/SubmissionResponse"
                 },
                 "example": {
-                  "submissionId": "95c0bc53-6dfc-45aa-87d8-aff00f7a553d",
+                  "submissionId": "2T1x7K8rN0Xc5B4Yq3L9zK",
                   "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66",
                   "status": "registered"
                 }
               }
             }
+          }
+        },
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/contracts/{contractId}/submissions/{submissionId}": {
+      "get": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Retrieve submission status",
+        "operationId": "getSubmissionStatus",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/contractId"
+          },
+          {
+            "$ref": "#/components/parameters/submissionId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Submission found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionResponse"
+                },
+                "example": {
+                  "submissionId": "3M9x1T7rN0Xc8B5Yq4L2zK",
+                  "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66",
+                  "status": "registered",
+                  "files": [
+                    {
+                      "fileId": "4Y2q1T8rN0Xc7B5Yq3LzK7",
+                      "filePath": "/path/to/file.txt",
+                      "checksum": "3d40de18b79c00b9170698e960bdb199",
+                      "uploadUrl": "https://s3.example.com/upload/url"
+                    },
+                    {
+                      "fileId": "5T1x8K2rN0Xc7B9Yq4L3zP",
+                      "filePath": "/path/to/file2.txt",
+                      "checksum": "d714fe3ef9f4e6b62fd85bd262dc0521",
+                      "uploadUrl": "https://s3.example.com/upload/url"
+                    }
+                  ]
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Submission not found"
+          }
+        },
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Delete a submission",
+        "operationId": "deleteSubmission",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/contractId"
+          },
+          {
+            "$ref": "#/components/parameters/submissionId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Submission deleted"
+          },
+          "404": {
+            "description": "Submission not found"
           }
         },
         "security": [
@@ -122,7 +206,7 @@
                   "$ref": "#/components/schemas/FileResponse"
                 },
                 "example": {
-                  "fileId": "1f0f6c56-1d9f-46c3-b796-4242d8d4475e",
+                  "fileId": "7N2q8T1rV0Xc5B6Yq4LzK",
                   "filePath": "/path/to/file.txt",
                   "checksum": "3d40de18b79c00b9170698e960bdb199",
                   "uploadUrl": "https://s3.example.com/upload/url"
@@ -132,6 +216,83 @@
           },
           "409": {
             "description": "Conflict - A file with the same filePath already exists."
+          }
+        },
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      }
+    },
+    "/contracts/{contractId}/submissions/{submissionId}/files/{fileId}": {
+      "get": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Retrieve files for a submission",
+        "operationId": "getFiles",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/contractId"
+          },
+          {
+            "$ref": "#/components/parameters/submissionId"
+          },
+          {
+            "$ref": "#/components/parameters/fileId"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Files retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                },
+                "example": {
+                  "fileId": "3R8p1T6rN0Xc7B5Yq4L2zK",
+                  "filePath": "/path/to/file.txt",
+                  "checksum": "3d40de18b79c00b9170698e960bdb199",
+                  "uploadUrl": "https://s3.example.com/upload/url"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No files found for the submission."
+          }
+        },
+        "security": [
+          {
+            "OAuth2": []
+          }
+        ]
+      },
+      "delete": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Delete a file",
+        "operationId": "deleteFile",
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/contractId"
+          },
+          {
+            "$ref": "#/components/parameters/submissionId"
+          },
+          {
+            "$ref": "#/components/parameters/fileId"
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "File deleted"
+          },
+          "404": {
+            "description": "File not found"
           }
         },
         "security": [
@@ -166,20 +327,20 @@
             "content": {
               "application/json": {
                 "schema": {
-                    "$ref": "#/components/schemas/SubmissionResponse"
+                  "$ref": "#/components/schemas/SubmissionResponse"
                 },
                 "example": {
-                  "submissionId": "853aeaa2-c1e8-4eaf-b9f7-279906c1c9bd",
+                  "submissionId": "1L3p9T7rV0Xc2N5Bq8Y4zK",
                   "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66",
                   "status": "finalized",
                   "files": [
                     {
-                      "fileId": "edffc160-cbfa-4cf1-90c8-fed57d4977be",
+                      "fileId": "1xV9T2K7rC0N5B8YqL3pZ7",
                       "filePath": "/path/to/file.txt",
                       "checksum": "3d40de18b79c00b9170698e960bdb199"
                     },
                     {
-                      "fileId": "65aa115d-f5d1-4129-b993-7ebda01f7054",
+                      "fileId": "4kqV1M3YcB7X8L9rN0p2Fz",
                       "filePath": "/path/to/file2.txt",
                       "checksum": "d714fe3ef9f4e6b62fd85bd262dc0521"
                     }
@@ -187,60 +348,6 @@
                 }
               }
             }
-          }
-        },
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
-      }
-    },
-    "/contracts/{contractId}/submissions/{submissionId}": {
-      "get": {
-        "tags": [
-          "Submissions"
-        ],
-        "summary": "Retrieve submission status",
-        "operationId": "getSubmissionStatus",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/contractId"
-          },
-          {
-            "$ref": "#/components/parameters/submissionId"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Submission found",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SubmissionResponse"
-                },
-                "example": {
-                  "submissionId": "853aeaa2-c1e8-4eaf-b9f7-279906c1c9bd",
-                  "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66",
-                  "status": "registered",
-                  "files": [
-                    {
-                      "fileId": "edffc160-cbfa-4cf1-90c8-fed57d4977be",
-                      "filePath": "/path/to/file.txt",
-                      "checksum": "3d40de18b79c00b9170698e960bdb199"
-                    },
-                    {
-                      "fileId": "65aa115d-f5d1-4129-b993-7ebda01f7054",
-                      "filePath": "/path/to/file2.txt",
-                      "checksum": "d714fe3ef9f4e6b62fd85bd262dc0521"
-                    }
-                  ]
-                }
-              }
-            }
-          },
-          "404": {
-            "description": "Submission not found"
           }
         },
         "security": [
@@ -270,7 +377,9 @@
         "properties": {
           "submissionId": {
             "type": "string",
-            "description": "Unique identifier for the submission in UUID format"
+            "pattern": "^[0-9a-zA-Z]{22}$",
+            "example": "8Z7x1T9rN0Xc2B5Yq4L3zP",
+            "description": "Unique identifier for the submission in Base62 format - 22 characters. The ID is case-sensitive."
           },
           "objectId": {
             "type": "string",
@@ -290,23 +399,7 @@
             "type": "array",
             "description": "List of files associated with the submission",
             "items": {
-              "type": "object",
-              "properties": {
-                "fileId": {
-                  "type": "string"
-                },
-                "filePath": {
-                  "type": "string"
-                },
-                "checksum": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "fileId",
-                "filePath",
-                "checksum"
-              ]
+              "$ref": "#/components/schemas/FileResponse"
             }
           }
         },
@@ -325,7 +418,8 @@
           },
           "checksum": {
             "type": "string",
-            "description": "Checksum for the file"
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Checksum for the file in MD5 format"
           }
         },
         "required": [
@@ -338,7 +432,9 @@
         "properties": {
           "fileId": {
             "type": "string",
-            "description": "Unique identifier for the file"
+            "pattern": "^[0-9a-zA-Z]{22}$",
+            "example": "1M0x4T9rN8Xc7B2Yq5L3zK",
+            "description": "Unique identifier for the file in Base62 format - 22 characters. The ID is case-sensitive."
           },
           "filePath": {
             "type": "string",
@@ -346,7 +442,8 @@
           },
           "checksum": {
             "type": "string",
-            "description": "Checksum for the file"
+            "pattern": "^[0-9a-f]{32}$",
+            "description": "Checksum for the file in MD5 format"
           },
           "uploadUrl": {
             "type": "string",
@@ -356,6 +453,8 @@
         },
         "required": [
           "fileId",
+          "filePath",
+          "checksum",
           "uploadUrl"
         ]
       }
@@ -365,20 +464,33 @@
         "name": "contractId",
         "in": "path",
         "required": true,
-        "description": "ID of the contract (Base16 (HEX) format, 8 characters)",
+        "description": "ID of the contract, in Base16 format - 4 characters)",
         "schema": {
           "type": "string",
-          "pattern": "^[0-9a-f]{8}$"
+          "pattern": "^[0-9a-f]{4}$",
+          "example": "4eaf"
         }
       },
       "submissionId": {
         "name": "submissionId",
         "in": "path",
         "required": true,
-        "description": "ID of the submission (UUID format)",
+        "description": "Unique identifier for the submission in Base62 format - 22 characters. The ID is case-sensitive.",
         "schema": {
           "type": "string",
-          "format": "uuid"
+          "pattern": "^[0-9a-zA-Z]{22}$",
+          "example": "7mVKGHwOA6w2Ot8feF9fIU"
+        }
+      },
+      "fileId": {
+        "name": "fileId",
+        "in": "path",
+        "required": true,
+        "description": "Unique identifier for the file in Base62 format - 22 characters. The ID is case-sensitive.",
+        "schema": {
+          "type": "string",
+          "pattern": "^[0-9a-zA-Z]{22}$",
+          "example": "2XQ3lsRHSDAZbOD2MZoynf"
         }
       }
     },
@@ -387,7 +499,7 @@
         "type": "oauth2",
         "flows": {
           "clientCredentials": {
-            "tokenUrl": "https://auth.nb.no/oauth/token",
+            "tokenUrl": "https://auth.example.com/oauth/token",
             "scopes": {}
           }
         }
