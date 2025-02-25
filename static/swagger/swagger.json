@@ -24,6 +24,20 @@
             "$ref": "#/components/parameters/contractId"
           }
         ],
+        "requestBody": {
+          "description": "Metadata for the submission to be created",
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CreateSubmissionRequest"
+              },
+              "example": {
+                "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66"
+              }
+            }
+          }
+        },
         "responses": {
           "409": {
             "description": "Conflict - A Submission with the same ID already exists."
@@ -42,30 +56,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "submissionId": {
-                      "type": "string",
-                      "description": "Unique identifier for the submission in UUID format"
-                    },
-                    "status": {
-                      "type": "string",
-                      "enum": [
-                        "registered",
-                        "in_progress",
-                        "failed",
-                        "completed"
-                      ],
-                      "description": "Status of the submission"
-                    }
-                  },
-                  "required": [
-                    "submissionId",
-                    "status"
-                  ]
+                  "$ref": "#/components/schemas/SubmissionResponse"
                 },
                 "example": {
                   "submissionId": "95c0bc53-6dfc-45aa-87d8-aff00f7a553d",
+                  "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66",
                   "status": "registered"
                 }
               }
@@ -100,21 +95,7 @@
           "content": {
             "application/json": {
               "schema": {
-                "type": "object",
-                "properties": {
-                  "filePath": {
-                    "type": "string",
-                    "description": "Relative path of the file within the submission"
-                  },
-                  "checksum": {
-                    "type": "string",
-                    "description": "Checksum for the file"
-                  }
-                },
-                "required": [
-                  "filePath",
-                  "checksum"
-                ]
+                "$ref": "#/components/schemas/RegisterFileRequest"
               },
               "example": {
                 "filePath": "/path/to/file.txt",
@@ -138,22 +119,7 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "fileId": {
-                      "type": "string",
-                      "description": "Unique identifier for the file"
-                    },
-                    "uploadUrl": {
-                      "type": "string",
-                      "format": "uri",
-                      "description": "URL for direct upload to S3"
-                    }
-                  },
-                  "required": [
-                    "fileId",
-                    "uploadUrl"
-                  ]
+                  "$ref": "#/components/schemas/FileResponse"
                 },
                 "example": {
                   "fileId": "1f0f6c56-1d9f-46c3-b796-4242d8d4475e",
@@ -200,54 +166,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "submissionId": {
-                      "type": "string",
-                      "description": "Unique identifier for the submission in UUID format"
-                    },
-                    "status": {
-                      "type": "string",
-                      "enum": [
-                        "registered",
-                        "in_progress",
-                        "failed",
-                        "completed"
-                      ],
-                      "description": "Updated status of the submission"
-                    },
-                    "files": {
-                      "type": "array",
-                      "description": "List of files associated with the submission",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "fileId": {
-                            "type": "string"
-                          },
-                          "filePath": {
-                            "type": "string"
-                          },
-                          "checksum": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "fileId",
-                          "filePath",
-                          "checksum"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "submissionId",
-                    "status",
-                    "files"
-                  ]
+                    "$ref": "#/components/schemas/SubmissionResponse"
                 },
                 "example": {
                   "submissionId": "853aeaa2-c1e8-4eaf-b9f7-279906c1c9bd",
+                  "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66",
                   "status": "finalized",
                   "files": [
                     {
@@ -294,47 +217,11 @@
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "submissionId": {
-                      "type": "string",
-                      "description": "Unique identifier for the submission in UUID format"
-                    },
-                    "status": {
-                      "type": "string",
-                      "description": "Status of the submission"
-                    },
-                    "files": {
-                      "type": "array",
-                      "description": "List of files associated with the submission",
-                      "items": {
-                        "type": "object",
-                        "properties": {
-                          "fileId": {
-                            "type": "string"
-                          },
-                          "filePath": {
-                            "type": "string"
-                          },
-                          "checksum": {
-                            "type": "string"
-                          }
-                        },
-                        "required": [
-                          "fileId",
-                          "filePath",
-                          "checksum"
-                        ]
-                      }
-                    }
-                  },
-                  "required": [
-                    "submissionId",
-                    "status"
-                  ]
+                  "$ref": "#/components/schemas/SubmissionResponse"
                 },
                 "example": {
                   "submissionId": "853aeaa2-c1e8-4eaf-b9f7-279906c1c9bd",
+                  "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66",
                   "status": "registered",
                   "files": [
                     {
@@ -365,6 +252,114 @@
     }
   },
   "components": {
+    "schemas": {
+      "CreateSubmissionRequest": {
+        "type": "object",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "Object identificator for the submission"
+          }
+        },
+        "required": [
+          "objectId"
+        ]
+      },
+      "SubmissionResponse": {
+        "type": "object",
+        "properties": {
+          "submissionId": {
+            "type": "string",
+            "description": "Unique identifier for the submission in UUID format"
+          },
+          "objectId": {
+            "type": "string",
+            "description": "Object identificator for the submission"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "registered",
+              "in_progress",
+              "failed",
+              "completed"
+            ],
+            "description": "Updated status of the submission"
+          },
+          "files": {
+            "type": "array",
+            "description": "List of files associated with the submission",
+            "items": {
+              "type": "object",
+              "properties": {
+                "fileId": {
+                  "type": "string"
+                },
+                "filePath": {
+                  "type": "string"
+                },
+                "checksum": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "fileId",
+                "filePath",
+                "checksum"
+              ]
+            }
+          }
+        },
+        "required": [
+          "submissionId",
+          "objectId",
+          "status"
+        ]
+      },
+      "RegisterFileRequest": {
+        "type": "object",
+        "properties": {
+          "filePath": {
+            "type": "string",
+            "description": "Relative path of the file within the submission"
+          },
+          "checksum": {
+            "type": "string",
+            "description": "Checksum for the file"
+          }
+        },
+        "required": [
+          "filePath",
+          "checksum"
+        ]
+      },
+      "FileResponse": {
+        "type": "object",
+        "properties": {
+          "fileId": {
+            "type": "string",
+            "description": "Unique identifier for the file"
+          },
+          "filePath": {
+            "type": "string",
+            "description": "Relative path of the file within the submission"
+          },
+          "checksum": {
+            "type": "string",
+            "description": "Checksum for the file"
+          },
+          "uploadUrl": {
+            "type": "string",
+            "format": "uri",
+            "description": "URL for direct upload to S3"
+          }
+        },
+        "required": [
+          "fileId",
+          "uploadUrl"
+        ]
+      }
+    },
     "parameters": {
       "contractId": {
         "name": "contractId",
