@@ -46,7 +46,7 @@
                   "properties": {
                     "submissionId": {
                       "type": "string",
-                      "description": "Unique identifier for the submission"
+                      "description": "Unique identifier for the submission in UUID format"
                     },
                     "status": {
                       "type": "string",
@@ -65,7 +65,7 @@
                   ]
                 },
                 "example": {
-                  "submissionId": "abc123",
+                  "submissionId": "95c0bc53-6dfc-45aa-87d8-aff00f7a553d",
                   "status": "registered"
                 }
               }
@@ -104,7 +104,7 @@
                 "properties": {
                   "filePath": {
                     "type": "string",
-                    "description": "Path or name of the file"
+                    "description": "Relative path of the file within the submission"
                   },
                   "checksum": {
                     "type": "string",
@@ -118,7 +118,7 @@
               },
               "example": {
                 "filePath": "/path/to/file.txt",
-                "checksum": "abcde12345"
+                "checksum": "249b8b8a3398b39ad657b2a0f8bf8cbe"
               }
             }
           }
@@ -156,7 +156,9 @@
                   ]
                 },
                 "example": {
-                  "fileId": "file456",
+                  "fileId": "1f0f6c56-1d9f-46c3-b796-4242d8d4475e",
+                  "filePath": "/path/to/file.txt",
+                  "checksum": "3d40de18b79c00b9170698e960bdb199",
                   "uploadUrl": "https://s3.example.com/upload/url"
                 }
               }
@@ -202,13 +204,15 @@
                   "properties": {
                     "submissionId": {
                       "type": "string",
-                      "description": "Unique identifier for the submission"
+                      "description": "Unique identifier for the submission in UUID format"
                     },
                     "status": {
                       "type": "string",
                       "enum": [
                         "registered",
-                        "finalized"
+                        "in_progress",
+                        "failed",
+                        "completed"
                       ],
                       "description": "Updated status of the submission"
                     },
@@ -243,18 +247,18 @@
                   ]
                 },
                 "example": {
-                  "submissionId": "abc123",
+                  "submissionId": "853aeaa2-c1e8-4eaf-b9f7-279906c1c9bd",
                   "status": "finalized",
                   "files": [
                     {
-                      "fileId": "file456",
+                      "fileId": "edffc160-cbfa-4cf1-90c8-fed57d4977be",
                       "filePath": "/path/to/file.txt",
-                      "checksum": "efefefefefefefef"
+                      "checksum": "3d40de18b79c00b9170698e960bdb199"
                     },
                     {
-                      "fileId": "file789",
+                      "fileId": "65aa115d-f5d1-4129-b993-7ebda01f7054",
                       "filePath": "/path/to/file2.txt",
-                      "checksum": "abababababababa"
+                      "checksum": "d714fe3ef9f4e6b62fd85bd262dc0521"
                     }
                   ]
                 }
@@ -294,7 +298,7 @@
                   "properties": {
                     "submissionId": {
                       "type": "string",
-                      "description": "Unique identifier for the submission"
+                      "description": "Unique identifier for the submission in UUID format"
                     },
                     "status": {
                       "type": "string",
@@ -330,9 +334,20 @@
                   ]
                 },
                 "example": {
-                  "submissionId": "abc123",
+                  "submissionId": "853aeaa2-c1e8-4eaf-b9f7-279906c1c9bd",
                   "status": "registered",
-                  "files": []
+                  "files": [
+                    {
+                      "fileId": "edffc160-cbfa-4cf1-90c8-fed57d4977be",
+                      "filePath": "/path/to/file.txt",
+                      "checksum": "3d40de18b79c00b9170698e960bdb199"
+                    },
+                    {
+                      "fileId": "65aa115d-f5d1-4129-b993-7ebda01f7054",
+                      "filePath": "/path/to/file2.txt",
+                      "checksum": "d714fe3ef9f4e6b62fd85bd262dc0521"
+                    }
+                  ]
                 }
               }
             }
@@ -365,9 +380,10 @@
         "name": "submissionId",
         "in": "path",
         "required": true,
-        "description": "ID of the submission",
+        "description": "ID of the submission (UUID format)",
         "schema": {
-          "type": "string"
+          "type": "string",
+          "format": "uuid"
         }
       }
     },
