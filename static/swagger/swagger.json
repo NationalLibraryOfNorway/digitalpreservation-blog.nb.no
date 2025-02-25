@@ -25,8 +25,20 @@
           }
         ],
         "responses": {
+          "409": {
+            "description": "Conflict - A Submission with the same ID already exists."
+          },
           "201": {
             "description": "Submission created",
+            "headers": {
+              "Location": {
+                "description": "URI of the newly created submission",
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -39,7 +51,10 @@
                     "status": {
                       "type": "string",
                       "enum": [
-                        "registered"
+                        "registered",
+                        "in_progress",
+                        "failed",
+                        "completed"
                       ],
                       "description": "Status of the submission"
                     }
@@ -109,8 +124,17 @@
           }
         },
         "responses": {
-          "200": {
+          "201": {
             "description": "File registered and upload URL generated",
+            "headers": {
+              "Location": {
+                "description": "URI of the newly created file",
+                "schema": {
+                  "type": "string",
+                  "format": "uri"
+                }
+              }
+            },
             "content": {
               "application/json": {
                 "schema": {
@@ -137,6 +161,9 @@
                 }
               }
             }
+          },
+          "409": {
+            "description": "Conflict - A file with the same filePath already exists."
           }
         },
         "security": [
@@ -163,6 +190,9 @@
           }
         ],
         "responses": {
+          "400": {
+            "description": "Bad Request - Submission cannot be finalized due to missing files or other required conditions not being met."
+          },
           "200": {
             "description": "Submission finalized",
             "content": {
@@ -325,9 +355,10 @@
         "name": "contractId",
         "in": "path",
         "required": true,
-        "description": "ID of the contract",
+        "description": "ID of the contract (Base16 (HEX) format, 8 characters)",
         "schema": {
-          "type": "string"
+          "type": "string",
+          "pattern": "^[0-9a-f]{8}$"
         }
       },
       "submissionId": {
