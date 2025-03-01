@@ -7,12 +7,16 @@
   },
   "servers": [
     {
-      "url": "https://api.nb.no",
+      "url": "https://api.dev.example.com",
+      "description": "Development environment"
+    },
+    {
+      "url": "https://api.example.com",
       "description": "Production environment"
     }
   ],
   "paths": {
-    "/contracts/{contractId}/submissions": {
+    "/v1/contracts/{contractId}/submissions": {
       "post": {
         "tags": [
           "Submissions"
@@ -33,14 +37,14 @@
                 "$ref": "#/components/schemas/CreateSubmissionRequest"
               },
               "example": {
-                "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66"
+                "objectId": "av_6e8bc430-9c3a11d9"
               }
             }
           }
         },
         "responses": {
           "409": {
-            "description": "Conflict - A Submission with the same ID already exists."
+            "description": "Conflict - A Submission with the same ID already exists for this contractId."
           },
           "201": {
             "description": "Submission created",
@@ -60,7 +64,7 @@
                 },
                 "example": {
                   "submissionId": "2T1x7K8rN0Xc5B4Yq3L9zK",
-                  "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66",
+                  "objectId": "av_6e8bc430-9c3a11d9",
                   "status": "registered"
                 }
               }
@@ -74,7 +78,7 @@
         ]
       }
     },
-    "/contracts/{contractId}/submissions/{submissionId}": {
+    "/v1/contracts/{contractId}/submissions/{submissionId}": {
       "get": {
         "tags": [
           "Submissions"
@@ -99,18 +103,18 @@
                 },
                 "example": {
                   "submissionId": "3M9x1T7rN0Xc8B5Yq4L2zK",
-                  "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66",
+                  "objectId": "av_6e8bc430-9c3a11d9",
                   "status": "registered",
                   "files": [
                     {
                       "fileId": "4Y2q1T8rN0Xc7B5Yq3LzK7",
-                      "filePath": "/path/to/file.txt",
+                      "filePath": "path/to/file.txt",
                       "checksum": "3d40de18b79c00b9170698e960bdb199",
                       "uploadUrl": "https://s3.example.com/upload/url"
                     },
                     {
                       "fileId": "5T1x8K2rN0Xc7B9Yq4L3zP",
-                      "filePath": "/path/to/file2.txt",
+                      "filePath": "path/to/file2.txt",
                       "checksum": "d714fe3ef9f4e6b62fd85bd262dc0521",
                       "uploadUrl": "https://s3.example.com/upload/url"
                     }
@@ -158,7 +162,7 @@
         ]
       }
     },
-    "/contracts/{contractId}/submissions/{submissionId}/files": {
+    "/v1/contracts/{contractId}/submissions/{submissionId}/files": {
       "post": {
         "tags": [
           "Submissions"
@@ -182,7 +186,7 @@
                 "$ref": "#/components/schemas/RegisterFileRequest"
               },
               "example": {
-                "filePath": "/path/to/file.txt",
+                "filePath": "path/to/file.txt",
                 "checksum": "249b8b8a3398b39ad657b2a0f8bf8cbe"
               }
             }
@@ -207,7 +211,7 @@
                 },
                 "example": {
                   "fileId": "7N2q8T1rV0Xc5B6Yq4LzK",
-                  "filePath": "/path/to/file.txt",
+                  "filePath": "path/to/file.txt",
                   "checksum": "3d40de18b79c00b9170698e960bdb199",
                   "uploadUrl": "https://s3.example.com/upload/url"
                 }
@@ -215,7 +219,7 @@
             }
           },
           "409": {
-            "description": "Conflict - A file with the same filePath already exists."
+            "description": "Conflict - A file with the same filePath already exists for this submissionId."
           }
         },
         "security": [
@@ -225,7 +229,7 @@
         ]
       }
     },
-    "/contracts/{contractId}/submissions/{submissionId}/files/{fileId}": {
+    "/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}": {
       "get": {
         "tags": [
           "Submissions"
@@ -253,7 +257,7 @@
                 },
                 "example": {
                   "fileId": "3R8p1T6rN0Xc7B5Yq4L2zK",
-                  "filePath": "/path/to/file.txt",
+                  "filePath": "path/to/file.txt",
                   "checksum": "3d40de18b79c00b9170698e960bdb199",
                   "uploadUrl": "https://s3.example.com/upload/url"
                 }
@@ -302,7 +306,7 @@
         ]
       }
     },
-    "/contracts/{contractId}/submissions/{submissionId}/finalize": {
+    "/v1/contracts/{contractId}/submissions/{submissionId}/finalize": {
       "post": {
         "tags": [
           "Submissions"
@@ -320,7 +324,7 @@
         ],
         "responses": {
           "400": {
-            "description": "Bad Request - Submission cannot be finalized due to missing files or other required conditions not being met."
+            "description": "Bad Request - Submission cannot be finalized due to no files registered, missing files in S3 or other required conditions not being met."
           },
           "200": {
             "description": "Submission finalized",
@@ -331,17 +335,17 @@
                 },
                 "example": {
                   "submissionId": "1L3p9T7rV0Xc2N5Bq8Y4zK",
-                  "objectId": "urn:uuid:6e8bc430-9c3a-11d9-9669-0800200c9a66",
+                  "objectId": "av_6e8bc430-9c3a11d9",
                   "status": "finalized",
                   "files": [
                     {
                       "fileId": "1xV9T2K7rC0N5B8YqL3pZ7",
-                      "filePath": "/path/to/file.txt",
+                      "filePath": "path/to/file.txt",
                       "checksum": "3d40de18b79c00b9170698e960bdb199"
                     },
                     {
                       "fileId": "4kqV1M3YcB7X8L9rN0p2Fz",
-                      "filePath": "/path/to/file2.txt",
+                      "filePath": "path/to/file2.txt",
                       "checksum": "d714fe3ef9f4e6b62fd85bd262dc0521"
                     }
                   ]
@@ -365,7 +369,9 @@
         "properties": {
           "objectId": {
             "type": "string",
-            "description": "Object identificator for the submission"
+            "pattern": "^[0-9a-zA-Z\\-_]{3,200}$",
+            "description": "Object identificator for the submission. The value must be unique within the contract.",
+            "example": "av_6e8bc430-9c3a11d9"
           }
         },
         "required": [
@@ -414,12 +420,18 @@
         "properties": {
           "filePath": {
             "type": "string",
-            "description": "Relative path of the file within the submission"
+            "description": "Relative path of the file within the submission. The path must be unique within the submission.",
+            "example": "path/to/file.txt"
           },
           "checksum": {
             "type": "string",
             "pattern": "^[0-9a-f]{32}$",
-            "description": "Checksum for the file in MD5 format"
+            "description": "Checksum for the file in MD5 format."
+          },
+          "isPackaged": {
+            "type": "boolean",
+            "default": false,
+            "description": "Optional flag to indicate if the file is packaged in ZIP or TAR format."
           }
         },
         "required": [
@@ -438,7 +450,8 @@
           },
           "filePath": {
             "type": "string",
-            "description": "Relative path of the file within the submission"
+            "description": "Relative path of the file within the submission. The path must be unique within the submission.",
+            "example": "path/to/file.txt"
           },
           "checksum": {
             "type": "string",
