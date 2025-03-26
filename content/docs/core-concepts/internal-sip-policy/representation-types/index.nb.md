@@ -12,28 +12,22 @@ weight: 4
 aliases: ["/nb/representasjonstyper"]
 ---
 
-De fleste av våre interne informasjonspakker vil kun inneholde én enkelt representasjon.
-Ytterligere representasjoner produseres i organisasjonen, men det finnes kun noen få reelle eksempler hvor disse er lagret i DPS.
+De fleste av våre internt produserte informasjonspakker inneholder kun én enkelt representasjon. 
 
-Vi opererer med tre typer representasjoner:
+Det produseres også andre representasjoner i Nasjonalbiblioteket, for eksempel til visning i nettbiblioteket, men kun et fåtall av disse lagres i DPS.  
+
+Vi opererer med to typer representasjoner for digital bevaring hos oss:
  
-## Primærrepresentasjoner (primary)
-Den første og primære representasjonen er den som inneholder det digitale objektet som er beskrevet ved hjelp av en IE i det relevante metadatasystemet[^1].
+## Primærrepresentasjon
+Innholdet i denne mappa er det digitale objektet som pakken skal beskrive. Den første og primære representasjonen er den som inneholder det digitale objektet som er beskrevet ved hjelp av en IE i det relevante metadatasystemet[^1].
 [^1]: Ikke beskrevet i våre MARC-baserte systemer. Se [forrige dokument](/nb/sip-omfang).
  
-## Tilgangsrepresentasjoner (access derivate)
-Tilgangsrepresentasjoner brukes for digitale objekter utledet fra det digitale objektet i primærrepresentasjonen, for å gi enklere tilgang.
-De brukes som proxy, eller stedfortreder, for den primære representasjonen.
-Disse representasjonene inneholder vanligvis filer av lavere kvalitet (for eksempel med lavere oppløsning eller høyere grad av komprinmering).
- 
-Enhver representasjon kan i teorien ha en tilgangsrepresentasjon, men disse administreres og forvaltes primært av de offentlige tilgangstjenestene. 
-Tilgangsrepresentasjoner forvaltes kun i DPS, hvis de er et resultat av betydelig arbeid og/eller ikke kan utledes maskinelt fra den primære representasjonen. 
-De offentlige tilgangsjenestene støtter på sin side kun én enkelt (tilgangs)representasjon per UID.
- 
-## Bevaringsrepresentasjoner (preservation derivate)
-I tilfeller hvor det primære digitale objektet er normalisert eller konvertert til et annet format for bevaring, kan du bruke dette formatet som representasjonstype. 
-Dette gjør oss i stand til å bevare både det primære digitale objektet og en antatt mer bestandig bevaringsrepresentasjon. 
-Foreløpig er dette et hovedsaklig hypotetisk brukstilfelle, enn noe som skjer regelmessig i organisasjonen.
+## Derivater av primærrepresentasjonen
+Opprettelse av flere representasjoner i en informasjonspakke er kun relevant hvis det er spesielt ønskelig å bevare både primærrepresentasjonen og noe som er utledet fra den, i samme informasjonspakke. Dette kan være en tilgangskopi, prosessert, normalisert, formatmigrert eller reparert variant av primærrepresentasjonen. Typisk for disse er at de ikke er representert som en egen IE i metadatasystemet.
+
+Et eksempel kan være der det primære digitale objektet er normalisert eller konvertert til et annet format for bevaring. Vi kan da bevare både det primære digitale objektet og en antatt mer bestandig bevaringsrepresentasjon. 
+
+Formålet med et derivat, hvordan det er fremstilt, og hvilken relasjon det har til primærrepresentasjonen bør dokumenteres i bevaringsmetadata i pakken. Vi fraråder å bevare derivater som lett og maskinelt kan gjenskapes fra primærrepresentasjonen. Tilgangsrepresentasjoner vil for eksempel kun være aktuelle for forvaltning i DPS, hvis de er et resultat av betydelig arbeid og/eller ikke kan utledes maskinelt fra den primære representasjonen.  
 
 ## Eksempler:
 
@@ -50,7 +44,7 @@ TIFF-fila ligger i den primære representasjonen i informasjonspakka, mens JP2-f
 
 {{< figure src="tiffjp2.svg" alt="Informasjonspakke som inneholder digitalisering av fotonegative med to representasjoner" >}}
 
-### Eksempel som viser alle tre representasjonstypene
+### Eksempel som viser tre representasjonstypene
 Et eksempel som viser en videomaster, med en tilgangsrepresentasjon og en bevaringsrepresentasjon som inneholder et digitalt objekt (som et resultat av en hypotetisk formatmigrering/normalisering av primærrepresentasjonen).
 
 {{< figure src="avsip.svg" alt="Informasjonspakke for video master med tre representasjoner" >}}

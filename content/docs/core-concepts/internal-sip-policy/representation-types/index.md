@@ -12,31 +12,21 @@ weight: 4
 aliases: ["/representation-types"]
 ---
 
-Most of our in-house SIPs will only contain a single representation. 
-Secondary representations are produced in the organization, but there are only a few use-cases where these are stored in the DPS.
+Most of the SIPs that are created in our organization only contain one single representation. Secondary representations are also produced, e.g access representation for our website, but there are only a few use-cases where these are stored in the DPS.  
 
-We operate with three types of representations:
+We operate with two types of representations:
 
 ## Primary
 The initial primary representation is the representation containing the digital object described using an IE in the relevant metadata management system[^1].
 
 [^1]: Not described in our MARC-based systems. See [previous document](/intellectual-sip-scope). 
 
-## Access derivate
-Access derivate representations are used for digital objects derived from the digital object in the *primary* representation, to provide easier access. 
-They are used as a proxy/stand-in for the primary representation.
-They typically contain much smaller, lossy (or lossier) files.
+## Derivatives of the primary representation
+Creating multiple representations in one SIP is only relevant if it is especially important to preserve both the primary representation and something derived from it, together in one information package. This might be an access copy, a processed, normalized, format migrated or repaired version of the primary representation. Typically, these are not represented as a separate IE in the metadata system. 
 
-Any representation can in theory have an access representation, but these are primarily managed and stored in the public access environment alone.
-Access representations are only kept in the DPS if they are the result of significant labor and/or cannot be easily derived from the primary representation.
-The public access environment, on the other hand, only supports a single access representation per UID.
+If we for example normalize or convert the primary digital object to another format for preservation, we can preserve both the primary digital object and a presumed more durable representation in the same information package. 
 
-## Preservation derivate
-In the case where the primary digital object is normalized or converted to a different format for preservation, you can use the preservation derivate representation type.
-This enables us to preserve both the primary digital object and its preservation derivate.
-Currently, this is more of a hypothetical use-case, than something that regularly happens in the organization.
-
-Below are a few examples showing typical SIPs with representations:
+The purpose of a derivative, how it is produced, and how it is related to the primary representation should be documented as preservation metadata in the package. We advise against preserving derivatives that easily and mechanically can be recreated from the primary representation. Access representations may, for example, only be relevant to include in DPS if they are the result of significant work and/or cannot be derived mechanically from the primary representation.  
 
 ## Examples:
 ### Example showing a typical SIP with a single representation
@@ -51,7 +41,7 @@ The TIFF file is contained in the primary representation in the SIP, while the J
 
 {{< figure src="tiffjp2.svg" alt="Photo negative digitization SIP with 2 representations" >}}
 
-### Example showing all three representation types
+### Example showing three representation types
 An example showing a video master, with an access representation and a representation holding a digital object resulting from a hypothetical format migration/normalization.
 
 {{< figure src="avsip.svg" alt="Video SIP with 3 representations" >}}
