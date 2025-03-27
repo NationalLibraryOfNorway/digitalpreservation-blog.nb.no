@@ -44,7 +44,7 @@ TIFF-fila ligger i den primære representasjonen i informasjonspakka, mens JP2-f
 
 {{< figure src="tiffjp2.svg" alt="Informasjonspakke som inneholder digitalisering av fotonegative med to representasjoner" >}}
 
-### Eksempel som viser tre representasjonstypene
+### Eksempel som viser tre representasjonstyper
 Et eksempel som viser en videomaster, med en tilgangsrepresentasjon og en bevaringsrepresentasjon som inneholder et digitalt objekt (som et resultat av en hypotetisk formatmigrering/normalisering av primærrepresentasjonen).
 
 {{< figure src="avsip.svg" alt="Informasjonspakke for video master med tre representasjoner" >}}
