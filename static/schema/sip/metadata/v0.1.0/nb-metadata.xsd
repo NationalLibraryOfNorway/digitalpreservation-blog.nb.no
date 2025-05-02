@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/"
+           targetNamespace="https://digitalpreservation.no/schemas/sip/metadata" xmlns="https://digitalpreservation.no/schemas/sip/metadata"
+           elementFormDefault="qualified">
+
+    <xs:annotation>
+        <xs:documentation xml:lang="en">
+            NB Submission Information Package (SIP) Metadata
+
+            Schema for Submission Information Package (SIP) metadata using Dublin Core
+            terms extended with local elements and attributes (language tags, types,
+            authority references, geospatial coordinates).
+        </xs:documentation>
+
+        <xs:documentation xml:lang="en">
+            Version History:
+            2025-05-02: Version 0.1.0, Thomas Edvardsen, National Library of Norway
+
+            Initial release with core DC elements, language tagging, authority attributes, date, and spatial support.
+        </xs:documentation>
+    </xs:annotation>
+
+    <!-- Import the official Dublin Core Terms definitions -->
+    <xs:import namespace="http://purl.org/dc/terms/" schemaLocation="https://www.dublincore.org/schemas/xmls/qdc/dcterms.xsd"/>
+    <!-- Import the classic DC Elements 1.1 schema for dc:SimpleLiteral etc. -->
+    <xs:import namespace="http://purl.org/dc/elements/1.1/" schemaLocation="http://dublincore.org/schemas/xmls/qdc/dc.xsd"/>
+    <!-- Import the XML namespace to allow use of xml:lang attribute -->
+    <xs:import namespace="http://www.w3.org/XML/1998/namespace" schemaLocation="http://www.w3.org/2001/xml.xsd"/>
+
+    <!-- Attribute group for authority references: source register, identifier, and type -->
+    <xs:attributeGroup name="AuthorityAttributes">
+        <xs:attribute name="authoritySource" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Name of authority register (e.g., SSR, VIAF)</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="authorityCode" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Identifier in the authority register</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="authorityType" type="xs:string">
+            <xs:annotation>
+                <xs:documentation>Type of authority identifier (e.g., "stedsnummer")</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+        <xs:attribute name="authorityURI" type="xs:anyURI">
+            <xs:annotation>
+                <xs:documentation>URI pointing to the authority record</xs:documentation>
+            </xs:annotation>
+        </xs:attribute>
+    </xs:attributeGroup>
+
+    <!-- Enumerated literal type for resource types, derived from dc:SimpleLiteral -->
+    <xs:complexType name="ResourceTypeLiteral">
+        <xs:simpleContent>
+            <xs:restriction base="dc:SimpleLiteral">
+                <!-- Restrict text content to specific values -->
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:enumeration value="Still Image"/>
+                        <xs:enumeration value="Text"/>
+                        <xs:enumeration value="Sound"/>
+                        <xs:enumeration value="Moving Image"/>
+                        <xs:enumeration value="Collection"/>
+                    </xs:restriction>
+                </xs:simpleType>
+                <!-- Optional language tag -->
+                <xs:attribute ref="xml:lang" />
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!-- Simple literal requiring xml:lang -->
+    <xs:complexType name="LangTaggedLiteral">
+        <xs:simpleContent>
+            <xs:restriction base="dc:SimpleLiteral">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string"/>
+                </xs:simpleType>
+                <!-- Reference xml:lang attribute and require it -->
+                <xs:attribute ref="xml:lang" use="required"/>
+            </xs:restriction>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!-- Literal with required xml:lang and type -->
+    <xs:complexType name="TypeAndLangLiteral">
+        <xs:simpleContent>
+            <xs:extension base="LangTaggedLiteral">
+                <xs:attribute name="type" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!-- Literal with optional type -->
+    <xs:complexType name="LiteralWithOptionalType">
+        <xs:complexContent>
+            <xs:extension base="dc:SimpleLiteral">
+                <xs:attribute name="type" type="xs:string" />
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Literal with role, type, and optional authority reference -->
+    <xs:complexType name="LiteralWithAuthority">
+        <xs:complexContent>
+            <xs:extension base="dc:SimpleLiteral">
+                <xs:attribute name="role" type="xs:string" />
+                <xs:attribute name="type" type="xs:string" />
+                <!-- Reuse authority attributes -->
+                <xs:attributeGroup ref="AuthorityAttributes"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Reusable type extending DCTERMS W3CDTF for ISO 8601-2 date and adding required type -->
+    <xs:complexType name="DateLiteral">
+        <xs:simpleContent>
+            <xs:extension base="dcterms:W3CDTF">
+                <xs:attribute name="type" type="xs:string" use="required"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <!-- Spatial element type: allows text, coordinates, and authority attributes -->
+    <xs:complexType name="SpatialLiteral">
+        <xs:complexContent mixed="true">
+            <xs:extension base="dc:SimpleLiteral">
+                <!-- Required coordinates -->
+                <xs:attribute name="lat" type="xs:decimal" use="required"/>
+                <xs:attribute name="lon" type="xs:decimal" use="required"/>
+                <!-- Reuse authority attributes -->
+                <xs:attributeGroup ref="AuthorityAttributes"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+
+    <!-- Core nb-prefixed DC elements -->
+    <xs:element name="type" substitutionGroup="dc:type" type="ResourceTypeLiteral"/>
+    <xs:element name="title" substitutionGroup="dc:title"/>
+    <xs:element name="alternative" substitutionGroup="dcterms:alternative" type="TypeAndLangLiteral"/>
+    <xs:element name="creator" substitutionGroup="dc:creator" type="LiteralWithAuthority"/>
+    <xs:element name="contributor" substitutionGroup="dc:contributor" type="LiteralWithAuthority"/>
+    <xs:element name="publisher" substitutionGroup="dc:publisher" type="LiteralWithAuthority"/>
+    <xs:element name="spatial" substitutionGroup="dcterms:spatial" type="SpatialLiteral"/>
+    <xs:element name="date" substitutionGroup="dc:date" type="DateLiteral"/>
+    <xs:element name="language" substitutionGroup="dc:language" type="TypeAndLangLiteral"/>
+    <xs:element name="isPartOf" substitutionGroup="dcterms:isPartOf"/>
+    <xs:element name="provenance" substitutionGroup="dcterms:provenance"/>
+    <xs:element name="identifier" substitutionGroup="dc:identifier" type="LiteralWithOptionalType"/>
+    <xs:element name="description" substitutionGroup="dc:description"/>
+
+    <!--
+        Root metadata container: only nb-prefixed elements allowed.
+        Defines element order and minimum occurrences
+    -->
+    <xs:element name="metadata">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:sequence>
+                    <xs:element ref="type" minOccurs="1" maxOccurs="unbounded"/>
+                    <xs:element ref="title" minOccurs="1" maxOccurs="1"/>
+                    <xs:element ref="alternative" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="creator" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="contributor" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="publisher" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="spatial" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="date" minOccurs="1" maxOccurs="unbounded"/>
+                    <xs:element ref="language" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="isPartOf" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="provenance" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="identifier" minOccurs="1"  maxOccurs="unbounded"/>
+                    <xs:element ref="description" minOccurs="0" maxOccurs="unbounded"/>
+                </xs:sequence>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
