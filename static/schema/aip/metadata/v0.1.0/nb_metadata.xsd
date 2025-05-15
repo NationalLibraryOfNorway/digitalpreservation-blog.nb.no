@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:dcterms="http://purl.org/dc/terms/" xmlns:dc="http://purl.org/dc/elements/1.1/"
-           targetNamespace="https://digitalpreservation.no/schemas/sip/metadata" xmlns="https://digitalpreservation.no/schemas/sip/metadata"
+           targetNamespace="https://digitalpreservation.no/schemas/aip/metadata" xmlns="https://digitalpreservation.no/schemas/aip/metadata"
            elementFormDefault="qualified">
 
     <xs:annotation>
         <xs:documentation xml:lang="en">
-            NB Submission Information Package (SIP) Metadata
+            Archival Information Package (AIP) Metadata
 
-            Schema for Submission Information Package (SIP) metadata using Dublin Core
+            Schema for Archival Information Package (AIP) metadata using Dublin Core
             terms extended with local elements and attributes (language tags, types,
             authority references, geospatial coordinates).
         </xs:documentation>
@@ -37,11 +37,6 @@
         <xs:attribute name="authorityCode" type="xs:string">
             <xs:annotation>
                 <xs:documentation>Identifier in the authority register</xs:documentation>
-            </xs:annotation>
-        </xs:attribute>
-        <xs:attribute name="authorityType" type="xs:string">
-            <xs:annotation>
-                <xs:documentation>Type of authority identifier (e.g., "stedsnummer")</xs:documentation>
             </xs:annotation>
         </xs:attribute>
         <xs:attribute name="authorityURI" type="xs:anyURI">
@@ -110,6 +105,21 @@
                 <xs:attribute name="type" type="xs:string" />
                 <!-- Reuse authority attributes -->
                 <xs:attributeGroup ref="AuthorityAttributes"/>
+                <xs:attribute name="authorityType">
+                    <xs:annotation>
+                        <xs:documentation>Type of authority identifier (e.g., "Person")</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Person"/>
+                            <xs:enumeration value="Organization"/>
+                            <xs:enumeration value="Personal Name"/>
+                            <xs:enumeration value="Corporate Name"/>
+                            <xs:enumeration value="Meeting Name"/>
+                            <xs:enumeration value="Uniform Title"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
@@ -124,7 +134,7 @@
     </xs:complexType>
 
     <!-- Spatial element type: allows text, coordinates, and authority attributes -->
-    <xs:complexType name="SpatialLiteral">
+    <xs:complexType name="CoverageLiteral">
         <xs:complexContent mixed="true">
             <xs:extension base="dc:SimpleLiteral">
                 <!-- Required coordinates -->
@@ -132,23 +142,39 @@
                 <xs:attribute name="lon" type="xs:decimal" use="required"/>
                 <!-- Reuse authority attributes -->
                 <xs:attributeGroup ref="AuthorityAttributes"/>
+                <xs:attribute name="authorityType">
+                    <xs:annotation>
+                        <xs:documentation>Type of authority identifier (e.g., "NamedObject")</xs:documentation>
+                    </xs:annotation>
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="Place"/>
+                            <xs:enumeration value="Building"/>
+                            <xs:enumeration value="NamedObject"/>
+                            <xs:enumeration value="Time.Event"/>
+                            <xs:enumeration value="Time.Period"/>
+                            <xs:enumeration value="Consept"/>
+                        </xs:restriction>
+                    </xs:simpleType>
+                </xs:attribute>
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>
 
     <!-- Core nb-prefixed DC elements -->
     <xs:element name="type" substitutionGroup="dc:type" type="ResourceTypeLiteral"/>
+    <xs:element name="identifier" substitutionGroup="dc:identifier" type="LiteralWithOptionalType"/>
     <xs:element name="title" substitutionGroup="dc:title"/>
     <xs:element name="alternative" substitutionGroup="dcterms:alternative" type="TypeAndLangLiteral"/>
     <xs:element name="creator" substitutionGroup="dc:creator" type="LiteralWithAuthority"/>
     <xs:element name="contributor" substitutionGroup="dc:contributor" type="LiteralWithAuthority"/>
     <xs:element name="publisher" substitutionGroup="dc:publisher" type="LiteralWithAuthority"/>
-    <xs:element name="spatial" substitutionGroup="dcterms:spatial" type="SpatialLiteral"/>
+    <xs:element name="coverage" substitutionGroup="dc:coverage" type="CoverageLiteral"/>
     <xs:element name="date" substitutionGroup="dc:date" type="DateLiteral"/>
     <xs:element name="language" substitutionGroup="dc:language" type="TypeAndLangLiteral"/>
     <xs:element name="isPartOf" substitutionGroup="dcterms:isPartOf"/>
     <xs:element name="provenance" substitutionGroup="dcterms:provenance"/>
-    <xs:element name="identifier" substitutionGroup="dc:identifier" type="LiteralWithOptionalType"/>
+    <xs:element name="subject" substitutionGroup="dc:subject"/>
     <xs:element name="description" substitutionGroup="dc:description"/>
 
     <!--
@@ -160,17 +186,18 @@
             <xs:sequence>
                 <xs:sequence>
                     <xs:element ref="type" minOccurs="1" maxOccurs="unbounded"/>
+                    <xs:element ref="identifier" minOccurs="1"  maxOccurs="unbounded"/>
                     <xs:element ref="title" minOccurs="1" maxOccurs="1"/>
                     <xs:element ref="alternative" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="creator" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="contributor" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="publisher" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="spatial" minOccurs="0" maxOccurs="unbounded"/>
+                    <xs:element ref="coverage" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="date" minOccurs="1" maxOccurs="unbounded"/>
                     <xs:element ref="language" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="isPartOf" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="provenance" minOccurs="0" maxOccurs="unbounded"/>
-                    <xs:element ref="identifier" minOccurs="1"  maxOccurs="unbounded"/>
+                    <xs:element ref="subject" minOccurs="0" maxOccurs="unbounded"/>
                     <xs:element ref="description" minOccurs="0" maxOccurs="unbounded"/>
                 </xs:sequence>
             </xs:sequence>
