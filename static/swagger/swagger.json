@@ -1,18 +1,19 @@
 {
-  "openapi": "3.0.0",
+  "openapi": "3.1.0",
   "info": {
-    "title": "Submission API",
-    "version": "1.0.0",
-    "description": "API for managing submissions with file uploads to S3"
+    "title": "DPS Submission Service API",
+    "description": "API for Digital Preservation Submission Service. This API requires OAuth2 client credentials for authentication.",
+    "version": "1.0.0"
   },
   "servers": [
     {
       "url": "https://api.dev.example.com",
       "description": "Development environment"
-    },
+    }
+  ],
+  "security": [
     {
-      "url": "https://api.example.com",
-      "description": "Production environment"
+      "oauth2": []
     }
   ],
   "paths": {
@@ -25,285 +26,69 @@
         "operationId": "createSubmission",
         "parameters": [
           {
-            "$ref": "#/components/parameters/contractId"
+            "name": "contractId",
+            "in": "path",
+            "description": "ID of the contract, in Base16 format - 4 characters)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "4eaf",
+              "pattern": "^[0-9a-f]{4}$"
+            }
           }
         ],
         "requestBody": {
-          "description": "Metadata for the submission to be created",
-          "required": true,
           "content": {
             "application/json": {
               "schema": {
                 "$ref": "#/components/schemas/CreateSubmissionRequest"
-              },
-              "example": {
-                "objectId": "av_6e8bc430-9c3a11d9"
               }
             }
-          }
+          },
+          "required": true
         },
         "responses": {
-          "409": {
-            "description": "Conflict - A Submission with the same ID already exists for this contractId."
-          },
           "201": {
             "description": "Submission created",
-            "headers": {
-              "Location": {
-                "description": "URI of the newly created submission",
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              }
-            },
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SubmissionResponse"
-                },
-                "example": {
-                  "submissionId": "2T1x7K8rN0Xc5B4Yq3L9zK",
-                  "objectId": "av_6e8bc430-9c3a11d9",
-                  "status": "registered"
                 }
               }
             }
-          }
-        },
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
-      }
-    },
-    "/v1/contracts/{contractId}/submissions/{submissionId}": {
-      "get": {
-        "tags": [
-          "Submissions"
-        ],
-        "summary": "Retrieve submission status",
-        "operationId": "getSubmissionStatus",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/contractId"
           },
-          {
-            "$ref": "#/components/parameters/submissionId"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Submission found",
+          "401": {
+            "description": "Unauthorized - Authentication is required",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SubmissionResponse"
-                },
-                "example": {
-                  "submissionId": "3M9x1T7rN0Xc8B5Yq4L2zK",
-                  "objectId": "av_6e8bc430-9c3a11d9",
-                  "status": "registered",
-                  "files": [
-                    {
-                      "fileId": "4Y2q1T8rN0Xc7B5Yq3LzK7",
-                      "filePath": "path/to/file.txt",
-                      "checksum": "3d40de18b79c00b9170698e960bdb199",
-                      "uploadUrl": "https://s3.example.com/upload/url"
-                    },
-                    {
-                      "fileId": "5T1x8K2rN0Xc7B9Yq4L3zP",
-                      "filePath": "path/to/file2.txt",
-                      "checksum": "d714fe3ef9f4e6b62fd85bd262dc0521",
-                      "uploadUrl": "https://s3.example.com/upload/url"
-                    }
-                  ]
                 }
               }
             }
           },
-          "404": {
-            "description": "Submission not found"
-          }
-        },
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Submissions"
-        ],
-        "summary": "Delete a submission",
-        "operationId": "deleteSubmission",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/contractId"
-          },
-          {
-            "$ref": "#/components/parameters/submissionId"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "Submission deleted"
-          },
-          "404": {
-            "description": "Submission not found"
-          }
-        },
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
-      }
-    },
-    "/v1/contracts/{contractId}/submissions/{submissionId}/files": {
-      "post": {
-        "tags": [
-          "Submissions"
-        ],
-        "summary": "Register file and receive upload URL",
-        "operationId": "registerFile",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/contractId"
-          },
-          {
-            "$ref": "#/components/parameters/submissionId"
-          }
-        ],
-        "requestBody": {
-          "description": "Metadata for the file to be uploaded",
-          "required": true,
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/RegisterFileRequest"
-              },
-              "example": {
-                "filePath": "path/to/file.txt",
-                "checksum": "249b8b8a3398b39ad657b2a0f8bf8cbe"
-              }
-            }
-          }
-        },
-        "responses": {
-          "201": {
-            "description": "File registered and upload URL generated",
-            "headers": {
-              "Location": {
-                "description": "URI of the newly created file",
-                "schema": {
-                  "type": "string",
-                  "format": "uri"
-                }
-              }
-            },
+          "403": {
+            "description": "Forbidden - User does not have the required role to perform this action",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FileResponse"
-                },
-                "example": {
-                  "fileId": "7N2q8T1rV0Xc5B6Yq4LzK",
-                  "filePath": "path/to/file.txt",
-                  "checksum": "3d40de18b79c00b9170698e960bdb199",
-                  "uploadUrl": "https://s3.example.com/upload/url"
+                  "$ref": "#/components/schemas/SubmissionResponse"
                 }
               }
             }
           },
           "409": {
-            "description": "Conflict - A file with the same filePath already exists for this submissionId."
-          }
-        },
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
-      }
-    },
-    "/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}": {
-      "get": {
-        "tags": [
-          "Submissions"
-        ],
-        "summary": "Retrieve files for a submission",
-        "operationId": "getFiles",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/contractId"
-          },
-          {
-            "$ref": "#/components/parameters/submissionId"
-          },
-          {
-            "$ref": "#/components/parameters/fileId"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "Files retrieved successfully.",
+            "description": "Conflict - A Submission with the same ID already exists for this contractId.",
             "content": {
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/FileResponse"
-                },
-                "example": {
-                  "fileId": "3R8p1T6rN0Xc7B5Yq4L2zK",
-                  "filePath": "path/to/file.txt",
-                  "checksum": "3d40de18b79c00b9170698e960bdb199",
-                  "uploadUrl": "https://s3.example.com/upload/url"
+                  "$ref": "#/components/schemas/SubmissionResponse"
                 }
               }
             }
-          },
-          "404": {
-            "description": "No files found for the submission."
           }
-        },
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
-      },
-      "delete": {
-        "tags": [
-          "Submissions"
-        ],
-        "summary": "Delete a file",
-        "operationId": "deleteFile",
-        "parameters": [
-          {
-            "$ref": "#/components/parameters/contractId"
-          },
-          {
-            "$ref": "#/components/parameters/submissionId"
-          },
-          {
-            "$ref": "#/components/parameters/fileId"
-          }
-        ],
-        "responses": {
-          "204": {
-            "description": "File deleted"
-          },
-          "404": {
-            "description": "File not found"
-          }
-        },
-        "security": [
-          {
-            "OAuth2": []
-          }
-        ]
+        }
       }
     },
     "/v1/contracts/{contractId}/submissions/{submissionId}/finalize": {
@@ -316,76 +101,967 @@
         "operationId": "finalizeSubmission",
         "parameters": [
           {
-            "$ref": "#/components/parameters/contractId"
+            "name": "contractId",
+            "in": "path",
+            "description": "ID of the contract, in Base16 format - 4 characters)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "4eaf",
+              "pattern": "^[0-9a-f]{4}$"
+            }
           },
           {
-            "$ref": "#/components/parameters/submissionId"
+            "name": "submissionId",
+            "in": "path",
+            "description": "Unique identifier for the submission in Base62 format - 22 characters. The ID is case-sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "7mVKGHwOA6w2Ot8feF9fIU",
+              "pattern": "^[0-9a-zA-Z]{22}$"
+            }
           }
         ],
         "responses": {
-          "400": {
-            "description": "Bad Request - Submission cannot be finalized due to no files registered, missing files in S3 or other required conditions not being met."
-          },
           "200": {
             "description": "Submission finalized",
             "content": {
               "application/json": {
                 "schema": {
                   "$ref": "#/components/schemas/SubmissionResponse"
-                },
-                "example": {
-                  "submissionId": "1L3p9T7rV0Xc2N5Bq8Y4zK",
-                  "objectId": "av_6e8bc430-9c3a11d9",
-                  "status": "finalized",
-                  "files": [
-                    {
-                      "fileId": "1xV9T2K7rC0N5B8YqL3pZ7",
-                      "filePath": "path/to/file.txt",
-                      "checksum": "3d40de18b79c00b9170698e960bdb199"
-                    },
-                    {
-                      "fileId": "4kqV1M3YcB7X8L9rN0p2Fz",
-                      "filePath": "path/to/file2.txt",
-                      "checksum": "d714fe3ef9f4e6b62fd85bd262dc0521"
-                    }
-                  ]
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad Request - Submission cannot be finalized due to no files registered, missing files in S3 or other required conditions not being met.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Authentication is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - User does not have the required role to perform this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionResponse"
                 }
               }
             }
           }
-        },
-        "security": [
+        }
+      }
+    },
+    "/v1/contracts/{contractId}/submissions/{submissionId}/files": {
+      "post": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Register file and receive upload URL",
+        "operationId": "registerFile",
+        "parameters": [
           {
-            "OAuth2": []
+            "name": "contractId",
+            "in": "path",
+            "description": "ID of the contract, in Base16 format - 4 characters)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "4eaf",
+              "pattern": "^[0-9a-f]{4}$"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Unique identifier for the submission in Base62 format - 22 characters. The ID is case-sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "7mVKGHwOA6w2Ot8feF9fIU",
+              "pattern": "^[0-9a-zA-Z]{22}$"
+            }
           }
-        ]
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/RegisterFileRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "201": {
+            "description": "File registered and upload URL generated",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Authentication is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - User does not have the required role to perform this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "409": {
+            "description": "Conflict - A file with the same filePath already exists for this submissionId.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/v1/contracts/{contractId}/submissions/{submissionId}": {
+      "get": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Retrieve submission status",
+        "operationId": "getSubmissionStatus",
+        "parameters": [
+          {
+            "name": "contractId",
+            "in": "path",
+            "description": "ID of the contract, in Base16 format - 4 characters)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "4eaf",
+              "pattern": "^[0-9a-f]{4}$"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Unique identifier for the submission in Base62 format - 22 characters. The ID is case-sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "7mVKGHwOA6w2Ot8feF9fIU",
+              "pattern": "^[0-9a-zA-Z]{22}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Submission found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Authentication is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - User does not have the required role to perform this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Submission not found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SubmissionResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Delete a submission",
+        "operationId": "deleteSubmission",
+        "parameters": [
+          {
+            "name": "contractId",
+            "in": "path",
+            "description": "ID of the contract, in Base16 format - 4 characters)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "4eaf",
+              "pattern": "^[0-9a-f]{4}$"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Unique identifier for the submission in Base62 format - 22 characters. The ID is case-sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "7mVKGHwOA6w2Ot8feF9fIU",
+              "pattern": "^[0-9a-zA-Z]{22}$"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "Submission deleted"
+          },
+          "401": {
+            "description": "Unauthorized - Authentication is required"
+          },
+          "403": {
+            "description": "Forbidden - User does not have the required role to perform this action"
+          },
+          "404": {
+            "description": "Submission not found"
+          }
+        }
+      }
+    },
+    "/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}": {
+      "get": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Retrieve a specific file by its ID",
+        "operationId": "getFile",
+        "parameters": [
+          {
+            "name": "contractId",
+            "in": "path",
+            "description": "ID of the contract, in Base16 format - 4 characters)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "4eaf",
+              "pattern": "^[0-9a-f]{4}$"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Unique identifier for the submission in Base62 format - 22 characters. The ID is case-sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "7mVKGHwOA6w2Ot8feF9fIU",
+              "pattern": "^[0-9a-zA-Z]{22}$"
+            }
+          },
+          {
+            "name": "fileId",
+            "in": "path",
+            "description": "Unique identifier for the file in Base62 format - 22 characters. The ID is case-sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "2XQ3lsRHSDAZbOD2MZoynf",
+              "pattern": "^[0-9a-zA-Z]{22}$"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "File retrieved successfully.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "Unauthorized - Authentication is required",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "403": {
+            "description": "Forbidden - User does not have the required role to perform this action",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "No files found for the submission.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/FileResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Submissions"
+        ],
+        "summary": "Delete a file",
+        "operationId": "deleteFile",
+        "parameters": [
+          {
+            "name": "contractId",
+            "in": "path",
+            "description": "ID of the contract, in Base16 format - 4 characters)",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "4eaf",
+              "pattern": "^[0-9a-f]{4}$"
+            }
+          },
+          {
+            "name": "submissionId",
+            "in": "path",
+            "description": "Unique identifier for the submission in Base62 format - 22 characters. The ID is case-sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "7mVKGHwOA6w2Ot8feF9fIU",
+              "pattern": "^[0-9a-zA-Z]{22}$"
+            }
+          },
+          {
+            "name": "fileId",
+            "in": "path",
+            "description": "Unique identifier for the file in Base62 format - 22 characters. The ID is case-sensitive.",
+            "required": true,
+            "schema": {
+              "type": "string",
+              "example": "2XQ3lsRHSDAZbOD2MZoynf",
+              "pattern": "^[0-9a-zA-Z]{22}$"
+            }
+          }
+        ],
+        "responses": {
+          "204": {
+            "description": "File deleted"
+          },
+          "401": {
+            "description": "Unauthorized - Authentication is required"
+          },
+          "403": {
+            "description": "Forbidden - User does not have the required role to perform this action"
+          },
+          "404": {
+            "description": "File not found"
+          }
+        }
       }
     }
   },
   "components": {
     "schemas": {
-      "CreateSubmissionRequest": {
+      "AlternativeTitle": {
         "type": "object",
+        "description": "Represents a alternative title for a digital resource.",
         "properties": {
-          "objectId": {
+          "type": {
             "type": "string",
-            "pattern": "^[0-9a-zA-Z\\-_]{3,200}$",
-            "description": "Object identificator for the submission. The value must be unique within the contract.",
-            "example": "av_6e8bc430-9c3a11d9"
+            "description": "Type of title",
+            "example": "Original tittle",
+            "minLength": 1
+          },
+          "value": {
+            "type": "string",
+            "description": "The alternative title",
+            "example": "My Alternative Book Title",
+            "minLength": 1
+          },
+          "lang": {
+            "type": "string",
+            "description": "Language code (ISO 639-2).",
+            "example": "eng",
+            "minLength": 1,
+            "pattern": "^[a-z]{3}$"
           }
         },
         "required": [
+          "lang",
+          "type",
+          "value"
+        ]
+      },
+      "Authority": {
+        "type": "object",
+        "description": "Represents a reference to an authority with source, code, and URI.",
+        "properties": {
+          "source": {
+            "type": "string",
+            "description": "Source for authority data.",
+            "example": "Example authority",
+            "minLength": 1
+          },
+          "code": {
+            "type": "string",
+            "description": "Authority code.",
+            "example": 198097,
+            "minLength": 1
+          },
+          "uri": {
+            "type": "string",
+            "description": "URI for the authority resource.",
+            "example": "https://example.com/198097",
+            "minLength": 1
+          }
+        }
+      },
+      "Contributor": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Contributor name",
+            "example": "Nordmann, Ola",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "description": "Contributor type",
+            "enum": [
+              "Person",
+              "Organization",
+              "Personal Name",
+              "Corporate Name",
+              "Meeting Name",
+              "Uniform Title"
+            ],
+            "example": "Person"
+          },
+          "role": {
+            "type": "string",
+            "description": "Contributor role",
+            "example": "Avbildet"
+          },
+          "authority": {
+            "$ref": "#/components/schemas/Authority",
+            "description": "Authority"
+          }
+        }
+      },
+      "CreateSubmissionRequest": {
+        "type": "object",
+        "description": "Metadata for the submission to be created",
+        "properties": {
+          "objectId": {
+            "type": "string",
+            "description": "Object identificator for the submission. The value must be unique within the contract.",
+            "example": "av_6e8bc430-9c3a11d9",
+            "pattern": "^[0-9a-zA-Z\\-_]{3,200}$"
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32",
+            "default": "50",
+            "description": "Priority of the submission (1-100). Lower number means higher priority.",
+            "example": 50,
+            "maximum": 100,
+            "minimum": 1
+          },
+          "metadata": {
+            "$ref": "#/components/schemas/Metadata",
+            "description": "Metadata for the submission."
+          }
+        },
+        "required": [
+          "metadata",
           "objectId"
+        ]
+      },
+      "Creator": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Creator name",
+            "example": "Marek, Václav",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "description": "Creator type",
+            "enum": [
+              "Person",
+              "Organization",
+              "Personal Name",
+              "Corporate Name",
+              "Meeting Name",
+              "Uniform Title"
+            ],
+            "example": "Person"
+          },
+          "role": {
+            "type": "string",
+            "description": "Creator role",
+            "example": "Fotograf"
+          },
+          "authority": {
+            "$ref": "#/components/schemas/Authority",
+            "description": "Authority"
+          }
+        }
+      },
+      "Description": {
+        "type": "object",
+        "properties": {
+          "lang": {
+            "type": "string",
+            "description": "Språkkode (ISO 639-2).",
+            "example": "nob",
+            "minLength": 1,
+            "pattern": "^[a-z]{3}$"
+          },
+          "value": {
+            "type": "string",
+            "description": "Emneord knyttet til ressursen",
+            "example": "Norge",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "lang",
+          "value"
+        ]
+      },
+      "Identifier": {
+        "type": "object",
+        "description": "Represents an identifier for a resource.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of identifier",
+            "example": "URN",
+            "minLength": 1
+          },
+          "value": {
+            "type": "string",
+            "description": "The value of the identifier",
+            "example": "URN:NBN:no-nb_plfut_00001",
+            "minLength": 1
+          }
+        }
+      },
+      "Language": {
+        "type": "object",
+        "description": "Language relevant to the resource.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Language type",
+            "example": "Subtitles",
+            "minLength": 1
+          },
+          "value": {
+            "type": "string",
+            "description": "The language",
+            "example": "Swedish",
+            "minLength": 1
+          },
+          "lang": {
+            "type": "string",
+            "description": "Language code (ISO 639-2).",
+            "example": "eng",
+            "minLength": 1,
+            "pattern": "^[a-z]{3}$"
+          }
+        },
+        "required": [
+          "lang",
+          "type",
+          "value"
+        ]
+      },
+      "Metadata": {
+        "type": "object",
+        "description": "Represents metadata for a digital resource based on Dublin Core Elements.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of the resource.",
+            "enum": [
+              "Still Image",
+              "Text",
+              "Sound",
+              "Moving Image",
+              "Collection"
+            ]
+          },
+          "identifiers": {
+            "type": "array",
+            "description": "List of identifiers for the resource.",
+            "items": {
+              "$ref": "#/components/schemas/Identifier"
+            },
+            "minItems": 1
+          },
+          "title": {
+            "$ref": "#/components/schemas/Title",
+            "description": "Title of the resource."
+          },
+          "alternatives": {
+            "type": "array",
+            "description": "Alternative titles for the resource.",
+            "items": {
+              "$ref": "#/components/schemas/AlternativeTitle"
+            }
+          },
+          "creators": {
+            "type": "array",
+            "description": "Creators of the resource.",
+            "items": {
+              "$ref": "#/components/schemas/Creator"
+            }
+          },
+          "contributors": {
+            "type": "array",
+            "description": "Contributors to the resource.",
+            "items": {
+              "$ref": "#/components/schemas/Contributor"
+            }
+          },
+          "publishers": {
+            "type": "array",
+            "description": "Publishers of the resource.",
+            "items": {
+              "$ref": "#/components/schemas/Publisher"
+            }
+          },
+          "spatial": {
+            "type": "array",
+            "description": "Spatial characteristics of the resource.",
+            "items": {
+              "$ref": "#/components/schemas/Spatial"
+            }
+          },
+          "dates": {
+            "type": "array",
+            "description": "Relevant dates for the resource.",
+            "items": {
+              "$ref": "#/components/schemas/MetadataDate"
+            }
+          },
+          "languages": {
+            "type": "array",
+            "description": "Language used in the resource.",
+            "items": {
+              "$ref": "#/components/schemas/Language"
+            }
+          },
+          "isPartOf": {
+            "type": "array",
+            "description": "Describes a relationship where the current resource is part of another resource.",
+            "items": {
+              "$ref": "#/components/schemas/PartOf"
+            }
+          },
+          "provenance": {
+            "type": "array",
+            "description": "Information about the history of the resource.",
+            "items": {
+              "$ref": "#/components/schemas/Provenance"
+            }
+          },
+          "subjects": {
+            "type": "array",
+            "description": "Subject keywords for the resource.",
+            "items": {
+              "$ref": "#/components/schemas/Subject"
+            }
+          },
+          "descriptions": {
+            "type": "array",
+            "description": "Descriptions of the resource.",
+            "items": {
+              "$ref": "#/components/schemas/Description"
+            }
+          }
+        },
+        "required": [
+          "title",
+          "type"
+        ]
+      },
+      "MetadataDate": {
+        "type": "object",
+        "description": "Represents a date associated with an event in the lifecycle of the resource. The date value must conform to the ISO 8601 standard.",
+        "properties": {
+          "type": {
+            "type": "string",
+            "description": "Type of the date (e.g., 'created', 'modified', 'published').",
+            "example": "created",
+            "minLength": 1
+          },
+          "value": {
+            "type": "string",
+            "description": "The date value, conforming to ISO 8601 (e.g., '2023-10-27', '2023-10', '2023-10-27T10:30:00Z').",
+            "example": "2023-10-27",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "type",
+          "value"
+        ]
+      },
+      "PartOf": {
+        "type": "object",
+        "description": "A related resource in which the described resource is included.",
+        "properties": {
+          "value": {
+            "type": "string",
+            "example": "Chronicles of Narnia",
+            "minLength": 1
+          },
+          "lang": {
+            "type": "string",
+            "description": "Language code (ISO 639-2).",
+            "example": "eng",
+            "pattern": "^[a-z]{3}$"
+          }
+        }
+      },
+      "Provenance": {
+        "type": "object",
+        "description": "Information about any changes that have an impact on the resource's authenticity, integrity and interpretation ",
+        "properties": {
+          "value": {
+            "type": "string",
+            "example": "The collection was donated to the National Library by Václav Marek 1979-05-12",
+            "minLength": 1
+          },
+          "lang": {
+            "type": "string",
+            "description": "Language code (ISO 639-2).",
+            "example": "eng",
+            "pattern": "^[a-z]{3}$"
+          }
+        }
+      },
+      "Publisher": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "Publisher name",
+            "example": "Gyldendal",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "description": "Publisher type",
+            "enum": [
+              "Person",
+              "Organization",
+              "Personal Name",
+              "Corporate Name",
+              "Meeting Name",
+              "Uniform Title"
+            ],
+            "example": "Organization"
+          },
+          "authority": {
+            "$ref": "#/components/schemas/Authority",
+            "description": "Authority"
+          }
+        }
+      },
+      "Spatial": {
+        "type": "object",
+        "description": "Represents a spatial location, including its name, authority, coordinates, and type.",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the spatial location.",
+            "example": "Mo i Rana",
+            "minLength": 1
+          },
+          "type": {
+            "type": "string",
+            "description": "Type of the spatial location.",
+            "example": "Place"
+          },
+          "authority": {
+            "$ref": "#/components/schemas/Authority",
+            "description": "Authority providing information about the spatial location. This now uses the AuthorityReference structure."
+          },
+          "coordinateReferenceSystem": {
+            "type": "string",
+            "description": "The coordinate reference system used for latitude and longitude. Defaults to EPSG:4326 if not specified.",
+            "example": "EPSG:4326"
+          },
+          "latitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Latitude of the spatial location.",
+            "example": 67.2968,
+            "maximum": 90,
+            "minimum": -90
+          },
+          "longitude": {
+            "type": "number",
+            "format": "double",
+            "description": "Longitude of the spatial location.",
+            "example": 14.3974,
+            "maximum": 180,
+            "minimum": -180
+          }
+        }
+      },
+      "Subject": {
+        "type": "object",
+        "description": "Representerer et emneord.",
+        "properties": {
+          "lang": {
+            "type": "string",
+            "description": "Språkkode (ISO 639-2).",
+            "example": "nob",
+            "minLength": 1,
+            "pattern": "^[a-z]{3}$"
+          },
+          "value": {
+            "type": "string",
+            "description": "Emneordet.",
+            "example": "Norge",
+            "minLength": 1
+          }
+        },
+        "required": [
+          "lang",
+          "value"
+        ]
+      },
+      "Title": {
+        "type": "object",
+        "description": "Represents a localized value with a language code and optional type.",
+        "properties": {
+          "value": {
+            "type": "string",
+            "description": "The value.",
+            "example": "My Book Title",
+            "minLength": 1
+          },
+          "lang": {
+            "type": "string",
+            "description": "Language code (ISO 639-2).",
+            "example": "eng",
+            "pattern": "^[a-z]{3}$"
+          }
+        }
+      },
+      "FileResponse": {
+        "type": "object",
+        "properties": {
+          "fileId": {
+            "type": "string",
+            "description": "Unique identifier for the file in Base62 format - 22 characters. The ID is case-sensitive.",
+            "example": "1M0x4T9rN8Xc7B2Yq5L3zK",
+            "pattern": "^[0-9a-zA-Z]{22}$"
+          },
+          "filePath": {
+            "type": "string",
+            "description": "Relative path of the file within the submission. The path must be unique within the submission.",
+            "example": "path/to/file.txt"
+          },
+          "checksum": {
+            "type": "string",
+            "description": "Checksum for the file in MD5 format",
+            "pattern": "^[0-9a-f]{32}$"
+          },
+          "isPackaged": {
+            "type": "boolean",
+            "description": "Indicates if the file is packaged",
+            "example": false
+          },
+          "uploadUrl": {
+            "type": "string",
+            "description": "URL for direct upload to S3"
+          }
+        },
+        "required": [
+          "checksum",
+          "fileId",
+          "filePath",
+          "isPackaged",
+          "uploadUrl"
         ]
       },
       "SubmissionResponse": {
         "type": "object",
         "properties": {
+          "contractId": {
+            "type": "string",
+            "readOnly": true
+          },
           "submissionId": {
             "type": "string",
-            "pattern": "^[0-9a-zA-Z]{22}$",
+            "description": "Unique identifier for the submission in Base62 format - 22 characters. The ID is case-sensitive.",
             "example": "8Z7x1T9rN0Xc2B5Yq4L3zP",
-            "description": "Unique identifier for the submission in Base62 format - 22 characters. The ID is case-sensitive."
+            "pattern": "^[0-9a-zA-Z]{22}$"
           },
           "objectId": {
             "type": "string",
@@ -393,13 +1069,21 @@
           },
           "status": {
             "type": "string",
+            "description": "Status of the submission",
             "enum": [
-              "registered",
-              "in_progress",
-              "failed",
-              "completed"
-            ],
-            "description": "Updated status of the submission"
+              "REGISTERED",
+              "UPLOAD_COMPLETED",
+              "REJECTED",
+              "VALIDATED",
+              "TRANSFERRED_TO_ARCHIVE",
+              "PRESERVED"
+            ]
+          },
+          "priority": {
+            "type": "integer",
+            "format": "int32",
+            "description": "Priority of the submission",
+            "example": 50
           },
           "files": {
             "type": "array",
@@ -410,124 +1094,51 @@
           }
         },
         "required": [
-          "submissionId",
           "objectId",
-          "status"
+          "status",
+          "submissionId"
         ]
       },
       "RegisterFileRequest": {
         "type": "object",
+        "description": "Request body for registering a new file",
         "properties": {
           "filePath": {
             "type": "string",
-            "description": "Relative path of the file within the submission. The path must be unique within the submission.",
-            "example": "path/to/file.txt"
+            "description": "Relative path of the file within the submission. The path must be unique within the submission. Max lengt: 900 characters",
+            "example": "path/to/file.txt",
+            "maxLength": 900,
+            "minLength": 0
           },
           "checksum": {
             "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Checksum for the file in MD5 format."
+            "description": "Checksum for the file in MD5 format",
+            "pattern": "^[0-9a-f]{32}$"
           },
           "isPackaged": {
             "type": "boolean",
-            "default": false,
-            "description": "Optional flag to indicate if the file is packaged in ZIP or TAR format."
+            "default": "false",
+            "description": "Optional flag to indicate if the file is packaged in ZIP or TAR format.",
+            "example": true
           }
         },
         "required": [
-          "filePath",
-          "checksum"
-        ]
-      },
-      "FileResponse": {
-        "type": "object",
-        "properties": {
-          "fileId": {
-            "type": "string",
-            "pattern": "^[0-9a-zA-Z]{22}$",
-            "example": "1M0x4T9rN8Xc7B2Yq5L3zK",
-            "description": "Unique identifier for the file in Base62 format - 22 characters. The ID is case-sensitive."
-          },
-          "filePath": {
-            "type": "string",
-            "description": "Relative path of the file within the submission. The path must be unique within the submission.",
-            "example": "path/to/file.txt"
-          },
-          "checksum": {
-            "type": "string",
-            "pattern": "^[0-9a-f]{32}$",
-            "description": "Checksum for the file in MD5 format"
-          },
-          "uploadUrl": {
-            "type": "string",
-            "format": "uri",
-            "description": "URL for direct upload to S3"
-          }
-        },
-        "required": [
-          "fileId",
-          "filePath",
           "checksum",
-          "uploadUrl"
+          "filePath"
         ]
-      }
-    },
-    "parameters": {
-      "contractId": {
-        "name": "contractId",
-        "in": "path",
-        "required": true,
-        "description": "ID of the contract, in Base16 format - 4 characters)",
-        "schema": {
-          "type": "string",
-          "pattern": "^[0-9a-f]{4}$",
-          "example": "4eaf"
-        }
-      },
-      "submissionId": {
-        "name": "submissionId",
-        "in": "path",
-        "required": true,
-        "description": "Unique identifier for the submission in Base62 format - 22 characters. The ID is case-sensitive.",
-        "schema": {
-          "type": "string",
-          "pattern": "^[0-9a-zA-Z]{22}$",
-          "example": "7mVKGHwOA6w2Ot8feF9fIU"
-        }
-      },
-      "fileId": {
-        "name": "fileId",
-        "in": "path",
-        "required": true,
-        "description": "Unique identifier for the file in Base62 format - 22 characters. The ID is case-sensitive.",
-        "schema": {
-          "type": "string",
-          "pattern": "^[0-9a-zA-Z]{22}$",
-          "example": "2XQ3lsRHSDAZbOD2MZoynf"
-        }
       }
     },
     "securitySchemes": {
-      "OAuth2": {
+      "oauth2": {
         "type": "oauth2",
+        "description": "OAuth2 Client Credentials Flow",
         "flows": {
           "clientCredentials": {
-            "tokenUrl": "https://auth.example.com/oauth/token",
+            "tokenUrl": "https://www.example.com/authn/realms/myrealm/protocol/openid-connect/token",
             "scopes": {}
           }
         }
       }
     }
-  },
-  "security": [
-    {
-      "OAuth2": []
-    }
-  ],
-  "tags": [
-    {
-      "name": "Submissions",
-      "description": "Operations related to submissions"
-    }
-  ]
+  }
 }
