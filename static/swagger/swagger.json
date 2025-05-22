@@ -744,14 +744,28 @@
             "type": "string",
             "description": "Type of the resource.",
             "enum": [
-              "Still Image",
-              "Text",
-              "Sound",
-              "Moving Image",
-              "Collection"
+              "Avis",
+              "Bok",
+              "Brev",
+              "Epost",
+              "Manuskript",
+              "Musikkmanuskript",
+              "Noter",
+              "Programrapporter",
+              "Tidsskrift",
+              "Lydbok",
+              "Musikk",
+              "Radio",
+              "Film",
+              "Fjernsyn",
+              "Bilde",
+              "Kart",
+              "Kort",
+              "Plakater",
+              "Referansemateriale"
             ]
           },
-          "identifiers": {
+          "identifier": {
             "type": "array",
             "description": "List of identifiers for the resource.",
             "items": {
@@ -763,28 +777,28 @@
             "$ref": "#/components/schemas/Title",
             "description": "Title of the resource."
           },
-          "alternatives": {
+          "alternative": {
             "type": "array",
             "description": "Alternative titles for the resource.",
             "items": {
               "$ref": "#/components/schemas/AlternativeTitle"
             }
           },
-          "creators": {
+          "creator": {
             "type": "array",
             "description": "Creators of the resource.",
             "items": {
               "$ref": "#/components/schemas/Creator"
             }
           },
-          "contributors": {
+          "contributor": {
             "type": "array",
             "description": "Contributors to the resource.",
             "items": {
               "$ref": "#/components/schemas/Contributor"
             }
           },
-          "publishers": {
+          "publisher": {
             "type": "array",
             "description": "Publishers of the resource.",
             "items": {
@@ -798,14 +812,14 @@
               "$ref": "#/components/schemas/Spatial"
             }
           },
-          "dates": {
+          "date": {
             "type": "array",
             "description": "Relevant dates for the resource.",
             "items": {
               "$ref": "#/components/schemas/MetadataDate"
             }
           },
-          "languages": {
+          "language": {
             "type": "array",
             "description": "Language used in the resource.",
             "items": {
@@ -826,14 +840,14 @@
               "$ref": "#/components/schemas/Provenance"
             }
           },
-          "subjects": {
+          "subject": {
             "type": "array",
             "description": "Subject keywords for the resource.",
             "items": {
               "$ref": "#/components/schemas/Subject"
             }
           },
-          "descriptions": {
+          "description": {
             "type": "array",
             "description": "Descriptions of the resource.",
             "items": {
