@@ -55,7 +55,7 @@ This helps maintain the integrity of the collection
 Standardization enables effective exchange of content and metadata in a uniform way, regardless of material type or depositor. 
 It also provides access to documentation and support tools. The NLN uses the [eArchiving](https://eark.online/ "Official E-ARK website") [standard](https://dilcis.eu/specifications "Spesifications and guidelines for E-ARK") standard.
 
-## Document preservation activities in a standardized way.
+## Document preservation activities in a standardized way
 
 This strengthens the collection’s integrity and improves the quality of planned preservation activities. The NLN uses the [PREMIS](https://www.loc.gov/standards/premis/ "Official PREMIS website") standard.
 

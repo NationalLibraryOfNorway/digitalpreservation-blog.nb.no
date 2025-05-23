@@ -51,7 +51,7 @@ Dette bidrar til å styrke samlingens integritet.
 - **Deskriptive metadata** som informasjon om handling, motiv, kreditering, osv.
   Disse beskriver det intellektuelle innholdet i filene og gjør innholdet forståelig og gjenfinnbart.
 
-## Bruk en standard for strtukturering av filer
+## Bruk en standard for strukturering av filer
 
 Standardisering muliggjør effektiv utveksling av innhold og metadata på en uniform måte uavhengig av materialtype og avleverer. 
 Det gir tilgang til dokumentasjon og støtteverktøy. Nasjonalbiblioteket benytter [eArchiving](https://eark.online/ "Offisiell nettsiden for E-ARK") [standarden](https://dilcis.eu/specifications "Spesifikasjoner og rettningslinjer for E-ARK med mer").
