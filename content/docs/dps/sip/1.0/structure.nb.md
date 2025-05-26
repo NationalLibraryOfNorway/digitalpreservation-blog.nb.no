@@ -3,7 +3,6 @@ title: Pakkestruktur
 weight: 1
 ---
 
-Hei
 
 | **ID** | **Beskrivelse** | Krav | Kardinalitet |
 |---|---|---|---|
