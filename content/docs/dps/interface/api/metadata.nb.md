@@ -11,13 +11,13 @@ De fleste metadataelementene er valgfrie, men vi oppfordrer til å fylle dem ut 
 
 For å gjøre de avleverte pakkene mest mulig selvforklarende i et bevaringsperspektiv, og for å sikre kontroll med filformater, skriver vi i tillegg metadataene til en XML-fil som legges ved arkivpakken (AIP). XML er velegnet for langtidsbevaring. Formatet er åpent, utbredt i bruk og et velkjent utvekslingsformat for metadata. For bevaring er det en fordel at formatet er tekstbasert og lesbart for både maskiner og mennesker. 
 <br><br>
-### Generelle retningslinjer for bruk av standarder <br>
+### Generelle retningslinjer for bruk av standarder 
 Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt lang brukes.<br>
 [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) brukes som standard for angivelse av tid/dato.<br>
 [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) brukes for angivelse av land.
 <br><br>
-### Metadataelementer <br><br>
+### Metadataelementer <br>
 
 1
 | Navn         | **Type**                                                                     |
@@ -34,7 +34,7 @@ Det vil være muligheter for å få lagt til medietyper ved behov.
 
 **Eksempel:**
 ```json
-"type": "Bilde"
+{"type":"Bilde"}
 ``` 
 <br><br>
 2
@@ -50,7 +50,7 @@ Det vil være muligheter for å få lagt til medietyper ved behov.
 
 - Det må defineres type identifikator. Bruk av type-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
 
-**Eksempel:**
+**Eksempler:**
 ```json
 "identifier": [
   {
@@ -64,6 +64,68 @@ Det vil være muligheter for å få lagt til medietyper ved behov.
   {
     "type": "hyllesignatur",
     "value": "POEL00003975"
+  }
+]
+```
+<br><br>
+3
+| Navn         | **Title**                                                                                                     |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Navn gitt til ressursen. Der tittel mangler er anbefalt praksis å gi ressursen en “meningsbærende” tittel. <br> Attributt `lang` BØR brukes for å definere språkkode. |
+| Krav         | MÅ                                                                                                                 |
+| Kardinalitet | 1..1                                                                                                               |
+
+**Retningslinjer for bruk:**
+
+- En del ressurser har allerede en forhåndsdefinert tittel, som bøker, tidsskrift, artikler, malte verk, kunstfoto osv. Der tittel mangler er anbefalt praksis å gi ressursen en “meningsbærende” tittel. Med meningsbærende menes noe som gir mening for gjenkjennelse og identifikasjon av ressursen (navn som gir mening for avleverer). 
+
+- Språkkode må angis for titler oppgitt på andre språk enn norsk (lang-attributt). [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes. 
+
+**Eksempler:**
+```json
+"title": {
+  "value": "Ola og Kari på fisketur i Rondane",
+  "lang": "nor"
+}
+```
+```json
+"title": {
+  "value": "Negativopptak fra juni 1972 [bilde 394]",
+  "lang": "nor"
+}
+```
+```json
+"title": {
+  "value": "20131007.jpg"
+}
+```
+<br><br>
+4
+| Navn         | **Alternative**                                                                                                     |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Alternativ tittel (originaltittel, undertittel etc). <br>Attributt `type` MÅ brukes for å definere type tittel. <br> Attributt `lang` MÅ brukes for å definere språkkode. |
+| Krav         | BØR                                                                                                                 |
+| Kardinalitet | 0..n                                                                                                               |
+
+**Retningslinjer for bruk:**
+
+- For å bedre muligheter for søk på tittel anbefales det å legge til alternativ tittel der tittelen inneholder tall og/eller spesialtegn, eller der tall opprinnelig er skrevet som tekst. 
+  Eksempler:
+  `title`: 1-2-3 Matematikk = `alternative`: en to tre matematikk.
+  `title`: Kari & Bjarne på fisketur = `alternative`: Kari og Bjarne på fisketur. 
+  `title`: Tusen fjelltopper = `alternative`: 1000 fjelltopper.  
+
+- Det kreves forklaring til hvilken type tittel som oppgis. Bruk av type-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).
+
+- Bruk av lang-attributt. ISO 639-2 brukes som standard for å angi språk når attributt lang brukes. 
+
+**Eksempler:**
+```json
+"alternative": [
+  {
+    "type": "original tittel",
+    "value": "Ola and Kari on fishing trip in Rondane",
+    "lang": "eng"
   }
 ]
 ```
