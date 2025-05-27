@@ -1,5 +1,5 @@
 ---
-title: Pakkestruktur
+title: Krav til pakkestruktur
 weight: 1
 ---
 

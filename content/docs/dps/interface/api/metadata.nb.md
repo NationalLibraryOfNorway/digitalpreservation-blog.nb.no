@@ -19,7 +19,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 <br><br>
 ### Metadataelementer 
 <br>
-1
+1. 
 
 | Navn         | **Type**                                                                     |
 |:--------------|:------------------------------------------------------------------------------|
@@ -38,7 +38,7 @@ Det vil være muligheter for å få lagt til medietyper ved behov.
 {"type":"Bilde"}
 ``` 
 <br>
-2
+2. 
 
 | Navn         | **Identifier**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -70,7 +70,7 @@ Det vil være muligheter for å få lagt til medietyper ved behov.
 ]}
 ```
 <br>
-3
+3. 
 
 | Navn         | **Title**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -103,7 +103,7 @@ Det vil være muligheter for å få lagt til medietyper ved behov.
 }}
 ```
 <br>
-4
+4. 
 
 | Navn         | **Alternative**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -115,9 +115,9 @@ Det vil være muligheter for å få lagt til medietyper ved behov.
 
 - For å bedre muligheter for søk på tittel anbefales det å legge til alternativ tittel der tittelen inneholder tall og/eller spesialtegn, eller der tall opprinnelig er skrevet som tekst. 
   Eksempler:
-  `title`: 1-2-3 Matematikk = `alternative`: en to tre matematikk.
-  `title`: Kari & Bjarne på fisketur = `alternative`: Kari og Bjarne på fisketur. 
-  `title`: Tusen fjelltopper = `alternative`: 1000 fjelltopper.  
+  <br> `title`: 1-2-3 Matematikk = `alternative`: en to tre matematikk.
+  <br> `title`: Kari & Bjarne på fisketur = `alternative`: Kari og Bjarne på fisketur. 
+  <br> `title`: Tusen fjelltopper = `alternative`: 1000 fjelltopper.  
 
 - Det kreves forklaring til hvilken type tittel som oppgis. Bruk av type-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).
 
@@ -134,7 +134,7 @@ Det vil være muligheter for å få lagt til medietyper ved behov.
 ]}
 ```
 <br>
-5
+5. 
 
 | Navn         | **Creator**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -184,7 +184,7 @@ Det vil være muligheter for å få lagt til medietyper ved behov.
 ]}
 ```
 <br>
-6 
+6.  
 
 | Navn         | **Contributor**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -223,3 +223,398 @@ Regler for utfylling av Contributor-feltet er de samme som Creator-feltet. Eksem
     }
   }
 ]}
+```
+<br>
+7.  
+
+| Navn         | **Publisher**                                                                                                     |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Navn som opptrer i sentral rolle (Organisasjonen eller enheten som har publisert ressursen). <br> Attributt `type` BØR brukes for å definer type autoritet. Tillatte typer: *Person, Organization, Personal Name, Corporate Name, Meeting Name, Uniform Title.* |
+| Krav         | BØR                                                                                                                 |
+| Kardinalitet | 0..n                                                                                                               |
+
+**Retningslinjer for bruk:**
+
+- Vanlig praksis er å beskrive både sted, forlag/korporasjon og år for utgivelse. 
+
+- Her brukes også autoritetsregister hvis det finnes. Det må oppgis hvilket autoritetsregister som er benyttet, og hvilken type autoritet det er (type): *Person, Organization, Personal Name, Corporate Name, Meeting Name* (konferanse), *Uniform Title* (traktat, kontrakt).  
+
+**Eksempler:**
+```json
+{"publisher": [
+  {
+    "name": "Nasjonalbiblioteket",
+    "type": "Organization",
+    "authority": {
+      "source": "Felles autoritetsregister (BARE)",
+      "code": "90362181",
+      "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+    }
+  }
+]}
+```
+<br>
+8.  
+
+| Navn         | **Spatial**                                                                                                     |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Relevante stedsnavn for ressursen. Kan referere til geografiske steder som land, regioner og byer som har betydning for ressursen. <br> Det BØR angis `type` for hvilket sted som oppgis.  |
+| Krav         | BØR                                                                                                                 |
+| Kardinalitet | 0..n                                                                                                               |
+
+**Retningslinjer for bruk:**
+
+- Bruk [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) for angivelse av land. Landekoder skrives bak landet i parentes (NO). 
+
+- Vi anbefaler bruk av stedsnavstjenester/registre for angivelse av norske stedsnavn. Et eksempel er [Sentralt stedsnavnregister](https://www.kartverket.no/api-og-data/stedsnavndata) (SSR) fra kartverket. Det må oppgis hvilket register som er benyttet.  
+
+- Ved bruk av autoritetsregistre for å angi Spatial, bør man skrive plassering/navn i sin fulle form i tillegg. Brukes ikke register, skrives plassering/navn fortrinnsvis land;region/fylke;kommune;sted;gate;. 
+
+- Det er mulig å oppgi koordinater i form av lengde- og breddegrader. Det skal brukes på denne måten: `latitude`=61.85401 `longitude`=9.80856
+
+- Eksempler på `type` sted kan være utgiversted, innspillingssted, handlingssted, trykkested, fødested osv. Bruk av type-attributt her bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).  
+
+**Eksempler:**
+```json
+{"spatial": [
+  { 
+    "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
+    "type": "Avbildet sted",
+    "authority": {
+      "source": "Kulturnav",
+      "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
+      "uri": "http://kulturnav.org/1031636c-0717-4d12-8895-fb88a7d4e952"
+    },    
+    "coordinateReferenceSystem": "EPSG:4326",
+    "latitude": 61.788453,
+    "longitude": 10.224725
+  },
+  { 
+    "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
+  }  
+]}
+```
+<br>
+9.  
+
+| Navn         | **Date**                                                                                                     |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Relevante datoer for ressursen (utgivelse, copyright, opprettelse/digitaliseringsdato etc., type årstall + årstall/verdi).  <br> Attributt `type` MÅ brukes for å definere type dato.   |
+| Krav         | BØR                                                                                                                 |
+| Kardinalitet | 0..n                                                                                                               |
+
+**Retningslinjer for bruk:**
+
+- Det må angis type årstall + årstall/verdi. [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) brukes som standard.  
+
+- Bruke av type-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).  
+
+**Eksempler:**
+```json
+{"date": [
+  {
+    "type": "motivdato",
+    "value": "1938"
+  },
+  {
+    "type": "digitalisert",
+    "value": "2022-03-05T14:28:12+02:00"
+  },
+  {
+    "type": "publisert",
+    "value": "2022-03-12"
+  }
+]}
+```
+<br>
+10.  
+
+| Navn         | **Language**                                                                                                     |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Språk som er relevant for ressursen. <br> Attributt `lang` MÅ brukes for å definere språkkode. <br> Attributt `type` MÅ brukes for å definere hva språket representerer (undertekster, talespråk, skriftspråk etc.).   |
+| Krav         | BØR                                                                                                                 |
+| Kardinalitet | 0..n                                                                                                               |
+
+**Retningslinjer for bruk:**
+
+- [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+
+- Det må angis type for hva språket representerer. Eksempler på type som språket representerer kan være undertekster, talespråk, skriftspråk etc.  
+
+- Bruk av type-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
+
+**Eksempler:**
+```json
+{"language": [
+  {
+    "type": "undertekster",
+    "value": "engelsk",
+    "lang": "nor"
+  }
+]}
+```
+```json
+{"language": [
+  {
+    "type": "skriftspråk",
+    "value": "fransk",
+    "lang": "nor"
+  }
+]}
+```
+<br>
+11.  
+
+| Navn         | **IsPartOf**                                                                                                     |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | En relatert ressurs der den beskrevne ressursen er fysisk eller logisk inkludert (tittel på overordnet verk, samling, serie). <br> Attributt `lang` BØR brukes for å definere språkkode.   |
+| Krav         | BØR                                                                                                                 |
+| Kardinalitet | 0..n                                                                                                               |
+
+**Retningslinjer for bruk:**
+
+- Språkkode bør angis (lang-attributt). [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+
+**Eksempler:**
+```json
+{"isPartOf": [
+  {
+    "value": "Norge på langs med Ola og Kari",
+    "lang": "nor"
+  }
+]}
+```
+```json
+{"isPartOf": [
+  {
+    "value": "Chronicles of Narnia",
+    "lang": "eng"
+  }
+]}
+```
+<br>
+12.  
+
+| Navn         | **Provenance**                                                                                                     |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Informasjon om eventuelle endringer som har betydning for ressursens autentisitet, integritet og tolkning (eierskap, forvaltning etc). <br> Attributt `lang` BØR brukes for å definere språkkode.   |
+| Krav         | BØR                                                                                                                 |
+| Kardinalitet | 0..n                                                                                                               |
+
+**Retningslinjer for bruk:**
+
+- Språkkode bør angis (lang-attributt). [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+
+**Eksempler:**
+```json
+{"provenance": [
+  {
+    "value": "Samlingen ble donert til Nasjonalbiblioteket av Václav Marek 1979-05-12",
+    "lang": "nor"
+  }
+]}
+```
+<br>
+13.  
+
+| Navn         | **Subject**                                                                                                     |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Emneord knyttet til ressursen. <br> Attributt `lang` BØR brukes for å definere språkkode.   |
+| Krav         | KAN                                                                                                                 |
+| Kardinalitet | 0..n                                                                                                               |
+
+**Retningslinjer for bruk:**
+
+- Feltet brukes for å beskrive hva ressursen inneholder/handler om. Eksempler på dette er ord eller uttrykk som forteller noe om emne, tema, hendelser, landemerker, bygninger eller tidsperioder som har betydning for ressursen. 
+
+- Desimalklassifikasjon er også gyldige verdier.
+
+- Språkkode bør angis (lang-attributt). [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+
+**Eksempler:**
+```json
+{"subject": [
+  {
+    "lang": "nor",
+    "value": "rondane"
+  },
+  {
+    "lang": "nor",
+    "value": "fisketur"
+  },
+  {
+    "lang": "nor",
+    "value": "natur"
+  }
+]}
+```
+<br>
+14.  
+
+| Navn         | **Description**                                                                                                     |
+|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Beskrivelse av ressursen. Beskrivelsen kan inkludere, men er ikke begrenset til: et sammendrag, en innholdsfortegnelse, en grafisk representasjon eller en fritekst om ressursen.  <br> Attributt `lang` BØR brukes for å definere språkkode.   |
+| Krav         | KAN                                                                                                                 |
+| Kardinalitet | 0..n                                                                                                               |
+
+**Retningslinjer for bruk:**
+
+- Beskrivelsen kan inkludere, men er ikke begrenset til: et sammendrag, en innholdsfortegnelse, en grafisk representasjon eller en fritekst om ressursen. 
+
+- Språkkode bør angis (lang-attributt). [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+
+**Eksempler:**
+```json
+{"description": [
+  {
+    "value": "Bildet er en del av samlingen etter John Doe, der han fulgte Ola og Kari Nordmann Norge på langs. Václav Marek var en engelskmann som var interessert i Norge og norsk natur.",
+    "lang": "nor"
+  }
+]}
+```
+<br> **Eksempel som inneholder alle metadataelementene:**
+
+```json
+{
+  "objectId": "av_6e8bc430-9c3a11d9",
+  "priority": 50,
+  "metadata": {
+    "type": "Bilde",
+    "identifier": [
+      {
+        "type": "URN",
+        "value": "URN:NBN:no-nb_digifoto_20220311_00191_NB_PE_VM_M_05_09_01_036"
+      },
+      {
+        "type": "bilde-id",
+        "value": "NB_PE_VM_M_05_09_01_036"
+      },
+      {
+        "type": "hyllesignatur",
+        "value": "POEL00003975"
+      }
+    ],
+    "title": {
+      "value": "Ola og Kari på fisketur i Rondane",
+      "lang": "nor"
+    },
+    "alternative": [
+      {
+        "type": "original tittel",
+        "value": "Ola and Kari on fishing trip in Rondane",
+        "lang": "eng"
+      }
+    ],
+    "creator": [
+      {
+        "name": "Marek, Václav",
+        "type": "Person",
+        "role": "fotograf",
+        "authority": {
+          "source": "Felles autoritetsregister (BARE)",
+          "code": "90362181",
+          "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+        }
+      }
+    ],
+    "contributor": [
+      {
+        "role": "avbildet",
+        "type": "Person",
+        "name": "Nordmann, Ola"
+      },
+      {
+        "role": "avbildet",
+        "type": "Person",
+        "name": "Solberg, Erna",
+        "authority": {
+          "source": "Kulturnav",
+          "code": "e762d909-5cce-4d2b-892b-258272514fde",
+          "uri": "https://kulturnav.org/e762d909-5cce-4d2b-892b-258272514fde"
+        }
+      }
+    ],
+    "publisher": [
+      {
+        "name": "Nasjonalbiblioteket",
+        "type": "Organization",
+        "authority": {
+          "source": "Felles autoritetsregister (BARE)",
+          "code": "90362181",
+          "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+        }
+      }
+    ],
+    "spatial": [
+      { 
+        "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
+        "type": "Avbildet sted",
+        "authority": {
+          "source": "Kulturnav",
+          "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
+          "uri": "http://kulturnav.org/1031636c-0717-4d12-8895-fb88a7d4e952"
+        },    
+        "coordinateReferenceSystem": "EPSG:4326",
+        "latitude": 61.788453,
+        "longitude": 10.224725
+      },
+      { 
+        "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
+      }  
+    ],
+    "date": [
+      {
+        "type": "motivdato",
+        "value": "1938"
+      },
+      {
+        "type": "digitalisert",
+        "value": "2022-03-05T14:28:12+02:00"
+      },
+      {
+        "type": "publisert",
+        "value": "2022-03-12"
+      }
+    ],
+    "language": [
+      {
+        "type": "undertekster",
+        "value": "engelsk",
+        "lang": "nor"
+      }
+    ],
+    "isPartOf": [
+      {
+        "value": "Norge på langs med Ola og Kari",
+        "lang": "nor"
+      }
+    ],
+    "provenance": [
+      {
+        "value": "Samlingen ble donert til Nasjonalbiblioteket av Václav Marek 1979-05-12",
+        "lang": "nor"
+      }
+    ],
+    "subject": [
+      {
+        "lang": "nor",
+        "value": "rondane"
+      },
+      {
+        "lang": "nor",
+        "value": "fisketur"
+      },
+      {
+        "lang": "nor",
+        "value": "natur"
+      }
+    ],
+    "description": [
+      {
+        "value": "Bildet er en del av samlingen etter John Doe, der han fulgte Ola og Kari Nordmann Norge på langs. Václav Marek var en engelskmann som var interessert i Norge og norsk natur.",
+        "lang": "nor"
+      }
+    ]
+  }
+}
+```
