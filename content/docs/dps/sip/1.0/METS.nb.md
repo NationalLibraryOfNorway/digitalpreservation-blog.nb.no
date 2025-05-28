@@ -17,14 +17,32 @@ Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CS
 | **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
 |:---|:---|:---|:---|
 | **NBSIP1** | **Pakkeidentifikator**<br>`mets/@OBJID`<br><br>Attributten `mets/@OBJID` er obligatorisk, verdien er en strengidentifikator for METS-fila. I METS-fila i pakkas rotmappe **MÅ** denne identifikatoren være det samme som navnet på pakkas rotmappe (se [NBSIPSTR2](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure/) for formatering). I METS-fil på de individuelle representasjonene **MÅ** denne identifikatoren være det samme som navnet på den relevante representasjonsmappa (se [NBSIPSTR11](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure/#:~:text=1..1-,NBSIPSTR11,-rotmappe/representations/primary_%C3%85%C3%85%C3%85%C3%85MMDD) og [NBSIPSTR12](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure/#:~:text=1..1-,NBSIPSTR12,-rotmappe/representations/) for formatering). <br><br>Dette er en strengere, SIP-spesifikk variant av [CSIP1](https://earkcsip.dilcis.eu/#CSIP1) | **MÅ** | **1..1** |
-| **NBSIP2** | **Pakkenavn**<br>`mets/@LABEL`<br><br>En kort tekst som oppgir tittelen eller beskrivelsen av innholdet i informasjonspakka. `mets/@LABEL` **BØR** være det samme som title i API-kall.<br><br>Dette er en strengere variant av [SIP1](https://earksip.dilcis.eu/#SIP1) | **BØR** | **1..1** |
+| **NBSIP2** | **Pakkenavn**<br>`mets/@LABEL`<br><br>En kort tekst som oppgir tittelen eller beskrivelsen av innholdet i informasjonspakka. `mets/@LABEL` **BØR** være det samme som "title" i API-kall (se [krav til metadata](https://digitalpreservation.no/nb/docs/dps/interface/api/metadata/)).<br><br>Dette er en strengere variant av [SIP1](https://earksip.dilcis.eu/#SIP1) | **BØR** | **1..1** |
+
+
+<br>
+
+**Eksempel:**
+
+
+```xml
+{<mets xmlns="http://www.loc.gov/METS/"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:sip="https://DILCIS.eu/XML/METS/SIPExtensionMETS"
+    xmlns:csip="https://DILCIS.eu/XML/METS/CSIPExtensionMETS"
+    xmlns:xlink="http://www.w3.org/1999/xlink"    
+    OBJID="no-nb_fjernsyn_NRK_NRK-Tegnsprak_202204081200"
+    LABEL="no-nb_fjernsyn_NRK_NRK-Tegnsprak_202204081200"
+    TYPE="Video – File-based and Physical Media"
+    csip:CONTENTINFORMATIONTYPE="OTHER"
+    csip:OTHERCONTENTINFORMATIONTYPE="Digital Library Object"
+    PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml"
+    xsi:schemaLocation="http://www.loc.gov/METS/ schemas/mets1_12.xsd http://www.w3.org/1999/xlink schemas/xlink.xsd https://dilcis.eu/XML/METS/CSIPExtensionMETS schemas/DILCISExtensionMETS.xsd https://dilcis.eu/XML/METS/SIPExtensionMETS schemas/DILCISExtensionSIPMETS.xsd">}
+```
 
 
 
-### Eksempel:
 
-
-![`mets`](<Eksempel `mets`.JPG>)
 
 
 <br><br><br>
@@ -41,10 +59,31 @@ Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CS
 | **NBSIP6** | **Navn på avleverer-agent**<br>`metsHdr/agent/name`<br>  <br>Navnet på organisasjonen eller personen som har levert informasjonspakka til Nasjonalbiblioteket. <br>Personnavn skrives i invertert form. Organisasjonsnavn oppgis på originalspråk (slik som det vanligvis brukes). <br><br>Dette er en spesifisering av [SIP18](https://earksip.dilcis.eu/#SIP18) | **MÅ** | **1..1** |  |  |
 | **NBSIP7** | **Tilleggsinformasjon om avleverer**<br>`metsHdr/agent/note`<br>  <br>Dette er et notatfelt der det **BØR** oppgis en unik identifikasjonskode for informasjonspakkas avleverer. For organisasjoner bør det oppgis organisasjonsnummer. For personer vil vi ha identifikator fra [Felles autoritetsregister](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/) for personer og korporasjoner, [ISNI](https://isni.org/), [VIAF](https://viaf.org/en) eller [ORCID](https://orcid.org/).<br><br>Dette er en strengere variant av av [SIP19](https://earksip.dilcis.eu/#SIP19) | **BØR** | **0..1** |  |  |
 
+<br>
 
-### Eksempel: 
+**Eksempel:** 
 
-![metshdr](<Eksempel `metshdr`.JPG>)
+
+```xml
+{<metsHdr CREATEDATE="2025-03-18T22:53:09.977+01:00" LASTMODDATE="2025-03-18T22:53:09.977+01:00" RECORDSTATUS="NEW" csip:OAISPACKAGETYPE="SIP">
+    <agent ROLE="CREATOR" TYPE="OTHER" OTHERTYPE="SOFTWARE">
+        <name>RODA Commons IP</name>
+        <note csip:NOTETYPE="SOFTWARE VERSION">2.2.0</note>
+    </agent>
+    <agent ROLE="CREATOR" TYPE="INDIVIDUAL">
+        <name>PEDERSEN, TORBJORN BAKKEN</name>
+        <note csip:NOTETYPE="IDENTIFICATIONCODE">https://orcid.org/0009-0005-3523-5728</note>
+    </agent>
+    <agent ROLE="OTHER" OTHERROLE="SUBMITTER" TYPE="ORGANIZATION">
+        <name>Nasjonalbiblioteket</name>
+        <note csip:NOTETYPE="IDENTIFICATIONCODE">Organisasjonsnummer:123456789</note>
+    </agent>
+    <altRecordID TYPE="SUBMISSIONAGREEMENT">https://submissionagreement.nb.no/SA-XXXXXX</altRecordID>
+</metsHdr>}
+```
+
+
+
 
 
 <br><br><br>
@@ -58,11 +97,22 @@ Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CS
 | **NBSIP9** | **Påkrevde deskriptive metadata** <br>`mets/dmdSec`<br><br>Elementet som beskriver seksjonen for deskriptive metadata **MÅ** referere til metadatafilen(e) spesifisert i [NBSIPSTR9](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure/#:~:text=M%C3%85-,NBSIPSTR9,-rotmappe/metadata/descriptive). Den **MÅ** beskrives med `mets/dmdSec/mdRef/@MDTYPE`. Gyldige verdier: MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. Hvis man velger '`OTHER`' **BØR** man beskrive hva slags metadatatype det er med `mets/dmdSec/mdRef/@MDOTHERTYPE`. <br><br>Administrative metadata eller bevaringsmetadata kan legges ved i henhold til [CSIP31-57](https://earkcsip.dilcis.eu/#useofthemetsadministrativemetadatasectionelementamdsec). | **MÅ** | **1..n** |
 | **NBSIP10** | **Referanser til filer med deskriptive metadata**<br>`mets/dmdSec/mdRef`<br><br>**MÅ** brukes for å peke til filer med deskriptive metadata som befinner seg i mappa `metadata/descriptive`. Direkte embedding av metadata ved hjelp av `mets/dmdSec/mdWrap` frarådes.<br><br>Dette er en strengere, SIP-spesifikk versjon av [CSIP21](https://earkcsip.dilcis.eu/#CSIP21). | **MÅ** | **1..n** |
 
+<br>
 
 
-### Eksempel: 
+**Eksempel:** 
 
-![alt text](<Eksempel 'dmdSec'-1.JPG>)
+```xml
+{<dmdSec ID="uuid-e1d1f6db-3851-40bf-9ffd-59277a4442dc" CREATED="2025-01-16T12:43:32.894+01:00" STATUS="CURRENT">
+    <mdRef ID="ID-uuid-861d36a1-043f-45aa-b230-be13517823a9" LOCTYPE="URL" MIMETYPE="application/json" SIZE="2038" CREATED="2025-01-16T12:43:32.894+01:00" 
+    CHECKSUM="EB72EF8AB5B1C93801DFACBFE6AA8E27" CHECKSUMTYPE="MD5" MDTYPE="DC" xlink:type="simple" xlink:href="metadata/descriptive/nb_dublincore.json"/>
+</dmdSec>
+<dmdSec ID="uuid-EC8718B5-C417-4D8C-975B-C14CD8197E62" CREATED="2025-01-16T12:43:32.894+01:00" STATUS="CURRENT">
+    <mdRef ID="ID-uuid-FAF602A1-AB9A-44AC-A24B-B918F7064920" LOCTYPE="URL" MIMETYPE="text/xml" SIZE="1903" CREATED="2025-01-16T12:43:32.894+01:00" 
+    CHECKSUM="50E9C929EAE5B51F20F8B86D604FD24D" CHECKSUMTYPE="MD5" MDTYPE="MODS" xlink:type="simple" xlink:href="metadata/descriptive/MODS.xml"/>
+</dmdSec>}
+```
+
 
 
 
@@ -100,11 +150,30 @@ Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen)
 | **NBSIP26** | **Filplassering**<br>`mets/amdSec/techMD/mdRef/@xlink:href`<br><br>Den faktiske plasseringen til fila. Den skal refereres til med URL type filepath. | **MÅ** | **1..1** |
 | **NBSIP27** | **Type metadata**<br>`mets/amdSec/techMD/mdRef/@MDTYPE`<br><br>Spesifiserer typen metadata i den refererte fila. Verdiene er hentet fra METS. Gyldige verdier:<br>MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. Hvis man velger '`OTHER`' **BØR** man beskrive hva slags metadatatype det er med `mets/amdSec/techMD/mdRef/@MDOTHERTYPE`.  | **MÅ** | **1..1** |
 
+<br>
 
+**Eksempel:** 
 
-#### Eksempel 
+```xml
+{<amdSec>
+    <digiprovMD ID="uuid-975a7a15-140f-4e2c-a5ec-d136e86ea4e5" CREATED="2019-04-24T14:37:52.783+01:00">
+        <mdRef LOCTYPE="URL" xlink:type="simple" xlink:href="metadata/preservation/events.xml"
+            MDTYPE="PREMIS" MDTYPEVERSION="3.0" MIMETYPE="text/xml" SIZE="1211"
+            CREATED="2018-04-24T14:37:52.783+01:00" CHECKSUM="dc7177d37a7de3448ee1e62da7343d72"
+            CHECKSUMTYPE="MD5" LABEL="events.xml"/>
+    </digiprovMD>
+</amdSec>
+<amdSec>
+    <sourceMD ID="uuid-5d500e19-3802-49a5-92bd-7a575433ab7e" CREATED="2018-04-24T14:47:52.783+01:00">
+        <mdRef LOCTYPE="URL" xlink:type="simple"
+            xlink:href="metadata/souce/MAVIS_Carrier_12345_AE0000006261.xml" MDTYPE="OTHER"
+            OTHERMDTYPE="MAVIS" MIMETYPE="text/xml" SIZE="2854"
+            CREATED="2018-04-24T14:37:52.783+01:00" CHECKSUM="7ee30736137bfe72dc60afcbe374cb2a"
+            CHECKSUMTYPE="MD5" LABEL="MAVIS_Carrier_12345_AE0000006261.xml"/>
+    </sourceMD>
+</amdSec>}
+```
 
-![](<Eksempel 'amdSec'.JPG>)
 
 
 <br><br><br>
