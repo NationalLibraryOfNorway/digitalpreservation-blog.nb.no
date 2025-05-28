@@ -123,7 +123,7 @@ Det vil være muligheter for å få lagt til medietyper ved behov.
 
 - Bruk av lang-attributt. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt lang brukes. 
 
-**Eksempler:**
+**Eksempel:**
 ```json
 {"alternative": [
   {
@@ -239,7 +239,7 @@ Regler for utfylling av Contributor-feltet er de samme som Creator-feltet. Eksem
 
 - Her brukes også autoritetsregister hvis det finnes. Det må oppgis hvilket autoritetsregister som er benyttet, og hvilken type autoritet det er (type): *Person, Organization, Personal Name, Corporate Name, Meeting Name* (konferanse), *Uniform Title* (traktat, kontrakt).  
 
-**Eksempler:**
+**Eksempel:**
 ```json
 {"publisher": [
   {
@@ -274,7 +274,7 @@ Regler for utfylling av Contributor-feltet er de samme som Creator-feltet. Eksem
 
 - Eksempler på `type` sted kan være utgiversted, innspillingssted, handlingssted, trykkested, fødested osv. Bruk av type-attributt her bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).  
 
-**Eksempler:**
+**Eksempel:**
 ```json
 {"spatial": [
   { 
@@ -405,7 +405,7 @@ Regler for utfylling av Contributor-feltet er de samme som Creator-feltet. Eksem
 
 - Språkkode bør angis (lang-attributt). [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
-**Eksempler:**
+**Eksempel:**
 ```json
 {"provenance": [
   {
@@ -463,7 +463,7 @@ Regler for utfylling av Contributor-feltet er de samme som Creator-feltet. Eksem
 
 - Språkkode bør angis (lang-attributt). [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
-**Eksempler:**
+**Eksempel:**
 ```json
 {"description": [
   {
