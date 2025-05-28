@@ -29,9 +29,18 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-Tillatte typer for beskrive av ressursen: Bok, Avis, Tidsskrift, Artikkel, Småtrykk, Bilde, Kart, Brev, Manuskript, Noter, Musikkmanuskript, Programrapporter, Programstatistikker, Epost, Plakater, Postkort, Radio, Musikk, Fjernsyn og Film.  
+Tillatte typer for beskrive av ressursen: 
 
-Det vil være muligheter for å få lagt til medietyper ved behov.
+**Tekst:** Bok, Avis, Tidsskrift, Artikkel, Småtrykk, Brev, Epost, Manuskript, Musikkmanuskript, Noter, Programrapport, Programstatistikk. 
+
+**Bilder:** Bilde, Kart, Plakat, Postkort, Referansemateriale. 
+
+**Lyd:** Lydbok, Musikk, Radio.
+
+**Levende bilder:** Film, Fjernsyn.
+
+ 
+Det vil være muligheter for å få lagt til medietyper ved behov. 
 
 **Eksempel:**
 ```json
