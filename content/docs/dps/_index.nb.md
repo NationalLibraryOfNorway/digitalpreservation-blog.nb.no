@@ -3,14 +3,11 @@ title: Digital Preservation Services (DPS)
 weight: 4
 ---
 
-DPS (Digital Preservation Services) refererer til Nasjonalbiliotekets tjenester for digital bevaring av kulturarvressurser. 
-I denne spesifikasjonen betegnes en *avleverer* som en organisasjon, avdeling eller annen enhet som bruker DPS for bevaring av digitalt innhold. 
+Digital bevaring dreier seg om å sikre at digitalt materialet forblir uforandret og tilgjengelig -, nå og i framtiden.
+Dette krever god kunnskap om tilstanden til materialet. Det innebærer aktiviteter som sikrer at materialet i samlingen til enhver tid er tilgjengelig og avspillbart. Digital bevaring krever blant annet aktiv overvåking av materialets integritet og god metadata som beskriver materialet-, dets opphav og tilhørende rettigheter. 
+ 
+DPS (Digital Preservation Services) refererer til Nasjonalbibliotekets tjenester for bevaring av digitalt kulturarvmateriale. Med digitalt kulturarvmateriale menes både digitalisert- og «digitalt født» materiale. Det omfatter både materiale som er underlagt pliktavleveringsloven, digitalt innhold som anses å være en del av nasjonal kulturarv, og materiale som på andre måter anses å være digitalt bevaringsverdig. 
 
-Digital bevaring innebærer pålitelig bevaring av digital informasjon i flere tiår eller århundrer, til tross for at maskinvare, programvare og filformater kan bli utdaterte. 
-Informasjonen må forbli forståelig, noe som krever aktiv overvåking av informasjonens integritet og forutseelse av ulike risikoer. 
-Metadata, som beskriver ressursen, dens opphav og tilhørende rettigheter, spiller en nøkkelrolle i bevaringen.
-
-DPS garanterer bevaring av viktige nasjonale ressurser som finnes i biblioteker, arkiver og museer. 
-Digitale kulturarvsressurser inkluderer både digitaliserte og opprinnelig digitale ressurser: publikasjoner omfattet av pliktavleveringsloven, statlige publikasjoner som tilhører nasjonal kulturarv, og andre digitale ressurser verdt å bevare, skapt av organisasjoner underlagt Kultur- og likestillingsdepartementet.
+Skissen nedenfor viser dagens arkitektur i DPS. Her brukes produsent og konsument om en organisasjon, avdeling eller annen enhet som benytter DPS for bevaring av digitalt materiale.
 
 {{< figure src="dps-current.svg" alt="Et diagram som viser dataflyt i DPS-programvaren" caption="Dagens DPS-arkitektur" >}}
