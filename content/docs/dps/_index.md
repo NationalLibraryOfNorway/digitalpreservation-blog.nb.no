@@ -3,14 +3,13 @@ title: Digital Preservation Services (DPS)
 weight: 4
 ---
 
-The Digital Preservation Services (DPS) refers to the National Library's services for digital preservation of cultural heritage resources.
-In this specification, a *depositor* is defined as an organization, department, or other entity that utilizes the DPS for the preservation of digital content.
+Digital preservation is about ensuring that digital materials remain unchanged and accessible - both now and in the future. This requires a solid understanding of the condition of the material. It involves ongoing activities that guarantee the collection's contents are always accessible and usable.
 
-Digital preservation encompasses the reliable preservation of digital information across multiple decades or centuries, despite the potential obsolescence of hardware, software, and file formats. 
-The information must remain comprehensible, necessitating active monitoring of information integrity and anticipation of various risks. 
-Metadata, which describes the resource, its provenance, and associated rights, plays a fundamental role in the preservation process.
+Effective digital preservation relies on several key elements, including active monitoring of the material’s integrity and the use of high-quality metadata. Metadata should describe the material itself, its origin, and any associated rights.
 
-DPS ensures the preservation of important national resources housed within libraries, archives, and museums. 
-Digital cultural heritage resources encompass both digitized and born-digital resources: publications subject to legal deposit legislation, government publications constituting national cultural heritage, and other digital resources worthy of preservation created by organizations under the Ministry of Culture and Equality.
+DPS, or Digital Preservation Services, refers to the National Library of Norway’s services for preserving digital cultural heritage materials. This includes both digitized content and materials that are “born digital.” The scope covers materials subject to legal deposit, digital content considered part of the national cultural heritage, and other materials considered worthy of digital preservation.
+
+The diagram below illustrates the current architecture of DPS. The terms *producer* and *consumer* refer to an organization, department, or other unit that uses DPS to preserve digital material.
+
 
 {{< figure src="dps-current.svg" alt="A diagram showing data flow in the DPS software" caption="Current DPS Architecture" >}}
