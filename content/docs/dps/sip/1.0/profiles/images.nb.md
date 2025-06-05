@@ -19,4 +19,4 @@ Dette er en liste over krav til METS.xml for bildepakker som leveres til Nasjona
 <br><br>
 ### Eksempler på SIP for bilder
 
-![SIP-eksempel for bilder](img_sip.jpg)
+![SIP-eksempel for bilder](img-sip.jpg)
