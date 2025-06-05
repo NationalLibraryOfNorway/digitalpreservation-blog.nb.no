@@ -18,5 +18,4 @@ Dette er en liste over krav til METS.xml for bildepakker som leveres til Nasjona
 | **NBIMAGESIP3** | **Other Content Information Type Specification**<br>`mets[@csip:CONTENTINFORMATIONTYPE='OTHER']/@csip:OTHERCONTENTINFORMATIONTYPE`<br> <br>Når `mets/@csip:CONTENTINFORMATIONTYPE` har verdien «OTHER», **MÅ** `mets/@csip:OTHERCONTENTINFORMATIONTYPE` oppgi type innholdsinformasjon.<br> <br>OTHERCONTENTINFORMATIONTYPE for bilder **MÅ** være `https://digitalpreservation.no/nb/docs/dps/sip/1.0/profiles/images/`<br><br>Dette er en spesifisering av [CSIP5](https://earkcsip.dilcis.eu/#CSIP5). | **MÅ** | **1..1** |
 <br><br>
 ### Eksempler på SIP for bilder
-![SIP-eksempel for bilder!](C:\Users\sandrakr\OneDrive - Nasjonalbiblioteket\Documents\Github\digitalpreservation-blog.nb.no\content\docs\dps\sip\1.0\profiles\img_sip.nb.png)
-
+![SIP-eksempel for bilder](img_sip.png)
