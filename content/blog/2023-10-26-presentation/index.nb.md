@@ -13,15 +13,13 @@ breadcrumbs: false
 ---
 
 I juni 2022 ble det etablert et eget team med ansvar for bevaring av [Nasjonalbibliotekets](https://nb.no/ "National Library of Norway homepage") digitale samling.
-Teamet håndterer alle typer digitalt materiale, uavhengig om materialet er digitalisert fra analoge kilder eller om det er født digitalt.
-Dette inkluderer medietyper som websider, tekstdokumenter, bilder, lyd og levende bilder.
+Teamet håndterer alle typer digitalt materiale, uavhengig om materialet er digitalisert fra analoge kilder eller om det er født digitalt. Dette inkluderer medietyper som websider, tekstdokumenter, bilder, lyd og levende bilder.
 
-Teamets ansvarsområder har å gjøre med inntak, kontroll, lagring, bevaring av data tilgjengeliggjøring av bevarte data.
+Teamet har ansvar for å forvalte løsninger for langtidsbevaring av digitalt materiale, og jobber med inntak, kontroll, lagring, bevaring- og tilgjengeliggjøring av data. Data som langtidsbevares er typisk store filer av høy kvalitet (i motsetning til komprimerte tilgangsfiler).  
 
-Teamets ansvarsområder omfatter innlesning, kontroll, lagring, forvaltning av materiale i Nasjonalbibliotekets løsning for langtidsbevaring.
-De langtidsbevarte filene er typisk store filer av høy kvalitet (i motsetning til lavoppløselige eller komprimerte tilgangsfiler).
-Vi samarbeider tett med flere andre spesialiserte medieteam i biblioteket som produserer data gjennom digitalisering eller mottak fra eksterne avleverere.
-I tillegg er vi medlemmer av [Digital Preservation Coalition (DPC)](https://www.dpconline.org/ "Digital Preservation Coalitions hjemmesider").
+Team Digital bevaring samarbeider tett med flere andre spesialiserte medieteam i institusjonen. I tillegg til mottak av digitalt materiale som omfattes av [Pliktavleveringsloven](https://lovdata.no/dokument/NL/lov/1989-06-09-32), produserer Nasjonalbibliotek store mengder data gjennom digitalisering. Det digitaliseres både materiale fra egen samling og på vegne av ulike institusjoner i ABM-sektoren.
+
+Teamet er medlem av [Digital Preservation Coalition (DPC)](https://www.dpconline.org/ "Digital Preservation Coalitions hjemmesider").
 
 ## Organisasjon
 Team digital bevaring består i dag av 8 medlemmer:
@@ -33,7 +31,7 @@ Team digital bevaring består i dag av 8 medlemmer:
   {{< card link="/" title="Vigdis Marie Sørensen" image="images/team/vigdis.jpeg" link="https://www.linkedin.com/in/vigdis-sørensen-8a3618a6" subtitle="Senior platformutvikler" method="Resize" options="250x q85 webp" >}}
   {{< card link="/" title="Siarhei Kulakou" image="images/team/siarhei.jpeg" link="https://www.linkedin.com/in/siarhei-kulakou-0702ba245" subtitle="Applikasjonsutvikler" method="Resize" options="250x q85 webp" >}}
   {{< card link="/" title="Johannes Karlsen" image="images/team/johannes.jpeg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Applikasjonsutvikler" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Lise-Lotte Melkild" image="images/team/Blank_woman_placeholder.png" link="" subtitle="Metadataspesialist" method="Resize" options="250x q85 webp" >}}
+  {{< card link="/" title="Lise-Lotte Melkild" image="images/team/LiseLotte.jpg" link="" subtitle="Metadataspesialist" method="Resize" options="250x q85 webp" >}}
   {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra.jpg" link="" subtitle="Metadataspesialist" method="Resize" options="250x q85 webp" >}}
 {{< /cards >}}
 
@@ -45,10 +43,10 @@ Teamet svarer til en eiergruppe bestående av:
 
 ## Nasjonalbibliotekets digitale samling i tall
 - Over 2 milliarder filer
-- Mer enn 90 forskjellige filformater
-- 15 Petabyte med data (det er 15 000 Terabyte!) lagret i 3 kopier
+- Mer enn 100 forskjellige filformater
+- 18 Petabyte med data (det er 18 000 Terabyte!) lagret i 3 kopier
 - Den største enkeltfilen er på 2,5 Terabyte
-- Gjennomsnittlig daglig tilvekst av over 4 Terabyte nye data
+- Gjennomsnittlig daglig tilvekst på over 6 Terabyte med nye data
 
 ## Datavolum etter type
 - Video og TV: 22%
@@ -63,8 +61,8 @@ Teamet svarer til en eiergruppe bestående av:
 - [Apache Kafka](https://kafka.apache.org "Apache Kafkas hjemmeside") for kommunikasjon mellom systemer
 - [Apache NiFi](https://nifi.apache.org "Apache NiFi's hjemmeside") for å kjøre prosesser som validerer, flytter og pakker data
 - [MariaDB](https://mariadb.org "MariaDBs hjemmeside") som databasemotor
-- [DROID](https://digital-preservation.github.io/droid "DROIDs hjemmeside") for identifisering av filformater
+- [DROID](https://digital-preservation.github.io/droid "DROIDs hjemmeside") og [Siegfried](https://github.com/richardlehane/siegfried) for identifisering av filformater
 - [Grafana](https://grafana.com "Grafanas hjemmeside") for statistikk og rapportering
 - [IBM High Performance Storage System (HPSS)](https://www.hpss-collaboration.org "HPSSs hjemmeside") som bit-repository
-- [GlusterFS](https://www.gluster.org "GlusterFSs hjemmeside") for delt midlertidig lagring
 - [CentOS](https://www.centos.org "CentOS' hjemmeside") Linux som serverplattform
+- [CommonsIP](https://github.com/keeps/commons-ip) for pakking og validering av arkivpakker på [E-ARK standard](https://dilcis.eu/)
