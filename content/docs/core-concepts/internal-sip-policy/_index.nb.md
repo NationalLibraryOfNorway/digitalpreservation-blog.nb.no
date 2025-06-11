@@ -20,3 +20,10 @@ Med utgangspunkt i dette vil vi definere et praktisk omfang for informasjonspakk
 
 [^1]: I disse dokumentene vil informasjonspakke være brukt om SIP-er, med mindre noe annet er spesifisert. Se [OAIS](/nb/oais/).
 
+
+{{< cards >}}
+  {{< card link="system-architecture" title="Systemdomener og -arkitektur" icon="document-text" >}} 
+  {{< card link="premis-architecture" title="Forvaltningsarkitektur" icon="document-text" >}}
+  {{< card link="intellectual-sip-scope" title="Omfang på informasjonspakker" icon="document-text">}}
+  {{< card link="representation-types" title="Representasjonstyper" icon="document-text">}}
+{{< /cards >}}
