@@ -11,13 +11,9 @@ authors:
 aliases: ["/docs/formats/2024-05-07-formats-in-use-no", "/docs/formats/preferred-formats-no/"]
 ---
 
-Dette er en liste over filformatene som er foretrukket av Nasjonalbiblioteket for digital bevaring. 
-Anbefalingene er utarbeidet av de respektive fagseksjonene, mens lista forvaltes av teamet for digital bevaring.
+Denne listen viser hvilke filformater som foretrekkes for langtidsbevaring ved Nasjonalbiblioteket. Anbefalingene er utarbeidet av de respektive medieavdelingene, mens det er team Digital bevaring som forvalter selve listen.
 
-Lista omfatter både formater Nasjonalbiblioteket produserer selv og formater Nasjonalbiblioteket mottar fra andre. 
-Formatene på lista er de som er anbefalt for bevaring av fagressurser i Nasjonalbiblioteket.
-De foretrukne formatene er det vi helst vil ha, mens de akseptable også vil bli godtatt uten konvertering/normalisering. 
-Alle andre formater bør diskuteres med relevante fagseksjoner, før de eventuelt blir akseptert går inn i forvaltningen. 
+Listen omfatter både filer som er produsert av Nasjonalbiblioteket og filer som mottas fra eksterne aktører. *Foretrukne formater* er de som anses best egnet for bevaring, men også *akseptable formater* kan arkiveres direkte uten konvertering/normalisering. Eventuelle andre filformater bør avklares med relevante avdelinger før de tas imot. 
 
 Lista er inspirert av [Open Preservation Foundations (OPF)](https://openpreservation.org) liste ["International Comparison of Recommended File Formats"](https://docs.google.com/spreadsheets/d/1XjEjFBCGF3N1spNZc1y0DG8_Uyw18uG2j8V2bsQdYjk/edit#gid=1719869262) og Library of Congress sine oversikter ["Sustainability of Digital Formats: Planning for Library of Congress Collections"](https://www.loc.gov/preservation/digital/formats/fdd/descriptions.shtml) og ["Recommended Formats Statement"](https://www.loc.gov/preservation/resources/rfs/index.html).
 

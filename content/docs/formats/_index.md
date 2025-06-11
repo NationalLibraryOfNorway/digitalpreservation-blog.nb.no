@@ -11,12 +11,9 @@ authors:
 aliases: ["/docs/formats/2024-05-07-formats-in-use-en", "/docs/formats/preferred-formats-en"]
 ---
 
-This is a list over the preferred file formats for preservation at the National Library of Norway.
-The recommendations are prepared by the respective media departments, while the list is managed by the digital preservation team. 
+This list outlines the preferred file formats for preservation at the National Library of Norway. The recommendations have been developed by the respective media departments, while the list itself is maintained by the digital preservation team.
 
-The list covers both files produced by the National Library and files the National Library acquire from external actors.
-The preferred formats are those our departments would prefer to have, while the acceptable ones will also be accepted without conversion/normalization. 
-Any other formats should be discussed with relevant departments before acceptance.
+It includes both files produced by the National Library and those acquired from external sources. *Preferred formats* are those considered most suitable for preservation, while *acceptable formats* also can be used without the need for conversion/normalization. Any other file formats should be discussed with the relevant media departments prior to acceptance.
 
 The list is inspired by [Open Preservation Foundation's (OPF)](https://openpreservation.org) list 
 ["International Comparison of Recommended File Formats"](https://docs.google.com/spreadsheets/d/1XjEjFBCGF3N1spNZc1y0DG8_Uyw18uG2j8V2bsQdYjk/edit#gid=1719869262) 
