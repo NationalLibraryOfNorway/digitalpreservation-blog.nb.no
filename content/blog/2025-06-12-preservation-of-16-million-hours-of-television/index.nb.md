@@ -39,7 +39,7 @@ Filene har blitt lagret i et eldre bit-repositorium (Oracle HSM) i tre kopier. N
 
 Arbeidet startet høsten 2024 med kartlegging og forberedelser. Selve rearkiveringen startet i november 2024 og ble avsluttet 4. februar 2025. Prosessen ble automatisert ved hjelp av Apache NiFi[^7], som styrte databehandlingen med høy kontroll på flyt og kapasitet. 
 
-Ved å kombinere automatisering med målrettede manuelle vurderinger, økte vi effektiviteten betraktelig. Daglig behandlingskapasitet gikk fra 25 til over 40 terabyte. 
+Ved å kombinere automatisering med målrettede manuelle vurderinger, økte vi effektiviteten betraktelig. Daglig behandlingskapasitet gikk fra 25 til over 40 terabyte.
 
 ![Rearkivering pr dag i TeraByte](datavolume.jpg)
 *Oversikt over datavolum rearkivert pr dag. 1 TeraByte = 1.000 GigaByte.*
