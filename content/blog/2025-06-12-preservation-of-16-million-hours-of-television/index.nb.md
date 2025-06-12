@@ -8,7 +8,7 @@ authors:
   - name: Digital Preservation Team
     image: /apple-touch-icon.png
 images: 
-  - datavolume.jpg
+  - datavolume.nb.jpg
 ---
 Nasjonalbiblioteket har nylig gjennomført et av sine største digitale bevaringsprosjekter noensinne: å flytte hele arkivet med historiske digitale fjernsynssendinger over til en ny bevaringsløsning. Over 1,6 millioner timer fjernsyn, fordelt på like mange filer, ble analysert, kvalitetssikret og pakket på nytt – i alt 1.800 terabyte data. 
 
@@ -41,8 +41,7 @@ Arbeidet startet høsten 2024 med kartlegging og forberedelser. Selve rearkiveri
 
 Ved å kombinere automatisering med målrettede manuelle vurderinger, økte vi effektiviteten betraktelig. Daglig behandlingskapasitet gikk fra 25 til over 40 terabyte.
 
-![Rearkivering pr dag i TeraByte](datavolume.jpg)
-*Oversikt over datavolum rearkivert pr dag. 1 TeraByte = 1.000 GigaByte.*
+![Rearkivering pr dag i TeraByte](datavolume.nb.jpg "Oversikt over datavolum rearkivert pr dag. 1 TeraByte = 1.000 GigaByte")
 
 ## Funn og avvik
 
