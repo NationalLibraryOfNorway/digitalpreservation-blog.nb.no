@@ -1,6 +1,6 @@
 ---
 title: "Preserving 1,6 million hours of television"
-draft: true
+draft: false
 date: 2025-06-16T08:00:00+01:00
 description: "The National Library of Norway has recently completed one of its largest digital preservation projects ever: transferring the entire archive of historical digital television broadcasts to a new preservation system."
 tags: [Digital preservation, National Library of Norway, E-ARK, Digital Preservation Services, OAIS, Security, Television, Rearchiving, Checksum, Metadata, MODS, MediaInfo, MediaConch]
@@ -14,12 +14,11 @@ The National Library of Norway has recently completed one of its largest digital
 
 This is the story of how we did it.
 
-
 ## Background: One Hour, One File
 
 Since 2007, Norwegian broadcasters have delivered television broadcasts digitally to the National Library of Norway — one MP4 file per calendar hour of TV transmission. Each file contains everything aired during one hour, regardless of where programs start or end. In practice, this means a single TV program may be spread across multiple files.
 
-The files were stored in an older bit repository (Oracle HSM) in three copies. Now, the entire digital collection was to be rearchived into a modern preservation system — a process that imposed new requirements for quality, metadata, and packaging.
+The files were stored in an older bit repository (Oracle HSM) in three copies. Now, the entire digital collection were to be rearchived into a modern preservation system — a process that imposed new requirements for quality, metadata, and packaging.
 
 ## Challenges and Decisions
 ✅ **Checksums for All Files** <br> Some broadcasters, like TV2 and TVNorge, delivered files with checksums[^1] — a digital signature confirming that the file hasn’t changed. But files from other broadcasters lacked these, so we had to generate our own checksums. 
@@ -46,8 +45,8 @@ By combining automation with targeted manual reviews, we significantly increased
 
 ## Findings and Anomalies
 
-With a dataset this large, some anomalies were inevitable. Here are some examples of what we encountered: 
-- **Duplicates:** Some were caused by daylight saving time shifts, others were identical broadcasts from different NRK districts. Files were assessed, and the best versions were kept.
+With a dataset this large, some anomalies were unavoidable. Here are some examples of what we encountered: 
+- **Duplicates:** Some were caused by seasonal time changes (switching to and from daylight saving time), others were identical broadcasts from different NRK districts. Files were assessed, and the best versions were kept.
 
 - **Incorrect Checksums:** Several files arrived with invalid checksums. After closer inspection, we found that all copies were in fact identical, indicating that the error occurred prior to delivery. We updated the checksums, and the issue was documented.
 
@@ -59,7 +58,7 @@ With a dataset this large, some anomalies were inevitable. Here are some example
 
 ## What We Learned
 
-This project showed how crucial it is to have robust tools, standards, and control routines when preserving large volumes of data long term. It also demonstrated the importance of combining automation with professional judgment.
+This project showed that when preserving large volumes of data over the long term, it is critical to have robust tools, standards, and reliable control routines. It also demonstrated the importance of combining automation with professional judgment.
 
 By using Apache NiFi for data flow and the E-ARK standard for archival packaging, we developed a scalable, reusable solution for future preservation efforts. 
 
