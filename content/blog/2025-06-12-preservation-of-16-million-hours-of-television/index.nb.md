@@ -25,7 +25,7 @@ Filene har blitt lagret i et eldre bit-repositorium (Oracle HSM) i tre kopier. N
 
 🔠 **Standardisering av filnavn** <br> Filnavnene inneholder viktig informasjon – kringkaster, kanal, dato og klokkeslett – men mange fulgte ikke standardformatet. Enkelte manglet sendetidspunkt, andre hadde kanalnavnet feilplassert. Før automatisert behandling kunne starte, måtte tusenvis av filnavn rettes. 
 
-🔧 **Tekniske kontroller** <br> Hver fil ble analysert med verktøyene MediaInfo[^2] og MediaConch[^3] for å validere formatet. Vi sjekket at filene hadde både lyd og bilde, korrekt varighet, og ikke var trunkert eller tomme. 
+🔍 **Tekniske kontroller** <br> Hver fil ble analysert med verktøyene MediaInfo[^2] og MediaConch[^3] for å validere formatet. Vi sjekket at filene hadde både lyd og bilde, korrekt varighet, og ikke var trunkert eller tomme. 
 
 📄 **Metadata og MODS** <br> Siden ingen av filene hadde katalogdata, genererte vi MODS[^4]-metadata for hver enkelt. Informasjon fra filnavnet ble hentet ut og kombinert med tekniske metadata fra analyseverktøyene. 
 
