@@ -1,14 +1,14 @@
 ---
 title: "Preserving 1,6 million hours of television"
 draft: false
-date: 2025-06-16T08:00:00+01:00
+date: 2025-06-12T08:00:00+01:00
 description: "The National Library of Norway has recently completed one of its largest digital preservation projects ever: transferring the entire archive of historical digital television broadcasts to a new preservation system."
 tags: [Digital preservation, National Library of Norway, E-ARK, Digital Preservation Services, OAIS, Security, Television, Rearchiving, Checksum, Metadata, MODS, MediaInfo, MediaConch]
 authors: 
   - name: Digital Preservation Team
     image: /apple-touch-icon.png
-images: datavolume.jpg
-  - 
+images: 
+  - datavolume.jpg
 ---
 The National Library of Norway has recently completed one of its largest digital preservation projects ever: transferring the entire archive of historical digital television broadcasts to a new preservation system. Over 1.6 million hours of television, spread across as many files, were analyzed, quality assured, and repackaged—amounting to a total of 1,800 terabytes of data.
 
