@@ -23,7 +23,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 | Navn         | **Type**                                                                     |
 |:--------------|:------------------------------------------------------------------------------|
-| Beskrivelse  | Type ressurs/medietype. NB bruker et eget vokabular for tillatte medietyper. Attributt `lang` BØR brukes for å definere språkkode. |
+| Beskrivelse  | Type ressurs/medietype. NB bruker et eget vokabular for tillatte medietyper.<br>Attributt `lang` BØR brukes for å definere språkkode. |
 | Krav         | MÅ                                                                           |
 | Kardinalitet | 1..1                                                                         | 
 
@@ -49,11 +49,11 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 "lang": "nor"}
 ``` 
 <br>
-1. 
+2. 
 
 | Navn         | **Identifier**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Identifikatorer (type ID + ID/verdi). <br>Attributt `type` og `value` MÅ brukes for å definere type identifikator. Attributt `lang` BØR brukes for å definere språkkode.
+| Beskrivelse  | Identifikatorer (type ID + ID/verdi). <br>Attributt `type` og `value` MÅ brukes for å definere type identifikator.<br>Attributt `lang` BØR brukes for å definere språkkode.
 |
 | Krav         | MÅ                                                                                                                 |
 | Kardinalitet | 1..n                                                                                                               |
@@ -411,7 +411,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 - Attributt `title` angir tittel på relatert ressurs. 
 
 - Attributt `type` angir hvilken type relasjon det er mellom ressurser. Bruk av termer fra Dublin Core anbefales (conformsTo, hasFormat, hasPart, hasVersion, isFormatOf, isPartOf, isReferencedBy, isReplacedBy, isRequiredBy, isVersionOf, references, replaces, requires). 
-Hvis det andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).
+Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).
 
 - Eksempel på bruk av attributt `id` er henvisning til en seriepost, verkspost, eller andre ressurser i samme i serie/verk.
 
@@ -432,22 +432,22 @@ Hvis det andre termer brukes bør de gi mening for avleverer, gjenspeile metadat
 ]
 ```
 ```json
-"relation": [
+{"relation": [
   {
     "title": "Chronicles of Narnia",
     "type": "IsPartOf",
     "lang": "eng"
   }
-]
+]}
 ```
 ```json
-"relation": [
+{"relation": [
   {
     "title": "20161203.jpg",
     "type": "hasPart",
     "URI": "https://www.nb.no/items/83af9a36b005c5737aa33d1fb64f429d?page"
   }
-]
+]}
 ```
 
 <br>
@@ -510,7 +510,7 @@ Hvis det andre termer brukes bør de gi mening for avleverer, gjenspeile metadat
 ```
 
 ```json
-"subject": [
+{"subject": [
   { 
     "lang": "nor",
     "value": "natur",
@@ -520,7 +520,7 @@ Hvis det andre termer brukes bør de gi mening for avleverer, gjenspeile metadat
       "uri": "http://kulturnav.org/1031636c-0717-4d32-8895-fb88a7d4e952"
     }
   }
-]
+]}
 ```
 
 <br>
