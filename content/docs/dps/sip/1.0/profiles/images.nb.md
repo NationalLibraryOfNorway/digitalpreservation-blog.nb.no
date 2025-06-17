@@ -19,4 +19,4 @@ Dette er en liste over krav til METS.xml for bildepakker som leveres til Nasjona
 
 <br><br>
 
-![Eksempel pakkestruktur bilder](Eksempel pakkestruktur bilder.jpg) 
+![Eksempel pakkestruktur bilder](Eksempel pakkestruktur bilder.JPG) 
