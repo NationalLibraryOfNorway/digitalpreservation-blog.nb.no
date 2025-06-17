@@ -421,7 +421,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 
 **Eksempler:**
 ```json
-"relation": [
+{"relation": [
   {
     "title": "Norge på langs med Ola og Kari",
     "type": "IsPartOf",
@@ -429,7 +429,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
     "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
     "lang": "nor"
   }
-]
+]}
 ```
 ```json
 {"relation": [
