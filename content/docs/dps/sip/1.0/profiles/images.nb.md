@@ -21,4 +21,4 @@ Dette er en liste over krav til METS.xml for bildepakker som leveres til Nasjona
 
 <br><br>
 
-![Eksempel på SIP for bilder](bildeeksempel_sip.nb.jpg "Eksempel på pakkestruktur for bilder")
+![Eksempel på SIP for bilder](/assets/images/datacenter.jpeg)
