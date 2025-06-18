@@ -5,7 +5,7 @@ weight: 1
 
 I tillegg til kravet om en metadatafil i informasjonspakkene (SIP), krever Nasjonalbiblioteket at et sett med metadata også leveres via submission-API-et ved avlevering. Dette skal sikre at et minimum av metadata knyttet til de avleverte representasjonene blir indeksert og søkbare.
 
-Metadatakravene bygger på [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), en internasjonal ISO-standard som er mye brukt innen arkiv, bibliotek og digitale samlinger. Dublin Core-standarden ble valgt fordi den er relativt enkel å forstå, lett å implementere, og er både fleksibel og utvidbar. Standarden er supplert med attributter for type, rolle og språk i enkelte felt for å gjøre metadataene mer strukturerte.
+Metadatakravene bygger på [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), en internasjonal ISO-standard som er mye brukt innen arkiv, bibliotek og digitale samlinger. Dublin Core-standarden ble valgt fordi den er relativt enkel å forstå, lett å implementere, og er både fleksibel og utvidbar. Standarden er supplert med attributter i feltene for å gjøre metadataene mer strukturerte.
 
 De fleste metadataelementene er valgfrie, men det oppfordres til å fylle dem ut så grundig som mulig. Dette gir bedre søkbarhet og forståelse av ressursene – også i et langtidsperspektiv.
 
@@ -54,7 +54,6 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 | Navn         | **Identifier**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
 | Beskrivelse  | Identifikatorer (type ID + ID/verdi). <br>Attributt `type` og `value` MÅ brukes for å definere type identifikator.<br>Attributt `lang` BØR brukes for å definere språkkode.
-|
 | Krav         | MÅ                                                                                                                 |
 | Kardinalitet | 1..n                                                                                                               |
 
@@ -258,9 +257,8 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- Vanlig praksis er å beskrive både sted, forlag/korporasjon og år for utgivelse. 
-
-- Her brukes også autoritetsregister hvis det finnes. Det må oppgis hvilket autoritetsregister som er benyttet, og hvilken type autoritet det er (type): *Person, Organization, Personal Name, Corporate Name, Meeting Name* (konferanse), *Uniform Title* (traktat, kontrakt).
+- Det anbefales å bruke autoritetsregister hvis det finnes. Det må oppgis hvilket autoritetsregister som er benyttet, og hvilken type autoritet det er (type): *Person, Organization, Personal Name, Corporate Name, Meeting Name* (konferanse), *Uniform Title* (traktat, kontrakt). Ved bruk av autoritetsregister bør utgiver i tillegg skrives ut i sin fulle form. Sted og/eller år for utgivelse kan legges til i parantes bak navnet. Eksempel: Nasjonalbiblioteket (Oslo, 1984). 
+  
 - Språkkode bør angis. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
 **Eksempel:**
@@ -268,7 +266,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 {"publisher": [
   {
     "lang": "nor",
-    "name": "Nasjonalbiblioteket",
+    "name": "Nasjonalbiblioteket (Oslo, 1984)",
     "type": "Organization",
     "authority": {
       "source": "Felles autoritetsregister (BARE)",
