@@ -1,5 +1,6 @@
 ---
 title: Lyd
+draft: true
 weight: 4
 ---
 

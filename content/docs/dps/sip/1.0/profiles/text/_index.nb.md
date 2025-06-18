@@ -1,5 +1,6 @@
 ---
 title: Tekst
+draft: true
 weight: 2
 ---
 
