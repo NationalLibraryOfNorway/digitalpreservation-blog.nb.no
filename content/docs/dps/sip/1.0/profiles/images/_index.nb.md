@@ -20,6 +20,6 @@ Dette er en liste over krav til METS.xml for bildepakker som leveres til Nasjona
 <br><br>
 ### Eksempel på SIP for bilder
 
-{{< figure src="imagesip.nb.svg" alt="Røde rammer gjenspeiler MÅ-krav i pakkestrukturen" >}}
+{{< figure src="imagesip.nb.svg" caption="Røde rammer gjenspeiler MÅ-krav i pakkestrukturen" alt="Røde rammer gjenspeiler MÅ-krav i pakkestrukturen" >}}
 
 ---
