@@ -1,8 +1,6 @@
 ---
 title: Bilder
 weight: 1
-images: 
-  - bildeeksempel_sip.nb.jpg
 ---
 
 
@@ -21,4 +19,4 @@ Dette er en liste over krav til METS.xml for bildepakker som leveres til Nasjona
 
 <br><br>
 
-![Eksempel på SIP for bilder](/assets/images/datacenter.jpeg)
+{{< figure src="bildeeksempel_sip.nb.jpg" alt="Eksempel på SIP for bilder" >}}
