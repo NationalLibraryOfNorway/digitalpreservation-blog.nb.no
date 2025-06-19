@@ -11,3 +11,9 @@ DPS (Digital Preservation Services) refererer til Nasjonalbibliotekets tjenester
 Skissen nedenfor viser dagens arkitektur i DPS. Her brukes produsent og konsument om en organisasjon, avdeling eller annen enhet som benytter DPS for bevaring av digitalt materiale.
 
 {{< figure src="dps-current.svg" alt="Et diagram som viser dataflyt i DPS-programvaren" caption="Dagens DPS-arkitektur" >}}
+
+{{< cards >}}
+  {{< card link="interface" title="Grensesnitt" icon="document-text" >}} 
+  {{< card link="sip" title="SIP-spesifikasjoner" icon="document-text" >}}
+  {{< card link="access-control" title="Modell for rollebasert tilgang" icon="document-text">}}
+{{< /cards >}}
