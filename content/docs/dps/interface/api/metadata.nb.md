@@ -45,8 +45,12 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
   
 **Eksempel:**
 ```json
-{"type":"Bilde",
-"lang": "nor"}
+{
+"type":{
+  "value": "Bilde",
+  "lang": "nor"
+}
+}
 ``` 
 <br>
 2. 
@@ -66,22 +70,24 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Eksempler:**
 ```json
-{"identifier": [
+{
+"identifier": [
   {
     "type": "URN",
     "value": "URN:NBN:no-nb_digifoto_20220311_00191_NB_PE_VM_M_05_09_01_036"
   },
   {
-    "lang": "nor",
     "type": "bilde-id",
-    "value": "NB_PE_VM_M_05_09_01_036"
+    "value": "NB_PE_VM_M_05_09_01_036",
+    "lang": "nor"
   },
   {
-    "lang": "nor",
     "type": "hyllesignatur",
-    "value": "POEL00003975"
+    "value": "POEL00003975",
+    "lang": "nor"
   }
-]}
+]
+}
 ```
 <br>
 3. 
@@ -100,21 +106,27 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Eksempler:**
 ```json
-{"title": {
+{
+"title": {
   "value": "Ola og Kari på fisketur i Rondane",
   "lang": "nor"
-}}
+}
+}
 ```
 ```json
-{"title": {
+{
+"title": {
   "value": "Negativopptak fra juni 1972 [bilde 394]",
   "lang": "nor"
-}}
+}
+}
 ```
 ```json
-{"title": {
+{
+"title": {
   "value": "20131007.jpg"
-}}
+}
+}
 ```
 <br>
 4. 
@@ -139,13 +151,15 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Eksempel:**
 ```json
-{"alternative": [
+{
+"alternative": [
   {
     "type": "originaltittel",
     "value": "Ola and Kari on fishing trip in Rondane",
     "lang": "eng"
   }
-]}
+]
+}
 ```
 <br>
 5. 
@@ -171,34 +185,38 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Eksempler:**
 ```json
-{"creator": [
+{
+"creator": [
   {
-    "lang": "nor",
     "name": "Marek, Václav (1908-1994)",
     "type": "Person",
     "role": "fotograf",
+    "lang": "nor",
     "authority": {
       "source": "Felles autoritetsregister (BARE)",
       "code": "90169632",
       "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90169632"
     }
   }
-]}
+]
+}
 ```
 ```json
-{"creator": [
+{
+  "creator": [
   {
-    "lang": "nor",
     "name": "Shakespeare, William (1564-1616)",
     "type": "Person",
     "role": "forfatter",
+    "lang": "nor",
     "authority": {
       "source": "Felles autoritetsregister (BARE)",
       "code": "9016555",
       "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG9016555"
     }
   }
-]}
+]
+}
 ```
 <br>
 6.  
@@ -217,7 +235,8 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Eksempler:**
 ```json
-{"contributor": [
+{
+  "contributor": [
   {
     "role": "avbildet",
     "type": "Person",
@@ -229,22 +248,24 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
     "name": "Nordmann, Kari",
     "lang": "nor"
   }
-]}
+]
+}
 ```
 ```json
 {"contributor": [
   {
-    "lang": "nor",
     "role": "illustratør",
     "type": "Person",
     "name": "Solberg, Erna",
+    "lang": "nor",
     "authority": {
       "source": "Kulturnav",
       "code": "e762d909-5cce-4d2b-892b-258272514fde",
       "uri": "https://kulturnav.org/e762d909-5cce-4d2b-892b-258272514fde"
     }
   }
-]}
+]
+}
 ```
 <br>
 7.  
@@ -263,18 +284,20 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Eksempel:**
 ```json
-{"publisher": [
+{
+  "publisher": [
   {
-    "lang": "nor",
     "name": "Nasjonalbiblioteket (Oslo, 1984)",
     "type": "Organization",
+    "lang": "nor",
     "authority": {
       "source": "Felles autoritetsregister (BARE)",
       "code": "90362181",
       "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
     }
   }
-]}
+]
+}
 ```
 <br>
 8.  
@@ -301,11 +324,12 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Eksempel:**
 ```json
-{"spatial": [
+{
+"spatial": [
   { 
-    "lang": "nor",
     "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
     "type": "Avbildet sted",
+    "lang": "nor",
     "authority": {
       "source": "Kulturnav",
       "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
@@ -318,7 +342,8 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
   { 
     "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
   }  
-]}
+]
+}
 ```
 <br>
 9.  
@@ -339,7 +364,8 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Eksempler:**
 ```json
-{"date": [
+{
+  "date": [
   {
     "type": "motivdato",
     "value": "1938",
@@ -355,7 +381,8 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
     "value": "2022-03-12",
     "lang": "nor"
   }
-]}
+]
+}
 ```
 <br>
 10.   
@@ -376,22 +403,26 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Eksempler:**
 ```json
-{"language": [
+{
+  "language": [
   {
     "type": "undertekster",
     "value": "engelsk",
     "lang": "nor"
   }
-]}
+]
+}
 ```
 ```json
-{"language": [
+{
+  "language": [
   {
     "type": "skriftspråk",
     "value": "fransk",
     "lang": "nor"
   }
-]}
+]
+}
 ```
 <br>
 11.  
@@ -419,7 +450,8 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 
 **Eksempler:**
 ```json
-{"relation": [
+{
+  "relation": [
   {
     "title": "Norge på langs med Ola og Kari",
     "type": "IsPartOf",
@@ -427,25 +459,30 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
     "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
     "lang": "nor"
   }
-]}
+]
+}
 ```
 ```json
-{"relation": [
+{
+  "relation": [
   {
     "title": "Chronicles of Narnia",
     "type": "IsPartOf",
     "lang": "eng"
   }
-]}
+]
+}
 ```
 ```json
-{"relation": [
+{
+  "relation": [
   {
     "title": "20161203.jpg",
     "type": "hasPart",
     "URI": "https://www.nb.no/items/83af9a36b005c5737aa33d1fb64f429d?page"
   }
-]}
+]
+}
 ```
 
 <br>
@@ -463,12 +500,14 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 
 **Eksempel:**
 ```json
-{"provenance": [
+{
+  "provenance": [
   {
     "value": "Samlingen ble donert til Nasjonalbiblioteket av Václav Marek 1979-05-12",
     "lang": "nor"
   }
-]}
+]
+}
 ```
 <br>
 13.  
@@ -491,34 +530,38 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 
 **Eksempler:**
 ```json
-{"subject": [
+{
+  "subject": [
   {
-    "lang": "nor",
-    "value": "rondane"
+    "value": "rondane",
+    "lang": "nor"
   },
   {
-    "lang": "nor",
-    "value": "fisketur"
+    "value": "fisketur",
+    "lang": "nor"
   },
   {
-    "lang": "nor",
-    "value": "natur"
+    "value": "natur",
+    "lang": "nor"
   }
-]}
+]
+}
 ```
 
 ```json
-{"subject": [
+{
+  "subject": [
   { 
-    "lang": "nor",
     "value": "natur",
+    "lang": "nor",
     "authority": {
       "source": "Kulturnav",
       "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
       "uri": "http://kulturnav.org/1031636c-0717-4d32-8895-fb88a7d4e952"
     }
   }
-]}
+]
+}
 ```
 
 <br>
@@ -538,12 +581,14 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 
 **Eksempel:**
 ```json
-{"description": [
+{
+  "description": [
   {
     "value": "Bildet er en del av samlingen etter Václav Marek, der han fulgte Ola og Kari Nordmann Norge på langs. Václav Marek var en engelskmann som var interessert i Norge og norsk natur.",
     "lang": "nor"
   }
-]}
+]
+}
 ```
 <br> **Eksempel som inneholder alle metadataelementene:**
 
@@ -552,8 +597,9 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
   "objectId": "av_6e8bc430-9c3a11d9",
   "priority": 50,
   "metadata": {
-    "type": "Bilde",
-    "lang": "nor"
+    "type":{
+      "value": "Bilde",
+      "lang": "nor"
     }
     "identifier": [
       {
@@ -709,4 +755,5 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
       }
     ]
   }
+}
 ```
