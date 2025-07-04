@@ -8,8 +8,8 @@ weight: 2
 Informasjonspakker som avleveres til DPS, skal inneholde en fil kalt `METS.xml` i informasjonspakkas rotmappe, samt en `METS.xml` i hver representasjonsmappe.
 
 Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CSIP1-119](https://earkcsip.dilcis.eu/#useofmets) og [SIP1-35](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements) i [E-ARK (C)SIP spesifikasjonene v2.2.0](https://dilcis.eu/specifications/)
+<br><br>
 
-<br><br><br>
 ### Bruk av rotelementer i METS (`mets`)
 
 <br>
