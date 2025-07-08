@@ -8,7 +8,7 @@ authors:
   - name: Digital Preservation Team 
     image: /apple-touch-icon.png 
 images: 
-  - 20180117_Bokscann_134.jpg 
+  - Skattekammer.JPG  
 ---
 
 
