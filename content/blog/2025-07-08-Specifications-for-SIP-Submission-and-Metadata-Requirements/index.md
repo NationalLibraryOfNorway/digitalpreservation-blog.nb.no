@@ -8,7 +8,7 @@ authors:
   - name: Digital Preservation Team 
     image: /apple-touch-icon.png 
 images: 
-  - Skattekammer.JPG  
+  - eng_illustrajon.jpg 
 ---
 As part of the [pilot project](https://digitalpreservation.no/blog/2025-01-28-lam-longterm-preservation-pilot/) on long-term preservation of museums’ digital cultural heritage, the team has been working on defining a standardized approach for the transfer of digital objects to the National Library of Norway. The work is based on the [E-ARK specification](https://dilcis.eu/), from which it is defined more specific requirements for the delivery of information packages.
 
