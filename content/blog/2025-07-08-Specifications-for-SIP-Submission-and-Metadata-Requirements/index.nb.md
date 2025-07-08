@@ -3,7 +3,7 @@ title: "Spesifikasjoner for avlevering av SIP og krav til metadata"
 date: 2025-07-08
 description: "I forbindelse med Pilot-prosjektet for langtidsbevaring av museenes digitale kulturarv har teamet jobbet med hvordan man kan standardisere avlevering av digitale objekter, og hvordan vi kan sikre at det samtidig blir levert et minimum med deskriptive metadata."
 tags: ["Digital bevaring, Nasjonalbiblioteket, E-ARK, Digital Preservation Services, OAIS, Dublin Core, metadata, digital kulturarv"]
-draft: true  
+draft: false  
 authors: 
   - name: Digital Preservation Team 
     image: /apple-touch-icon.png 
