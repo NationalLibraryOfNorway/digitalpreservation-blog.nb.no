@@ -1,7 +1,6 @@
 ---
 title: Metadata Requirements
 weight: 1
-draft: true
 ---
 
 
@@ -113,7 +112,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 - Some resources already have predefined titles, such as books, journals, articles, painted works, artistic photographs, etc. When a title is missing, the recommended practice is to assign the resource a “meaningful” title. By meaningful, means a title that facilitates recognition and identification of the resource—essentially, a name that makes sense to the submitter.
 
 - Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
-- 
+ 
 **Examples:**
 ```json
 {
@@ -326,9 +325,9 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 - Use [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) for specifying countries. Country codes should be placed in parentheses after the country name (e.g., Norway (NO)). 
 
-- It is recommend to use official place name services or registries for specifying Norwegian place names. One example is the  [Central Place Name Register (SSR)](https://www.kartverket.no/api-og-data/stedsnavndata) provided by the Norwegian Mapping Authority (Kartverket). The source registry must be specified. 
+- It is recommended to use official place name services or registries for specifying Norwegian place names. One example is the  [Central Place Name Register (SSR)](https://www.kartverket.no/api-og-data/stedsnavndata) provided by the Norwegian Mapping Authority (Kartverket). The source registry must be specified. 
 
-- VWhen using authority registries to specify spatial information, the full form of the place name should also be included. If no registry is used, the location should preferably be written in the following format: country; region/county; municipality; place; street.
+- When using authority registries to specify spatial information, the full form of the place name should also be included. If no registry is used, the location should preferably be written in the following format: country; region/county; municipality; place; street.
  
 
 - Coordinates may be provided using latitude and longitude. The format should be as follows: `latitude`=61.85401 `longitude`=9.80856.
@@ -365,7 +364,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 | Name         | **Date**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Relevant dates for the resource (such as publication, copyright, creation, digitization, etc., including the type of date and the corresponding year or value). <br> The `type` attribute MUST be used to specify what kind of date it is reffered to. <br> The `lang` attribute SHOLD be used to indicate the language code.   |
+| Description  | Relevant dates for the resource (such as publication, copyright, creation, digitization, etc., including the type of date and the corresponding year or value). <br> The `type` attribute MUST be used to specify what kind of date it is reffered to. <br> The `lang` attribute SHOULD be used to indicate the language code.   |
 | Requirement        | SHOULD                                                                                                                 |
 | Cardinality | 0..n                                                                                                               |
 
@@ -463,7 +462,7 @@ If other terms are used for the type attribute, they should be meaningful to the
 
 - Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
-**Eksempler:**
+**Examples:**
 ```json
 {
   "relation": [
@@ -506,14 +505,14 @@ If other terms are used for the type attribute, they should be meaningful to the
 | Name         | **Provenance**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
 | Description  | Information about any changes that may affect the authenticity, integrity, or interpretation of the resource (e.g., ownership, management, etc.). <br> The `lang` attribute SHOULD be used to spesify the language code.   |
-| Requirement        | BØR                                                                                                                 |
+| Requirement        | SHOULD                                                                                                                 |
 | Cardinality | 0..n                                                                                                               |
 
 **Guidelines for use:**
 
 - Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
-**Eksempel:**
+**Example:**
 ```json
 {
   "provenance": [
@@ -543,7 +542,7 @@ If other terms are used for the type attribute, they should be meaningful to the
 
 - Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
-**Eksempler:**
+**Examples:**
 ```json
 {
   "subject": [
@@ -592,7 +591,7 @@ If other terms are used for the type attribute, they should be meaningful to the
 
 - Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
-**Eksempel:**
+**Example:**
 ```json
 {
   "description": [
@@ -603,7 +602,7 @@ If other terms are used for the type attribute, they should be meaningful to the
 ]
 }
 ```
-<br> **Eksempel som inneholder alle metadataelementene:**
+<br> **Example containing all the metadata elements:**
 
 ```json
 {
