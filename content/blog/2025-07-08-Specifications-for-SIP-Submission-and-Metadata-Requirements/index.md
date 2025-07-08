@@ -14,10 +14,14 @@ As part of the [pilot project](https://digitalpreservation.no/blog/2025-01-28-la
 
 In addition, the team have focused on how to ensure that a minimum set of descriptive metadata is submitted alongside the digital objects. The primary purpose of this is to enable basic search and identification within the preservation environment, and it is not intended as a substitute for richer metadata delivered within the package itself. The approach is based on the [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/) metadata standard, which is a basic standard, features open fields (no controlled vocabularies), and can be used for a variety of media types.
 
-<img src="Skjermbilde_metadata_blogg.png" width="500" height="">
-
+![Metadata in digital preservation](Skjermbilde_blogg_engelsk.JPG)
 <br>
+
+Documentation for SIP submission is available here: [SIP 1.0](https://digitalpreservation.no/docs/dps/sip/1.0/).
+
+Documentation on metadata submission requirements is available here: [Metadata Requirements](https://digitalpreservation.no/docs/dps/interface/api/metadata/).
+
+
 Initially, the published documentation is intended for use within the scope of the pilot project. It primarily focuses on the submission of still image material. However, the intention is to use the same specifications for internal deposit workflows at the National Library as well. Further updates and modifications to the documentation will be introduced as we proceed beyond the pilot.
 
-<br>
 Do not hesitate to contact us should you have any comments or questions! 👩🏻‍💻
