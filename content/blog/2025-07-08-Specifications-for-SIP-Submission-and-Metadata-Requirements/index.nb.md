@@ -8,7 +8,7 @@ authors:
   - name: Digital Preservation Team 
     image: /apple-touch-icon.png 
 images: 
-- Illustrajon1.jpg  
+- kulturarv_blogg.JPG 
 ---
 
 
