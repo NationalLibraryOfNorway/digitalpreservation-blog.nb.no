@@ -5,7 +5,7 @@ description: "I forbindelse med Pilot-prosjektet for langtidsbevaring av museene
 tags: ["Digital bevaring, Nasjonalbiblioteket, E-ARK, Digital Preservation Services, OAIS, Dublin Core, metadata, digital kulturarv"]
 draft: false  
 authors: 
-  - name: Digital Preservation Team 
+  - name: Lise-Lotte Melkild
     image: /apple-touch-icon.png 
 images: 
 - kulturarv_blogg.JPG 
