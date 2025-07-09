@@ -1,23 +1,23 @@
 ---
-title: Bruk av METS.xml
+title: Use of METS.xml 
 draft: true
 weight: 2
 ---
 
-## Krav til bruk av METS.xml (SIP)
+## Requirements for the use of METS.xml (SIP)
 
-Informasjonspakker som avleveres til DPS, skal inneholde en fil kalt `METS.xml` i informasjonspakkas rotmappe, samt en `METS.xml` i hver representasjonsmappe.
+Information packages delivered to the DPS must contain a file named `METS.xml` in the root folder of the information package, as well as a `METS.xml` in each representation folder.
 
-Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CSIP1-119](https://earkcsip.dilcis.eu/#useofmets) og [SIP1-35](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements) i [E-ARK (C)SIP spesifikasjonene v2.2.0](https://dilcis.eu/specifications/)
+Both `METS.xml` files must validate against the METS requirements specified by the E-ARK specifications [CSIP1-119](https://earkcsip.dilcis.eu/#useofmets) and [SIP1-35](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements) in the [E-ARK (C)SIP spesifikasjonene v2.2.0](https://dilcis.eu/specifications/).
 <br><br>
 
-### Bruk av rotelementer i METS (`mets`)
+### Use of the METS root element (`mets`)
 
 <br>
 
-| **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
+| **ID** | **Navn, METS-element, beskrivelse** | **Requirement** | **Cardinality** |
 |:---|:---|:---|:---|
-| **NBSIP1** | **Pakkeidentifikator**<br>`mets/@OBJID`<br><br>Attributten `mets/@OBJID` er obligatorisk, verdien er en strengidentifikator for METS-fila. I METS-fila i pakkas rotmappe **MÅ** denne identifikatoren være det samme som navnet på pakkas rotmappe (se [NBSIPSTR2](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure/) for formatering). I METS-fil på de individuelle representasjonene **MÅ** denne identifikatoren være det samme som navnet på den relevante representasjonsmappa (se [NBSIPSTR11](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure/#:~:text=1..1-,NBSIPSTR11,-rotmappe/representations/primary_%C3%85%C3%85%C3%85%C3%85MMDD) og [NBSIPSTR12](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure/#:~:text=1..1-,NBSIPSTR12,-rotmappe/representations/) for formatering). <br><br>Dette er en strengere, SIP-spesifikk variant av [CSIP1](https://earkcsip.dilcis.eu/#CSIP1) | **MÅ** | **1..1** |
+| **NBSIP1** | **Package Identifier**<br>`mets/@OBJID`<br><br>The `mets/@OBJID` attribute is mandatory, its value is a string identifier for the METS document. In the METS file located in the root folder of the package, this identifier **MUST** be identical to the name of the package’s root folder (see [NBSIPSTR2](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/) for formatting). I METS-fil på de individuelle representasjonene **MUST** denne identifikatoren være det samme som navnet på den relevante representasjonsmappa (se [NBSIPSTR11](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure/#:~:text=1..1-,NBSIPSTR11,-rotmappe/representations/primary_%C3%85%C3%85%C3%85%C3%85MMDD) og [NBSIPSTR12](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure/#:~:text=1..1-,NBSIPSTR12,-rotmappe/representations/) for formatering). <br><br>Dette er en strengere, SIP-spesifikk variant av [CSIP1](https://earkcsip.dilcis.eu/#CSIP1) | **MUST** | **1..1** |
 | **NBSIP2** | **Pakkenavn**<br>`mets/@LABEL`<br><br>En kort tekst som oppgir tittelen eller beskrivelsen av innholdet i informasjonspakka. `mets/@LABEL` **BØR** være det samme som "title" i API-kall (se [krav til metadata](https://digitalpreservation.no/nb/docs/dps/interface/api/metadata/)).<br><br>Dette er en strengere variant av [SIP1](https://earksip.dilcis.eu/#SIP1) | **BØR** | **1..1** |
 
 
