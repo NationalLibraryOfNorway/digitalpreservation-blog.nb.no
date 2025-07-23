@@ -8,7 +8,7 @@ Dette er første versjon av spesifikasjoner for avlevering av SIP til Nasjonalbi
 
 
  {{< cards >}}
-  {{< card link="structure" title="Krav til pakkestruktur" icon="document-text" >}} 
+  {{< card link="structure-requirements" title="Krav til pakkestruktur" icon="document-text" >}} 
   {{< card link="mets" title="Bruk av METS.xml" icon="document-text" >}}
   {{< card link="profiles" title="Profiler" icon="document-text">}}
 {{< /cards >}}

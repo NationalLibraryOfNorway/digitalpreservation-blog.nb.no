@@ -630,10 +630,10 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
     ],
     "creator": [
       {
-        "lang": "nor",
         "name": "Marek, Václav",
         "type": "Person",
         "role": "fotograf",
+        "lang": "nor",
         "authority": {
           "source": "Felles autoritetsregister (BARE)",
           "code": "90362181",
@@ -649,10 +649,10 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
         "lang": "nor"
       },
       {
-        "lang": "nor",
         "role": "avbildet",
         "type": "Person",
         "name": "Solberg, Erna",
+        "lang": "nor",
         "authority": {
           "source": "Kulturnav",
           "code": "e762d909-5cce-4d2b-892b-258272514fde",
@@ -662,9 +662,9 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
     ],
     "publisher": [
       {
-        "lang": "nor",
         "name": "Nasjonalbiblioteket",
         "type": "Organization",
+        "lang": "nor",
         "authority": {
           "source": "Felles autoritetsregister (BARE)",
           "code": "90362181",
@@ -674,9 +674,9 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
     ],
     "spatial": [
       { 
-        "lang": "nor",
         "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
         "type": "Avbildet sted",
+        "lang": "nor",
         "authority": {
           "source": "Kulturnav",
           "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
@@ -731,16 +731,16 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
     ],
     "subject": [
       {
+        "value": "rondane",
         "lang": "nor",
-        "value": "rondane"
       },
       {
-        "lang": "nor",
-        "value": "fisketur"
+        "value": "fisketur",
+        "lang": "nor"
       },
     { 
-    "lang": "nor",
     "value": "natur",
+    "lang": "nor",
     "authority": {
       "source": "Kulturnav",
       "code": "1031536c-0717-4d12-8895-fb88a7d4e952",

@@ -5,7 +5,7 @@ date: 2025-06-12T08:00:00+01:00
 description: "Nasjonalbiblioteket har nylig gjennomført et av sine største digitale bevaringsprosjekter noensinne: å flytte hele arkivet med historiske digitale fjernsynssendinger over til en ny bevaringsløsning."
 tags: [Digital bevaring, Nasjonalbiblioteket, E-ARK, Digital Preservation Services, OAIS, Sikkerhet, Automatisering, Fjernsyn, Rearkivering, Sjekksum]
 authors: 
-  - name: Digital Preservation Team
+  - name: Trond Teigen
     image: /apple-touch-icon.png
 images: 
   - datavolume.nb.jpg
