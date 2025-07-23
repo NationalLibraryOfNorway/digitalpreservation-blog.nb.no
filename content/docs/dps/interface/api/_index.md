@@ -1,6 +1,7 @@
 ---
 title: Submission Service API
 weight: 1
+draft: true
 ---
 
 
@@ -12,13 +13,16 @@ This documentation complements the detailed API reference available through Swag
 
 ## Authentication & Authorization
 
-The API uses OAuth 2.0 with JWT tokens for authentication, specifically implementing the OAuth 2.0 Client Credentials Flow.
+The API uses OAuth 2.0 with JWT tokens for authentication, specifically implementing the OAuth 2.0 Client Credentials flow.
+The Submission Service is designed for system-to-system communication and does not support user-based authentication flows (e.g., the Authorization Code flow).
 
 ### OAuth 2.0 Client Credentials Flow
 
 1. Your client application authenticates with the authorization server using its client ID and client secret
 2. The authorization server validates these credentials and returns an access token
 3. Your application includes this access token in the Authorization header of all API requests
+
+All API communication is handled via https://api.nb.no, while authentication requests are sent to https://www.nb.no/authn/realms/dps/protocol/openid-connect/token.
 
 Example token request:
 ```http
@@ -35,7 +39,7 @@ Example API request with token:
 ```http
 GET /dps-submission/v1/contracts/{your_contract_id}/submissions/{your_submission_id} HTTP/1.1
 Host: api.nb.no
-Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9...
+Authorization: Bearer {access_token}
 ```
 
 ### Role-Based Authorization
@@ -54,9 +58,9 @@ Your client application must request the access token, and the issued JWT will t
 A submission represents a package of files and metadata to be preserved.
 
 **Key properties:**
-- `contractId`: Contract identifier in Base16 format (4 characters)
-- `submissionId`: Unique identifier for the submission in Base62 format (22 characters). The ID is case-sensitive
-- `clientId`: Identifier of the client uploading the submission, extracted from the JWT token
+- `contractId`: Contract identifier in Base16 (hex) format (4 characters, using [0-9A-F]).
+- `submissionId`: Unique identifier in Base62 format (22 characters, using [A-Za-z0-9]). The ID is case-sensitive.
+- `clientId`: Identifier of the client uploading the submission, extracted from the JWT token.
 - `objectId`: Client-provided identifier for the object
 - `status`: Current status of the submission
 - `priority`: Priority of the submission, used for processing order in DPS
@@ -68,18 +72,18 @@ A submission represents a package of files and metadata to be preserved.
 A file represents an individual digital asset within a submission.
 
 **Key properties:**
-- `contractId`: Contract identifier in Base16 format (4 characters)
-- `submissionId`: Unique identifier in Base62 format (22 characters). The ID is case-sensitive
-- `fileId`: Unique identifier in Base62 format (22 characters)
+- `contractId`: Contract identifier in Base16 (hex) format (4 characters, using [0-9A-F]).
+- `submissionId`: Unique identifier in Base62 format (22 characters, using [A-Za-z0-9]). The ID is case-sensitive.
+- `fileId`: Unique identifier in Base62 format (22 characters, using [A-Za-z0-9]). The ID is case-sensitive.
 - `filePath`: Relative path of the file within the submission
 - `s3ObjectKey`: The S3 object key where the file is stored internally
 - `checksum`: MD5 checksum of the file content
-- `isPackaged`: Indicates if the file is packaged (e.g., in a ZIP/TAR archive) and should be extracted during processing
+- `isPackaged`: Indicates whether the file is packaged (e.g., in a ZIP or TAR archive) and should be extracted during processing. If true, the file will be unpacked and its contents processed individually during preservation.
 - `uploadUrl`: Pre-signed URL for direct file upload to our S3 compatible storage
 
 **File Size Limitations:**
 - Maximum file size: 5 GB per file
-- This limitation is due to constraints with Amazon S3 pre-signed URLs used for direct file uploads
+- This limitation is due to constraints with S3 pre-signed URLs used for direct file uploads
 
 ## Submission Workflow
 
@@ -94,9 +98,9 @@ The complete submission process follows these steps:
 
 ### Example API Usage
 
-**Register a new submission**
+#### Register a new submission
 
-Request:
+**Request**
 ```http
 POST /dps-submission/v1/contracts/1234/submissions HTTP/1.1
 Host: api.nb.no
@@ -120,7 +124,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     },
     "alternative": [
       {
-        "type": "Original tittle",
+        "type": "Original title",
         "value": "My Alternative Book Title",
         "lang": "eng"
       }
@@ -215,7 +219,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
-Response:
+**Response**
 ```json
 {
   "contractId": "1234",
@@ -227,9 +231,9 @@ Response:
 }
 ```
 
-**Register a file for upload**
+#### Register a file for upload
 
-Request:
+**Request**
 ```http
 POST /dps-submission/v1/contracts/1234/submissions/8Z7x1T9rN0Xc2B5Yq4L3zP/files HTTP/1.1
 Host: api.nb.no
@@ -243,34 +247,34 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
-Response:
+**Response**
 ```json
 {
   "fileId": "1M0x4T9rN8Xc7B2Yq5L3zK",
   "filePath": "representations/primary_20250217/data/ranablad_20250215.pdf",
   "checksum": "d41d8cd98f00b204e9800998ecf8427e",
   "isPackaged": false,  
-  "uploadUrl": "https://.../upload/42?token=..."
+  "uploadUrl": "https://s3.nb.no/examplebucket/...&X-Amz-Signature=..."
 }
 ```
 
-**Finalize the submission after upload**
+#### Finalize the submission after upload
 
-Request:
+**Request**
 ```http
 POST /dps-submission/v1/contracts/1234/submissions/8Z7x1T9rN0Xc2B5Yq4L3zP/finalize HTTP/1.1
 Host: api.nb.no
 Authorization: Bearer eyJhbGciOxxxxxxx
 ```
 
-Response:
+**Response**
 ```json
 {
   "contractId": "1234",
   "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
   "objectId": "digavis_aabcc",
   "clientId": "myClientId",
-  "status": "REGISTERED",
+  "status": "UPLOAD_COMPLETED",
   "priority": 50,
   "sumSizeInBytes": 12345678,
   "files": [
@@ -280,7 +284,7 @@ Response:
       "s3ObjectKey": "myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
       "checksum": "d41d8cd98f00b204e9800998ecf8427e",
       "isPackaged": false,
-      "uploadUrl": "https://.../upload/42?token=..."
+      "uploadUrl": "https://s3.nb.no/examplebucket/...&X-Amz-Signature=..."
     }
   ]
 }
@@ -291,10 +295,10 @@ Response:
 
 ## File Upload Process
 
-The file upload process in the Digital Preservation Submission Service follows these steps:
+The file upload process in the Digital Preservation Submission Service consists of the following steps:
 
 1. **Register a file** by making a POST request to `/contracts/{contractId}/submissions/{submissionId}/files` with file metadata
-2. **Receive a pre-signed URL** in the response, which is valid for a limited time (typically 1 hour)
+2. **Receive a pre-signed upload URL** in the response, which is valid for a limited time (typically 1 hour)
 3. **Upload the file content** directly to our S3 compatible storage using the pre-signed URL with an HTTP PUT request
 
 ### Pre-signed URL Usage
@@ -316,7 +320,7 @@ Content-Length: {file-size}
 
 If an upload fails or times out:
 1. You can retry the upload using the same pre-signed URL if it hasn't expired
-2. If the URL has expired, you must delete the file registration and register it again to get a new URL
+2. If the URL has expired, delete the file registration and register it again to get a new URL
 
 ## Status Lifecycle
 
@@ -329,6 +333,28 @@ A submission progresses through the following statuses:
 5. `ARCHIVING` - The submission is being archived in the preservation system
 6. `PRESERVED` - The submission has been successfully preserved
 7. `REJECTED` - The submission has been rejected due to validation errors or other issues
+
+## Error Handling
+The API uses standard HTTP status codes to indicate the success or failure of requests:
+- `200 OK` - Request was successful
+- `201 Created` - Resource was successfully created
+- `400 Bad Request` - Invalid request parameters or payload
+- `401 Unauthorized` - Authentication failed or token is missing/invalid
+- `403 Forbidden` - Access token is valid but lacks required roles
+- `404 Not Found` - Resource not found
+- `409 Conflict` - Duplicate submission or file
+- `500 Internal Server Error` - An unexpected error occurred on the server
+
+When an error occurs, the API returns a JSON response with an `error` object containing:
+```json
+{
+  "error": {
+    "code": "ERROR_CODE",
+    "message": "A descriptive error message",
+    "details": "Additional details about the error"
+  }
+}
+```
 
 ## Best Practices
 
