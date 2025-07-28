@@ -1,5 +1,5 @@
 ---
-title: Image
+title: Images
 weight: 1
 Draft: false
 ---
