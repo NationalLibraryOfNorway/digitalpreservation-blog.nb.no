@@ -8,7 +8,7 @@ description: "Bloggposter skrevet av medlemmer på team digital bevaring."
 </div>
 <br>
 {{< callout type="warning" >}}
-Bloggen er primært engelsksspråklig per i dag.
+Bloggen er primært engelskspråklig per i dag.
 Det engelske innholdet finner du ved å bytte til den engelske versjonen av denne sida.
 {{< /callout >}}
 <br>
