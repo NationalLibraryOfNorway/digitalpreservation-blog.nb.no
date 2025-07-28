@@ -9,4 +9,6 @@ This is the first version of the specifications for delivering SIPs to the Natio
 
  {{< cards >}}
   {{< card link="structure-requirements" title="Requirements for SIP structure" icon="document-text" >}} 
+  {{< card link="mets" title="Use of METS.xml" icon="document-text" >}}
+  {{< card link="profiles" title="Profiles" icon="document-text">}}
 {{< /cards >}}
