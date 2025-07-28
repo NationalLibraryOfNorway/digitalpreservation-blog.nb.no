@@ -1,6 +1,6 @@
 ---
 title: Use of METS.xml 
-draft: true
+draft: false
 weight: 2
 ---
 
@@ -94,9 +94,9 @@ Both `METS.xml` files must validate against the METS requirements specified by t
 
 | **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
 |:---|:---|:---|:---|
-| **NBSIP8** | **Descriptive metadata** <br>`mets/dmdSec`<br><br> **MUST** be used to point to available descriptive metadata about the information package. Each descriptive metadata section (<dmdSec>) contains a single description and must be repeated if multiple descriptions exist. <br> See also [NBSIPSTR9](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR9) which requires at least one file containing descriptive metadata.<br><br>This requirement is a stricter version of [CSIP17](https://earkcsip.dilcis.eu/#CSIP17).  | **MUST** | **1..n** |
-| **NBSIP9** | **Mandatory descriptive metadata** <br>`mets/dmdSec`<br><br> The element describing the descriptive metadata section **MUST** refer to the metadata file(s) specified in[NBSIPSTR9](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR9). It **MUST** be described using `mets/dmdSec/mdRef/@MDTYPE`. Valid values include: MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. If '`OTHER`' is selected, the type of metadata **SHOULD** be specified using `mets/dmdSec/mdRef/@MDOTHERTYPE`. <br><br> Administrative or preservation metadata may be included in accordance with [CSIP31-57](https://earkcsip.dilcis.eu/#useofthemetsadministrativemetadatasectionelementamdsec). | **MUST** | **1..n** |
-| **NBSIP10** | **Reference to files with descriptive metadata**<br>`mets/dmdSec/mdRef`<br><br> **MUST** be used to point to files containing descriptive metadata located in the `metadata/descriptive`. Directly embedding of metadata using `mets/dmdSec/mdWrap` is discouraged. <br><br> This requirement is a stricter version of [CSIP21](https://earkcsip.dilcis.eu/#CSIP21). | **MUST** | **1..n** |
+| **NBSIP8** | **Descriptive metadata** <br>`mets/dmdSec`<br><br> **MUST** be used to refer to available descriptive metadata about the information package. Each descriptive metadata section (<dmdSec>) contains a single description and must be repeated if multiple descriptions exist. <br> See also [NBSIPSTR9](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR9) which requires at least one file containing descriptive metadata.<br><br>This requirement is a stricter version of [CSIP17](https://earkcsip.dilcis.eu/#CSIP17).  | **MUST** | **1..n** |
+| **NBSIP9** | **Mandatory descriptive metadata** <br>`mets/dmdSec`<br><br> The element describing the descriptive metadata section **MUST** refer to the metadata file(s) specified in [NBSIPSTR9](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR9). It **MUST** be described using `mets/dmdSec/mdRef/@MDTYPE`. Valid values include: MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. If '`OTHER`' is selected, the type of metadata **SHOULD** be specified using `mets/dmdSec/mdRef/@MDOTHERTYPE`. <br><br> Administrative or preservation metadata may be included in accordance with [CSIP31-57](https://earkcsip.dilcis.eu/#useofthemetsadministrativemetadatasectionelementamdsec). | **MUST** | **1..n** |
+| **NBSIP10** | **Reference to files with descriptive metadata**<br>`mets/dmdSec/mdRef`<br><br> **MUST** be used to refer to files containing descriptive metadata located in the `metadata/descriptive`. Directly embedding of metadata using `mets/dmdSec/mdWrap` is discouraged. <br><br> This requirement is a stricter version of [CSIP21](https://earkcsip.dilcis.eu/#CSIP21). | **MUST** | **1..n** |
 
 <br>
 
@@ -127,8 +127,7 @@ Digital provenance metadata refers to information about events in the lifecycle 
 Rights metadata contains information about intellectual property rights (IPR) associated with the digital objects.
 
 However, the specification also allows for the inclusion of technical metadata (`techMD` section) and source metadata (`sourceMD` section).
-These are metadata types that the National Library of Norway (NB) believes play an important role in the management of digital objects.
-Technical metadata describes the characteristics of the data itself, while source material metadata provides important context for the digital object and supports its authenticity. See also [NBSIPSTR16](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR16) and [NBSIPSTR17](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR17).
+The National Library of Norway (NB) considers these metadata types essential for managing digital objects. Technical metadata describes the characteristics of the data itself, while source material metadata provides important context for the digital object and supports its authenticity. See also [NBSIPSTR16](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR16) and [NBSIPSTR17](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR17).
 
 <br>
 <br>
