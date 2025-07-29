@@ -1,6 +1,7 @@
 ---
 title: Model for Role-Based Access
 tags: [Digital Preservation, OAIS Model, Role-Based Access Control, Preservation Agreements, Information Packages, Authorization Systems, Access Management, Digital Archives]
+weight: 3
 ---
 
 The model governing access to submit data to or retrieve data from DPS has four main components: *clients*, *roles*, *preservation agreements*, and *information packages*.
