@@ -16,7 +16,7 @@ The diagram below illustrates the current architecture of DPS. The terms *produc
 
 
 {{< cards >}}
-  {{< card link="interface" title="Submission Service API" icon="document-text" >}} 
+  {{< card link="api" title="Submission Service API" icon="document-text" >}} 
   {{< card link="sip" title="SIP specifications" icon="document-text" >}}
   {{< card link="access-control" title="Model for Role-Based Access" icon="document-text">}}
 {{< /cards >}}

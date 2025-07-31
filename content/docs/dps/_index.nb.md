@@ -13,7 +13,7 @@ Skissen nedenfor viser dagens arkitektur i DPS. Her brukes produsent og konsumen
 {{< figure src="dps-current.svg" alt="Et diagram som viser dataflyt i DPS-programvaren" caption="Dagens DPS-arkitektur" >}}
 
 {{< cards >}}
-  {{< card link="interface" title="Submission Service API" icon="document-text" >}} 
+  {{< card link="api" title="Submission Service API" icon="document-text" >}} 
   {{< card link="sip" title="SIP-spesifikasjoner" icon="document-text" >}}
   {{< card link="access-control" title="Modell for rollebasert tilgang" icon="document-text">}}
 {{< /cards >}}
