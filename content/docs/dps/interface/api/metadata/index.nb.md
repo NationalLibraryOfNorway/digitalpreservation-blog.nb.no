@@ -182,6 +182,10 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 - Bruk av role-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
 - Språkkode bør angis. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+- Forklaring til bruk av *authority*-informasjon:<br> 
+  **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.<br>
+  **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.<br>
+  **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.<br>
 
 **Eksempler:**
 ```json
@@ -219,7 +223,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 }
 ```
 <br>
-6.  
+1.  
 
 | Navn         | **Contributor**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -281,6 +285,10 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 - Det anbefales å bruke autoritetsregister hvis det finnes. Det må oppgis hvilket autoritetsregister som er benyttet, og hvilken type autoritet det er (type): *Person, Organization, Personal Name, Corporate Name, Meeting Name* (konferanse), *Uniform Title* (traktat, kontrakt). Ved bruk av autoritetsregister bør utgiver i tillegg skrives ut i sin fulle form. Sted og/eller år for utgivelse kan legges til i parantes bak navnet. Eksempel: Nasjonalbiblioteket (Oslo, 1984). 
   
 - Språkkode bør angis. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+- Forklaring til bruk av *authority*-informasjon:<br> 
+  **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.<br>
+  **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.<br>
+  **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.<br>
 
 **Eksempel:**
 ```json
@@ -321,6 +329,10 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 - Eksempler på `type` sted kan være utgiversted, innspillingssted, handlingssted, trykkested, fødested osv. Bruk av type-attributt her bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).  
 
 - Språkkode bør angis. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+- Forklaring til bruk av *authority*-informasjon:<br> 
+  **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.<br>
+  **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.<br>
+  **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.<br>
 
 **Eksempel:**
 ```json
@@ -527,6 +539,10 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 - Det kan brukes henvisning til autoritetsregistre der det er relevant. Der det brukes autoritetsregister må emneord skrives i sin fulle form i tillegg.
 
 - Språkkode bør angis (lang-attributt). [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+- Forklaring til bruk av *authority*-informasjon:<br> 
+  **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.<br>
+  **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.<br>
+  **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.<br>
 
 **Eksempler:**
 ```json

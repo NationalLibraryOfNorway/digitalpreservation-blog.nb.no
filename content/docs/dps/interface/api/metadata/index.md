@@ -194,6 +194,12 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 - The use of the role attribute should be meaningful for the data provider, reflect the metadata catalog or system being used, and follow consistent (standardized) formatting.
   
 - Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Explanation of *authority* information:<br>
+**Source:** The name of the authority file from which the value is taken, provided as a plain text string.<br>
+**Code:** A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.<br>
+**URI:** A persistent link (URI) that points directly to the authority record from which the value is derived.<br>
+
+
 
 **Examples:**
 ```json
@@ -231,7 +237,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 }
 ```
 <br>
-6.  
+1.  
 
 | Name         | **Contributor**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -294,6 +300,10 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 - It is recommended to use an authority register if one is available. The specific authority register used, as well as the type of authority, must be indicated. Allowed types include: Person, Organization, Personal Name, Corporate Name, Meeting Name (e.g., conference), Uniform Title (e.g., treaty, contract). When using an authority register, the publisher’s full name should also be provided. The place and/or year of publication can be added in parentheses after the name. Example: National Library (Oslo, 1984).
   
 - Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Explanation of *authority* information:<br>
+**Source:** The name of the authority file from which the value is taken, provided as a plain text string.<br>
+**Code:** A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.<br>
+**URI:** A persistent link (URI) that points directly to the authority record from which the value is derived.<br>
 
 **Example:**
 ```json
@@ -335,6 +345,10 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 - Examples of `type` might include place of publication, recording location, setting, place of printing, place of birth, etc. The use of the type attribute should be meaningful for the data provider, reflect the metadata catalog or system, and follow a consistent and standardized format.
 
 - Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Explanation of *authority* information:<br>
+**Source:** The name of the authority file from which the value is taken, provided as a plain text string.<br>
+**Code:** A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.<br>
+**URI:** A persistent link (URI) that points directly to the authority record from which the value is derived.<br>
 
 **Examples:**
 ```json
@@ -541,6 +555,10 @@ If other terms are used for the type attribute, they should be meaningful to the
 - References to authority registers may be used where applicable. When using authority registers, subject terms must also be written out in full.
 
 - Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Explanation of *authority* information:<br>
+**Source:** The name of the authority file from which the value is taken, provided as a plain text string.<br>
+**Code:** A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.<br>
+**URI:** A persistent link (URI) that points directly to the authority record from which the value is derived.<br>
 
 **Examples:**
 ```json
