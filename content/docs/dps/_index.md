@@ -3,7 +3,7 @@ title: Digital Preservation Services (DPS)
 weight: 4
 ---
 
-Digital preservation is about ensuring that digital materials remain unchanged and accessible - both now and in the future. This requires a solid understanding of the condition of the material. It involves ongoing activities that guarantee the collection's contents are always accessible and usable.
+The purpose of digital preservation is to ensure that digital materials remain unchanged and accessible - both now and in the future. This requires a solid understanding of the condition of the material. It involves ongoing activities that guarantee the collection's contents are always accessible and usable.
 
 Effective digital preservation relies on several key elements, including active monitoring of the material’s integrity and the use of high-quality metadata. Metadata should describe the material itself, its origin, and any associated rights.
 
