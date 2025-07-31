@@ -1,6 +1,6 @@
 ---
 title: SIP specifications
-weight: 1
+weight: 2
 ---
 
 This section contains the National Library of Norway's specifications for Submission Information Packages (SIPs). The specifications are based on the [E-ARK standard](https://dilcis.eu/), with internal adaptations and clarifications.

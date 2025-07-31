@@ -1,7 +1,6 @@
 ---
 title: Submission Service API
 weight: 1
-draft: true
 -----------
 
 ## Oversikt

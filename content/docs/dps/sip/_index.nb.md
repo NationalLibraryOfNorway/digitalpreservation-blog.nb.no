@@ -1,6 +1,6 @@
 ---
 title: SIP-spesifikasjoner
-weight: 1
+weight: 2
 ---
 
 Denne seksjonen inneholder Nasjonalbibliotekets spesifikasjoner for Submission Information Packages (SIP). Spesifikasjonene bygger på [E-ARK standarden](https://dilcis.eu/), med interne tilpasninger og presiseringer.
