@@ -141,4 +141,4 @@ Sammen beskriver disse fire typene metadata alle aspekter ved en informasjonspak
 
 [OAIS Reference Model: Introductory Guide (2nd Edition)](https://www.dpconline.org/docs/technology-watch-reports/1359-dpctw14-02/file)
 
-[OAIS modellen kan leses i sin helhet her.](https://public.ccsds.org/pubs/650x0m2.pdf)
+[OAIS modellen kan leses i sin helhet her.](https://ccsds.org/Pubs/650x0m3.pdf)
