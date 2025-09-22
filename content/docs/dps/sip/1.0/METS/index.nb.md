@@ -96,7 +96,7 @@ Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CS
 | **NBSIP8** | **Deskriptive metadata** <br>`mets/dmdSec`<br>  <br>**MÅ** brukes for å peke til tilgjengelige deskriptive metadata om informasjonspakka. Hver deskriptive metadataseksjon (`<dmdSec>`) inneholder en enkelt beskrivelse og må gjentas hvis det finnes flere beskrivelser. <br>Se også [NBSIPSTR9](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=M%C3%85-,NBSIPSTR9) der det kreves minimum én fil med deskriptive metadata.<br><br>Dette er en strengere, SIP-spesifikk variant av [CSIP17](https://earkcsip.dilcis.eu/#CSIP17).  | **MÅ** | **1..n** |
 | **NBSIP9** | **Påkrevde deskriptive metadata** <br>`mets/dmdSec`<br><br>Elementet som beskriver seksjonen for deskriptive metadata **MÅ** referere til metadatafilen(e) spesifisert i [NBSIPSTR9](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR9). Den **MÅ** beskrives med `mets/dmdSec/mdRef/@MDTYPE`. Gyldige verdier: MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. Hvis man velger '`OTHER`' **BØR** man beskrive hva slags metadatatype det er med `mets/dmdSec/mdRef/@MDOTHERTYPE`. <br><br>Administrative metadata eller bevaringsmetadata kan legges ved i henhold til [CSIP31-57](https://earkcsip.dilcis.eu/#useofthemetsadministrativemetadatasectionelementamdsec). | **MÅ** | **1..n** |
 | **NBSIP10** | **Referanser til filer med deskriptive metadata**<br>`mets/dmdSec/mdRef`<br><br>**MÅ** brukes for å peke til filer med deskriptive metadata som befinner seg i mappa `metadata/descriptive`. Direkte embedding av metadata ved hjelp av `mets/dmdSec/mdWrap` frarådes.<br><br>Dette er en strengere, SIP-spesifikk versjon av [CSIP21](https://earkcsip.dilcis.eu/#CSIP21). | **MÅ** | **1..n** |
-| **NBSIP11** | **Sjekksumtype**<br>`mets/dmdSec/mdRef/@CHECKSUMTYPE`<br><br>En verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype **MÅ** være: CHECKSUMTYPE="MD5".<br><br>Dette er en strengere variant av [CSIP29](https://earkcsip.dilcis.eu/#CSIP29) og [CSIP30](https://earkcsip.dilcis.eu/#CSIP30). | **MÅ** | **1..1** |
+| **NBSIP11** | **Sjekksumtype**<br>`mets/dmdSec/mdRef/@CHECKSUMTYPE`<br><br>En verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype **MÅ** være : CHECKSUMTYPE="MD5".<br><br>Dette er en strengere variant av [CSIP29](https://earkcsip.dilcis.eu/#CSIP29) og [CSIP30](https://earkcsip.dilcis.eu/#CSIP30). | **MÅ** | **1..1** |
 
 <br>
 
@@ -149,7 +149,7 @@ Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen)
 | **NBSIP25** | **Type lenke**<br>`mets/amdSec/techMD/mdRef[@xlink:type='simple']`<br><br>Attributten **MÅ** brukes med verdien '`simple`'. Vokabularet med mulige verdier er vedlikeholdt av xlink-standarden. | **MÅ** | **1..1** |
 | **NBSIP26** | **Filplassering**<br>`mets/amdSec/techMD/mdRef/@xlink:href`<br><br>Den faktiske plasseringen til fila. Den skal refereres til med URL type filepath. | **MÅ** | **1..1** |
 | **NBSIP27** | **Type metadata**<br>`mets/amdSec/techMD/mdRef/@MDTYPE`<br><br>Spesifiserer typen metadata i den refererte fila. Verdiene er hentet fra METS. Gyldige verdier:<br>MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. Hvis man velger '`OTHER`' **BØR** man beskrive hva slags metadatatype det er med `mets/amdSec/techMD/mdRef/@MDOTHERTYPE`.  | **MÅ** | **1..1** |
-| **NBSIP28** | **Sjekksumtype**<br>`mets/amdSec/digiprovMD/mdRef/@CHECKSUMTYPE, mets/amdSec/rightsMD/mdRef/@CHECKSUMTYPE, mets/amdSec/sourceMD/mdRef/@CHECKSUMTYPE, mets/amdSec/techMD/mdRef/@CHECKSUMTYPE`<br><br> Verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype **MÅ** være: CHECKSUMTYPE="MD5".<br><br>Dette er en strengere variant av [CSIP43](https://earkcsip.dilcis.eu/#CSIP43), [CSIP44](https://earkcsip.dilcis.eu/#CSIP44), [CSIP56](https://earkcsip.dilcis.eu/#CSIP56) og [CSIP57](https://earkcsip.dilcis.eu/#CSIP57).  | **MÅ** | **1..1** |
+| **NBSIP28** | **Sjekksumtype**<br>`mets/amdSec/digiprovMD/mdRef/@CHECKSUMTYPE, mets/amdSec/rightsMD/mdRef/@CHECKSUMTYPE, mets/amdSec/sourceMD/mdRef/@CHECKSUMTYPE, mets/amdSec/techMD/mdRef/@CHECKSUMTYPE`<br><br> Verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype **MÅ** være : CHECKSUMTYPE="MD5".<br><br>Dette er en strengere variant av [CSIP43](https://earkcsip.dilcis.eu/#CSIP43), [CSIP44](https://earkcsip.dilcis.eu/#CSIP44), [CSIP56](https://earkcsip.dilcis.eu/#CSIP56) og [CSIP57](https://earkcsip.dilcis.eu/#CSIP57).  | **MÅ** | **1..1** |
 
 <br>
 
@@ -184,7 +184,7 @@ Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen)
 
  **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
 |:---|:---|:---|:---|
-| **NBSIP29** | **Sjekksumtype**<br>`mets/fileSec/fileGrp/file/@CHECKSUMTYPE`<br><br> Verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype **MÅ** være: CHECKSUMTYPE="MD5".<br><br>Dette er en strengere variant av [CSIP71](https://earkcsip.dilcis.eu/#CSIP71) og [CSIP72](https://earkcsip.dilcis.eu/#CSIP72).  | **MÅ** | **1..1** |
+| **NBSIP29** | **Sjekksumtype**<br>`mets/fileSec/fileGrp/file/@CHECKSUMTYPE`<br><br> Verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype **MÅ** være : CHECKSUMTYPE="MD5".<br><br>Dette er en strengere variant av [CSIP71](https://earkcsip.dilcis.eu/#CSIP71) og [CSIP72](https://earkcsip.dilcis.eu/#CSIP72).  | **MÅ** | **1..1** |
 
 <br>
 
@@ -202,6 +202,7 @@ Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen)
             <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="documentation/File.docx">
 </fileSec>}
 ```
+
 <br><br><br>
 
 ### Bruk av METS strukturkart (`structMap`)
