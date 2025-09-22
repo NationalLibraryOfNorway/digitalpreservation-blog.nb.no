@@ -17,7 +17,7 @@ To make the deposited packages as self-contained as possible from a preservation
 
 **General Guidelines for the Use of Standards**<br>
 Punctuation and character encoding for field input should follow [UTF-8](https://snl.no/UTF-8).<br>
-[ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for specifying language when the lang attribute is applied.<br>
+[ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for specifying language when the lang attribute is applied.<br>
 [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) is used as the standard format for specifying dates and times.<br>
 [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) is used to specify country codes.
 
@@ -49,7 +49,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
  
   It is possible to request the addition of new media types if needed.
 
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
   
 **Example:**
 ```json
@@ -75,7 +75,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 - The identifier type MUST be defined. The use of the type attribute should be meaningful to the submitter, reflect the metadata catalog or system, and be applied consistently (using a standardized format).
   
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 **Examples:**
 ```json
@@ -111,7 +111,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 - Some resources already have predefined titles, such as books, journals, articles, painted works, artistic photographs, etc. When a title is missing, the recommended practice is to assign the resource a “meaningful” title. By meaningful, means a title that facilitates recognition and identification of the resource—essentially, a name that makes sense to the submitter.
 
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
  
 **Examples:**
 ```json
@@ -157,7 +157,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 - An explanation of the type of title provided is required. The use of the type attribute should be meaningful to the submitter, reflect the metadata catalog or system, and be applied consistently (using a standardized format).
 
 
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 **Example:**
 ```json
@@ -193,7 +193,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 - The use of the role attribute should be meaningful for the data provider, reflect the metadata catalog or system being used, and follow consistent (standardized) formatting.
   
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 - Explanation of *authority* information:<br>
 **Source:** The name of the authority file from which the value is taken, provided as a plain text string.<br>
 **Code:** A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.<br>
@@ -249,7 +249,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 - The rules for filling in the Contributor field are the same as for the Creator field. Examples of contributor roles may include: *contributor, depicted person, illustrator, model, editor, designer*, etc.
   
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 
 **Examples:**
@@ -299,7 +299,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 - It is recommended to use an authority register if one is available. The specific authority register used, as well as the type of authority, must be indicated. Allowed types include: Person, Organization, Personal Name, Corporate Name, Meeting Name (e.g., conference), Uniform Title (e.g., treaty, contract). When using an authority register, the publisher’s full name should also be provided. The place and/or year of publication can be added in parentheses after the name. Example: National Library (Oslo, 1984).
   
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 - Explanation of *authority* information:<br>
 **Source:** The name of the authority file from which the value is taken, provided as a plain text string.<br>
 **Code:** A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.<br>
@@ -344,7 +344,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 - Examples of `type` might include place of publication, recording location, setting, place of printing, place of birth, etc. The use of the type attribute should be meaningful for the data provider, reflect the metadata catalog or system, and follow a consistent and standardized format.
 
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 - Explanation of *authority* information:<br>
 **Source:** The name of the authority file from which the value is taken, provided as a plain text string.<br>
 **Code:** A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.<br>
@@ -388,7 +388,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 - The use of the type attribute should be meaningful for the data provider, reflect the metadata catalog or system, and be applied consistently with a standardized format.
 
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 **Examples:**
 ```json
@@ -423,7 +423,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 **Guidelines for Use:**
 
-- [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 - The type of language representation must be indicated. Examples of language types include subtitles, spoken language, written language, etc. 
 
@@ -474,7 +474,7 @@ If other terms are used for the type attribute, they should be meaningful to the
 
 - The `URI` attribute is used to provide a link to the related resource (such as a catalog record or webpage). 
 
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 **Examples:**
 ```json
@@ -524,7 +524,7 @@ If other terms are used for the type attribute, they should be meaningful to the
 
 **Guidelines for use:**
 
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 **Example:**
 ```json
@@ -554,7 +554,7 @@ If other terms are used for the type attribute, they should be meaningful to the
 
 - References to authority registers may be used where applicable. When using authority registers, subject terms must also be written out in full.
 
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 - Explanation of *authority* information:<br>
 **Source:** The name of the authority file from which the value is taken, provided as a plain text string.<br>
 **Code:** A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.<br>
@@ -607,7 +607,7 @@ If other terms are used for the type attribute, they should be meaningful to the
 
 **Guidelines for use:** 
 
-- Language code should be specified. [ISO 639-2](https://www.iso.org/obp/ui/#iso:std:iso:639:-2:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+- Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 **Example:**
 ```json

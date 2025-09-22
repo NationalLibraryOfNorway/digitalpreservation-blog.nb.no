@@ -97,6 +97,7 @@ Both `METS.xml` files must validate against the METS requirements specified by t
 | **NBSIP8** | **Descriptive metadata** <br>`mets/dmdSec`<br><br> **MUST** be used to refer to available descriptive metadata about the information package. Each descriptive metadata section (<dmdSec>) contains a single description and must be repeated if multiple descriptions exist. <br> See also [NBSIPSTR9](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR9) which requires at least one file containing descriptive metadata.<br><br>This requirement is a stricter version of [CSIP17](https://earkcsip.dilcis.eu/#CSIP17).  | **MUST** | **1..n** |
 | **NBSIP9** | **Mandatory descriptive metadata** <br>`mets/dmdSec`<br><br> The element describing the descriptive metadata section **MUST** refer to the metadata file(s) specified in [NBSIPSTR9](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR9). It **MUST** be described using `mets/dmdSec/mdRef/@MDTYPE`. Valid values include: MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. If '`OTHER`' is selected, the type of metadata **SHOULD** be specified using `mets/dmdSec/mdRef/@MDOTHERTYPE`. <br><br> Administrative or preservation metadata may be included in accordance with [CSIP31-57](https://earkcsip.dilcis.eu/#useofthemetsadministrativemetadatasectionelementamdsec). | **MUST** | **1..n** |
 | **NBSIP10** | **Reference to files with descriptive metadata**<br>`mets/dmdSec/mdRef`<br><br> **MUST** be used to refer to files containing descriptive metadata located in the `metadata/descriptive`. Directly embedding of metadata using `mets/dmdSec/mdWrap` is discouraged. <br><br> This requirement is a stricter version of [CSIP21](https://earkcsip.dilcis.eu/#CSIP21). | **MUST** | **1..n** |
+| **NBSIP11** | **File checksum type**<br>`mets/dmdSec/mdRef/@CHECKSUMTYPE`<br><br> A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. Checksum type **MUST** be : CHECKSUMTYPE="MD5".<br><br> This requirement is a stricter version of [CSIP29](https://earkcsip.dilcis.eu/#CSIP29) og [CSIP30](https://earkcsip.dilcis.eu/#CSIP30). | **MUST** | **1..1** |
 
 <br>
 
@@ -136,22 +137,23 @@ The National Library of Norway (NB) considers these metadata types essential for
 
 | **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
 |:---|:---|:---|:---|
-| **NBSIP11** | **Source metadata**<br>`mets/amdSec/sourceMD`<br><br> **If** metadata about the source material for a representation is available in the information package, this element **MUST** be used to describe it. | **MUST** | **1..n** |
-| **NBSIP12** | **Source metadata identifier**<br>`mets/amdSec/sourceMD/@ID`<br><br> An `xml:id` identifier for the source metadata section `mets/amdSec/sourceMD` used for internal references within the XML document. The identifier **MUST** be unique within the XML document. | **MUST** | **1..1** |
-| **NBSIP13** | **Status of the source metadata**<br>`mets/amdSec/sourceMD/@STATUS`<br><br> Status **MUST** be set to `'CURRENT'` | **MUST** | **1..1** |
-| **NBSIP14** | **Reference to files with the source metadata**<br>`mets/amdSec/sourceMD/mdRef`<br><br> **MUST** be used to reference files containing source metadata located in the `metadata/source` folder. <br><br> Direct embedding of metadata using `mets/amdSec/mdWrap` is discouraged. | **MUST** | **1..1** |
-| **NBSIP15** | **Type of locator**<br>`mets/amdSec/sourceMD/mdRef[@LOCTYPE='URL']`<br><br> The locator type is always used with the value `'URL'` from [Vocabulary status](https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyStatus.xml) in the E-ARK specifications. | **MUST** | **1..1** |
-| **NBSIP16** | **Type of link**<br>`mets/amdSec/sourceMD/mdRef[@xlink:type='simple']`<br><br> The attribute **MUST** be used with the value '`simple`'. The vocabulary of allowed values is maintained by the XLink standard. | **MUST** | **1..1** |
-| **NBSIP17** | **File location**<br>`mets/amdSec/sourceMD/mdRef/@xlink:href`<br><br> The actual location of the file. It **MUST** be referenced using a URL of the filepath type. | **MUST** | **1..1** |
-| **NBSIP18** | **Type of metadata**<br>`mets/amdSec/sourceMD/mdRef/@MDTYPE`<br><br> Specifies the type of metadata in the referenced file. The values are taken from METS.<br>Valid values:<br> MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. If '`OTHER`' is chosen, the type of metadata **SHOULD** be described using `mets/amdSec/sourceMD/mdRef/@MDOTHERTYPE`.| **MUST** | **1..1** |
-| **NBSIP19** | **Technical metadata**<br>`mets/amdSec/techMD`<br><br> **If** technical metadata for the data files in a representation is available in the information package, this element **MUST** be used to describe it. <br><br> Direct embedding of metadata using `mets/amdSec/mdWrap` is discouraged. | **MUST** | **1..n** |
-| **NBSIP20** | **Technical metadata identifier**<br>`mets/amdSec/techMD/@ID`<br><br> An `xml:id` identifier for the technical metadata section `mets/amdSec/techMD` used for internal references within the XML document. The identifier **MUST** be unique within the XML document. | **MUST** | **1..1** |
-| **NBSIP21** | **Status of the technical metadata**<br>`mets/amdSec/techMD/@STATUS`<br><br> Status **MUST** be set to '`CURRENT`' | **MUST** | **1..1** |
-| **NBSIP22** | **Reference to files with the technical metadata**<br>`mets/amdSec/techMD/mdRef`<br><br> **MUST** be used to reference files containing technical metadata that are located in the folder `metadata/technical`. | **MUST** | **1..1** |
-| **NBSIP23** | **Type of locator**<br>`mets/amdSec/techMD/mdRef[@LOCTYPE='URL']`<br><br> The locator type is always used with the value `'URL'` from [Vocabulary status](https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyStatus.xml) in the E-ARK specifications. | **MUST** | **1..1** |
-| **NBSIP24** | **Type of link**<br>`mets/amdSec/techMD/mdRef[@xlink:type='simple']`<br><br> The attribute **MUST** be used with the value '`simple`'. The vocabulary of allowed values is maintained by the XLink standard. | **MUST** | **1..1** |
-| **NBSIP25** | **File location**<br>`mets/amdSec/techMD/mdRef/@xlink:href`<br><br> The actual location of the file. It **MUST** be referenced using a URL of the filepath type. | **MUST** | **1..1** |
-| **NBSIP26** | **Type of metadata**<br>`mets/amdSec/techMD/mdRef/@MDTYPE`<br><br> Specifies the type of metadata in the referenced file. The values are taken from METS.<br>Valid values:<br> MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. If '`OTHER`' is chosen, the type of metadata **SHOULD** be described using `mets/amdSec/techMD/mdRef/@MDOTHERTYPE`.  | **MUST** | **1..1** |
+| **NBSIP12** | **Source metadata**<br>`mets/amdSec/sourceMD`<br><br> **If** metadata about the source material for a representation is available in the information package, this element **MUST** be used to describe it. | **MUST** | **1..n** |
+| **NBSIP13** | **Source metadata identifier**<br>`mets/amdSec/sourceMD/@ID`<br><br> An `xml:id` identifier for the source metadata section `mets/amdSec/sourceMD` used for internal references within the XML document. The identifier **MUST** be unique within the XML document. | **MUST** | **1..1** |
+| **NBSIP14** | **Status of the source metadata**<br>`mets/amdSec/sourceMD/@STATUS`<br><br> Status **MUST** be set to `'CURRENT'` | **MUST** | **1..1** |
+| **NBSIP15** | **Reference to files with the source metadata**<br>`mets/amdSec/sourceMD/mdRef`<br><br> **MUST** be used to reference files containing source metadata located in the `metadata/source` folder. <br><br> Direct embedding of metadata using `mets/amdSec/mdWrap` is discouraged. | **MUST** | **1..1** |
+| **NBSIP16** | **Type of locator**<br>`mets/amdSec/sourceMD/mdRef[@LOCTYPE='URL']`<br><br> The locator type is always used with the value `'URL'` from [Vocabulary status](https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyStatus.xml) in the E-ARK specifications. | **MUST** | **1..1** |
+| **NBSIP17** | **Type of link**<br>`mets/amdSec/sourceMD/mdRef[@xlink:type='simple']`<br><br> The attribute **MUST** be used with the value '`simple`'. The vocabulary of allowed values is maintained by the XLink standard. | **MUST** | **1..1** |
+| **NBSIP18** | **File location**<br>`mets/amdSec/sourceMD/mdRef/@xlink:href`<br><br> The actual location of the file. It **MUST** be referenced using a URL of the filepath type. | **MUST** | **1..1** |
+| **NBSIP19** | **Type of metadata**<br>`mets/amdSec/sourceMD/mdRef/@MDTYPE`<br><br> Specifies the type of metadata in the referenced file. The values are taken from METS.<br>Valid values:<br> MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. If '`OTHER`' is chosen, the type of metadata **SHOULD** be described using `mets/amdSec/sourceMD/mdRef/@MDOTHERTYPE`.| **MUST** | **1..1** |
+| **NBSIP20** | **Technical metadata**<br>`mets/amdSec/techMD`<br><br> **If** technical metadata for the data files in a representation is available in the information package, this element **MUST** be used to describe it. <br><br> Direct embedding of metadata using `mets/amdSec/mdWrap` is discouraged. | **MUST** | **1..n** |
+| **NBSIP21** | **Technical metadata identifier**<br>`mets/amdSec/techMD/@ID`<br><br> An `xml:id` identifier for the technical metadata section `mets/amdSec/techMD` used for internal references within the XML document. The identifier **MUST** be unique within the XML document. | **MUST** | **1..1** |
+| **NBSIP22** | **Status of the technical metadata**<br>`mets/amdSec/techMD/@STATUS`<br><br> Status **MUST** be set to '`CURRENT`' | **MUST** | **1..1** |
+| **NBSIP23** | **Reference to files with the technical metadata**<br>`mets/amdSec/techMD/mdRef`<br><br> **MUST** be used to reference files containing technical metadata that are located in the folder `metadata/technical`. | **MUST** | **1..1** |
+| **NBSIP24** | **Type of locator**<br>`mets/amdSec/techMD/mdRef[@LOCTYPE='URL']`<br><br> The locator type is always used with the value `'URL'` from [Vocabulary status](https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyStatus.xml) in the E-ARK specifications. | **MUST** | **1..1** |
+| **NBSIP25** | **Type of link**<br>`mets/amdSec/techMD/mdRef[@xlink:type='simple']`<br><br> The attribute **MUST** be used with the value '`simple`'. The vocabulary of allowed values is maintained by the XLink standard. | **MUST** | **1..1** |
+| **NBSIP26** | **File location**<br>`mets/amdSec/techMD/mdRef/@xlink:href`<br><br> The actual location of the file. It **MUST** be referenced using a URL of the filepath type. | **MUST** | **1..1** |
+| **NBSIP27** | **Type of metadata**<br>`mets/amdSec/techMD/mdRef/@MDTYPE`<br><br> Specifies the type of metadata in the referenced file. The values are taken from METS.<br>Valid values:<br> MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. If '`OTHER`' is chosen, the type of metadata **SHOULD** be described using `mets/amdSec/techMD/mdRef/@MDOTHERTYPE`.  | **MUST** | **1..1** |
+| **NBSIP28** | **File checksum type**<br>`mets/amdSec/digiprovMD/mdRef/@CHECKSUMTYPE, mets/amdSec/rightsMD/mdRef/@CHECKSUMTYPE, mets/amdSec/sourceMD/mdRef/@CHECKSUMTYPE, mets/amdSec/techMD/mdRef/@CHECKSUMTYPE`<br><br> A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. Checksum type **MUST** be : CHECKSUMTYPE="MD5".<br><br> This requirement is a stricter version of [CSIP43](https://earkcsip.dilcis.eu/#CSIP43), [CSIP44](https://earkcsip.dilcis.eu/#CSIP44), [CSIP56](https://earkcsip.dilcis.eu/#CSIP56) og [CSIP57](https://earkcsip.dilcis.eu/#CSIP57). | **MUST** | **1..1** |
 
 <br>
 
@@ -184,7 +186,22 @@ The National Library of Norway (NB) considers these metadata types essential for
 
 ### Use of the METS file section (`fileSec`)
 
-No further requirements beyond [CSIP](https://earkcsip.dilcis.eu/#useofthemetsfilesectionelementfilesec).
+| **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
+|:---|:---|:---|:---|
+| **NBSIP29** | **File checksum type**<br>`mets/fileSec/fileGrp/file/@CHECKSUMTYPE`<br><br> A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. Checksum type **MUST** be : CHECKSUMTYPE="MD5".<br><br> This requirement is a stricter version of [CSIP71](https://earkcsip.dilcis.eu/#CSIP71) og [CSIP72](https://earkcsip.dilcis.eu/#CSIP72). | **MUST** | **1..1** |
+
+<br>
+
+**Example:**
+
+```xml
+{<fileSec>
+    <fileSec ID="file-sec-example">
+        <mets:fileGrp ID="file-grp-doc" USE="Documentation">
+        <mets:file ID="file-docx" MIMETYPE="application/vnd.openxmlformats-officedocument.wordprocessingml.document" SIZE="2554366" CREATED="2012-08-15T12:08:15.432+01:00" CHECKSUM="7ee30736137bfe72dc60afcbe374cb2a" CHECKSUMTYPE="MD5">
+            <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="documentation/File.docx">
+</fileSec>}
+```
 
 <br><br><br>
 
