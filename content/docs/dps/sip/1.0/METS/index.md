@@ -198,8 +198,11 @@ The National Library of Norway (NB) considers these metadata types essential for
 {<fileSec>
     <fileSec ID="file-sec-example">
         <mets:fileGrp ID="file-grp-doc" USE="Documentation">
-        <mets:file ID="file-docx" MIMETYPE="application/vnd.openxmlformats-officedocument.wordprocessingml.document" SIZE="2554366" CREATED="2012-08-15T12:08:15.432+01:00" CHECKSUM="7ee30736137bfe72dc60afcbe374cb2a" CHECKSUMTYPE="MD5">
-            <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="documentation/File.docx">
+        <mets:file ID="file-docx" 
+            MIMETYPE="application/vnd.openxmlformats-officedocument.wordprocessingml.document" SIZE="2554366" 
+            CREATED="2012-08-15T12:08:15.432+01:00" 
+            CHECKSUM="7ee30736137bfe72dc60afcbe374cb2a" CHECKSUMTYPE="MD5">
+                <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="documentation/File.docx">
 </fileSec>}
 ```
 
