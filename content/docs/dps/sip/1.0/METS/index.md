@@ -186,25 +186,7 @@ The National Library of Norway (NB) considers these metadata types essential for
 
 ### Use of the METS file section (`fileSec`)
 
-| **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
-|:---|:---|:---|:---|
-| **NBSIP29** | **File checksum type**<br>`mets/fileSec/fileGrp/file/@CHECKSUMTYPE`<br><br> A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. Checksum type **MUST** be : CHECKSUMTYPE="MD5".<br><br> This requirement is a stricter version of [CSIP71](https://earkcsip.dilcis.eu/#CSIP71) og [CSIP72](https://earkcsip.dilcis.eu/#CSIP72). | **MUST** | **1..1** |
-
-<br>
-
-**Example:**
-
-```xml
-{<fileSec>
-    <fileSec ID="file-sec-example">
-        <mets:fileGrp ID="file-grp-doc" USE="Documentation">
-        <mets:file ID="file-docx" 
-            MIMETYPE="application/vnd.openxmlformats-officedocument.wordprocessingml.document" SIZE="2554366" 
-            CREATED="2012-08-15T12:08:15.432+01:00" 
-            CHECKSUM="7ee30736137bfe72dc60afcbe374cb2a" CHECKSUMTYPE="MD5">
-                <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="documentation/File.docx">
-</fileSec>}
-```
+No further requirements beyond [CSIP](https://earkcsip.dilcis.eu/#useofthemetsfilesectionelementfilesec).
 
 <br><br><br>
 
