@@ -182,8 +182,26 @@ Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen)
 
 ### Bruk av METS filseksjon (`fileSec`)
 
-Ingen krav utover [CSIP](https://earkcsip.dilcis.eu/#useofthemetsfilesectionelementfilesec).
+ **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
+|:---|:---|:---|:---|
+| **NBSIP29** | **Sjekksumtype**<br>`mets/fileSec/fileGrp/file/@CHECKSUMTYPE`<br><br> Verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype **MÅ** være: CHECKSUMTYPE="MD5".<br><br>Dette er en strengere variant av [CSIP71](https://earkcsip.dilcis.eu/#CSIP71) og [CSIP72](https://earkcsip.dilcis.eu/#CSIP72).  | **MÅ** | **1..1** |
 
+<br>
+
+**Eksempel:** 
+
+```xml
+{<fileSec>
+    <fileSec ID="file-sec-example">
+        <mets:fileGrp ID="file-grp-doc" USE="Documentation">
+        <mets:file ID="file-docx" 
+        MIMETYPE="application/vnd.openxmlformats-officedocument.wordprocessingml.document" 
+        SIZE="2554366" 
+        CREATED="2012-08-15T12:08:15.432+01:00" 
+        CHECKSUM="7ee30736137bfe72dc60afcbe374cb2a" CHECKSUMTYPE="MD5">
+            <mets:FLocat LOCTYPE="URL" xlink:type="simple" xlink:href="documentation/File.docx">
+</fileSec>}
+```
 <br><br><br>
 
 ### Bruk av METS strukturkart (`structMap`)
