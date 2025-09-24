@@ -78,7 +78,6 @@ Both `METS.xml` files must validate against the METS requirements specified by t
         <name>Nasjonalbiblioteket</name>
         <note csip:NOTETYPE="IDENTIFICATIONCODE">Organisasjonsnummer:123456789</note>
     </agent>
-    <altRecordID TYPE="SUBMISSIONAGREEMENT">https://submissionagreement.nb.no/SA-XXXXXX</altRecordID>
 </metsHdr>
 ```
 
