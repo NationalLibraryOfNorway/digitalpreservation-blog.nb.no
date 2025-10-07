@@ -65,7 +65,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 | Name        | **Identifier**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description | Identifiers (identifier type + ID/value).<br> The `type` and `value` attributes MUST be used to define the identifier type.<br>The `lang` attribute SHOULD be used to specify the language code.
+| Description | Identifiers (identifier type + ID/value).<br> The `type` and `value` attributes MUST be used to define the identifier type.<br>The `lang` attribute SHOULD be used to specify the language code.|
 | Requirement         | MUST                                                                                                                 |
 | Cardinality | 1..n                                                                                                               |
 
@@ -630,7 +630,7 @@ If other terms are used for the type attribute, they should be meaningful to the
     "type":{
       "value": "image",
       "lang": "eng"
-    }
+    },
     "identifier": [
       {
         "type": "URN",
