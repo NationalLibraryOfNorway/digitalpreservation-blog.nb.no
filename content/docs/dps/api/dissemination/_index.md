@@ -109,11 +109,10 @@ Preliminary statuses (may be extended):
 
 1. Reuse existing request if one is already in progress.
 2. Use priority sparingly – reserve elevated urgency for critical needs.
-3. Poll using exponential backoff.
-4. Store the `disseminationId` locally.
-5. Handle 409 by fetching the existing dissemination instead of posting again.
-6. Avoid tight polling; use exponential backoff.
-7. Reuse download links until they expire; regenerate only when necessary.
+3. Store the `disseminationId` locally.
+4. Handle 409 by fetching the existing dissemination instead of posting again.
+5. Avoid tight polling; use exponential backoff.
+6. Reuse download links until they expire; regenerate only when necessary.
 
 ## Support
 

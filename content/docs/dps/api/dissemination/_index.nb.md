@@ -109,11 +109,10 @@ Foreløpige statuser (kan utvides):
 
 1. Gjenbruk eksisterende forespørsel hvis en allerede pågår.
 2. Bruk prioritet med måte – reserver høye verdier for presserende behov.
-3. Poll med eksponentiell backoff.
-4. Lagre `disseminationId` lokalt.
-5. Håndter 409 ved å hente eksisterende i stedet for å poste på nytt.
-6. Unngå tett polling; bruk eksponentiell backoff.
-7. Gjenbruk nedlastingslenker til de utløper; regenerer kun ved behov.
+3. Lagre `disseminationId` lokalt.
+4. Håndter 409 ved å hente eksisterende i stedet for å poste på nytt.
+5. Poll med eksponentiell backoff.
+6. Gjenbruk nedlastingslenker til de utløper; regenerer kun ved behov.
 
 ## Støtte
 
