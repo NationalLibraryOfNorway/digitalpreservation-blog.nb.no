@@ -1,74 +1,81 @@
 ---
-title: Dissemination service API
+title: Dissemination service
 weight: 2
 ---
 
 ## Oversikt
 
-Dissemination-tjenesten gjør det mulig for klienter å bestille utlevering av arkiverte og bevarte pakker (AIP-er). Når en utleveringsforespørsel sendes inn, gjennomføres en integritetskontroll og nødvendig forberedelse før innholdet blir gjort tilgjengelig via en presigned URL som sendes gjennom en webhook.
+Dissemination-tjenesten for digital bevaring tilbyr et REST-basert API for å bestille utlevering av arkiverte og bevarte pakker (AIP-er).
+Når en utleveringsforespørsel sendes inn, gjennomføres en integritetskontroll og nødvendig forberedelse før innholdet blir gjort tilgjengelig 
+via en presigned URL som sendes gjennom en webhook. Dette er en prosess som tar litt tid, så alt foregår asynkront – 
+og en melding vil bli sendt som en webhook når prosessen er ferdig.
 
-Denne dokumentasjonen utfyller den detaljerte API-spesifikasjonen som finnes i Swagger på <https://digitalpreservation.no/swagger/>
+For generell informasjon om autentisering og autorisasjon, se [hovedsiden for API-dokumentasjon](../).
 
-For detaljer om autentisering og roller, se Submission Service API.
+Denne dokumentasjonen kompletterer den detaljerte API-spesifikasjonen som er tilgjengelig via Swagger på [https://digitalpreservation.no/swagger/](https://digitalpreservation.no/swagger/).
 
-## Ressursmodell: Dissemination
-
-En dissemination representerer en forespørsel om å utlevere et allerede bevart objekt.
-
-**Viktige egenskaper:**
-
-- `disseminationId`: Unik Base62-ID (22 tegn, case-sensitiv)
-- `archiveId`: Intern arkiv-ID (AIP-identifikator)
-- `clientId`: Klienten som forespørr
-- `contractId`: Kontraktstilknytning
-- `objectId`: objekt indentifikator
-- `sumSizeInBytes`: Total størrelse
-- `status`: Gjeldende status
-- `priority`: Prioritet (heltall; lavere = raskere planlegging)
-- `dateCreated`: Tidsstempel (RFC 3339)
 
 ## Arbeidsflyt
 
 1. Klient sender disseminasjonsforespørsel med `archiveId` (og ev. `priority`).
 2. Tjenesten validerer (autorisasjon, AIP finnes, bevart status, duplikatkontroll).
 3. Bakgrunnsprosess kjører integritetskontroll og forbereder data.
-4. objektet blir tilgjengelig via presigned URL avlevert på webhook.
+4. Objektet blir tilgjengelig via presigned URL avlevert på webhook.
 5. Klient kan hente status ved å poll'e på `disseminationId`.
 
-### Intern prosess (NiFi)
-
-Interne komponenter (NiFi) koordinerer tekniske steg:
-
-1. Hent neste forespørsel (`GET /v1/disseminations/next`).
-2. Hent filplasseringer fra LocationDB.
-3. Hent filer fra HPSS / annet arkivlag.
-4. Kontroller sjekksum (fixity).
-5. Skriv filer (eller samlet pakke) til S3.
-6. Generer pre-signerte URL-er via API.
-7. Ferdigstill (sett disseminated og eksponer lenker).
-8. Send varsel (Notify) ved suksess eller feil.
 
 ## Endepunkter
 
-| Metode | Path | Beskrivelse | Rolle |
-| ------ | ---- | ----------- | ----- |
-| POST | `/v1/disseminations` | Opprett ny disseminasjon | `{contractId}_R` |
-| GET | `/v1/disseminations/{disseminationId}` | Hent disseminasjon | `{contractId}_R` |
+| Metode | Path | Beskrivelse |
+| ------ | ---- | ----------- |
+| POST | `/v1/disseminations` | Opprett ny disseminasjon |
+| GET | `/v1/disseminations/{disseminationId}` | Hent disseminasjon |
 
-## Opprett disseminasjon
+### Opprett disseminasjon
 
-`POST /v1/disseminations`
 
-### Forespørsel (body)
+**Forespørsel**
 
-```json
+```http
+POST /dps-submission/v1/disseminations HTTP/1.1
+Host: api.nb.no
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOxxxxxxx
+
 {
   "archiveId": "68cd11bce080fe9cdf1dac1d",
   "priority": 50
 }
 ```
 
-### Respons (201 Created)
+**Respons (201 Created)**
+
+```json
+{
+  "disseminationId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
+  "archiveId": "68d3a83aa0be2b1d75eeef77",
+  "clientId": "client-id",
+  "contractId": "2d17",
+  "objectId": "digifoto_5584a028-ba43-4ecb-bb67-7663cc802010",
+  "sumSizeInBytes": 123456,
+  "status": "RECEIVED",
+  "priority": 50,
+  "dateCreated": "2025-09-09T12:34:56.123456+01:00"
+}
+```
+
+### Hent dissemination
+
+**Forespørsel**
+
+```http
+GET /dps-submission/v1/disseminations/8Z7x1T9rN0Xc2B5Yq4L3zP HTTP/1.1
+Host: api.nb.no
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOxxxxxxx
+```
+
+**Respons (200 OK)**
 
 ```json
 {
@@ -84,40 +91,6 @@ Interne komponenter (NiFi) koordinerer tekniske steg:
 }
 ```
 
-### Feil (opprettelse)
-
-- `400 Bad Request` – Ugyldig input
-- `401 Unauthorized` – Manglende/ugyldig token
-- `403 Forbidden` – Mangler nødvendig rolle
-- `404 AIP not found` – Ukjent `archiveId`
-- `409 Conflict` – Allerede en disseminasjon i gang for samme `archiveId` og klient
-- `422 Unprocessable Entity` – AIP finnes men er ikke bevart / ikke klar
-
-## Hent dissemination
-
-`GET /v1/disseminations/{disseminationId}`
-
-### Respons (200)
-
-```json
-{
-  "disseminationId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
-  "archiveId": "68d3a83aa0be2b1d75eeef77",
-  "clientId": "client-id",
-  "contractId": "2d17",
-  "objectId": "digifoto_5584a028-ba43-4ecb-bb67-7663cc802010",
-  "sumSizeInBytes": 123456,
-  "status": "FIXITY_CHECK",
-  "priority": 50,
-  "dateCreated": "2025-09-09T12:34:56.123456+01:00"
-}
-```
-
-### Feil (henting)
-
-- `401 Unauthorized`
-- `403 Forbidden`
-- `404 Dissemination not found`
 
 ## Statusflyt
 

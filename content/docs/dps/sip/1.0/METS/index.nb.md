@@ -8,19 +8,17 @@ weight: 2
 Informasjonspakker som avleveres til DPS, skal inneholde en fil kalt `METS.xml` i informasjonspakkas rotmappe, samt en `METS.xml` i hver representasjonsmappe.
 
 Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CSIP1-119](https://earkcsip.dilcis.eu/#useofmets) og [SIP1-35](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements) i [E-ARK (C)SIP spesifikasjonene v2.2.0](https://dilcis.eu/specifications/)
-<br><br>
+
 
 ### Bruk av rotelementer i METS (`mets`)
 
-<br>
+
 
 | **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
 |:---|:---|:---|:---|
-| **NBSIP1** | **Pakkeidentifikator**<br>`mets/@OBJID`<br><br>Attributten `mets/@OBJID` er obligatorisk, verdien er en strengidentifikator for METS-fila. I METS-fila i pakkas rotmappe **MÅ** denne identifikatoren være det samme som navnet på pakkas rotmappe (se [NBSIPSTR2](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure/) for formatering). I METS-fil på de individuelle representasjonene **MÅ** denne identifikatoren være det samme som navnet på den relevante representasjonsmappa (se [NBSIPSTR11](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=1..1-,NBSIPSTR11) og [NBSIPSTR12](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=1..1-,NBSIPSTR12) for formatering). <br><br>Dette er en strengere, SIP-spesifikk variant av [CSIP1](https://earkcsip.dilcis.eu/#CSIP1) | **MÅ** | **1..1** |
-| **NBSIP2** | **Pakkenavn**<br>`mets/@LABEL`<br><br>En kort tekst som oppgir tittelen eller beskrivelsen av innholdet i informasjonspakka. `mets/@LABEL` **BØR** være det samme som "title" i API-kall (se [krav til metadata](https://digitalpreservation.no/nb/docs/dps/interface/api/metadata/)).<br><br>Dette er en strengere variant av [SIP1](https://earksip.dilcis.eu/#SIP1) | **BØR** | **1..1** |
+| **NBSIP1** | **Pakkeidentifikator**<br>`mets/@OBJID`<br><br>Attributten `mets/@OBJID` er obligatorisk, verdien er en strengidentifikator for METS-fila. I METS-fila i pakkas rotmappe **MÅ** denne identifikatoren være det samme som navnet på pakkas rotmappe (se [NBSIPSTR2](/nb/docs/dps/sip/1.0/structure/) for formatering). I METS-fil på de individuelle representasjonene **MÅ** denne identifikatoren være det samme som navnet på den relevante representasjonsmappa (se [NBSIPSTR11](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=1..1-,NBSIPSTR11) og [NBSIPSTR12](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=1..1-,NBSIPSTR12) for formatering). <br><br>Dette er en strengere, SIP-spesifikk variant av [CSIP1](https://earkcsip.dilcis.eu/#CSIP1) | **MÅ** | **1..1** |
+| **NBSIP2** | **Pakkenavn**<br>`mets/@LABEL`<br><br>En kort tekst som oppgir tittelen eller beskrivelsen av innholdet i informasjonspakka. `mets/@LABEL` **BØR** være det samme som "title" i API-kall (se [krav til metadata](/nb/docs/dps/api/submission/metadata/)).<br><br>Dette er en strengere variant av [SIP1](https://earksip.dilcis.eu/#SIP1) | **BØR** | **1..1** |
 
-
-<br>
 
 **Eksempel:**
 
@@ -38,18 +36,14 @@ Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CS
     csip:OTHERCONTENTINFORMATIONTYPE="Digital Library Object"
     PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml"
     xsi:schemaLocation="http://www.loc.gov/METS/ schemas/mets1_12.xsd http://www.w3.org/1999/xlink schemas/xlink.xsd https://dilcis.eu/XML/METS/CSIPExtensionMETS schemas/DILCISExtensionMETS.xsd https://dilcis.eu/XML/METS/SIPExtensionMETS schemas/DILCISExtensionSIPMETS.xsd">
+
 ```
 
 
 
 
-
-
-<br><br><br>
-
-
 ### Bruk av METS header (`metsHdr`)
-<br>
+
 
 | **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** | 
 |:---|:---|:---|:---|
@@ -58,7 +52,6 @@ Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CS
 | **NBSIP5** | **Navn på avleverer-agent**<br>`metsHdr/agent/name`<br>  <br>Navnet på organisasjonen eller personen som har levert informasjonspakka til Nasjonalbiblioteket. <br>Personnavn skrives i invertert form. Organisasjonsnavn oppgis på originalspråk (slik som det vanligvis brukes). <br><br>Dette er en spesifisering av [SIP18](https://earksip.dilcis.eu/#SIP18) | **MÅ** | **1..1** |  |  |
 | **NBSIP6** | **Tilleggsinformasjon om avleverer**<br>`metsHdr/agent/note`<br>  <br>Dette er et notatfelt der det **BØR** oppgis en unik identifikasjonskode for informasjonspakkas avleverer. For organisasjoner bør det oppgis organisasjonsnummer. For personer vil vi ha identifikator fra [Felles autoritetsregister](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/) for personer og korporasjoner, [ISNI](https://isni.org/), [VIAF](https://viaf.org/en) eller [ORCID](https://orcid.org/).<br><br>Dette er en strengere variant av [SIP19](https://earksip.dilcis.eu/#SIP19) | **BØR** | **0..1** |  |  |
 
-<br>
 
 **Eksempel:** 
 
@@ -84,10 +77,9 @@ Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CS
 
 
 
-<br><br><br>
 
 ### Bruk av deskriptive metadata i METS (`dmdSec`)
-<br>
+
 
 | **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
 |:---|:---|:---|:---|
@@ -96,7 +88,7 @@ Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CS
 | **NBSIP9** | **Referanser til filer med deskriptive metadata**<br>`mets/dmdSec/mdRef`<br><br>**MÅ** brukes for å peke til filer med deskriptive metadata som befinner seg i mappa `metadata/descriptive`. Direkte embedding av metadata ved hjelp av `mets/dmdSec/mdWrap` frarådes.<br><br>Dette er en strengere, SIP-spesifikk versjon av [CSIP21](https://earkcsip.dilcis.eu/#CSIP21). | **MÅ** | **1..n** |
 | **NBSIP10** | **Sjekksumtype**<br>`mets/dmdSec/mdRef/@CHECKSUMTYPE`<br><br>En verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype **MÅ** være : CHECKSUMTYPE="MD5".<br><br>Dette er en strengere variant av [CSIP29](https://earkcsip.dilcis.eu/#CSIP29) og [CSIP30](https://earkcsip.dilcis.eu/#CSIP30). | **MÅ** | **1..1** |
 
-<br>
+
 
 
 **Eksempel:** 
@@ -115,8 +107,6 @@ Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CS
 
 
 
-<br><br><br>
-
 
 ### Bruk av administrative metadata i METS (`amdSec`)
 
@@ -124,8 +114,6 @@ E-ARK-spesifikasjonenen legger kun føringer for hvordan man refererer til digit
 
 Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen) og kildematerialemetadata (`sourceMD`-seksjonen). Dette er metadata NB mener spiller en viktig rolle i forvaltningen av digitale objekter. Tekniske metadata forklarer hva dataene er for noe, mens kildematerialemetadata gir viktig kontekst for det digitale objektet, samt underbygger dets autentisitet. Se også [NBSIPSTR16](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR16) og [NBSIPSTR17](https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR17).
 
-<br>
-<br>
 
 
 
@@ -149,7 +137,8 @@ Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen)
 | **NBSIP26** | **Type metadata**<br>`mets/amdSec/techMD/mdRef/@MDTYPE`<br><br>Spesifiserer typen metadata i den refererte fila. Verdiene er hentet fra METS. Gyldige verdier:<br>MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. Hvis man velger '`OTHER`' **BØR** man beskrive hva slags metadatatype det er med `mets/amdSec/techMD/mdRef/@MDOTHERTYPE`.  | **MÅ** | **1..1** |
 | **NBSIP27** | **Sjekksumtype**<br>`mets/amdSec/digiprovMD/mdRef/@CHECKSUMTYPE, mets/amdSec/rightsMD/mdRef/@CHECKSUMTYPE, mets/amdSec/sourceMD/mdRef/@CHECKSUMTYPE, mets/amdSec/techMD/mdRef/@CHECKSUMTYPE`<br><br> Verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype **MÅ** være : CHECKSUMTYPE="MD5".<br><br>Dette er en strengere variant av [CSIP43](https://earkcsip.dilcis.eu/#CSIP43), [CSIP44](https://earkcsip.dilcis.eu/#CSIP44), [CSIP56](https://earkcsip.dilcis.eu/#CSIP56) og [CSIP57](https://earkcsip.dilcis.eu/#CSIP57).  | **MÅ** | **1..1** |
 
-<br>
+
+
 
 **Eksempel:** 
 
@@ -175,16 +164,16 @@ Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen)
 
 
 
-<br><br><br>
+
 
 
 ### Bruk av METS filseksjon (`fileSec`)
 
- **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
+| **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
 |:---|:---|:---|:---|
 | **NBSIP28** | **Sjekksumtype**<br>`mets/fileSec/fileGrp/file/@CHECKSUMTYPE`<br><br> Verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype **MÅ** være : CHECKSUMTYPE="MD5".<br><br>Dette er en strengere variant av [CSIP71](https://earkcsip.dilcis.eu/#CSIP71) og [CSIP72](https://earkcsip.dilcis.eu/#CSIP72).  | **MÅ** | **1..1** |
 
-<br>
+
 
 **Eksempel:** 
 
@@ -201,7 +190,7 @@ Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen)
 </fileSec>
 ```
 
-<br><br><br>
+
 
 ### Bruk av METS strukturkart (`structMap`)
 
