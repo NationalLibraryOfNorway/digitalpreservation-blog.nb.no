@@ -9,22 +9,18 @@ weight: 2
 Information packages delivered to the DPS must contain a file named `METS.xml` in the root folder of the information package, as well as a `METS.xml` in each representation folder.
 
 Both `METS.xml` files must validate against the METS requirements specified by the E-ARK specifications [CSIP1-119](https://earkcsip.dilcis.eu/#useofmets) and [SIP1-35](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements) in the [E-ARK (C)SIP spesifikasjonene v2.2.0](https://dilcis.eu/specifications/).
-<br><br>
+
 
 ### Use of the METS root element (`mets`)
 
-<br>
 
 | **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
 |:---|:---|:---|:---|
-| **NBSIP1** | **Package Identifier**<br>`mets/@OBJID`<br><br>The `mets/@OBJID` attribute is mandatory, its value is a string identifier for the METS document. In the METS file located in the root folder of the package, this identifier **MUST** be identical to the name of the package’s root folder (see [NBSIPSTR2](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/) for formatting). In the METS files within the individual representation folders, this identifier **MUST** be identical to the name of the respective representation folder (see [NBSIPSTR11](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=1..1-,NBSIPSTR11) and [NBSIPSTR12](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=1..1-,NBSIPSTR12) for formatting). <br><br>This requirement is a stricter version of [CSIP1](https://earkcsip.dilcis.eu/#CSIP1) | **MUST** | **1..1** |
-| **NBSIP2** | **Package name**<br>`mets/@LABEL`<br><br>A short text that provides the title or a description of the content of the information package. The value of the `mets/@LABEL` **SHOULD** match the "title" field in the API call. (see [Metadata Requirements](https://digitalpreservation.no/docs/dps/interface/api/metadata/)).<br><br>This requirement is a stricter version of [SIP1](https://earksip.dilcis.eu/#SIP1) | **SHOULD** | **1..1** |
+| **NBSIP1** | **Package Identifier**<br>`mets/@OBJID`<br><br>The `mets/@OBJID` attribute is mandatory, its value is a string identifier for the METS document. In the METS file located in the root folder of the package, this identifier **MUST** be identical to the name of the package’s root folder (see [NBSIPSTR2](/docs/dps/sip/1.0/structure-requirements/) for formatting). In the METS files within the individual representation folders, this identifier **MUST** be identical to the name of the respective representation folder (see [NBSIPSTR11](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=1..1-,NBSIPSTR11) and [NBSIPSTR12](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=1..1-,NBSIPSTR12) for formatting). <br><br>This requirement is a stricter version of [CSIP1](https://earkcsip.dilcis.eu/#CSIP1) | **MUST** | **1..1** |
+| **NBSIP2** | **Package name**<br>`mets/@LABEL`<br><br>A short text that provides the title or a description of the content of the information package. The value of the `mets/@LABEL` **SHOULD** match the "title" field in the API call. (see [Metadata Requirements](/docs/dps/api/submission/metadata/)).<br><br>This requirement is a stricter version of [SIP1](https://earksip.dilcis.eu/#SIP1) | **SHOULD** | **1..1** |
 
-
-<br>
 
 **Example:**
-
 
 ```xml
 <mets xmlns="http://www.loc.gov/METS/"
@@ -44,13 +40,8 @@ Both `METS.xml` files must validate against the METS requirements specified by t
 
 
 
-
-
-<br><br><br>
-
-
 ### Use of the METS header (`metsHdr`)
-<br>
+
 
 | **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** | 
 |:---|:---|:---|:---|
@@ -59,7 +50,7 @@ Both `METS.xml` files must validate against the METS requirements specified by t
 | **NBSIP5** | **Submitting agent name**<br>`metsHdr/agent/name`<br><br>The name of the organization or individual who submitted the information package to the National Library of Norway. <br> Personal names should be written in inverted form. Organization names are written in the original language (as commonly used). <br><br>This is a more detailed specification of [SIP18](https://earksip.dilcis.eu/#SIP18) | **MUST** | **1..1** |  |  |
 | **NBSIP6** | **Submitting agent additional information**<br>`metsHdr/agent/note`<br><br> This is a note field where a unique identification code for the submitter of the information package **SHOULD** be provided. For organizations, the organization number should be given. For individuals, we require an identifier from the[Norwegian Authority File](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/) for persons and corporations, [ISNI](https://isni.org/), [VIAF](https://viaf.org/en) or [ORCID](https://orcid.org/).<br><br>This requirement is a stricter version of [SIP19](https://earksip.dilcis.eu/#SIP19) | **SHOULD** | **0..1** |  |  |
 
-<br>
+
 
 **Example:** 
 
@@ -84,11 +75,8 @@ Both `METS.xml` files must validate against the METS requirements specified by t
 
 
 
-
-<br><br><br>
-
 ### Use of the METS descriptive metadata section (`dmdSec`)
-<br>
+
 
 | **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
 |:---|:---|:---|:---|
@@ -97,7 +85,6 @@ Both `METS.xml` files must validate against the METS requirements specified by t
 | **NBSIP9** | **Reference to files with descriptive metadata**<br>`mets/dmdSec/mdRef`<br><br> **MUST** be used to refer to files containing descriptive metadata located in the `metadata/descriptive`. Directly embedding of metadata using `mets/dmdSec/mdWrap` is discouraged. <br><br> This requirement is a stricter version of [CSIP21](https://earkcsip.dilcis.eu/#CSIP21). | **MUST** | **1..n** |
 | **NBSIP10** | **File checksum type**<br>`mets/dmdSec/mdRef/@CHECKSUMTYPE`<br><br> A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. Checksum type **MUST** be : CHECKSUMTYPE="MD5".<br><br> This requirement is a stricter version of [CSIP29](https://earkcsip.dilcis.eu/#CSIP29) og [CSIP30](https://earkcsip.dilcis.eu/#CSIP30). | **MUST** | **1..1** |
 
-<br>
 
 
 **Example:** 
@@ -115,10 +102,6 @@ Both `METS.xml` files must validate against the METS requirements specified by t
 
 
 
-
-<br><br><br>
-
-
 ### Use of the METS administrative metadata section (`amdSec`)
 
 The E-ARK specification only defines how to reference digital provenance metadata (the `digiprovMD` section) and rights metadata (the `rightsMD` section) in METS.
@@ -127,9 +110,6 @@ Rights metadata contains information about intellectual property rights (IPR) as
 
 However, the specification also allows for the inclusion of technical metadata (`techMD` section) and source metadata (`sourceMD` section).
 The National Library of Norway (NB) considers these metadata types essential for managing digital objects. Technical metadata describes the characteristics of the data itself, while source material metadata provides important context for the digital object and supports its authenticity. See also [NBSIPSTR16](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR16) and [NBSIPSTR17](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR17).
-
-<br>
-<br>
 
 
 
@@ -153,7 +133,7 @@ The National Library of Norway (NB) considers these metadata types essential for
 | **NBSIP26** | **Type of metadata**<br>`mets/amdSec/techMD/mdRef/@MDTYPE`<br><br> Specifies the type of metadata in the referenced file. The values are taken from METS.<br>Valid values:<br> MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. If '`OTHER`' is chosen, the type of metadata **SHOULD** be described using `mets/amdSec/techMD/mdRef/@MDOTHERTYPE`.  | **MUST** | **1..1** |
 | **NBSIP27** | **File checksum type**<br>`mets/amdSec/digiprovMD/mdRef/@CHECKSUMTYPE, mets/amdSec/rightsMD/mdRef/@CHECKSUMTYPE, mets/amdSec/sourceMD/mdRef/@CHECKSUMTYPE, mets/amdSec/techMD/mdRef/@CHECKSUMTYPE`<br><br> A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. Checksum type **MUST** be : CHECKSUMTYPE="MD5".<br><br> This requirement is a stricter version of [CSIP43](https://earkcsip.dilcis.eu/#CSIP43), [CSIP44](https://earkcsip.dilcis.eu/#CSIP44), [CSIP56](https://earkcsip.dilcis.eu/#CSIP56) og [CSIP57](https://earkcsip.dilcis.eu/#CSIP57). | **MUST** | **1..1** |
 
-<br>
+
 
 **Example:** 
 
@@ -179,16 +159,15 @@ The National Library of Norway (NB) considers these metadata types essential for
 
 
 
-<br><br><br>
 
 
 ### Use of the METS file section (`fileSec`)
 
- **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
+|**ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
 |:---|:---|:---|:---|
 | **NBSIP28** | **Sjekksumtype**<br>`mets/fileSec/fileGrp/file/@CHECKSUMTYPE`<br><br> A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. Checksum type **MUST** be : CHECKSUMTYPE="MD5".<br><br> This requirement is a stricter version of [CSIP71](https://earkcsip.dilcis.eu/#CSIP71) og [CSIP72](https://earkcsip.dilcis.eu/#CSIP72).  | **MUST** | **1..1** |
 
-<br>
+
 
 **Example:** 
 
@@ -205,7 +184,7 @@ The National Library of Norway (NB) considers these metadata types essential for
 </fileSec>
 ```
 
-<br><br><br>
+
 
 ### Use of the METS structural map (`structMap`)
 

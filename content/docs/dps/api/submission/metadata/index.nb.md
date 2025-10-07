@@ -57,7 +57,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 | Navn         | **Identifier**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Identifikatorer (type ID + ID/verdi). <br>Attributt `type` og `value` MÅ brukes for å definere type identifikator.<br>Attributt `lang` BØR brukes for å definere språkkode.
+| Beskrivelse  | Identifikatorer (type ID + ID/verdi). <br>Attributt `type` og `value` MÅ brukes for å definere type identifikator.<br>Attributt `lang` BØR brukes for å definere språkkode.|
 | Krav         | MÅ                                                                                                                 |
 | Kardinalitet | 1..n                                                                                                               |
 
@@ -616,7 +616,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
     "type":{
       "value": "Bilde",
       "lang": "nor"
-    }
+    },
     "identifier": [
       {
         "type": "URN",
@@ -748,7 +748,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
     "subject": [
       {
         "value": "rondane",
-        "lang": "nor",
+        "lang": "nor"
       },
       {
         "value": "fisketur",
