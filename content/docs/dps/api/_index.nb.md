@@ -12,6 +12,7 @@ Denne dokumentasjonen gir en overordnet oversikt over tilgjengelige API-er. For 
 Følgende tjenester er tilgjengelige:
 - [**Submission Service API**](submission/): For innlevering av digitale objekter for bevaring.
 - [**Dissemination Service API**](dissemination/): For bestilling av bevarte digitale objekter.
+- [**Webhooks**](webhooks/): For å motta automatiske statusoppdateringer i dine systemer.
 
 ## Autentisering og autorisasjon
 

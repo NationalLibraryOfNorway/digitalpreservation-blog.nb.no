@@ -13,6 +13,7 @@ This documentation provides a high-level overview of the available APIs. For com
 The following services are available:
 - [**Submission Service API**](submission/): For submitting digital objects for preservation.
 - [**Dissemination Service API**](dissemination/): For requesting preserved digital objects.
+- [**Webhooks**](webhooks/): For receiving automatic status updates in your systems.
 
 ## Authentication & Authorization
 
