@@ -236,68 +236,6 @@ On non-success (non-2xx status) we retry with exponential backoff:
 
 After maximum time window the event is marked as undelivered. We may optionally send a manual report about failed deliveries.
 
-## Implementation Example
-
-Here's a simple example of how you can implement a webhook endpoint:
-
-```python
-from flask import Flask, request, jsonify
-import hashlib
-import hmac
-
-app = Flask(__name__)
-
-# Storage for duplicate checking (use database in production)
-processed_webhooks = set()
-
-@app.route('/webhooks/status', methods=['POST'])
-def handle_webhook():
-    # Get webhook ID for duplicate checking
-    webhook_id = request.headers.get('webhook-id')
-    
-    if webhook_id in processed_webhooks:
-        # Already processed - return success without action
-        return '', 204
-    
-    # Validate authentication
-    auth_header = request.headers.get('Authorization')
-    if not auth_header or not auth_header.startswith('Bearer '):
-        return {'error': 'Missing or invalid authorization'}, 401
-    
-    try:
-        # Parse JSON content
-        data = request.get_json()
-        
-        # Process message based on type
-        if data['type'] == 'submission.preserved':
-            handle_submission_preserved(data)
-        elif data['type'] == 'dissemination.delivered':
-            handle_dissemination_delivered(data)
-        else:
-            # Unknown type - ignore for future compatibility
-            print(f"Unknown webhook type: {data['type']}")
-        
-        # Mark as processed
-        processed_webhooks.add(webhook_id)
-        
-        return '', 200
-        
-    except Exception as e:
-        # Log error
-        print(f"Error processing webhook: {e}")
-        return {'error': 'Internal server error'}, 500
-
-def handle_submission_preserved(data):
-    # Your logic for submission events
-    submission_id = data['data']['submissionId']
-    print(f"Submission {submission_id} is now preserved!")
-
-def handle_dissemination_delivered(data):
-    # Your logic for dissemination events
-    dissemination_id = data['data']['disseminationId']
-    print(f"Dissemination {dissemination_id} is ready for download!")
-```
-
 ## Troubleshooting
 
 ### Common Issues

@@ -236,68 +236,6 @@ Ved ikke-suksess (ikke 2xx-status) forsøker vi igjen med eksponentiell backoff:
 
 Etter maksimal tidsvindu markeres hendelsen som ikke-levert. Vi kan eventuelt sende en manuell rapport om mislykkede leveringer.
 
-## Implementeringseksempel
-
-Her er et enkelt eksempel på hvordan du kan implementere et webhook-endepunkt:
-
-```python
-from flask import Flask, request, jsonify
-import hashlib
-import hmac
-
-app = Flask(__name__)
-
-# Lagring for duplikatsjekk (bruk database i produksjon)
-processed_webhooks = set()
-
-@app.route('/webhooks/status', methods=['POST'])
-def handle_webhook():
-    # Hent webhook-ID for duplikatsjekk
-    webhook_id = request.headers.get('webhook-id')
-    
-    if webhook_id in processed_webhooks:
-        # Allerede behandlet - returner suksess uten handling
-        return '', 204
-    
-    # Validér autentisering
-    auth_header = request.headers.get('Authorization')
-    if not auth_header or not auth_header.startswith('Bearer '):
-        return {'error': 'Missing or invalid authorization'}, 401
-    
-    try:
-        # Parse JSON-innhold
-        data = request.get_json()
-        
-        # Behandle melding basert på type
-        if data['type'] == 'submission.preserved':
-            handle_submission_preserved(data)
-        elif data['type'] == 'dissemination.delivered':
-            handle_dissemination_delivered(data)
-        else:
-            # Ukjent type - ignorer for fremtidig kompatibilitet
-            print(f"Unknown webhook type: {data['type']}")
-        
-        # Merk som behandlet
-        processed_webhooks.add(webhook_id)
-        
-        return '', 200
-        
-    except Exception as e:
-        # Log feil
-        print(f"Error processing webhook: {e}")
-        return {'error': 'Internal server error'}, 500
-
-def handle_submission_preserved(data):
-    # Din logikk for submission-hendelser
-    submission_id = data['data']['submissionId']
-    print(f"Submission {submission_id} is now preserved!")
-
-def handle_dissemination_delivered(data):
-    # Din logikk for dissemination-hendelser  
-    dissemination_id = data['data']['disseminationId']
-    print(f"Dissemination {dissemination_id} is ready for download!")
-```
-
 ## Feilsøking
 
 ### Vanlige problemer
