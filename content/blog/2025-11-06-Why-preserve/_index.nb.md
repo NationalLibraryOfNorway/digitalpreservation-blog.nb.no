@@ -1,7 +1,7 @@
 ---
 title: "Verdensdagen for digital bevaring"
-date: 2025-11-05
-description: "Verdensdagen for digital bevaring er en årlig markering som holdes den første torsdagen i november. Dagen organiseres av [Digital Preservation Coalition](https://www.dpconline.org/)(DPC) og omfatter arrangementer, kampanjer og deling av erfaringer verden over. Målet er å fremheve både verdien og utfordringene ved langtidsbevaring av digitale data. Tema for årets verdensdag er *hvorfor digital bevaring?*. Her kan du lese litt om viktigheten av digital bevaring i kontekst av Nasjonalbibliotekets mandat og samfunnsoppdrag."
+date: 2025-11-06
+description: "Verdensdagen for digital bevaring er en årlig markering som holdes den første torsdagen i november. Dagen organiseres av Digital Preservation Coalition (DPC) og omfatter arrangementer, kampanjer og deling av erfaringer verden over. Målet er å fremheve både verdien og utfordringene ved langtidsbevaring av digitale data. Tema for årets verdensdag er 'Hvorfor digital bevaring?'. Her kan du lese litt om viktigheten av digital bevaring i kontekst av Nasjonalbibliotekets mandat og samfunnsoppdrag."
 tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, digital kulturarv, National library of Norway"]
 draft: true  
 authors: 
@@ -35,6 +35,6 @@ Digital bevaring av Nasjonalbibliotekets samling er direkte knyttet til:
 <br>
 
 
-    Hurra for verdensdagen for digital bevaring!🎉
+    **Hurra for verdensdagen for digital bevaring!** 🎉
 
 
