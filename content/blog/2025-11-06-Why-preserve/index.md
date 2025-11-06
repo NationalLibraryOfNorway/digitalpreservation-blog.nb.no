@@ -26,7 +26,7 @@ The library’s societal mission is to give the people of Norway access to our s
 
 **The efforts in digital preservation at the National Library are closely related to:**
 
-- 📚 **Ensuring that today’s society, culture, and knowledge remain accessible for future generations -** Properly managed digital content lasts longer than most physical materials. Active preservation protects material from technological obsolescence, and with sufficient metadata, it can be understood far into the future.
+- 📚 **Ensuring that today’s society, culture, and knowledge remain accessible for future generations -** Properly managed digital content lasts longer. Active preservation protects material from technological obsolescence, and with sufficient metadata, it can be understood and playable far into the future.
 
 - 🌍 **Bridging generations and geographies, making knowledge and culture accessible to everyone -** Digital content can be accessed anytime, anywhere, making sources for understanding the past and present more readily available to all.
   

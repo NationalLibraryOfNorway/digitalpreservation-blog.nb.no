@@ -24,7 +24,7 @@ Nasjonalbibliotekets samfunnsoppdrag er å gi folk i Norge tilgang til vår fell
 [^1]: Nasjonalbibliotekets madat og strategi, https://www.nb.no/om-nb/mandat-og-strategi/
 
 **Digital bevaring av Nasjonalbibliotekets samling er direkte knyttet til:**
--	📚 **Å sørge for at dagens samfunn, kultur og kunnskap forblir tilgjengelig for kommende generasjoner -** Digitalt innhold som forvaltes riktig lever lengre enn de fleste fysiske materialer. Ved aktiv bevaring sikres materialet mot teknologisk foreldelse, og med tilstrekkelig metadata vil det være mulig å forstå innholdet også i framtida. 
+-	📚 **Å sørge for at dagens samfunn, kultur og kunnskap forblir tilgjengelig for kommende generasjoner -** Digitalt innhold som forvaltes riktig lever lengre. Ved aktiv bevaring sikres materialet mot teknologisk foreldelse, og med tilstrekkelig metadata vil det være mulig å forstå og spille av innholdet også i framtida. 
  
 -	🌍 **Å bygge bro mellom generasjoner og geografier, og gjøre kunnskap og kultur tilgjengelig for alle -** Digitalt innhold kan være tilgjengelig når og hvor som helst, og kildene til å forstå fortid og nåtid blir lettere tilgjengelig for alle. 
 
