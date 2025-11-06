@@ -3,7 +3,7 @@ title: "Verdensdagen for digital bevaring"
 date: 2025-11-06
 description: "Verdensdagen for digital bevaring er en årlig markering som holdes den første torsdagen i november. Dagen organiseres av Digital Preservation Coalition (DPC) og omfatter arrangementer, kampanjer og deling av erfaringer verden over. Målet er å fremheve både verdien og utfordringene ved langtidsbevaring av digitale data. Tema for årets verdensdag er 'Hvorfor digital bevaring?'. Her kan du lese litt om viktigheten av digital bevaring i kontekst av Nasjonalbibliotekets mandat og samfunnsoppdrag."
 tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, digital kulturarv, National library of Norway"]
-draft: true  
+draft: false  
 authors: 
   - name: Lise-Lotte Melkild
     image: /apple-touch-icon.png 
@@ -13,7 +13,7 @@ images:
 
 [Verdensdagen for digital bevaring](https://www.dpconline.org/events/world-digital-preservation-day) er en årlig markering som holdes den første torsdagen i november. Dagen organiseres av [Digital Preservation Coalition](https://www.dpconline.org/) (DPC) og omfatter arrangementer, kampanjer og deling av erfaringer verden over. Målet er å fremheve både verdien og utfordringene ved langtidsbevaring av digitale data. Tema for årets verdensdag er *hvorfor digital bevaring?*. Her kan du lese litt om viktigheten av digital bevaring i kontekst av Nasjonalbibliotekets mandat og samfunnsoppdrag.
 
-![Årets logo for World digital preservation day](/WDPD_2025.png )
+![Årets logo for World digital preservation day](WDPD_2025.png )
 
 ## Hvorfor digital bevaring i Nasjonalbiblioteket?
 
@@ -23,8 +23,7 @@ Nasjonalbibliotekets samfunnsoppdrag er å gi folk i Norge tilgang til vår fell
 
 [^1]: Nasjonalbibliotekets madat og strategi, https://www.nb.no/om-nb/mandat-og-strategi/
 
-**Digital bevaring av Nasjonalbibliotekets samling er direkte knyttet til:
-**
+**Digital bevaring av Nasjonalbibliotekets samling er direkte knyttet til:**
 -	📚 **Å sørge for at dagens samfunn, kultur og kunnskap forblir tilgjengelig for kommende generasjoner -** Digitalt innhold som forvaltes riktig lever lengre enn de fleste fysiske materialer. Ved aktiv bevaring sikres materialet mot teknologisk foreldelse, og med tilstrekkelig metadata vil det være mulig å forstå innholdet også i framtida. 
  
 -	🌍 **Å bygge bro mellom generasjoner og geografier, og gjøre kunnskap og kultur tilgjengelig for alle -** Digitalt innhold kan være tilgjengelig når og hvor som helst, og kildene til å forstå fortid og nåtid blir lettere tilgjengelig for alle. 
