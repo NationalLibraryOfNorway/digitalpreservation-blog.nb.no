@@ -14,3 +14,16 @@ Dette er en liste over krav til METS.xml for levende bilder-pakker som leveres t
 | **NBMOVINGIMAGESIP2** | **Other content category**<br>`mets[@csip:TYPE='OTHER']/@csip:OTHERTYPE`<br><br>Når `mets/@TYPE` har verdien 'OTHER' **MÅ** `mets/@csip:OTHERTYPE` brukes for å oppgi innholdskategori for pakken/representasjonen. <br><br>For levende bilder brukes:<br> **Moving images - on tangible media:** Brukes for levende bilder som er digitalisert fra en analog kilde. <br> **Moving images - digital:** Brukes for levende bilder som er født digitalt eller kommer fra digitale kilder.<br> <br>Dette er en spesifisering av [CSIP3](https://earkcsip.dilcis.eu/#CSIP3). | **MÅ** | **1..1** |
 | **NBMOVINGIMAGESIP3** | **Content Information Type Specification**<br>`mets[@csip:CONTENTINFORMATIONTYPE='OTHER']/@csip:OTHERCONTENTINFORMATIONTYPE`<br> <br>Brukes til å definere spesifikasjoner for type innholdsinformasjon som ble brukt når pakken ble opprettet. Gyldige verdier er definert i et fastsatt vokabular. Attributten er obligatorisk for METS-dokumenter på representasjonsnivå. <br> <br> For levende bilder brukes "OTHER" (en annen term enn det som finnes i det brukte vokabularet).<br><br> Se vokabular her [E-ARK-CSIP-Content Information Type](https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyContentInformationType.xml).xml<br><br>Dette er en spesifisering av [CSIP4](https://earkcsip.dilcis.eu/#CSIP4). | **MÅ** | **1..1** |
 | **NBMOVINGIMAGESIP4** | **Other Content Information Type Specification**<br>`mets[@csip:CONTENTINFORMATIONTYPE='OTHER']/@csip:OTHERCONTENTINFORMATIONTYPE`<br> <br>Når `mets/@csip:CONTENTINFORMATIONTYPE` har verdien "OTHER", **MÅ** `mets/@csip:OTHERCONTENTINFORMATIONTYPE` oppgi type innholdsinformasjon.<br> <br>OTHERCONTENTINFORMATIONTYPE for bilder MÅ være `https://digitalpreservation.no/nb/docs/dps/sip/1.0/profiles/movingimages/`<br><br>Dette er en spesifisering av [CSIP5](https://earkcsip.dilcis.eu/#CSIP5). |**MÅ**  | **1..1** |
+
+<br>
+<br> 
+
+### Eksempel: 
+
+
+```XML
+{
+<mets:mets xmlns:csip="https://DILCIS.eu/XML/METS/CSIPExtensionMETS" xmlns:mets="http://www.loc.gov/METS/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xlink="http://www.w3.org/1999/xlink" OBJID="csip-mets-example" LABEL="Sample CSIP Information Package" TYPE="OTHER" csip:OTHERTYPE="Moving images - on tangible media" csip:OTHERCONTENTINFORMATIONTYPE="https://digitalpreservation.no/nb/docs/dps/sip/1.0/profiles/Moving images/" PROFILE="https://earkcsip.dilcis.eu/profile/E-ARK-CSIP.xml" xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd https://DILCIS.eu/XML/METS/CSIPExtensionMETS https://earkcsip.dilcis.eu/schema/DILCISExtensionMETS.xsd">
+</mets:mets>
+}
+``` 
