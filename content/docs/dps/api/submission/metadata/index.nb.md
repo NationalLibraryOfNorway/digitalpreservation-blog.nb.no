@@ -447,7 +447,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- Bruk av attributter kan varieres, men det kreves alltid bruk av `type` OG enten `title` eller `id`.
+- Bruk av attributter kan varieres, men det kreves alltid bruk av `type` OG `title` eller `id`.
 
 - Attributt `title` angir tittel på relatert ressurs. 
 
@@ -466,8 +466,8 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
   "relation": [
   {
     "title": "Norge på langs med Ola og Kari",
-    "type": "IsPartOf",
     "id": "987654321",
+    "type": "IsPartOf",
     "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
     "lang": "nor"
   }

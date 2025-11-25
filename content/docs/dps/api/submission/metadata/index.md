@@ -463,7 +463,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 **Guidelines for use:**
 
-- The use of attributes may vary, but the `type` attribute and EITHER `title` attribute OR `id` attribute are always required.
+- The use of attributes may vary, but the `type` attribute AND `title` attribute or `id` attribute are always required.
 
 - The `title` attribute specifies the title of the related resource. 
 
@@ -482,8 +482,8 @@ If other terms are used for the type attribute, they should be meaningful to the
   "relation": [
   {
     "title": "Norway from end to end with Ola and Kari",
-    "type": "IsPartOf",
     "id": "987654321",
+    "type": "IsPartOf",
     "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
     "lang": "eng"
   }
