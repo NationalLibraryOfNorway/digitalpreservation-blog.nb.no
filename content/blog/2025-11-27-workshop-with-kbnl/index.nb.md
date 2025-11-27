@@ -8,7 +8,7 @@ authors:
   - name: Trond Teigen
     image: /apple-touch-icon.png 
 images:
-  - kbnl-logo.nb.jpg
+  - kbnl-logo1.nb.jpg
 ---
 I forrige uke hadde Team Digital Bevaring i NB besøk av 3 kollegaer fra Kongelige bibliotek i Nederland (KBNL).
 

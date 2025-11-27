@@ -1,5 +1,5 @@
 ---
-title: "Workshop med KBNL"
+title: "Workshop with KBNL"
 date: 2025-11-27
 description: "Last week, three colleagues from the Royal Library of the Netherlands (KBNL) visited the Digital Preservation Team at the National Library of Norway (NLN)."
 tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, National library of the Netherlands, Nationale bibliotheek, workshop"]
@@ -8,7 +8,7 @@ authors:
   - name: Trond Teigen
     image: /apple-touch-icon.png 
 images:
-  - kbnl-logo.jpg
+  - kbnl-logo1.jpg
 ---
 Last week, three colleagues from the Royal Library of the Netherlands (KBNL) visited the Digital Preservation Team at the National Library of Norway (NLN).
 
