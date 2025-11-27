@@ -5,7 +5,7 @@ date: 2024-05-29
 tags: ["Digital Preservation", "Digital Storage", "IFLA", "Library Technology", "Conference Presentations", "National Libraries", "Digital Libraries", "Long-term Preservation"]
 authors: 
   - name: Torbjørn Bakken Pedersen
-    image: /images/team/torbjorn.jpeg
+    image: /apple-touch-icon.png 
 images: 
   - growth.webp
 ---

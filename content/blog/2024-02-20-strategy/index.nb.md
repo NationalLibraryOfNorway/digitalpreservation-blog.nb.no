@@ -5,6 +5,7 @@ date: 2024-02-20
 tags: ["Strategy", "Principles", "Policy", "Digital Preservation", "Strategic Planning", "Preservation Policy", "Digital Libraries", "Preservation Strategy", "National Libraries", "Digital Heritage", "Best Practices"]
 authors: 
   - name: Trond Teigen
+    image: /apple-touch-icon.png
 showtoc: true
 draft: true
 images: 

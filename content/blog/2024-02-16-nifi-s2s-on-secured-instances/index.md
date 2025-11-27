@@ -9,6 +9,7 @@ date: 2024-02-16
 tags: [NiFi, Site-to-Site, S2S, Security, Certificate, Reporting task]
 authors: 
   - name: Daniel Aaron Salwerowicz
+    image: /apple-touch-icon.png
 images: 
   - cover.png
 aliases: /nifi-s2s-on-secured-instances-1a9b2e3c4d5e
