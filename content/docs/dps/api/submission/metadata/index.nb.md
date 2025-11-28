@@ -46,10 +46,10 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 **Eksempel:**
 ```json
 {
-"type":{
-  "value": "Bilde",
-  "lang": "nor"
-}
+  "type": {
+    "value": "Bilde",
+    "lang": "nor"
+  }
 }
 ``` 
 <br>
@@ -71,22 +71,22 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 **Eksempler:**
 ```json
 {
-"identifier": [
-  {
-    "type": "URN",
-    "value": "URN:NBN:no-nb_digifoto_20220311_00191_NB_PE_VM_M_05_09_01_036"
-  },
-  {
-    "type": "bilde-id",
-    "value": "NB_PE_VM_M_05_09_01_036",
-    "lang": "nor"
-  },
-  {
-    "type": "hyllesignatur",
-    "value": "POEL00003975",
-    "lang": "nor"
-  }
-]
+  "identifier": [
+    {
+      "type": "URN",
+      "value": "URN:NBN:no-nb_digifoto_20220311_00191_NB_PE_VM_M_05_09_01_036"
+    },
+    {
+      "type": "bilde-id",
+      "value": "NB_PE_VM_M_05_09_01_036",
+      "lang": "nor"
+    },
+    {
+      "type": "hyllesignatur",
+      "value": "POEL00003975",
+      "lang": "nor"
+    }
+  ]
 }
 ```
 <br>
@@ -107,25 +107,25 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 **Eksempler:**
 ```json
 {
-"title": {
-  "value": "Ola og Kari på fisketur i Rondane",
-  "lang": "nor"
-}
-}
-```
-```json
-{
-"title": {
-  "value": "Negativopptak fra juni 1972 [bilde 394]",
-  "lang": "nor"
-}
+  "title": {
+    "value": "Ola og Kari på fisketur i Rondane",
+    "lang": "nor"
+  }
 }
 ```
 ```json
 {
-"title": {
-  "value": "20131007.jpg"
+  "title": {
+    "value": "Negativopptak fra juni 1972 [bilde 394]",
+    "lang": "nor"
+  }
 }
+```
+```json
+{
+  "title": {
+    "value": "20131007.jpg"
+  }
 }
 ```
 <br>
@@ -152,13 +152,13 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 **Eksempel:**
 ```json
 {
-"alternative": [
-  {
-    "type": "originaltittel",
-    "value": "Ola and Kari on fishing trip in Rondane",
-    "lang": "eng"
-  }
-]
+  "alternative": [
+    {
+      "type": "originaltittel",
+      "value": "Ola and Kari on fishing trip in Rondane",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 <br>
@@ -190,36 +190,36 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 **Eksempler:**
 ```json
 {
-"creator": [
-  {
-    "name": "Marek, Václav (1908-1994)",
-    "type": "Person",
-    "role": "fotograf",
-    "lang": "nor",
-    "authority": {
-      "source": "Felles autoritetsregister (BARE)",
-      "code": "90169632",
-      "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90169632"
+  "creator": [
+    {
+      "name": "Marek, Václav (1908-1994)",
+      "type": "Person",
+      "role": "fotograf",
+      "lang": "nor",
+      "authority": {
+        "source": "Felles autoritetsregister (BARE)",
+        "code": "90169632",
+        "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90169632"
+      }
     }
-  }
-]
+  ]
 }
 ```
 ```json
 {
   "creator": [
-  {
-    "name": "Shakespeare, William (1564-1616)",
-    "type": "Person",
-    "role": "forfatter",
-    "lang": "nor",
-    "authority": {
-      "source": "Felles autoritetsregister (BARE)",
-      "code": "9016555",
-      "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG9016555"
+    {
+      "name": "Shakespeare, William (1564-1616)",
+      "type": "Person",
+      "role": "forfatter",
+      "lang": "nor",
+      "authority": {
+        "source": "Felles autoritetsregister (BARE)",
+        "code": "9016555",
+        "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG9016555"
+      }
     }
-  }
-]
+  ]
 }
 ```
 <br>
@@ -241,34 +241,35 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ```json
 {
   "contributor": [
-  {
-    "role": "avbildet",
-    "type": "Person",
-    "name": "Nordmann, Ola",
-    "lang": "nor"
-  },
-  {
-    "role": "avbildet",
-    "name": "Nordmann, Kari",
-    "lang": "nor"
-  }
-]
+    {
+      "role": "avbildet",
+      "type": "Person",
+      "name": "Nordmann, Ola",
+      "lang": "nor"
+    },
+    {
+      "role": "avbildet",
+      "name": "Nordmann, Kari",
+      "lang": "nor"
+    }
+  ]
 }
 ```
 ```json
-{"contributor": [
-  {
-    "role": "illustratør",
-    "type": "Person",
-    "name": "Solberg, Erna",
-    "lang": "nor",
-    "authority": {
-      "source": "Kulturnav",
-      "code": "e762d909-5cce-4d2b-892b-258272514fde",
-      "uri": "https://kulturnav.org/e762d909-5cce-4d2b-892b-258272514fde"
+{
+  "contributor": [
+    {
+      "role": "illustratør",
+      "type": "Person",
+      "name": "Solberg, Erna",
+      "lang": "nor",
+      "authority": {
+        "source": "Kulturnav",
+        "code": "e762d909-5cce-4d2b-892b-258272514fde",
+        "uri": "https://kulturnav.org/e762d909-5cce-4d2b-892b-258272514fde"
+      }
     }
-  }
-]
+  ]
 }
 ```
 <br>
@@ -294,17 +295,17 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ```json
 {
   "publisher": [
-  {
-    "name": "Nasjonalbiblioteket (Oslo, 1984)",
-    "type": "Organization",
-    "lang": "nor",
-    "authority": {
-      "source": "Felles autoritetsregister (BARE)",
-      "code": "90362181",
-      "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+    {
+      "name": "Nasjonalbiblioteket (Oslo, 1984)",
+      "type": "Organization",
+      "lang": "nor",
+      "authority": {
+        "source": "Felles autoritetsregister (BARE)",
+        "code": "90362181",
+        "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+      }
     }
-  }
-]
+  ]
 }
 ```
 <br>
@@ -337,24 +338,24 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 **Eksempel:**
 ```json
 {
-"spatial": [
-  { 
-    "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
-    "type": "Avbildet sted",
-    "lang": "nor",
-    "authority": {
-      "source": "Kulturnav",
-      "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
-      "uri": "http://kulturnav.org/1031636c-0717-4d12-8895-fb88a7d4e952"
-    },    
-    "coordinateReferenceSystem": "EPSG:4326",
-    "latitude": 61.788453,
-    "longitude": 10.224725
-  },
-  { 
-    "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
-  }  
-]
+  "spatial": [
+    {
+      "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
+      "type": "Avbildet sted",
+      "lang": "nor",
+      "authority": {
+        "source": "Kulturnav",
+        "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
+        "uri": "http://kulturnav.org/1031636c-0717-4d12-8895-fb88a7d4e952"
+      },
+      "coordinateReferenceSystem": "EPSG:4326",
+      "latitude": 61.788453,
+      "longitude": 10.224725
+    },
+    {
+      "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
+    }
+  ]
 }
 ```
 <br>
@@ -378,22 +379,22 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ```json
 {
   "date": [
-  {
-    "type": "motivdato",
-    "value": "1938",
-    "lang": "nor"
-  },
-  {
-    "type": "digitalisert",
-    "value": "2022-03-05T14:28:12+02:00",
-    "lang": "nor"
-  },
-  {
-    "type": "publisert",
-    "value": "2022-03-12",
-    "lang": "nor"
-  }
-]
+    {
+      "type": "motivdato",
+      "value": "1938",
+      "lang": "nor"
+    },
+    {
+      "type": "digitalisert",
+      "value": "2022-03-05T14:28:12+02:00",
+      "lang": "nor"
+    },
+    {
+      "type": "publisert",
+      "value": "2022-03-12",
+      "lang": "nor"
+    }
+  ]
 }
 ```
 <br>
@@ -417,23 +418,23 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ```json
 {
   "language": [
-  {
-    "type": "undertekster",
-    "value": "engelsk",
-    "lang": "nor"
-  }
-]
+    {
+      "type": "undertekster",
+      "value": "engelsk",
+      "lang": "nor"
+    }
+  ]
 }
 ```
 ```json
 {
   "language": [
-  {
-    "type": "skriftspråk",
-    "value": "fransk",
-    "lang": "nor"
-  }
-]
+    {
+      "type": "skriftspråk",
+      "value": "fransk",
+      "lang": "nor"
+    }
+  ]
 }
 ```
 <br>
@@ -464,36 +465,36 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 ```json
 {
   "relation": [
-  {
-    "title": "Norge på langs med Ola og Kari",
-    "id": "987654321",
-    "type": "IsPartOf",
-    "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
-    "lang": "nor"
-  }
-]
+    {
+      "title": "Norge på langs med Ola og Kari",
+      "id": "987654321",
+      "type": "IsPartOf",
+      "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
+      "lang": "nor"
+    }
+  ]
 }
 ```
 ```json
 {
   "relation": [
-  {
-    "title": "Chronicles of Narnia",
-    "type": "IsPartOf",
-    "lang": "eng"
-  }
-]
+    {
+      "title": "Chronicles of Narnia",
+      "type": "IsPartOf",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 ```json
 {
   "relation": [
-  {
-    "title": "20161203.jpg",
-    "type": "hasPart",
-    "URI": "https://www.nb.no/items/83af9a36b005c5737aa33d1fb64f429d?page"
-  }
-]
+    {
+      "title": "20161203.jpg",
+      "type": "hasPart",
+      "URI": "https://www.nb.no/items/83af9a36b005c5737aa33d1fb64f429d?page"
+    }
+  ]
 }
 ```
 
@@ -514,11 +515,11 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 ```json
 {
   "provenance": [
-  {
-    "value": "Samlingen ble donert til Nasjonalbiblioteket av Václav Marek 1979-05-12",
-    "lang": "nor"
-  }
-]
+    {
+      "value": "Samlingen ble donert til Nasjonalbiblioteket av Václav Marek 1979-05-12",
+      "lang": "nor"
+    }
+  ]
 }
 ```
 <br>
@@ -548,35 +549,35 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 ```json
 {
   "subject": [
-  {
-    "value": "rondane",
-    "lang": "nor"
-  },
-  {
-    "value": "fisketur",
-    "lang": "nor"
-  },
-  {
-    "value": "natur",
-    "lang": "nor"
-  }
-]
+    {
+      "value": "rondane",
+      "lang": "nor"
+    },
+    {
+      "value": "fisketur",
+      "lang": "nor"
+    },
+    {
+      "value": "natur",
+      "lang": "nor"
+    }
+  ]
 }
 ```
 
 ```json
 {
   "subject": [
-  { 
-    "value": "natur",
-    "lang": "nor",
-    "authority": {
-      "source": "Kulturnav",
-      "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
-      "uri": "http://kulturnav.org/1031636c-0717-4d32-8895-fb88a7d4e952"
+    {
+      "value": "natur",
+      "lang": "nor",
+      "authority": {
+        "source": "Kulturnav",
+        "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
+        "uri": "http://kulturnav.org/1031636c-0717-4d32-8895-fb88a7d4e952"
+      }
     }
-  }
-]
+  ]
 }
 ```
 
@@ -599,11 +600,11 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 ```json
 {
   "description": [
-  {
-    "value": "Bildet er en del av samlingen etter Václav Marek, der han fulgte Ola og Kari Nordmann Norge på langs. Václav Marek var en engelskmann som var interessert i Norge og norsk natur.",
-    "lang": "nor"
-  }
-]
+    {
+      "value": "Bildet er en del av samlingen etter Václav Marek, der han fulgte Ola og Kari Nordmann Norge på langs. Václav Marek var en engelskmann som var interessert i Norge og norsk natur.",
+      "lang": "nor"
+    }
+  ]
 }
 ```
 <br> **Eksempel som inneholder alle metadataelementene:**
@@ -613,7 +614,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
   "objectId": "av_6e8bc430-9c3a11d9",
   "priority": 50,
   "metadata": {
-    "type":{
+    "type": {
       "value": "Bilde",
       "lang": "nor"
     },
@@ -689,7 +690,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
       }
     ],
     "spatial": [
-      { 
+      {
         "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
         "type": "Avbildet sted",
         "lang": "nor",
@@ -697,19 +698,19 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
           "source": "Kulturnav",
           "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
           "uri": "http://kulturnav.org/1031636c-0717-4d12-8895-fb88a7d4e952"
-        },    
+        },
         "coordinateReferenceSystem": "EPSG:4326",
         "latitude": 61.788453,
         "longitude": 10.224725
       },
-      { 
+      {
         "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
-      }  
+      }
     ],
     "date": [
       {
         "type": "motivdato",
-        "value": "1938", 
+        "value": "1938",
         "lang": "nor"
       },
       {
@@ -731,13 +732,13 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
       }
     ],
     "relation": [
-     {
-    "title": "Norge på langs med Ola og Kari",
-    "type": "IsPartOf",
-    "id": "987654321",
-    "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
-    "lang": "nor"
-  }
+      {
+        "title": "Norge på langs med Ola og Kari",
+        "type": "IsPartOf",
+        "id": "987654321",
+        "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
+        "lang": "nor"
+      }
     ],
     "provenance": [
       {
@@ -754,15 +755,15 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
         "value": "fisketur",
         "lang": "nor"
       },
-    { 
-    "value": "natur",
-    "lang": "nor",
-    "authority": {
-      "source": "Kulturnav",
-      "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
-      "uri": "http://kulturnav.org/1031636c-0717-4d32-8895-fb88a7d4e952"
-    }
-  }
+      {
+        "value": "natur",
+        "lang": "nor",
+        "authority": {
+          "source": "Kulturnav",
+          "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
+          "uri": "http://kulturnav.org/1031636c-0717-4d32-8895-fb88a7d4e952"
+        }
+      }
     ],
     "description": [
       {
