@@ -54,10 +54,10 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 **Example:**
 ```json
 {
-"type":{
-  "value": "Image",
-  "lang": "eng"
-}
+  "type": {
+    "value": "Image",
+    "lang": "eng"
+  }
 }
 ``` 
 <br>
@@ -80,22 +80,22 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 **Examples:**
 ```json
 {
-"identifier": [
-  {
-    "type": "URN",
-    "value": "URN:NBN:no-nb_digifoto_20220311_00191_NB_PE_VM_M_05_09_01_036"
-  },
-  {
-    "type": "image-id",
-    "value": "NB_PE_VM_M_05_09_01_036",
-    "lang": "eng"
-  },
-  {
-    "type": "call-number",
-    "value": "POEL00003975",
-    "lang": "eng"
-  }
-]
+  "identifier": [
+    {
+      "type": "URN",
+      "value": "URN:NBN:no-nb_digifoto_20220311_00191_NB_PE_VM_M_05_09_01_036"
+    },
+    {
+      "type": "image-id",
+      "value": "NB_PE_VM_M_05_09_01_036",
+      "lang": "eng"
+    },
+    {
+      "type": "call-number",
+      "value": "POEL00003975",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 <br>
@@ -116,25 +116,25 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 **Examples:**
 ```json
 {
-"title": {
-  "value": "Ola and Kari on a fishing trip in Rondane",
-  "lang": "eng"
-}
-}
-```
-```json
-{
-"title": {
-  "value": "Photographic negative from June 1972 [image 394]",
-  "lang": "eng"
-}
+  "title": {
+    "value": "Ola and Kari on a fishing trip in Rondane",
+    "lang": "eng"
+  }
 }
 ```
 ```json
 {
-"title": {
-  "value": "20131007.jpg"
+  "title": {
+    "value": "Photographic negative from June 1972 [image 394]",
+    "lang": "eng"
+  }
 }
+```
+```json
+{
+  "title": {
+    "value": "20131007.jpg"
+  }
 }
 ```
 <br>
@@ -162,13 +162,13 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 **Example:**
 ```json
 {
-"alternative": [
-  {
-    "type": "original title",
-    "value": "Ola and Kari on fishing trip in Rondane",
-    "lang": "eng"
-  }
-]
+  "alternative": [
+    {
+      "type": "original title",
+      "value": "Ola and Kari on fishing trip in Rondane",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 <br>
@@ -204,36 +204,36 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 **Examples:**
 ```json
 {
-"creator": [
-  {
-    "name": "Marek, Václav (1908-1994)",
-    "type": "Person",
-    "role": "Photographer",
-    "lang": "eng",
-    "authority": {
-      "source": "Felles autoritetsregister (BARE)",
-      "code": "90169632",
-      "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90169632"
+  "creator": [
+    {
+      "name": "Marek, Václav (1908-1994)",
+      "type": "Person",
+      "role": "Photographer",
+      "lang": "eng",
+      "authority": {
+        "source": "Felles autoritetsregister (BARE)",
+        "code": "90169632",
+        "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90169632"
+      }
     }
-  }
-]
+  ]
 }
 ```
 ```json
 {
   "creator": [
-  {
-    "name": "Shakespeare, William (1564-1616)",
-    "type": "Person",
-    "role": "author",
-    "lang": "eng",
-    "authority": {
-      "source": "Felles autoritetsregister (BARE)",
-      "code": "9016555",
-      "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG9016555"
+    {
+      "name": "Shakespeare, William (1564-1616)",
+      "type": "Person",
+      "role": "author",
+      "lang": "eng",
+      "authority": {
+        "source": "Felles autoritetsregister (BARE)",
+        "code": "9016555",
+        "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG9016555"
+      }
     }
-  }
-]
+  ]
 }
 ```
 <br>
@@ -256,34 +256,35 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ```json
 {
   "contributor": [
-  {
-    "role": "depicted",
-    "type": "Person",
-    "name": "Nordmann, Ola",
-    "lang": "eng"
-  },
-  {
-    "role": "depicted",
-    "name": "Nordmann, Kari",
-    "lang": "eng"
-  }
-]
+    {
+      "role": "depicted",
+      "type": "Person",
+      "name": "Nordmann, Ola",
+      "lang": "eng"
+    },
+    {
+      "role": "depicted",
+      "name": "Nordmann, Kari",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 ```json
-{"contributor": [
-  {
-    "role": "illustrator",
-    "type": "Person",
-    "name": "Solberg, Erna",
-    "lang": "eng",
-    "authority": {
-      "source": "Kulturnav",
-      "code": "e762d909-5cce-4d2b-892b-258272514fde",
-      "uri": "https://kulturnav.org/e762d909-5cce-4d2b-892b-258272514fde"
+{
+  "contributor": [
+    {
+      "role": "illustrator",
+      "type": "Person",
+      "name": "Solberg, Erna",
+      "lang": "eng",
+      "authority": {
+        "source": "Kulturnav",
+        "code": "e762d909-5cce-4d2b-892b-258272514fde",
+        "uri": "https://kulturnav.org/e762d909-5cce-4d2b-892b-258272514fde"
+      }
     }
-  }
-]
+  ]
 }
 ```
 <br>
@@ -309,17 +310,17 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ```json
 {
   "publisher": [
-  {
-    "name": "National library of Norway (Oslo, 1984)",
-    "type": "Organization",
-    "lang": "eng",
-    "authority": {
-      "source": "Felles autoritetsregister (BARE)",
-      "code": "90362181",
-      "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+    {
+      "name": "National library of Norway (Oslo, 1984)",
+      "type": "Organization",
+      "lang": "eng",
+      "authority": {
+        "source": "Felles autoritetsregister (BARE)",
+        "code": "90362181",
+        "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+      }
     }
-  }
-]
+  ]
 }
 ```
 <br>
@@ -353,24 +354,24 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 **Examples:**
 ```json
 {
-"spatial": [
-  { 
-    "name": "Norway (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
-    "type": "Depicted location",
-    "lang": "eng",
-    "authority": {
-      "source": "Kulturnav",
-      "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
-      "uri": "http://kulturnav.org/1031636c-0717-4d12-8895-fb88a7d4e952"
-    },    
-    "coordinateReferenceSystem": "EPSG:4326",
-    "latitude": 61.788453,
-    "longitude": 10.224725
-  },
-  { 
-    "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
-  }  
-]
+  "spatial": [
+    {
+      "name": "Norway (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
+      "type": "Depicted location",
+      "lang": "eng",
+      "authority": {
+        "source": "Kulturnav",
+        "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
+        "uri": "http://kulturnav.org/1031636c-0717-4d12-8895-fb88a7d4e952"
+      },
+      "coordinateReferenceSystem": "EPSG:4326",
+      "latitude": 61.788453,
+      "longitude": 10.224725
+    },
+    {
+      "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
+    }
+  ]
 }
 ```
 <br>
@@ -394,22 +395,22 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ```json
 {
   "date": [
-  {
-    "type": "Content date",
-    "value": "1938",
-    "lang": "eng"
-  },
-  {
-    "type": "Digitized",
-    "value": "2022-03-05T14:28:12+02:00",
-    "lang": "eng"
-  },
-  {
-    "type": "Published",
-    "value": "2022-03-12",
-    "lang": "eng"
-  }
-]
+    {
+      "type": "Content date",
+      "value": "1938",
+      "lang": "eng"
+    },
+    {
+      "type": "Digitized",
+      "value": "2022-03-05T14:28:12+02:00",
+      "lang": "eng"
+    },
+    {
+      "type": "Published",
+      "value": "2022-03-12",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 <br>
@@ -433,23 +434,23 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ```json
 {
   "language": [
-  {
-    "type": "subtitle",
-    "value": "english",
-    "lang": "eng"
-  }
-]
+    {
+      "type": "subtitle",
+      "value": "english",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 ```json
 {
   "language": [
-  {
-    "type": "written language",
-    "value": "french",
-    "lang": "eng"
-  }
-]
+    {
+      "type": "written language",
+      "value": "french",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 <br>
@@ -480,36 +481,36 @@ If other terms are used for the type attribute, they should be meaningful to the
 ```json
 {
   "relation": [
-  {
-    "title": "Norway from end to end with Ola and Kari",
-    "id": "987654321",
-    "type": "IsPartOf",
-    "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
-    "lang": "eng"
-  }
-]
+    {
+      "title": "Norway from end to end with Ola and Kari",
+      "id": "987654321",
+      "type": "IsPartOf",
+      "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 ```json
 {
   "relation": [
-  {
-    "title": "Chronicles of Narnia",
-    "type": "IsPartOf",
-    "lang": "eng"
-  }
-]
+    {
+      "title": "Chronicles of Narnia",
+      "type": "IsPartOf",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 ```json
 {
   "relation": [
-  {
-    "title": "20161203.jpg",
-    "type": "hasPart",
-    "URI": "https://www.nb.no/items/83af9a36b005c5737aa33d1fb64f429d?page"
-  }
-]
+    {
+      "title": "20161203.jpg",
+      "type": "hasPart",
+      "URI": "https://www.nb.no/items/83af9a36b005c5737aa33d1fb64f429d?page"
+    }
+  ]
 }
 ```
 
@@ -530,11 +531,11 @@ If other terms are used for the type attribute, they should be meaningful to the
 ```json
 {
   "provenance": [
-  {
-    "value": "The collection was donated to the National Library by Václav Marek on May 12, 1979.",
-    "lang": "eng"
-  }
-]
+    {
+      "value": "The collection was donated to the National Library by Václav Marek on May 12, 1979.",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 <br>
@@ -564,35 +565,35 @@ If other terms are used for the type attribute, they should be meaningful to the
 ```json
 {
   "subject": [
-  {
-    "value": "rondane",
-    "lang": "nor"
-  },
-  {
-    "value": "fishingtrip",
-    "lang": "eng"
-  },
-  {
-    "value": "nature",
-    "lang": "eng"
-  }
-]
+    {
+      "value": "rondane",
+      "lang": "nor"
+    },
+    {
+      "value": "fishingtrip",
+      "lang": "eng"
+    },
+    {
+      "value": "nature",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 
 ```json
 {
   "subject": [
-  { 
-    "value": "natur",
-    "lang": "nor",
-    "authority": {
-      "source": "Kulturnav",
-      "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
-      "uri": "http://kulturnav.org/1031636c-0717-4d32-8895-fb88a7d4e952"
+    {
+      "value": "natur",
+      "lang": "nor",
+      "authority": {
+        "source": "Kulturnav",
+        "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
+        "uri": "http://kulturnav.org/1031636c-0717-4d32-8895-fb88a7d4e952"
+      }
     }
-  }
-]
+  ]
 }
 ```
 
@@ -613,11 +614,11 @@ If other terms are used for the type attribute, they should be meaningful to the
 ```json
 {
   "description": [
-  {
-    "value": "The image is part of the collection of Václav Marek, who followed Ola and Kari Nordmann on their journey across Norway. Václav Marek was an Englishman with a strong interest in Norway and its natural environment.",
-    "lang": "eng"
-  }
-]
+    {
+      "value": "The image is part of the collection of Václav Marek, who followed Ola and Kari Nordmann on their journey across Norway. Václav Marek was an Englishman with a strong interest in Norway and its natural environment.",
+      "lang": "eng"
+    }
+  ]
 }
 ```
 <br> **Example containing all the metadata elements:**
@@ -627,7 +628,7 @@ If other terms are used for the type attribute, they should be meaningful to the
   "objectId": "av_6e8bc430-9c3a11d9",
   "priority": 50,
   "metadata": {
-    "type":{
+    "type": {
       "value": "image",
       "lang": "eng"
     },
@@ -703,27 +704,27 @@ If other terms are used for the type attribute, they should be meaningful to the
       }
     ],
     "spatial": [
-      { 
+      {
         "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
         "type": "Avbildet sted",
-         "lang": "nor",
+        "lang": "nor",
         "authority": {
           "source": "Kulturnav",
           "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
           "uri": "http://kulturnav.org/1031636c-0717-4d12-8895-fb88a7d4e952"
-        },    
+        },
         "coordinateReferenceSystem": "EPSG:4326",
         "latitude": 61.788453,
         "longitude": 10.224725
       },
-      { 
+      {
         "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
-      }  
+      }
     ],
     "date": [
       {
         "type": "Content date",
-        "value": "1938", 
+        "value": "1938",
         "lang": "eng"
       },
       {
@@ -745,13 +746,13 @@ If other terms are used for the type attribute, they should be meaningful to the
       }
     ],
     "relation": [
-     {
-    "title": "Norway from end to end with Ola and Kari",
-    "type": "IsPartOf",
-    "id": "987654321",
-    "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
-    "lang": "eng"
-  }
+      {
+        "title": "Norway from end to end with Ola and Kari",
+        "type": "IsPartOf",
+        "id": "987654321",
+        "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
+        "lang": "eng"
+      }
     ],
     "provenance": [
       {
@@ -762,21 +763,21 @@ If other terms are used for the type attribute, they should be meaningful to the
     "subject": [
       {
         "value": "rondane",
-         "lang": "nor"
+        "lang": "nor"
       },
       {
         "value": "fishingtrip",
         "lang": "eng"
       },
-    { 
-    "value": "nature",
-    "lang": "eng",
-    "authority": {
-      "source": "Kulturnav",
-      "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
-      "uri": "http://kulturnav.org/1031636c-0717-4d32-8895-fb88a7d4e952"
-    }
-  }
+      {
+        "value": "nature",
+        "lang": "eng",
+        "authority": {
+          "source": "Kulturnav",
+          "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
+          "uri": "http://kulturnav.org/1031636c-0717-4d32-8895-fb88a7d4e952"
+        }
+      }
     ],
     "description": [
       {
