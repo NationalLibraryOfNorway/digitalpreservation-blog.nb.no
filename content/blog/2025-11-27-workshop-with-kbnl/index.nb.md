@@ -12,7 +12,7 @@ images:
 ---
 I forrige uke hadde Team Digital Bevaring i NB besøk av 3 kollegaer fra Kongelige bibliotek i Nederland (KBNL).
 
-![Bilde av gjestene](KBNL.nb.jpg "Gjestene fra KBNL: Inge Hofsink, Richard Lichtenberg og Lonneke Smit")
+![Bilde av gjestene](KBNL.nb.jpg "Gjestene fra KBNL: Inge Hofsink, Richard Ligtenberg og Lonneke Smit")
 
 ## Workshop med KBNL
 Over to dager hadde vi et tettpakket program der vi startet med en grundig omvisning for våre gjester.
