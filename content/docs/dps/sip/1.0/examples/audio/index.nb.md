@@ -1,10 +1,13 @@
 ---
-title: Pliktavlevert radio (sendeflater)
-weight: 1
+title: Lyd
 draft: true
+weight: 4
 ---
 
-## Vanlig bruk
+## Eksempel på SIP for lyd
+
+
+## Normal use-case
 ```
 no-nb_nrk_RAK202303190100
 ├── metadata
@@ -34,7 +37,7 @@ no-nb_nrk_RAK202303190100
     └── xlink.xsd
 ```
 
-### Alternativ: tilgangsrepresentasjoner lagret ved siden av primærrepresentasjon
+### Option: access representation stored alongside primary representation
 ```
 no-nb_nrk_RAK202303190100
 ├── metadata
@@ -74,6 +77,4 @@ no-nb_nrk_RAK202303190100
     ├── mods-v3-8.xsd
     └── xlink.xsd
 ```
-
-
 

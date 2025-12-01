@@ -38,6 +38,10 @@ Når vi snakker om informasjonspakker i de følgende dokumentene snakker vi om S
 
 Team digital bevaring utvikler og administrerer programvaren Digital Preservation Services (DPS), men dette er kun ett aspekt ved data- og metadatahåndtering i Nasjonalbiblioteket. 
 Når vi fortsetter å utvikle DPS og standardisere informasjonspakker, er kunnskap om de forskjellige systemdomenenes ansvar, og hvordan disse samhandler, avgjørende.
+
+{{< callout >}}
+Dette er ikke et forsøk på å beskrive hvordan en ideell systemarkitektur i Nasjonalbiblioteket *bør* se ut, men heller vise hvordan de eksisterende systemene fungerer i dag.
+{{< /callout >}}
  
 ## Systemdomener
 Ansvaret for digitale objekter[^1] i Nasjonalbiblioteket er delt mellom en trio av forskjellige systemdomener, som forvalter forskjellige aspekter ved objektene.

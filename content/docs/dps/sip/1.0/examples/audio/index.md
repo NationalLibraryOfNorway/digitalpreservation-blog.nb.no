@@ -1,10 +1,14 @@
 ---
-title: Legal deposit radio (timespan)
-weight: 1
+title: Audio
 draft: true
+weight: 4
 ---
 
-## Normal use-case
+## Example of audio SIP
+
+
+## Radio
+### Normal use-case
 ```
 no-nb_nrk_RAK202303190100
 ├── metadata
@@ -74,6 +78,4 @@ no-nb_nrk_RAK202303190100
     ├── mods-v3-8.xsd
     └── xlink.xsd
 ```
-
-
 

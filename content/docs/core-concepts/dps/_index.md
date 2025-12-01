@@ -1,11 +1,7 @@
 ---
-title: About Digital Preservation Services (DPS)
-weight: 1
+title: Digital Preservation Services (DPS)
+weight: 2
 ---
-
-<!-- The purpose of digital preservation is to ensure that digital materials remain unchanged and accessible - both now and in the future. This requires a solid understanding of the condition of the material. It involves ongoing activities that guarantee the collection's contents are always accessible and usable.
-
-Effective digital preservation relies on several key elements, including active monitoring of the material’s integrity and the use of high-quality metadata. Metadata should describe the material itself, its origin, and any associated rights. -->
 
 DPS, or Digital Preservation Services, refers to the National Library of Norway’s services for preserving digital cultural heritage materials. This includes both digitized content and materials that are “born digital.” The scope covers materials subject to legal deposit, digital content considered part of the national cultural heritage, and other materials considered worthy of digital preservation.
 

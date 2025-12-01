@@ -22,6 +22,10 @@ However, as our system architecture is complex and has evolved over several year
 The digital preservation team develops and manages the Digital Preservation Services (DPS) software, but this is only one aspect of data and metadata management in the National Library.
 As we continue to develop the DPS and standardizing information packages, awareness of the different system domains' responsibilities, and how these interact, is essential.
 
+{{< callout >}}
+This is not an attempt to draw up an ideal system architecture of how it *should* be, but rather an attempt to draw the map as it is (from the point of view of the digital preservation team).
+{{< /callout >}}
+
 ## System domains
 The responsibility for any digital object[^1], in the National Library is spread between a triad of different system domains, each managing different aspects of the object:
 

@@ -1,9 +1,7 @@
 ---
-title: Bruk av METS.xml
+title: Krav til METS.xml
 weight: 3
 ---
-
-## Krav til bruk av METS.xml (SIP)
 
 Informasjonspakker som avleveres til DPS, skal inneholde en fil kalt `METS.xml` i informasjonspakkas rotmappe, samt en `METS.xml` i hver representasjonsmappe.
 

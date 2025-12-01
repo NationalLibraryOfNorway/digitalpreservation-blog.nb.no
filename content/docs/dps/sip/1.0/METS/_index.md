@@ -1,17 +1,15 @@
 ---
-title: Use of METS.xml 
+title: METS.xml requirements
 draft: false
 weight: 3
 ---
-
-## Requirements for the use of METS.xml (SIP)
 
 Information packages delivered to the DPS must contain a file named `METS.xml` in the root folder of the information package, as well as a `METS.xml` in each representation folder.
 
 Both `METS.xml` files must validate against the METS requirements specified by the E-ARK specifications [CSIP1-119](https://earkcsip.dilcis.eu/#useofmets) and [SIP1-35](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements) in the [E-ARK (C)SIP spesifikasjonene v2.2.0](https://dilcis.eu/specifications/).
 
 
-### Use of the METS root element (`mets`)
+## Use of the METS root element (`mets`)
 
 
 | **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
@@ -43,7 +41,7 @@ In addition to these requirements for the METS root element, there are a few **m
 
 
 
-### Use of the METS header (`metsHdr`)
+## Use of the METS header (`metsHdr`)
 
 
 | **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** | 
@@ -78,7 +76,7 @@ In addition to these requirements for the METS root element, there are a few **m
 
 
 
-### Use of the METS descriptive metadata section (`dmdSec`)
+## Use of the METS descriptive metadata section (`dmdSec`)
 
 
 | **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
@@ -105,7 +103,7 @@ In addition to these requirements for the METS root element, there are a few **m
 
 
 
-### Use of the METS administrative metadata section (`amdSec`)
+## Use of the METS administrative metadata section (`amdSec`)
 
 The E-ARK specification only defines how to reference digital provenance metadata (the `digiprovMD` section) and rights metadata (the `rightsMD` section) in METS.
 Digital provenance metadata refers to information about events in the lifecycle of the digital object. This data is typically formatted using PREMIS.
@@ -164,7 +162,7 @@ The National Library of Norway (NB) considers these metadata types essential for
 
 
 
-### Use of the METS file section (`fileSec`)
+## Use of the METS file section (`fileSec`)
 
 |**ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
 |:---|:---|:---|:---|
@@ -189,6 +187,6 @@ The National Library of Norway (NB) considers these metadata types essential for
 
 
 
-### Use of the METS structural map (`structMap`)
+## Use of the METS structural map (`structMap`)
 
 No further requirements beyond [CSIP](https://earkcsip.dilcis.eu/#useofthemetsstructuralmapelementstructmap).
