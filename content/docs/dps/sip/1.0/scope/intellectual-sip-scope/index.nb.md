@@ -1,6 +1,15 @@
 ---
-title: Pakkeomfang
-weight: 1
+title: Omfang på informasjonspakker
+summary: This post discusses some key concepts related to information package scope and the eArchviving standards and specifications
+date: 2024-10-04
+tags: [Information packages, IP, E-ARK, eArchiving, asset management, cataloging]
+authors: 
+  - name: Torbjørn Bakken Pedersen
+    image: https://avatars.githubusercontent.com/u/113333557?v=4
+images: 
+  - ie-sip.png
+weight: 3
+aliases: ["/nb/sip-omfang"]
 ---
 
 I den foregående teksten var det lagt vekt på kompleksiteten i håndtering av representasjoner i Nasjonalbiblioteket. 

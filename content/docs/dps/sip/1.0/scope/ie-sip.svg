@@ -1,0 +1,107 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="631" height="272" class="ge-export-svg-auto" style="background-color:#fff" viewBox="-.5 -.5 631 272">
+  <defs>
+    <style>
+      <![CDATA[@media (prefers-color-scheme:dark){svg.ge-export-svg-auto svg:not(mjx-container>svg),svg.ge-export-svg-auto:not(mjx-container>svg){filter:invert(100%) hue-rotate(180deg)}svg.ge-export-svg-auto{background-color:#000!important}}]]>
+    </style>
+  </defs>
+  <rect width="100%" height="100%" fill="#ffffff"/>
+  <g data-cell-id="0">
+    <g data-cell-id="1">
+      <rect width="310" height="180" x="4" y="4" fill="#fff2cc" stroke="#d6b656" data-cell-id="QXeeP75qbaAw3eHoWsfN-13" pointer-events="all" rx="37.8" ry="37.8" style="filter:drop-shadow(rgba(0,0,0,.25) 2px 3px 2px)"/>
+      <rect width="310" height="180" x="314" y="84" fill="#dae8fc" stroke="#6c8ebf" data-cell-id="QXeeP75qbaAw3eHoWsfN-14" pointer-events="all" rx="37.8" ry="37.8" style="filter:drop-shadow(rgba(0,0,0,.25) 2px 3px 2px)"/>
+      <path fill="none" stroke="rgb(0, 0, 0)" stroke-dasharray="3 3" stroke-miterlimit="10" d="M219 134h190" data-cell-id="QXeeP75qbaAw3eHoWsfN-7" pointer-events="stroke"/>
+      <g data-cell-id="QXeeP75qbaAw3eHoWsfN-9">
+        <rect width="120" height="40" x="99" y="114" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" rx="6" ry="6" style="filter:drop-shadow(rgba(0,0,0,.25) 2px 3px 2px)"/>
+        <switch transform="translate(-.5 -.5)">
+          <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:134px;margin-left:100px">
+              <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+                <div style="display:inline-block;font-size:12px;font-family:Tahoma;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                  IE
+                  <div>
+                    (Unique ID)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </foreignObject>
+        </switch>
+      </g>
+      <path fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" d="M469 154v40" data-cell-id="QXeeP75qbaAw3eHoWsfN-10" pointer-events="stroke"/>
+      <g data-cell-id="QXeeP75qbaAw3eHoWsfN-11">
+        <rect width="120" height="40" x="409" y="114" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" rx="6" ry="6" style="filter:drop-shadow(rgba(0,0,0,.25) 2px 3px 2px)"/>
+        <switch transform="translate(-.5 -.5)">
+          <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:134px;margin-left:410px">
+              <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+                <div style="display:inline-block;font-size:12px;font-family:Tahoma;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                  SIP
+                  <div>
+                    (Unique ID)
+                  </div>
+                </div>
+              </div>
+            </div>
+          </foreignObject>
+        </switch>
+      </g>
+      <g data-cell-id="QXeeP75qbaAw3eHoWsfN-12">
+        <rect width="120" height="40" x="409" y="194" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" rx="6" ry="6" style="filter:drop-shadow(rgba(0,0,0,.25) 2px 3px 2px)"/>
+        <switch transform="translate(-.5 -.5)">
+          <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:214px;margin-left:410px">
+              <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+                <div style="display:inline-block;font-size:12px;font-family:Tahoma;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                  Primary representation
+                </div>
+              </div>
+            </div>
+          </foreignObject>
+        </switch>
+      </g>
+      <g data-cell-id="QXeeP75qbaAw3eHoWsfN-15">
+        <path fill="none" d="M14 134h85v40H14z" pointer-events="all"/>
+        <switch transform="translate(-.5 -.5)">
+          <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:83px;height:1px;padding-top:154px;margin-left:15px">
+              <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+                <div style="display:inline-block;font-size:12px;font-family:Tahoma;color:#000;line-height:1.2;pointer-events:all;font-weight:700;white-space:normal;overflow-wrap:normal">
+                  Metadata management systems
+                </div>
+              </div>
+            </div>
+          </foreignObject>
+        </switch>
+      </g>
+      <g data-cell-id="QXeeP75qbaAw3eHoWsfN-16">
+        <path fill="none" d="M324 214h85v40h-85z" pointer-events="all"/>
+        <switch transform="translate(-.5 -.5)">
+          <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:83px;height:1px;padding-top:234px;margin-left:325px">
+              <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+                <div style="display:inline-block;font-size:12px;font-family:Tahoma;color:#000;line-height:1.2;pointer-events:all;font-weight:700;white-space:normal;overflow-wrap:normal">
+                  Digital Preservation Services
+                </div>
+              </div>
+            </div>
+          </foreignObject>
+        </switch>
+      </g>
+      <path fill="none" stroke="rgb(0, 0, 0)" stroke-miterlimit="10" d="M159 74v40" data-cell-id="QXeeP75qbaAw3eHoWsfN-21" pointer-events="stroke"/>
+      <g data-cell-id="QXeeP75qbaAw3eHoWsfN-20">
+        <rect width="120" height="40" x="99" y="34" fill="rgb(255, 255, 255)" stroke="rgb(0, 0, 0)" pointer-events="all" rx="6" ry="6" style="filter:drop-shadow(rgba(0,0,0,.25) 2px 3px 2px)"/>
+        <switch transform="translate(-.5 -.5)">
+          <foreignObject width="100%" height="100%" pointer-events="none" requiredFeatures="http://www.w3.org/TR/SVG11/feature#Extensibility" style="overflow:visible;text-align:left">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="display:flex;align-items:unsafe center;justify-content:unsafe center;width:118px;height:1px;padding-top:54px;margin-left:100px">
+              <div data-drawio-colors="color: rgb(0, 0, 0);" style="box-sizing:border-box;font-size:0;text-align:center">
+                <div style="display:inline-block;font-size:12px;font-family:Tahoma;color:#000;line-height:1.2;pointer-events:all;white-space:normal;overflow-wrap:normal">
+                  IE
+                </div>
+              </div>
+            </div>
+          </foreignObject>
+        </switch>
+      </g>
+    </g>
+  </g>
+</svg>
