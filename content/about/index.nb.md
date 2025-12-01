@@ -1,14 +1,6 @@
 ---
 title: Team digital bevaring
-description: Presentasjon av team digital bevaring ved Nasjonalbiblioteket
-date: 2023-10-26
 tags: [Team presentation, team organization, product teams]
-authors: 
-  - name: Digital Preservation Team
-    image: /apple-touch-icon.png
-images: 
-  - cover.nb.png
-breadcrumbs: false
 ---
 
 I juni 2022 ble det etablert et eget team med ansvar for bevaring av [Nasjonalbibliotekets](https://nb.no/ "National Library of Norway homepage") digitale samling.
