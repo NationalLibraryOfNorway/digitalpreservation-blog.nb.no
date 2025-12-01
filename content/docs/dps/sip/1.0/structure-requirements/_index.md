@@ -1,7 +1,7 @@
 ---
 title: Requirements for SIP structure
 draft: false
-weight: 1
+weight: 2
 ---
 
 CSIPSTR are requirements according to the E-ARK specifications [(E-ARK (C)SIP specification (v2.2.0))](https://dilcis.eu/specifications/). Those marked NBSIPSTR are requirements set by the National Library of Norway. The NBSIPSTR requirements are mainly stricter versions of the CSIP requirements in the E-ARK specifications.
