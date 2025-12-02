@@ -9,6 +9,7 @@ images:
   - ie-sip.png
 weight: 3
 aliases: ["/intellectual-sip-scope"]
+draft: true
 ---
 
 The DPS is a system designed to receive, safely preserve and disseminate preserved digital objects.

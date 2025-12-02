@@ -10,6 +10,7 @@ images:
   - avsip.png
 weight: 4
 aliases: ["/representation-types"]
+draft: true
 ---
 
 Most of the SIPs that are created in our organization only contain one single representation. Secondary representations are also produced, e.g access representation for our website, but there are only a few use-cases where these are stored in the DPS.  

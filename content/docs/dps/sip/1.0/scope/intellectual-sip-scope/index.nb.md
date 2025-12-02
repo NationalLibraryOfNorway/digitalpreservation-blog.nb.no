@@ -10,6 +10,7 @@ images:
   - ie-sip.png
 weight: 3
 aliases: ["/nb/sip-omfang"]
+draft: true
 ---
 
 I den foregående teksten var det lagt vekt på kompleksiteten i håndtering av representasjoner i Nasjonalbiblioteket. 

@@ -10,6 +10,7 @@ images:
   - avsip.png
 weight: 4
 aliases: ["/nb/representasjonstyper"]
+draft: true
 ---
 
 De fleste av våre internt produserte informasjonspakker inneholder kun én enkelt representasjon. 
