@@ -47,7 +47,7 @@ Dette skaper en sammenhengende linje fra den overordnede strategien til de konkr
 [^3]: "Definition of done." The Agile Dictionary, [agiledictionary.org/8/definition-of-done/](https://www.agiledictionary.org/8/definition-of-done/). Accessed 19 Feb. 2024. 
 
 {{< figure src="figure.webp" 
-  caption="Figure of our strategy, roadmap, delivery plan, epics, and tasks" 
+  caption="Figur som viser vår strategi, veikart, leveranseplan, epics og oppgaver" 
   alt="Figure showing excerpts from our strategy document, 2 year roadmap, monthly delivery plan, epics, and tasks on a kanban board." 
   align=center 
 >}}
