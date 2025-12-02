@@ -20,7 +20,7 @@ Den positive siden er at vi dermed ikke lenger trenger å spare den til konferan
 
 
 ## Norsk versjon
-[![Norwegian language digital preservation poster](2023-03-05-digital-bevaring-horisontal.jpg "Klikk på bildet for full PDF (16 MB)")](2023-03-05-digital-bevaring-horisontal.jpg)
+[![Norwegian language digital preservation poster](2023-03-05-digital-bevaring-horisontal.jpg "Klikk på bildet for full oppløsning (16 MB)")](2023-03-05-digital-bevaring-horisontal.jpg)
 
 Full PDF (16 MB) finnes [her](2023-03-05-digital-bevaring-horisontal.pdf). 
 
