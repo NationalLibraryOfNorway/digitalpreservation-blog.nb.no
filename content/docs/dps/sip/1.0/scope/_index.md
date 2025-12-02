@@ -6,7 +6,7 @@ weight: 1
 The DPS is a system designed to receive, safely preserve and disseminate preserved **digital objects**. 
 In our terminology a digital object is used synonymously with a digital **representation** of some **intellectual entity**. 
 
-## Representation
+## Representations
 The representation concept is defined in PREMIS:
 
 > A **Representation** is the set of all file objects needed to render an Intellectual Entity.
@@ -15,14 +15,14 @@ The representation concept is defined in PREMIS:
 > A third article may be represented by one TIFF image for each of 12 pages plus an XML file of structural metadata showing the order of the pages; these 13 files constitute the Representation. 
 
 Representations can thus be either **simple objects** consisting of single discrete files, or **composite objects** consisting of groups of files intended to be utilized together. 
-An example of a simple digital object can be a singular image in TIFF-format, while an example of a complex digital object can be the aforementioned example of the article represented by 12 TIFF images and an XML or a DCP (which is a directory containing image and audio streams in MXF containers along with xml-files).
+An example of a simple digital object can be a singular image in TIFF-format, while an example of a composite digital object can be the aforementioned example of the article represented by 12 TIFF images and an XML or a DCP (which is a directory containing image and audio streams in MXF containers along with xml-files).
 
-## Intellectial entities/content
+## Intellectial entities and content
 The following definitions stem from the PREMIS data dictionary:
 > An **Intellectual Entity** is a distinct intellectual or artistic creation that is considered relevant to a designated community in the context of digital preservation: for example, a particular book, map, photograph, database, or hardware or software.
 
-Intellectual entities tend to describe *intellectual content*.
-To keep complexity down, we recommend letting simple, tangible intellectual entites define package scope (like *items* or *exemplars*), rather than high-level abstract intellectual entities (like *works*).
+Intellectual entities tend to describe **intellectual content**.
+To keep complexity down, we recommend letting simple, tangible intellectual entites define package scope (like **items** or **exemplars**), rather than high-level abstract intellectual entities (like **works**).
 
 {{< callout >}}
 We **strongly recommend** limiting the intellectual scope of a package to a particular digital exemplar. 
@@ -48,11 +48,6 @@ In other words a package will contain a particular digital exemplar of a book, n
 Those other exemplars are other discrete intellectual entities and packages.
 Similarly a new digitization of a physical source object that has been previously digitized, is handled as a new, discrete intellectual entity and package.
 
-<!-- For example we recommend letting the scope of a package be limited to a particular digitization of an audio record, a particular digitization of a book, or a particular scan of a film reel, etc. 
-A new digitization of a physical source object that has been previously digitized, is typically handled as a new and discrete intellectual entity and packages.
-
-For born digital material, we are similarly suggesting to limit the scope of a package to particular digital copies of intellectual content.  -->
-
 ## New package or new representation?
 
 With the intellectual entity and its primary representation so closely defined, the question becomes when to create a new package and when do you create a new representation.
@@ -69,11 +64,10 @@ Internally the ruleset is:
 - A single URN = a single package
 - Multiple URNs = multiple packages
 
-If you only have a single URN but still want to preserve a second or third derivate digital representation in the DPS, you will create a second representation in the same package as the primary digital representation.
+If you only have a single URN but still want to preserve a second or third derivate representation in the DPS, you will create a second representation in the same package as the primary digital representation.
 
 {{< callout >}}
 En ide å si noe om DPS-føringer?
-
 
 - IDs are given at the package level
 - Access control is set at the package level
@@ -90,7 +84,8 @@ We operate with two types of representations:
 The initial primary representation is the representation containing the digital object described as an intellectual entity in the relevant metadata management system.
 
 ### Derivatives of the primary representation
-Creating multiple representations in one package is only relevant if it is especially important to preserve both the primary representation and something derived from it, together in one information package. This might be an access copy, a processed, normalized, format migrated or repaired version of the primary representation. Unless of course, these are represented as separate intellectual entities in the metadata system. 
+Creating multiple representations in one package is only relevant if it is especially important to preserve both the primary representation and something derived from it, together in one information package. 
+This might be an access copy, a processed, normalized, format migrated or repaired version of the primary representation. Unless of course, these are represented as separate intellectual entities in the metadata system. 
 
 If we for example normalize or convert the primary digital object to another format for preservation, we can preserve both the primary digital object and a presumed more durable representation in the same information package. 
 
