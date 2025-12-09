@@ -17,9 +17,9 @@ Both `METS.xml` files must validate against the METS requirements specified by t
 | **NBSIP1** | **Package Identifier**<br>`mets/@OBJID`<br><br>The `mets/@OBJID` attribute is mandatory, its value is a string identifier for the METS document. In the METS file located in the root folder of the package, this identifier **MUST** be identical to the name of the package’s root folder (see [NBSIPSTR2](/docs/dps/sip/1.0/structure-requirements/) for formatting). In the METS files within the individual representation folders, this identifier **MUST** be identical to the name of the respective representation folder (see [NBSIPSTR11](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=1..1-,NBSIPSTR11) and [NBSIPSTR12](https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=1..1-,NBSIPSTR12) for formatting). <br><br>This requirement is a stricter version of [CSIP1](https://earkcsip.dilcis.eu/#CSIP1) | **MUST** | **1..1** |
 | **NBSIP2** | **Package name**<br>`mets/@LABEL`<br><br>A short text that provides the title or a description of the content of the information package. The value of the `mets/@LABEL` **SHOULD** match the "title" field in the API call. (see [Metadata Requirements](/docs/dps/api/submission/metadata/)).<br><br>This requirement is a stricter version of [SIP1](https://earksip.dilcis.eu/#SIP1) | **SHOULD** | **1..1** |
 
-{{< callout type="info" >}} 
-In addition to these requirements for the METS root element, there are a few **media specific requirements** that needs to be adhered to. These are found in the subpages below this page.
-{{< /callout >}}
+> [!IMPORTANT]
+> In addition to these requirements for the METS root element, there are a few **media specific requirements** that needs to be adhered to. 
+> These are found in the subpages below this page.
 
 **Example:**
 

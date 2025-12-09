@@ -29,9 +29,8 @@ The following definitions stem from the PREMIS data dictionary:
 Intellectual entities tend to describe **intellectual content**.
 To keep complexity down, we recommend letting simple, tangible intellectual entites define package scope (like **items** or **exemplars**), rather than high-level abstract intellectual entities (like **works**).
 
-{{< callout >}}
-We **strongly recommend** limiting the intellectual scope of a package to a particular digital exemplar. 
-{{< /callout >}}
+> [!WARNING]
+> We **strongly recommend** limiting the intellectual scope of a package to a particular digital exemplar. 
 
 This means the intellectual entity defining the package scope, and its primary representation is very closely intertwined.
 The descriptive metadata on the package root describes the intellectual content of that particular copy.
@@ -97,9 +96,8 @@ If we for example normalize or convert the primary digital object to another for
 
 The purpose of a derivative, how it is produced, and how it is related to the primary representation should be documented as preservation metadata in the package. 
 
-{{< callout >}}
-We strongly advise against preserving derivatives that easily and mechanically can be recreated from the primary representation. 
-{{< /callout >}}
+> [!IMPORTANT]
+> We strongly recommend against preserving derivatives that easily and mechanically can be recreated from the primary representation. 
 
 Access representations may, for example, only be relevant to include in DPS if they are the result of significant work and/or cannot be derived automatically from the primary representation.
 

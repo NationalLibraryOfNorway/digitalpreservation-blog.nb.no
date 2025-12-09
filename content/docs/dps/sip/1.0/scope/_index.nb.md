@@ -32,9 +32,8 @@ Følgende definisjon stammer fra PREMIS data dictionary:
 Intellektuelle entiteter beskriver gjerne **intellektuelt innhold**.
 For å holde kompleksiteten nede, anbefaler vi at enkle, håndfaste intellektuelle entiteter brukes til å definere pakkeomfanget (for eksempel **items** eller **eksemplarer**), snarere enn overordnede, abstrakte intellektuelle entiteter (for eksempel **verk**).
 
-{{< callout >}}
-Vi **anbefaler sterkt** å begrense det intellektuelle omfanget i en pakke til ett bestemt digitalt eksemplar.
-{{< /callout >}}
+> [!WARNING]
+> Vi **anbefaler sterkt** å begrense det intellektuelle omfanget i en pakke til ett bestemt digitalt eksemplar.
 
 Dette innebærer at den intellektuelle entiteten som definerer pakkeomfanget, og dens primære representasjon, er svært tett sammenknyttet.
 De deskriptive metadataene på rotnivået av pakka beskriver det intellektuelle innholdet i akkurat dette eksemplaret.
@@ -99,9 +98,15 @@ Opprettelse av flere representasjoner i en pakke er kun relevant hvis det er spe
 Dette kan være en tilgangskopi, prosessert, normalisert, formatmigrert eller reparert variant av primærrepresentasjonen. 
 Typisk for disse er at de ikke er representert som en egen IE i metadatasystemet.
 
-Et eksempel kan være der det primære digitale objektet er normalisert eller konvertert til et annet format for bevaring. Vi kan da bevare både det primære digitale objektet og en antatt mer bestandig bevaringsrepresentasjon. 
+Et eksempel kan være der det primære digitale objektet er normalisert eller konvertert til et annet format for bevaring. 
+Vi kan da bevare både det primære digitale objektet og en antatt mer bestandig bevaringsrepresentasjon. 
 
-Formålet med et derivat, hvordan det er fremstilt, og hvilken relasjon det har til primærrepresentasjonen bør dokumenteres i bevaringsmetadata i pakken. Vi fraråder å bevare derivater som lett og maskinelt kan gjenskapes fra primærrepresentasjonen. Tilgangsrepresentasjoner vil for eksempel kun være aktuelle for forvaltning i DPS, hvis de er et resultat av betydelig arbeid og/eller ikke kan utledes maskinelt fra den primære representasjonen.  
+Formålet med et derivat, hvordan det er fremstilt, og hvilken relasjon det har til primærrepresentasjonen bør dokumenteres i bevaringsmetadata i pakken. 
+
+> [!IMPORTANT]
+> Vi fraråder å bevare derivater som lett og maskinelt kan gjenskapes fra primærrepresentasjonen. 
+
+Tilgangsrepresentasjoner vil for eksempel kun være aktuelle for forvaltning i DPS, hvis de er et resultat av betydelig arbeid og/eller ikke kan utledes maskinelt fra den primære representasjonen.  
 
 ### Eksempler:
 
