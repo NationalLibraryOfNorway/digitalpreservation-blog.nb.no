@@ -13,7 +13,7 @@ images:
 
 [Verdensdagen for digital bevaring](https://www.dpconline.org/events/world-digital-preservation-day) er en årlig markering som holdes den første torsdagen i november. Dagen organiseres av [Digital Preservation Coalition](https://www.dpconline.org/) (DPC) og omfatter arrangementer, kampanjer og deling av erfaringer verden over. Målet er å fremheve både verdien og utfordringene ved langtidsbevaring av digitale data. Tema for årets verdensdag er *hvorfor digital bevaring?*. Her kan du lese litt om viktigheten av digital bevaring i kontekst av Nasjonalbibliotekets mandat og samfunnsoppdrag.
 
-![Årets logo for World digital preservation day](WDPD_2025.png )
+![Årets logo for World digital preservation day](/WDPD_2025.png )
 
 ## Hvorfor digital bevaring i Nasjonalbiblioteket?
 

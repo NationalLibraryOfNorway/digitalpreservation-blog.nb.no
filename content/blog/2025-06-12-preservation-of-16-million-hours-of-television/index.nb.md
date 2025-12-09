@@ -14,7 +14,7 @@ Nasjonalbiblioteket har nylig gjennomført et av sine største digitale bevaring
 
 Dette er historien om hvordan vi gjorde det. 
 
-## Bakgrunn: En time, en fil 
+## Bakgrunn: En time, en fil
 
 Siden 2007 har norske kringkastere levert fjernsynssendinger til Nasjonalbiblioteket digitalt – én MP4-fil per kalendertime TV-sending. Hver fil inneholder altså det som ble sendt i løpet av én time, uavhengig av hvor programmer starter eller slutter. I praksis betyr det at et TV-program kan være spredt over flere filer. 
 
@@ -41,7 +41,7 @@ Arbeidet startet høsten 2024 med kartlegging og forberedelser. Selve rearkiveri
 
 Ved å kombinere automatisering med målrettede manuelle vurderinger, økte vi effektiviteten betraktelig. Daglig behandlingskapasitet gikk fra 25 til over 40 terabyte.
 
-![Rearkivering pr dag i TeraByte](datavolume.nb.jpg "Oversikt over datavolum rearkivert pr dag. 1 TeraByte = 1.000 GigaByte")
+![Rearkivering pr dag i TeraByte](/datavolume.jpg "Oversikt over datavolum rearkivert pr dag. 1 TeraByte = 1.000 GigaByte")
 
 ## Funn og avvik
 
@@ -56,13 +56,13 @@ I et så stort datasett er det uunngåelig med avvik. Her er noen eksempler på 
 
 - **Trunkerte filer:** Enkelte filer var teknisk avkortet og inneholdt bare deler av innholdet. Disse ble bevart med informasjon om avviket. 
 
-## Hva vi lærte 
+## Hva vi lærte
 
 Dette prosjektet demonstrerte hvor viktig det er å ha robuste verktøy, standarder og kontrollrutiner når store datamengder skal langtidsbevares. Det viste også hvor viktig det er å kunne kombinere automatikk med faglig skjønn. 
 
 Ved å bruke Apache NiFi for datastrøm og E-ARK for arkivpakkene, fikk vi en skalerbar løsning som også kan brukes i fremtidige bevaringsprosjekter. 
 
-## Til slutt 
+## Til slutt
 
 Fjernsyn er en sentral del av vår felles hukommelse. Ved å sikre og strukturere dette materialet for framtiden, legger vi til rette for at fremtidens forskere, journalister og publikum kan forstå hvordan Norge har utviklet seg – time for time. 
 

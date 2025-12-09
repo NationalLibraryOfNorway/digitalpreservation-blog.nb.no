@@ -18,7 +18,7 @@ I forbindelse med [Pilot-prosjektet](/nb/blog/2025-01-28-lam-longterm-preservati
 
 Det har i tillegg blitt sett på hvordan vi kan sikre at det avleveres et minimum med deskriptive metadata i tilknytning til objektene. Dette er i hovedsak for at dataene skal være søkbare i bevaringsomgivelsene, og ikke ment som en erstatning for avlevering av rikere metadata i pakken. Det er tatt utgangspunkt i metadatastandarden [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/). Standarden er enkel, feltene er åpne (ikke forhåndsdefinerte verdier), og kan derfor passe til mange ulike medietyper. 
 
-![Metadata i digital bevaring](Skjermbilde2_blogg.JPG) 
+![Metadata i digital bevaring](/Skjermbilde2_blogg.JPG) 
 <br>
 
 Dokumentasjon for avleveing av SIP finnes her: [SIP 1.0](/nb/docs/dps/sip/1.0/)
