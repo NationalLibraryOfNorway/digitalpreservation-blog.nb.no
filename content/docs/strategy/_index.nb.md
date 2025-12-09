@@ -1,6 +1,6 @@
 ---
-title: Ambisjon, mål og strategi
-description: Strategi for digital bevaring ved Nasjonalbiblioteket
+linkTitle: Ambisjon, mål og strategi
+title: Strategi for digital bevaring ved Nasjonalbiblioteket
 weight: 2
 date: 2024-02-07
 draft: false
