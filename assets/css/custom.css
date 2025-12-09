@@ -1,5 +1,44 @@
-@media (min-width: 768px) {
-  .sidebar-container {
-    width: 24rem;
-  }
+/* Full bordered tables */
+.content table {
+  border-collapse: collapse !important;
+  border-spacing: 0 !important;
+  width: 100%;
+  border: 1px solid var(--color-stone-300) !important;
+}
+
+/* Borders + base padding on all cells */
+.content table tr > * {
+  border-style: solid !important;
+  border-width: 1px !important;
+  border-color: var(--color-stone-300) !important;
+  padding: 0.5rem 0.75rem !important;
+  text-align: left;
+}
+
+/* Explicitly fix first and last column padding */
+.content table tr > *:first-child {
+  padding-left: 0.75rem !important;
+}
+
+.content table tr > *:last-child {
+  padding-right: 0.75rem !important;
+}
+
+/* Header styling (optional) */
+.content table thead tr > * {
+  background-color: var(--color-stone-50);
+  font-weight: 500;
+}
+
+/* Dark mode */
+html[class~="dark"] .content table {
+  border-color: var(--color-stone-700) !important;
+}
+
+html[class~="dark"] .content table tr > * {
+  border-color: var(--color-stone-700) !important;
+}
+
+html[class~="dark"] .content table thead tr > * {
+  background-color: var(--color-stone-900);
 }
