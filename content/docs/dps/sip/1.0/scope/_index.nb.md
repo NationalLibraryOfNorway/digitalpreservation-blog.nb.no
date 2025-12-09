@@ -75,7 +75,7 @@ Internt er regelsettet:
 
 Hvis du bare har én URN for å beskrive materialet du har, men likevel ønsker å bevare ytterligere representasjoner i DPS, oppretter du en ny representasjon i samme pakke som den primære digitale representasjonen.
 
-{{< callout >}}
+<!-- {{< callout >}}
 En idé å si noe om føringer i DPS?
 
 - ID-er tildeles på pakkenivå
@@ -83,7 +83,7 @@ En idé å si noe om føringer i DPS?
 - Versjonering er ikke tillatt
 - Pakker utleveres typisk som en helhet
 {{< /callout >}}
-
+ -->
 ## Eksempler på representasjoner
 De fleste av våre internt produserte informasjonspakker inneholder kun én enkelt representasjon. 
 

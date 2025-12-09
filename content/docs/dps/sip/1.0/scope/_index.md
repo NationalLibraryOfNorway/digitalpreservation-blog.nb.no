@@ -72,14 +72,14 @@ Internally the ruleset is:
 
 If you only have a single URN but still want to preserve a second or third derivate representation in the DPS, you will create a second representation in the same package as the primary digital representation.
 
-{{< callout >}}
+<!-- {{< callout >}}
 En ide å si noe om DPS-føringer?
 
 - IDs are given at the package level
 - Access control is set at the package level
 - Versioning is not permitted (additions?)
 - Packages are typically disseminated as a whole
-{{< /callout >}}
+{{< /callout >}} -->
 
 ## Examples of representations
 Most of the packages that are created in our organization only contain one single representation. Secondary representations are also produced, e.g access representation for our website, but there are only a few use-cases where these are also preserved in the DPS.  
