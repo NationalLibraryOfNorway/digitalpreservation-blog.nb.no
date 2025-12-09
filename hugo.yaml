@@ -1,6 +1,6 @@
 # Hugo configuration file
 baseURL: "https://digitalpreservation.no/"
-title: "NLN Digipres"
+title: "NLN Digital preservation"
 
 enableRobotsTXT: true
 enableGitInfo: true
