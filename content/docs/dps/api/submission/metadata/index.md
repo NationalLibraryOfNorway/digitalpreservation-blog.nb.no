@@ -15,7 +15,7 @@ Most metadata elements are optional, but it is strongly recommended to provide a
 
 <br>
 
-**General Guidelines for the Use of Standards**<br>
+### General Guidelines for the Use of Standards <br>
 Punctuation and character encoding for field input should follow [UTF-8](https://snl.no/UTF-8).<br>
 [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for specifying language when the lang attribute is applied.<br>
 [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) is used as the standard format for specifying dates and times.<br>
