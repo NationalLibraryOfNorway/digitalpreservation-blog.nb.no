@@ -15,7 +15,7 @@ Teamet er medlem av [Digital Preservation Coalition (DPC)](https://www.dpconline
 ## Organisasjon
 Team digital bevaring består i dag av 8 medlemmer:
 
-{{< cards cols="6" minWidth="120px" >}}
+{{< cards cols="6" >}}
   {{< card link="/" title="Trond Teigen" image="images/team/trond-Small.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Teamleder"  >}}
   {{< card link="/" title="Torbjørn Bakken Pedersen" image="images/team/torbjorn-Small.jpeg" link="https://www.linkedin.com/in/torbjørn-pedersen-57617b227b" subtitle="Produktleder" >}}
   {{< card link="/" title="Thomas Edvardsen" image="images/team/thomas-Small.jpeg" link="https://www.linkedin.com/in/thomasedvardsen" subtitle="Techleder" >}}

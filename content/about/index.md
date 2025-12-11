@@ -14,8 +14,8 @@ The team is a members of the [Digital Preservation Coalition](https://www.dpconl
 ## Organisation
 The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page about Digital Preservation at NLN") team consist of 8 members:
 
-{{< cards cols="6" minWidth="120px" >}}
-  {{< card link="/" title="Trond Teigen" image="images/team/trond-Small.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Team lead" method="Resize" options="250x q85 webp" >}}
+{{< cards cols="6" >}}
+  {{< card link="/" title="Trond Teigen" image="images/team/trond-Small.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Team lead" >}}
   {{< card link="/" title="Torbjørn Bakken Pedersen" image="images/team/torbjorn-Small.jpeg" link="https://www.linkedin.com/in/torbjørn-pedersen-57617b227b" subtitle="Product lead" >}}
   {{< card link="/" title="Thomas Edvardsen" image="images/team/thomas-Small.jpeg" link="https://www.linkedin.com/in/thomasedvardsen" subtitle="Tech lead" >}}
   {{< card link="/" title="Vigdis Marie Sørensen" image="images/team/vigdis-Small.jpeg" link="https://www.linkedin.com/in/vigdis-sørensen-8a3618a6" subtitle="Senior platform developer" >}}
