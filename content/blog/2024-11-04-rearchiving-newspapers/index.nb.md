@@ -78,7 +78,7 @@ De to teamene startet med innledende undersøkelser og kartlegging av avismateri
 Testmigrering avslørte behov for opprydding i kildematerialet. Det ble laget en egen arbeidsflyt for rearkivering av aviser til DPS. 
 
 ### Juni-Juli 2023
-Arbeidet med å generere pålitelige sjekksummer startet. Dette arbeidet er beskrevet i en egen [bloggpost]([/checksum-generation](https://digitalpreservation.no/nb/blog/2024-11-04-checksums/)).
+Arbeidet med å generere pålitelige sjekksummer startet. Dette arbeidet er beskrevet i en egen [bloggpost](/nb/blog/2024-11-04-checksums/).
 
 ### Oktober 2023
 Storskala rearkivering av aviser fra mikrofilm og avleverte PDF-aviser. Rundt 1 PB ble flyttet før arbeidet ble stoppet på grunn av manglende lagringskapasitet.
@@ -86,7 +86,7 @@ Storskala rearkivering av aviser fra mikrofilm og avleverte PDF-aviser. Rundt 1 
 ### Januar 2024
 Rearkivering av aviser som var skannet ved Nasjonalbiblioteket startet – ca. 1,5 PB.
 
-### Juni 2024 
+### Juni 2024
 Migrering fullført. 
 
 <!-- Rearkivering fullført 1 juni 2024. -->
@@ -95,23 +95,23 @@ Migrering fullført.
 
 #### Tidslinje for behandlet datavolum
 
-![](image2.png "Høyeste datamengde prosessert på én dag: 42,15 TB")
+![](/image2.png "Høyeste datamengde prosessert på én dag: 42,15 TB")
 
-#### Tidslinje for antall aviser behandlet 
+#### Tidslinje for antall aviser behandlet
 
-![](image3.png "Høyeste antall aviser migrert på én dag: 97 528")
+![](/image3.png "Høyeste antall aviser migrert på én dag: 97 528")
 
 ## Resultater og erfaringer
 
 - Arkiveringshastigheten varierte mye, og nådde opptil 42 TB per dag for det enkleste materialet. Dette viste at det nye bit-lageret (HPSS) har høy kapasitet, og ga oss nyttige  tidsestimater for fremtidige migreringer. Komplekst materiale (som de som krever OCR-reprosessering) hadde betydelig lavere arkiveringshastighet på grunn av ekstra tid til prosessering på forhånd. 
 - Manglende lagringskapasitet førte til en uplanlagt pause. Dette viste at teknisk forberedelse alene ikke var nok. Det var også behov for grundig administrativ planlegging, særlig i forbindelse med innkjøp og anbud.
 - Gamle data kan være uoversiktlige, og migrering gir en verdifull mulighet til opprydding. 
-    - Vi oppdaget og fjernet 4,5 millioner filer på 0 byte – rester etter midlertidig statusoppdateringer fra tidligere digitaliseringsprosesser. Denne oppryddingen fjernet unødvendig materiale og sørger for at bevaringspakkene våre er i tråd med [prinsippene]([/docs/principles/nln-digipres-principles-en/#ensure-that-digital-preservation-is-done-in-a-sustainable-way](https://digitalpreservation.no/nb/docs/principles/)) våre.
+    - Vi oppdaget og fjernet 4,5 millioner filer på 0 byte – rester etter midlertidig statusoppdateringer fra tidligere digitaliseringsprosesser. Denne oppryddingen fjernet unødvendig materiale og sørger for at bevaringspakkene våre er i tråd med [prinsippene](/nb/docs/principles/) våre.
     - Vi ryddet opp i materiale som var feilpakket eller inneholdt ufullstendig informasjon, og sørget for at avissamlingen nå er likt pakket og arkivert i DPS.
     - Dårlig OCR-kvalitet ble avdekket i to årganger fra 2010-2011, tilsammen 53 678 aviser/107 TB. Disse var fra de første to årene det ble utført OCR-behandling på materialet. Avisene ble behandlet på nytt med dagens arbeidsflyt for å produsere ny og forbedret OCR. 
     - Enkelte aviser som var skannet fra mikrofilm  hadde svært dårlig kvalitet og ble erstattet av nye skanninger fra papiroriginaler (totalt 2 051 aviser). Dette viser at originalmateriale ofte gir bedre resultat enn avledede kopier.
 
-![Svein Erik Molberg og Mona Løkås fra team Tekst, Vigdis Sørensen fra team Digital bevarings.](image1.png "Svein Erik Molberg og Mona Løkås fra team Tekst, Vigdis Sørensen fra team Digital Preservation.")
+![Svein Erik Molberg og Mona Løkås fra team Tekst, Vigdis Sørensen fra team Digital bevarings.](/image1.png "Svein Erik Molberg og Mona Løkås fra team Tekst, Vigdis Sørensen fra team Digital Preservation.")
 
 ## Noen tall
 
