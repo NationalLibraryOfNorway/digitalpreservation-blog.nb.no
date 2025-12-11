@@ -70,6 +70,8 @@ languages:
     title: NB Digital bevaring
 
 params:
+  images:
+    - images/opengraph.webp
   navbar:
     displayTitle: true
     displayLogo: true
