@@ -26,4 +26,4 @@ Det ble også fokusert på erfaringer med bruk av metadatastandarder som Dublin 
 
 Siste del av workshopen ble brukt til å diskutere organisatoriske utfordringer knyttet til arbeidet med digital bevaring. Hvordan kan vi sikre at institusjonene holder et kontinuerlig fokus på digital bevaring? Hva skal til for at forutsigbare rammebetingelser kan etableres til støtte for dette arbeidet? Kan vi unngå å etterlate oss en digital mørketid? Her kom det fram mange interessante og nyttige betraktninger. Dette vil vi komme tilbake til i en senere blogpost på [Digital Bevaring ved Nasjonalbiblioteket.](http://www.digitalbevaring.no/)
 
-![Workshop dag 2](workshop.jpg "Workshopen mellom NB og KBNL")
+![Workshop dag 2](/workshop.jpg "Workshopen mellom NB og KBNL")

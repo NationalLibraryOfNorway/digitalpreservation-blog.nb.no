@@ -25,4 +25,4 @@ NLN presented the architecture of our Digital Preservation System (DPS) and its 
 
 The final part of the workshop was devoted to discussing organisational challenges related to digital preservation work. How can we ensure that institutions keep a continuous focus on digital preservation? How can predictable framework conditions be established to sustain this work? Can we avoid leaving behind a period of digital dark age? Many interesting and valuable reflections emerged. We will return to this topic in a later blog post on [Digital preservation at the National Library of Norway.](https://digitalpreservation.no/)
 
-![Workshop day 2](workshop.jpg "The NLN–KBNL workshop")
+![Workshop day 2](/workshop.jpg "The NLN–KBNL workshop")
