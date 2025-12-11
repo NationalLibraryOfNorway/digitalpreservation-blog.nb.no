@@ -8,18 +8,19 @@ I tillegg til kravet om en metadatafil i informasjonspakkene (SIP), krever Nasjo
 Metadatakravene bygger på [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), en internasjonal ISO-standard som er mye brukt innen arkiv, bibliotek og digitale samlinger. Dublin Core-standarden ble valgt fordi den er relativt enkel å forstå, lett å implementere, og er både fleksibel og utvidbar. Standarden er supplert med attributter i feltene for å gjøre metadataene mer strukturerte.
 
 De fleste metadataelementene er valgfrie, men det oppfordres til å fylle dem ut så grundig som mulig. Dette gir bedre søkbarhet og forståelse av ressursene – også i et langtidsperspektiv.
+ 
+<br>
 
-For å gjøre de avleverte pakkene mest mulig selvforklarende i et bevaringsperspektiv, og for å sikre kontroll med filformater, skrives i tillegg metadataene til en XML-fil etter mottak og legges ved arkivpakken (AIP). XML er velegnet for langtidsbevaring. Formatet er åpent, utbredt i bruk og et velkjent utvekslingsformat for metadata. For bevaring er det en fordel at formatet er tekstbasert og lesbart for både maskiner og mennesker. 
-<br><br>
 ### Generelle retningslinjer for bruk av standarder 
 Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.<br>
 [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) brukes som standard for angivelse av tid/dato.<br>
 [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) brukes for angivelse av land.
 <br><br>
-### Metadataelementer 
-<br>
-1. 
+
+## Metadataelementer 
+
+### Type
 
 | Navn         | **Type**                                                                     |
 |:--------------|:------------------------------------------------------------------------------|
@@ -52,8 +53,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 }
 }
 ``` 
-<br>
-2. 
+### Identifier 
 
 | Navn         | **Identifier**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -89,8 +89,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-<br>
-3. 
+### Title
 
 | Navn         | **Title**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -128,8 +127,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 }
 }
 ```
-<br>
-4. 
+### Alternative 
 
 | Navn         | **Alternative**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -161,8 +159,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-<br>
-5. 
+### Creator  
 
 | Navn         | **Creator**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -222,8 +219,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-<br>
-1.  
+### Contributor   
 
 | Navn         | **Contributor**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -271,8 +267,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-<br>
-1.  
+### Publisher   
 
 | Navn         | **Publisher**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -307,8 +302,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-<br>
-8.  
+### Spatial   
 
 | Navn         | **Spatial**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -357,8 +351,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-<br>
-9.  
+### Date  
 
 | Navn         | **Date**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -396,8 +389,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-<br>
-10.   
+### Language   
 
 | Navn         | **Language**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -436,8 +428,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-<br>
-11.  
+### Relation   
 
 | Navn         | **Relation**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -497,8 +488,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 }
 ```
 
-<br>
-12.   
+### Provenance     
 
 | Navn         | **Provenance**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -521,8 +511,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 ]
 }
 ```
-<br>
-13.  
+### Subject   
 
 | Navn         | **Subject**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -580,8 +569,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 }
 ```
 
-<br>
-14.   
+### Description    
 
 | Navn         | **Description**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -606,7 +594,9 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 ]
 }
 ```
-<br> **Eksempel som inneholder alle metadataelementene:**
+<br> 
+
+**Eksempel som inneholder alle metadataelementene:**
 
 ```json
 {

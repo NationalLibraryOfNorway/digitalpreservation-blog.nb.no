@@ -7,11 +7,11 @@ weight: 1
 
 In addition to requiring a metadata file within the Submission Information Packages (SIPs), the National Library of Norway also requires a set of metadata submitted via the submission API. This ensures that a minimum level of metadata associated with the submitted representations is indexed and made searchable.
 
-The metadata requirements are based on Dublin Core, an international ISO standard widely used in archives, libraries, and digital collections. Dublin Core was chosen because it is relatively easy to understand, simple to implement, and both flexible and extensible. To make the metadata more structured, the standard are supplemented with attributes.
+The metadata requirements are based on [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), an international ISO standard widely used in archives, libraries, and digital collections. Dublin Core was chosen because it is relatively easy to understand, simple to implement, and both flexible and extensible. To make the metadata more structured, the standard are supplemented with attributes.
 
 Most metadata elements are optional, but it is strongly recommended to provide as complete metadata as possible. This enhances searchability and improves the long-term understanding and usability of the resources.
 
-To make the deposited packages as self-contained as possible from a preservation perspective —and to ensure control over file formats, the metadata also will be included in an XML file attached to the Archival Information Package (AIP). XML is well-suited for long-term preservation: it is an open format, widely used, and a well-established standard for metadata exchange. Its text-based structure makes it readable by both machines and humans, which is a significant advantage for preservation purposes.
+
 
 <br>
 
@@ -23,9 +23,9 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 
 <br><br>
 
-### Metadataelements
-<br>
-1.
+## Metadataelements
+
+### Type
 
 
 | Name         | **Type**                                                                     |
@@ -60,8 +60,8 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 }
 }
 ``` 
-<br>
-2. 
+
+### Identifier  
 
 | Name        | **Identifier**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -98,8 +98,8 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ]
 }
 ```
-<br>
-3. 
+
+### Title 
 
 | Name         | **Title**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -137,8 +137,8 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 }
 }
 ```
-<br>
-4. 
+
+### Alternative 
 
 | Name         | **Alternative**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -171,8 +171,8 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ]
 }
 ```
-<br>
-5. 
+
+### Creator 
 
 | Name         | **Creator**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -236,8 +236,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ]
 }
 ```
-<br>
-1.  
+### Contributor 
 
 | Name         | **Contributor**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -286,8 +285,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ]
 }
 ```
-<br>
-7.  
+### Publisher  
 
 | Name         | **Publisher**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -322,8 +320,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ]
 }
 ```
-<br>
-8.  
+### Spatial 
 
 | Name         | **Spatial**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -373,8 +370,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ]
 }
 ```
-<br>
-9.  
+### Date 
 
 | Name         | **Date**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -412,8 +408,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ]
 }
 ```
-<br>
-10.   
+### Language     
 
 | Name         | **Language**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -452,8 +447,7 @@ Punctuation and character encoding for field input should follow [UTF-8](https:/
 ]
 }
 ```
-<br>
-11.   
+### Relation   
 
 | Name        | **Relation**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -513,8 +507,7 @@ If other terms are used for the type attribute, they should be meaningful to the
 }
 ```
 
-<br>
-12.   
+### Provenance   
 
 | Name         | **Provenance**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -537,8 +530,7 @@ If other terms are used for the type attribute, they should be meaningful to the
 ]
 }
 ```
-<br>
-13.  
+### Subject  
 
 | Name         | **Subject**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -596,8 +588,7 @@ If other terms are used for the type attribute, they should be meaningful to the
 }
 ```
 
-<br>
-14.   
+### Description    
 
 | Name         | **Description**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -620,7 +611,9 @@ If other terms are used for the type attribute, they should be meaningful to the
 ]
 }
 ```
-<br> **Example containing all the metadata elements:**
+<br> 
+
+**Example containing all the metadata elements:**
 
 ```json
 {
