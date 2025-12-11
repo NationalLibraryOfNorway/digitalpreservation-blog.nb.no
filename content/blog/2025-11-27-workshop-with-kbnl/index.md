@@ -8,11 +8,11 @@ authors:
   - name: Trond Teigen
     image: /apple-touch-icon.png 
 images:
-  - kbnl-logo1.jpg
+  - /kbnl-logo1.jpg
 ---
 Last week, three colleagues from the KB, National Library of the Netherlands (KBNL), visited the Digital Preservation Team at the National Library of Norway (NLN).
 
-![Picture of the guests](KBNL.jpg "Guests from KBNL: Inge Hofsink, Richard Ligtenberg og Lonneke Smit")
+![Picture of the guests](/KBNL.jpg "Guests from KBNL: Inge Hofsink, Richard Ligtenberg og Lonneke Smit")
 
 ## Workshop with KBNL
 Over the course of two days, we had a tightly packed schedule, starting with a guided tour of the National Library’s facilities.
