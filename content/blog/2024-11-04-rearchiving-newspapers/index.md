@@ -44,7 +44,7 @@ The National Library’s digital newspaper collection comes from three sources:
 
 Newspapers can vary greatly in size and number of pages, depending on the publicised era and publication format.
 
-![A photo of a newspaper pages being turned as part of digitization](avisdigitalisering.jpg)
+![A photo of a newspaper pages being turned as part of digitization](/avisdigitalisering.jpg)
 
 For almost 20 years, the National Library has systematically digitized and received digital newspapers on a large scale. The methods for doing this have evolved over time. This means that newspapers digitized or received 20 years ago were packaged and archived differently than the newspapers being digitized today.
 

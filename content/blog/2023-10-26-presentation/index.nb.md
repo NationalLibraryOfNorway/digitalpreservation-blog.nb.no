@@ -8,7 +8,6 @@ authors:
     image: /apple-touch-icon.png
 images: 
   - cover.nb.png
-aliases: ["/nb/about"]
 breadcrumbs: false
 ---
 

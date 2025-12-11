@@ -8,11 +8,11 @@ authors:
   - name: Trond Teigen
     image: /apple-touch-icon.png 
 images:
-  - kbnl-logo1.nb.jpg
+  - kbnl-logo1.jpg
 ---
 I forrige uke hadde Team Digital Bevaring i NB besøk av 3 kollegaer fra Kongelige bibliotek i Nederland (KBNL).
 
-![Bilde av gjestene](KBNL.nb.jpg "Gjestene fra KBNL: Inge Hofsink, Richard Ligtenberg og Lonneke Smit")
+![Bilde av gjestene](/KBNL.jpg "Gjestene fra KBNL: Inge Hofsink, Richard Ligtenberg og Lonneke Smit")
 
 ## Workshop med KBNL
 Over to dager hadde vi et tettpakket program der vi startet med en grundig omvisning for våre gjester.
@@ -26,4 +26,4 @@ Det ble også fokusert på erfaringer med bruk av metadatastandarder som Dublin 
 
 Siste del av workshopen ble brukt til å diskutere organisatoriske utfordringer knyttet til arbeidet med digital bevaring. Hvordan kan vi sikre at institusjonene holder et kontinuerlig fokus på digital bevaring? Hva skal til for at forutsigbare rammebetingelser kan etableres til støtte for dette arbeidet? Kan vi unngå å etterlate oss en digital mørketid? Her kom det fram mange interessante og nyttige betraktninger. Dette vil vi komme tilbake til i en senere blogpost på [Digital Bevaring ved Nasjonalbiblioteket.](http://www.digitalbevaring.no/)
 
-![Workshop dag 2](workshop.nb.jpg "Workshopen mellom NB og KBNL")
+![Workshop dag 2](workshop.jpg "Workshopen mellom NB og KBNL")

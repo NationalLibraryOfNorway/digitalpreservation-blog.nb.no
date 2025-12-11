@@ -1,6 +1,6 @@
 ---
-title: Prinsipper
-description: "Prinsipper for digital bevaring ved Nasjonalbiblioteket"
+linkTitle: Prinsipper
+title: "Prinsipper for digital bevaring i Nasjonalbiblioteket"
 weight: 1
 date: 2023-09-26
 lastmod: 2025-05-21

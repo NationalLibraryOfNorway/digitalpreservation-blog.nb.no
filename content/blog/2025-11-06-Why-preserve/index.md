@@ -13,7 +13,7 @@ images:
 
 [World Digital Preservation Day](https://www.dpconline.org/events/world-digital-preservation-day) is an annual event held on the first Thursday of November. The event is organized by the [Digital Preservation Coalition](https://www.dpconline.org/) (DPC), and the day features events, campaigns, and the sharing of experiences worldwide. Its goal is to highlight both the value and the challenges of long-term preservation of digital data. This year’s theme is *Why preserve?* 
 
-![This year's logo for World digital preservation day](WDPD_2025.png )
+![This year's logo for World digital preservation day](/WDPD_2025.png )
 
 ## Why digital preservation at the National Library of Norway?
 

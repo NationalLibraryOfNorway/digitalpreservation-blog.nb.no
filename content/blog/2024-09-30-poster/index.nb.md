@@ -20,12 +20,12 @@ Den positive siden er at vi dermed ikke lenger trenger å spare den til konferan
 
 
 ## Norsk versjon
-[![Norwegian language digital preservation poster](2023-03-05-digital-bevaring-horisontal.jpg "Klikk på bildet for full oppløsning (16 MB)")](2023-03-05-digital-bevaring-horisontal.jpg)
+[![Norskspråklig plakat om digital bevaring](/2023-03-05-digital-bevaring-horisontal.jpg "Klikk på bildet for full oppløsning")](/blog/2024-09-30-poster/2023-03-05-digital-bevaring-horisontal.jpg)
 
 PDF i full oppløsning (16 MB) kan lastes ned [her](/blog/2024-09-30-poster/2023-03-05-digital-bevaring-horisontal.pdf). 
 
 
 ## Engelsk versjon
-[![English language digital preservation poster](2023-10-04-digital-preservation-vector.jpg "click the image for full resolution")](/blog/2024-09-30-poster/2023-10-04-digital-preservation-vector.jpg)
+[![English language digital preservation poster](/2023-10-04-digital-preservation-vector.jpg "click the image for full resolution")](/blog/2024-09-30-poster/2023-10-04-digital-preservation-vector.jpg)
 
 PDF i full oppløsning (16 MB) kan lastes ned [her](/blog/2024-09-30-poster/2023-10-04-digital-preservation-vector.pdf). 

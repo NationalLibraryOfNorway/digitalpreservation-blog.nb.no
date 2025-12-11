@@ -41,7 +41,7 @@ Work began in autumn 2024 with mapping and preparation. The actual rearchiving b
 
 By combining automation with targeted manual reviews, we significantly increased efficiency. Daily processing capacity rose from 25 to over 40 terabytes.
 
-![Rearchiving per day in TeraBytes](datavolume.jpg "Overview of data volume rearchived per day. 1 TB = 1 GB")
+![Rearchiving per day in TeraBytes](/datavolume.jpg "Overview of data volume rearchived per day. 1 TB = 1 GB")
 
 ## Findings and Anomalies
 
@@ -62,7 +62,7 @@ This project showed that when preserving large volumes of data over the long ter
 
 By using Apache NiFi for data flow and the E-ARK standard for archival packaging, we developed a scalable, reusable solution for future preservation efforts. 
 
-## In Conclusion 
+## In Conclusion
 
 Television is a central part of our shared memory. By securing and structuring this material for the future, we enable tomorrow’s researchers, journalists, and the public to understand how Norway has evolved—hour by hour. 
 

@@ -1,6 +1,6 @@
 ---
-title: Principles
-description: "Translation of the principles for digital preservation at the National Library of Norway"
+linkTitle: Principles
+title: "Principles for digital preservation at the National Library of Norway"
 weight: 1
 date: 2023-09-26
 lastmod: 2025-05-21

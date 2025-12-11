@@ -1,6 +1,6 @@
 # Hugo configuration file
 baseURL: "https://digitalpreservation.no/"
-title: "NLN Digipres"
+title: "NLN Digital preservation"
 
 enableRobotsTXT: true
 enableGitInfo: true
@@ -45,8 +45,18 @@ menu:
     #   url: "https://github.com/NationalLibraryOfNorway/digitalpreservation-blog.nb.no"
     #   params:
     #     icon: github
-    - name: NB.no ↗
+    - name: Theme
       weight: 6
+      params:
+        type: theme-toggle
+    - name: Language-switch
+      weight: 7
+      params:
+          type: language-switch
+          label: true
+          icon: "globe-alt"
+    - name: NB.no ↗
+      weight: 8
       url: "https://nb.no/"
 
 defaultContentLanguage: en
@@ -61,13 +71,14 @@ languages:
 
 params:
   navbar:
-    width: full
     displayTitle: true
     displayLogo: true
     logo:
       path: images/NB-svart.svg
       dark: images/NB-hvit.svg
       width: 25
+
+  externalLinkDecoration: true
 
   page:
     width: full
@@ -88,8 +99,6 @@ params:
   theme:
     default: system
     displayToggle: true
-    toggle:
-      displayText: false
 
   blog:
     list:
