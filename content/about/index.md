@@ -15,14 +15,14 @@ The team is a members of the [Digital Preservation Coalition](https://www.dpconl
 The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page about Digital Preservation at NLN") team consist of 8 members:
 
 {{< cards cols="6" minWidth="120px" >}}
-  {{< card link="/" title="Trond Teigen" image="images/team/trond.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Team lead" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Torbjørn Bakken Pedersen" image="images/team/torbjorn.jpeg" link="https://www.linkedin.com/in/torbjørn-pedersen-57617b227b" subtitle="Product lead" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Thomas Edvardsen" image="images/team/thomas.jpeg" link="https://www.linkedin.com/in/thomasedvardsen" subtitle="Tech lead" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Vigdis Marie Sørensen" image="images/team/vigdis.jpeg" link="https://www.linkedin.com/in/vigdis-sørensen-8a3618a6" subtitle="Senior platform developer" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Siarhei Kulakou" image="images/team/siarhei.jpeg" link="https://www.linkedin.com/in/siarhei-kulakou-0702ba245" subtitle="Application developer" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Johannes Karlsen" image="images/team/johannes2.0.jpg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Application developer" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Lise-Lotte Melkild" image="images/team/LiseLotte.jpg" link="" subtitle="Metadata specialist" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra.jpg" link="" subtitle="Metadata specialist" method="Resize" options="250x q85 webp" >}}
+  {{< card link="/" title="Trond Teigen" image="images/team/trond-Small.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Team lead" method="Resize" options="250x q85 webp" >}}
+  {{< card link="/" title="Torbjørn Bakken Pedersen" image="images/team/torbjorn-Small.jpeg" link="https://www.linkedin.com/in/torbjørn-pedersen-57617b227b" subtitle="Product lead" >}}
+  {{< card link="/" title="Thomas Edvardsen" image="images/team/thomas-Small.jpeg" link="https://www.linkedin.com/in/thomasedvardsen" subtitle="Tech lead" >}}
+  {{< card link="/" title="Vigdis Marie Sørensen" image="images/team/vigdis-Small.jpeg" link="https://www.linkedin.com/in/vigdis-sørensen-8a3618a6" subtitle="Senior platform developer" >}}
+  {{< card link="/" title="Siarhei Kulakou" image="images/team/siarhei-Small.jpeg" link="https://www.linkedin.com/in/siarhei-kulakou-0702ba245" subtitle="Application developer" >}}
+  {{< card link="/" title="Johannes Karlsen" image="images/team/johannes2.0-Small.jpeg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Application developer" >}}
+  {{< card link="/" title="Lise-Lotte Melkild" image="images/team/LiseLotte-Small.jpeg" link="" subtitle="Metadata specialist" >}}
+  {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra-Small.jpeg" link="" subtitle="Metadata specialist" >}}
 {{< /cards >}}
 
 This team reports to a committee of leaders responsible for this area in the National Library. The members are:

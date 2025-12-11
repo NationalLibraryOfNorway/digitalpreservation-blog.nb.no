@@ -16,14 +16,14 @@ Teamet er medlem av [Digital Preservation Coalition (DPC)](https://www.dpconline
 Team digital bevaring består i dag av 8 medlemmer:
 
 {{< cards cols="6" minWidth="120px" >}}
-  {{< card link="/" title="Trond Teigen" image="images/team/trond.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Teamleder" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Torbjørn Bakken Pedersen" image="images/team/torbjorn.jpeg" link="https://www.linkedin.com/in/torbjørn-pedersen-57617b227b" subtitle="Produktleder" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Thomas Edvardsen" image="images/team/thomas.jpeg" link="https://www.linkedin.com/in/thomasedvardsen" subtitle="Techleder" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Vigdis Marie Sørensen" image="images/team/vigdis.jpeg" link="https://www.linkedin.com/in/vigdis-sørensen-8a3618a6" subtitle="Senior platformutvikler" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Siarhei Kulakou" image="images/team/siarhei.jpeg" link="https://www.linkedin.com/in/siarhei-kulakou-0702ba245" subtitle="Applikasjonsutvikler" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Johannes Karlsen" image="images/team/johannes2.0.jpg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Applikasjonsutvikler" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Lise-Lotte Melkild" image="images/team/LiseLotte.jpg" link="" subtitle="Metadataspesialist" method="Resize" options="250x q85 webp" >}}
-  {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra.jpg" link="" subtitle="Metadataspesialist" method="Resize" options="250x q85 webp" >}}
+  {{< card link="/" title="Trond Teigen" image="images/team/trond-Small.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Teamleder"  >}}
+  {{< card link="/" title="Torbjørn Bakken Pedersen" image="images/team/torbjorn-Small.jpeg" link="https://www.linkedin.com/in/torbjørn-pedersen-57617b227b" subtitle="Produktleder" >}}
+  {{< card link="/" title="Thomas Edvardsen" image="images/team/thomas-Small.jpeg" link="https://www.linkedin.com/in/thomasedvardsen" subtitle="Techleder" >}}
+  {{< card link="/" title="Vigdis Marie Sørensen" image="images/team/vigdis-Small.jpeg" link="https://www.linkedin.com/in/vigdis-sørensen-8a3618a6" subtitle="Senior platformutvikler" >}}
+  {{< card link="/" title="Siarhei Kulakou" image="images/team/siarhei-Small.jpeg" link="https://www.linkedin.com/in/siarhei-kulakou-0702ba245" subtitle="Applikasjonsutvikler" >}}
+  {{< card link="/" title="Johannes Karlsen" image="images/team/johannes2.0-Small.jpeg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Applikasjonsutvikler" >}}
+  {{< card link="/" title="Lise-Lotte Melkild" image="images/team/LiseLotte-Small.jpeg" link="" subtitle="Metadataspesialist" >}}
+  {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra-Small.jpeg" link="" subtitle="Metadataspesialist" >}}
 {{< /cards >}}
 
 Teamet svarer til en eiergruppe bestående av:
