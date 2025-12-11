@@ -70,12 +70,9 @@ languages:
     title: NB Digital bevaring
 
 params:
-  analytics:
-    goatCounter:
-      code: digitalpreservation-blog-nb
-      
   images:
     - images/opengraph.webp
+    
   navbar:
     displayTitle: true
     displayLogo: true
