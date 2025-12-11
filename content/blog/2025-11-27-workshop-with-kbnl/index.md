@@ -1,7 +1,7 @@
 ---
 title: "Workshop with KBNL"
 date: 2025-11-27
-description: "Last week, three colleagues from the Royal Library of the Netherlands (KBNL) visited the Digital Preservation Team at the National Library of Norway (NLN)."
+description: "Last week, three colleagues from the KB, National Library of the Netherlands, visited the Digital Preservation Team at the National Library of Norway (NLN)."
 tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, National library of the Netherlands, Nationale bibliotheek, workshop"]
 draft: false
 authors: 
@@ -10,9 +10,9 @@ authors:
 images:
   - kbnl-logo1.jpg
 ---
-Last week, three colleagues from the Royal Library of the Netherlands (KBNL) visited the Digital Preservation Team at the National Library of Norway (NLN).
+Last week, three colleagues from the KB, National Library of the Netherlands (KBNL), visited the Digital Preservation Team at the National Library of Norway (NLN).
 
-![Picture of the guests](KBNL.jpg "Guests from KBNL: Inge Hofsink, Richard Lichtenberg og Lonneke Smit")
+![Picture of the guests](KBNL.jpg "Guests from KBNL: Inge Hofsink, Richard Ligtenberg og Lonneke Smit")
 
 ## Workshop with KBNL
 Over the course of two days, we had a tightly packed schedule, starting with a guided tour of the National Library’s facilities.
@@ -25,4 +25,4 @@ NLN presented the architecture of our Digital Preservation System (DPS) and its 
 
 The final part of the workshop was devoted to discussing organisational challenges related to digital preservation work. How can we ensure that institutions keep a continuous focus on digital preservation? How can predictable framework conditions be established to sustain this work? Can we avoid leaving behind a period of digital dark age? Many interesting and valuable reflections emerged. We will return to this topic in a later blog post on [Digital preservation at the National Library of Norway.](https://digitalpreservation.no/)
 
-![Workshop day 2](workshop.jpg "The NB–KBNL workshop")
+![Workshop day 2](workshop.jpg "The NLN–KBNL workshop")
