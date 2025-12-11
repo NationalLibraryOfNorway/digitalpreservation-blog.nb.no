@@ -3,46 +3,46 @@ title: Krav til metadata
 weight: 1
 ---
 
-I tillegg til kravet om en metadatafil i informasjonspakkene (SIP), krever Nasjonalbiblioteket at et sett med metadata også leveres via submission-API-et ved avlevering. Dette skal sikre at et minimum av metadata knyttet til de avleverte representasjonene blir indeksert og søkbare.
+I tillegg til kravet om en metadatafil i informasjonspakkene (SIP), krever Nasjonalbiblioteket at et sett med metadata også leveres via submission-API-et ved avlevering. 
+Dette skal sikre at et minimum av metadata knyttet til de avleverte representasjonene blir indeksert og søkbare.
 
-Metadatakravene bygger på [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), en internasjonal ISO-standard som er mye brukt innen arkiv, bibliotek og digitale samlinger. Dublin Core-standarden ble valgt fordi den er relativt enkel å forstå, lett å implementere, og er både fleksibel og utvidbar. Standarden er supplert med attributter i feltene for å gjøre metadataene mer strukturerte.
+Metadatakravene bygger på [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), en internasjonal ISO-standard som er mye brukt innen arkiv, bibliotek og digitale samlinger. 
+Dublin Core-standarden ble valgt fordi den er relativt enkel å forstå, lett å implementere, og er både fleksibel og utvidbar. 
+Standarden er supplert med attributter i feltene for å gjøre metadataene mer strukturerte.
 
-De fleste metadataelementene er valgfrie, men det oppfordres til å fylle dem ut så grundig som mulig. Dette gir bedre søkbarhet og forståelse av ressursene – også i et langtidsperspektiv.
- 
-<br>
+De fleste metadataelementene er valgfrie, men det oppfordres til å fylle dem ut så grundig som mulig. 
+Dette gir bedre søkbarhet og forståelse av ressursene – også i et langtidsperspektiv.
 
-### Generelle retningslinjer for bruk av standarder 
-Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
-[ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.<br>
-[ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) brukes som standard for angivelse av tid/dato.<br>
-[ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) brukes for angivelse av land.
-<br><br>
+## Generelle retningslinjer for bruk av standarder
+- Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8).
+- [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+- [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) brukes som standard for angivelse av tid/dato.
+- [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) brukes for angivelse av land.
 
-## Metadataelementer 
+## Metadataelementer
 
 ### Type
 
 | Navn         | **Type**                                                                     |
-|:--------------|:------------------------------------------------------------------------------|
+|:-------------|:-----------------------------------------------------------------------------|
 | Beskrivelse  | Type ressurs/medietype. NB bruker et eget vokabular for tillatte medietyper.<br>Attributt `lang` BØR brukes for å definere språkkode. |
 | Krav         | MÅ                                                                           |
 | Kardinalitet | 1..1                                                                         | 
 
 **Retningslinjer for bruk:**
 
-- Tillatte typer for beskrive av ressursen: 
+Tillatte typer for å beskrive ressursen per medietype: 
 
-  **Tekst:** Bok, Avis, Tidsskrift, Artikkel, Småtrykk, Brev, Epost, Manuskript, Musikkmanuskript, Noter, Programrapport, Programstatistikk. 
-
-  **Bilder:** Bilde, Kart, Plakat, Postkort, Referansemateriale. 
-
-  **Lyd:** Lydbok, Musikk, Radio.
-
-  **Levende bilder:** Film, Fjernsyn.
+- **Tekst:** `Bok`, `Avis`, `Tidsskrift`, `Artikkel`, `Småtrykk`, `Brev`, `Epost`, `Manuskript`, `Musikkmanuskript`, `Noter`, `Programrapport`, `Programstatistikk`. 
+- **Bilder:** `Bilde`, `Kart`, `Plakat`, `Postkort`, `Referansemateriale`. 
+- **Lyd:** ``Lydbok``, ``Musikk``, ``Radio``.
+- **Levende bilder:** `Film`, `Fjernsyn`.
 
  
-  Det vil være muligheter for å få lagt til medietyper ved behov.
-- Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+> [!TIP]
+> Det vil være muligheter for å få lagt til flere gyldige typer ved behov.
+
+Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
   
 **Eksempel:**
 ```json
@@ -53,7 +53,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 }
 }
 ``` 
-### Identifier 
+### Identifier
 
 | Navn         | **Identifier**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -63,10 +63,12 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- Eksempler på identifikatorer kan være URN, PID, URI til post i en katalog/metadatasystem, dokID, hefteID, eksemplarnummer, ISBN, ISSN, ISMN, ISNI, DOI, plateetikett etc. 
+Det MÅ defineres type identifikator. 
+Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
 
-- Det må defineres type identifikator. Bruk av type-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
-- Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+Eksempler på identifikatortyper kan være `URN`, `PID`, `URI` til post i en katalog/metadatasystem, `dokID`, `hefteID`, `eksemplarnummer`, `ISBN`, `ISSN`, `ISMN`, `ISNI`, `DOI`, `plateetikett` etc. 
+
+Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
 **Eksempler:**
 ```json
@@ -99,9 +101,13 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- En del ressurser har allerede en forhåndsdefinert tittel, som bøker, tidsskrift, artikler, malte verk, kunstfoto osv. Der tittel mangler er anbefalt praksis å gi ressursen en “meningsbærende” tittel. Med meningsbærende menes noe som gir mening for gjenkjennelse og identifikasjon av ressursen (navn som gir mening for avleverer). 
+Alle pakker MÅ ha en tittel.
 
-- Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes. 
+En del ressurser har allerede en forhåndsdefinert tittel, som bøker, tidsskrift, artikler, malte verk, kunstfoto osv. 
+Der tittel mangler er anbefalt praksis å gi ressursen en “meningsbærende” tittel. 
+Med meningsbærende menes noe som gir mening for gjenkjennelse og identifikasjon av ressursen (navn som gir mening for avleverer). 
+
+Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes. 
 
 **Eksempler:**
 ```json
@@ -127,7 +133,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 }
 }
 ```
-### Alternative 
+### Alternative
 
 | Navn         | **Alternative**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -137,15 +143,17 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- For å bedre muligheter for søk på tittel anbefales det å legge til alternativ tittel der tittelen inneholder tall og/eller spesialtegn, eller der tall opprinnelig er skrevet som tekst. 
-  Eksempler:
-  <br> `title`: 1-2-3 Matematikk = `alternative`: en to tre matematikk.
-  <br> `title`: Kari & Bjarne på fisketur = `alternative`: Kari og Bjarne på fisketur. 
-  <br> `title`: Tusen fjelltopper = `alternative`: 1000 fjelltopper.  
+For å bedre muligheter for søk på tittel anbefales det å legge til alternativ tittel der tittelen inneholder tall og/eller spesialtegn, eller der tall opprinnelig er skrevet som tekst. 
 
-- Det kreves forklaring til hvilken type tittel som oppgis. Bruk av type-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).
+Eksempler:
+- `title`: 1-2-3 Matematikk = `alternative`: en to tre matematikk.
+- `title`: Kari & Bjarne på fisketur = `alternative`: Kari og Bjarne på fisketur. 
+- `title`: Tusen fjelltopper = `alternative`: 1000 fjelltopper.  
 
-- Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes. 
+Den alterantive tittelen MÅ ha en type, for å beskrive hva slags type tittel som oppgis. 
+Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).
+
+Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes. 
 
 **Eksempel:**
 ```json
@@ -159,7 +167,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-### Creator  
+### Creator
 
 | Navn         | **Creator**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -169,20 +177,32 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- Det anbefales bruk av autoritetsregister i de tilfeller dette finnes, både for personnavn og korporasjoner. Det må oppgis hvilket autoritetsregister som er benyttet. Et eksempel på autoritetsregister er [Felles autoritetsregister for personer og korporasjoner](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/).
+Det anbefales å referere til autoritetsregistre når relevante slik eksisterer, både for personnavn og korporasjoner. 
+Det må oppgis hvilket autoritetsregister som er benyttet. 
+Et eksempel på autoritetsregister er [Felles autoritetsregister for personer og korporasjoner](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/).
 
-- Creator identiseres i tillegg ved å skrives ut i sin fulle form (navn, etternavn/korporasjon). Fødselsår - dødsår kan legges til bak navnet i parentes. Eksempler: *Nesbø, Jo (1960-  ), Shakespeare, William (1564-1616)*. 
+Creator identiseres i tillegg ved å skrives ut i sin fulle form (navn, etternavn/korporasjon). 
+Fødselsår - dødsår kan legges til bak navnet i parentes. 
+Eksempler: 
+*Nesbø, Jo (1960-  ), Shakespeare, William (1564-1616)*. 
 
-- Det bør oppgis om det er snakk om personnavn eller korporasjon. Dette er løst på ulike måter i ulike metadatakataloger og autoritetsregistre. Foreløpig er disse verdiene tillat for angivelse av navn/korporasjon (type), men det er mulig å få lagt til flere typer ved behov: *Person, Organization, Personal Name, Corporate Name, Meeting Name* (konferanse), *Uniform Title* (traktat, kontrakt).  
+Det bør oppgis om det er snakk om personnavn eller korporasjon. 
+Dette er løst på ulike måter i ulike metadatakataloger og autoritetsregistre.
+Foreløpig er disse verdiene tillat for angivelse av navn/korporasjon (type), men det er mulig å få lagt til flere typer ved behov: 
+`Person`, `Organization`, `Personal Name`, `Corporate Name`, `Meeting Name` (konferanse), `Uniform Title`  (traktat, kontrakt).  
 
-- Det bør oppgis hvilken rolle (role) navn/korporasjoner har. Eksempler på roller er: forfatter, komponist, filmregissør, fotograf, skaper etc. 
+Det bør oppgis hvilken rolle (role) navn/korporasjoner har. 
+Eksempler på roller er: 
+`forfatter`, `komponist`, `filmregissør`, `fotograf`, `skaper etc. 
 
-- Bruk av role-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
-- Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
-- Forklaring til bruk av *authority*-informasjon:<br> 
-  **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.<br>
-  **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.<br>
-  **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.<br>
+Bruk av role-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
+
+Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+
+Forklaring til bruk av *authority*-informasjon: 
+- **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
+- **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
+- **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempler:**
 ```json
@@ -219,7 +239,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-### Contributor   
+### Contributor
 
 | Navn         | **Contributor**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -229,8 +249,10 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- Regler for utfylling av Contributor-feltet er de samme som Creator-feltet. Eksempler på roller for Contributor kan være: bidragsyter, avbildet, illustratør, modell, redaktør, designer etc.  
-- Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+Regler for utfylling av Contributor-feltet er de samme som Creator-feltet. 
+Eksempler på roller for Contributor kan være: `bidragsyter`, `avbildet`, `illustratør`, `modell`, `redaktør`, `designer` etc.  
+
+Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
 
 **Eksempler:**
@@ -267,7 +289,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-### Publisher   
+### Publisher
 
 | Navn         | **Publisher**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -277,13 +299,20 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- Det anbefales å bruke autoritetsregister hvis det finnes. Det må oppgis hvilket autoritetsregister som er benyttet, og hvilken type autoritet det er (type): *Person, Organization, Personal Name, Corporate Name, Meeting Name* (konferanse), *Uniform Title* (traktat, kontrakt). Ved bruk av autoritetsregister bør utgiver i tillegg skrives ut i sin fulle form. Sted og/eller år for utgivelse kan legges til i parantes bak navnet. Eksempel: Nasjonalbiblioteket (Oslo, 1984). 
+Det anbefales å bruke autoritetsregister hvis det finnes. 
+Det MÅ oppgis hvilket autoritetsregister som er benyttet, og hvilken type autoritet det er (type): 
+`Person`, `Organization`, `Personal Name`, `Corporate Name`, `Meeting Name` (konferanse), `Uniform Title`  (traktat, kontrakt). 
+Ved bruk av autoritetsregister bør utgiver i tillegg skrives ut i sin fulle form.
+Sted og/eller år for utgivelse kan legges til i parantes bak navnet. 
+Eksempel: 
+Nasjonalbiblioteket (Oslo, 1984). 
   
-- Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
-- Forklaring til bruk av *authority*-informasjon:<br> 
-  **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.<br>
-  **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.<br>
-  **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.<br>
+Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+
+Forklaring til bruk av *authority*-informasjon:
+- **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
+- **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
+- **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempel:**
 ```json
@@ -302,7 +331,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-### Spatial   
+### Spatial
 
 | Navn         | **Spatial**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -312,21 +341,27 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- Bruk [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) for angivelse av land. Landekoder skrives bak landet i parentes (NO). 
+Bruk [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) for angivelse av land. Landekoder skrives bak landet i parentes (NO). 
 
-- Vi anbefaler bruk av stedsnavstjenester/registre for angivelse av norske stedsnavn. Et eksempel er [Sentralt stedsnavnregister](https://www.kartverket.no/api-og-data/stedsnavndata) (SSR) fra kartverket. Det må oppgis hvilket register som er benyttet.  
+Vi anbefaler bruk av stedsnavstjenester/registre for angivelse av norske stedsnavn. 
+Et eksempel er [Sentralt stedsnavnregister](https://www.kartverket.no/api-og-data/stedsnavndata) (SSR) fra kartverket. Det MÅ oppgis hvilket register som er benyttet.  
 
-- Ved bruk av autoritetsregistre for å angi Spatial, bør man skrive plassering/navn i sin fulle form i tillegg. Brukes ikke register, skrives plassering/navn fortrinnsvis land;region/fylke;kommune;sted;gate;. 
+Ved bruk av autoritetsregistre for å angi Spatial, bør man skrive plassering/navn i sin fulle form i tillegg. 
+Brukes ikke register, skrives plassering/navn fortrinnsvis land;region/fylke;kommune;sted;gate;. 
 
-- Det er mulig å oppgi koordinater i form av lengde- og breddegrader. Det skal brukes på denne måten: `latitude`=61.85401 `longitude`=9.80856
+Det er mulig å oppgi koordinater i form av lengde- og breddegrader. 
+Det skal brukes på denne måten: 
+`latitude`=61.85401 `longitude`=9.80856
 
-- Eksempler på `type` sted kan være utgiversted, innspillingssted, handlingssted, trykkested, fødested osv. Bruk av type-attributt her bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).  
+Eksempler på `type` sted kan være `utgiversted`, `innspillingssted`, `handlingssted`, `trykkested`, `fødested` osv. 
+Bruk av `type`-attributt her bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).  
 
-- Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
-- Forklaring til bruk av *authority*-informasjon:<br> 
-  **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.<br>
-  **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.<br>
-  **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.<br>
+Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+
+Forklaring til bruk av *authority*-informasjon: 
+- **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
+- **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
+- **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempel:**
 ```json
@@ -351,7 +386,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-### Date  
+### Date
 
 | Navn         | **Date**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -361,11 +396,13 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- Det må angis type årstall + årstall/verdi. [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) brukes som standard.  
+Det må angis type årstall + årstall/verdi. 
+[ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) brukes som standard.  
 
-- Bruke av type-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
+Bruke av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
 
-- Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+Språkkode bør angis. 
+[ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
 **Eksempler:**
 ```json
@@ -389,7 +426,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-### Language   
+### Language
 
 | Navn         | **Language**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -399,11 +436,12 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+[ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
-- Det må angis type for hva språket representerer. Eksempler på type som språket representerer kan være undertekster, talespråk, skriftspråk etc.  
+Det må angis type for hva språket representerer. 
+Eksempler på type som språket representerer kan være undertekster, talespråk, skriftspråk etc.  
 
-- Bruk av type-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
+Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
 
 **Eksempler:**
 ```json
@@ -428,7 +466,7 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 ]
 }
 ```
-### Relation   
+### Relation
 
 | Navn         | **Relation**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -438,18 +476,19 @@ Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8). <br>
 
 **Retningslinjer for bruk:**
 
-- Bruk av attributter kan varieres, men det kreves alltid bruk av `type` OG `title` eller `id`.
+Bruk av attributter kan varieres, men det kreves alltid bruk av `type` OG `title` eller `id`.
 
-- Attributt `title` angir tittel på relatert ressurs. 
+Attributt `title` angir tittel på relatert ressurs. 
 
-- Attributt `type` angir hvilken type relasjon det er mellom ressurser. Bruk av termer fra Dublin Core anbefales (conformsTo, hasFormat, hasPart, hasVersion, isFormatOf, isPartOf, isReferencedBy, isReplacedBy, isRequiredBy, isVersionOf, references, replaces, requires). 
+Attributt `type` angir hvilken type relasjon det er mellom ressurser. 
+Bruk av termer fra Dublin Core anbefales (`conformsTo`, `hasFormat`, `hasPart`, `hasVersion`, `isFormatOf`, `isPartOf`, `isReferencedBy`, `isReplacedBy`, `isRequiredBy`, `isVersionOf`, `references`, `replaces`, `requires`) 
 Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).
 
-- Eksempel på bruk av attributt `id` er henvisning til en seriepost, verkspost, eller andre ressurser i samme i serie/verk.
+Eksempel på bruk av attributt `id` er henvisning til en seriepost, verkspost, eller andre ressurser i samme i serie/verk.
 
-- Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nettside).  
+Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nettside).  
 
-- Språkkode bør angis (lang-attributt). [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+Språkkode bør angis (lang-attributt). [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
 **Eksempler:**
 ```json
@@ -488,7 +527,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 }
 ```
 
-### Provenance     
+### Provenance
 
 | Navn         | **Provenance**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -498,7 +537,8 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 
 **Retningslinjer for bruk:**
 
-- Språkkode bør angis (lang-attributt). [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+Språkkode bør angis (lang-attributt). 
+[ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
 **Eksempel:**
 ```json
@@ -511,7 +551,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 ]
 }
 ```
-### Subject   
+### Subject
 
 | Navn         | **Subject**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -521,17 +561,19 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 
 **Retningslinjer for bruk:**
 
-- Feltet brukes for å beskrive hva ressursen inneholder/handler om. Eksempler på dette er ord eller uttrykk som forteller noe om emne, tema, hendelser, landemerker, bygninger eller tidsperioder som har betydning for ressursen. 
+Feltet brukes for å beskrive hva ressursen inneholder/handler om. 
+Eksempler på dette er ord eller uttrykk som forteller noe om emne, tema, hendelser, landemerker, bygninger eller tidsperioder som har betydning for ressursen. 
 
-- Desimalklassifikasjon er også gyldige verdier.
+Desimalklassifikasjon er også gyldige verdier.
 
-- Det kan brukes henvisning til autoritetsregistre der det er relevant. Der det brukes autoritetsregister må emneord skrives i sin fulle form i tillegg.
+Det kan brukes henvisning til autoritetsregistre der det er relevant. Der det brukes autoritetsregister må emneord skrives i sin fulle form i tillegg.
 
-- Språkkode bør angis (lang-attributt). [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
-- Forklaring til bruk av *authority*-informasjon:<br> 
-  **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.<br>
-  **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.<br>
-  **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.<br>
+Språkkode bør angis (lang-attributt). [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+
+Forklaring til bruk av *authority*-informasjon: 
+- **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
+- **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
+- **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempler:**
 ```json
@@ -569,7 +611,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 }
 ```
 
-### Description    
+### Description
 
 | Navn         | **Description**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
@@ -579,9 +621,8 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 
 **Retningslinjer for bruk:**
 
-- Beskrivelsen kan inkludere, men er ikke begrenset til: et sammendrag, en innholdsfortegnelse, en grafisk representasjon eller en fritekst om ressursen. 
-
-- Språkkode bør angis (lang-attributt). [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+Språkkode bør angis (lang-attributt). 
+[ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
 **Eksempel:**
 ```json
