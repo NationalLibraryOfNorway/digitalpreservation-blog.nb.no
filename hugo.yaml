@@ -85,7 +85,7 @@ params:
   externalLinkDecoration: true
 
   page:
-    width: normal
+    width: wide
 
   footer:
     displayCopyright: false
