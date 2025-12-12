@@ -1,7 +1,7 @@
 ---
 title: "Workshop with KBNL"
 date: 2025-11-27
-description: "Last week, three colleagues from the KB, National Library of the Netherlands, visited the Digital Preservation Team at the National Library of Norway (NLN)."
+description: "On 18-19 november, three colleagues from the KB, National Library of the Netherlands, visited the Digital Preservation Team at the National Library of Norway (NLN)."
 tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, National library of the Netherlands, Nationale bibliotheek, workshop"]
 draft: false
 authors: 
@@ -10,7 +10,7 @@ authors:
 images:
   - /kbnl-logo1.jpg
 ---
-Last week, three colleagues from the KB, National Library of the Netherlands (KBNL), visited the Digital Preservation Team at the National Library of Norway (NLN).
+On 18-19 november, three colleagues from the KB, National Library of the Netherlands (KBNL), visited the Digital Preservation Team at the National Library of Norway (NLN).
 
 ![Picture of the guests](/KBNL.jpg "Guests from KBNL: Inge Hofsink, Richard Ligtenberg og Lonneke Smit")
 

@@ -1,7 +1,7 @@
 ---
 title: "Workshop med KBNL"
 date: 2025-11-27
-description: "I forrige uke hadde Team Digital Bevaring i NB besøk av 3 kollegaer fra Kongelige bibliotek i Nederland (KBNL)."
+description: "Den 18-19. november hadde Team Digital Bevaring i NB besøk av 3 kollegaer fra Kongelige bibliotek i Nederland (KBNL)."
 tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, National library of the Netherlands, Nationale bibliotheek, workshop"]
 draft: false  
 authors: 
@@ -10,7 +10,7 @@ authors:
 images:
   - kbnl-logo1.jpg
 ---
-I forrige uke hadde Team Digital Bevaring i NB besøk av 3 kollegaer fra Kongelige bibliotek i Nederland (KBNL).
+Den 18-19. november hadde Team Digital Bevaring i NB besøk av 3 kollegaer fra Kongelige bibliotek i Nederland (KBNL).
 
 ![Bilde av gjestene](/KBNL.jpg "Gjestene fra KBNL: Inge Hofsink, Richard Ligtenberg og Lonneke Smit")
 
