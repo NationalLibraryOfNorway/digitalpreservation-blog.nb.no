@@ -4,7 +4,7 @@ weight: 1
 Draft: false
 ---
 
-## Example file structure
+## Example SIP for images
 {{< filetree/container >}}
   {{< filetree/folder name="URN_bilde_1" >}}
     {{< filetree/folder name="metadata" state="closed" >}}

@@ -1,5 +1,5 @@
 ---
-title: Entity management architecture
+title: Entity management at the NLN
 summary: This post discusses high-level metadata and data handling at the National Library of Norway
 date: 2024-10-04
 tags: [System architecture, PREMIS, Intellectual entities, representations]

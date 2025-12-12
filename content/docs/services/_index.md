@@ -13,3 +13,9 @@ The majority of preserved data in the National Library is either:
 
 Currently, there are 29 such workflows processing data and sending packages to the DPS for long term digital preservation.
 Our internal SIP structuring policy thus needs to function and scale for all existing data workflows.
+
+
+{{< cards >}}
+  {{< card link="nln" title="Digital preservation at the NLN" icon="document-text" >}}
+  {{< card link="dps" title="DPS - Digital Preservation Services" icon="document-text" >}}
+{{< /cards >}}

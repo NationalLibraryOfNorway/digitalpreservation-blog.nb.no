@@ -1,5 +1,5 @@
 ---
-title: System domain architecture
+title: System domains at the NLN
 summary: This post discusses high-level metadata and data handling at the National Library of Norway
 date: 2024-09-30
 tags: [System architecture]

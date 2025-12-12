@@ -1,5 +1,5 @@
 ---
-title: Package scope and representations
+title: Package, representation and data scope
 weight: 1
 ---
 

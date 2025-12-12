@@ -3,7 +3,7 @@ title: Bilder
 weight: 1
 ---
 
-## Example file structure
+## Eksempel på SIP for bilder
 {{< filetree/container >}}
   {{< filetree/folder name="URN_bilde_1" >}}
     {{< filetree/folder name="metadata" state="closed" >}}

@@ -1,5 +1,5 @@
 ---
-title: Pakkeomfang og representasjoner
+title: Pakke-, representasjons- og dataomfang
 weight: 1
 ---
 

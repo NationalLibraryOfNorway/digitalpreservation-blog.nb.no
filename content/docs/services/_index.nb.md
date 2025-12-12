@@ -12,3 +12,9 @@ Mesteparten av dataene som bevares i Nasjonalbiblioteket er enten:
 I dag er det mange ulike produksjonsløyper som behandler og sender data til DPS for langsiktig bevaring.
 Retningslinjene for struktur av slike informasjonspakker til bevaring (SIP), må dekke både nåværende og fremtidige behov.
 Retningslinjene må legge til rette for forskjellige kompleksitetsnivåer, medietyper, og datavolumer i pakkene.
+
+
+{{< cards >}}
+  {{< card link="nln" title="Digital bevaring i NB" icon="document-text" >}}
+  {{< card link="dps" title="DPS - Digital Preservation Services" icon="document-text" >}}
+{{< /cards >}}

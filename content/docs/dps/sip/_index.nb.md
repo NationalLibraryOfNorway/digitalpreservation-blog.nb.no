@@ -12,3 +12,6 @@ Her finner du informasjon om:
 
 Disse dokumentene beskriver de tekniske kravene til hvordan informasjonspakker skal struktureres og beskrives ved levering til Nasjonalbiblioteket.
 
+{{< cards >}}
+  {{< card link="1.0" title="SIP 1.0 (E-ARK)" icon="document-text" >}} 
+{{< /cards >}}

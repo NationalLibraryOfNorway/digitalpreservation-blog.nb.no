@@ -1,5 +1,6 @@
 ---
 title: Team digital bevaring
+linkTitle: Om oss
 tags: [Team presentation, team organization, product teams]
 ---
 

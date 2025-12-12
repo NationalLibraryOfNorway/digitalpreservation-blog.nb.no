@@ -1,5 +1,6 @@
 ---
 title: Team Digital Preservation
+linkTitle: About
 tags: [Team presentation, team organization, product teams]
 ---
 

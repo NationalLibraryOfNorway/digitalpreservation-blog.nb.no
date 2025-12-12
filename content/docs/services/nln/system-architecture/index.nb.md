@@ -1,5 +1,5 @@
 ---
-title: Systemdomener og -arkitektur
+title: Systemdomener i NB
 summary: This post discusses high-level metadata and data handling at the National Library of Norway
 date: 2024-09-30
 tags: [System architecture]

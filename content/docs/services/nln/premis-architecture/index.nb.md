@@ -1,5 +1,5 @@
 ---
-title: Forvaltningsarkitektur
+title: Forvaltningsarkitektur i NB
 summary: This post discusses high-level metadata and data handling at the National Library of Norway
 date: 2024-10-04
 tags: [System architecture, PREMIS, Intellectual entities, representations]
