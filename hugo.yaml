@@ -72,7 +72,7 @@ languages:
 params:
   images:
     - images/opengraph.webp
-    
+
   navbar:
     displayTitle: true
     displayLogo: true
@@ -80,16 +80,18 @@ params:
       path: images/NB-svart.svg
       dark: images/NB-hvit.svg
       width: 25
+    width: wide
 
   externalLinkDecoration: true
 
   page:
-    width: full
+    width: wide
 
   footer:
     displayCopyright: false
     displayPoweredBy: false
     enableSwitches: false
+    width: wide
 
   editURL:
     enable: false

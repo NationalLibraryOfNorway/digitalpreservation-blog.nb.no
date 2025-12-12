@@ -1,3 +1,22 @@
+:root {
+  --my-left-sidebar-width: 20rem;  /* default-ish is commonly 16rem (w-64) */
+  --my-right-toc-width: 16rem;
+}
+
+/* Desktop-only: avoid fighting the mobile drawer behavior */
+@media (min-width: 1280px) {
+  .hextra-sidebar-container {
+    width: var(--my-left-sidebar-width);
+    flex: 0 0 var(--my-left-sidebar-width);
+  }
+
+  .hextra-toc {
+    width: var(--my-right-toc-width);
+    flex: 0 0 var(--my-right-toc-width);
+  }
+}
+
+
 /* Full bordered tables */
 .content table {
   border-collapse: collapse !important;
