@@ -2,6 +2,7 @@
 title: Digital preservation at the National Library of Norway
 toc: false
 description: This is the home page for the Digital Preservation team of the National Library of Norway. Here we attempt to share documentation related to our digital preservation services and try to blog about various initiatives we are working on
+width: full
 ---
 
 {{< cards >}}

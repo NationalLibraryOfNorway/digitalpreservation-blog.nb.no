@@ -2,6 +2,7 @@
 title: Digital bevaring ved Nasjonalbiblioteket
 toc: false
 description: Dette er hjemmesidene til Team digital bevaring ved det norske nasjonalbiblioteket. Her deler vi dokumentasjon om våre digitale bevaringstjenester og forsøker å blogge om arbeidet vårt
+width: full
 ---
 
 {{< cards >}}
