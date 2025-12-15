@@ -45,32 +45,32 @@ Høsten 2023 ble det gjennomført forarbeid og kartlegging. I desember samme år
 
 Under prosessen ble det funnet avvik i 577 av 2,2 millioner objekter. Ingen av feilene oppsto mens dataene var lagret i Oracle HSM-bitlageret. De fleste feil skyldtes mangelfulle kontrollrutiner ved første mottak og arkivering av materialet.
 
-## Sjekksum-avvik (4 tilfeller)
+### Sjekksum-avvik (4 tilfeller)
 
 **Årsak**: Objekter feilet på grunn av sjekksumavvik mellom registrert og faktisk beregnet sjekksum under rearkivering.
 **Tiltak**: Alle tre kopier i Oracle HSM ble kontrollert og viste seg å være identiske. Avviket må derfor ha oppstått før første arkivering. For disse fire objektene valgte vi å beholde MP3-filen i bevaringsobjektet, siden den hadde korrekt sjekksum. I tillegg ble det registrert en “event” som forklarer hvorfor MP3-filen også ble bevart.
 
-## Null-byte-fil (1 tilfelle)
+### Null-byte-fil (1 tilfelle)
 
 **Årsak**: En wav-fil med null bytes førte til sjekksumavvik.
 **Tiltak**: Alle tre kopier var identiske, så avviket må ha skjedd før lagring i HSM. Det ble registrert en “event” som forklarer hvorfor MP3-filen ble bevart.
 
-## Korrupt fil (1 tilfelle)
+### Korrupt fil (1 tilfelle)
 
 **Årsak**: Filen hadde korrekt sjekksum, men manglende informasjon om varighet i Mediainfo avslørte at den var korrupt.
 **Tiltak**: Filen ble arkivert i mangel på alternativer, og "event" ble dokumentert.
 
-## Feil ved URN-validering (507 tilfeller)
+### Feil ved URN-validering (507 tilfeller)
 
 **Årsak**: Objekter med URN i et annet format enn forventet. Valideringsverktøyet kunne derfor ikke hente data korrekt for MODS-generering. Feilen ser ut til å skyldes leveringsproblemer hos en kringkaster i en kort periode i oktober 2011.
 **Tiltak**: URN-ene ble korrigert.
 
-## Duplikatfiler (48 tilfeller)
+### Duplikatfiler (48 tilfeller)
 
 **Årsak**: 48 objekter fra DSM var allerede arkivert i DPS som følge av overgangsprosessen 21. mars 2023. De første datasettene ble manuelt lastet inn i DPS og ved en feil også fanget opp og arkivert i DSM.
 **Tiltak**: Ingen tiltak nødvendig – dataene er riktig arkivert i DPS.
 
-## Duplikatfiler (16 tilfeller)
+### Duplikatfiler (16 tilfeller)
 
 **Årsak**: Etter rearkiveringen sto 16 objekter igjen i køen som ikke-arkiverte, selv om de faktisk var arkivert i DPS. Dette er hovedsakelig knyttet til opprydding etter en backup-hendelse 1. mars 2024.
 **Tiltak**: Ingen tiltak nødvendig – dataene er riktig arkivert i DPS.
