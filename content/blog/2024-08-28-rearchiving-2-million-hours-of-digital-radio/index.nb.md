@@ -13,7 +13,7 @@ images:
 
 Nasjonalbiblioteket er i gang med å modernisere bitlageret sitt fra 2007 og erstatte det med et nytt, moderne system for digital bevaring. Den nye løsningen er basert på et egenutviklet system kalt DPS (Digital Preservation Services), som bruker IBM-HPSS som underliggende lagringssystem. Overgangen forventes å pågå i et par år, og er nødvendig for å sikre langtidsbevaring og tilgjengeliggjøring av Nasjonalbibliotekets digitale samling.
 
-![Gammel radio](radio.jpg)
+![Gammel radio](/radio.jpg)
 
 ## Overgang til ny bevaringsløsning
 
@@ -109,4 +109,4 @@ Dette arbeidet representerer en betydelig forbedring av Nasjonalbibliotekets evn
 
 Det ble produsert 2,1 millioner nye MP4- (M4A-) filer, som til sammen utgjorde 130 TiB / 143 TB med nye tilgangsfiler på nb.no. Dette erstattet omtrent 40 TB med gamle MP3-tilgangsfiler.
 
-![Timer med radio per år](radiohours.webp)
+![Timer med radio per år](/radiohours.webp)
