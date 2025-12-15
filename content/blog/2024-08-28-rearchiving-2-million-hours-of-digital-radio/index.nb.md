@@ -2,16 +2,16 @@
 title: "Rearkivering av 2 millioner timer digital radio – en omfattende prosess"
 description: "Lær hvordan Nasjonalbiblioteket lyktes med å migrere 2,2 millioner timer med digitalt radioarkiv (1 petabyte) fra et bitlager fra 2007 til et moderne digitalt bevaringssystem – inkludert de tekniske utfordringene, forbedringene og erfaringene som ble gjort under dette omfattende bevaringsprosjektet."
 date: 2024-08-28  
-tags: ["Digital Preservation", "Radio Archives", "Data Migration", "Digital Storage", "HPSS", "Oracle HSM", "Audio Preservation", "Broadcasting"]  
+tags: ["Digital Bevaring", "Radioarkiv", "Datamigrering", "HPSS", "DPS", "Oracle HSM", "Lydbevaring", "Kringkasting,"]  
 authors: 
   - name: Digital Preservation Team
     image: /apple-touch-icon.png
-draft: true
+draft: false
 images: 
   - radio.jpg
 ---
 
-Nasjonalbiblioteket er i gang med å modernisere bitlageret sitt fra 2007 og erstatte det med et nytt, moderne system for digital bevaring. Den nye løsningen er basert på et egenutviklet system kalt DPS (Digital Preservation Services), som bruker IBM-HPSS som underliggende lagringssystem. Overgangen, som forventes å pågå i et par år, er nødvendig for å sikre langtidsbevaring og tilgjengeliggjøring av Nasjonalbibliotekets digitale samling.
+Nasjonalbiblioteket er i gang med å modernisere bitlageret sitt fra 2007 og erstatte det med et nytt, moderne system for digital bevaring. Den nye løsningen er basert på et egenutviklet system kalt DPS (Digital Preservation Services), som bruker IBM-HPSS som underliggende lagringssystem. Overgangen forventes å pågå i et par år, og er nødvendig for å sikre langtidsbevaring og tilgjengeliggjøring av Nasjonalbibliotekets digitale samling.
 
 ![Gammel radio](radio.jpg)
 
@@ -21,7 +21,7 @@ I 2023 ble all ny tilvekst av data overført til den nye DPS-bevaringsløsningen
 
 ## Historisk pliktavlevert radio
 
-Blant materialet som skal rearkiveres, finnes 2,2 millioner timer digital radio, tilsvarende 2,5 millioner filer og totalt 1 petabyte data. Dette inkluderer både digitalt fødte- og digitaliserte radioprogrammer fra perioden 1993–2022.
+Materialet som skal rearkiveres omfatter 2,2 millioner timer digital radio – det tilsvarer 2,5 millioner filer og totalt 1 petabyte data. Dette inkluderer både digitalt fødte- og digitaliserte radioprogrammer fra perioden 1993–2022.
 
 I 1993 var det fire radiokanaler som leverte 16 500 timer med radio. Innen 2022 hadde antallet kanaler økt til 30, som samlet leverte 150 000 timer radio. Med utfasing av det gamle bitlageret ble det nødvendig å flytte dette materialet over til den nye bevaringsløsningen.
 
@@ -43,7 +43,7 @@ Høsten 2023 ble det gjennomført forarbeid og kartlegging. I desember samme år
 
 ## Funn og erfaringer
 
-Under prosessen ble det funnet avvik i 577 av 2,2 millioner objekter. Ingen av feilene oppsto mens dataene var lagret i Oracle HSM-bitlageret. De fleste feil skyldes mangelfulle kontrollrutiner ved første mottak og arkivering av materialet.
+Under prosessen ble det funnet avvik i 577 av 2,2 millioner objekter. Ingen av feilene oppsto mens dataene var lagret i Oracle HSM-bitlageret. De fleste feil skyldtes mangelfulle kontrollrutiner ved første mottak og arkivering av materialet.
 
 ## Sjekksum-avvik (4 tilfeller)
 
