@@ -11,6 +11,10 @@ authors:
 aliases: ["/docs/strategy/nln-digipres-strategy-no/"]
 ---
 
+Nasjonalbibliotekets samfunnsoppdrag er å samle inn, bevare og tilgjengeliggjøre alt publisert materiale som dokumenterer Norge og norske forhold, uavhengig av medium og publiseringsform. 
+Virksomheten er forankret i pliktavleveringsloven, som pålegger Nasjonalbiblioteket å sikre at publisert materiale bevares for ettertiden og kan formidles til dagens og framtidige generasjoner. 
+Strategien skal sikre langsiktig tilgang til digital kulturarv, legge til rette for effektiv forvaltning av store og varierte datamengder, og bidra til at bevaringsarbeidet skjer i tråd med teknologisk utvikling, ressursbruk og samfunnets behov.
+
 ## Lov om avleveringsplikt for allment tilgjengelege dokument (pliktavleveringslova)
 
 > §1 [...] *vitnemåla om norsk kultur og samfunnsliv kan verta bevarte og gjorde tilgjengelege som kjeldemateriale for forsking og dokumentasjon.*[^1]

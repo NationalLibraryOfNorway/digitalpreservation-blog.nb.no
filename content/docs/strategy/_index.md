@@ -11,10 +11,13 @@ authors:
 aliases: ["/docs/strategy/nln-digipres-strategy-en/"]
 ---
 
+The National Library of Norway’s legal mandate is to collect, preserve, and provide access to all published material that documents Norway and Norwegian society, regardless of medium or form of publication. 
+This work is grounded in the Legal Deposit Act, which requires the National Library to ensure that published material is preserved for the future and made accessible to present and future generations. 
+The strategy aims to secure long-term access to the digital cultural heritage, support the effective management of large and diverse collections, and ensure that preservation efforts are consistent with technological developments, responsible use of resources, and the needs of society.
+
 ## The Legal Deposit Act of Publicly Available Documents (Legal Deposit Act)
 
 > §1 [...] *testaments of Norwegian culture and social life should be preserved and be available as source material for research and documentation.*[^1]
-
 
 ## Ambition for Digital Preservation
 
