@@ -10,7 +10,7 @@ authors:
 ---
 
 
-![Draft for the preservation of museums` digital cultural heritage](/pilot.png)
+![Draft for the preservation of museums` digital cultural heritage](/pilot_eng.png)
 
 The National Library of Norway, the Norwegian Directorate for Cultural Heritage, and KulturIT were commissioned by the Norwegian Ministry of Culture and Equality to carry out a pilot project for the long-term preservation of digital museum objects using the National Library’s digital preservation solution (DPS). The assignment was given in December 2024.
 
