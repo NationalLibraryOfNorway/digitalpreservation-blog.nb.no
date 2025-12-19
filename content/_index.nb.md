@@ -5,7 +5,7 @@ description: Dette er hjemmesidene til Team digital bevaring ved det norske nasj
 width: full
 ---
 
-Dette er hjemmesidene til Team digital bevaring ved det Nasjonalbiblioteket. 
+Dette er hjemmesidene til Team digital bevaring ved Nasjonalbiblioteket. 
 Her deler vi dokumentasjon om våre digitale bevaringstjenester og erfaringer fra arbeidet vårt.
 
 {{< cards >}}
