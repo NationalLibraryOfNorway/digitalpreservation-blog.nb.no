@@ -183,6 +183,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 {
   "fileId": "1M0x4T9rN8Xc7B2Yq5L3zK",
   "filePath": "representations/primary_20250217/data/ranablad_20250215.pdf",
+  "s3ObjectKey": "examplebucket/clientId/contract/submissionId/path/to/file.txt",
   "checksum": "d41d8cd98f00b204e9800998ecf8427e",
   "isPackaged": false,  
   "uploadUrl": "https://s3.nb.no/examplebucket/...&X-Amz-Signature=..."
