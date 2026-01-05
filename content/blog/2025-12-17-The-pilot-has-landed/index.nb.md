@@ -28,7 +28,7 @@ I tillegg er det utarbeidet krav til metadata som skal leveres sammen med inform
 
 Løsningen er testet av tre av KulturITs eiermuseer og pilotoppdraget anses som vellykket. 
 
-Det er Skrevet en rapport som er overlevert Kultur- og likestillingsdepartementet. Rapporten beskriver hvordan oppdraget er utført og gir en anbefaling om at det etableres en fast tjeneste for digital langtidsbevaring av bilder for museene. Denne skal bygge videre på resultater fra piloten, med en innledende fase for fem museer. 
+Det er skrevet en rapport som er overlevert Kultur- og likestillingsdepartementet. Rapporten beskriver hvordan oppdraget er utført og gir en anbefaling om at det etableres en fast tjeneste for digital langtidsbevaring av bilder for museene. Denne skal bygge videre på resultater fra piloten, med en innledende fase for fem museer. 
 
 På sikt kan denne tjenesten også utvides til andre museer, og benyttes for andre medietyper som tekst, lyd og levende bilder. 
 

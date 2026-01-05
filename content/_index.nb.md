@@ -23,6 +23,6 @@ På bakgrunn av dette er Nasjonalbiblioteket den mest omfattende og sentrale kun
 Med alt publisert materiale menes både fysisk og digitalt født materiale, uavhengig av medium og publiseringsform.
 
 Virksomheten er forankret i [Pliktavleveringsloven](https://lovdata.no/dokument/NL/lov/1989-06-09-32), som pålegger Nasjonalbiblioteket å sikre at publisert materiale bevares for ettertiden og kan formidles til dagens og framtidige generasjoner. 
-I en tid der en stadig større del av kulturarven blir digititisert eller skapes, publiseres og distribueres digitalt, stiller dette nye og komplekse krav til hvordan bevaring planlegges, gjennomføres og forvaltes over tid.
+I en tid der en stadig større del av kulturarven blir digitisert eller skapes, publiseres og distribueres digitalt, stiller dette nye og komplekse krav til hvordan bevaring planlegges, gjennomføres og forvaltes over tid.
 
 Gjennom digital bevaring skal Nasjonalbiblioteket legge grunnlaget for demokratisk tilgang til kunnskap, offentlig opplysning og forståelse av norsk historie, språk og kultur – både i dag og i framtiden.
