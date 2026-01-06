@@ -166,6 +166,8 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 
 ### Register a file for upload
 
+The `isPackaged` field indicates whether files are packaged temporarily for transmission purposes only. These files are packed to facilitate transfer and will be unpacked by the preservation flow.
+
 **Request**
 ```http
 POST /dps-submission/v1/contracts/1234/submissions/8Z7x1T9rN0Xc2B5Yq4L3zP/files HTTP/1.1
