@@ -14,9 +14,18 @@ aliases: ["/docs/principles/nln-digipres-principles-no/"]
 
 ## 1. Sørg for at digital bevaring skjer på en bærekraftig måte
 
-Ha et bevisst forhold til hvilket utvalg av filer som skal bevares, og på hvilket format. 
-En fil som skal bevares, påfører virksomheten en “evig” kostnad. 
-Velg lagringsteknologier som er miljøvennlige og energiøkonomiske.
+Ha et bevisst og kritisk forhold til hvilke filer som skal bevares, og hvilke filformater som velges.
+Hver fil som tas inn i bevaringsomgivelsene medfører en **evig** kostnad i form av behov for forvaltning over tid. 
+Unngå unødvending duplisering av data og unødvendig store filer. 
+
+Bevaring innebærer kontinuerlig lagring, overvåking, sikkerhetskopiering, migrering til nye formater eller teknologier, og/eller emulering av de bevarte filene. 
+Forvaltningsbehovet følger materialet så lenge det anses som bevaringsverdig. 
+
+Bevaring medfører også løpende materielle kostnader som strøm, innkjøp og bytting av lagringsmedium og teknisk infrastruktur. 
+Ved valg av lagringsløsninger bør det legges vekt på teknologier som er miljøvennlige og energieffektive. 
+
+Ha gode lagringsstrategier som balanserer tilgjengelighet mot ressursbruk, og som sikrer forutsigbar bevaring. 
+Rammebetingelser for bevaring kan endre seg over tid.
 
 ## 2. Bruk veldokumenterte og åpne filformater hvis mulig
 

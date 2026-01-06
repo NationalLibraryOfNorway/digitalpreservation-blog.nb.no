@@ -14,9 +14,19 @@ aliases: ["/docs/principles/nln-digipres-principles-en/"]
 
 ## 1. Ensure that digital preservation is done in a sustainable way
 
-Be deliberate in selecting which files to preserve and in which format. 
-Digital preservation of a file comes with lasting cost implications for the organization. 
-Choose storage technologies that are environmentally friendly and energy efficient.
+Maintain a conscious and critical approach to which files should be preserved, and which file formats are selected.
+Each file ingested into the preservation environment entails a **perpetual** cost in terms of long-term management needs.
+Avoid unnecessary duplication of data and unnecessarily large files.
+
+Preservation means continuous storage, monitoring, backup, migration to new formats or technologies, and/or emulation of the preserved files.
+The need for such management follows the material for as long as it is considered worthy of preservation.
+
+Preservation also entails ongoing material costs such as electricity, procurement and replacement of storage media, and technical infrastructure.
+When selecting storage solutions, priority should be given to technologies that are environmentally friendly and energy efficient.
+
+Use sound storage strategies that balance accessibility against resource use, and that ensure predictable preservation.
+The operating conditions for preservation may change over time.
+
 
 ## 2. Use well-documented and open file formats wherever possible
 
