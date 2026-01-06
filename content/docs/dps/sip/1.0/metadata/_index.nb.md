@@ -54,7 +54,7 @@ Kort definisjon fra E-ARK CSIP:
 
 Tekniske metadata dokumenterer målbare, systemgenererte tekniske egenskaper ved de digitale filene i en representasjon. 
 Teknisk metadata beskriver hva de digitale filene faktisk er, basert på filanalyse.
-Tekniske metadata er ** ikke** beskrivelser av hva det intellektuelle innholdet i fila er, eller hva som er gjort med den/prosesshistorikk.
+Tekniske metadata er **ikke** beskrivelser av hva det intellektuelle innholdet i fila er, eller hva som er gjort med den/prosesshistorikk.
 
 | Plassering i SIP        | Eksempelfiler                  | METS-element | 
 | ------------------------ | ------------------------------ | -------------- | 

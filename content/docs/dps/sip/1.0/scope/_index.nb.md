@@ -9,7 +9,7 @@ I vår terminologi brukes uttrykket "digitalt objekt" synonymt med en digital **
 DPS organiserer mottak, forvaltning og utlevering av slike representasjoner gjennom utveksling av informasjonspakker.
 Envher informasjonspakke kan inneholde én eller flere representasjoner.
 For å kunne lage og levere en pakke til DPS må man ha en foremening om hva om som skal ligge i én pakke.
-Enhver pakke har et **intellektuelt omfang**, som igjen styrer hvor stort **data-omfanget** er i en pakke.
+Enhver pakke har et **intellektuelt omfang**, som igjen styrer hvor stort **dataomfanget** er i en pakke.
 
 ## Representasjoner
 
