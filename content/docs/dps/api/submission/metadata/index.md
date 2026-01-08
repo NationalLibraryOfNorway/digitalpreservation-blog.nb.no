@@ -42,6 +42,8 @@ Allowed types for describing the resource per media type:
 
 The vocabulary is limited to Norwegian values.
 
+In the requirements for [METS.xml](/nb/docs/dps/sip/1.0/mets/) there is a mandatory attribute named Content category `@TYPE`. Content category specifies the media type on a higher level than this attribute.
+
 > [!TIP]
 > We would like input and suggestions for any missing terms in this vocabulary. It is possible to request the addition of new types if needed.
 
@@ -56,7 +58,7 @@ The vocabulary is limited to Norwegian values.
 
 | Name        | **Identifier**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description | Identifiers (identifier type + ID/value).<br> The `type` and `value` attributes MUST be used to define the identifier type.<br>The `lang` attribute SHOULD be used to specify the language code.|
+| Description | Identifiers (identifier type + ID/value).<br> The `type` and `value` attributes MUST be used to define the identifier type.|
 | Requirement         | MUST                                                                                                                 |
 | Cardinality | 1..n                                                                                                               |
 
@@ -66,8 +68,6 @@ The identifier type MUST be defined.
 The use of the type attribute should be meaningful to the submitter, reflect the metadata catalog or system, and be applied consistently (using a standardized format).
 
 Examples of identifier types may include `URN`, `PID`, `URI` to a record in a catalog or metadata system, `document ID`, `issue ID`, `copy number`, `ISBN`, `ISSN`, `ISMN`, `ISNI`, `DOI`, `record label, etc.
-
-Language code should be specified for the identifier type, if deemed neceessary. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 **Examples:**
 ```json
@@ -79,13 +79,11 @@ Language code should be specified for the identifier type, if deemed neceessary.
     },
     {
       "type": "image-id",
-      "value": "NB_PE_VM_M_05_09_01_036",
-      "lang": "eng"
+      "value": "NB_PE_VM_M_05_09_01_036"
     },
     {
       "type": "call-number",
-      "value": "POEL00003975",
-      "lang": "eng"
+      "value": "POEL00003975"
     }
   ]
 }
@@ -95,7 +93,7 @@ Language code should be specified for the identifier type, if deemed neceessary.
 
 | Name         | **Title**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Name given to the resource. If a title is missing, the recommended practice is to assign the resource a “meaningful” title. <br> The `lang` attribute SHOULD be used to specify the language code. |
+| Description  | Name given to the resource. If a title is missing, the recommended practice is to assign the resource a “meaningful” title. <br> The `lang` attribute SHOULD be used to specify the language of the title. |
 |Requirement        | MUST                                                                                                                 |
 | Cardinality | 1..1                                                                                                               |
 
@@ -107,7 +105,7 @@ Some resources already have predefined titles, such as books, journals, articles
 When a title is missing, the recommended practice is to devise a “meaningful” title for the resource. 
 By meaningful, we mean a title that facilitates recognition and identification of the resource, essentially, a name that makes sense to the submitter.
 
-Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+The language of the title should be specified according to the [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) standard, using the `lang` attribute is applied.
  
 **Examples:**
 ```json
@@ -151,7 +149,7 @@ To improve searchability by title, it is recommended to add an alternative title
 The alternative titles MUST have a type, to describe what kind of title is submitted.
 The use of the type attribute should be meaningful to the submitter, reflect the metadata catalog or system, and be applied consistently (using a standardized format).
 
-Language code should be specified for the title value (not the type). [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+The language of the title should be specified according to the [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) standard, using the `lang` attribute is applied.
 
 **Example:**
 ```json
@@ -170,7 +168,7 @@ Language code should be specified for the title value (not the type). [ISO 639-3
 
 | Name         | **Creator**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Name or entity appearing in a central role (e.g. author, composer, film director, photographer, etc.). <br>The`role` attribute SHOULD be used to define the specific role. <br>The `type` attribute SHOULD be used to indicate the type of entity. Allowed types include: *Person, Korporasjon, Konferanse, Standardtittel*. <br>The `authority` attribute SHOULD be used to specify the authority source. <br>The `lang` attribute SHOULD be used to specify the language code.  |
+| Description  | Name or entity appearing in a central role (e.g. author, composer, film director, photographer, etc.). <br>The`role` attribute SHOULD be used to define the specific role. <br>The `type` attribute SHOULD be used to indicate the type of entity. Allowed types include: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>The `authority` attribute SHOULD be used to specify the authority source. |
 |Requirement         | SHOULD                                                                                                                 |
 | Cardinality | 0..n                                                                                                               |
 
@@ -190,23 +188,21 @@ This is handled in different ways across various metadata catalogs and authority
 The vocabulary is Norwegian. 
 Currently, the following values are allowed to define the type of name or entity though additional types may be added if needed: 
 
-- `Person`
-- `Korporasjon` (organization)
-- `Konferanse` (conferance)
-- `Standardtittel` (uniform title. e.g., treaty, contract)
+- `person`
+- `korporasjon` (organization)
+- `konferanse` (conferance)
+- `standardtittel` (uniform title. e.g., treaty, contract)
 
 The role of the person or organization should be specified. 
 Examples of roles include: 
 author, composer, film director, photographer, creator, etc. 
 
 The use of the role attribute should be meaningful for the data provider, reflect the metadata catalog or system being used, and follow consistent (standardized) formatting.
-  
-Language code should be specified for the role. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 Explanation of *authority* information:
-- **Source:** The name of the authority file from which the value is taken, provided as a plain text string.
-- **Code:** A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
-- **URI:** A persistent link (URI) that points directly to the authority record from which the value is derived.
+- `source`: The name of the authority file from which the value is taken, provided as a plain text string.
+- `code`: A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
+- `URI`: A persistent link (URI) that points directly to the authority record from which the value is derived.
 
 
 **Examples:**
@@ -217,7 +213,6 @@ Explanation of *authority* information:
       "name": "Marek, Václav (1908-1994)",
       "type": "Person",
       "role": "Photographer",
-      "lang": "eng",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
         "code": "90169632",
@@ -234,7 +229,6 @@ Explanation of *authority* information:
       "name": "Shakespeare, William (1564-1616)",
       "type": "Person",
       "role": "author",
-      "lang": "eng",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
         "code": "9016555",
@@ -249,17 +243,41 @@ Explanation of *authority* information:
 
 | Name         | **Contributor**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Names appearing in a central role (e.g., illustrator, photographer, co-author). <br>The `role` attribute SHOULD be used to specify the person's or organization's role. <br>The `type` attribute SHOULD be used to indicate the type of authority. Allowed values include: *Person, Korporasjon, Konferanse, Standardtittel* <br>The `lang` attribute SHOULD be used to define the language code.|
+| Description  | Names appearing in a central role (e.g., illustrator, photographer, co-author). <br>The `role` attribute SHOULD be used to specify the person's or organization's role. <br>The `type` attribute SHOULD be used to indicate the type of authority. Allowed types include: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>The `authority` attribute SHOULD be used to specify the authority source. |
 |Requirement          | SHOULD                                                                                                                 |
 | Cardinality | 0..n                                                                                                               |
 
 **Guidelines for Use:**
-
-The rules for filling in the Contributor field are the same as for the Creator field. 
-Examples of contributor roles may include: contributor, depicted person, illustrator, model, editor, designer, etc.
   
-Language code should be specified for the role. 
-[ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+The use of an authority register is recommended whenever one is available, both for personal names and corporate entities. 
+The specific authority register used must be identified. 
+An example of such a register is the  [Shared Authority Register for Persons and Corporate Bodies](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/).
+
+The contributor should also be identified using their full name (first name, last name/corporation). 
+Birth and death years may be included in parentheses after the name. 
+Examples: 
+*Nesbø, Jo (1960– )*, *Shakespeare, William (1564–1616)*. 
+
+It should be specified whether the name refers to a person or a corporation. 
+This is handled in different ways across various metadata catalogs and authority registers. 
+The vocabulary is Norwegian. 
+Currently, the following values are allowed to define the type of name or entity though additional types may be added if needed: 
+
+- `person`
+- `korporasjon` (organization)
+- `konferanse` (conferance)
+- `standardtittel` (uniform title. e.g., treaty, contract)
+
+The role of the person or organization should be specified. 
+Examples of roles include: 
+contributor, depicted person, illustrator, model, editor, designer, etc.
+
+The use of the role attribute should be meaningful for the data provider, reflect the metadata catalog or system being used, and follow consistent (standardized) formatting.
+
+Explanation of *authority* information:
+- `source`: The name of the authority file from which the value is taken, provided as a plain text string.
+- `code`: A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
+- `URI`: A persistent link (URI) that points directly to the authority record from which the value is derived.
 
 
 **Examples:**
@@ -269,13 +287,11 @@ Language code should be specified for the role.
     {
       "role": "depicted",
       "type": "Person",
-      "name": "Nordmann, Ola",
-      "lang": "eng"
+      "name": "Nordmann, Ola"
     },
     {
       "role": "depicted",
-      "name": "Nordmann, Kari",
-      "lang": "eng"
+      "name": "Nordmann, Kari"
     }
   ]
 }
@@ -288,7 +304,6 @@ Language code should be specified for the role.
       "role": "illustrator",
       "type": "Person",
       "name": "Solberg, Erna",
-      "lang": "eng",
       "authority": {
         "source": "Kulturnav",
         "code": "e762d909-5cce-4d2b-892b-258272514fde",
@@ -303,7 +318,7 @@ Language code should be specified for the role.
 
 | Name         | **Publisher**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Names appearing in a central role (the organization or entity that has published the resource). <br> The `type` attribute SHOULD be used to define the type of authority. Allowed types include: *Person, Korporasjon, Konferanse, Standardtittel*<br>The `lang` attribute SHOULD be used to specify the language code. |
+| Description  | Names appearing in a central role (the organization or entity that has published the resource). <br> The `type` attribute SHOULD be used to define the type of authority. Allowed types include: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>The `authority` attribute SHOULD be used to specify the authority source. |
 | Requirement       | SHOULD                                                                                                                 |
 | Cardinality | 0..n                                                                                                               |
 
@@ -322,13 +337,11 @@ When using an authority register, the publisher’s full name should also be pro
 The place and/or year of publication can be added in parentheses after the name. 
 Example: 
 National Library (Oslo, 1984).
-  
-Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 Explanation of *authority* information:
-- **Source:** The name of the authority file from which the value is taken, provided as a plain text string.
-- **Code:** A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
-- **URI:** A persistent link (URI) that points directly to the authority record from which the value is derived.
+- `source`: The name of the authority file from which the value is taken, provided as a plain text string.
+- `code`: A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
+- `URI`: A persistent link (URI) that points directly to the authority record from which the value is derived.
 
 **Example:**
 ```json
@@ -337,7 +350,6 @@ Explanation of *authority* information:
     {
       "name": "National library of Norway (Oslo, 1984)",
       "type": "Organization",
-      "lang": "eng",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
         "code": "90362181",
@@ -352,7 +364,7 @@ Explanation of *authority* information:
 
 | Name         | **Spatial**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Names of relevant geographic locations (place names). These may refer to geographic locations such as countries, regions or cities that are significant to the resource. <br> The `type` attribute SHOULD be used to specify what type of place is being referred to.<br> The `lang` attribute SHOULD be used to indicate the language code. |
+| Description  | Names of relevant geographic locations (place names). These may refer to geographic locations such as countries, regions or cities that are significant to the resource. <br> The `type` attribute SHOULD be used to specify what type of place is being referred to.<br>The `authority` attribute SHOULD be used to specify the authority source. |
 | Requirement        | SHOULD                                                                                                                 |
 | Cardinality | 0..n                                                                                                               |
 
@@ -368,15 +380,12 @@ When using authority registries to specify spatial information, the full form of
 If no registry is used, the location should preferably be written in the following format: 
 country; region/county; municipality; place; street.
  
-
 Coordinates may be provided using latitude and longitude. 
 The format should be as follows: 
 `latitude`=61.85401 `longitude`=9.80856.
 
 Examples of `type` might include place of publication, recording location, setting, place of printing, place of birth, etc. 
-The use of the type attribute should be meaningful for the data provider, reflect the metadata catalog or system, and follow a consistent and standardized format.
-
-Language code should be specified for the type. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
+The use of the `type` attribute should be meaningful for the data provider, reflect the metadata catalog or system, and follow a consistent and standardized format.
 
 Explanation of *authority* information:
 - `source`: The name of the authority file from which the value is taken, provided as a plain text string.
@@ -390,7 +399,6 @@ Explanation of *authority* information:
     {
       "name": "Norway (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
       "type": "Depicted location",
-      "lang": "eng",
       "authority": {
         "source": "Kulturnav",
         "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
@@ -411,7 +419,7 @@ Explanation of *authority* information:
 
 | Name         | **Date**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Relevant dates for the resource (such as publication, copyright, creation, digitization date, etc., including the type of date.). <br> The `type` attribute MUST be used to specify what kind of date it is reffered to. <br> The `lang` attribute SHOULD be used to indicate the language code.   |
+| Description  | Relevant dates for the resource (such as publication, copyright, creation, digitization date, etc., including the type of date.). <br> The `type` attribute MUST be used to specify what kind of date it is reffered to. |
 | Requirement        | SHOULD                                                                                                                 |
 | Cardinality | 0..n                                                                                                               |
 
@@ -422,27 +430,21 @@ The type of date and the corresponding year or value must be specified.
 
 The use of the type attribute should be meaningful for the data provider, reflect the metadata catalog or system, and be applied consistently with a standardized format.
 
-Language code should be specified for type. 
-[ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
-
 **Examples:**
 ```json
 {
   "date": [
     {
       "type": "Content date",
-      "value": "1938",
-      "lang": "eng"
+      "value": "1938"
     },
     {
       "type": "Digitized",
-      "value": "2022-03-05T14:28:12+02:00",
-      "lang": "eng"
+      "value": "2022-03-05T14:28:12+02:00"
     },
     {
       "type": "Published",
-      "value": "2022-03-12",
-      "lang": "eng"
+      "value": "2022-03-12"
     }
   ]
 }
@@ -491,7 +493,7 @@ The use of the `type` attribute should be meaningful for the data provider, refl
 
 | Name        | **Relation**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description | A related resource in which the described resource is physically or logically included (e.g., title of the parent or related work, collection, series, or part).<br>Attributes for `title` + `type` OR `id` + `type` MUST be used. <br> The`URI` attribute SHOULD be used.<br> The `lang` attribute SHOULD be used to specify the language code.   |
+| Description | A related resource in which the described resource is physically or logically included (e.g., title of the parent or related work, collection, series, or part).<br>Attributes for `title` + `type` OR `id` + `type` MUST be used. <br> The`URI` attribute SHOULD be used.<br> The `lang` attribute SHOULD be used to specify the language of the related resource's title.   |
 | Requirement        | SHOULD                                                                                                                |
 | Cardinality | 0..n                                                                                                               |
 
@@ -563,7 +565,27 @@ The language of the provenance value must be provided using the `lang` attribute
 {
   "provenance": [
     {
-      "value": "The collection was donated to the National Library by Václav Marek on May 12, 1979.",
+      "value": "The image is part of a digital collection that was donated to the National Library of Norway by Ola Nordmann on 2025-01-01.",
+      "lang": "eng"
+    }
+  ]
+}
+```
+```json
+{
+  "provenance": [
+    {
+      "value": "This digital object was previously part of the collection of Museum X between 1999 and 2002, before being transferred to Museum Y. Museum Y deposited the object with the National Library of Norway in 2025.",
+      "lang": "eng"
+    }
+  ]
+}
+```
+```json
+{
+  "provenance": [
+    {
+      "value": "Digitization was carried out internally at the National Library of Norway between 2022 and 2024. The project was initiated and completed after it was discovered that the film was a lost German feature film, with no other known copies internationally. As part of the digital work, the original projection print (ID-12345) was scanned in 2022. The aim of the project was to digitally safeguard the film with its original colour characteristics.",
       "lang": "eng"
     }
   ]
@@ -574,7 +596,7 @@ The language of the provenance value must be provided using the `lang` attribute
 
 | Name         | **Subject**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Subject terms related to the resource.<br> The `lang` attribute SHOULD be used to specify the language code.   |
+| Description  | Subject terms related to the resource.<br>The `authority` attribute SHOULD be used to specify the authority source.  |
 | Requirement        | MAY                                                                                                                 |
 | Cardinality | 0..n                                                                                                               |
 
@@ -588,12 +610,10 @@ Dewey Decimal Classification (DDC) values are valid.
 References to authority registers may be used where applicable. 
 When using authority registers, subject terms must also be written out in full.
 
-Language code should be specified. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
-
 Explanation of *authority* information:
-- **Source:** The name of the authority file from which the value is taken, provided as a plain text string.
-- **Code:** A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
-- **URI:** A persistent link (URI) that points directly to the authority record from which the value is derived.
+- `source`: The name of the authority file from which the value is taken, provided as a plain text string.
+- `code`: A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
+- `URI`: A persistent link (URI) that points directly to the authority record from which the value is derived.
 
 **Examples:**
 ```json
@@ -601,15 +621,12 @@ Explanation of *authority* information:
   "subject": [
     {
       "value": "rondane",
-      "lang": "nor"
     },
     {
       "value": "fishingtrip",
-      "lang": "eng"
     },
     {
-      "value": "nature",
-      "lang": "eng"
+      "value": "nature"
     }
   ]
 }
@@ -620,7 +637,6 @@ Explanation of *authority* information:
   "subject": [
     {
       "value": "natur",
-      "lang": "nor",
       "authority": {
         "source": "Kulturnav",
         "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
@@ -641,7 +657,7 @@ Explanation of *authority* information:
 
 **Guidelines for use:** 
 
-Language code should be specified. 
+Language code must be specified. 
 [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for indicating language when the `lang` attribute is applied.
 
 **Example:**
@@ -655,9 +671,8 @@ Language code should be specified.
   ]
 }
 ```
-<br> 
 
-**Example containing all the metadata elements:**
+## Example containing all the metadata elements
 
 ```json
 {

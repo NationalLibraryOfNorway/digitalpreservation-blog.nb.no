@@ -40,7 +40,7 @@ Tillatte typer for å beskrive ressursen sortert på medietype:
 
 Vokabularet har kun norske verdier.
 
-I kravene til [METS.xml](/nb/docs/dps/sip/1.0/mets/) har vi et påkrevd felt som heter Content category `@TYPE`. Content category angir medietype på overordnet nivå.
+I kravene til [METS.xml](/nb/docs/dps/sip/1.0/mets/) har vi et påkrevd attributt som heter Content category `@TYPE`. Content category angir medietype på overordnet nivå.
  
 > [!TIP]
 > Vi ønsker innspill på dette vokabularet. Det vil være muligheter for å få lagt til flere gyldige typer ved behov.
@@ -91,7 +91,7 @@ Eksempler på identifikatortyper kan være `URN`, `PID`, `URI` til post i en kat
 
 | Navn         | **Title**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Navn gitt til ressursen. Der tittel mangler er anbefalt praksis å gi ressursen en “meningsbærende” tittel. <br> Attributt `lang` BØR brukes for å definere språkkode. |
+| Beskrivelse  | Navn gitt til ressursen. Der tittel mangler er anbefalt praksis å gi ressursen en “meningsbærende” tittel. <br> Attributt `lang` BØR brukes for å definere tittelens språk. |
 | Krav         | MÅ                                                                                                                 |
 | Kardinalitet | 1..1                                                                                                               |
 
@@ -103,7 +103,7 @@ En del ressurser har allerede en forhåndsdefinert tittel, som bøker, tidsskrif
 Der tittel mangler er anbefalt praksis å konstruere en meningsbærerende tittel for ressursen. 
 Med meningsbærende menes noe som gir mening for gjenkjennelse og identifikasjon av ressursen (navn som gir mening for avleverer). 
 
-Tittelens språk bør angis med språkkode i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en). 
+Tittelens språk bør angis med språkkode i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) med `lang`-attributten. 
 
 **Eksempler:**
 ```json
@@ -147,7 +147,7 @@ For å bedre muligheter for søk på tittel anbefales det å legge til alternati
 Den alternative tittelen MÅ ha en type, for å beskrive hva slags type tittel som oppgis. 
 Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).
 
-Tittelens språk bør angis med språkkode i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en). 
+Tittelens språk bør angis med språkkode i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) med `lang`-attributten.
 
 **Eksempel:**
 ```json
@@ -166,7 +166,7 @@ Tittelens språk bør angis med språkkode i henhold til [ISO 639-3](https://www
 
 | Navn         | **Creator**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Navn/korporasjon som opptrer i sentral rolle (forfatter, komponist, filmregissør, fotograf, etc.). <br>Attributt `role` BØR brukes for å definere rolle. <br>Attributt `type` BØR brukes for å angi type. Tillatte typer: `Person`, `Korporasjon`, `Konferanse`, `Standardtittel. <br>Attributt `authority` BØR brukes for å angi autoritet.  |
+| Beskrivelse  | Navn/korporasjon som opptrer i sentral rolle (forfatter, komponist, filmregissør, fotograf, etc.). <br>Attributt `role` BØR brukes for å definere rolle. <br>Attributt `type` BØR brukes for å angi type. Tillatte typer: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>Attributt `authority` BØR brukes for å angi autoritet.  |
 | Krav         | BØR                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
@@ -185,10 +185,10 @@ Det bør oppgis om det er snakk om personnavn eller korporasjon.
 Dette er løst på ulike måter i ulike metadatakataloger og autoritetsregistre.
 Foreløpig er disse verdiene tillat for angivelse av navn/korporasjon (type), men det er mulig å få lagt til flere typer ved behov: 
 
-- `Person`
-- `Korporasjon`
-- `Konferanse`
-- `Standardtittel`  (traktat, kontrakt).  
+- `person`
+- `korporasjon`
+- `konferanse`
+- `standardtittel`  (traktat, kontrakt).  
 
 Det bør oppgis hvilken rolle (role) navn/korporasjoner har. 
 Eksempler på roller er: 
@@ -484,7 +484,7 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
 
 | Navn         | **Relation**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | En relatert ressurs der den beskrevne ressursen er fysisk eller logisk inkludert (tittel på overordnet verk, samling, serie, del).<br>Det MÅ brukes attributter for `title` + `type` ELLER `id` + `type`.<br>Attributt `URI` BØR brukes. <br> Attributt `lang` BØR brukes for å definere språkkode.   |
+| Beskrivelse  | En relatert ressurs der den beskrevne ressursen er fysisk eller logisk inkludert (tittel på overordnet verk, samling, serie, del).<br>Det MÅ brukes attributter for `title` + `type` ELLER `id` + `type`.<br>Attributt `URI` BØR brukes. <br> Attributt `lang` BØR brukes for å definere språket på tittelen til den relaterte ressursen.   |
 | Krav         | BØR                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
@@ -549,14 +549,14 @@ Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nett
 
 **Retningslinjer for bruk:**
 
-Språkkode må angis med `lang`-attributtet for verdien i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en).
+Språket brukt til å beskrive provenance bør oppgis med `lang`-attributtet for verdien i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en).
 
 **Eksempel:**
 ```json
 {
   "provenance": [
     {
-      "value": "Bildet er del av en digital samling, som ble donert til Nasjonalbiblioteket av Ola Nordmann 2025-01-01. Se avtale 12345.",
+      "value": "Bildet er del av en digital samling, som ble donert til Nasjonalbiblioteket av Ola Nordmann 2025-01-01.",
       "lang": "nor"
     }
   ]
@@ -576,7 +576,7 @@ Språkkode må angis med `lang`-attributtet for verdien i henhold til [ISO 639-3
 {
   "provenance": [
     {
-      "value": "Digital bevaring gjort internt ved Nasjonalbiblioteket i 2022-24. Prosjektet ble startet og ferdigstilt etter det ble oppdaget at filmen var en tapt tysk spillefilm, uten andre kjente kopier. I det digitale arbeidet ble den originale visningskopien (ID-X) skannet i 2022. Prosjektet hadde som mål å digitalt sikre filmen, med dens originale uttrykk. ",
+      "value": "Digitisering gjort internt ved Nasjonalbiblioteket i 2022-24. Prosjektet ble startet og ferdigstilt etter det ble oppdaget at filmen var en tapt tysk spillefilm, uten andre kjente kopier. I det digitale arbeidet ble den originale visningskopien (ID-12345) skannet i 2022. Prosjektet hadde som mål å digitalt sikre filmen, med dens originale fargeuttrykk. ",
       "lang": "nor"
     }
   ]
@@ -617,7 +617,7 @@ Forklaring til bruk av *authority*-informasjon:
       "value": "fisketur",
     },
     {
-      "value": "natur",
+      "value": "natur"
     }
   ]
 }
