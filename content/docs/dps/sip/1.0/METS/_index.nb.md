@@ -41,37 +41,8 @@ Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CS
 
 
 
-### Bruk av METS header (`metsHdr`)
-
-
-| **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** | 
-|:---|:---|:---|:---|
-| **NBSIP3** | **Avleverer-agent**<br>`metsHdr/agent` <br><br>Dette er et wrapper-element som lar deg oppgi navnet på organisasjonen eller personen som har avlevert informasjonspakka til Nasjonalbiblioteket. Avleverer trenger ikke være det samme som pakkeeier, som er presisert i bevaringsavtalen.<br><br>Dette er en spesifisering av [SIP15](https://earksip.dilcis.eu/#SIP15) | **MÅ** | **1..1** |  |  |
-| **NBSIP4** | **Rolle for avleverer-agent (submitting agent)**<br>`metsHdr/agent/@ROLE`<br>  <br>Rollen til organisasjonen eller personen som har levert informasjonspakka til Nasjonalbiblioteket. Skal være satt til role=`”OTHER”` otherrole=`”SUBMITTER”`.<br><br>Dette er en strengere variant av [SIP16](https://earksip.dilcis.eu/#SIP16) | **MÅ** | **1..1** |  |  |
-| **NBSIP5** | **Navn på avleverer-agent**<br>`metsHdr/agent/name`<br>  <br>Navnet på organisasjonen eller personen som har levert informasjonspakka til Nasjonalbiblioteket. <br>Personnavn skrives i invertert form. Organisasjonsnavn oppgis på originalspråk (slik som det vanligvis brukes). <br><br>Dette er en spesifisering av [SIP18](https://earksip.dilcis.eu/#SIP18) | **MÅ** | **1..1** |  |  |
-| **NBSIP6** | **Tilleggsinformasjon om avleverer**<br>`metsHdr/agent/note`<br>  <br>Dette er et notatfelt der det **BØR** oppgis en unik identifikasjonskode for informasjonspakkas avleverer. For organisasjoner bør det oppgis organisasjonsnummer. For personer vil vi ha identifikator fra [Felles autoritetsregister](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/) for personer og korporasjoner, [ISNI](https://isni.org/), [VIAF](https://viaf.org/en) eller [ORCID](https://orcid.org/).<br><br>Dette er en strengere variant av [SIP19](https://earksip.dilcis.eu/#SIP19) | **BØR** | **0..1** |  |  |
-
-
-**Eksempel:** 
-
-
-```xml
-<metsHdr CREATEDATE="2025-03-18T22:53:09.977+01:00" LASTMODDATE="2025-03-18T22:53:09.977+01:00" RECORDSTATUS="NEW" csip:OAISPACKAGETYPE="SIP">
-    <agent ROLE="CREATOR" TYPE="OTHER" OTHERTYPE="SOFTWARE">
-        <name>RODA Commons IP</name>
-        <note csip:NOTETYPE="SOFTWARE VERSION">2.2.0</note>
-    </agent>
-    <agent ROLE="CREATOR" TYPE="INDIVIDUAL">
-        <name>PEDERSEN, TORBJORN BAKKEN</name>
-        <note csip:NOTETYPE="IDENTIFICATIONCODE">https://orcid.org/0009-0005-3523-5728</note>
-    </agent>
-    <agent ROLE="OTHER" OTHERROLE="SUBMITTER" TYPE="ORGANIZATION">
-        <name>Nasjonalbiblioteket</name>
-        <note csip:NOTETYPE="IDENTIFICATIONCODE">Organisasjonsnummer:123456789</note>
-    </agent>
-</metsHdr>
-```
-
+### Bruk av METS header (`metsHdr`) 
+Ingen krav utover [CSIP METS Header](https://earkcsip.dilcis.eu/#useofthemetsheaderelementmetshdr).
 
 
 
@@ -193,4 +164,4 @@ Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen)
 
 ### Bruk av METS strukturkart (`structMap`)
 
-Ingen Krav utover [CSIP](https://earkcsip.dilcis.eu/#useofthemetsstructuralmapelementstructmap).
+Ingen krav utover [CSIP METS structural map](https://earkcsip.dilcis.eu/#useofthemetsstructuralmapelementstructmap).

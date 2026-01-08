@@ -43,35 +43,8 @@ Both `METS.xml` files must validate against the METS requirements specified by t
 
 ## Use of the METS header (`metsHdr`)
 
+No further requirements beyond [CSIP METS Header](https://earkcsip.dilcis.eu/#useofthemetsheaderelementmetshdr).
 
-| **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** | 
-|:---|:---|:---|:---|
-| **NBSIP3** | **Submitting agent**<br>`metsHdr/agent` <br><br>This is a wrapper element that allows you to specify the name of the organization or individual who delivered the information package to the National Library of Norway. The deliverer does not have to be the same as the package owner, as specified in the submission agreement.<br><br>This is a more detailed specification of [SIP15](https://earksip.dilcis.eu/#SIP15) | **MUST** | **1..1** |  |  |
-| **NBSIP4** | **Submitting agent role**<br>`metsHdr/agent/@ROLE`<br><br>Specifies the role of the organization or individual who submitted the information package to the National Library of Norway. The attributes must be set to role=`”OTHER”` and otherrole=`”SUBMITTER”`.<br><br>This requirement is a stricter version of [SIP16](https://earksip.dilcis.eu/#SIP16) | **MUST** | **1..1** |  |  |
-| **NBSIP5** | **Submitting agent name**<br>`metsHdr/agent/name`<br><br>The name of the organization or individual who submitted the information package to the National Library of Norway. <br> Personal names should be written in inverted form. Organization names are written in the original language (as commonly used). <br><br>This is a more detailed specification of [SIP18](https://earksip.dilcis.eu/#SIP18) | **MUST** | **1..1** |  |  |
-| **NBSIP6** | **Submitting agent additional information**<br>`metsHdr/agent/note`<br><br> This is a note field where a unique identification code for the submitter of the information package **SHOULD** be provided. For organizations, the organization number should be given. For individuals, we require an identifier from the[Norwegian Authority File](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/) for persons and corporations, [ISNI](https://isni.org/), [VIAF](https://viaf.org/en) or [ORCID](https://orcid.org/).<br><br>This requirement is a stricter version of [SIP19](https://earksip.dilcis.eu/#SIP19) | **SHOULD** | **0..1** |  |  |
-
-
-
-**Example:** 
-
-
-```xml
-<metsHdr CREATEDATE="2025-03-18T22:53:09.977+01:00" LASTMODDATE="2025-03-18T22:53:09.977+01:00" RECORDSTATUS="NEW" csip:OAISPACKAGETYPE="SIP">
-    <agent ROLE="CREATOR" TYPE="OTHER" OTHERTYPE="SOFTWARE">
-        <name>RODA Commons IP</name>
-        <note csip:NOTETYPE="SOFTWARE VERSION">2.2.0</note>
-    </agent>
-    <agent ROLE="CREATOR" TYPE="INDIVIDUAL">
-        <name>PEDERSEN, TORBJORN BAKKEN</name>
-        <note csip:NOTETYPE="IDENTIFICATIONCODE">https://orcid.org/0009-0005-3523-5728</note>
-    </agent>
-    <agent ROLE="OTHER" OTHERROLE="SUBMITTER" TYPE="ORGANIZATION">
-        <name>Nasjonalbiblioteket</name>
-        <note csip:NOTETYPE="IDENTIFICATIONCODE">Organisasjonsnummer:123456789</note>
-    </agent>
-</metsHdr>
-```
 
 
 
@@ -189,4 +162,4 @@ The National Library of Norway (NB) considers these metadata types essential for
 
 ## Use of the METS structural map (`structMap`)
 
-No further requirements beyond [CSIP](https://earkcsip.dilcis.eu/#useofthemetsstructuralmapelementstructmap).
+No further requirements beyond [CSIP METS structural map](https://earkcsip.dilcis.eu/#useofthemetsstructuralmapelementstructmap).
