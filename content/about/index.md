@@ -4,13 +4,13 @@ linkTitle: About
 tags: [Team presentation, team organization, product teams]
 ---
 
-In June 2022, a dedicated team was established at [The National Library of Norway](https://nb.no/ "National Library of Norway homepage") to manage the preservation of its digital collection. The team is responsible for handling all types of digital material, whether digitized from analog sources or born-digital. This includes media formats such as websites, text documents, images, audio, and moving images.
+[The National Library of Norway](https://nb.no/ "National Library of Norway homepage") has carried out large-scale digitisation of Norway’s cultural heritage since 2006, resulting in the production of extensive amounts of data. To ensure a consistent and long-term approach to managing this digital material, a dedicated team focusing exclusively on the preservation of the National Library’s digital collections was established in 2022.
 
-Areas of responsibility include managing long-term digital preservation solutions and working across the entire process: ingest, quality control, storage, preservation, and access. Data included for long term preservation typically consists of large, high-quality files, as opposed to compressed access copies.
+The data we receive for preservation includes both digital material covered by the [Legal Deposit Act](https://lovdata.no/dokument/NL/lov/1989-06-09-32) and material digitised by the National Library itself. Digitisation is carried out both from the Library’s own collections and on behalf of various institutions within the LAM sector [^1]. The team manages all types of digital material, regardless of whether it originates from analogue sources or is born digital. This includes media such as websites, text documents, images, audio, and moving images.
 
-The Digital Preservation Team collaborates closely with several other specialized media teams within the institution. In addition to receiving digital material covered by the [Legal Deposit Act](https://lovdata.no/dokument/NL/lov/1989-06-09-32), the National Library of Norway also produces large vulumes of data through digitization efforts. This includes both material from its own collections and from institutions across the archive, library, and museum (ALM) sector.
+The team is responsible for managing solutions for the long-term preservation of digital material and handles the entire preservation lifecycle. This includes ingesting data, performing validation and quality assurance, ensuring safe and secure storage, and preserving the material over time. In addition, the team facilitates appropriate access to the material. Digital preservation involves documenting the origin of the content, ensuring that it remains unaltered, and making certain that the material can be understood and used, both now and in the future. This is achieved, among other things, by ensuring that sufficient metadata is preserved alongside the data, and by documenting all actions performed on the material in our custody. The team does not produce data but assumes responsibility once digital material is transferred from internal production workflows or external contributors. The team is also not responsible for the production or management of access copies, only for preservation copies.
 
-The team is a members of the [Digital Preservation Coalition](https://www.dpconline.org/ "Digital Preservation Coalition homepage").
+The Digital Preservation Team works closely with other specialised media teams within the organisation and collaborates with external partners both nationally and internationally. The team is also a member of the [Digital Preservation Coalition](https://www.dpconline.org/ "Digital Preservation Coalition homepage").
 
 ## Organisation
 The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page about Digital Preservation at NLN") team consist of 8 members:
@@ -48,12 +48,4 @@ This team reports to a committee of leaders responsible for this area in the Nat
 - Books: 8%
 - Photos: 2%
 
-## Technology choices used when working with digital preservation
-- [Apache Kafka](https://kafka.apache.org "Apache Kafka's homepage") for sending messages between systems
-- [Apache NiFi](https://nifi.apache.org "Apache NiFi's homepage") for running the data flows that validate, move, and package data
-- [MariaDB](https://mariadb.org "MariaDB's homepage") as the database engine
-- [DROID](https://digital-preservation.github.io/droid "DROIDs hjemmeside") and [Siegfried](https://github.com/richardlehane/siegfried) for file format identification
-- [Grafana](https://grafana.com "Grafana's homepage") for statistics and reporting
-- [IBM High Performance Storage System (HPSS)](https://www.hpss-collaboration.org "HPSS's homepage") as bit repository
-- [CentOS](https://www.centos.org "CentOS's homepage") Linux as server platform
-- [CommonsIP](https://github.com/keeps/commons-ip) for packaging and validation of information packages following the [E-ARK standard](https://dilcis.eu/)
+[^1]: LAM is a collective term for libraries, archives, and museums, and is used to describe the sector responsible for managing, preserving, and disseminating documentation and cultural heritage.

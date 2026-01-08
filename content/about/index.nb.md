@@ -4,14 +4,13 @@ linkTitle: Om oss
 tags: [Team presentation, team organization, product teams]
 ---
 
-I juni 2022 ble det etablert et eget team med ansvar for bevaring av [Nasjonalbibliotekets](https://nb.no/ "National Library of Norway homepage") digitale samling.
-Teamet håndterer alle typer digitalt materiale, uavhengig om materialet er digitalisert fra analoge kilder eller om det er født digitalt. Dette inkluderer medietyper som websider, tekstdokumenter, bilder, lyd og levende bilder.
+[Nasjonalbiblioteket](https://nb.no/ "National Library of Norway homepage") har drevet med storskala digitalisering av den norske kulturarven siden 2006, og det har gjennom årene blitt produsert store mengder data. For å sikre helhetlig og langsiktig forvaltning av det digitale materialet, ble det i 2022 etablert et eget team som utelukkende arbeider med bevaring av Nasjonalbibliotekets digitale samling. 
 
-Teamet har ansvar for å forvalte løsninger for langtidsbevaring av digitalt materiale, og jobber med inntak, kontroll, lagring, bevaring- og tilgjengeliggjøring av data. Data som langtidsbevares er typisk store filer av høy kvalitet (i motsetning til komprimerte tilgangsfiler).  
+Dataene vi mottar for bevaring er både digitalt materiale som omfattes av [Pliktavleveringsloven](https://lovdata.no/dokument/NL/lov/1989-06-09-32), og materiale som digitaliseres i Nasjonalbiblioteket. Det digitaliseres både materiale fra egen samling og på vegne av ulike institusjoner i ABM-sektoren [^1]. Teamet håndterer alle typer digitalt materiale, uavhengig om materialet er digitalisert fra analoge kilder eller om det er født digitalt. Dette inkluderer medietyper som websider, tekstdokumenter, bilder, lyd og levende bilder. 
 
-Team Digital bevaring samarbeider tett med flere andre spesialiserte medieteam i institusjonen. I tillegg til mottak av digitalt materiale som omfattes av [Pliktavleveringsloven](https://lovdata.no/dokument/NL/lov/1989-06-09-32), produserer Nasjonalbibliotek store mengder data gjennom digitalisering. Det digitaliseres både materiale fra egen samling og på vegne av ulike institusjoner i ABM-sektoren.
+Teamet har ansvar for å forvalte løsninger for langtidsbevaring av digitalt materiale, og jobber med hele prosessen. Arbeidet omfatter mottak av data, kontroll og kvalitetssikring, sikker lagring og bevaring over tid. I tillegg legges det til rette for tilgjengeliggjøring av materialet på en trygg og hensiktsmessig måte. Digital behandling handler om å kunne dokumentere innholdets opprinnelse, sikre at det ikke forandres, og at materialet kan forstås og brukes, nå og i framtiden. Dette gjøres blant annet ved å sørge for at tilstrekkelig med metadata bevares sammen med dataene, og ved å dokumentere alt som blir gjort med materialet etter at vi mottar det. Teamet produserer ikke data selv, men overtar ansvaret når det digitale materialet mottas fra interne produksjonsløyper eller eksterne aktører. Vi har heller ikke ansvar for produksjon eller forvaltning av tilgangskopier, kun bevaringskopier. 
 
-Teamet er medlem av [Digital Preservation Coalition (DPC)](https://www.dpconline.org/ "Digital Preservation Coalitions hjemmesider").
+Team digital bevaring jobber tett med de andre spesialiserte medieteamene i organisasjonen, i tillegg til å samarbeide med eksterne aktører både nasjonalt og internasjonalt. Teamet er blant annet medlem av [Digital Preservation Coalition (DPC)](https://www.dpconline.org/ "Digital Preservation Coalitions hjemmesider").
 
 ## Organisasjon
 Team digital bevaring består i dag av 8 medlemmer:
@@ -49,12 +48,4 @@ Teamet svarer til en eiergruppe bestående av:
 - Bøker 8%
 - Bilder 2%
 
-## Teknologi som brukes i arbeidet med digital bevaring
-- [Apache Kafka](https://kafka.apache.org "Apache Kafkas hjemmeside") for kommunikasjon mellom systemer
-- [Apache NiFi](https://nifi.apache.org "Apache NiFi's hjemmeside") for å kjøre prosesser som validerer, flytter og pakker data
-- [MariaDB](https://mariadb.org "MariaDBs hjemmeside") som databasemotor
-- [DROID](https://digital-preservation.github.io/droid "DROIDs hjemmeside") og [Siegfried](https://github.com/richardlehane/siegfried) for identifisering av filformater
-- [Grafana](https://grafana.com "Grafanas hjemmeside") for statistikk og rapportering
-- [IBM High Performance Storage System (HPSS)](https://www.hpss-collaboration.org "HPSSs hjemmeside") som bit-repository
-- [CentOS](https://www.centos.org "CentOS' hjemmeside") Linux som serverplattform
-- [CommonsIP](https://github.com/keeps/commons-ip) for pakking og validering av arkivpakker på [E-ARK standard](https://dilcis.eu/)
+[^1]: ABM er en samlebetegnelse for arkiv, bibliotek og museum, og brukes om sektoren som forvalter, bevarer og formidler dokumentasjon og kulturarv. 
