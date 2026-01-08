@@ -164,6 +164,8 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 
 ### Registrer fil for opplasting
 
+`isPackaged` angir om filer er pakket midlertidig kun for overføringsformål. Disse filene pakkes for å lette overføringen, og pakkes ut av bevaringsflyten.
+
 **Forespørsel**
 ```http
 POST /dps-submission/v1/contracts/1234/submissions/8Z7x1T9rN0Xc2B5Yq4L3zP/files HTTP/1.1
