@@ -67,7 +67,7 @@ In the requirements for [METS.xml](/nb/docs/dps/sip/1.0/mets/) there is a mandat
 The identifier type MUST be defined. 
 The use of the type attribute should be meaningful to the submitter, reflect the metadata catalog or system, and be applied consistently (using a standardized format).
 
-Examples of identifier types may include `URN`, `PID`, `URI` to a record in a catalog or metadata system, `document ID`, `issue ID`, `copy number`, `ISBN`, `ISSN`, `ISMN`, `ISNI`, `DOI`, `record label, etc.
+Examples of identifier types may include URN, PID, URI to a record in a catalog or metadata system, document ID, issue ID, copy number, ISBN, ISSN, ISMN, ISNI, DOI, record label, etc.
 
 **Examples:**
 ```json

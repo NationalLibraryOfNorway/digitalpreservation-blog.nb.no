@@ -65,7 +65,7 @@ I kravene til [METS.xml](/nb/docs/dps/sip/1.0/mets/) har vi et påkrevd attribut
 Det MÅ defineres type identifikator. 
 Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
 
-Eksempler på identifikatortyper kan være `URN`, `PID`, `URI` til post i en katalog/metadatasystem, `dokID`, `hefteID`, `eksemplarnummer`, `ISBN`, `ISSN`, `ISMN`, `ISNI`, `DOI`, `plateetikett` etc. 
+Eksempler på identifikatortyper kan være URN, PID, URI til post i en katalog/metadatasystem, dokID, hefteID, eksemplarnummer, ISBN, ISSN, ISMN, ISNI, DOI, plateetikett etc. 
 
 **Eksempler:**
 ```json
