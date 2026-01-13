@@ -342,7 +342,7 @@ Forklaring til bruk av *authority*-informasjon:
   "publisher": [
     {
       "name": "Nasjonalbiblioteket (Oslo, 1984)",
-      "type": "Organization",
+      "type": "Korporasjon",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
         "code": "90362181",

@@ -349,7 +349,7 @@ Explanation of *authority* information:
   "publisher": [
     {
       "name": "National library of Norway (Oslo, 1984)",
-      "type": "Organization",
+      "type": "Korporasjon",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
         "code": "90362181",
@@ -680,7 +680,7 @@ Language code must be specified.
   "priority": 50,
   "metadata": {
     "type": {
-      "value": "image",
+      "value": "Bilde",
       "lang": "eng"
     },
     "identifier": [
@@ -690,13 +690,11 @@ Language code must be specified.
       },
       {
         "type": "image-id",
-        "value": "NB_PE_VM_M_05_09_01_036",
-        "lang": "eng"
+        "value": "NB_PE_VM_M_05_09_01_036"
       },
       {
         "type": "call-number",
-        "value": "POEL00003975",
-        "lang": "eng"
+        "value": "POEL00003975"
       }
     ],
     "title": {
@@ -706,8 +704,8 @@ Language code must be specified.
     "alternative": [
       {
         "type": "original title",
-        "value": "Ola and Kari on fishing trip in Rondane",
-        "lang": "eng"
+        "value": "Ola og Kari på fisketur i Rondane",
+        "lang": "nor"
       }
     ],
     "creator": [
@@ -715,7 +713,6 @@ Language code must be specified.
         "name": "Marek, Václav",
         "type": "Person",
         "role": "Photographer",
-        "lang": "eng",
         "authority": {
           "source": "Felles autoritetsregister (BARE)",
           "code": "90362181",
@@ -727,14 +724,12 @@ Language code must be specified.
       {
         "role": "depicted",
         "type": "Person",
-        "name": "Nordmann, Ola",
-        "lang": "eng"
+        "name": "Nordmann, Ola"
       },
       {
         "role": "illustrator",
         "type": "Person",
         "name": "Solberg, Erna",
-        "lang": "eng",
         "authority": {
           "source": "Kulturnav",
           "code": "e762d909-5cce-4d2b-892b-258272514fde",
@@ -745,8 +740,7 @@ Language code must be specified.
     "publisher": [
       {
         "name": "National library of Norway",
-        "type": "Organization",
-        "lang": "eng",
+        "type": "Korporasjon",
         "authority": {
           "source": "Felles autoritetsregister (BARE)",
           "code": "90362181",
@@ -757,8 +751,7 @@ Language code must be specified.
     "spatial": [
       {
         "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
-        "type": "Avbildet sted",
-        "lang": "nor",
+        "type": "Depicted location",
         "authority": {
           "source": "Kulturnav",
           "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
@@ -775,34 +768,30 @@ Language code must be specified.
     "date": [
       {
         "type": "Content date",
-        "value": "1938",
-        "lang": "eng"
+        "value": "1938"
       },
       {
         "type": "digitized",
-        "value": "2022-03-05T14:28:12+02:00",
-        "lang": "eng"
+        "value": "2022-03-05T14:28:12+02:00"
       },
       {
         "type": "published",
-        "value": "2022-03-12",
-        "lang": "eng"
+        "value": "2022-03-12"
       }
     ],
     "language": [
       {
         "type": "subtext",
-        "value": "english",
-        "lang": "eng"
+        "value": "eng"
       }
     ],
     "relation": [
       {
         "title": "Norway from end to end with Ola and Kari",
+        "lang": "eng",
         "type": "IsPartOf",
         "id": "987654321",
-        "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
-        "lang": "eng"
+        "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
       }
     ],
     "provenance": [
@@ -813,16 +802,13 @@ Language code must be specified.
     ],
     "subject": [
       {
-        "value": "rondane",
-        "lang": "nor"
+        "value": "rondane"
       },
       {
-        "value": "fishingtrip",
-        "lang": "eng"
+        "value": "fishingtrip"
       },
       {
         "value": "nature",
-        "lang": "eng",
         "authority": {
           "source": "Kulturnav",
           "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
