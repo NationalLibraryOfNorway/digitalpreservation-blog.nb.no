@@ -25,39 +25,38 @@ Dette gir bedre søkbarhet og forståelse av ressursene – også i et langtidsp
 
 | Navn         | **Type**                                                                     |
 |:-------------|:-----------------------------------------------------------------------------|
-| Beskrivelse  | Type ressurs/medietype. NB bruker et eget vokabular for tillatte medietyper.<br>Attributt `lang` BØR brukes for å definere språkkode. |
+| Beskrivelse  | Form/sjanger på ressursen. NB bruker et eget vokabular for tillatte typer.   |
 | Krav         | MÅ                                                                           |
 | Kardinalitet | 1..1                                                                         | 
 
 **Retningslinjer for bruk:**
 
-Tillatte typer for å beskrive ressursen per medietype: 
+Tillatte typer for å beskrive ressursen sortert på medietype: 
 
 - **Tekst:** `Bok`, `Avis`, `Tidsskrift`, `Artikkel`, `Småtrykk`, `Brev`, `Epost`, `Manuskript`, `Musikkmanuskript`, `Noter`, `Programrapport`, `Programstatistikk`. 
 - **Bilder:** `Bilde`, `Kart`, `Plakat`, `Postkort`, `Referansemateriale`. 
 - **Lyd:** ``Lydbok``, ``Musikk``, ``Radio``.
 - **Levende bilder:** `Film`, `Fjernsyn`.
 
+Vokabularet har kun norske verdier.
+
+I kravene til [METS.xml](/nb/docs/dps/sip/1.0/mets/) har vi et påkrevd attributt som heter Content category `@TYPE`. Content category angir medietype på overordnet nivå.
  
 > [!TIP]
-> Det vil være muligheter for å få lagt til flere gyldige typer ved behov.
-
-Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+> Vi ønsker innspill på dette vokabularet. Det vil være muligheter for å få lagt til flere gyldige typer ved behov.
   
 **Eksempel:**
 ```json
 {
-  "type": {
-    "value": "Bilde",
-    "lang": "nor"
-  }
+  "type": "Bilde"
 }
 ``` 
+
 ### Identifier
 
 | Navn         | **Identifier**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Identifikatorer (type ID + ID/verdi). <br>Attributt `type` og `value` MÅ brukes for å definere type identifikator.<br>Attributt `lang` BØR brukes for å definere språkkode.|
+| Beskrivelse  | Identifikatorer (type ID + ID/verdi). <br>Attributt `type` og `value` MÅ brukes for å definere type identifikator.|
 | Krav         | MÅ                                                                                                                 |
 | Kardinalitet | 1..n                                                                                                               |
 
@@ -66,9 +65,7 @@ Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-
 Det MÅ defineres type identifikator. 
 Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
 
-Eksempler på identifikatortyper kan være `URN`, `PID`, `URI` til post i en katalog/metadatasystem, `dokID`, `hefteID`, `eksemplarnummer`, `ISBN`, `ISSN`, `ISMN`, `ISNI`, `DOI`, `plateetikett` etc. 
-
-Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+Eksempler på identifikatortyper kan være URN, PID, URI til post i en katalog/metadatasystem, dokID, hefteID, eksemplarnummer, ISBN, ISSN, ISMN, ISNI, DOI, plateetikett etc. 
 
 **Eksempler:**
 ```json
@@ -80,22 +77,21 @@ Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-
     },
     {
       "type": "bilde-id",
-      "value": "NB_PE_VM_M_05_09_01_036",
-      "lang": "nor"
+      "value": "NB_PE_VM_M_05_09_01_036"
     },
     {
       "type": "hyllesignatur",
-      "value": "POEL00003975",
-      "lang": "nor"
+      "value": "POEL00003975"
     }
   ]
 }
 ```
+
 ### Title
 
 | Navn         | **Title**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Navn gitt til ressursen. Der tittel mangler er anbefalt praksis å gi ressursen en “meningsbærende” tittel. <br> Attributt `lang` BØR brukes for å definere språkkode. |
+| Beskrivelse  | Navn gitt til ressursen. Der tittel mangler er anbefalt praksis å gi ressursen en “meningsbærende” tittel. <br> Attributt `lang` BØR brukes for å definere tittelens språk. |
 | Krav         | MÅ                                                                                                                 |
 | Kardinalitet | 1..1                                                                                                               |
 
@@ -104,10 +100,10 @@ Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-
 Alle pakker MÅ ha en tittel.
 
 En del ressurser har allerede en forhåndsdefinert tittel, som bøker, tidsskrift, artikler, malte verk, kunstfoto osv. 
-Der tittel mangler er anbefalt praksis å gi ressursen en “meningsbærende” tittel. 
+Der tittel mangler er anbefalt praksis å konstruere en meningsbærerende tittel for ressursen. 
 Med meningsbærende menes noe som gir mening for gjenkjennelse og identifikasjon av ressursen (navn som gir mening for avleverer). 
 
-Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes. 
+Tittelens språk bør angis med språkkode i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) med `lang`-attributten. 
 
 **Eksempler:**
 ```json
@@ -133,6 +129,7 @@ Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-
   }
 }
 ```
+
 ### Alternative
 
 | Navn         | **Alternative**                                                                                                     |
@@ -143,17 +140,14 @@ Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-
 
 **Retningslinjer for bruk:**
 
+Denne attributten gir mulighet for å oppgi flere titler, for eksempel titler på andre språk, arbeidstitler, etc.
+
 For å bedre muligheter for søk på tittel anbefales det å legge til alternativ tittel der tittelen inneholder tall og/eller spesialtegn, eller der tall opprinnelig er skrevet som tekst. 
 
-Eksempler:
-- `title`: 1-2-3 Matematikk = `alternative`: en to tre matematikk.
-- `title`: Kari & Bjarne på fisketur = `alternative`: Kari og Bjarne på fisketur. 
-- `title`: Tusen fjelltopper = `alternative`: 1000 fjelltopper.  
-
-Den alterantive tittelen MÅ ha en type, for å beskrive hva slags type tittel som oppgis. 
+Den alternative tittelen MÅ ha en type, for å beskrive hva slags type tittel som oppgis. 
 Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).
 
-Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes. 
+Tittelens språk bør angis med språkkode i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) med `lang`-attributten.
 
 **Eksempel:**
 ```json
@@ -167,11 +161,12 @@ Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-
   ]
 }
 ```
+
 ### Creator
 
 | Navn         | **Creator**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Navn/korporasjon som opptrer i sentral rolle (forfatter, komponist, filmregissør, fotograf, ukjent etc.). <br>Attributt `role` BØR brukes for å definere rolle. <br>Attributt `type` BØR brukes for å angi type. Tillatte typer: *Person, Organization, Personal Name, Corporate Name, Meeting Name, Uniform Title*. <br>Attributt `authority` BØR brukes for å angi autoritet. <br>Attributt `lang` BØR brukes for å definere språkkode.  |
+| Beskrivelse  | Navn/korporasjon som opptrer i sentral rolle (forfatter, komponist, filmregissør, fotograf, etc.). <br>Attributt `role` BØR brukes for å definere rolle. <br>Attributt `type` BØR brukes for å angi type. Tillatte typer: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>Attributt `authority` BØR brukes for å angi autoritet.  |
 | Krav         | BØR                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
@@ -189,20 +184,22 @@ Eksempler:
 Det bør oppgis om det er snakk om personnavn eller korporasjon. 
 Dette er løst på ulike måter i ulike metadatakataloger og autoritetsregistre.
 Foreløpig er disse verdiene tillat for angivelse av navn/korporasjon (type), men det er mulig å få lagt til flere typer ved behov: 
-`Person`, `Organization`, `Personal Name`, `Corporate Name`, `Meeting Name` (konferanse), `Uniform Title`  (traktat, kontrakt).  
+
+- `person`
+- `korporasjon`
+- `konferanse`
+- `standardtittel`  (traktat, kontrakt).  
 
 Det bør oppgis hvilken rolle (role) navn/korporasjoner har. 
 Eksempler på roller er: 
-`forfatter`, `komponist`, `filmregissør`, `fotograf`, `skaper etc. 
+forfatter, komponist, filmregissør, fotograf, skaper etc. 
 
 Bruk av role-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
 
-Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
-
 Forklaring til bruk av *authority*-informasjon: 
-- **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
-- **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
-- **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
+- `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
+- `code`: En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
+- `URI`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempler:**
 ```json
@@ -212,7 +209,6 @@ Forklaring til bruk av *authority*-informasjon:
       "name": "Marek, Václav (1908-1994)",
       "type": "Person",
       "role": "fotograf",
-      "lang": "nor",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
         "code": "90169632",
@@ -229,7 +225,6 @@ Forklaring til bruk av *authority*-informasjon:
       "name": "Shakespeare, William (1564-1616)",
       "type": "Person",
       "role": "forfatter",
-      "lang": "nor",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
         "code": "9016555",
@@ -239,20 +234,44 @@ Forklaring til bruk av *authority*-informasjon:
   ]
 }
 ```
+
 ### Contributor
 
 | Navn         | **Contributor**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Navn som opptrer i sentral rolle (illustratør, fotograf, medforfatter). <br>Attributt `role` BØR brukes for å definere rolle. <br>Attributt `type` BØR brukes for å angi type autoritet. Tillatte typer: *Person, Organization, Personal Name, Corporate Name, Meeting Name, Uniform Title.* <br>Attributt `lang` BØR brukes for å definere språkkode.|
+| Beskrivelse  | Navn som opptrer i sentral rolle (illustratør, fotograf, medforfatter). <br>Attributt `role` BØR brukes for å definere rolle. <br>Attributt `type` BØR brukes for å angi type autoritet. Tillatte typer: `Person`, `Korporasjon`, `Konferanse`, `Standardtittel`.<br>Attributt `authority` BØR brukes for å angi autoritet. |
 | Krav         | BØR                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
 **Retningslinjer for bruk:**
 
-Regler for utfylling av Contributor-feltet er de samme som Creator-feltet. 
-Eksempler på roller for Contributor kan være: `bidragsyter`, `avbildet`, `illustratør`, `modell`, `redaktør`, `designer` etc.  
+Det anbefales å referere til autoritetsregistre når relevante slik eksisterer, både for personnavn og korporasjoner. 
+Det må oppgis hvilket autoritetsregister som er benyttet. 
+Et eksempel på autoritetsregister er [Felles autoritetsregister for personer og korporasjoner](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/).
 
-Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+Contributor identiseres i tillegg ved å skrives ut i sin fulle form (navn, etternavn/korporasjon). 
+Fødselsår - dødsår kan legges til bak navnet i parentes. 
+Eksempler: 
+*Nesbø, Jo (1960-  ), Shakespeare, William (1564-1616)*. 
+
+Det bør oppgis om det er snakk om personnavn eller korporasjon. 
+Dette er løst på ulike måter i ulike metadatakataloger og autoritetsregistre.
+Foreløpig er disse verdiene tillat for angivelse av navn/korporasjon (type), men det er mulig å få lagt til flere typer ved behov: 
+
+- `Person`
+- `Korporasjon`
+- `Konferanse`
+- `Standardtittel`  (traktat, kontrakt).  
+
+Det bør oppgis hvilken rolle (role) navn/korporasjoner har. 
+Eksempler på roller er: bidragsyter, avbildet, illustratør, modell, redaktør, designer etc.  
+
+Bruk av role-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
+
+Forklaring til bruk av *authority*-informasjon: 
+- `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
+- `code`: En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
+- `URI`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 
 **Eksempler:**
@@ -263,16 +282,15 @@ Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-
       "role": "avbildet",
       "type": "Person",
       "name": "Nordmann, Ola",
-      "lang": "nor"
     },
     {
       "role": "avbildet",
       "name": "Nordmann, Kari",
-      "lang": "nor"
     }
   ]
 }
 ```
+
 ```json
 {
   "contributor": [
@@ -280,7 +298,6 @@ Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-
       "role": "illustratør",
       "type": "Person",
       "name": "Solberg, Erna",
-      "lang": "nor",
       "authority": {
         "source": "Kulturnav",
         "code": "e762d909-5cce-4d2b-892b-258272514fde",
@@ -290,11 +307,12 @@ Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-
   ]
 }
 ```
+
 ### Publisher
 
 | Navn         | **Publisher**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Navn som opptrer i sentral rolle (Organisasjonen eller enheten som har publisert ressursen). <br> Attributt `type` BØR brukes for å definer type autoritet. Tillatte typer: *Person, Organization, Personal Name, Corporate Name, Meeting Name, Uniform Title.*<br>Attributt `lang` BØR brukes for å definere språkkode. |
+| Beskrivelse  | Navn som opptrer i sentral rolle (Organisasjonen eller enheten som har publisert ressursen). <br> Attributt `type` BØR brukes for å definer type autoritet. Tillatte typer: `Person`, `Korporasjon`, `Konferanse`, `Standardtittel`<br>Attributt `authority` BØR brukes for å angi autoritet.  |
 | Krav         | BØR                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
@@ -302,18 +320,21 @@ Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-
 
 Det anbefales å bruke autoritetsregister hvis det finnes. 
 Det MÅ oppgis hvilket autoritetsregister som er benyttet, og hvilken type autoritet det er (type): 
-`Person`, `Organization`, `Personal Name`, `Corporate Name`, `Meeting Name` (konferanse), `Uniform Title`  (traktat, kontrakt). 
+
+- `Person`
+- `Korporasjon`
+- `Konferanse`
+- `Standardtittel`  (traktat, kontrakt).  
+
 Ved bruk av autoritetsregister bør utgiver i tillegg skrives ut i sin fulle form.
 Sted og/eller år for utgivelse kan legges til i parantes bak navnet. 
 Eksempel: 
 Nasjonalbiblioteket (Oslo, 1984). 
-  
-Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
-Forklaring til bruk av *authority*-informasjon:
-- **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
-- **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
-- **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
+Forklaring til bruk av *authority*-informasjon: 
+- `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
+- `code`: En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
+- `URI`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempel:**
 ```json
@@ -322,7 +343,6 @@ Forklaring til bruk av *authority*-informasjon:
     {
       "name": "Nasjonalbiblioteket (Oslo, 1984)",
       "type": "Organization",
-      "lang": "nor",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
         "code": "90362181",
@@ -332,11 +352,12 @@ Forklaring til bruk av *authority*-informasjon:
   ]
 }
 ```
+
 ### Spatial
 
 | Navn         | **Spatial**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Relevante stedsnavn for ressursen. Kan referere til geografiske steder som land, regioner og byer som har betydning for ressursen. <br> Det BØR angis `type` for hvilket sted som oppgis.<br>Attributt `lang` BØR brukes for å definere språkkode.  |
+| Beskrivelse  | Relevante stedsnavn for ressursen. Kan referere til geografiske steder som land, regioner og byer som har betydning for ressursen. <br> Det BØR angis `type` for hvilket sted som oppgis.<br>Attributt `authority` BØR brukes for å angi autoritet.  |
 | Krav         | BØR                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
@@ -354,15 +375,13 @@ Det er mulig å oppgi koordinater i form av lengde- og breddegrader.
 Det skal brukes på denne måten: 
 `latitude`=61.85401 `longitude`=9.80856
 
-Eksempler på `type` sted kan være `utgiversted`, `innspillingssted`, `handlingssted`, `trykkested`, `fødested` osv. 
+Eksempler på `type` sted kan være utgiversted, innspillingssted, handlingssted, trykkested, fødested osv. 
 Bruk av `type`-attributt her bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).  
 
-Språkkode bør angis. [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
-
 Forklaring til bruk av *authority*-informasjon: 
-- **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
-- **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
-- **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
+- `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
+- `code`: En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
+- `URI`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempel:**
 ```json
@@ -371,7 +390,6 @@ Forklaring til bruk av *authority*-informasjon:
     {
       "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
       "type": "Avbildet sted",
-      "lang": "nor",
       "authority": {
         "source": "Kulturnav",
         "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
@@ -387,11 +405,12 @@ Forklaring til bruk av *authority*-informasjon:
   ]
 }
 ```
+
 ### Date
 
 | Navn         | **Date**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Relevante datoer for ressursen (utgivelse, copyright, opprettelse/digitaliseringsdato etc., type årstall + årstall/verdi).  <br> Attributt `type` MÅ brukes for å definere type dato.<br>Attributt `lang` BØR brukes for å definere språkkode.   |
+| Beskrivelse  | Relevante datoer for ressursen (for eksempel utgivelses-, copyright-, opprettelse-/digitaliseringsdato etc. med type).  <br> Attributt `type` MÅ brukes for å definere type dato.  |
 | Krav         | BØR                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
@@ -400,10 +419,7 @@ Forklaring til bruk av *authority*-informasjon:
 Det må angis type årstall + årstall/verdi. 
 [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) brukes som standard.  
 
-Bruke av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
-
-Språkkode bør angis. 
-[ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
 
 **Eksempler:**
 ```json
@@ -411,33 +427,31 @@ Språkkode bør angis.
   "date": [
     {
       "type": "motivdato",
-      "value": "1938",
-      "lang": "nor"
+      "value": "1938"
     },
     {
       "type": "digitalisert",
-      "value": "2022-03-05T14:28:12+02:00",
-      "lang": "nor"
+      "value": "2022-03-05T14:28:12+02:00"
     },
     {
       "type": "publisert",
-      "value": "2022-03-12",
-      "lang": "nor"
+      "value": "2022-03-12"
     }
   ]
 }
 ```
+
 ### Language
 
 | Navn         | **Language**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Språk som er relevant for ressursen. <br> Attributt `lang` MÅ brukes for å definere språkkode. <br> Attributt `type` MÅ brukes for å definere hva språket representerer (undertekster, talespråk, skriftspråk etc.).   |
+| Beskrivelse  | Språk som benyttes i ressursen. Verdien skal oppgis i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en). <br>Attributt `type` MÅ brukes for å definere hva språket representerer (undertekster, talespråk, skriftspråk etc.).   |
 | Krav         | BØR                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
 **Retningslinjer for bruk:**
 
-[ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+Verdien skal oppgis i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en).
 
 Det må angis type for hva språket representerer. 
 Eksempler på type som språket representerer kan være undertekster, talespråk, skriftspråk etc.  
@@ -450,8 +464,7 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
   "language": [
     {
       "type": "undertekster",
-      "value": "engelsk",
-      "lang": "nor"
+      "value": "eng"
     }
   ]
 }
@@ -461,17 +474,17 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
   "language": [
     {
       "type": "skriftspråk",
-      "value": "fransk",
-      "lang": "nor"
+      "value": "fre",
     }
   ]
 }
 ```
+
 ### Relation
 
 | Navn         | **Relation**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | En relatert ressurs der den beskrevne ressursen er fysisk eller logisk inkludert (tittel på overordnet verk, samling, serie, del).<br>Det MÅ brukes attributter for `title` + `type` ELLER `id` + `type`.<br>Attributt `URI` BØR brukes. <br> Attributt `lang` BØR brukes for å definere språkkode.   |
+| Beskrivelse  | En relatert ressurs der den beskrevne ressursen er fysisk eller logisk inkludert (tittel på overordnet verk, samling, serie, del).<br>Det MÅ brukes attributter for `title` + `type` ELLER `id` + `type`.<br>Attributt `URI` BØR brukes. <br> Attributt `lang` BØR brukes for å definere språket på tittelen til den relaterte ressursen.   |
 | Krav         | BØR                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
@@ -479,17 +492,15 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
 
 Bruk av attributter kan varieres, men det kreves alltid bruk av `type` OG `title` eller `id`.
 
-Attributt `title` angir tittel på relatert ressurs. 
+Attributt `title` angir tittel på relatert ressurs. Tittelens språk bør angis med med `lang`-attributten i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en).
 
 Attributt `type` angir hvilken type relasjon det er mellom ressurser. 
-Bruk av termer fra Dublin Core anbefales (`conformsTo`, `hasFormat`, `hasPart`, `hasVersion`, `isFormatOf`, `isPartOf`, `isReferencedBy`, `isReplacedBy`, `isRequiredBy`, `isVersionOf`, `references`, `replaces`, `requires`) 
+Bruk av termer fra Dublin Core anbefales (`conformsTo`, `hasFormat`, `hasPart`, `hasVersion`, `isFormatOf`, `isPartOf`, `isReferencedBy`, `isReplacedBy`, `isRequiredBy`, `isVersionOf`, `references`, `replaces`, `requires`) .
 Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform).
 
 Eksempel på bruk av attributt `id` er henvisning til en seriepost, verkspost, eller andre ressurser i samme i serie/verk.
 
 Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nettside).  
-
-Språkkode bør angis (lang-attributt). [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
 **Eksempler:**
 ```json
@@ -497,10 +508,10 @@ Språkkode bør angis (lang-attributt). [ISO 639-3](https://www.iso.org/obp/ui/#
   "relation": [
     {
       "title": "Norge på langs med Ola og Kari",
+      "lang": "nor",
       "id": "987654321",
       "type": "IsPartOf",
-      "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
-      "lang": "nor"
+      "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
     }
   ]
 }
@@ -510,8 +521,8 @@ Språkkode bør angis (lang-attributt). [ISO 639-3](https://www.iso.org/obp/ui/#
   "relation": [
     {
       "title": "Chronicles of Narnia",
-      "type": "IsPartOf",
-      "lang": "eng"
+      "lang": "eng",
+      "type": "IsPartOf"
     }
   ]
 }
@@ -532,31 +543,52 @@ Språkkode bør angis (lang-attributt). [ISO 639-3](https://www.iso.org/obp/ui/#
 
 | Navn         | **Provenance**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Informasjon om eventuelle endringer som har betydning for ressursens autentisitet, integritet og tolkning (eierskap, forvaltning etc). <br> Attributt `lang` BØR brukes for å definere språkkode.   |
+| Beskrivelse  | Informasjon om eventuelle endringer som har betydning for ressursens autentisitet, integritet og tolkning (eierskap, forvaltning etc). <br> Attributt `lang` MÅ brukes for å definere språkkode for verdien.   |
 | Krav         | BØR                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
 **Retningslinjer for bruk:**
 
-Språkkode bør angis (lang-attributt). 
-[ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
+Språket brukt til å beskrive provenance bør oppgis med `lang`-attributtet for verdien i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en).
 
 **Eksempel:**
 ```json
 {
   "provenance": [
     {
-      "value": "Samlingen ble donert til Nasjonalbiblioteket av Václav Marek 1979-05-12",
+      "value": "Bildet er del av en digital samling, som ble donert til Nasjonalbiblioteket av Ola Nordmann 2025-01-01.",
       "lang": "nor"
     }
   ]
 }
 ```
+```json
+{
+  "provenance": [
+    {
+      "value": "Dette digitale objektet var tidligere en del av samlinga til Museum X mellom 1999 og 2002, før den ble overført til Museum Y. Museum Y deponerte objektet til Nasjonalbiblioteket i 2025",
+      "lang": "nor"
+    }
+  ]
+}
+```
+```json
+{
+  "provenance": [
+    {
+      "value": "Digitisering gjort internt ved Nasjonalbiblioteket i 2022-24. Prosjektet ble startet og ferdigstilt etter det ble oppdaget at filmen var en tapt tysk spillefilm, uten andre kjente kopier. I det digitale arbeidet ble den originale visningskopien (ID-12345) skannet i 2022. Prosjektet hadde som mål å digitalt sikre filmen, med dens originale fargeuttrykk. ",
+      "lang": "nor"
+    }
+  ]
+}
+```
+
+
 ### Subject
 
 | Navn         | **Subject**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Emneord knyttet til ressursen. <br> Attributt `lang` BØR brukes for å definere språkkode.   |
+| Beskrivelse  | Emneord knyttet til ressursen. <br>Attributt `authority` BØR brukes for å angi autoritet.    |
 | Krav         | KAN                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
@@ -569,12 +601,10 @@ Desimalklassifikasjon er også gyldige verdier.
 
 Det kan brukes henvisning til autoritetsregistre der det er relevant. Der det brukes autoritetsregister må emneord skrives i sin fulle form i tillegg.
 
-Språkkode bør angis (lang-attributt). [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
-
 Forklaring til bruk av *authority*-informasjon: 
-- **Source:** Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
-- **Code:** En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
-- **URI:** En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
+- `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
+- `code`: En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
+- `URI`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempler:**
 ```json
@@ -582,26 +612,23 @@ Forklaring til bruk av *authority*-informasjon:
   "subject": [
     {
       "value": "rondane",
-      "lang": "nor"
     },
     {
       "value": "fisketur",
-      "lang": "nor"
     },
     {
-      "value": "natur",
-      "lang": "nor"
+      "value": "natur"
     }
   ]
 }
 ```
+
 
 ```json
 {
   "subject": [
     {
       "value": "natur",
-      "lang": "nor",
       "authority": {
         "source": "Kulturnav",
         "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
@@ -616,13 +643,13 @@ Forklaring til bruk av *authority*-informasjon:
 
 | Navn         | **Description**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Beskrivelse av ressursen. Beskrivelsen kan inkludere, men er ikke begrenset til: et sammendrag, en innholdsfortegnelse, en grafisk representasjon eller en fritekst om ressursen.  <br> Attributt `lang` BØR brukes for å definere språkkode.   |
+| Beskrivelse  | Beskrivelse av ressursen. Beskrivelsen kan inkludere, men er ikke begrenset til: et sammendrag, en innholdsfortegnelse, en grafisk representasjon eller en fritekst om ressursen.  <br> Attributt `lang` MÅ brukes for å definere språkkode.   |
 | Krav         | KAN                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
 **Retningslinjer for bruk:**
 
-Språkkode bør angis (lang-attributt). 
+Språkkode må angis (lang-attributt). 
 [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 
 **Eksempel:**
@@ -636,9 +663,8 @@ Språkkode bør angis (lang-attributt).
   ]
 }
 ```
-<br> 
 
-**Eksempel som inneholder alle metadataelementene:**
+## Eksempel som inneholder alle metadataelementene
 
 ```json
 {
