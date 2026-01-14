@@ -318,7 +318,7 @@ Explanation of *authority* information:
 
 | Name         | **Publisher**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Names appearing in a central role (the organization or entity that has published the resource). <br> The `type` attribute SHOULD be used to define the type of authority. Allowed types include: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>The `authority` attribute SHOULD be used to specify the authority source. |
+| Description  | Names appearing in a central role (the entity that has published the resource). <br> The `type` attribute SHOULD be used to define the type of authority. Allowed types include: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>The `authority` attribute SHOULD be used to specify the authority source. |
 | Requirement       | SHOULD                                                                                                                 |
 | Cardinality | 0..n                                                                                                               |
 

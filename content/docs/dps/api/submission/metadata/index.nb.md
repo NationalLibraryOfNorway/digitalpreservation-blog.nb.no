@@ -3,8 +3,9 @@ title: Krav til metadata
 weight: 1
 ---
 
-I tillegg til kravet om en metadatafil i informasjonspakkene (SIP), krever Nasjonalbiblioteket at et sett med metadata også leveres via submission-API-et ved avlevering. 
-Dette skal sikre at et minimum av metadata knyttet til de avleverte representasjonene blir indeksert og søkbare.
+I tillegg til krav om avlevering av en metadatafil i informasjonspakkene (SIP), krever Nasjonalbiblioteket at et sett med metadata også leveres via submission-APIet. 
+Dette skal sikre at et minimum av metadata er knyttet til de avleverte representasjonene. 
+Disse metadataene er i tillegg de eneste som vil blir indeksert og søkbare i bevaringsomgivelsene. 
 
 Metadatakravene bygger på [Dublin Core](https://www.dublincore.org/specifications/dublin-core/dcmi-terms/), en internasjonal ISO-standard som er mye brukt innen arkiv, bibliotek og digitale samlinger. 
 Dublin Core-standarden ble valgt fordi den er relativt enkel å forstå, lett å implementere, og er både fleksibel og utvidbar. 
@@ -172,7 +173,7 @@ Tittelens språk bør angis med språkkode i henhold til [ISO 639-3](https://www
 
 **Retningslinjer for bruk:**
 
-Det anbefales å referere til autoritetsregistre når relevante slik eksisterer, både for personnavn og korporasjoner. 
+Det anbefales å referere til autoritetsregistre når relevante registre finnes, både for personnavn og korporasjoner. 
 Det må oppgis hvilket autoritetsregister som er benyttet. 
 Et eksempel på autoritetsregister er [Felles autoritetsregister for personer og korporasjoner](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/).
 
@@ -258,10 +259,10 @@ Det bør oppgis om det er snakk om personnavn eller korporasjon.
 Dette er løst på ulike måter i ulike metadatakataloger og autoritetsregistre.
 Foreløpig er disse verdiene tillat for angivelse av navn/korporasjon (type), men det er mulig å få lagt til flere typer ved behov: 
 
-- `Person`
-- `Korporasjon`
-- `Konferanse`
-- `Standardtittel`  (traktat, kontrakt).  
+- `person`
+- `korporasjon`
+- `konferanse`
+- `standardtittel`  (traktat, kontrakt).  
 
 Det bør oppgis hvilken rolle (role) navn/korporasjoner har. 
 Eksempler på roller er: bidragsyter, avbildet, illustratør, modell, redaktør, designer etc.  
@@ -312,7 +313,7 @@ Forklaring til bruk av *authority*-informasjon:
 
 | Navn         | **Publisher**                                                                                                     |
 |:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Navn som opptrer i sentral rolle (Organisasjonen eller enheten som har publisert ressursen). <br> Attributt `type` BØR brukes for å definer type autoritet. Tillatte typer: `Person`, `Korporasjon`, `Konferanse`, `Standardtittel`<br>Attributt `authority` BØR brukes for å angi autoritet.  |
+| Beskrivelse  | Navn som opptrer i sentral rolle (entiteten som har publisert ressursen). <br> Attributt `type` BØR brukes for å definer type autoritet. Tillatte typer: `person`, `korporasjon`, `konferanse`, `standardtittel`<br>Attributt `authority` BØR brukes for å angi autoritet.  |
 | Krav         | BØR                                                                                                                 |
 | Kardinalitet | 0..n                                                                                                               |
 
@@ -321,10 +322,10 @@ Forklaring til bruk av *authority*-informasjon:
 Det anbefales å bruke autoritetsregister hvis det finnes. 
 Det MÅ oppgis hvilket autoritetsregister som er benyttet, og hvilken type autoritet det er (type): 
 
-- `Person`
-- `Korporasjon`
-- `Konferanse`
-- `Standardtittel`  (traktat, kontrakt).  
+- `person`
+- `korporasjon`
+- `konferanse`
+- `standardtittel`  (traktat, kontrakt).  
 
 Ved bruk av autoritetsregister bør utgiver i tillegg skrives ut i sin fulle form.
 Sted og/eller år for utgivelse kan legges til i parantes bak navnet. 
