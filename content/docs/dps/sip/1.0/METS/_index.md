@@ -4,9 +4,16 @@ draft: false
 weight: 4
 ---
 
-Information packages delivered to the DPS must contain a file named `METS.xml` in the root folder of the information package, as well as a `METS.xml` in each representation folder.
+METS.xml is an XML document that conforms to the [METS standard](https://www.loc.gov/standards/mets/) (Metadata Encoding and Transmission Standard). It is used to collect and structure metadata for a digital object within a single file. The file functions as a control and linking document that enables systems to understand, validate, and exchange complex digital objects in a standardized manner. 
 
-Both `METS.xml` files must validate against the METS requirements specified by the E-ARK specifications [CSIP1-119](https://earkcsip.dilcis.eu/#useofmets) and [SIP1-35](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements) in the [E-ARK (C)SIP spesifikasjonene v2.2.0](https://dilcis.eu/specifications/).
+METS.xml describes: 
+- The structure of the object (for example, how pages, chapters, or files are related). 
+- File references to the digital files included (images, PDFs, audio files, etc.). 
+- Metadata, which may be descriptive, administrative, and technical, often by referencing or embedding other metadata formats.
+
+Information packages delivered to the DPS must include a METS.xml file in the root folder of the information package, as well as a METS.xml file in each representation folder.  
+
+Both METS.xml files must validate against the METS requirements specified by the E-ARK specifications [CSIP1-119](https://earkcsip.dilcis.eu/#useofmets) and [SIP1-35](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements) in the [E-ARK (C)SIP spesifikasjonene v2.2.0](https://dilcis.eu/specifications/), in addition to the National Library’s specifications of SIP requirements described below (NBSIP). 
 
 
 ## Use of the METS root element (`mets`)

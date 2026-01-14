@@ -4,7 +4,9 @@ draft: false
 weight: 3
 ---
 
-CSIPSTR are requirements according to the E-ARK specifications [(E-ARK (C)SIP specification (v2.2.0))](https://dilcis.eu/specifications/). Those marked NBSIPSTR are requirements set by the National Library of Norway. The NBSIPSTR requirements are mainly stricter versions of the CSIP requirements in the E-ARK specifications.
+The package structure in E-ARK follows a standardized organization of folders and files within an information package. The folders are predefined, and each folder has a defined purpose regarding content and file placement. A standardized package and folder structure ensures that preservation materials can be understood, validated, exchanged, and preserved over time, regardless of system or vendor. 
+
+The structural requirements for SIPs in E-ARK are specified in CSIPSTR [(E-ARK (C)SIP specification (v2.2.0))](https://dilcis.eu/specifications/). The National Library has based its requirements on these specifications, but some of the requirements are more narrowly defined and represent stricter variants of the CSIP requirements. 
 
 Any information package submitted to the National Library of Norway is required to fulfill all CSIPSTR requirements as well as all NBSIPSTR requirements. 
 <br><br>

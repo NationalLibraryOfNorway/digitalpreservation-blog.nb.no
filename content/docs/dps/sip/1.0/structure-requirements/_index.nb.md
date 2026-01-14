@@ -3,7 +3,9 @@ title: Krav til pakkestruktur
 weight: 3
 ---
 
-CSIPSTR er krav etter E-Ark spesifikasjonene [(E-ARK (C)SIP specification (v2.2.0))](https://dilcis.eu/specifications/), de som er merket **NBSIPSTR** er krav som Nasjonalbiblioteket stiller. NBSIPSTR-kravene er hovedsaklig strengere innsnevringer av CSIP-kravene i E-ARK spesifikasjonene. 
+Pakkestrukturen i E-ARK følger en standardisert oppbygging av mapper og filer i en informasjonspakke. Mapper er forhåndsdefinerte. Hver mappe har et definert formål for innhold og plassering av filer. Standardisert pakke- og mappestruktur sikrer at bevaringsmaterialet kan forstås, valideres, utveksles og bevares over tid, uavhengig av system og leverandør. 
+
+Strukturkrav for SIP i E-ARK er spesifisert i CSIPSTR [(E-ARK (C)SIP specification (v2.2.0))](https://dilcis.eu/specifications/). Nasjonalbiblioteket har tatt utgangspunkt i disse, men noen av kravene er avgrenset og strengere varianter av CSIP-kravene.  
 
 Enhver pakke som leveres til NB må validere både på samtlige CSIPSTR-krav og NBSIPSTR-krav. <br><br>
 

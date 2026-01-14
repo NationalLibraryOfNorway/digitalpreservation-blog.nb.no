@@ -3,9 +3,16 @@ title: Krav til METS.xml
 weight: 4
 ---
 
-Informasjonspakker som avleveres til DPS, skal inneholde en fil kalt `METS.xml` i informasjonspakkas rotmappe, samt en `METS.xml` i hver representasjonsmappe.
+METS.xml er et XML-dokument som følger [METS-standarden](https://www.loc.gov/standards/mets/) (Metadata Encoding and Transmission Standard). Den brukes til å samle og strukturere metadata for et digitalt objekt i én fil. Filen fungerer som et kontroll- og koblingsdokument som gjør det mulig for systemer å forstå, validere og utveksle komplekse digitale objekter på en standardisert måte. 
 
-Begge `METS.xml` må validere på metskravene gitt av E-ARK-spesifikasjonene [CSIP1-119](https://earkcsip.dilcis.eu/#useofmets) og [SIP1-35](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements) i [E-ARK (C)SIP spesifikasjonene v2.2.0](https://dilcis.eu/specifications/)
+METS.xml beskriver:
+- Strukturen til objektet (for eksempel hvordan sider, kapitler eller filer henger sammen). 
+- Filreferanser til de digitale filene som inngår (bilder, PDF-er, lydfiler osv). 
+- Metadata som kan være både beskrivende, administrative og tekniske, ofte ved å peke til eller inkludere andre metadataformater. 
+
+Informasjonspakker som avleveres til DPS, må inneholde en METS.xml i informasjonspakkas rotmappe, i tillegg til en METS.xml i hver representasjonsmappe. 
+
+Begge METS.xml må validere på metskravene gitt av E-ARK-spesifikasjonene [CSIP1-119](https://earkcsip.dilcis.eu/#useofmets) og [SIP1-35](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements) i [E-ARK (C)SIP spesifikasjonene v2.2.0](https://dilcis.eu/specifications/), i tillegg til Nasjonalbibliotekets spesifiseringer av SIP-krav nedenfor (NBSIP).
 
 
 ### Bruk av rotelementer i METS (`mets`)
