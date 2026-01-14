@@ -246,7 +246,7 @@ Forklaring til bruk av *authority*-informasjon:
 
 **Retningslinjer for bruk:**
 
-Det anbefales å referere til autoritetsregistre når relevante slik eksisterer, både for personnavn og korporasjoner. 
+Det anbefales å referere til autoritetsregistre når relevante registre finnes, både for personnavn og korporasjoner. 
 Det må oppgis hvilket autoritetsregister som er benyttet. 
 Et eksempel på autoritetsregister er [Felles autoritetsregister for personer og korporasjoner](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/).
 
@@ -319,7 +319,7 @@ Forklaring til bruk av *authority*-informasjon:
 
 **Retningslinjer for bruk:**
 
-Det anbefales å bruke autoritetsregister hvis det finnes. 
+Det anbefales å bruke autoritetsregister når relevante registre finnes. 
 Det MÅ oppgis hvilket autoritetsregister som er benyttet, og hvilken type autoritet det er (type): 
 
 - `person`

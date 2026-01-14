@@ -324,7 +324,7 @@ Explanation of *authority* information:
 
 **Guidelines for use:**
 
-It is recommended to use an authority register if one is available. 
+It is recommended to use an authority register whenever one is available. 
 The specific authority register used, as well as the type of authority, MUST be indicated. 
 Allowed types include: 
 
@@ -636,7 +636,7 @@ Explanation of *authority* information:
 {
   "subject": [
     {
-      "value": "natur",
+      "value": "nature",
       "authority": {
         "source": "Kulturnav",
         "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
