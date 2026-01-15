@@ -226,14 +226,23 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
-
-
-
-## File Upload Process
+## File Upload Process Internal
 
 The file upload process in the Digital Preservation Submission Service consists of the following steps:
 
-1. **Register a file** by making a POST request to `/contracts/{contractId}/submissions/{submissionId}/files` with file metadata
+
+1. **Register the file** by sending an HTTP POST request to the endpoint `/contracts/{contractId}/submissions/{submissionId}/files`.
+2. **Receive the `s3ObjectKey`** in the API response.
+3. **Upload the file content** directly to Amazon S3 using the `s3ObjectKey` as the object key.
+
+Access to the S3 bucket to be used must be requested from the Platform team.
+
+
+## File Upload Process External
+
+The file upload process in the Digital Preservation Submission Service consists of the following steps:
+
+1. **Register a file** by sending a POST request to `/contracts/{contractId}/submissions/{submissionId}/files` with file metadata
 2. **Receive a pre-signed upload URL** in the response, which is valid for a limited time (typically 1 hour)
 3. **Upload the file content** directly to our S3 compatible storage using the pre-signed URL with an HTTP PUT request
 
