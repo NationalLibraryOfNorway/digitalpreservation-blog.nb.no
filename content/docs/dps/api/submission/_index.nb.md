@@ -223,14 +223,24 @@ Authorization: Bearer eyJhbGciOxxxxxxx
   ]
 }
 ```
+## Filopplasting interne
 
-## Filopplasting
+Opplastingsprosessen følger disse stegene:
+
+1. **Registrer en fil** ved å sende POST til `/contracts/{contractId}/submissions/{submissionId}/files`
+2. **Få en s3ObjectKey** i responsen
+3. **Last opp filinnholdet** direkte til S3 ved å bruke s3ObjectKey som object-nøkkel
+
+Tilgang til S3-bøtta som skal brukes bestilles ho Plattform teamet.
+
+## Filopplasting eksterne
 
 Opplastingsprosessen følger disse stegene:
 
 1. **Registrer en fil** ved å sende POST til `/contracts/{contractId}/submissions/{submissionId}/files`
 2. **Få en pre-signert URL** i responsen (gyldig i ca. 1 time)
 3. **Last opp filinnholdet** direkte til S3 ved å bruke HTTP PUT til den angitte URL-en
+
 
 ### Bruk av pre-signert URL
 
