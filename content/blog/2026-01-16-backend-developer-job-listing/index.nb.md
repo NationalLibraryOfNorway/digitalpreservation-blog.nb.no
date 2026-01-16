@@ -11,6 +11,7 @@ images:
   - /NBrana.jpg
 ---
 
+![Nasjonalbiblioteket i Mo i Rana](/NBrana.jpg)
 ## Backend-utvikler – til bevaring av nasjonens hukommelse 
 Vi har fått ressurser til å utvide teamet vårt med en ny IT-stilling. 
 

@@ -11,6 +11,8 @@ images:
   - /NBrana.jpg
 ---
 
+![The National Library of Norway in Mo i Rana](/NBrana.jpg)
+
 ## Backend Developer – Preserving the Nation’s Memory 
 We have received funding to expand our team with a new IT position. 
 
