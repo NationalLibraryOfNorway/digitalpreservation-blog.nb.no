@@ -35,9 +35,11 @@ Begge METS.xml må validere på metskravene gitt av E-ARK-spesifikasjonene [CSIP
     xmlns:sip="https://DILCIS.eu/XML/METS/SIPExtensionMETS"
     xmlns:csip="https://DILCIS.eu/XML/METS/CSIPExtensionMETS"
     xmlns:xlink="http://www.w3.org/1999/xlink"    
-    OBJID="no-nb_fjernsyn_NRK_NRK-Tegnsprak_202204081200"
-    LABEL="no-nb_fjernsyn_NRK_NRK-Tegnsprak_202204081200"
-    TYPE="Video – File-based and Physical Media"
+    OBJID="no-nb_radio_NRKP2_199204081200"
+    LABEL="no-nb_radio_NRKP2_199204081200"
+    TYPE="Audio – On Tangible Medium (digital or analog)"
+    csip:CONTENTINFORMATIONTYPE="OTHER"
+    csip:OTHERCONTENTINFORMATIONTYPE="NB-METS-AUDIO-PROFILE-1.0"
     PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml"
     xsi:schemaLocation="http://www.loc.gov/METS/ schemas/mets1_12.xsd http://www.w3.org/1999/xlink schemas/xlink.xsd https://dilcis.eu/XML/METS/CSIPExtensionMETS schemas/DILCISExtensionMETS.xsd https://dilcis.eu/XML/METS/SIPExtensionMETS schemas/DILCISExtensionSIPMETS.xsd">
 
