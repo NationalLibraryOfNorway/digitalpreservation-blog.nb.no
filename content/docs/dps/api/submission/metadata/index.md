@@ -679,9 +679,7 @@ Language code must be specified.
   "objectId": "av_6e8bc430-9c3a11d9",
   "priority": 50,
   "metadata": {
-    "type": {
-      "value": "Bilde",
-      "lang": "eng"
+    "type": "Bilde"
     },
     "identifier": [
       {
@@ -791,7 +789,8 @@ Language code must be specified.
         "lang": "eng",
         "type": "IsPartOf",
         "id": "987654321",
-        "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
+        "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
+        "lang": "eng"
       }
     ],
     "provenance": [
@@ -823,7 +822,6 @@ Language code must be specified.
       }
     ]
   }
-}
 ```
 
 

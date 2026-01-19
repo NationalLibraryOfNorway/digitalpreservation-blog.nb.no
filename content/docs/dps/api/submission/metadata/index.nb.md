@@ -672,9 +672,7 @@ Språkkode må angis (lang-attributt).
   "objectId": "av_6e8bc430-9c3a11d9",
   "priority": 50,
   "metadata": {
-    "type": {
-      "value": "Bilde",
-      "lang": "nor"
+    "type": "Bilde"
     },
     "identifier": [
       {
@@ -683,13 +681,11 @@ Språkkode må angis (lang-attributt).
       },
       {
         "type": "bilde-id",
-        "value": "NB_PE_VM_M_05_09_01_036",
-        "lang": "nor"
+        "value": "NB_PE_VM_M_05_09_01_036"
       },
       {
         "type": "hyllesignatur",
-        "value": "POEL00003975",
-        "lang": "nor"
+        "value": "POEL00003975"
       }
     ],
     "title": {
@@ -708,7 +704,6 @@ Språkkode må angis (lang-attributt).
         "name": "Marek, Václav",
         "type": "Person",
         "role": "fotograf",
-        "lang": "nor",
         "authority": {
           "source": "Felles autoritetsregister (BARE)",
           "code": "90362181",
@@ -721,13 +716,11 @@ Språkkode må angis (lang-attributt).
         "role": "avbildet",
         "type": "Person",
         "name": "Nordmann, Ola",
-        "lang": "nor"
       },
       {
         "role": "avbildet",
         "type": "Person",
         "name": "Solberg, Erna",
-        "lang": "nor",
         "authority": {
           "source": "Kulturnav",
           "code": "e762d909-5cce-4d2b-892b-258272514fde",
@@ -738,8 +731,7 @@ Språkkode må angis (lang-attributt).
     "publisher": [
       {
         "name": "Nasjonalbiblioteket",
-        "type": "Organization",
-        "lang": "nor",
+        "type": "Korporasjon",
         "authority": {
           "source": "Felles autoritetsregister (BARE)",
           "code": "90362181",
@@ -751,7 +743,6 @@ Språkkode må angis (lang-attributt).
       {
         "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
         "type": "Avbildet sted",
-        "lang": "nor",
         "authority": {
           "source": "Kulturnav",
           "code": "1031636c-0717-4d12-8895-fb88a7d4e952",
@@ -768,25 +759,21 @@ Språkkode må angis (lang-attributt).
     "date": [
       {
         "type": "motivdato",
-        "value": "1938",
-        "lang": "nor"
+        "value": "1938"
       },
       {
         "type": "digitalisert",
-        "value": "2022-03-05T14:28:12+02:00",
-        "lang": "nor"
+        "value": "2022-03-05T14:28:12+02:00"
       },
       {
         "type": "publisert",
-        "value": "2022-03-12",
-        "lang": "nor"
+        "value": "2022-03-12"
       }
     ],
     "language": [
       {
         "type": "undertekster",
-        "value": "engelsk",
-        "lang": "nor"
+        "value": "nor"
       }
     ],
     "relation": [
@@ -806,16 +793,13 @@ Språkkode må angis (lang-attributt).
     ],
     "subject": [
       {
-        "value": "rondane",
-        "lang": "nor"
+        "value": "rondane"
       },
       {
-        "value": "fisketur",
-        "lang": "nor"
+        "value": "fisketur"
       },
       {
         "value": "natur",
-        "lang": "nor",
         "authority": {
           "source": "Kulturnav",
           "code": "1031536c-0717-4d12-8895-fb88a7d4e952",
@@ -830,5 +814,4 @@ Språkkode må angis (lang-attributt).
       }
     ]
   }
-}
 ```
