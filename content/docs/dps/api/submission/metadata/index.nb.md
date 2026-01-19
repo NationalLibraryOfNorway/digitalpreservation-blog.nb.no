@@ -814,5 +814,4 @@ Språkkode må angis (lang-attributt).
       }
     ]
   }
-}
 ```
