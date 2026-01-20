@@ -714,7 +714,7 @@ Språkkode må angis (lang-attributt).
       {
         "role": "avbildet",
         "type": "Person",
-        "name": "Nordmann, Ola",
+        "name": "Nordmann, Ola"
       },
       {
         "role": "avbildet",
