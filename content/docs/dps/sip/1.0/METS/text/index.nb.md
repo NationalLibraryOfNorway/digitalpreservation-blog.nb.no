@@ -18,14 +18,14 @@ Dette er en liste over krav til METS.xml for tekstpakker som leveres til Nasjona
 ### Eksempel
 ```xml
 <mets:mets xmlns:csip="https://DILCIS.eu/XML/METS/CSIPExtensionMETS" 
-xmlns:mets="http://www.loc.gov/METS/" 
-xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-xmlns:xlink="http://www.w3.org/1999/xlink" 
-OBJID="no-nb_pliktmonografi_000061053" 
-LABEL="no-nb_pliktmonografi_000061053" 
-TYPE="Textual works – Digital" 
-csip:CONTENTINFORMATIONTYPE="OTHER" 
-csip:OTHERCONTENTINFORMATIONTYPE="NB-METS-TEXT-PROFILE-1.0" 
-PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml" 
-xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd https://DILCIS.eu/XML/METS/CSIPExtensionMETS https://earkcsip.dilcis.eu/schema/DILCISExtensionMETS.xsd">
+    xmlns:mets="http://www.loc.gov/METS/" 
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:xlink="http://www.w3.org/1999/xlink" 
+    OBJID="no-nb_pliktmonografi_000061053" 
+    LABEL="no-nb_pliktmonografi_000061053" 
+    TYPE="Textual works – Digital" 
+    csip:CONTENTINFORMATIONTYPE="OTHER" 
+    csip:OTHERCONTENTINFORMATIONTYPE="NB-METS-TEXT-PROFILE-1.0" 
+    PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml" 
+    xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd https://DILCIS.eu/XML/METS/CSIPExtensionMETS https://earkcsip.dilcis.eu/schema/DILCISExtensionMETS.xsd">
 </mets:mets> 
