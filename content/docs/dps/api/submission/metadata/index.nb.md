@@ -672,8 +672,7 @@ Språkkode må angis (lang-attributt).
   "objectId": "av_6e8bc430-9c3a11d9",
   "priority": 50,
   "metadata": {
-    "type": "Bilde"
-    },
+    "type": "Bilde",
     "identifier": [
       {
         "type": "URN",
@@ -814,4 +813,5 @@ Språkkode må angis (lang-attributt).
       }
     ]
   }
+}
 ```
