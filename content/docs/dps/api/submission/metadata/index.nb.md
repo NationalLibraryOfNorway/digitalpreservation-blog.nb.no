@@ -56,8 +56,8 @@ I kravene til [METS.xml](/nb/docs/dps/sip/1.0/mets/) har vi et påkrevd attribut
 ### Identifier
 
 | Navn         | **Identifier**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Identifikatorer (type ID + ID/verdi). <br>Attributt `type` og `value` MÅ brukes for å definere type identifikator.|
+|:-------------|:-------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Identifikatorer (type ID + ID/verdi). <br>Attributt `type` og `value` MÅ brukes for å definere type identifikator. |
 | Krav         | MÅ                                                                                                                 |
 | Kardinalitet | 1..n                                                                                                               |
 
@@ -90,11 +90,11 @@ Eksempler på identifikatortyper kan være URN, PID, URI til post i en katalog/m
 
 ### Title
 
-| Navn         | **Title**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Navn         | **Title**                                                                                                                                                                   |
+|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Beskrivelse  | Navn gitt til ressursen. Der tittel mangler er anbefalt praksis å gi ressursen en “meningsbærende” tittel. <br> Attributt `lang` BØR brukes for å definere tittelens språk. |
-| Krav         | MÅ                                                                                                                 |
-| Kardinalitet | 1..1                                                                                                               |
+| Krav         | MÅ                                                                                                                                                                          |
+| Kardinalitet | 1..1                                                                                                                                                                        |
 
 **Retningslinjer for bruk:**
 
@@ -133,11 +133,11 @@ Tittelens språk bør angis med språkkode i henhold til [ISO 639-3](https://www
 
 ### Alternative
 
-| Navn         | **Alternative**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Navn         | **Alternative**                                                                                                                                                            |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Beskrivelse  | Alternativ tittel (originaltittel, undertittel etc). <br>Attributt `type` MÅ brukes for å definere type tittel. <br> Attributt `lang` BØR brukes for å definere språkkode. |
-| Krav         | BØR                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                               |
+| Krav         | BØR                                                                                                                                                                        |
+| Kardinalitet | 0..n                                                                                                                                                                       |
 
 **Retningslinjer for bruk:**
 
@@ -165,11 +165,11 @@ Tittelens språk bør angis med språkkode i henhold til [ISO 639-3](https://www
 
 ### Creator
 
-| Navn         | **Creator**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Navn/korporasjon som opptrer i sentral rolle (forfatter, komponist, filmregissør, fotograf, etc.). <br>Attributt `role` BØR brukes for å definere rolle. <br>Attributt `type` BØR brukes for å angi type. Tillatte typer: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>Attributt `authority` BØR brukes for å angi autoritet.  |
-| Krav         | BØR                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                               |
+| Navn         | **Creator**                                                                                                                                                                                                                                                                                                                                   |
+|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Navn/korporasjon som opptrer i sentral rolle (forfatter, komponist, filmregissør, fotograf, etc.). <br>Attributt `role` BØR brukes for å definere rolle. <br>Attributt `type` BØR brukes for å angi type. Tillatte typer: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>Attributt `authority` BØR brukes for å angi autoritet. |
+| Krav         | BØR                                                                                                                                                                                                                                                                                                                                           |
+| Kardinalitet | 0..n                                                                                                                                                                                                                                                                                                                                          |
 
 **Retningslinjer for bruk:**
 
@@ -238,11 +238,11 @@ Forklaring til bruk av *authority*-informasjon:
 
 ### Contributor
 
-| Navn         | **Contributor**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
+| Navn         | **Contributor**                                                                                                                                                                                                                                                                                                             |
+|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Beskrivelse  | Navn som opptrer i sentral rolle (illustratør, fotograf, medforfatter). <br>Attributt `role` BØR brukes for å definere rolle. <br>Attributt `type` BØR brukes for å angi type autoritet. Tillatte typer: `Person`, `Korporasjon`, `Konferanse`, `Standardtittel`.<br>Attributt `authority` BØR brukes for å angi autoritet. |
-| Krav         | BØR                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                               |
+| Krav         | BØR                                                                                                                                                                                                                                                                                                                         |
+| Kardinalitet | 0..n                                                                                                                                                                                                                                                                                                                        |
 
 **Retningslinjer for bruk:**
 
@@ -282,11 +282,11 @@ Forklaring til bruk av *authority*-informasjon:
     {
       "role": "avbildet",
       "type": "Person",
-      "name": "Nordmann, Ola",
+      "name": "Nordmann, Ola"
     },
     {
       "role": "avbildet",
-      "name": "Nordmann, Kari",
+      "name": "Nordmann, Kari"
     }
   ]
 }
@@ -311,11 +311,11 @@ Forklaring til bruk av *authority*-informasjon:
 
 ### Publisher
 
-| Navn         | **Publisher**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Navn som opptrer i sentral rolle (entiteten som har publisert ressursen). <br> Attributt `type` BØR brukes for å definer type autoritet. Tillatte typer: `person`, `korporasjon`, `konferanse`, `standardtittel`<br>Attributt `authority` BØR brukes for å angi autoritet.  |
-| Krav         | BØR                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                               |
+| Navn         | **Publisher**                                                                                                                                                                                                                                                              |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Navn som opptrer i sentral rolle (entiteten som har publisert ressursen). <br> Attributt `type` BØR brukes for å definer type autoritet. Tillatte typer: `person`, `korporasjon`, `konferanse`, `standardtittel`<br>Attributt `authority` BØR brukes for å angi autoritet. |
+| Krav         | BØR                                                                                                                                                                                                                                                                        |
+| Kardinalitet | 0..n                                                                                                                                                                                                                                                                       |
 
 **Retningslinjer for bruk:**
 
@@ -356,11 +356,11 @@ Forklaring til bruk av *authority*-informasjon:
 
 ### Spatial
 
-| Navn         | **Spatial**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Relevante stedsnavn for ressursen. Kan referere til geografiske steder som land, regioner og byer som har betydning for ressursen. <br> Det BØR angis `type` for hvilket sted som oppgis.<br>Attributt `authority` BØR brukes for å angi autoritet.  |
-| Krav         | BØR                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                               |
+| Navn         | **Spatial**                                                                                                                                                                                                                                         |
+|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Relevante stedsnavn for ressursen. Kan referere til geografiske steder som land, regioner og byer som har betydning for ressursen. <br> Det BØR angis `type` for hvilket sted som oppgis.<br>Attributt `authority` BØR brukes for å angi autoritet. |
+| Krav         | BØR                                                                                                                                                                                                                                                 |
+| Kardinalitet | 0..n                                                                                                                                                                                                                                                |
 
 **Retningslinjer for bruk:**
 
@@ -409,11 +409,11 @@ Forklaring til bruk av *authority*-informasjon:
 
 ### Date
 
-| Navn         | **Date**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Relevante datoer for ressursen (for eksempel utgivelses-, copyright-, opprettelse-/digitaliseringsdato etc. med type).  <br> Attributt `type` MÅ brukes for å definere type dato.  |
-| Krav         | BØR                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                               |
+| Navn         | **Date**                                                                                                                                                                          |
+|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Relevante datoer for ressursen (for eksempel utgivelses-, copyright-, opprettelse-/digitaliseringsdato etc. med type).  <br> Attributt `type` MÅ brukes for å definere type dato. |
+| Krav         | BØR                                                                                                                                                                               |
+| Kardinalitet | 0..n                                                                                                                                                                              |
 
 **Retningslinjer for bruk:**
 
@@ -444,11 +444,11 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
 
 ### Language
 
-| Navn         | **Language**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Språk som benyttes i ressursen. Verdien skal oppgis i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en). <br>Attributt `type` MÅ brukes for å definere hva språket representerer (undertekster, talespråk, skriftspråk etc.).   |
-| Krav         | BØR                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                               |
+| Navn         | **Language**                                                                                                                                                                                                                                                   |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Språk som benyttes i ressursen. Verdien skal oppgis i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en). <br>Attributt `type` MÅ brukes for å definere hva språket representerer (undertekster, talespråk, skriftspråk etc.). |
+| Krav         | BØR                                                                                                                                                                                                                                                            |
+| Kardinalitet | 0..n                                                                                                                                                                                                                                                           |
 
 **Retningslinjer for bruk:**
 
@@ -475,7 +475,7 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
   "language": [
     {
       "type": "skriftspråk",
-      "value": "fre",
+      "value": "fre"
     }
   ]
 }
@@ -483,11 +483,11 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
 
 ### Relation
 
-| Navn         | **Relation**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | En relatert ressurs der den beskrevne ressursen er fysisk eller logisk inkludert (tittel på overordnet verk, samling, serie, del).<br>Det MÅ brukes attributter for `title` + `type` ELLER `id` + `type`.<br>Attributt `URI` BØR brukes. <br> Attributt `lang` BØR brukes for å definere språket på tittelen til den relaterte ressursen.   |
-| Krav         | BØR                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                               |
+| Navn         | **Relation**                                                                                                                                                                                                                                                                                                                              |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | En relatert ressurs der den beskrevne ressursen er fysisk eller logisk inkludert (tittel på overordnet verk, samling, serie, del).<br>Det MÅ brukes attributter for `title` + `type` ELLER `id` + `type`.<br>Attributt `URI` BØR brukes. <br> Attributt `lang` BØR brukes for å definere språket på tittelen til den relaterte ressursen. |
+| Krav         | BØR                                                                                                                                                                                                                                                                                                                                       |
+| Kardinalitet | 0..n                                                                                                                                                                                                                                                                                                                                      |
 
 **Retningslinjer for bruk:**
 
@@ -542,11 +542,11 @@ Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nett
 
 ### Provenance
 
-| Navn         | **Provenance**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Informasjon om eventuelle endringer som har betydning for ressursens autentisitet, integritet og tolkning (eierskap, forvaltning etc). <br> Attributt `lang` MÅ brukes for å definere språkkode for verdien.   |
-| Krav         | BØR                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                               |
+| Navn         | **Provenance**                                                                                                                                                                                               |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Informasjon om eventuelle endringer som har betydning for ressursens autentisitet, integritet og tolkning (eierskap, forvaltning etc). <br> Attributt `lang` MÅ brukes for å definere språkkode for verdien. |
+| Krav         | BØR                                                                                                                                                                                                          |
+| Kardinalitet | 0..n                                                                                                                                                                                                         |
 
 **Retningslinjer for bruk:**
 
@@ -587,11 +587,11 @@ Språket brukt til å beskrive provenance bør oppgis med `lang`-attributtet for
 
 ### Subject
 
-| Navn         | **Subject**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Emneord knyttet til ressursen. <br>Attributt `authority` BØR brukes for å angi autoritet.    |
-| Krav         | KAN                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                               |
+| Navn         | **Subject**                                                                               |
+|:-------------|:------------------------------------------------------------------------------------------|
+| Beskrivelse  | Emneord knyttet til ressursen. <br>Attributt `authority` BØR brukes for å angi autoritet. |
+| Krav         | KAN                                                                                       |
+| Kardinalitet | 0..n                                                                                      |
 
 **Retningslinjer for bruk:**
 
@@ -612,10 +612,10 @@ Forklaring til bruk av *authority*-informasjon:
 {
   "subject": [
     {
-      "value": "rondane",
+      "value": "rondane"
     },
     {
-      "value": "fisketur",
+      "value": "fisketur"
     },
     {
       "value": "natur"
@@ -642,11 +642,11 @@ Forklaring til bruk av *authority*-informasjon:
 
 ### Description
 
-| Navn         | **Description**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Beskrivelse av ressursen. Beskrivelsen kan inkludere, men er ikke begrenset til: et sammendrag, en innholdsfortegnelse, en grafisk representasjon eller en fritekst om ressursen.  <br> Attributt `lang` MÅ brukes for å definere språkkode.   |
-| Krav         | KAN                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                               |
+| Navn         | **Description**                                                                                                                                                                                                                              |
+|:-------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Beskrivelse av ressursen. Beskrivelsen kan inkludere, men er ikke begrenset til: et sammendrag, en innholdsfortegnelse, en grafisk representasjon eller en fritekst om ressursen.  <br> Attributt `lang` MÅ brukes for å definere språkkode. |
+| Krav         | KAN                                                                                                                                                                                                                                          |
+| Kardinalitet | 0..n                                                                                                                                                                                                                                         |
 
 **Retningslinjer for bruk:**
 

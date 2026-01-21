@@ -3,67 +3,129 @@ title: Webhooks
 weight: 3
 ---
 
-## Oversikt
+# Webhooks fra Digital Preservation System (DPS)
 
-Nasjonalbiblioteket kan sende statusoppdateringer direkte til dine systemer via webhooks. Dette lar deg motta automatiske varsler om statusendringer i innleveringer og utleveringer uten å måtte spørre vårt API kontinuerlig.
+Nasjonalbiblioteket kan sende hendelsesvarsler direkte til dine systemer via webhooks.  
+DPS bruker **Standard Webhooks**[^1] for format og signering,
+slik at varsler kan valideres sikkert og behandles automatisk.
 
-Denne dokumentasjonen beskriver hvordan du som samarbeidspartner kan sette opp HTTP-endepunkter (webhooks) som vi vil kalle for å levere statusmeldinger.
+Dette lar deg motta automatiske meldinger når innleveringer eller utleveringer endrer status – uten å måtte spørre API-et vårt kontinuerlig.
 
-**Formål:**
+For å motta disse varslene må du ha et **endepunkt (en URL)** som kan ta imot **HTTPS POST**-forespørsler med **JSON-data** fra DPS.  
+Nasjonalbiblioteket registrerer foreløpig alle webhook-endepunkter manuelt i samarbeid med hver partner.
+
+---
+
+## Formål
 
 - Varsle om statusendringer i innleveringer
 - Varsle om fullførte utleveringer
 - Sikre trygg og forutsigbar levering med tydelige kontrakter
 
+---
+
+## Hvordan det fungerer
+
+Når en hendelse oppstår i DPS:
+
+1. DPS sender en **HTTP POST**-forespørsel til URL-en du har oppgitt
+2. Meldingen inneholder informasjon om hendelsen i **JSON-format**, i henhold til *Standard Webhooks*
+3. Ditt system mottar meldingen, validerer at den kommer fra DPS, og svarer med **HTTP 200 OK**
+
 ## Tekniske krav
 
 ### Transport og format
 
-- **Protokoll:** HTTPS (TLS 1.2+)
-- **Metode:** POST
-- **Format:** JSON (`Content-Type: application/json; charset=utf-8`)
-- **Autentisering:** Bearer-token (OAuth2 Client Credentials eller statisk), eller Basic auth over HTTPS
-- **Responstid:** Må svare innen 5 sekunder ved normal drift
-- **Sertifikat:** Må ha gyldig TLS-sertifikat
+| Egenskap          | Krav                                         |
+|-------------------|----------------------------------------------|
+| **Protokoll**     | HTTPS (TLS 1.2 eller høyere)                 |
+| **Metode**        | POST                                         |
+| **Content-Type**  | `application/json`                           |
+| **Autentisering** | HMAC-signatur i header (`webhook-signature`) |
+| **Responstid**    | Maks 10 sekunder                             |
+| **Sertifikat**    | Gyldig TLS-sertifikat kreves                 |
 
 ### Endepunkt-oppsett
 
 Du må eksponere en offentlig tilgjengelig URL, for eksempel:
 
 ```http
-POST https://partner.example.com/webhooks/status
+POST https://partner.example.com/api/dps/webhook
 ```
 
 **Anbefalinger:**
 
-- Bruk IP-allowlist (vi kan oppgi faste utgående IP-er ved behov)
-- Implementer logging for debugging
-- Sett opp monitoring og alerting
+- Bruk IP-allowlist (vi kan oppgi faste utgående IP-er ved behov)g
+- Sett opp overvåkning og varsling av at tjenesten din er operativ
+- Valider signaturen for hver melding før behandling
 
-## Meldingsformat
+---
 
-### Headere
+## HTTP-headere (Standard Webhooks-format)
 
-Hver webhook-forespørsel inkluderer spesielle headere:
+Alle meldinger sendes med følgende headere:
 
-```http
-webhook-id: 74ea5da5-df40-47e9-9d44-4040b0c292fc
-webhook-timestamp: 1757458468973
+```
+webhook-id: <unik id>
+webhook-timestamp: <unix-sekunder>
+webhook-signature: v1,<base64-signatur>
 ```
 
-**Feltbeskrivelser:**
+| Header              | Beskrivelse                                                                            |
+|---------------------|----------------------------------------------------------------------------------------|
+| `webhook-id`        | Unik ID for meldingen (samme ID brukes ved retries – bruk som dedup-nøkkel)            |
+| `webhook-timestamp` | UNIX-tid i sekunder; bruk tidsvindu (±5–10 min) for å avvise gamle meldinger           |
+| `webhook-signature` | HMAC-SHA256 av `id + "." + timestamp + "." + rå request-body`, signert med delt nøkkel |
 
-- `webhook-id`: Unik meldingsID som ikke endres ved retry
-- `webhook-timestamp`: Unix timestamp i millisekunder for når meldingen ble sendt
+>  **Tips:** verifiser alltid signaturen mot rå **request-body**, ikke en reserialisert JSON-struktur.
 
-### Meldingsstruktur
+---
 
-Alle meldinger følger samme grunnstruktur:
+## Svar på meldingen
+
+Webhook-mottakeren må:
+
+- svare med **HTTP 200 OK** innen 10 sekunder
+- returnere ingen eller minimal body (DPS bryr seg kun om statuskode)
+- ved 4xx/5xx eller timeout vil DPS prøve igjen med eksponentiell backoff
+
+---
+
+## Felles JSON-struktur
+
+Alle webhook-meldinger følger samme struktur («envelope»):
 
 ```json
 {
+  "type": "<event type>",
+  "timestamp": "2025-09-10T00:08:11.407000+02:00",
+  "data": {}
+}
+```
+
+| Felt        | Type   | Beskrivelse                                                                                  |
+|-------------|--------|----------------------------------------------------------------------------------------------|
+| `type`      | string | Hendelsestype (se nedenfor)                                                                  |
+| `timestamp` | string | Tidspunkt da hendelsen oppsto, i RFC3339/ISO 8601-format med eksplisitt offset eller UTC (Z) |
+| `data`      | object | Hendelsesspesifikke felter                                                                   |
+
+---
+
+## Hendelser
+
+DPS støtter foreløpig følgende hendelser.
+
+---
+
+### `submission.preserved`
+
+Webhook sendt når en SIP-innlevering er bevart og lagret permanent.
+
+**Eksempel**
+```json
+{
   "type": "submission.preserved",
-  "timestamp": "2025-08-26T14:39:53.344522+02:00",
+  "timestamp": "2025-09-10T00:08:11.407000+02:00",
   "data": {
     "contractId": "ef23",
     "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
@@ -72,76 +134,77 @@ Alle meldinger følger samme grunnstruktur:
 }
 ```
 
-**Feltbeskrivelser:**
+| Felt           | Type   | Beskrivelse                                                             |
+|----------------|--------|-------------------------------------------------------------------------|
+| `contractId`   | string | Identifikator for kontrakt eller avtale som innsendelsen er knyttet til |
+| `submissionId` | string | Unik identifikator for SIP-innleveringen                                |
+| `archiveId`    | string | Unik identifikator for arkivobjekt i DPS                                |
 
-- `type` (string): Hendelsestype (se [Hendelsestyper](#hendelsestyper))
-- `timestamp` (string): ISO 8601-tidsstempel med tidssone for statusendring
-- `data` (object): Hendelsespesifikke data
+---
 
-**Fremtidig kompatibilitet:**
-Vi kan legge til nye, ikke-påkrevde felter. Ditt endepunkt bør ignorere ukjente felter for å forbli kompatibel med fremtidige versjoner.
+### `submission.rejected`
 
-## Hendelsestyper
+Webhook sendt når en SIP-innlevering er avvist under validering eller behandling.
 
-### Submission-hendelser
-
-Følgende hendelsestyper sendes for innleveringer:
-
-- `submission.validating` - Innlevering valideres
-- `submission.queued` - Innlevering i kø for prosessering  
-- `submission.processing` - Arkivobjekt behandles av DPS
-- `submission.archiving` - Arkivobjekt sendes til lagring
-- `submission.preserved` - Arkivobjekt kontrollert og bevart
-- `submission.rejected` - Feil under validering, arkivobjekt avvises
-
-**Eksempel submission-melding:**
-
+**Eksempel**
 ```json
 {
-  "type": "submission.preserved",
-  "timestamp": "2025-08-26T14:39:53.344522+02:00",
+  "type": "submission.rejected",
+  "timestamp": "2025-09-10T00:08:11.407000+02:00",
   "data": {
     "contractId": "ef23",
     "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
-    "archiveId": "68b803fb25d74833747835f7"
+    "archiveId": "68b803fb25d74833747835f7",
+    "reasons": [
+      {
+        "code": "METADATA_SCHEMA_INVALID",
+        "message": "Descriptive metadata did not validate against the required profile."
+      },
+      {
+        "code": "FILE_CHECKSUM_MISMATCH",
+        "message": "Checksum mismatch.",
+        "filePath": "objects/issue_1942_05.pdf"
+      }
+    ]
   }
 }
 ```
 
-### Dissemination-hendelser
+| Felt           | Type   | Beskrivelse                                                                                                                                    |
+|----------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `contractId`   | string | Identifikator for kontrakt eller avtale som innsendelsen er knyttet til                                                                        |
+| `submissionId` | string | Unik identifikator for SIP-innleveringen                                                                                                       |
+| `archiveId`    | string | Unik identifikator for arkivobjekt i DPS                                                                                                       |
+| `reasons`      | array  | Liste med årsaker til avvisning. Minst én oppføring.                                                                                           |
+| → `code`       | string | Maskinlesbar feilkode som identifiserer typen feil. Stabil over tid                                                                            |
+| → `message`    | string | Menneskelesbar beskrivelse av feilen                                                                                                           |
+| → `filePath`   | string | Relativ sti til filen feilen gjelder, dersom feilen kan knyttes til en bestemt fil. Om dette feltet mangler, gjelder feilen pakken som helhet. |
 
-For utleveringer sendes følgende hendelsestype:
+---
 
-- `dissemination.delivered` - Utlevering er klar for nedlasting
+### `dissemination.delivered`
 
-**Eksempel dissemination-melding:**
+Webhook sendt når et leveransesett (DIP) er gjort tilgjengelig for nedlasting.
 
+**Eksempel**
 ```json
 {
   "type": "dissemination.delivered",
-  "timestamp": "2025-10-15T12:18:42.315+02:00",
+  "timestamp": "2025-10-02T09:18:01.160+02:00",
   "data": {
-    "archiveId": "68ee1917e2768fd730076661",
-    "disseminationId": "0pS8bYb6KmJoRvBtZ3Qxd1",
-    "objectId": "5280df44-d34e-4195-ac6f-ee96fe0e01d4",
-    "clientId": "client-id",
-    "contractId": "ef23",
-    "sumSizeInBytes": 215040,
+    "archiveId": "68d3a838a0be2b1d75eeef75",
+    "disseminationId": "5MfwdzCjkYW4c79MYorXy9",
+    "objectId": "digifoto_ae0690eb-22bf-4996-a6a0-9273b7cd9256",
+    "clientId": "kulturit",
+    "contractId": "2d17",
+    "sumSizeInBytes": "1",
     "files": [
       {
-        "downloadURL": "https://s3.nb.no/bucket/0pS8bYb6KmJoRvBtZ3Qxd1/68ee1917e2768fd730076661/metadata.tar",
-        "filename": "metadata.tar",
-        "filesize": 163840,
-        "expirationDate": "2025-10-16T12:18:41.919934218+02:00",
-        "checksum": "43943b08cbfc1748abe7b30e2ffc9963",
-        "checksumAlgorithm": "MD5"
-      },
-      {
-        "downloadURL": "https://s3.nb.no/bucket/0pS8bYb6KmJoRvBtZ3Qxd1/68ee1917e2768fd730076661/primary_20251014.tar",
-        "filename": "primary_20251014.tar",
-        "filesize": 51200,
-        "expirationDate": "2025-10-16T12:18:41.934462292+02:00",
-        "checksum": "ae393a24d6e5c0f4e0bc6d544be56570",
+        "downloadURL": "https://minio.dev.nb.no/submission-service-stage/dissemination/5MfwdzCjkYW4c79MYorXy9/68d3a838a0be2b1d75eeef75/primary_20250325.tar?...",
+        "filename": "primary_20250325.tar",
+        "filesize": 3481600,
+        "expirationDate": "2025-10-03T09:18:01.023897767+02:00",
+        "checksum": "ae958c69059974c63980035882d2178c",
         "checksumAlgorithm": "MD5"
       }
     ]
@@ -149,108 +212,95 @@ For utleveringer sendes følgende hendelsestype:
 }
 ```
 
-Vi kan avtale hvilke hendelsestyper som skal sendes varsling på basert på dine behov.
+| Felt                  | Type      | Beskrivelse                                                                |
+|-----------------------|-----------|----------------------------------------------------------------------------|
+| `archiveId`           | string    | Unik identifikator for arkivobjekt i DPS                                   |
+| `disseminationId`     | string    | Unik identifikator for leveransepakke                                      |
+| `objectId`            | string    | Objekt identifikator fra avvleverer                                        |
+| `clientId`            | string    | Mottaker                                                                   |
+| `contractId`          | string    | Identifikator for kontrakt eller avtale som leveransepakken er knyttet til |
+| `sumSizeInBytes`      | integer   | Total størrelse i bytes                                                    |
+| `files`               | array     | Liste over filer i pakken                                                  |
+| → `downloadURL`       | uri       | Presignert nedlastings-URL                                                 |
+| → `filename`          | string    | Filnavn                                                                    |
+| → `filesize`          | integer   | Filstørrelse i bytes                                                       |
+| → `expirationDate`    | date-time | Utløpsdato for URL                                                         |
+| → `checksum`          | string    | Sjekksum                                                                   |
+| → `checksumAlgorithm` | enum      | Algoritme brukt for sjekksum                                               |
 
-## Autentisering
+---
 
-### Bearer Token (anbefalt)
+## Signaturverifisering
 
-Vi støtter to typer Bearer token-autentisering:
+Webhookene signeres for å sikre autentisitet og integritet.  
+Mottakeren må validere signaturen før meldingen behandles.
 
-#### OAuth2 Client Credentials
+**Pseudokode:**
 
-1. Vi sender POST-forespørsel til ditt token-endepunkt med `grant_type=client_credentials`
-2. Vi mottar et `access_token` (JWT eller opaque)  
-3. Ved hvert webhook-kall sender vi headeren:
+```text
+raw = les_rå_body()
+id = header["webhook-id"]
+ts = header["webhook-timestamp"]
+sig_header = header["webhook-signature"]   # kan inneholde flere (v1,<b64>)
 
-   ```http
-   Authorization: Bearer <access_token>
-   ```
+base = id + "." + ts + "." + raw
+calc = base64(hmac_sha256(secret, base))
 
-4. Vi fornyer token automatisk ved utløp. Ved 401 Unauthorized henter vi nytt token og forsøker på nytt.
-
-#### Statisk API-token
-
-Du kan utstede en lang, tilfeldig API-token som vi sender i headeren:
-
-```http
-Authorization: Bearer <API_token>
+# Godta dersom én v1-signatur i header matcher calc (konstant-tids-sammenligning)
+# Avvis dersom |nå - ts| > toleransevindu (replay-beskyttelse)
+# Parse JSON etter vellykket verifisering
 ```
 
-### Basic Authentication
+---
 
-Alternativt kan du kreve HTTP Basic over HTTPS:
+## Svar, retries og feilhåndtering
 
-```http
-Authorization: Basic <base64(username:password)>
-```
+- **Suksess:** `200 OK` eller `204 No Content` – melding mottatt
+- **Klientfeil (4xx):** regnes som permanent; DPS prøver ikke igjen
+- **Serverfeil (5xx):** DPS prøver igjen med eksponentiell backoff (opptil 5 døgn totalt)
+- **Timeout:** regnes som feil og DPS vil prøve igjen med eksponentiell backoff (opptil 5 døgn totalt)
+- **Deduplisering:** Bruk `webhook-id` som idempotensnøkkel
 
-**Viktig:** Basic auth brukes kun over sikker TLS-forbindelse.
-
-### Tilleggstiltak
-
-- **IP-allowlist:** Du kan begrense trafikk til våre utgående IP-adresser
-- **Rate limiting:** Implementer beskyttelse mot for mange forespørsler
-
-## Responskrav
-
-Ditt endepunkt må respondere med passende HTTP-statuskoder:
-
-### Suksess
-
-- `200 OK` eller `204 No Content` – Melding mottatt og lagret/prosessering startet
-
-### Klientfeil (4xx)
-
-- `401 Unauthorized` – Ugyldig autentisering
-- `403 Forbidden` – Manglende tilgang
-- `404 Not Found` – Endepunkt ikke funnet  
-- `422 Unprocessable Entity` – Ugyldig meldingsformat
-
-### Serverfeil (5xx)
-
-- `500 Internal Server Error` – Midlertidig feil på din side
-- `502 Bad Gateway` – Gateway-feil
-- `503 Service Unavailable` – Tjeneste ikke tilgjengelig
-
-**Viktig:** Ved 4xx-feil anser vi meldingen som permanent mislykket og prøver ikke på nytt. Ved 5xx-feil implementerer vi retry-logikk.
-
-Responsbody er valgfri og ignoreres.
-
-## Idempotens og re-levering
-
-### Duplikathåndtering
-
-- Vi kan sende samme melding flere ganger ved nettverksfeil eller andre problemer
-- Bruk `webhook-id` fra headeren som dedup-nøkkel
-- Implementer idempotent behandling (ingen bivirkninger ved gjentatt prosessering)
-
-### Retry-strategi
-
-Ved ikke-suksess (ikke 2xx-status) forsøker vi igjen med eksponentiell backoff:
-
-**Backoff-sekvens:**
-30s → 1m → 2m → 4m → 8m → 16m → 32m → 1t → 2t → 4t → 8t → 16t → deretter hvert døgn
-
-**Maksimal varighet:** 5 dager total retry-periode
-
-Etter maksimal tidsvindu markeres hendelsen som ikke-levert. Vi kan eventuelt sende en manuell rapport om mislykkede leveringer.
+---
 
 ## Feilsøking
 
 ### Vanlige problemer
 
-1. **Timeout-feil:** Sørg for at endepunktet svarer innen 5 sekunder
-2. **Sertifikatfeil:** Verifiser at TLS-sertifikatet er gyldig og riktig konfigurert
-3. **Autentiseringsfeil:** Sjekk at Bearer token eller Basic auth er riktig implementert
+1. **Timeout:** Sørg for at endepunktet svarer innen tidsfristen
+2. **Sertifikatfeil:** TLS-sertifikatet må være gyldig og riktig konfigurert
+3. **Signaturfeil:** Sjekk at HMAC-verifiseringen implementeres korrekt
 4. **Duplikater:** Implementer deduplisering basert på `webhook-id`
 
-## Støtte
+---
 
-For spørsmål om webhook-oppsett eller problemer med leveringer, kontakt teamet for digital bevaring ved Nasjonalbiblioteket.
+## Konfigurasjon og støtte
 
-Vi kan også hjelpe med:
+I denne fasen håndteres registrering av webhook-URL og delt hemmelig nøkkel **manuelt av Nasjonalbiblioteket**.  
+Vi koordinerer oppsett og test før produksjonsbruk.
 
-- Testing av webhook-endepunktet ditt
+For spørsmål om webhook-oppsett eller om du opplever problemer, kontakt teamet for digital bevaring ved Nasjonalbiblioteket.
+
+Vi kan hjelpe med:
+
+- Testing av webhook-endepunkt
 - Oppgi faste IP-adresser for allowlisting
 - Feilsøking av leveringsproblemer
+
+---
+
+## Oppsummering
+
+| Egenskap      | Verdi                                                 |
+|---------------|-------------------------------------------------------|
+| Transport     | HTTPS                                                 |
+| Metode        | POST                                                  |
+| Innholdstype  | `application/json`                                    |
+| Standard      | [Standard Webhooks](https://www.standardwebhooks.com) |
+| Autentisering | HMAC-signatur (`webhook-signature`)                   |
+| Respons       | `200 OK` innen 10 sek                                 |
+| Retries       | Ja (eksponentiell backoff. opptil 5 døgn totalt)      |
+| Konfigurasjon | Håndteres manuelt av NB                               |
+
+
+[^1]: Standard Webhooks: [https://www.standardwebhooks.com](https://www.standardwebhooks.com)

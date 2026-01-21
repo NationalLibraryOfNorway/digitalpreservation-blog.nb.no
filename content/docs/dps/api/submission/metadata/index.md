@@ -25,11 +25,11 @@ Most metadata elements are optional, but it is strongly recommended to provide a
 ### Type
 
 
-| Name         | **Type**                                                                     |
-|:--------------|:------------------------------------------------------------------------------|
-| Description  | Form/genre of the resource. The National Library uses its own Norwegian controlled vocabulary for allowed types. |
-| Requirement        | MUST                                                                           |
-| Cardinality | 1..1                                                                         | 
+| Name        | **Type**                                                                                                         |
+|:------------|:-----------------------------------------------------------------------------------------------------------------|
+| Description | Form/genre of the resource. The National Library uses its own Norwegian controlled vocabulary for allowed types. |
+| Requirement | MUST                                                                                                             |
+| Cardinality | 1..1                                                                                                             | 
 
 **Guidelines for Use:**
 
@@ -56,11 +56,11 @@ In the requirements for [METS.xml](/nb/docs/dps/sip/1.0/mets/) there is a mandat
 
 ### Identifier
 
-| Name        | **Identifier**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description | Identifiers (identifier type + ID/value).<br> The `type` and `value` attributes MUST be used to define the identifier type.|
-| Requirement         | MUST                                                                                                                 |
-| Cardinality | 1..n                                                                                                               |
+| Name        | **Identifier**                                                                                                              |
+|:------------|:----------------------------------------------------------------------------------------------------------------------------|
+| Description | Identifiers (identifier type + ID/value).<br> The `type` and `value` attributes MUST be used to define the identifier type. |
+| Requirement | MUST                                                                                                                        |
+| Cardinality | 1..n                                                                                                                        |
 
 **Guidelines for Use:**
 
@@ -91,11 +91,11 @@ Examples of identifier types may include URN, PID, URI to a record in a catalog 
 
 ### Title
 
-| Name         | **Title**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Name given to the resource. If a title is missing, the recommended practice is to assign the resource a “meaningful” title. <br> The `lang` attribute SHOULD be used to specify the language of the title. |
-|Requirement        | MUST                                                                                                                 |
-| Cardinality | 1..1                                                                                                               |
+| Name        | **Title**                                                                                                                                                                                                  |
+|:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Name given to the resource. If a title is missing, the recommended practice is to assign the resource a “meaningful” title. <br> The `lang` attribute SHOULD be used to specify the language of the title. |
+| Requirement | MUST                                                                                                                                                                                                       |
+| Cardinality | 1..1                                                                                                                                                                                                       |
 
 **Guidelines for Use:**
 
@@ -134,11 +134,11 @@ The language of the title should be specified according to the [ISO 639-3](https
 
 ### Alternative
 
-| Name         | **Alternative**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Alternative Title (original title, subtitle, etc.) <br>The `type` attribute MUST be used to specify the type of title. <br> The `lang` attribute SHOULD be used to specify the language code. |
-|Requirement        | SHOULD                                                                                                                 |
-| Cardinality | 0..n                                                                                                               |
+| Name        | **Alternative**                                                                                                                                                                               |
+|:------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Alternative Title (original title, subtitle, etc.) <br>The `type` attribute MUST be used to specify the type of title. <br> The `lang` attribute SHOULD be used to specify the language code. |
+| Requirement | SHOULD                                                                                                                                                                                        |
+| Cardinality | 0..n                                                                                                                                                                                          |
 
 **Guidelines for Use:**
 
@@ -166,11 +166,11 @@ The language of the title should be specified according to the [ISO 639-3](https
 
 ### Creator
 
-| Name         | **Creator**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Name or entity appearing in a central role (e.g. author, composer, film director, photographer, etc.). <br>The`role` attribute SHOULD be used to define the specific role. <br>The `type` attribute SHOULD be used to indicate the type of entity. Allowed types include: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>The `authority` attribute SHOULD be used to specify the authority source. |
-|Requirement         | SHOULD                                                                                                                 |
-| Cardinality | 0..n                                                                                                               |
+| Name        | **Creator**                                                                                                                                                                                                                                                                                                                                                                                                      |
+|:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Name or entity appearing in a central role (e.g. author, composer, film director, photographer, etc.). <br>The`role` attribute SHOULD be used to define the specific role. <br>The `type` attribute SHOULD be used to indicate the type of entity. Allowed types include: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>The `authority` attribute SHOULD be used to specify the authority source. |
+| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                                                                                             |
 
 **Guidelines for use:**
 
@@ -241,11 +241,11 @@ Explanation of *authority* information:
 
 ### Contributor
 
-| Name         | **Contributor**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Names appearing in a central role (e.g., illustrator, photographer, co-author). <br>The `role` attribute SHOULD be used to specify the person's or organization's role. <br>The `type` attribute SHOULD be used to indicate the type of authority. Allowed types include: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>The `authority` attribute SHOULD be used to specify the authority source. |
-|Requirement          | SHOULD                                                                                                                 |
-| Cardinality | 0..n                                                                                                               |
+| Name        | **Contributor**                                                                                                                                                                                                                                                                                                                                                                                                  |
+|:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Names appearing in a central role (e.g., illustrator, photographer, co-author). <br>The `role` attribute SHOULD be used to specify the person's or organization's role. <br>The `type` attribute SHOULD be used to indicate the type of authority. Allowed types include: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>The `authority` attribute SHOULD be used to specify the authority source. |
+| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                                                                                           |
+| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                                                                                             |
 
 **Guidelines for Use:**
   
@@ -316,11 +316,11 @@ Explanation of *authority* information:
 
 ### Publisher
 
-| Name         | **Publisher**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Names appearing in a central role (the entity that has published the resource). <br> The `type` attribute SHOULD be used to define the type of authority. Allowed types include: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>The `authority` attribute SHOULD be used to specify the authority source. |
-| Requirement       | SHOULD                                                                                                                 |
-| Cardinality | 0..n                                                                                                               |
+| Name        | **Publisher**                                                                                                                                                                                                                                                                                                           |
+|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Names appearing in a central role (the entity that has published the resource). <br> The `type` attribute SHOULD be used to define the type of authority. Allowed types include: `person`, `korporasjon`, `konferanse`, `standardtittel`. <br>The `authority` attribute SHOULD be used to specify the authority source. |
+| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                  |
+| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                    |
 
 **Guidelines for use:**
 
@@ -362,11 +362,11 @@ Explanation of *authority* information:
 
 ### Spatial
 
-| Name         | **Spatial**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Names of relevant geographic locations (place names). These may refer to geographic locations such as countries, regions or cities that are significant to the resource. <br> The `type` attribute SHOULD be used to specify what type of place is being referred to.<br>The `authority` attribute SHOULD be used to specify the authority source. |
-| Requirement        | SHOULD                                                                                                                 |
-| Cardinality | 0..n                                                                                                               |
+| Name        | **Spatial**                                                                                                                                                                                                                                                                                                                                        |
+|:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Names of relevant geographic locations (place names). These may refer to geographic locations such as countries, regions or cities that are significant to the resource. <br> The `type` attribute SHOULD be used to specify what type of place is being referred to.<br>The `authority` attribute SHOULD be used to specify the authority source. |
+| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                             |
+| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                               |
 
 **Guidelines for use:**
 
@@ -417,11 +417,11 @@ Explanation of *authority* information:
 
 ### Date
 
-| Name         | **Date**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Relevant dates for the resource (such as publication, copyright, creation, digitization date, etc., including the type of date.). <br> The `type` attribute MUST be used to specify what kind of date it is reffered to. |
-| Requirement        | SHOULD                                                                                                                 |
-| Cardinality | 0..n                                                                                                               |
+| Name        | **Date**                                                                                                                                                                                                                 |
+|:------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Relevant dates for the resource (such as publication, copyright, creation, digitization date, etc., including the type of date.). <br> The `type` attribute MUST be used to specify what kind of date it is reffered to. |
+| Requirement | SHOULD                                                                                                                                                                                                                   |
+| Cardinality | 0..n                                                                                                                                                                                                                     |
 
 **Guidelines for Use:**
 
@@ -452,11 +452,11 @@ The use of the type attribute should be meaningful for the data provider, reflec
 
 ### Language
 
-| Name         | **Language**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Languages used in the resource. The value should confirm to a [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) code.<br> The `type` attribute MUST be used to define what the language represents (e.g., subtitles, spoken language, written language, etc.).   |
-| Requirement        | SHOULD                                                                                                                 |
-| Cardinality | 0..n                                                                                                               |
+| Name        | **Language**                                                                                                                                                                                                                                                                        |
+|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Languages used in the resource. The value should confirm to a [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) code.<br> The `type` attribute MUST be used to define what the language represents (e.g., subtitles, spoken language, written language, etc.). |
+| Requirement | SHOULD                                                                                                                                                                                                                                                                              |
+| Cardinality | 0..n                                                                                                                                                                                                                                                                                |
 
 **Guidelines for Use:**
 
@@ -483,7 +483,7 @@ The use of the `type` attribute should be meaningful for the data provider, refl
   "language": [
     {
       "type": "written language",
-      "value": "fre",
+      "value": "fre"
     }
   ]
 }
@@ -491,11 +491,11 @@ The use of the `type` attribute should be meaningful for the data provider, refl
 
 ### Relation
 
-| Name        | **Relation**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description | A related resource in which the described resource is physically or logically included (e.g., title of the parent or related work, collection, series, or part).<br>Attributes for `title` + `type` OR `id` + `type` MUST be used. <br> The`URI` attribute SHOULD be used.<br> The `lang` attribute SHOULD be used to specify the language of the related resource's title.   |
-| Requirement        | SHOULD                                                                                                                |
-| Cardinality | 0..n                                                                                                               |
+| Name        | **Relation**                                                                                                                                                                                                                                                                                                                                                                |
+|:------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | A related resource in which the described resource is physically or logically included (e.g., title of the parent or related work, collection, series, or part).<br>Attributes for `title` + `type` OR `id` + `type` MUST be used. <br> The`URI` attribute SHOULD be used.<br> The `lang` attribute SHOULD be used to specify the language of the related resource's title. |
+| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                                                      |
+| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                                                        |
 
 **Guidelines for use:**
 
@@ -550,11 +550,11 @@ The `URI` attribute is used to provide a link to the related resource (such as a
 
 ### Provenance
 
-| Name         | **Provenance**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Information about any changes that may affect the authenticity, integrity, or interpretation of the resource (e.g., ownership, management, etc.). <br> The `lang` attribute MUST be used to spesify the language of the attribute.   |
-| Requirement        | SHOULD                                                                                                                 |
-| Cardinality | 0..n                                                                                                               |
+| Name        | **Provenance**                                                                                                                                                                                                                     |
+|:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Information about any changes that may affect the authenticity, integrity, or interpretation of the resource (e.g., ownership, management, etc.). <br> The `lang` attribute MUST be used to spesify the language of the attribute. |
+| Requirement | SHOULD                                                                                                                                                                                                                             |
+| Cardinality | 0..n                                                                                                                                                                                                                               |
 
 **Guidelines for use:**
 
@@ -594,11 +594,11 @@ The language of the provenance value must be provided using the `lang` attribute
 
 ### Subject
 
-| Name         | **Subject**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Subject terms related to the resource.<br>The `authority` attribute SHOULD be used to specify the authority source.  |
-| Requirement        | MAY                                                                                                                 |
-| Cardinality | 0..n                                                                                                               |
+| Name        | **Subject**                                                                                                         |
+|:------------|:--------------------------------------------------------------------------------------------------------------------|
+| Description | Subject terms related to the resource.<br>The `authority` attribute SHOULD be used to specify the authority source. |
+| Requirement | MAY                                                                                                                 |
+| Cardinality | 0..n                                                                                                                |
 
 **Guidelines for use:**
 
@@ -620,10 +620,10 @@ Explanation of *authority* information:
 {
   "subject": [
     {
-      "value": "rondane",
+      "value": "rondane"
     },
     {
-      "value": "fishingtrip",
+      "value": "fishingtrip"
     },
     {
       "value": "nature"
@@ -649,11 +649,11 @@ Explanation of *authority* information:
 
 ### Description
 
-| Name         | **Description**                                                                                                     |
-|:--------------|:--------------------------------------------------------------------------------------------------------------------|
-| Description  | Description of the resource. The description may include a summary, a table of contents, a graphical representation or any free-text information about the resource.  <br> The `lang` attribute SHOULD be used to specify the language code.   |
-| Requirement         | MAY                                                                                                                 |
-| Cardinality | 0..n                                                                                                               |
+| Name        | **Description**                                                                                                                                                                                                                              |
+|:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Description of the resource. The description may include a summary, a table of contents, a graphical representation or any free-text information about the resource.  <br> The `lang` attribute SHOULD be used to specify the language code. |
+| Requirement | MAY                                                                                                                                                                                                                                          |
+| Cardinality | 0..n                                                                                                                                                                                                                                         |
 
 **Guidelines for use:** 
 
@@ -788,8 +788,7 @@ Language code must be specified.
         "lang": "eng",
         "type": "IsPartOf",
         "id": "987654321",
-        "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
-        "lang": "eng"
+        "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
       }
     ],
     "provenance": [
