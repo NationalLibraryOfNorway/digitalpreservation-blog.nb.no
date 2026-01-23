@@ -187,7 +187,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 {
   "fileId": "1M0x4T9rN8Xc7B2Yq5L3zK",
   "filePath": "representations/primary_20250217/data/ranablad_20250215.pdf",
-  "s3ObjectKey": "examplebucket/clientId/contract/submissionId/path/to/file.txt",
+  "s3ObjectKey": "bucket/myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
   "checksum": "d41d8cd98f00b204e9800998ecf8427e",
   "isPackaged": false,
   "uploadUrl": "https://s3.nb.no/examplebucket/...&X-Amz-Signature=..."
@@ -226,40 +226,45 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
-## File Upload Process Internal
+## File Upload
 
-The file upload process in the Digital Preservation Submission Service consists of the following steps:
+The upload process follows these steps:
 
+1. **Register a file** by sending a POST request to `/contracts/{contractId}/submissions/{submissionId}/files`
+2. **Retrieve the pre-signed URL** from the response. The field is called `uploadUrl`, and it is valid for approximately 1 hour.
+3. **Upload the file content** directly to S3 using HTTP PUT to the specified URL.
 
-1. **Register the file** by sending an HTTP POST request to the endpoint `/contracts/{contractId}/submissions/{submissionId}/files`.
-2. **Receive the `s3ObjectKey`** in the API response.
-3. **Upload the file content** directly to Amazon S3 using the `s3ObjectKey` as the object key.
-
-Access to the S3 bucket to be used must be requested from the Platform team.
-
-
-## File Upload Process External
-
-The file upload process in the Digital Preservation Submission Service consists of the following steps:
-
-1. **Register a file** by sending a POST request to `/contracts/{contractId}/submissions/{submissionId}/files` with file metadata
-2. **Receive a pre-signed upload URL** in the response, which is valid for a limited time (typically 1 hour)
-3. **Upload the file content** directly to our S3 compatible storage using the pre-signed URL with an HTTP PUT request
-
-### Pre-signed URL Usage
-
-The pre-signed URL allows for secure direct uploads to S3 without requiring credentials:
+### Uploading a file using a pre-signed URL
 
 ```http
-PUT {pre-signed-url} HTTP/1.1
-Content-Length: {file-size}
+PUT {uploadUrl} HTTP/1.1
+Content-Length: {file-size-in-bytes}
 
 [FILE CONTENT]
 ```
 
+{{% details title="Alternative upload for large files (files over 5 GiB)" closed="true" %}}
+
+> [!NOTE]
+> This functionality is primarily intended for internal use at the National Library, especially for large files, as pre-signed URLs only support files up to 5 GiB in size. Access to the S3 bucket used by the National Library for digital preservation can be obtained by contacting the Platform team.
+
+The upload process follows these steps:
+1. **Register a file** by sending a POST request to `/contracts/{contractId}/submissions/{submissionId}/files`
+2. **Retrieve the s3ObjectKey** from the response
+3. **Upload the file content** directly to S3 using the s3ObjectKey as the object key
+
+We recommend using the AWS CLI for the upload. Documentation can be found here: https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html
+
+Here is an example of how you can do this:
+```shell
+s3 cp path/to/my_big_movie_file.mov s3://examplebucket/clientId/contract/submissionId/path/to/my_big_movie_file.mov --endpoint-url=https://s3.nb.no
+```
+
+{{% /details %}}
+
 ### Upload Requirements
-- The file must be uploaded using the pre-signed URL provided during registration
-- The file content must generate the same MD5 checksum provided during registration
+- The file must be uploaded via the provided pre-signed URL
+- The file content must have the same MD5 checksum as specified during registration
 
 ### Handling Upload Failures
 
