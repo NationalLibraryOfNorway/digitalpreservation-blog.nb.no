@@ -215,7 +215,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     {
       "fileId": "1M0x4T9rN8Xc7B2Yq5L3zK",
       "filePath": "representations/primary_20250217/data/ranablad_20250215.pdf",
-      "s3ObjectKey": "myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
+      "s3ObjectKey": "bucket/myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
       "checksum": "d41d8cd98f00b204e9800998ecf8427e",
       "isPackaged": false,
       "uploadUrl": "https://s3.nb.no/examplebucket/...&X-Amz-Signature=..."
@@ -224,22 +224,47 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
+
 ## Filopplasting
 
 Opplastingsprosessen følger disse stegene:
-
 1. **Registrer en fil** ved å sende POST til `/contracts/{contractId}/submissions/{submissionId}/files`
-2. **Få en pre-signert URL** i responsen (gyldig i ca. 1 time)
+2. **Hent pre-signert URL** fra responsen. Feltet heter `uploadUrl`, og  er gyldig i ca. 1 time.
 3. **Last opp filinnholdet** direkte til S3 ved å bruke HTTP PUT til den angitte URL-en
 
-### Bruk av pre-signert URL
+
+### Opplasting av fil med bruk av pre-signert URL
 
 ```http
-PUT {pre-signed-url} HTTP/1.1
-Content-Length: {file-size}
+PUT {uploadUrl} HTTP/1.1
+Content-Length: {file-size-in-bytes}
 
 [FILE CONTENT]
 ```
+
+
+{{% details title="Alternativ opplasting for store filer (filer over 5 GiB)" closed="true" %}}
+
+> [!NOTE]
+> Denne funksjonaliteten er primært ment for intern bruk på Nasjonalbiblioteket, spesielt for store filer, 
+> siden pre-signerte URL-er kun støtter filer med en maksimal størrelse på 5 GiB. 
+> Tilgang til S3-bøtta for digital bevaring kan fås ved å kontakte Plattform-teamet.
+
+
+Opplastingsprosessen følger disse stegene:
+1. **Registrer en fil** ved å sende POST til `/contracts/{contractId}/submissions/{submissionId}/files`
+2. **Hent ut s3ObjectKey** i responsen
+3. **Last opp filinnholdet** direkte til S3 ved å bruke s3ObjectKey som object-nøkkel
+
+Vi anbefaler å bruke AWS CLI til opplastingen. Dokumentasjon finnes her: https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html
+
+Her er et eksempel på hvordan du kan gjøre dette:
+```shell
+s3 cp path/to/my_big_movie_file.mov s3://examplebucket/clientId/contract/submissionId/path/to/my_big_movie_file.mov --endpoint-url=https://s3.nb.no
+```
+
+{{% /details %}}
+
 
 ### Krav til opplasting
 - Filen må lastes opp via oppgitt pre-signert URL
