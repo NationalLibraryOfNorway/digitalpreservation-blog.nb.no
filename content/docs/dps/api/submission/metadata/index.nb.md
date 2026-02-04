@@ -24,11 +24,11 @@ Dette gir bedre søkbarhet og forståelse av ressursene – også i et langtidsp
 
 ### Type
 
-| Navn         | **Type**                                                                     |
-|:-------------|:-----------------------------------------------------------------------------|
-| Beskrivelse  | Form/sjanger på ressursen. Nasjonalbiblioteket bruker et eget vokabular for tillatte typer. Vokabularet har kun norske verdier.  |
-| Krav         | MÅ                                                                           |
-| Kardinalitet | 1..1                                                                         | 
+| Navn         | **Type**                                                                                                                        |
+|:-------------|:--------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Form/sjanger på ressursen. Nasjonalbiblioteket bruker et eget vokabular for tillatte typer. Vokabularet har kun norske verdier. |
+| Krav         | MÅ                                                                                                                              |
+| Kardinalitet | 1..1                                                                                                                            | 
 
 
 > [!TIP]

@@ -25,11 +25,11 @@ Most metadata elements are optional, but it is strongly recommended to provide a
 ### Type
 
 
-| Name         | **Type**                                                                     |
-|:--------------|:------------------------------------------------------------------------------|
-| Description  | Form/genre of the resource. The National Library uses its own controlled vocabulary for allowed types. The vocabulary is limited to Norwegian values. |
-| Requirement        | MUST                                                                           |
-| Cardinality | 1..1                                                                         | 
+| Name        | **Type**                                                                                                                                              |
+|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Form/genre of the resource. The National Library uses its own controlled vocabulary for allowed types. The vocabulary is limited to Norwegian values. |
+| Requirement | MUST                                                                                                                                                  |
+| Cardinality | 1..1                                                                                                                                                  | 
 
 
 > [!TIP]
