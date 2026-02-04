@@ -49,7 +49,7 @@ When an event occurs in DPS:
 You must expose a publicly accessible URL, for example:
 
 ```http
-POST https://partner.example.com/api/dps/webhook
+https://partner.example.com/api/dps/webhook
 ```
 
 **Recommendations:**
@@ -84,7 +84,7 @@ webhook-signature: v1,<base64-signature>
 
 The webhook receiver must:
 
-- Respond with **HTTP 200 OK** within 10 seconds
+- Respond with **HTTP 200 OK** or **204 No Content** within 10 seconds
 - Return no or minimal body (DPS only cares about the status code)
 - For 4xx/5xx or timeout, DPS will retry with exponential backoff
 
@@ -252,16 +252,6 @@ calc = base64(hmac_sha256(secret, base))
 
 ---
 
-## Responses, Retries, and Error Handling
-
-- **Success:** `200 OK` or `204 No Content` – message received
-- **Client Error (4xx):** considered permanent; DPS will not retry
-- **Server Error (5xx):** DPS will retry with exponential backoff (up to 5 days total)
-- **Timeout:** considered an error, and DPS will retry with exponential backoff (up to 5 days total)
-- **Deduplication:** Use `webhook-id` as an idempotency key
-
----
-
 ## Troubleshooting
 
 ### Common Issues
@@ -297,7 +287,7 @@ We can assist with:
 | Content Type   | `application/json`                                    |
 | Standard       | [Standard Webhooks](https://www.standardwebhooks.com) |
 | Authentication | HMAC signature (`webhook-signature`)                  |
-| Response       | `200 OK` within 10 seconds                            |
+| Response       | `200 OK` or `204 No Content` within 10 seconds        |
 | Retries        | Yes (exponential backoff, up to 5 days total)         |
 | Configuration  | Handled manually by NB                                |
 

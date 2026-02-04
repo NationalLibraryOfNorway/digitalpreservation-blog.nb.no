@@ -50,12 +50,12 @@ Når en hendelse oppstår i DPS:
 Du må eksponere en offentlig tilgjengelig URL, for eksempel:
 
 ```http
-POST https://partner.example.com/api/dps/webhook
+https://partner.example.com/api/dps/webhook
 ```
 
 **Anbefalinger:**
 
-- Bruk IP-allowlist (vi kan oppgi faste utgående IP-er ved behov)g
+- Bruk IP-allowlist (vi kan oppgi faste utgående IP-er ved behov)
 - Sett opp overvåkning og varsling av at tjenesten din er operativ
 - Valider signaturen for hver melding før behandling
 
@@ -85,7 +85,7 @@ webhook-signature: v1,<base64-signatur>
 
 Webhook-mottakeren må:
 
-- svare med **HTTP 200 OK** innen 10 sekunder
+- svare med HTTP **200 OK** eller **204 No Content** innen 10 sekunder
 - returnere ingen eller minimal body (DPS bryr seg kun om statuskode)
 - ved 4xx/5xx eller timeout vil DPS prøve igjen med eksponentiell backoff
 
@@ -253,16 +253,6 @@ calc = base64(hmac_sha256(secret, base))
 
 ---
 
-## Svar, retries og feilhåndtering
-
-- **Suksess:** `200 OK` eller `204 No Content` – melding mottatt
-- **Klientfeil (4xx):** regnes som permanent; DPS prøver ikke igjen
-- **Serverfeil (5xx):** DPS prøver igjen med eksponentiell backoff (opptil 5 døgn totalt)
-- **Timeout:** regnes som feil og DPS vil prøve igjen med eksponentiell backoff (opptil 5 døgn totalt)
-- **Deduplisering:** Bruk `webhook-id` som idempotensnøkkel
-
----
-
 ## Feilsøking
 
 ### Vanlige problemer
@@ -298,7 +288,7 @@ Vi kan hjelpe med:
 | Innholdstype  | `application/json`                                    |
 | Standard      | [Standard Webhooks](https://www.standardwebhooks.com) |
 | Autentisering | HMAC-signatur (`webhook-signature`)                   |
-| Respons       | `200 OK` innen 10 sek                                 |
+| Respons       | `200 OK` eller `204 No Content` innen 10 sek          |
 | Retries       | Ja (eksponentiell backoff. opptil 5 døgn totalt)      |
 | Konfigurasjon | Håndteres manuelt av NB                               |
 
