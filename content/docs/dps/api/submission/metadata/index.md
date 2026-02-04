@@ -25,27 +25,68 @@ Most metadata elements are optional, but it is strongly recommended to provide a
 ### Type
 
 
-| Name        | **Type**                                                                                                         |
-|:------------|:-----------------------------------------------------------------------------------------------------------------|
-| Description | Form/genre of the resource. The National Library uses its own Norwegian controlled vocabulary for allowed types. |
-| Requirement | MUST                                                                                                             |
-| Cardinality | 1..1                                                                                                             | 
+| Name         | **Type**                                                                     |
+|:--------------|:------------------------------------------------------------------------------|
+| Description  | Form/genre of the resource. The National Library uses its own controlled vocabulary for allowed types. The vocabulary is limited to Norwegian values. |
+| Requirement        | MUST                                                                           |
+| Cardinality | 1..1                                                                         | 
+
+
+> [!TIP]
+> We would like input and suggestions for any missing terms in this vocabulary. It is possible to request the addition of new types if needed.
+
+
 
 **Guidelines for Use:**
 
 Allowed types for describing the resource per media type: 
 
-- **Text:** `Bok`, `Avis`, `Tidsskrift`, `Artikkel`, `Småtrykk`, `Brev`, `Epost`, `Manuskript`, `Musikkmanuskript`, `Noter`, `Programrapport`, `Programstatistikk`. 
-- **Images:** `Bilde`, `Kart`, `Plakat`, `Postkort`, `Referansemateriale`. 
-- **Audio:** ``Lydbok``, ``Musikk``, ``Radio``.
-- **Moving images:** `Film`, `Fjernsyn`.
 
-The vocabulary is limited to Norwegian values.
 
-In the requirements for [METS.xml](/nb/docs/dps/sip/1.0/mets/) there is a mandatory attribute named Content category `@TYPE`. Content category specifies the media type on a higher level than this attribute.
+**Text:**
+| Type | Description |
+|---|---|
+| `Bok` | Book: An independent, cohesive text published as a single unit. |
+| `Avis` | Newspaper: A periodical publication featuring news and current affairs. |
+| `Tidsskrift` | Journal: A periodical publication with academic or thematic content. |
+| `Artikkel` | Article: An independent text published as part of a larger publication. |
+| `Småtrykk` | Ephemera: A short printed item without periodicity or book structure. |
+| `Brev` | Letter: Individual written communication between a sender and a recipient. |
+| `Epost` | Email: Electronic written communication sent via an email system. |
+| `Manuskript` | Manuscript: An unfinished or unpublished text intended for further development. |
+| `Musikkmanuskript` | Music Manuscript: A manuscript primarily consisting of musical notation. |
+| `Noter` | Sheet Music: Completed musical notation intended for performance. |
+| `Programrapport` | Program Report: A report describing the content or execution of a program. |
+| `Programstatistikk` | Program Statistics: Statistical material related to program production or usage. |
 
-> [!TIP]
-> We would like input and suggestions for any missing terms in this vocabulary. It is possible to request the addition of new types if needed.
+
+**Images:**
+| Type 	| Description 	|
+|---	|---	|
+| `Bilde` 	| Image: A visual representation of a subject without a primarily cartographic or textual function. 	|
+| `Kart` 	| Map: A graphic representation of a geographical area to scale.  	|
+| `Plakat` 	| Poster: A visual item intended for display and/or advertising 	|
+| `Postkort` 	| Postcard: A printed or digital item with an image, intended for a short message and delivery. 	|
+| `Referansemateriale` 	| Reference Material: Visual material used for support or documentation. 	|
+
+
+**Audio:**
+| Type 	| Description 	|
+|---	|---	|
+| `Lydbok` 	| Audiobook: A narrated or audio-produced version of a literary work. 	|
+| `Musikk` 	| Music: An audio recording with primarily musical content.	|
+| `Radio` 	| Radio: Audio content produced for radio broadcast or distribution. 	|
+
+
+**Moving images:**
+| Type 	| Description 	|
+|---	|---	|
+| `Film` 	| Film: An audiovisual work produced as a standalone film. 	|
+| `Fjernsyn` 	| Television: Audiovisual content produced for television distribution. 	|
+
+
+**Note:** In the requirements for [METS.xml](/nb/docs/dps/sip/1.0/mets/) there is a mandatory attribute named Content category `@TYPE`. Content category specifies the media type on a higher level than this attribute.
+
 
 **Example:**
 ```json

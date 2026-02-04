@@ -26,25 +26,68 @@ Dette gir bedre søkbarhet og forståelse av ressursene – også i et langtidsp
 
 | Navn         | **Type**                                                                     |
 |:-------------|:-----------------------------------------------------------------------------|
-| Beskrivelse  | Form/sjanger på ressursen. NB bruker et eget vokabular for tillatte typer.   |
+| Beskrivelse  | Form/sjanger på ressursen. Nasjonalbiblioteket bruker et eget vokabular for tillatte typer. Vokabularet har kun norske verdier.  |
 | Krav         | MÅ                                                                           |
 | Kardinalitet | 1..1                                                                         | 
+
+
+> [!TIP]
+> Vi ønsker innspill på dette vokabularet. Det vil være muligheter for å få lagt til flere gyldige typer ved behov.
+> 
+
 
 **Retningslinjer for bruk:**
 
 Tillatte typer for å beskrive ressursen sortert på medietype: 
 
-- **Tekst:** `Bok`, `Avis`, `Tidsskrift`, `Artikkel`, `Småtrykk`, `Brev`, `Epost`, `Manuskript`, `Musikkmanuskript`, `Noter`, `Programrapport`, `Programstatistikk`. 
-- **Bilder:** `Bilde`, `Kart`, `Plakat`, `Postkort`, `Referansemateriale`. 
-- **Lyd:** ``Lydbok``, ``Musikk``, ``Radio``.
-- **Levende bilder:** `Film`, `Fjernsyn`.
 
-Vokabularet har kun norske verdier.
 
-I kravene til [METS.xml](/nb/docs/dps/sip/1.0/mets/) har vi et påkrevd attributt som heter Content category `@TYPE`. Content category angir medietype på overordnet nivå.
+**Tekst:**
+| Type | Beskrivelse |
+|---|---|
+| `Bok` | Selvstendig, sammenhengende tekst publisert som én enhet. |
+| `Avis` | Periodisk publikasjon med nyhets- og aktualitetsstoff. |
+| `Tidsskrift` | Periodisk publikasjon med faglig eller tematisk innhold. |
+| `Artikkel` | Selvstendig tekst publisert som del av en større publikasjon. |
+| `Småtrykk` | Kort trykksak uten periodisitet eller bokstruktur. |
+| `Brev` | Individuell skriftlig kommunikasjon mellom avsender og mottaker. |
+| `Epost` | Elektronisk skriftlig kommunikasjon sendt via e-postsystem. |
+| `Manuskript` | Uferdig eller upublisert tekst ment for videre bearbeiding. |
+| `Musikkmanuskript` | Manuskript som primært består av musikalsk notasjon. |
+| `Noter` | Ferdig musikalsk notasjon beregnet for fremføring. |
+| `Programrapport` | Rapport som beskriver innhold eller gjennomføring av program. |
+| `Programstatistikk` | Statistisk materiale knyttet til programproduksjon eller -bruk. |
+
+
+**Bilder:**
+| Type 	| Beskrivelse 	|
+|---	|---	|
+| `Bilde` 	| Visuell fremstilling av et motiv, uten kartografisk eller tekstlig hovedfunksjon. 	|
+| `Kart` 	| Grafisk fremstilling av et geografisk område i målestokk.  	|
+| `Plakat` 	| Visuell fremstilling beregnet for oppslag og/eller annonsering. 	|
+| `Postkort` 	| En trykksak eller digital fremstilling med bilde, beregnet for kort melding og forsendelse. 	|
+| `Referansemateriale` 	| Visuelt materiale brukt som støtte eller dokumentasjon. 	|
+
+
+**Lyd:**
+| Type 	| Beskrivelse 	|
+|---	|---	|
+| `Lydbok` 	| Innlesning eller lydteknisk versjon av et litterært verk. 	|
+| `Musikk` 	| Lydopptak med primært musikalsk innhold. 	|
+| `Radio` 	| Lydinnhold produsert for radiosending eller -distribusjon. 	|
+
+
+**Levende bilder:**
+| Type 	| Beskrivelse 	|
+|---	|---	|
+| `Film` 	| Audiovisuelt verk produsert som selvstendig film. 	|
+| `Fjernsyn` 	| Audiovisuelt innhold produsert for fjernsynsdistribusjon. 	|
+
+
+
+**Merk:** I kravene til [METS.xml](/nb/docs/dps/sip/1.0/mets/) har vi et påkrevd attributt som heter Content category `@TYPE`. Content category angir medietype på overordnet nivå.
  
-> [!TIP]
-> Vi ønsker innspill på dette vokabularet. Det vil være muligheter for å få lagt til flere gyldige typer ved behov.
+
   
 **Eksempel:**
 ```json
