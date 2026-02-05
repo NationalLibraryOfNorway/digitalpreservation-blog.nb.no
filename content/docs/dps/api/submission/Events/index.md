@@ -23,7 +23,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 ### Capture
 
 | Name 	| **capture** 	|
-|---	|---	|
+|:---	|:---	|
 | Description 	| The process whereby a repository actively obtains an object through means other than a transfer from the creator/donor. 	|
 | Scope	| IE, File 	|
 
@@ -38,7 +38,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 ### Compression
 
  | Name	| **compression** 	|
-|---	|---	|
+|:---	|:---	|
 | Description 	| The process of encoding data to save storage space or transmission time.  	|
 | Scope 	| IE, File 	|
 
@@ -57,7 +57,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
  | Name 	| **creation** 	|
-|---	|---	|
+|:---	|:---	|
 | Description	| The process of creating a new object. 	|
 | Scope 	| IE, File 	|
 
@@ -75,7 +75,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
  | Name	| **filename change** 	|
-|---	|---	|
+|:---	|:---	|
 | Description	| The process of modifying a filename. 	|
 | Scope 	| File 	|
 
@@ -95,7 +95,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
  | Name 	| **fixity check** 	|
-|---	|---	|
+|:---	|:---	|
 | Description 	| The process of verifying that an object has not been changed in a given period.	|
 | Scope 	| IE, File 	|
 
@@ -114,7 +114,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
  | Name 	| **imaging** 	|
-|---	|---	|
+|:---	|:---	|
 | Description 	| The process of extracting a disk image from a physical information carrier.	|
 | Scope 	| IE 	|
 
@@ -131,7 +131,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
  | Name 	| **message digest calculation** 	|
-|---	|---	|
+|:---	|:---	|
 | Description 	| The process by which a message digest ("hash") is created.	|
 | Scope 	| IE, File	|
 
@@ -151,7 +151,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
  | Name	| **metadata extraction** 	|
-|---	|---	|
+|:---	|:---	|
 | Description 	| The process of extracting metadata from an object. This includes technical, administrative and descriptive metadata.	|
 | Scope	| File	|
 
@@ -168,7 +168,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
  | Name 	| **migration** 	|
-|---	|---	|
+|:---	|:---	|
 | Description 	| The act of transforming an object from one file format(s) into another file format(s).	|
 | Scope 	| IE, File	|
 
@@ -188,7 +188,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
  | Name	| **transfer** 	|
-|---	|---	|
+|:---	|:---	|
 | Description 	| The process of transferring metadata and/or digital object(s) between systems. 	|
 | Skope	| IE, File	|
 
@@ -208,7 +208,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
  | Name	| **validation** 	|
-|---	|---	|
+|:---	|:---	|
 | Description 	| The process of comparing an object with a standard and noting compliance or exceptions. 	|
 | Scope	| IE, File	|
 
@@ -229,7 +229,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
  | Name	| **virus check** 	|
-|---	|---	|
+|:---	|:---	|
 | Description 	| The process of scanning a file for malicious programs. 	|
 | Scope 	| IE, File	|
 
