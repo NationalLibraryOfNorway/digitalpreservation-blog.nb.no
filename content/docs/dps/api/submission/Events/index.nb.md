@@ -13,7 +13,7 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 Avlevering av eventer er ikke et krav, men vi anbefaler at det opprettes hvis man har slik informasjon tilgjengelig. Eventer som legges til i APIet vil bevares i egen event-database. Hvis det er ønskelig å legge til andre typer bevaringsmetadata, er det er også mulig å avlevere bevaringsmetadata i informasjonspakken (SIP). Se mer om det under  [metadataveiledning](nb/docs/dps/sip/1.0/metadata/) og [krav til pakkestruktur](nb/docs/dps/sip/1.0/structure-requirements/). Informasjon som går direkte på proveniens kan legges til i [krav til metadata](nb/docs/dps/api/submission/metadata/).
 
-Generelt bør eventer knyttes til pakkenivå, Intellektuell entitet (IE), der det er mulig. Dette for å unngå store mengder eventer som i utgangspunktet sier det samme. Det er åpent for å legge eventer på filer der det er behov for å dokumentere hendelser på enkeltfiler. Det viktigste er at man har et bevisst forhold til hva som dokumenteres, hvorfor det dokumenteres, og på hvilket nivå. 
+Eventer kan være knyttet til hele informasjonspakken eller til enkelte filer. Generelt bør eventer knyttes til pakkenivå, Intellektuell entitet (IE), der det er mulig. Dette for å unngå store mengder eventer som i utgangspunktet sier det samme. Det er åpent for å legge eventer på filer der det er behov for å dokumentere hendelser på enkeltfiler. Det viktigste er at man har et bevisst forhold til hva som dokumenteres, hvorfor det dokumenteres, og på hvilket nivå. 
 
 Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, swagger?)
 
@@ -26,7 +26,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 | Navn 	| **capture** 	|
 |:---	|:---	|
-| Beskrivelse 	| Prosessen der et depot aktivt tilegner seg et objekt gjennom andre mekanismer enn overføring fra skaper eller giver. 	|
+| Beskrivelse 	| Prosessen der en agent (organisasjon, team, rolle, system, tjeneste, automatisert prosess) aktivt tilegner seg et objekt gjennom andre mekanismer enn overføring fra skaper eller giver. 	|
 | Omfang 	| IE, Fil 	|
 
 
@@ -61,12 +61,13 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
  | Navn 	| **creation** 	|
 |:---	|:---	|
 | Beskrivelse 	| Prosessen der et nytt objekt opprettes. 	|
-| Omfang 	| IE, Fil 	|
+| Omfang 	| Fil 	|
 
 
 **Retningslinjer for bruk:**
--	Eventen bør knyttes til IE når det er mulig, for eksempel dersom filene er opprettet på samme måte.
+- Brukes for å dokumentere det digitale objektet i en informasjonspakke. 
 -	Brukes til å dokumentere opprinnelsen til filen eller den Intellektuelle Entiteten (IE), og beskriver metoden og prosessen for å opprette filen/IE. Se også eventType "imaging". 
+  
 
 **Eksempler:**
 
@@ -103,6 +104,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 **Retningslinjer for bruk:**
 -	Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
 -	Vil mest sannsynlig inneholde resultatene fra eventen «message digest calculation».
+- Spesielt viktig når sjekksummer mottas fra eksterne. 
 
 
 **Eksempler:**
@@ -139,6 +141,8 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 **Retningslinjer for bruk:**
 -	Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
 -	Eventen «fixity check» kontrollerer Sjekksummen.
+- Brukes ved opprettelse av nye sjekksummer. Hvis sjekksummer opprettes lokalt, er det ikke behov for å bruke eventen "fixity check" i tillegg til event "message digest calculation". Se også EventType "fixity check". 
+
 
 
 
@@ -157,6 +161,8 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 
 **Retningslinjer for bruk:**
+- Brukes når metadata hentes ut av en fil og resulterer i en eller flere metadatafiler. 
+- Filen(e) som utledes må referere til opprinnelsesfila. 
 
 
 **Eksempler:**
@@ -176,7 +182,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 **Retningslinjer for bruk:**
 -	Eventen bør knyttes til IE når det er mulig, for eksempel dersom filene er konvertert på samme måte til samme format.
 -	Brukes ved endring av filformat, ikke til å dokumentere komprimering som del av lagringsoptimalisering. Se også eventType «compression».
--	Migration-events skal alltid resultere i opprettelsen av et nytt objekt. Dette begrepet er snevrere enn OAIS-definisjonen.
+-	Migration-events skal alltid resultere i en ny pakke eller fil. 
 
 
 
@@ -191,13 +197,11 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
  | Navn 	| **transfer** 	|
 |:---	|:---	|
 | Beskrivelse 	| Prosessen med å overføre metadata og/eller digitale objekter mellom systemer. 	|
-| Omfang 	| IE, Fil	|
+| Omfang 	| IE	|
 
 
 **Retningslinjer for bruk:**
--	Eventen bør knyttes til IE med mindre det dreier seg om overføring av en enkelt fil.
--	Brukes ved overføring av objekter inn/ut av et bevaringsområde eller midlertidig område/arbeidsflyt. 
-
+-	Brukes ved overføring av objekter inn eller ut av bevaringsområdet eller midlertidige arbeidsområder. Dette inkluderer for eksempel flytting mellom bit-lagre, fra bit-lager til arbeidsområde for bearbeiding, eller fra arbeidsområde til bit-lager.
 
 
 **Eksempler:**

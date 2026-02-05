@@ -10,7 +10,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 Submitting events is not mandatory, but we recommend doing so when such information is available. Events added through the API will be preserved in a dedicated event database. If you want do submit other types of preservation metadata, it is also possible to submit preservation metadata as part of the information package (SIP). See more information under [metadata primer](docs/dps/sip/1.0/metadata/) and [requirements for SIP structure](docs/dps/sip/1.0/structure-requirements/). Information relating directly to provenance may be included under [metadata requirements](docs/dps/api/submission/metadata/).
 
-In general, events should be associated with the package level, the Intellectual Entity (IE), where possible. This is to avoid large numbers of events that essentially convey the same information. It is possible to associate events with individual files when there is a need to document file-level actions. The most important consideration is to be deliberate about what is documented, why it is documented, and at which level.
+Events can be associated with either the entire information package or with individual files. In general, events should be associated with the package level, the Intellectual Entity (IE), where possible. This is to avoid large numbers of events that essentially convey the same information. It is possible to associate events with individual files when there is a need to document file-level actions. The most important consideration is to be deliberate about what is documented, why it is documented, and at which level.
 
 The technical documentation of submissions in API are to be found here: (lenke til dokumentasjon, swagger?)
 
@@ -24,7 +24,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 | Name 	| **capture** 	|
 |:---	|:---	|
-| Description 	| The process whereby a repository actively obtains an object through means other than a transfer from the creator/donor. 	|
+| Description 	| The process whereby an agent (organization, team, role, system, service, or automated process) actively acquires an object through mechanisms other than transfer from the creator or donor. 	|
 | Scope	| IE, File 	|
 
 
@@ -59,11 +59,11 @@ The technical documentation of submissions in API are to be found here: (lenke t
  | Name 	| **creation** 	|
 |:---	|:---	|
 | Description	| The process of creating a new object. 	|
-| Scope 	| IE, File 	|
+| Scope 	| File 	|
 
 
 **Guidelines for use:**
--	The event should be linked to the IE when possible. For example if the files are created in the same way. 
+- Used to document the digital object within an information package. 
 -	Used to document the origin of the file or Intellectual Entity, describes the method and process of creating the file/IE. See also eventType "imaging".
 
 
@@ -103,7 +103,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 **Guidelines for use:**
 -	The event should be linked to the IE where possible. Linked to the File only when it is necessary to document discrepancies.
 -	This will most likely utilize the results of the "message digest calculation" event.
-
+- This is particularly important when checksums are received from external sources. 
 
 
 **Examples:**
@@ -139,6 +139,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 **Guidelines for use:**
 -	The event should be linked to the IE where possible. Linked to the File only when it is necessary to document discrepancies.
 -	Message digest is also commonly referred to as a "checksum". The event "fixity check" checks the message digest.
+- Used when generating new checksums. Where checksums are generated locally, there is no need to use the "fixity check" event in addition to the ‘message digest calculation’ event. See also EventType "fixity check".
 
 
 
@@ -157,6 +158,8 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
 **Guidelines for use:**
+ - Used when metadata is extracted from a file, resulting in one or more metadata files.
+- The derived file(s) must reference the source file. 
 
 
 **Examples:**
@@ -175,7 +178,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 **Guidelines for use:**
 -	Used when changing fileformat, not to document compression as part of storage optimization. See also eventType “compression”.
--	Migration events should always create a new object. This term is narrower than the OAIS definition.
+-	Migration events should always create a new package or file. 
 
 
 
@@ -190,12 +193,11 @@ The technical documentation of submissions in API are to be found here: (lenke t
  | Name	| **transfer** 	|
 |:---	|:---	|
 | Description 	| The process of transferring metadata and/or digital object(s) between systems. 	|
-| Skope	| IE, File	|
+| Skope	| IE	|
 
 
 **Guidelines for use:**
--	The event should be linked to the IE, except in cases where a single file is transferred.
--	Used when transferring objects in/out of a repository or temporary location/work flow. 
+-	Used for transferring objects into or out of the preservation area or temporary working areas. This typically includes moving objects between storage locations, from storage to a working area for processing, or from a working area to storage.
 
 
 
