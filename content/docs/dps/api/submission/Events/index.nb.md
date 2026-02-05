@@ -25,7 +25,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 ### Capture
 
 | Navn 	| **capture** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen der et depot aktivt tilegner seg et objekt gjennom andre mekanismer enn overføring fra skaper eller giver. 	|
 | Omfang 	| IE, Fil 	|
 
@@ -41,7 +41,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 ### Compression
 
  | Navn 	| **compression** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen der data kodes for å redusere lagringsbehov eller overføringstid. 	|
 | Omfang 	| IE, Fil 	|
 
@@ -59,7 +59,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 
  | Navn 	| **creation** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen der et nytt objekt opprettes. 	|
 | Omfang 	| IE, Fil 	|
 
@@ -76,7 +76,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 
  | Navn 	| **filename change** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen der et filnavn endres.  	|
 | Omfang 	| Fil 	|
 
@@ -95,7 +95,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 
  | Navn 	| **fixity check** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen med å verifisere at et objekt ikke har blitt endret i en gitt periode.	|
 | Omfang 	| IE, Fil 	|
 
@@ -113,7 +113,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 
  | Navn 	| **imaging** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen med å hente ut et diskbilde fra et fysisk informasjonsmedium.	|
 | Omfang 	| IE 	|
 
@@ -131,7 +131,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 
  | Navn 	| **message digest calculation** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen der en sjekksum (checksum) opprettes.	|
 | Omfang 	| IE, Fil	|
 
@@ -151,7 +151,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 
  | Navn 	| **metadata extraction** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen med å hente ut metadata fra et objekt. Dette inkluderer tekniske, administrative og beskrivende metadata.	|
 | Omfang 	| Fil	|
 
@@ -168,7 +168,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 
  | Navn 	| **migration** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen der et objekt konverteres fra ett filformat til ett eller flere andre filformater.	|
 | Omfang 	| IE, Fil	|
 
@@ -189,7 +189,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 
  | Navn 	| **transfer** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen med å overføre metadata og/eller digitale objekter mellom systemer. 	|
 | Omfang 	| IE, Fil	|
 
@@ -209,7 +209,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 
  | Navn 	| **validation** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen med å sammenligne et objekt med en standard og registrere samsvar eller avvik. 	|
 | Omfang 	| IE, Fil	|
 
@@ -230,7 +230,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 
  | Navn 	| **virus check** 	|
-|---	|---	|
+|:---	|:---	|
 | Beskrivelse 	| Prosessen der en fil skannes for virus eller skadelig programvare. 	|
 | Omfang 	| IE, Fil	|
 
