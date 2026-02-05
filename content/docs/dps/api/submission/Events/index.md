@@ -12,7 +12,7 @@ Submitting events is not mandatory, but we recommend doing so when such informat
 
 Events can be associated with either the entire information package or with individual files. In general, events should be associated with the package level, the Intellectual Entity (IE), where possible. This is to avoid large numbers of events that essentially convey the same information. It is possible to associate events with individual files when there is a need to document file-level actions. The most important consideration is to be deliberate about what is documented, why it is documented, and at which level.
 
-The technical documentation of submissions in API are to be found here: (lenke til dokumentasjon, swagger?)
+The technical documentation of submissions in API are to be found here: [Swagger DPS Submission Service API](https://digitalpreservation.no/swagger/)
 
 
 
@@ -177,8 +177,11 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
 **Guidelines for use:**
+- The event should be associated with the Intellectual Entity (IE) whenever possible, for example, if the files have been converted in the same way to the same format. 
 -	Used when changing fileformat, not to document compression as part of storage optimization. See also eventType “compression”.
 -	Migration events should always create a new package or file. 
+- The migrated file(s) must reference the source file. 
+
 
 
 
