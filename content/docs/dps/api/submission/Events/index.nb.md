@@ -48,7 +48,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 **Retningslinjer for bruk:**
 - Eventen bør knyttes til IE når det er mulig. For eksempel dersom filene komprimeres på samme måte.
 -	Brukes til å dokumentere komprimering og/eller koding som del av lagringsoptimalisering.
--	Skal ikke brukes som del av formatmigrering til et komprimert format (se eventType migration).
+-	Skal ikke brukes som del av formatmigrering til et komprimert format. Se også eventType "migration".
 -	I en PREMIS-kontekst skal informasjon om hvorvidt komprimeringen er tapsfri eller tapsbasert angis i eventDetailInformation eller eventOutcomeInformation.
 
 
@@ -66,7 +66,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 **Retningslinjer for bruk:**
 -	Eventen bør knyttes til IE når det er mulig, for eksempel dersom filene er opprettet på samme måte.
--	Brukes til å dokumentere opprinnelsen til filen eller den Intellektuelle Entiteten (IE), og beskriver metoden og prosessen for å opprette filen/IE. Se også event "imaging". 
+-	Brukes til å dokumentere opprinnelsen til filen eller den Intellektuelle Entiteten (IE), og beskriver metoden og prosessen for å opprette filen/IE. Se også eventType "imaging". 
 
 **Eksempler:**
 
@@ -175,7 +175,7 @@ Teknisk dokumentasjon for avlevering i API finnes her (lenke til dokumentasjon, 
 
 **Retningslinjer for bruk:**
 -	Eventen bør knyttes til IE når det er mulig, for eksempel dersom filene er konvertert på samme måte til samme format.
--	Brukes ved endring av filformat, ikke til å dokumentere komprimering som del av lagringsoptimalisering (se eventType «compression»).
+-	Brukes ved endring av filformat, ikke til å dokumentere komprimering som del av lagringsoptimalisering. Se også eventType «compression».
 -	Migration-events skal alltid resultere i opprettelsen av et nytt objekt. Dette begrepet er snevrere enn OAIS-definisjonen.
 
 

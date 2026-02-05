@@ -45,7 +45,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 **Guidelines for use:**
 -	The event should be linked to the IE when possible. For example if the files are compressed in the same way.
 -	Used to document compression as part of storage optimization.
--	This should not be used as part of a format migration to a compressed format (use eventType migration).
+-	This should not be used as part of a format migration to a compressed format. See also eventType "migration".
 -	Within a PREMIS context, information about the lossiness of the compression should be in the eventDetailInformation or eventOutcomeInformation.
 
 
@@ -64,7 +64,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 **Guidelines for use:**
 -	The event should be linked to the IE when possible. For example if the files are created in the same way. 
--	Used to document the origin of the file or Intellectual Entity, describes the method and process of creating the file/IE. See also the "imaging" event.
+-	Used to document the origin of the file or Intellectual Entity, describes the method and process of creating the file/IE. See also eventType "imaging".
 
 
 **Examples:**
@@ -174,7 +174,7 @@ The technical documentation of submissions in API are to be found here: (lenke t
 
 
 **Guidelines for use:**
--	Used when changing fileformat, not to document compression as part of storage optimization (see eventType “compression”).
+-	Used when changing fileformat, not to document compression as part of storage optimization. See also eventType “compression”.
 -	Migration events should always create a new object. This term is narrower than the OAIS definition.
 
 
