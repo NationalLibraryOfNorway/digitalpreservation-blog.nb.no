@@ -1,10 +1,10 @@
 ---
 title: Eventer/bevaringsmetadata
 weight: 2
-draft: True
+draft: false
 ---
 
-> ⚠️ **Denne siden er under arbeid**
+> ⚠️ **Denne siden er under arbeid** ⚠️
 
 
 ## Eventer i Submission API

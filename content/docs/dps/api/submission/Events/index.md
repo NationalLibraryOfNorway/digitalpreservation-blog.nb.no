@@ -1,8 +1,11 @@
 ---
 title: Events/preservation metadata
 weight: 2
-draft: True
+draft: false
 ---
+
+> ⚠️ **This page is under construction** ⚠️
+
 
 In digital preservation, an “event” documents an action or occurrence that has affected a digital object, such as creation, migration, validation, or transfer. Events are considered important preservation metadata, as they provide traceability and evidence of what has been done to the object throughout its entire lifecycle.
 
