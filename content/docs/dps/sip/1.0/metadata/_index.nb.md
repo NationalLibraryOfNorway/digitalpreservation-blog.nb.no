@@ -25,6 +25,8 @@ Kort definisjon fra E-ARK CSIP:
 Bevaringsmetadata på en **pakkes rotnivå** beskriver opphavet til en **pakke**, hvor den kommer fra og hvordan den er fremstilt. 
 Typisk vil dette være beskrivelser av digitale prosesser, handlinger, hendelser og resultatene av disse. 
 
+Vi anbefaler at noen typer bevaringsmetadata avleveres som [eventer via Submission API](/content/docs/dps/api/submission/Events/index.nb.md). Bevaringsmetadata som avleveres i API blir dokumentert i egen database, på lik linje med hendelser som skjer på innsiden av bevaringsomgivelsene (DPS). Ved utlevering gir det enklere oversikt over hendelser knyttet til et objekt. Det står avleverer fritt å legge til andre typer/mer bevaringsmetadata i pakken (SIP). 
+
 
 | Plassering i SIP        | Eksempelfiler                  | METS-element | 
 | ------------------------ | ------------------------------ | -------------- | 
@@ -69,6 +71,8 @@ Kort definisjon fra E-ARK CSIP:
 Bevaringsmetadata beskriver opphavet til filene i en representasjon, hvor de kommer fra og hvordan de er fremstilt. 
 Typisk vil dette være beskrivelser av digitaliseringsprosesser, handlinger, hendelser og resultatene av disse. 
 Hvis metadata beskriver hvordan, når eller av hvilket system de digitale filene ble skapt eller registrert, er det typisk bevaringsmetadata.
+
+Vi anbefaler at noen typer bevaringsmetadata avleveres som [eventer via Submission API](/content/docs/dps/api/submission/Events/index.nb.md). Bevaringsmetadata som avleveres i API blir dokumentert i egen database, på lik linje med hendelser som skjer på innsiden av bevaringsomgivelsene (DPS). Ved utlevering gir det enklere oversikt over hendelser knyttet til et objekt. Det står avleverer fritt å legge til andre typer/mer bevaringsmetadata i pakken (SIP). 
 
 | Plassering i SIP        | Eksempelfiler                  | METS-element | 
 | ------------------------ | ------------------------------ | -------------- | 

@@ -26,6 +26,8 @@ Short definition from E-ARK CSIP:
 On the **package** level preservation and digital provenance metadata describes the origin of the **package**, where it come from and how it has come into being.
 Preservation metadata typically describes digital processes, actions and events, and the outcomes of these. 
 
+We recommend that certain types of preservation metadata are submitted as [events via the Submission API](/content/docs/dps/api/submission/_index.md). Preservation metadata submitted through the API are recorded in a dedicated database, just like events that occur within the preservation environment (DPS). When disseminated, this provides a clearer overview of all events associated with an object. Submitters are free to include additional types or more preservation metadata in the package (SIP).
+
 | File location in SIP        | Example files                  | METS-element | 
 | ------------------------ | ------------------------------ | -------------- | 
 | `/representations/*/metadata/preservation/` | <ul><li> ScanityTransfer.xml<br><li> MAVIS_film_carrier.xml (ved digitalisering)<br><li> MAVIS_sound_carrier_*.xml (ved digitalisering)<br><li> PREMIS events</ul> | `digiprovMD` |
@@ -65,6 +67,8 @@ Short definition from E-ARK CSIP:
 
 On the representation level preservation and digital provenance metadata describes the origin of the **files** in a representation, where they come from and how they have come into being.
 Preservation metadata typically describes digitization processes, actions and events, and the outcomes of these. 
+
+We recommend that certain types of preservation metadata are submitted as [events via the Submission API](/content/docs/dps/api/submission/_index.md). Preservation metadata submitted through the API are recorded in a dedicated database, just like events that occur within the preservation environment (DPS). When disseminated, this provides a clearer overview of all events associated with an object. Submitters are free to include additional types or more preservation metadata in the package (SIP).
 
 | File location in SIP        | Example files                  | METS-element | 
 | ------------------------ | ------------------------------ | -------------- | 
