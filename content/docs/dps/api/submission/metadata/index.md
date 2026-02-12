@@ -76,6 +76,8 @@ Allowed types for describing the resource per media type:
 | `Lydbok` 	| Audiobook: A narrated or audio-produced version of a literary work. 	|
 | `Musikk` 	| Music: An audio recording with primarily musical content.	|
 | `Radio` 	| Radio: Audio content produced for radio broadcast or distribution. 	|
+| `Dokumentasjonslyd` 	| Documentary audio: Authentic audio recordings made to preserve and document real events, phenomena, environments, or expressions.	|
+
 
 
 **Moving images:**

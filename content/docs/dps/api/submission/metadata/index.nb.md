@@ -75,6 +75,8 @@ Tillatte typer for å beskrive ressursen sortert på medietype:
 | `Lydbok` 	| Innlesning eller lydteknisk versjon av et litterært verk. 	|
 | `Musikk` 	| Lydopptak med primært musikalsk innhold. 	|
 | `Radio` 	| Lydinnhold produsert for radiosending eller -distribusjon. 	|
+| `Dokumentasjonslyd` 	| Autentiske lydopptak gjort for å bevare og dokumentere virkelige hendelser, fenomener, miljøer eller ytringer.	|
+
 
 
 **Levende bilder:**
