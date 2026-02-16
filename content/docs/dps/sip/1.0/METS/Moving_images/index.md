@@ -26,7 +26,7 @@ This is a list of requirements for the METS.xml file for moving image packages d
     TYPE="OTHER" 
     csip:OTHERTYPE="Moving images - digital" 
     csip:CONTENTINFORMATIONTYPE="OTHER" 
-    csip:OTHERCONTENTINFORMATIONTYPE="NB-METS-MOVINGIMAGES-PROFILE-1.0" 
+    csip:OTHERCONTENTINFORMATIONTYPE="NB-SIP-MOVINGIMAGES-PROFILE-1.0" 
     PROFILE="https://earksip.dilcis.eu/profile/E-ARK-SIP-v2-2-0.xml" 
     xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd https://DILCIS.eu/XML/METS/CSIPExtensionMETS https://earkcsip.dilcis.eu/schema/DILCISExtensionMETS.xsd">
 </mets:mets>
