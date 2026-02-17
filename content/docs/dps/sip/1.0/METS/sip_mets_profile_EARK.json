@@ -1,0 +1,289 @@
+{
+  "Profile": {
+    "name": "SIP_METS_PROFILE_EARK",
+    "version": "E_ARK-SIP-METS-PROFILE-2.1 (https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements)",
+    "description": "This profile defines the mandatory and optional elements that must be included in a METS document for a Submission Information Package (SIP) to The National Library of Norway."
+  },
+  "requirements": [
+    {
+      "id": "SIP1",
+      "metsSection": "root",
+      "Path": "mets/@LABEL",
+      "description": "Package name — an optional short text describing the contents of the package.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP2",
+      "metsSection": "root",
+      "Path": "mets/@PROFILE",
+      "description": "METS Profile — the value is set to the E-ARK SIP METS profile URI.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP3",
+      "metsSection": "metsHdr",
+      "Path": "mets/metsHdr/@RECORDSTATUS",
+      "description": "Package status — a way of indicating the status of the package to the OAIS.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP4",
+      "metsSection": "metsHdr",
+      "Path": "mets/metsHdr/@csip:OAISPACKAGETYPE",
+      "description": "OAIS Package type information — used with the value 'SIP'.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP5",
+      "metsSection": "metsHdr",
+      "Path": "mets/metsHdr/altRecordID",
+      "description": "Submission agreement — reference to the Submission Agreement associated with the package.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP6",
+      "metsSection": "metsHdr",
+      "Path": "mets/metsHdr/altRecordID",
+      "description": "Previous Submission agreement — optional reference to previous agreements.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP7",
+      "metsSection": "metsHdr",
+      "Path": "mets/metsHdr/altRecordID",
+      "description": "Archival reference code - An optional reference code indicating where in the archival hierarchy the package shall be placed in the OAIS. @TYPE is used with the value “REFERENCECODE”. Example: FM 12-2387/12726, 2007-09-19",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP8",
+      "metsSection": "metsHdr",
+      "Path": "mets/metsHdr/altRecordID",
+      "description": "Previous archival reference code - In cases where the SIP originates from other institutions maintaining a reference code structure, this element can be used to record these reference codes and therefore support the provenance of the package when a whole archival description is not submitted with the submission. @TYPE is used with the value “PREVIOUSREFERENCECODE”. Example: SE/FM/123/123.1/123.1.3",
+      "requirement": "MAY",
+      "cardinality": "0..*"
+    },
+    {
+      "id": "SIP9",
+      "metsSection": "metsHdr",
+      "Path": "mets/metsHdr/agent",
+      "description": "Archival creator agent - A wrapper element that enables to encode the name of the organisation or person that originally created the data being transferred. Please note that this might be different from the organisation which has been charged with preparing and sending the SIP to the archives.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP10",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/@ROLE",
+      "description": "Archival creator agent role - The role of the person(s) or institution(s) responsible for the document/collection.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP11",
+      "metsSection": "metsHdr",
+      "Path": "mets/metsHdr/agent/@TYPE",
+      "description": "Archival creator agent type - The type of the archival creator agent is “ORGANIZATION” or “INDIVIDUAL”.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP12",
+      "metsSection": "metsHdr",
+      "Path": "mets/metsHdr/agent/@OTHERTYPE",
+      "description": "Archival creator agent name - The name of the organisation(s) that originally created the data being transferred. Please note that this might be different from the organisation which has been charged with preparing and sending the SIP to the archives.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP13",
+      "metsSection": "metsHdr",
+      "Path": "mets/metsHdr/agent/note",
+      "description": "Archival creator agent additional information - The archival creator agent has a note providing a unique identification code for the archival creator.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP14",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/note/@csip:NOTETYPE",
+      "description": "Classification of the archival creator agent additional information - The archival creator agent note is typed with the value of “IDENTIFICATIONCODE”.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP15",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/note/@csip:NOTEVALUE",
+      "description": "Value of the archival creator agent additional information - The value of the archival creator agent note is a unique identification code for the archival creator.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP16",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/@ROLE",
+      "description": "Submitting agent role — The role of the person(s) or institution(s) responsible for creating and/or submitting the package. Must be present in the submitting agent element.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP17",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/@TYPE",
+      "description": "Submitting agent type — The type of the submitting agent must be either “ORGANIZATION” or “INDIVIDUAL”.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP18",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/name",
+      "description": "Submitting agent name — The name of the organisation or individual submitting the package to the archive.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP19",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/note",
+      "description": "Submitting agent additional information — The submitting agent may include a note providing additional information such as a unique identification code.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP20",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/note/@csip:NOTETYPE",
+      "description": "Classification of submitting agent additional information — The submitting agent’s note must use the @csip:NOTETYPE attribute set to “IDENTIFICATIONCODE”.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP21",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent",
+      "description": "Contact person agent — A wrapper element to encode the name of a contact person for the submission.",
+      "requirement": "MAY",
+      "cardinality": "0..*"
+    },
+    {
+      "id": "SIP22",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/@ROLE",
+      "description": "Contact person agent role — The role of the contact person must be set to “CREATOR”.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP23",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/@TYPE",
+      "description": "Contact person agent type — The type of contact person agent must be “INDIVIDUAL”.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP24",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/name",
+      "description": "Contact person agent name — Name of the contact person should be present for the contact person agent.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP25",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/note",
+      "description": "Contact person agent additional information — The contact person agent may have one or more note elements providing contact information.",
+      "requirement": "MAY",
+      "cardinality": "0..*"
+    },
+    {
+      "id": "SIP26",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent",
+      "description": "Preservation agent — A wrapper element to encode the name of the organisation or person responsible for preservation activities.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP27",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/@ROLE",
+      "description": "Preservation agent role — The role of the preservation agent must be ‘PRESERVATION’.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP28",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/@TYPE",
+      "description": "Preservation agent type — The preservation agent element must specify the agent’s type.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP29",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/name",
+      "description": "Preservation agent name — The name of the preservation agent must be present.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP30",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent",
+      "description": "Custodian agent — A wrapper element to encode the name of the custodian (oversight) organisation or person.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP31",
+      "metsSection": "metsHdr",
+      "Path": "metsHdr/agent/@ROLE",
+      "description": "Custodian agent role — The role of the custodian agent must be ‘CUSTODIAN’.",
+      "requirement": "MUST",
+      "cardinality": "1..1"
+    },
+    {
+      "id": "SIP32",
+      "metsSection": "fileSec",
+      "Path": "fileSec/fileGrp/file/@sip:FILEFORMATNAME",
+      "description": "File format name — An optional attribute used if the MIMETYPE is not sufficient for processing the information package (e.g., file format name).",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP33",
+      "metsSection": "fileSec",
+      "Path": "fileSec/fileGrp/file/@sip:FILEFORMATVERSION",
+      "description": "File format version — The version of the file format when PREMIS is not used for file format information.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP34",
+      "metsSection": "fileSec",
+      "Path": "fileSec/fileGrp/file/@sip:FILEFORMATREGISTRY",
+      "description": "File format registry — Name of the registry used to identify the file format when PREMIS is not used.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    },
+    {
+      "id": "SIP35",
+      "metsSection": "fileSec",
+      "Path": "fileSec/fileGrp/file/@sip:FILEFORMATKEY",
+      "description": "File format registry key — The registry key of the file format when PREMIS is not used.",
+      "requirement": "MAY",
+      "cardinality": "0..1"
+    }
+  ]
+}
