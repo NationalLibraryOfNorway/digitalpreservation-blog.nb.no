@@ -2,7 +2,7 @@
 {
   "profile": {
     "name": "NB-SIP-STRUCTURE-1.0",
-    "description": "Structural requirements for SIP deliveries to the National Library of Norway."
+    "description": "Structural requirements for submissions of SIPs to the National Library of Norway."
   },
   "requirements": [
     {

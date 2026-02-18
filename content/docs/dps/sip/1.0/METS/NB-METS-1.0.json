@@ -1,0 +1,224 @@
+{
+  "profile": {
+    "name": "NB-METS-1.0",
+    "description": "METS.xml requirements for submissions of digital content to the National Library of Norway"
+  },
+  "requirements": [
+    {
+      "id": "NBSIP1",
+      "name": "Package Identifier",
+      "description_english": "The mets/@OBJID attribute is mandatory, its value is a string identifier for the METS document. In the METS file located in the root folder of the package, this identifier MUST be identical to the name of the package's root folder (see NBSIPSTR2 for formatting, (https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR2). In the METS files within the individual representation folders, this identifier MUST be identical to the name of the respective representation folder (see NBSIPSTR11, https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR11 and NBSIPSTR12, https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR12 for formatting). This requirement is a stricter version of CSIP1 (https://earkcsip.dilcis.eu/#CSIP1).",
+      "description_norwegian": "Attributten mets/@OBJID er obligatorisk, verdien er en strengidentifikator for METS-fila. I METS-fila i pakkas rotmappe MÅ denne identifikatoren være det samme som navnet på pakkas rotmappe (se NBSIPSTR2 for formatering, https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR2). I METS-fil på de individuelle representasjonene MÅ denne identifikatoren være det samme som navnet på den relevante representasjonsmappa (se NBSIPSTR11, https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR11 og NBSIPSTR12, https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR12 for formatering). Dette er en strengere, SIP-spesifikk variant av CSIP1 (https://earkcsip.dilcis.eu/#CSIP1).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/@OBJID"
+    },
+    {
+      "id": "NBSIP2",
+      "name": "Package name",
+      "description_english": "A short text that provides the title or a description of the content of the information package. The value of the mets/@LABEL SHOULD match the 'title' field in the API call (see Metadata Requirements, https://digitalpreservation.no/docs/dps/api/submission/metadata/). This requirement is a stricter version of SIP1 (https://earksip.dilcis.eu/#SIP1).",
+      "description_norwegian": "En kort tekst som oppgir tittelen eller beskrivelsen av innholdet i informasjonspakka. mets/@LABEL BØR være det samme som “title” i API-kall (se krav til metadata, https://digitalpreservation.no/nb/docs/dps/api/submission/metadata/). Dette er en strengere variant av SIP1 (https://earksip.dilcis.eu/#SIP1).",
+      "requirement": "SHOULD",
+      "cardinality": "1..1",
+      "path": "mets/@LABEL"
+    },
+    {
+      "id": "NBSIP3",
+      "name": "Descriptive metadata",
+      "description_english": "MUST be used to refer to available descriptive metadata about the information package. Each descriptive metadata section (<dmdSec>) contains a single description and must be repeated if multiple descriptions exist. See also NBSIPSTR9 (https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=M%C3%85-,NBSIPSTR9) which requires at least one file containing descriptive metadata. This requirement is a stricter version of CSIP17.",
+      "description_norwegian": "MÅ brukes for å peke til tilgjengelige deskriptive metadata om informasjonspakka. Hver deskriptive metadataseksjon (<dmdSec>) inneholder en enkelt beskrivelse og må gjentas hvis det finnes flere beskrivelser. Se også NBSIPSTR9 (https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=M%C3%85-,NBSIPSTR9) der det kreves minimum én fil med deskriptive metadata. Dette er en strengere, SIP-spesifikk variant av CSIP17.",
+      "requirement": "MUST",
+      "cardinality": "1..n",
+      "path": "mets/dmdSec"
+    },
+    {
+      "id": "NBSIP4",
+      "name": "Mandatory descriptive metadata",
+      "description_english": "The element describing the descriptive metadata section MUST refer to the metadata file(s) specified in NBSIPSTR9 (https://digitalpreservation.no/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR9). It MUST be described using mets/dmdSec/mdRef/@MDTYPE. Valid values include: MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. If OTHER is selected, the type of metadata SHOULD be specified using mets/dmdSec/mdRef/@MDOTHERTYPE. Administrative or preservation metadata may be included in accordance with CSIP31-57 (https://earkcsip.dilcis.eu/#useofthemetsadministrativemetadatasectionelementamdsec). Note that certain types of metadata in the form of PREMIS-events are recommended to be submitted through the Submission API. You can read more about this here: https://digitalpreservation.no/docs/dps/api/submission/events/ ",
+      "description_norwegian": "Elementet som beskriver seksjonen for deskriptive metadata MÅ referere til metadatafilen(e) spesifisert i NBSIPSTR9 (https://digitalpreservation.no/nb/docs/dps/sip/1.0/structure-requirements/#:~:text=NBSIPSTR9). Den MÅ beskrives med mets/dmdSec/mdRef/@MDTYPE. Gyldige verdier: MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. Hvis man velger OTHER BØR man beskrive hva slags metadatatype det er med mets/dmdSec/mdRef/@MDOTHERTYPE. Administrative metadata eller bevaringsmetadata kan legges ved i henhold til CSIP31-57 (https://earkcsip.dilcis.eu/#useofthemetsadministrativemetadatasectionelementamdsec). Merk at noen typer metadata i form av PREMIS-eventer anbefales avlevert via submission API. Se mer om det her: https://digitalpreservation.no/nb/docs/dps/api/submission/events/",
+      "requirement": "MUST",
+      "cardinality": "1..n",
+      "path": "mets/dmdSec"
+    },
+    {
+      "id": "NBSIP5",
+      "name": "Reference to files with descriptive metadata",
+      "description_english": "MUST be used to refer to files containing descriptive metadata located in the metadata/descriptive folder. Direct embedding of metadata using mets/dmdSec/mdWrap is discouraged. This requirement is a stricter version of CSIP21 (https://earkcsip.dilcis.eu/#CSIP21).",
+      "description_norwegian": "MÅ brukes for å peke til filer med deskriptive metadata som befinner seg i mappa metadata/descriptive. Direkte embedding av metadata ved hjelp av mets/dmdSec/mdWrap frarådes. Dette er en strengere, SIP-spesifikk variant av CSIP21 (https://earkcsip.dilcis.eu/#CSIP21).",
+      "requirement": "MUST",
+      "cardinality": "1..n",
+      "path": "mets/dmdSec/mdRef"
+    },
+    {
+      "id": "NBSIP6",
+      "name": "File checksum type",
+      "description_english": "A value from the METS standard which identifies the algorithm used to calculate the checksum for the referenced file. Checksum type MUST be MD5. This requirement is a stricter version of CSIP29 (https://earkcsip.dilcis.eu/#CSIP29) and CSIP30 (https://earkcsip.dilcis.eu/#CSIP30).",
+      "description_norwegian": "En verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype MÅ være MD5. Dette er en strengere variant av CSIP29 (https://earkcsip.dilcis.eu/#CSIP29) og CSIP30 (https://earkcsip.dilcis.eu/#CSIP30).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/dmdSec/mdRef/@CHECKSUMTYPE"
+    },
+    {
+      "id": "NBSIP7",
+      "name": "Source metadata",
+      "description_english": "If metadata about the source material for a representation is available in the information package, this element MUST be used to describe it.",
+      "description_norwegian": "Hvis metadata om kildematerialet for en representasjon er tilgjengelig i informasjonspakka, MÅ dette elementet brukes til å beskrive dette.",
+      "requirement": "MUST",
+      "cardinality": "1..n",
+      "path": "mets/amdSec/sourceMD"
+    },
+    {
+      "id": "NBSIP8",
+      "name": "Source metadata identifier",
+      "description_english": "An xml:id identifier for the source metadata section mets/amdSec/sourceMD used for internal references within the XML document. The identifier MUST be unique within the XML document.",
+      "description_norwegian": "En xml:id identifikator for seksjonen for kildematerialemetadata mets/amdSec/sourceMD som brukes for interne referanser innenfor XML-dokumentet. Identifikatoren MÅ være unik innenfor XML-dokumentet.",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/sourceMD/@ID"
+    },
+    {
+      "id": "NBSIP9",
+      "name": "Status of the source metadata",
+      "description_english": "Status MUST be set to CURRENT.",
+      "description_norwegian": "Status MÅ settes til CURRENT.",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/sourceMD/@STATUS"
+    },
+    {
+      "id": "NBSIP10",
+      "name": "Reference to files with the source metadata",
+      "description_english": "MUST be used to reference files containing source metadata located in the metadata/source folder. Direct embedding of metadata using mets/amdSec/mdWrap is discouraged.",
+      "description_norwegian": "MÅ brukes for å peke til filer med kildematerialemetadata som befinner seg i mappa metadata/source. Direkte embedding av metadata ved hjelp av mets/amdSec/mdWrap frarådes.",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/sourceMD/mdRef"
+    },
+    {
+      "id": "NBSIP11",
+      "name": "Type of locator",
+      "description_english": "The locator type is always used with the value URL from Vocabulary status in the E-ARK specifications (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyStatus.xml).",
+      "description_norwegian": "Locatortypen er alltid brukt med verdien URL fra statusvokabularet i E-ARK-spesifikasjonene (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyStatus.xml).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/sourceMD/mdRef[@LOCTYPE='URL']"
+    },
+    {
+      "id": "NBSIP12",
+      "name": "Type of link",
+      "description_english": "The attribute MUST be used with the value simple. The vocabulary of allowed values is maintained by the XLink standard.",
+      "description_norwegian": "Attributten MÅ brukes med verdien simple. Vokabularet med mulige verdier er vedlikeholdt av XLink-standarden.",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/sourceMD/mdRef[@xlink:type='simple']"
+    },
+    {
+      "id": "NBSIP13",
+      "name": "File location",
+      "description_english": "The actual location of the file. It MUST be referenced using a URL of the filepath type.",
+      "description_norwegian": "Den faktiske plasseringen til fila. Den MÅ refereres til med URL av typen filepath.",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/sourceMD/mdRef/@xlink:href"
+    },
+    {
+      "id": "NBSIP14",
+      "name": "Type of metadata",
+      "description_english": "Specifies the type of metadata in the referenced file. Values are taken from METS. Valid values include: MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. If OTHER is chosen, the type SHOULD be described using mets/amdSec/sourceMD/mdRef/@MDOTHERTYPE. Note that certain types of metadata in the form of PREMIS-events are recommended to be submitted through the Submission API. You can read more about this here: https://digitalpreservation.no/docs/dps/api/submission/events/",
+      "description_norwegian": "Spesifiserer typen metadata i den refererte fila. Verdiene er hentet fra METS. Gyldige verdier: MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. Hvis man velger OTHER BØR man beskrive hva slags metadatatype det er med mets/amdSec/sourceMD/mdRef/@MDOTHERTYPE. Merk at noen typer metadata i form av PREMIS-eventer anbefales avlevert via submission API, se mer om det her: https://digitalpreservation.no/nb/docs/dps/api/submission/events/",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/sourceMD/mdRef/@MDTYPE"
+    },
+    {
+      "id": "NBSIP15",
+      "name": "Technical metadata",
+      "description_english": "If technical metadata for the data files in a representation is available in the information package, this element MUST be used to describe it. Direct embedding using mets/amdSec/mdWrap is discouraged.",
+      "description_norwegian": "Hvis tekniske metadata for datafilene i en representasjon er tilgjengelig i informasjonspakka, MÅ dette elementet brukes til å beskrive dette. Direkte embedding av metadata ved hjelp av mets/amdSec/mdWrap frarådes.",
+      "requirement": "MUST",
+      "cardinality": "1..n",
+      "path": "mets/amdSec/techMD"
+    },
+    {
+      "id": "NBSIP16",
+      "name": "Technical metadata identifier",
+      "description_english": "An xml:id identifier for the technical metadata section mets/amdSec/techMD used for internal references within the XML document. The identifier MUST be unique within the XML document.",
+      "description_norwegian": "En xml:id identifikator for seksjonen for tekniske metadata mets/amdSec/techMD som brukes for interne referanser innenfor XML-dokumentet. Identifikatoren MÅ være unik innenfor XML-dokumentet.",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/techMD/@ID"
+    },
+    {
+      "id": "NBSIP17",
+      "name": "Status of the technical metadata",
+      "description_english": "Status MUST be set to CURRENT.",
+      "description_norwegian": "Status MÅ settes til CURRENT.",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/techMD/@STATUS"
+    },
+    {
+      "id": "NBSIP18",
+      "name": "Reference to files with the technical metadata",
+      "description_english": "MUST be used to reference files containing technical metadata located in the metadata/technical folder.",
+      "description_norwegian": "MÅ brukes for å peke til filer med tekniske metadata som befinner seg i mappa metadata/technical.",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/techMD/mdRef"
+    },
+    {
+      "id": "NBSIP19",
+      "name": "Type of locator",
+      "description_english": "The locator type is always used with the value URL from Vocabulary status in the E-ARK specifications (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyStatus.xml).",
+      "description_norwegian": "Locatortypen er alltid brukt med verdien URL fra statusvokabularet i E-ARK-spesifikasjonene (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyStatus.xml).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/techMD/mdRef[@LOCTYPE='URL']"
+    },
+    {
+      "id": "NBSIP20",
+      "name": "Type of link",
+      "description_english": "The attribute MUST be used with the value simple. The vocabulary of allowed values is maintained by the XLink standard.",
+      "description_norwegian": "Attributten MÅ brukes med verdien simple. Vokabularet med mulige verdier er vedlikeholdt av XLink-standarden.",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/techMD/mdRef[@xlink:type='simple']"
+    },
+    {
+      "id": "NBSIP21",
+      "name": "File location",
+      "description_english": "The actual location of the file. It MUST be referenced using a URL of the filepath type.",
+      "description_norwegian": "Den faktiske plasseringen til fila. Den MÅ refereres til med URL av typen filepath.",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/techMD/mdRef/@xlink:href"
+    },
+    {
+      "id": "NBSIP22",
+      "name": "Type of metadata",
+      "description_english": "Specifies the type of metadata in the referenced file. Values are taken from METS. Valid values include: MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. If OTHER is chosen, the type SHOULD be described using mets/amdSec/techMD/mdRef/@MDOTHERTYPE. Note that certain types of metadata in the form of PREMIS-events are recommended to be submitted through the Submission API. You can read more about this here: https://digitalpreservation.no/docs/dps/api/submission/events/",
+      "description_norwegian": "Spesifiserer typen metadata i den refererte fila. Verdiene er hentet fra METS. Gyldige verdier: MARC, MODS, EAD, DC, NISOIMG, LC-AV, VRA, TEIHDR, DDI, FGDC, LOM, PREMIS, PREMIS:OBJECT, PREMIS:AGENT, PREMIS:RIGHTS, PREMIS:EVENT, TEXTMD, METSRIGHTS, ISO 19115:2003 NAP, EAC-CPF, LIDO, OTHER. Hvis man velger OTHER BØR man beskrive hva slags metadatatype det er med mets/amdSec/techMD/mdRef/@MDOTHERTYPE. Merk at noen typer metadata i form av PREMIS-eventer anbefales avlevert via submission API, se mer om det her: https://digitalpreservation.no/nb/docs/dps/api/submission/events/.",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/techMD/mdRef/@MDTYPE"
+    },
+    {
+      "id": "NBSIP23",
+      "name": "File checksum type",
+      "description_english": "A value from the METS standard which identifies the algorithm used to calculate the checksum for the referenced file. Checksum type MUST be MD5. This requirement is a stricter version of CSIP43 (https://earkcsip.dilcis.eu/#CSIP43), CSIP44 (https://earkcsip.dilcis.eu/#CSIP44), CSIP56 (https://earkcsip.dilcis.eu/#CSIP56) and CSIP57 (https://earkcsip.dilcis.eu/#CSIP57).",
+      "description_norwegian": "Verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype MÅ være MD5. Dette er en strengere variant av CSIP43 (https://earkcsip.dilcis.eu/#CSIP43), CSIP44 (https://earkcsip.dilcis.eu/#CSIP44), CSIP56 (https://earkcsip.dilcis.eu/#CSIP56) og CSIP57 (https://earkcsip.dilcis.eu/#CSIP57).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/amdSec/digiprovMD/mdRef/@CHECKSUMTYPE | mets/amdSec/rightsMD/mdRef/@CHECKSUMTYPE | mets/amdSec/sourceMD/mdRef/@CHECKSUMTYPE | mets/amdSec/techMD/mdRef/@CHECKSUMTYPE"
+    },
+    {
+      "id": "NBSIP24",
+      "name": "Checksum type",
+      "description_english": "A value from the METS standard which identifies the algorithm used to calculate the checksum for the referenced file. Checksum type MUST be MD5. This requirement is a stricter version of CSIP71 (https://earkcsip.dilcis.eu/#CSIP71) and CSIP72 (https://earkcsip.dilcis.eu/#CSIP72).",
+      "description_norwegian": "Verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype MÅ være MD5. Dette er en strengere variant av CSIP71 (https://earkcsip.dilcis.eu/#CSIP71) og CSIP72 (https://earkcsip.dilcis.eu/#CSIP72).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/fileSec/fileGrp/file/@CHECKSUMTYPE"
+    }
+  ]
+}
