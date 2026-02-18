@@ -1,0 +1,44 @@
+{
+  "profile": {
+    "name": "NB-METS-MOVINGIMAGES-1.0",
+    "description": "Requirements for METS.xml for submission of ContentType MOVING IMAGES to the National Library of Norway."
+  },
+  "requirements": [
+    {
+      "id": "NBMOVINGIMAGESIP1",
+      "name": "Content Category",
+      "description_english": "The attribute mets/@TYPE MUST be used to specify the category of the content within the package, e.g., 'Datasets', 'Websites', 'Mixes', 'Other', etc. Valid values are defined in a controlled vocabulary. When the content category falls outside the defined vocabulary, the mets/@TYPE value MUST be set to Other, and the specific value must be specified in mets/@csip:OTHERTYPE. The vocabulary will be updated by the DILCIS Board as additional content information specifications are added. For moving images, use: Other: A term different from those included in the controlled vocabulary. See the vocabulary (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyContentCategory.xml). This is a specification of CSIP2 (https://earkcsip.dilcis.eu/#CSIP2).",
+      "description_norwegian": "Attributtet mets/@TYPE MÅ brukes til å angi kategorien til innholdet i pakken, f.eks. 'Datasets', 'Websites', 'Mixes', 'Other', etc. Gyldige verdier er definert i et fastsatt vokabular. Når innholdskategorien faller utenfor det definerte vokabaret, MÅ mets/@TYPE verdien settes til Other og den spesifikke verdien angis i mets/@csip:OTHERTYPE. Vokabularet vil oppdateres av DILCIS-styret etter hvert som tilleggsspesifikasjoner for innholdsinformasjon legges til. For levende bilder brukes: Other: En annen term enn det som finnes i det brukte vokabularet. Se vokabular (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyContentCategory.xml). Dette er en spesifisering av CSIP2 (https://earkcsip.dilcis.eu/#CSIP2).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/@TYPE"
+    },
+    {
+      "id": "NBMOVINGIMAGESIP2",
+      "name": "Other Content Category",
+      "description_english": "When mets/@TYPE uses the value Other, mets/@csip:OTHERTYPE MUST be used to specify the content category of the package/representation. For moving images, use: Moving images - on tangible media: Used for moving images that have been digitized from an analog source. Moving images - digital: Used for moving images that are born-digital or originate from digital sources. This is a specification of CSIP3 (https://earkcsip.dilcis.eu/#CSIP3).",
+      "description_norwegian": "Når mets/@TYPE har verdien Other MÅ mets/@csip:OTHERTYPE brukes for å oppgi innholdskategori for pakken/representasjonen. For levende bilder brukes: Moving images - on tangible media: Brukes for levende bilder som er digitalisert fra en analog kilde. Moving images - digital: Brukes for levende bilder som er født digitalt eller kommer fra digitale kilder. Dette er en spesifisering av CSIP3 (https://earkcsip.dilcis.eu/#CSIP3).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets[@csip:TYPE='OTHER']/@csip:OTHERTYPE"
+    },
+    {
+      "id": "NBMOVINGIMAGESIP3",
+      "name": "Content Information Type Specification",
+      "description_english": "Used to define the specifications for the type of content information that were applied when the package was created. Valid values are defined in a controlled vocabulary. The attribute is mandatory for METS documents at the representation level. For moving images, the value OTHER is used (indicating a value not currently covered by the vocabulary). See vocabulary (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyContentInformationType.xml)This is a specification of CSIP4 (https://earkcsip.dilcis.eu/#CSIP4).",
+      "description_norwegian": "Brukes til å definere spesifikasjoner for type innholdsinformasjon som ble brukt når pakken ble opprettet. Gyldige verdier er definert i et fastsatt vokabular. Attributten er obligatorisk for METS-dokumenter på representasjonsnivå. For levende bilder brukes OTHER (en annen term enn det som finnes i det brukte vokabularet). Se vokabular (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyContentInformationType.xml). Dette er en spesifisering av CSIP4 (https://earkcsip.dilcis.eu/#CSIP4).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets[@csip:CONTENTINFORMATIONTYPE]"
+    },
+    {
+      "id": "NBMOVINGIMAGESIP4",
+      "name": "Other Content Information Type Specification",
+      "description_english": "When mets/@csip:CONTENTINFORMATIONTYPE uses the value OTHER, mets/@csip:OTHERCONTENTINFORMATIONTYPE MUST be used to specify the type of content information. OTHERCONTENTINFORMATIONTYPE for moving images MUST be set to NB-SIP-MOVINGIMAGES-PROFILE-1.0. This is a specification of CSIP5 (https://earkcsip.dilcis.eu/#CSIP5).",
+      "description_norwegian": "Når mets/@csip:CONTENTINFORMATIONTYPE har verdien OTHER, MÅ mets/@csip:OTHERCONTENTINFORMATIONTYPE oppgi type innholdsinformasjon. OTHERCONTENTINFORMATIONTYPE for levende bilder MÅ være NB-SIP-MOVINGIMAGES-PROFILE-1.0. Dette er en spesifisering av CSIP5 (https://earkcsip.dilcis.eu/#CSIP5).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets[@csip:CONTENTINFORMATIONTYPE='OTHER']/@csip:OTHERCONTENTINFORMATIONTYPE"
+    }
+  ]
+}
