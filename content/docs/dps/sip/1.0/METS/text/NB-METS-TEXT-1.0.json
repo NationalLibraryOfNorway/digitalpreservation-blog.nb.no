@@ -1,0 +1,35 @@
+{
+  "profile": {
+    "name": "NB-METS-TEXT-1.0",
+    "description": "Requirements for METS.xml for submission of ContentType TEXT to the National Library of Norway"
+  },
+  "requirements": [
+    {
+      "id": "NBTEXTSIP1",
+      "name": "Content Category",
+      "description_english": "The attribute mets/@TYPE MUST be used to specify the category of the content within the package, e.g., 'Datasets', 'Websites', 'Mixes', 'Other', etc. Valid values are defined in a controlled vocabulary. The vocabulary will be updated by the DILCIS Board as additional content information specifications are introduced. For text, the following values are used: Textual works - Print: Used for the digitized version of books, journals, newspapers, sheet music, etc. Textual works - Digital: Used for digital documents such as e-books. See the vocabulary E-ARK-CSIP-Content Category (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyContentCategory.xml). This is a specification of CSIP2 (https://earkcsip.dilcis.eu/#CSIP2).",
+      "description_norwegian": "Attributtet mets/@TYPE MÅ brukes til å angi kategorien til innholdet i pakken, f.eks. 'Datasets', 'Websites', 'Mixes', 'Other', etc. Gyldige verdier er definert i et fastsatt vokabular. Vokabularet vil oppdateres av DILCIS-styret etter hvert som tilleggsspesifikasjoner for innholdsinformasjon legges til. For tekst brukes disse: Textual works - Print: Brukes for digitalisert versjon av bøker, tidsskrift, aviser, notetrykk etc. Textual works - Digital: Brukes for digitale dokumenter som e-bøker. Se vokabular E-ARK-CSIP-Content Category (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyContentCategory.xml). Dette er en spesifisering av CSIP2 (https://earkcsip.dilcis.eu/#CSIP2).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/@TYPE"
+    },
+    {
+      "id": "NBTEXTSIP2",
+      "name": "Content Information Type Specification",
+      "description_english": "Used to define the specifications for the type of content information applied when the package was created. Valid values are defined in a controlled vocabulary. The attribute is mandatory for METS documents at the representation level. The vocabulary will be updated by the DILCIS Board as additional content information specifications are introduced. For text, the value OTHER is used (a term different from those included in the controlled vocabulary). See the vocabulary E-ARK-CSIP-Content Information Type (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyContentInformationType.xml). This is a specification of CSIP4 (https://earkcsip.dilcis.eu/#CSIP4).",
+      "description_norwegian": "Brukes til å definere spesifikasjoner for type innholdsinformasjon som ble brukt når pakken ble opprettet. Gyldige verdier er definert i et fastsatt vokabular. Attributten er obligatorisk for METS-dokumenter på representasjonsnivå. Vokabularet vil oppdateres av DILCIS-styret etter hvert som tilleggsspesifikasjoner for innholdsinformasjon legges til. For tekst brukes OTHER (en annen term enn det som finnes i det brukte vokabularet). Se vokabular (https://github.com/DILCISBoard/E-ARK-CSIP/blob/master/schema/CSIPVocabularyContentInformationType.xml). Dette er en spesifisering av CSIP4 (https://earkcsip.dilcis.eu/#CSIP4).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets/@csip:CONTENTINFORMATIONTYPE"
+    },
+    {
+      "id": "NBTEXTSIP3",
+      "name": "Other Content Information Type Specification",
+      "description_english": "When mets/@csip:CONTENTINFORMATIONTYPE has the value OTHER, the attribute mets/@csip:OTHERCONTENTINFORMATIONTYPE MUST specify the type of content information. OTHERCONTENTINFORMATIONTYPE for text MUST be NB-SIP-TEXT-PROFILE-1.0. This is a specification of CSIP5 (https://earkcsip.dilcis.eu/#CSIP5).",
+      "description_norwegian": "Når mets/@csip:CONTENTINFORMATIONTYPE har verdien OTHER, MÅ mets/@csip:OTHERCONTENTINFORMATIONTYPE oppgi type innholdsinformasjon. OTHERCONTENTINFORMATIONTYPE for tekst MÅ være NB-SIP-TEXT-PROFILE-1.0. Dette er en spesifisering av CSIP5 (https://earkcsip.dilcis.eu/#CSIP5).",
+      "requirement": "MUST",
+      "cardinality": "1..1",
+      "path": "mets[@csip:CONTENTINFORMATIONTYPE='OTHER']/@csip:OTHERCONTENTINFORMATIONTYPE"
+    }
+  ]
+}
