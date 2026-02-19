@@ -1,9 +1,9 @@
 ---
 title: Nettarkiv
-draft: true
+draft: false
 weight: 2
 ---
-*Dette er et utkast! Vi må diskutere om denne profilen også skal referere til andre typer materiale som software, databaser osv. eller skal det være noe eget? Hva med e-post? HVis profilen skal omfatte feks databaser, finnes det flere alternativer i vokabularene*
+
 
 #### Krav til METS.xml utover generelle SIP-krav
 Dette er en liste over krav til METS.xml for nettarkivpakker som leveres til Nasjonalbiblioteket. Dette er krav utover det som er definert i [Krav til METS.xml](nb/docs/dps/sip/1.0/mets/). <br><br>

@@ -1,9 +1,9 @@
 ---
 title: Web archive
-draft: true
+draft: False
 weight: 2
 ---
-*Dette er et utkast! Vi må diskutere om denne profilen også skal referere til andre typer materiale som software, databaser osv. eller skal det være noe eget? Hva med e-post? HVis profilen skal omfatte feks databaser, finnes det flere alternativer i vokabularene*
+
 
 
 #### Requirements for METS.xml beyond the general SIP requirements
