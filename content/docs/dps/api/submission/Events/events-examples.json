@@ -1,0 +1,178 @@
+{
+  "events": [
+    {
+        "agent": {
+            "agentName": "Heritrix Web Crawler",
+            "agentType": "software",
+            "agentVersion": "3.5.0",
+            "agentNotes": "Brukt til nettarkivering for å høste inn nettsteder og bevare all HTML-innhold, bilder, skript og lenkede ressurser."
+        },
+        "event": {
+            "eventDateTime": "2026-02-03T07:14:01.716+01:00",
+            "eventType": "capture",
+            "eventDetail": "Høstet nettstedet «https://example.no», inkludert alle sider, bilder, PDF-er og lenkede ressurser, i henhold til den planlagte nettarkiveringsinnsamlingen utført av Nasjonalbiblioteket",
+            "outcome": "success",
+            "outcomeDetail": "Totalt antall sider høstet: 234; total datastørrelse: 1,2 GB; alle URL-er ble arkivert i WARC-format."
+        }
+    },
+    {
+        "agent": {
+            "agentName": "Apache NiFi",
+            "agentType": "software",
+            "agentVersion": "2.4.0",
+            "agentNotes": "Apache NiFi er et verktøy for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+        },
+        "event": {
+            "eventDateTime": "2026-02-03T10:47:29.332+01:00",
+            "eventType": "filename change",
+            "eventDetail": "The filename was changed to conform to current file naming convention.",
+            "fileRef": {
+                "fileId": "a1b2c3d4e5f67890123456789abcdef0",
+                "relativePath": "representations/rep-text_20230219/data/document_001.pdf"
+            },
+            "outcome": "success",
+            "outcomeDetail": "Filename changed from NN_TR_2011_01_31_18_40.mp4 to NRK_TR_2011_01_31_18_40.mp4."
+        }
+    },
+    {
+        "agent": {
+            "agentName": "md5sum (GNU coreutils)",
+            "agentType": "software",
+            "agentVersion": "8.32",
+            "agentNotes": "Beregner MD5-sjekksummer og verifiserer dem mot lagret sjekksumm-manifest."
+        },
+        "event": {
+            "eventDateTime": "2026-02-03T12:05:48.210+01:00",
+            "eventType": "fixity check",
+            "eventDetail": "MD5-sjekksummer ble beregnet for alle filer i pakken og kontrollert mot lagrede verdier i manifestfilen",
+            "outcome": "success"
+        }
+    },
+    {
+        "agent": {
+            "agentName": "Guymager",
+            "agentType": "software",
+            "agentVersion": "0.8.1",
+            "agentNotes": "Guymager is an open-source disk imaging tool for forensic and preservation purposes, used to create exact disk images including metadata, filesystem structure, and slack space."
+        },
+        "event": {
+            "eventDateTime": "2026-02-19T10:22:15.345+01:00",
+            "eventType": "imaging",
+            "eventDetail": "Created a bit-level disk image of storage medium 'ArchiveDisk01'. Included all files, filesystem metadata, slack space, and unallocated sectors.",
+            "fileRef": {
+                "fileId": "f1e2d3c4b5a67890123456789abcdef0",
+                "relativePath": "representations/rep-disk_images_20260219/data/ArchiveDisk01.img"
+            },
+            "outcome": "success",
+            "outcomeDetail": "Disk image created in E01 format."
+        }
+    },
+    {
+        "agent":{
+            "agentName": "md5sum (GNU coreutils)",
+            "agentType": "software",
+            "agentVersion": "8.32",
+            "agentNotes": "GNU coreutils md5sum; commonly used in Linux environments to calculate MD5 checksums for file integrity verification."
+        },
+        "event":{
+            "eventDateTime": "2026-02-03T13:36:42.455+01:00",
+            "eventType": "message digest calculation",
+            "eventDetail": "Calculated MD5 checksum for E-ARK SIP package nb_sip_0001 using md5sum to verify integrity during transfer and archival.",
+            "outcome": "success"
+        }
+    },
+    {
+        "agent":{
+            "agentName": "ExifTool",
+            "agentType": "software",
+            "agentVersion": "12.60",
+            "agentNotes": "ExifTool 12.60 by Phil Harvey, used for extracting metadata from image and video files."
+        },
+        "event":{
+            "eventDateTime": "2026-02-19T11:45:32.123+01:00",
+            "eventType": "metadata extraction",
+            "eventDetail": "Extracted technical and descriptive metadata from image file DSC_0456.JPG using ExifTool.",
+            "fileRef": {
+                "fileId": "b1c2d3e4f567890123456789abcdef01",
+                "relativePath": "representations/rep-images_20230908/data/DSC_0456.JPG"
+            },
+            "outcome": "success",
+            "outcomeDetail": "Image: format JPEG, resolution 6000x4000 pixels, 24-bit color; Camera: Nikon D850; Lens: 24-70mm f/2.8; Exposure: 1/125 sec at f/8; ISO: 100; File size: 18.2 MB."
+        }
+    },
+    {
+        "agent":{
+            "agentName": "FFmpeg",
+            "agentType": "software",
+            "agentVersion": "6.0",
+            "agentNotes": "Widely used for media conversion and encoding."
+        },
+        "event":{
+            "eventDateTime": "2026-02-03T15:09:55.774+01:00",
+            "eventType": "migration",
+            "eventDetail": "onverted archival MOV files to MXF/Op1a format with JPEG2000 video codec and PCM audio codec.",
+            "outcome": "success",
+            "outcomeDetail": "command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes"
+        }
+    },
+    {
+        "agent":{
+            "agentName": "AWS CLI",
+            "agentType": "software",
+            "agentVersion": "2.15.21",
+            "agentNotes": "Amazon Web Services Command Line Interface; transfer executed to Amazon S3 using multipart upload; checksum verification enabled."
+        },
+        "event":{
+            "eventDateTime": "2026-02-18T14:02:33Z",
+            "eventType": "transfer",
+            "eventDetail": "Transferred AIP package from on-premises preservation storage to Amazon S3 (eu-north-1 region) using AWS CLI v2.15.21. Multipart upload was performed with checksum validation (MD5) to ensure integrity during transfer.",
+            "outcome": "success"
+        }
+    },
+    {
+        "agent":{
+            "agentName": "Apache NiFi",
+            "agentType": "software",
+            "agentVersion": "2.4.0",
+            "agentNotes": "nifi-nb-eark-nar,EarkSIPValidator 1.0.7; org.roda-community,commons-ip2 2.12.0"
+        },
+        "event":{
+            "eventDateTime": "2026-02-03T17:30:39.662+01:00",
+            "eventType": "validation", 
+            "eventDetail": "Validated E-ARK SIP using DPS Validation workflow v.a00f683",
+            "outcome": "success",
+            "outcomeDetail": "validated against profile E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 and NB-SIP-MOVINGIMAGES-PROFILE-1.0."
+        }
+    },
+    {
+        "agent":{
+            "agentName": "ClamAV",
+            "agentType": "software",
+            "agentVersion": ".3.1; virus database version 27345",
+            "agentNotes": "Opensource antivirus program designed to detect malicious software. Virus definitions were updated immediately before execution."
+        },
+        "event":{
+            "eventDateTime": "2026-02-03T18:27:53.842+01:00",
+            "eventType": "virus check",
+            "eventDetail": "All files in the SIP were scanned using ClamAV prior to transfer. Recursive scan covered 1,245 files.",
+            "outcome": "success",
+            "outcomeDetail": "No infected files were detected."
+        }
+    },
+    {
+        "agent":{
+            "agentName": "ClamAV",
+            "agentType": "software",
+            "agentVersion":".3.1; virus database version 27345",
+            "agentNotes": "Opensource antivirus program designed to detect malicious software. Virus definitions were updated immediately before execution."
+        },
+        "event":{
+            "eventDateTime": "2026-02-03T07:14:01.716+01:00",
+            "eventType": "virus check",
+            "eventDetail": "All files in the SIP were scanned using ClamAV prior to transfer. Recursive scan covered 1,245 files.",
+            "outcome": "warning",
+            "outcomeDetail": "ClamAV reported the presence of the signature Win.Trojan.MacroVirus-12345 in file_2026.xml. The file was retained in the SIP due to its archival value and inability to obtain a clean replacement."
+        }
+    }
+  ]
+}
