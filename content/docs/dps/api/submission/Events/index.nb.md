@@ -40,22 +40,6 @@ Teknisk dokumentasjon for avlevering i API finnes her: [Swagger DPS Submission S
 
  
 
-### Compression
-
- | Navn 	| **compression** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen der data kodes for å redusere lagringsbehov eller overføringstid. 	|
-| Omfang 	| IE, Fil 	|
-
-**Retningslinjer for bruk:**
-- Eventen bør knyttes til IE når det er mulig. For eksempel dersom filene komprimeres på samme måte.
--	Brukes til å dokumentere komprimering og/eller koding som del av lagringsoptimalisering.
--	Skal ikke brukes som del av formatmigrering til et komprimert format. Se også eventType "migration".
--	I en PREMIS-kontekst skal informasjon om hvorvidt komprimeringen er tapsfri eller tapsbasert angis i eventDetailInformation eller eventOutcomeInformation.
-
-
-**Eksempler:**
-
 
 ### Creation 
 

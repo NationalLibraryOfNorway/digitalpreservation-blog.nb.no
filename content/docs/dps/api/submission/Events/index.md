@@ -38,23 +38,6 @@ The technical documentation of submissions in API are to be found here: [Swagger
 
  
 
-### Compression
-
- | Name	| **compression** 	|
-|:---	|:---	|
-| Description 	| The process of encoding data to save storage space or transmission time.  	|
-| Scope 	| IE, File 	|
-
-**Guidelines for use:**
--	The event should be linked to the IE when possible. For example if the files are compressed in the same way.
--	Used to document compression as part of storage optimization.
--	This should not be used as part of a format migration to a compressed format. See also eventType "migration".
--	Within a PREMIS context, information about the lossiness of the compression should be in the eventDetailInformation or eventOutcomeInformation.
-
-
-
-**Examples:**
-
 
 ### Creation 
 
