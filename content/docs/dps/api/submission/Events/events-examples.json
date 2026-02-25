@@ -102,6 +102,24 @@
     },
     {
         "agent":{
+            "agentName": "Audioinspector",
+            "agentType": "software",
+            "agentVersion": "5.5",
+            "agentNotes": "AudioInspector is a professional software tool for automated analysis, quality assessment, and metadata management of audio files, primarily used in archiving, restoration, and digitization workflows."
+        },
+        "event":{
+            "eventDateTime": "2026-02-11T12:01:08Z",
+            "eventType": "metadata extraction",
+            "eventDetail": "Wav-files were analyzed for quality control and documentation.",
+            "fileRef":{
+                "relativePath": "representations/primary_20250325/data/something.wav"
+            },
+            "outcome": "success",
+            "outcomeDetail": "An XML metadata file was created, containing detailed analysis results."
+        }
+    },
+    {
+        "agent":{
             "agentName": "FFmpeg",
             "agentType": "software",
             "agentVersion": "6.0",
