@@ -23,7 +23,7 @@ Event:*
 - outcomeDetail
 
 Elements marked with * are required.
-
+<br><br>
 
 # How to use Event Elements:
 
