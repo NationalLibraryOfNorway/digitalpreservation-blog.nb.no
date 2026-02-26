@@ -20,5 +20,5 @@ Her finnes forklaring til bruk av de ulike elementene en event er bygd opp av, o
 
 {{< cards >}}
   {{< card link="event_elements" title="Bruk av event-elementer" icon="document-text" >}} 
-  {{< card link="eventType" title="Event-typer" icon="document-text" >}}
+  {{< card link="event_type" title="Event-typer" icon="document-text" >}}
 {{< /cards >}}

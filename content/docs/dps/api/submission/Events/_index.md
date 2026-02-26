@@ -20,7 +20,7 @@ Here you will find explanations of how the different elements in an event are us
 
 {{< cards >}}
   {{< card link="event_elements" title="Use of event elements " icon="document-text" >}} 
-  {{< card link="eventType" title="Event-types" icon="document-text" >}}
+  {{< card link="event_type" title="Event-types" icon="document-text" >}}
 {{< /cards >}}
 
 
