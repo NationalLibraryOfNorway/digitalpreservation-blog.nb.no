@@ -22,7 +22,7 @@ Event:*
 - outcomeDetail
 
 Elementer merket med * er påkrevde. 
-<br>
+<br><br>
 
 # Forklaring til bruk av event-elementer:
 
