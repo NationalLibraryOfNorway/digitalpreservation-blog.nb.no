@@ -1,5 +1,5 @@
 ---
-title: Eventer/bevaringsmetadata
+title: Eventer/ bevaringsmetadata
 weight: 2
 draft: false
 ---
