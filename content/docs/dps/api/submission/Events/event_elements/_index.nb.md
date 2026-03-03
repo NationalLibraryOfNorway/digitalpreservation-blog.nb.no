@@ -8,18 +8,18 @@ For formatering av eventer, se teknisk dokumentasjon her: [Swagger DPS Submissio
 
 **Tillatte elementer er:** 
 
-Agent:*
-- agentName*
-- agentType*
-- agentVersion
-- agentNotes
+**Agent:***
+- **agentName***
+- **agentType***
+- **agentVersion**
+- **agentNotes**
 
-Event:*
-- eventDateTime*
-- eventType*
-- eventDetail
-- outcome*
-- outcomeDetail
+**Event:***
+- **eventDateTime***
+- **eventType***
+- **eventDetail**
+- **outcome***
+- **outcomeDetail**
 
 Elementer merket med * er påkrevde. 
 <br><br>

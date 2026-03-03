@@ -9,18 +9,18 @@ For event formatting, see technical documentation here: [Swagger DPS Submission 
 
 **The following elements are permitted:**
 
-Agent:* 
-- agentName*
-- agentType*
-- agentVersion
-- agentNotes
+**Agent:*** 
+- **agentName***
+- **agentType***
+- **agentVersion**
+- **agentNotes**
 
-Event:*
-- eventDateTime*
-- eventType*
-- eventDetail
-- outcome*
-- outcomeDetail
+**Event:***
+- **eventDateTime***
+- **eventType***
+- **eventDetail**
+- **outcome***
+- **outcomeDetail**
 
 Elements marked with * are required.
 <br><br>
