@@ -22,7 +22,7 @@
     {
       "id": "NBSIPSTR2",
       "description_english": "The name of the Information Package's root folder MUST be the same as the @OBJID attribute specified in METS.xml file located in the root folder. The name MUST only contain permitted characters, which are: ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz0123456789-_ . The name of the root folder SHOULD be a unique ID (e.g., a URN). This requirement is a stricter version of CSIPSTR2 (https://earkcsip.dilcis.eu/#CSIPSTR2)",
-      "description_norwegian": "Navnet på SIP-ens rotmappe MÅ være det samme som @OBJID-attributten som oppgis på 'METS.xml'-fila i rotmappa. Navnet MÅ kun bruke tillatte tegn, som er: 'ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyz0123456789-_ '. Navnet på rotmappa BØR være en unik ID (f.eks. URN). Dette kravet er en strengere, SIP-spesifikk variant av CSIPSTR2 (https://earkcsip.dilcis.eu/#CSIPSTR2)",
+      "description_norwegian": "Navnet på SIP-ens rotmappe MÅ være det samme som @OBJID-attributten som oppgis på 'METS.xml'-fila i rotmappa. Navnet MÅ kun bruke tillatte tegn, som er: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_'. Navnet på rotmappa BØR være en unik ID (f.eks. URN). Dette kravet er en strengere, SIP-spesifikk variant av CSIPSTR2 (https://earkcsip.dilcis.eu/#CSIPSTR2)",
       "requirement": "MUST"
     },
     {
