@@ -128,21 +128,21 @@
     },
     {
         "agent": {
-            "agentName": "Guymager",
-            "agentType": "software",
-            "agentVersion": "0.8.1",
-            "agentNotes": "Guymager is an open-source disk imaging tool for forensic and preservation purposes, used to create exact disk images including metadata, filesystem structure, and slack space."
+            "agentName": "",
+            "agentType": "",
+            "agentVersion": "",
+            "agentNotes": ""
         },
         "event": {
             "eventDateTime": "2026-02-19T10:22:15.345+01:00",
             "eventType": "imaging",
-            "eventDetail": "Created a bit-level disk image of storage medium 'ArchiveDisk01'. Included all files, filesystem metadata, slack space, and unallocated sectors.",
+            "eventDetail": "",
             "fileRef": {
-                "fileId": "f1e2d3c4b5a67890123456789abcdef0",
-                "relativePath": "representations/rep-disk_images_20260219/data/ArchiveDisk01.img"
+                "fileId": "",
+                "relativePath": ""
             },
-            "outcome": "success",
-            "outcomeDetail": "Disk image created in E01 format."
+            "outcome": "",
+            "outcomeDetail": ""
         }
     },
     {
