@@ -15,7 +15,7 @@
             "outcomeDetail": "Totalt antall sider høstet: 234; total datastørrelse: 1,2 GB; alle URL-er arkivert i WARC-format."
         }
     },
-        {
+    {
         "agent": {
             "agentName": "Heritrix Web Crawler",
             "agentType": "software",
@@ -30,7 +30,7 @@
             "outcomeDetail": "Total pages captured: 234; total data size: 1.2 GB; all URLs successfully archived in WARC format."
         }
     },
-            {
+    {
         "agent": {
             "agentName": "Pyramix",
             "agentType": "software",
@@ -45,7 +45,7 @@
             "outcomeDetail": "De resulterende WAV-filene ble lagret på disk på lydstudioets arbeidsstasjon."
         }
     },
-            {
+    {
         "agent": {
             "agentName": "Pyramix",
             "agentType": "software",
@@ -112,7 +112,7 @@
             "outcome": "success"
         }
     },
-      {
+    {
         "agent": {
             "agentName": "md5sum (GNU coreutils)",
             "agentType": "software",
@@ -159,7 +159,7 @@
             "outcome": "success"
         }
     },
-        {
+    {
         "agent":{
             "agentName": "md5sum (GNU coreutils)",
             "agentType": "software",
@@ -192,7 +192,7 @@
             "outcomeDetail": "Bilde: format JPEG, oppløsning 6000x4000 piksler, 24-bit farge; Kamera: Nikon D850; Linse: 24-70mm f/2.8; Eksponering: 1/125 sec at f/8; ISO: 100; Filstørrelse: 18.2 MB."
         }
     },
-        {
+    {
         "agent":{
             "agentName": "ExifTool",
             "agentType": "software",
@@ -292,7 +292,7 @@
             "outcomeDetail": "Verifiserte sjekksummer med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2 2.12.0."
         }
     },
-        {
+    {
         "agent":{
             "agentName": "Apache NiFi",
             "agentType": "software",
@@ -321,7 +321,7 @@
             "outcome": "success"
         }
     },
-        {
+    {
         "agent":{
             "agentName": "JHOVE",
             "agentType": "software",
@@ -335,7 +335,7 @@
             "outcome": "success"
         }
     },
-        {
+    {
         "agent":{
             "agentName": "Apache NiFi",
             "agentType": "software",
@@ -350,7 +350,7 @@
             "outcomeDetail": "Validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 and NB-SIP-MOVINGIMAGES-PROFILE-1.0."
         }
     },
-            {
+    {
         "agent":{
             "agentName": "Apache NiFi",
             "agentType": "software",
@@ -380,7 +380,7 @@
             "outcomeDetail": "Ingen infiserte filer oppdaget."
         }
     },
-        {
+    {
         "agent":{
             "agentName": "ClamAV",
             "agentType": "software",
@@ -410,7 +410,7 @@
             "outcomeDetail": "Oppdaget signaturen Win.Trojan.MacroVirus-12345 i file_2026.xml."
         }
     },
-        {
+    {
         "agent":{
             "agentName": "ClamAV",
             "agentType": "software",
