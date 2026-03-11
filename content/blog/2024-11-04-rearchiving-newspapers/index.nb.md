@@ -51,7 +51,7 @@ Slik behandles aviser som digitaliseres eller mottas digitalt i dag:
 - Det lages separate JP2K (.jp2)-filer til langtidsbevaring.
 - Det opprettes en METS[^4]-struktur som knytter sammen innholdet i alle filer. Dette gjør det mulig å virtuelt bla i avisen, søke i fritekst og få uthevede søketreff. 
 - Som et eksempel kan en 20-siders avis bestå av rundt 160 filer, inkludert metadatafiler og datafiler. Typiske filtyper er JP2K-HQ, JP2K-LQ, OCR, ALTO, METS, JHOVE m.m.
-- •	Like filtyper pakkes i .tar-filer[^5], og én avis består av en mappe med flere slike tar-pakker.
+- Like filtyper pakkes i .tar-filer[^5], og én avis består av en mappe med flere slike tar-pakker.
 
 
 

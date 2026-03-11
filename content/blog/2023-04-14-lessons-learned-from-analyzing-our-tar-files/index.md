@@ -1,11 +1,10 @@
 ---
 title: Lessons Learned From Analyzing Our TAR Files
-summary:
 draft: true
 date: 2023-04-14
 tags: [TAR, File identification, DROID, METS, PRONOM]
-authors: 
-  name: Thomas Edvardsen
+authors:
+  - name: Thomas Edvardsen
 ---
 
 Digital preservation becomes increasingly important for cultural heritage institutions around the world.

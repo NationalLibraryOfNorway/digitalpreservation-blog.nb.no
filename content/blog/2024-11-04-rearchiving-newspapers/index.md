@@ -98,11 +98,11 @@ In January 2024, re-archiving of the newspapers scanned by the National Library 
 
 #### Data volume processed over time
 
-![](image2.png "The highest volume of data processed and re-archived in one day was: 42.15 TB.")
+![](/image2.png "The highest volume of data processed and re-archived in one day was: 42.15 TB.")
 
 #### Newspaper volume processed over time
 
-![](image3.png "The highest number of individual newspapers migrated in one day was: 97,528.")
+![](/image3.png "The highest number of individual newspapers migrated in one day was: 97,528.")
 
 ## Results and lessons learned
 
@@ -114,7 +114,7 @@ In January 2024, re-archiving of the newspapers scanned by the National Library 
     - Poor OCR quality was identified for two years of newspaper volumes (53,678 issues, 107 TB) from 2010-2011 - the first two years of OCR processing. The files were reprocessed using the current newspaper production workflow, to produce new and improved OCR.
     - Some digitized newspapers from microfilm were of very poor quality. These were replaced with digital copies from scans of the original paper newspapers. In total, this amounted to 2,051 newspaper issues. It illustrates how original source material often produce better results than secondary generations of copies.
 
-![A photo of Svein Erik Molberg and Mona Løkås from the Text Team, Vigdis Sørensen from Digital Preservation.](image1.png "Svein Erik Molberg and Mona Løkås from the Text Team, Vigdis Sørensen from Digital Preservation.")
+![A photo of Svein Erik Molberg and Mona Løkås from the Text Team, Vigdis Sørensen from Digital Preservation.](/image1.png "Svein Erik Molberg and Mona Løkås from the Text Team, Vigdis Sørensen from Digital Preservation.")
 
 ## Some numbers
 

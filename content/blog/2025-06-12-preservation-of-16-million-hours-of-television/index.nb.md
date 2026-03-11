@@ -1,5 +1,5 @@
 ---
-title: "Bevaring av 1,6 millioner timer fjernsyn "
+title: "Bevaring av 1,6 millioner timer fjernsyn"
 draft: false
 date: 2025-06-12T08:00:00+01:00
 description: "Nasjonalbiblioteket har nylig gjennomført et av sine største digitale bevaringsprosjekter noensinne: å flytte hele arkivet med historiske digitale fjernsynssendinger over til en ny bevaringsløsning."

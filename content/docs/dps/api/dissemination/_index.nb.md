@@ -1,5 +1,5 @@
 ---
-title: Dissemination service
+title: Dissemination Service
 weight: 2
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: "Digital preservation poster"  
+title: "Digital preservation poster"
 date: 2024-09-30 
 description: "Explore our digital preservation awareness poster, available in both English and Norwegian, which visualizes key principles and practices of digital preservation at the National Library of Norway."
 tags: [Digital preservation, Poster, iPRES]  

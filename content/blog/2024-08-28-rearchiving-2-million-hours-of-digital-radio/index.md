@@ -108,4 +108,4 @@ This work represents a significant improvement in the National Library's ability
 
 2.1 million new MP4 (M4a) files were produced, which together amounted to 130TiB/143TB with new access files on nb.no. This replaced approx. 40TB with old MP3 access files.
 
-![Radio hours per year](radiohours.webp)
+![Radio hours per year](/radiohours.webp)

@@ -60,8 +60,8 @@ This team reports to a committee of leaders responsible for this area in the Nat
 - [Apache Kafka](https://kafka.apache.org "Apache Kafka's homepage") for sending messages between systems
 - [Apache NiFi](https://nifi.apache.org "Apache NiFi's homepage") for running the data flows that validate, move, and package data
 - [MariaDB](https://mariadb.org "MariaDB's homepage") as the database engine
-- [DROID](https://digital-preservation.github.io/droid "DROIDs hjemmeside") og [Siegfried](https://github.com/richardlehane/siegfried) for identifisering av filformater
+- [DROID](https://digital-preservation.github.io/droid "DROID's homepage") and [Siegfried](https://github.com/richardlehane/siegfried) for file format identification
 - [Grafana](https://grafana.com "Grafana's homepage") for statistics and reporting
 - [IBM High Performance Storage System (HPSS)](https://www.hpss-collaboration.org "HPSS's homepage") as bit repository
 - [CentOS](https://www.centos.org "CentOS's homepage") Linux as server platform
-- [CommonsIP](https://github.com/keeps/commons-ip) for pakking og validering av arkivpakker på [E-ARK standard](https://dilcis.eu/)
+- [CommonsIP](https://github.com/keeps/commons-ip) for packaging and validating archival packages using the [E-ARK standard](https://dilcis.eu/)

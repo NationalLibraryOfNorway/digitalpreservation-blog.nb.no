@@ -26,7 +26,7 @@ Elementer merket med * er påkrevde.
 
 # Forklaring til bruk av event-elementer:
 
-## Agent: 
+## Agent:
 Agent beskriver den aktøren som utførte handlingen. Dette kan være programvare, en organisasjon eller en person.
 
 ### AgentName
@@ -88,7 +88,7 @@ Tidspunktet hendelsen fant sted. Skal angis etter ISO 8601-standarden, med tidss
 
 ### EventType
 Angir hvilken type handling som ble utført. Elementet beskriver hva slags prosess hendelsen representerer.
-Verdien skal være en kontrollert og konsekvent brukt betegnelse – [liste med tillatte typer](/nb/docs/dps/api/submission/events/event_type/).
+Verdien skal være en kontrollert og konsekvent brukt betegnelse – [liste med tillatte typer](/docs/dps/api/submission/events/event_type/).
 
 
 ### EventDetail

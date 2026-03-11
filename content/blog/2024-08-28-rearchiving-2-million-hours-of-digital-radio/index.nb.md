@@ -2,12 +2,11 @@
 title: "Rearkivering av 2 millioner timer digital radio – en omfattende prosess"
 description: "Lær hvordan Nasjonalbiblioteket lyktes med å migrere 2,2 millioner timer med digitalt radioarkiv (1 petabyte) fra et bitlager fra 2007 til et moderne digitalt bevaringssystem – inkludert de tekniske utfordringene, forbedringene og erfaringene som ble gjort under dette omfattende bevaringsprosjektet."
 date: 2024-08-28  
-tags: ["Digital Bevaring", "Radioarkiv", "Datamigrering", "HPSS", "DPS", "Oracle HSM", "Lydbevaring", "Kringkasting,"]  
+tags: ["Digital Bevaring", "Radioarkiv", "Datamigrering", "HPSS", "DPS", "Oracle HSM", "Lydbevaring", "Kringkasting"]
 authors: 
   - name: Digital Preservation Team
     image: /apple-touch-icon.png
-draft: false
-images: 
+images:
   - radio.jpg
 ---
 

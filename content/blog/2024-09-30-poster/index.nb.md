@@ -1,5 +1,5 @@
 ---
-title: "Plakat med Digital bevaring"  
+title: "Plakat med Digital bevaring"
 date: 2024-09-30 
 description: "Ta en titt på plakaten vår om digital bevaring, på både norsk og engelsk! Den illustrerer de viktigste prinsippene og praksisene for digital bevaring i Nasjonalbiblioteket."
 tags: [Digital preservation, Poster, iPRES, digital bevaring, Nasjonalbiblioteket, Kulturarv]  

@@ -3,11 +3,9 @@ title: Ambisjoner, mål og strategi for digital bevaring ved Nasjonalbiblioteket
 description: "Team Digital Bevaring ved Nasjonalbiblioteket (NB) har utviklet sin første strategi for digital bevaring."
 date: 2024-02-20
 tags: ["Strategi", "Prinsipper", "Policy", "Digital Bevaring", "Strategisk planlegging", "Bevaringspolicy", "Digital Libraries", "Bevaringsstrategier", "Nasjonalbiblioteket", "Digital kulturarv", "Best Practices", "Digital Preservation"]
-authors: 
+authors:
   - name: Trond Teigen
-    image: /apple-touch-icon.png
 showtoc: true
-draft: false
 images: 
   - figure.webp
 ---

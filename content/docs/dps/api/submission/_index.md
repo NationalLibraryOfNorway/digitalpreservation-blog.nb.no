@@ -9,8 +9,6 @@ The Submission Service API allows clients to submit digital objects for long-ter
 
 This documentation complements the detailed API reference available through Swagger UI at https://digitalpreservation.no/swagger/.
 
-For general information on authentication and authorization, please refer to the main [API documentation](../).
-
 **File Size Limitations:**
 - Maximum file size: 5 GB per file
 - This limitation is due to constraints with S3 pre-signed URLs used for direct file uploads

@@ -7,8 +7,8 @@ draft: false
 authors: 
   - name: Lise-Lotte Melkild
     image: /apple-touch-icon.png 
-images: 
-- kulturarv_blogg.JPG 
+images:
+  - kulturarv_blogg.JPG
 ---
 
 

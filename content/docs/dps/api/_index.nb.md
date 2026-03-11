@@ -49,8 +49,8 @@ Authorization: Bearer {access_token}
 
 Tilgang til endepunkter styres gjennom roller:
 
-* Kontraktsspesifikke roller (`{contractId}_R`, `{contractId}_W`) gir lese- og skrivetilgang til ressurser under en spesifikk kontrakt
-* Rollen `DPS_SUBMISSION_HANDLER` kreves for interne statusoperasjoner
+- Kontraktsspesifikke roller (`{contractId}_R`, `{contractId}_W`) gir lese- og skrivetilgang til ressurser under en spesifikk kontrakt
+- Rollen `DPS_SUBMISSION_HANDLER` kreves for interne statusoperasjoner
 
 Klientapplikasjonen må hente access token, og den utstedte JWT-en vil inneholde tildelte roller.
 
@@ -59,15 +59,15 @@ Klientapplikasjonen må hente access token, og den utstedte JWT-en vil inneholde
 
 API-et bruker vanlige HTTP-statuskoder:
 
-* `200 OK` – Vellykket
-* `201 Created` – Ressurs opprettet
-* `400 Bad Request` – Feil i forespørselen
-* `401 Unauthorized` – Manglende eller ugyldig token
-* `403 Forbidden` – Token gyldig, men mangler rettigheter
-* `404 Not Found` – Ressurs ikke funnet
-* `409 Conflict` – Duplikat forespørsel
-* `422 Unprocessable Entity` – Ressurs finnes men er ikke bevart / ikke klar
-* `500 Internal Server Error` – Uventet feil
+- `200 OK` – Vellykket
+- `201 Created` – Ressurs opprettet
+- `400 Bad Request` – Feil i forespørselen
+- `401 Unauthorized` – Manglende eller ugyldig token
+- `403 Forbidden` – Token gyldig, men mangler rettigheter
+- `404 Not Found` – Ressurs ikke funnet
+- `409 Conflict` – Duplikat forespørsel
+- `422 Unprocessable Entity` – Ressurs finnes men er ikke bevart / ikke klar
+- `500 Internal Server Error` – Uventet feil
 
 
 Ved feil returneres et JSON-objekt med `error`:
