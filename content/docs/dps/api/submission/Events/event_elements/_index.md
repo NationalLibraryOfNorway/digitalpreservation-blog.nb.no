@@ -94,7 +94,7 @@ The date and time when the event occurred. Must be expressed according to the IS
 
 ### EventType
 Specifies the type of action performed. This element describes the kind of process the event represents.
-The value must be a controlled and consistently used term — [list of allowed event types](/docs/dps/api/submission/events/eventType/).
+The value must be a controlled and consistently used term — [list of allowed event types](/docs/dps/api/submission/events/event_type/).
 
 
 

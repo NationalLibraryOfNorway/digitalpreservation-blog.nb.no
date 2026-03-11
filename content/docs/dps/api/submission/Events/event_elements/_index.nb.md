@@ -88,7 +88,7 @@ Tidspunktet hendelsen fant sted. Skal angis etter ISO 8601-standarden, med tidss
 
 ### EventType
 Angir hvilken type handling som ble utført. Elementet beskriver hva slags prosess hendelsen representerer.
-Verdien skal være en kontrollert og konsekvent brukt betegnelse – [liste med tillatte typer](/nb/docs/dps/api/submission/events/eventType/).
+Verdien skal være en kontrollert og konsekvent brukt betegnelse – [liste med tillatte typer](/nb/docs/dps/api/submission/events/event_type/).
 
 
 ### EventDetail
