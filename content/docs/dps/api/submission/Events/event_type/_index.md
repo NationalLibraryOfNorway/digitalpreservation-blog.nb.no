@@ -1,7 +1,7 @@
 ---
 title: Event-types
 weight: 2
-draft: false
+draft: true
 ---
 
 

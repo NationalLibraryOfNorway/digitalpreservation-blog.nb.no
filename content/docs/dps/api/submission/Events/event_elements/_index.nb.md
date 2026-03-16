@@ -1,7 +1,7 @@
 ---
 title: Bruk av event-elementer
 weight: 2
-draft: false
+draft: true
 ---
 
 For formatering av eventer, se teknisk dokumentasjon her: [Swagger DPS Submission Service API](https://digitalpreservation.no/swagger/).

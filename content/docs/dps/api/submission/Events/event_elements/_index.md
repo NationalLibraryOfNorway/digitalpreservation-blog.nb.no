@@ -1,7 +1,7 @@
 ---
 title: Use of event elements
 weight: 2
-draft: false
+draft: true
 ---
 
 For event formatting, see technical documentation here: [Swagger DPS Submission Service API](https://digitalpreservation.no/swagger/).
