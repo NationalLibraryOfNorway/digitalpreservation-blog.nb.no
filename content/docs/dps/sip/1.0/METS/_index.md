@@ -86,7 +86,7 @@ No further requirements beyond [CSIP METS Header](https://earkcsip.dilcis.eu/#us
 ## Use of the METS administrative metadata section (`amdSec`)
 
 The E-ARK specification only defines how to reference digital provenance metadata (the `digiprovMD` section) and rights metadata (the `rightsMD` section) in METS.
-Digital provenance metadata refers to information about events in the lifecycle of the digital object. This data is typically formatted using PREMIS. Note that certain types of metadata in the form of PREMIS-events are recommended to be submitted through the Submission API. You can read more about this here [Events/preservation metadata](/content/docs/dps/api/submission/Events).
+Digital provenance metadata refers to information about events in the lifecycle of the digital object. This data is typically formatted using PREMIS. Note that certain types of metadata in the form of PREMIS-events are recommended to be submitted through the Submission API. You can read more about this here [Events/preservation metadata](/docs/dps/api/submission/events).
 Rights metadata contains information about intellectual property rights (IPR) associated with the digital objects.
 
 However, the specification also allows for the inclusion of technical metadata (`techMD` section) and source metadata (`sourceMD` section).
