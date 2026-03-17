@@ -13,7 +13,7 @@ Submitting events is not mandatory, but we recommend doing so when such informat
 
 Events can be associated with either the entire information package or with individual files. In general, events should be associated with the package level, the Intellectual Entity (IE), where possible. This is to avoid large numbers of events that essentially convey the same information. It is possible to associate events with individual files when there is a need to document file-level actions. The most important consideration is to be deliberate about what is documented, why it is documented, and at which level.
 
-For norwegian submitters it is recommended that events are written in Norwegian whenever possible. Keep in mind the intended audience of the documentation.
+For norwegian submitters it is recommended that events are written in Norwegian whenever possible. In general the events should be formulated with future management and use in mind, so that the information remains as clear and verifiable as possible over time.
 
 For technical documentation of submissions in API and event foramatting see: [Swagger DPS Submission Service API](https://digitalpreservation.no/swagger/)
 

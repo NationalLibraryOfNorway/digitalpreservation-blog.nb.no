@@ -14,7 +14,7 @@ Avlevering av eventer er ikke et krav, men vi anbefaler at det opprettes hvis ma
 
 Eventer kan være knyttet til hele informasjonspakken eller til enkelte filer. Generelt bør eventer knyttes til pakkenivå, Intellektuell entitet (IE), der det er mulig. Dette for å unngå store mengder eventer som i utgangspunktet sier det samme. Det er åpent for å legge eventer på filer der det er behov for å dokumentere hendelser på enkeltfiler. Det viktigste er at man har et bevisst forhold til hva som dokumenteres, hvorfor det dokumenteres, og på hvilket nivå. 
 
-Det anbefales at eventene skrives på norsk når det er mulig. Tenk på hvem dokumentasjonen er ment for.
+Det anbefales at eventene skrives på norsk der det er mulig. Eventene bør utformes med hensyn til framtidig forvaltning og bruk, slik at informasjonen er mest mulig forståelig og etterprøvbar over tid.
 
 Teknisk dokumentasjon for avlevering i API og formatering av eventer finnes her: [Swagger DPS Submission Service API](https://digitalpreservation.no/swagger/)
 
