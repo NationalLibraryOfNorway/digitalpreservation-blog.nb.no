@@ -148,10 +148,10 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 ### Capture
 
-| Navn 	| **capture** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen der en agent (organisasjon, team, rolle, system, tjeneste, automatisert prosess) aktivt tilegner seg et objekt gjennom andre mekanismer enn overføring fra skaper eller giver. 	|
-| Omfang 	| IE, Fil 	|
+| Navn 	        | **capture** 	                                                                                                                                                                              |
+|:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse 	 | Prosessen der en agent (organisasjon, team, rolle, system, tjeneste, automatisert prosess) aktivt tilegner seg et objekt gjennom andre mekanismer enn overføring fra skaper eller giver. 	 |
+| Omfang 	      | IE, Fil 	                                                                                                                                                                                  |
 
 
 **Retningslinjer for bruk:**
@@ -160,31 +160,31 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 **Eksempler:**
 ```json
-    {
-        "agent": {
-            "agentName": "Heritrix Web Crawler",
-            "agentType": "software",
-            "agentVersion": "3.5.0",
-            "agentNotes": "Brukt til nettarkivering for å høste inn nettsteder; HTML, bilder, skript og lenkede ressurser."
-        },
-        "event": {
-            "eventDateTime": "2026-02-03T07:14:01.716+01:00",
-            "eventType": "capture",
-            "eventDetail": "Høstet nettstedet 'https://example.no'; alle sider, bilder, PDF-er og lenkede ressurser, i henhold til automatisk periodisk webhøsting.",
-            "outcome": "success",
-            "outcomeDetail": "Totalt antall sider høstet: 234; total datastørrelse: 1,2 GB; alle URL-er arkivert i WARC-format."
-        }
-    }
+{
+  "agent": {
+    "agentName": "Heritrix Web Crawler",
+    "agentType": "software",
+    "agentVersion": "3.5.0",
+    "agentNotes": "Brukt til nettarkivering for å høste inn nettsteder; HTML, bilder, skript og lenkede ressurser."
+  },
+  "event": {
+    "eventDateTime": "2026-02-03T07:14:01.716+01:00",
+    "eventType": "capture",
+    "eventDetail": "Høstet nettstedet 'https://example.no'; alle sider, bilder, PDF-er og lenkede ressurser, i henhold til automatisk periodisk webhøsting.",
+    "outcome": "success",
+    "outcomeDetail": "Totalt antall sider høstet: 234; total datastørrelse: 1,2 GB; alle URL-er arkivert i WARC-format."
+  }
+}
 ```
 
 
 ### Creation 
 
 
- | Navn 	| **creation** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen der et nytt objekt opprettes. 	|
-| Omfang 	| Fil 	|
+| Navn 	        | **creation** 	                            |
+|:--------------|:------------------------------------------|
+| Beskrivelse 	 | Prosessen der et nytt objekt opprettes. 	 |
+| Omfang 	      | Fil 	                                     |
 
 
 **Retningslinjer for bruk:**
@@ -194,31 +194,31 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 **Eksempler:**
 ```json
-    {
-        "agent": {
-            "agentName": "Pyramix",
-            "agentType": "software",
-            "agentVersion": "15.0.8",
-            "agentNotes": "Programvare for innspilling, redigering, mixing og mastering av lyd."
-        },
-        "event": {
-            "eventDateTime": "2026-02-03T07:14:01.716+01:00",
-            "eventType": "creation",
-            "eventDetail": "En digital representasjon av det fysiske materialet ble opprettet gjennom en digitaliseringsprosess.",
-            "outcome": "success",
-            "outcomeDetail": "De resulterende WAV-filene ble lagret på disk på lydstudioets arbeidsstasjon."
-        }
-    }
+{
+  "agent": {
+    "agentName": "Pyramix",
+    "agentType": "software",
+    "agentVersion": "15.0.8",
+    "agentNotes": "Programvare for innspilling, redigering, mixing og mastering av lyd."
+  },
+  "event": {
+    "eventDateTime": "2026-02-03T07:14:01.716+01:00",
+    "eventType": "creation",
+    "eventDetail": "En digital representasjon av det fysiske materialet ble opprettet gjennom en digitaliseringsprosess.",
+    "outcome": "success",
+    "outcomeDetail": "De resulterende WAV-filene ble lagret på disk på lydstudioets arbeidsstasjon."
+  }
+}
 ```
 
 
 ### Filename change 
 
 
- | Navn 	| **filename change** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen der et filnavn endres.  	|
-| Omfang 	| Fil 	|
+ | Navn 	        | **filename change** 	               |
+|:--------------|:------------------------------------|
+| Beskrivelse 	 | Prosessen der et filnavn endres.  	 |
+| Omfang 	      | Fil 	                               |
 
 
 **Retningslinjer for bruk:**
@@ -229,35 +229,35 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 **Eksempler:**
  ```json
-    {
-        "agent": {
-            "agentName": "Apache NiFi",
-            "agentType": "software",
-            "agentVersion": "2.4.0",
-            "agentNotes": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
-        },
-        "event": {
-            "eventDateTime": "2026-02-03T10:47:29.332+01:00",
-            "eventType": "filename change",
-            "eventDetail": "Filnavn ble endret for å følge gjeldende filnavnstandard.",
-            "fileRef": {
-                "fileId": "a1b2c3d4e5f67890123456789abcdef0",
-                "relativePath": "representations/rep-text_20230219/data/document_001.pdf"
-            },
-            "outcome": "success",
-            "outcomeDetail": "Filnavn endret fra NN_TR_2011_01_31_18_40.mp4 til NRK_TR_2011_01_31_18_40.mp4."
-        }
-    }
+{
+  "agent": {
+    "agentName": "Apache NiFi",
+    "agentType": "software",
+    "agentVersion": "2.4.0",
+    "agentNotes": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+  },
+  "event": {
+    "eventDateTime": "2026-02-03T10:47:29.332+01:00",
+    "eventType": "filename change",
+    "eventDetail": "Filnavn ble endret for å følge gjeldende filnavnstandard.",
+    "fileRef": {
+      "fileId": "a1b2c3d4e5f67890123456789abcdef0",
+      "relativePath": "representations/rep-text_20230219/data/document_001.pdf"
+    },
+    "outcome": "success",
+    "outcomeDetail": "Filnavn endret fra NN_TR_2011_01_31_18_40.mp4 til NRK_TR_2011_01_31_18_40.mp4."
+  }
+}
 ```
 
 
  ### Fixity check 
 
 
- | Navn 	| **fixity check** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen med å verifisere at et objekt ikke har blitt endret i en gitt periode.	|
-| Omfang 	| IE, Fil 	|
+ | Navn 	        | **fixity check** 	                                                                |
+|:--------------|:----------------------------------------------------------------------------------|
+| Beskrivelse 	 | Prosessen med å verifisere at et objekt ikke har blitt endret i en gitt periode.	 |
+| Omfang 	      | IE, Fil 	                                                                         |
 
 
 **Retningslinjer for bruk:**
@@ -268,30 +268,30 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 **Eksempler:**
 ```json
-    {
-        "agent": {
-            "agentName": "md5sum (GNU coreutils)",
-            "agentType": "software",
-            "agentVersion": "8.32",
-            "agentNotes": "Beregner MD5-sjekksummer og verifiserer dem mot lagret sjekksumoversikt."
-        },
-        "event": {
-            "eventDateTime": "2026-02-03T12:05:48.210+01:00",
-            "eventType": "fixity check",
-            "eventDetail": "MD5-sjekksummer ble beregnet for alle filer i pakken og kontrollert mot lagrede verdier i oversiktsfilen.",
-            "outcome": "success"
-        }
-    } 
+{
+  "agent": {
+    "agentName": "md5sum (GNU coreutils)",
+    "agentType": "software",
+    "agentVersion": "8.32",
+    "agentNotes": "Beregner MD5-sjekksummer og verifiserer dem mot lagret sjekksumoversikt."
+  },
+  "event": {
+    "eventDateTime": "2026-02-03T12:05:48.210+01:00",
+    "eventType": "fixity check",
+    "eventDetail": "MD5-sjekksummer ble beregnet for alle filer i pakken og kontrollert mot lagrede verdier i oversiktsfilen.",
+    "outcome": "success"
+  }
+}
 ```
 
 
  ### Imaging 
 
 
- | Navn 	| **imaging** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen med å hente ut et diskbilde fra et fysisk informasjonsmedium.	|
-| Omfang 	| IE 	|
+ | Navn 	        | **imaging** 	                                                            |
+|:--------------|:-------------------------------------------------------------------------|
+| Beskrivelse 	 | Prosessen med å hente ut et diskbilde fra et fysisk informasjonsmedium.	 |
+| Omfang 	      | IE 	                                                                     |
 
 
 **Retningslinjer for bruk:**
@@ -306,10 +306,10 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 ### Message digest calculation 
 
 
- | Navn 	| **message digest calculation** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen der en sjekksum (checksum) opprettes.	|
-| Omfang 	| IE, Fil	|
+ | Navn 	        | **message digest calculation** 	                 |
+|:--------------|:-------------------------------------------------|
+| Beskrivelse 	 | Prosessen der en sjekksum (checksum) opprettes.	 |
+| Omfang 	      | IE, Fil	                                         |
 
 
 **Retningslinjer for bruk:**
@@ -320,30 +320,30 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 **Eksempler:**
 ```json
-    {
-        "agent":{
-            "agentName": "md5sum (GNU coreutils)",
-            "agentType": "software",
-            "agentVersion": "8.32",
-            "agentNotes": "Beregner MD5-sjekksummer og verifiserer dem mot lagret sjekksumoversikt."
-        },
-        "event":{
-            "eventDateTime": "2026-02-03T13:36:42.455+01:00",
-            "eventType": "message digest calculation",
-            "eventDetail": "MD5-sjekksummer ble beregnet for alle filer i pakken.",
-            "outcome": "success"
-        }
-    }
+{
+  "agent": {
+    "agentName": "md5sum (GNU coreutils)",
+    "agentType": "software",
+    "agentVersion": "8.32",
+    "agentNotes": "Beregner MD5-sjekksummer og verifiserer dem mot lagret sjekksumoversikt."
+  },
+  "event": {
+    "eventDateTime": "2026-02-03T13:36:42.455+01:00",
+    "eventType": "message digest calculation",
+    "eventDetail": "MD5-sjekksummer ble beregnet for alle filer i pakken.",
+    "outcome": "success"
+  }
+}
 ```
 
 
 ### Metadata extraction 
 
 
- | Navn 	| **metadata extraction** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen med å hente ut metadata fra et objekt. Dette inkluderer tekniske, administrative og beskrivende metadata.	|
-| Omfang 	| Fil	|
+ | Navn 	        | **metadata extraction** 	                                                                                            |
+|:--------------|:---------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse 	 | Prosessen med å hente ut metadata fra et objekt. Dette inkluderer tekniske, administrative og beskrivende metadata.	 |
+| Omfang 	      | Fil	                                                                                                                 |
 
 
 **Retningslinjer for bruk:**
@@ -353,55 +353,55 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 **Eksempler:**
 ```json
-    {
-        "agent":{
-            "agentName": "ExifTool",
-            "agentType": "software",
-            "agentVersion": "12.60",
-            "agentNotes": "Brukt for å utlede metadata fra bilde- og videofiler."
-        },
-        "event":{
-            "eventDateTime": "2026-02-19T11:45:32.123+01:00",
-            "eventType": "metadata extraction",
-            "eventDetail": "Utledet tekniske og deskriptive metadata fra bildefil: DSC_0456.JPG.",
-            "fileRef": {
-                "fileId": "b1c2d3e4f567890123456789abcdef01",
-                "relativePath": "representations/rep-images_20230908/data/DSC_0456.JPG"
-            },
-            "outcome": "success",
-            "outcomeDetail": "Bilde: format JPEG, oppløsning 6000x4000 piksler, 24-bit farge; Kamera: Nikon D850; Linse: 24-70mm f/2.8; Eksponering: 1/125 sec at f/8; ISO: 100; Filstørrelse: 18.2 MB."
-        }
-    }
+{
+  "agent": {
+    "agentName": "ExifTool",
+    "agentType": "software",
+    "agentVersion": "12.60",
+    "agentNotes": "Brukt for å utlede metadata fra bilde- og videofiler."
+  },
+  "event": {
+    "eventDateTime": "2026-02-19T11:45:32.123+01:00",
+    "eventType": "metadata extraction",
+    "eventDetail": "Utledet tekniske og deskriptive metadata fra bildefil: DSC_0456.JPG.",
+    "fileRef": {
+      "fileId": "b1c2d3e4f567890123456789abcdef01",
+      "relativePath": "representations/rep-images_20230908/data/DSC_0456.JPG"
+    },
+    "outcome": "success",
+    "outcomeDetail": "Bilde: format JPEG, oppløsning 6000x4000 piksler, 24-bit farge; Kamera: Nikon D850; Linse: 24-70mm f/2.8; Eksponering: 1/125 sec at f/8; ISO: 100; Filstørrelse: 18.2 MB."
+  }
+}
 ```
 ```json
-    {
-        "agent":{
-            "agentName": "Audioinspector",
-            "agentType": "software",
-            "agentVersion": "5.5",
-            "agentNotes": "Programvare for automatisk analyse, kvalitetskontroll, og metadatahåndtering av lydfiler."
-        },
-        "event":{
-            "eventDateTime": "2026-02-11T12:01:08Z",
-            "eventType": "metadata extraction",
-            "eventDetail": "Wav-filer ble analysert for kvalitetskontroll og dokumentasjon.",
-            "fileRef":{
-                "relativePath": "representations/primary_20250325/data/something.wav"
-            },
-            "outcome": "success",
-            "outcomeDetail": "Utledet en XML-metadatafil som inneholder detaljert analyse."
-        }
-    }
+{
+  "agent": {
+    "agentName": "Audioinspector",
+    "agentType": "software",
+    "agentVersion": "5.5",
+    "agentNotes": "Programvare for automatisk analyse, kvalitetskontroll, og metadatahåndtering av lydfiler."
+  },
+  "event": {
+    "eventDateTime": "2026-02-11T12:01:08Z",
+    "eventType": "metadata extraction",
+    "eventDetail": "Wav-filer ble analysert for kvalitetskontroll og dokumentasjon.",
+    "fileRef": {
+      "relativePath": "representations/primary_20250325/data/something.wav"
+    },
+    "outcome": "success",
+    "outcomeDetail": "Utledet en XML-metadatafil som inneholder detaljert analyse."
+  }
+}
 ```
 
 
 ### Migration
 
 
- | Navn 	| **migration** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen der et objekt konverteres fra ett filformat til ett eller flere andre filformater.	|
-| Omfang 	| IE, Fil	|
+ | Navn 	        | **migration** 	                                                                               |
+|:--------------|:----------------------------------------------------------------------------------------------|
+| Beskrivelse 	 | Prosessen der et objekt konverteres fra ett filformat til ett eller flere andre filformater.	 |
+| Omfang 	      | IE, Fil	                                                                                      |
 
 
 **Retningslinjer for bruk:**
@@ -413,31 +413,31 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 **Eksempler:**
 ```json
-    {
-        "agent":{
-            "agentName": "FFmpeg",
-            "agentType": "software",
-            "agentVersion": "6.0",
-            "agentNotes": "Brukt for mediekonvertering og koding."
-        },
-        "event":{
-            "eventDateTime": "2026-02-03T15:09:55.774+01:00",
-            "eventType": "migration",
-            "eventDetail": "Konverterte MOV-filer til MXF/Op1a-format med JPEG2000, videokodek og PCM lydkodek.",
-            "outcome": "success",
-            "outcomeDetail": "command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes"
-        }
-    }
+{
+  "agent": {
+    "agentName": "FFmpeg",
+    "agentType": "software",
+    "agentVersion": "6.0",
+    "agentNotes": "Brukt for mediekonvertering og koding."
+  },
+  "event": {
+    "eventDateTime": "2026-02-03T15:09:55.774+01:00",
+    "eventType": "migration",
+    "eventDetail": "Konverterte MOV-filer til MXF/Op1a-format med JPEG2000, videokodek og PCM lydkodek.",
+    "outcome": "success",
+    "outcomeDetail": "command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes"
+  }
+}
 ```
 
 
 ### Transfer 
 
 
- | Navn 	| **transfer** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen med å overføre metadata og/eller digitale objekter mellom systemer. 	|
-| Omfang 	| IE	|
+ | Navn 	        | **transfer** 	                                                                  |
+|:--------------|:--------------------------------------------------------------------------------|
+| Beskrivelse 	 | Prosessen med å overføre metadata og/eller digitale objekter mellom systemer. 	 |
+| Omfang 	      | IE	                                                                             |
 
 
 **Retningslinjer for bruk:**
@@ -446,31 +446,31 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 **Eksempler:**
 ```json
-    {
-        "agent":{
-            "agentName": "Apache NiFi",
-            "agentType": "software",
-            "agentVersion": "2.2.0",
-            "agentNotes": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
-        },
-        "event":{
-            "eventDateTime": "2026-02-18T14:02:33Z",
-            "eventType": "transfer",
-            "eventDetail": "Overført pakke fra Oracle HSM(SAM-FS) til lokalt arbeidsområde for videre behandling; Opprinnelige sjekksummer verifisert ved opplasting; Opprettet E-ARK SIP.",
-            "outcome": "success",
-            "outcomeDetail": "Verifiserte sjekksummer med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2 2.12.0."
-        }
-    }
+{
+  "agent": {
+    "agentName": "Apache NiFi",
+    "agentType": "software",
+    "agentVersion": "2.2.0",
+    "agentNotes": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+  },
+  "event": {
+    "eventDateTime": "2026-02-18T14:02:33Z",
+    "eventType": "transfer",
+    "eventDetail": "Overført pakke fra Oracle HSM(SAM-FS) til lokalt arbeidsområde for videre behandling; Opprinnelige sjekksummer verifisert ved opplasting; Opprettet E-ARK SIP.",
+    "outcome": "success",
+    "outcomeDetail": "Verifiserte sjekksummer med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2 2.12.0."
+  }
+}
 ```
 
 
 ### Validation 
 
 
- | Navn 	| **validation** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen med å sammenligne et objekt med en standard og registrere samsvar eller avvik. 	|
-| Omfang 	| IE, Fil	|
+ | Navn 	        | **validation** 	                                                                           |
+|:--------------|:-------------------------------------------------------------------------------------------|
+| Beskrivelse 	 | Prosessen med å sammenligne et objekt med en standard og registrere samsvar eller avvik. 	 |
+| Omfang 	      | IE, Fil	                                                                                   |
 
 
 **Retningslinjer for bruk:**
@@ -480,47 +480,47 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 **Eksempler:**
 ```json
-    {
-        "agent":{
-            "agentName": "JHOVE",
-            "agentType": "software",
-            "agentVersion": "1.32.1",
-            "agentNotes": "Et fleksibelt rammeverk for programvare som brukes til å identifisere, validere, og karakterisere digitale objekter."
-        },
-        "event":{
-            "eventDateTime": "2026-02-03T17:30:39.662+01:00",
-            "eventType": "validation", 
-            "eventDetail": "Validerte at lydfiler samsvarer med spesifikasjonene til WAVE-formatet.",
-            "outcome": "success"
-        }
-    }
+{
+  "agent": {
+    "agentName": "JHOVE",
+    "agentType": "software",
+    "agentVersion": "1.32.1",
+    "agentNotes": "Et fleksibelt rammeverk for programvare som brukes til å identifisere, validere, og karakterisere digitale objekter."
+  },
+  "event": {
+    "eventDateTime": "2026-02-03T17:30:39.662+01:00",
+    "eventType": "validation",
+    "eventDetail": "Validerte at lydfiler samsvarer med spesifikasjonene til WAVE-formatet.",
+    "outcome": "success"
+  }
+}
 ```
 ```json
-    {
-        "agent":{
-            "agentName": "Apache NiFi",
-            "agentType": "software",
-            "agentVersion": "2.4.0",
-            "agentNotes": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
-        },
-        "event":{
-            "eventDateTime": "2026-02-03T17:30:39.662+01:00",
-            "eventType": "validation", 
-            "eventDetail": "Validerte E-ARK SIP ved bruk av DPS Validation workflow v.a00f683: nifi-nb-eark-nar,EarkSIPValidator 1.0.7; org.roda-community,commons-ip2 2.12.0.",
-            "outcome": "success",
-            "outcomeDetail": "Validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 and NB-SIP-MOVINGIMAGES-PROFILE-1.0."
-        }
-    }
+{
+  "agent": {
+    "agentName": "Apache NiFi",
+    "agentType": "software",
+    "agentVersion": "2.4.0",
+    "agentNotes": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+  },
+  "event": {
+    "eventDateTime": "2026-02-03T17:30:39.662+01:00",
+    "eventType": "validation",
+    "eventDetail": "Validerte E-ARK SIP ved bruk av DPS Validation workflow v.a00f683: nifi-nb-eark-nar,EarkSIPValidator 1.0.7; org.roda-community,commons-ip2 2.12.0.",
+    "outcome": "success",
+    "outcomeDetail": "Validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 and NB-SIP-MOVINGIMAGES-PROFILE-1.0."
+  }
+}
 ```
 
 
 ### Virus check 
 
 
- | Navn 	| **virus check** 	|
-|:---	|:---	|
-| Beskrivelse 	| Prosessen der en fil skannes for virus eller skadelig programvare. 	|
-| Omfang 	| IE, Fil	|
+ | Navn 	        | **virus check** 	                                                    |
+|:--------------|:---------------------------------------------------------------------|
+| Beskrivelse 	 | Prosessen der en fil skannes for virus eller skadelig programvare. 	 |
+| Omfang 	      | IE, Fil	                                                             |
 
 
 **Retningslinjer for bruk:**
@@ -529,38 +529,38 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 
 **Eksempler:**
 ```json
-    {
-        "agent":{
-            "agentName": "ClamAV",
-            "agentType": "software",
-            "agentVersion": "1.8.7",
-            "agentNotes": "Antivirusprogram utviklet for å oppdage skadelig programvare."
-        },
-        "event":{
-            "eventDateTime": "2026-02-03T18:27:53.842+01:00",
-            "eventType": "virus check",
-            "eventDetail": "Alle filer i pakken ble skannet før overføring.",
-            "outcome": "success",
-            "outcomeDetail": "Ingen infiserte filer oppdaget."
-        }
-    }
+{
+  "agent": {
+    "agentName": "ClamAV",
+    "agentType": "software",
+    "agentVersion": "1.8.7",
+    "agentNotes": "Antivirusprogram utviklet for å oppdage skadelig programvare."
+  },
+  "event": {
+    "eventDateTime": "2026-02-03T18:27:53.842+01:00",
+    "eventType": "virus check",
+    "eventDetail": "Alle filer i pakken ble skannet før overføring.",
+    "outcome": "success",
+    "outcomeDetail": "Ingen infiserte filer oppdaget."
+  }
+}
 ```
 ```json
-    {
-        "agent":{
-            "agentName": "ClamAV",
-            "agentType": "software",
-            "agentVersion":"1.8.7",
-            "agentNotes": "Antivirusprogram utviklet for å oppdage skadelig programvare."
-        },
-        "event":{
-            "eventDateTime": "2026-02-03T07:14:01.716+01:00",
-            "eventType": "virus check",
-            "eventDetail": "Alle filer i pakken ble skannet før overføring.",
-            "outcome": "success",
-            "outcomeDetail": "Oppdaget signaturen Win.Trojan.MacroVirus-12345 i file_2026.xml."
-        }
-    }
+{
+  "agent": {
+    "agentName": "ClamAV",
+    "agentType": "software",
+    "agentVersion": "1.8.7",
+    "agentNotes": "Antivirusprogram utviklet for å oppdage skadelig programvare."
+  },
+  "event": {
+    "eventDateTime": "2026-02-03T07:14:01.716+01:00",
+    "eventType": "virus check",
+    "eventDetail": "Alle filer i pakken ble skannet før overføring.",
+    "outcome": "success",
+    "outcomeDetail": "Oppdaget signaturen Win.Trojan.MacroVirus-12345 i file_2026.xml."
+  }
+}
 ```
 
 
