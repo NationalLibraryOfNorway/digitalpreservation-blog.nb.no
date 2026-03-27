@@ -344,6 +344,13 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 | Beskrivelse | Verifiserer at et objekt ikke er endret. |
 | Omfang      | IE, Fil                                  |
 
+
+**Retningslinjer for bruk:**
+- Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
+- Vil mest sannsynlig inneholde resultatene fra eventen «message digest calculation».
+- Spesielt viktig når sjekksummer mottas fra eksterne.
+
+
 **Eksempler:**
 
 ```json
