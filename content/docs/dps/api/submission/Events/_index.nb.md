@@ -8,13 +8,21 @@ draft: false
 
 
 
-I digital bevaring dokumenterer en “event” en handling eller hendelse som har påvirket et digitalt objekt, for eksempel opprettelse, migrering, validering eller overføring. Dette anses som viktig bevaringsmetadata og gir sporbarhet og bevis for hva som er gjort med objektet gjennom hele livssyklusen. 
+I digital bevaring dokumenterer en “event” en handling eller hendelse som har påvirket et digitalt objekt, for eksempel opprettelse, migrering, validering eller
+overføring. Dette anses som viktig bevaringsmetadata og gir sporbarhet og bevis for hva som er gjort med objektet gjennom hele livssyklusen.
 
-Avlevering av eventer er ikke et krav, men vi anbefaler at det opprettes hvis man har slik informasjon tilgjengelig. Eventer som legges til i APIet vil bevares i egen event-database, på lik linje med hendelser som skjer på innsiden av bevaringsomgivelsene (DPS). Ved utlevering gir det enklere oversikt over hendelser knyttet til et objekt. Hvis det er ønskelig å legge til andre typer bevaringsmetadata, er det er også mulig å avlevere bevaringsmetadata i informasjonspakken (SIP). Se mer om det under  [metadataveiledning](/docs/dps/sip/1.0/metadata/) og [krav til pakkestruktur](/docs/dps/sip/1.0/structure-requirements/). Informasjon som går direkte på proveniens kan legges til i [krav til metadata](/docs/dps/api/submission/metadata/).
+Avlevering av eventer er ikke et krav, men vi anbefaler at det opprettes hvis man har slik informasjon tilgjengelig. Eventer som legges til i APIet vil bevares
+i egen event-database, på lik linje med hendelser som skjer på innsiden av bevaringsomgivelsene (DPS). Ved utlevering gir det enklere oversikt over hendelser
+knyttet til et objekt. Hvis det er ønskelig å legge til andre typer bevaringsmetadata, er det er også mulig å avlevere bevaringsmetadata i informasjonspakken (
+SIP). Se mer om det under  [metadataveiledning](/docs/dps/sip/1.0/metadata/) og [krav til pakkestruktur](/docs/dps/sip/1.0/structure-requirements/). Informasjon
+som går direkte på proveniens kan legges til i [krav til metadata](/docs/dps/api/submission/metadata/).
 
-Eventer kan være knyttet til hele informasjonspakken eller til enkelte filer. Generelt bør eventer knyttes til pakkenivå, Intellektuell entitet (IE), der det er mulig. Dette for å unngå store mengder eventer som i utgangspunktet sier det samme. Det er åpent for å legge eventer på filer der det er behov for å dokumentere hendelser på enkeltfiler. Det viktigste er at man har et bevisst forhold til hva som dokumenteres, hvorfor det dokumenteres, og på hvilket nivå. 
+Eventer kan være knyttet til hele informasjonspakken eller til enkelte filer. Generelt bør eventer knyttes til pakkenivå, Intellektuell entitet (IE), der det er
+mulig. Dette for å unngå store mengder eventer som i utgangspunktet sier det samme. Det er åpent for å legge eventer på filer der det er behov for å dokumentere
+hendelser på enkeltfiler. Det viktigste er at man har et bevisst forhold til hva som dokumenteres, hvorfor det dokumenteres, og på hvilket nivå.
 
-Det anbefales at eventene skrives på norsk der det er mulig. Eventene bør utformes med hensyn til framtidig forvaltning og bruk, slik at informasjonen er mest mulig forståelig og etterprøvbar over tid.
+Det anbefales at eventene skrives på norsk der det er mulig. Eventene bør utformes med hensyn til framtidig forvaltning og bruk, slik at informasjonen er mest
+mulig forståelig og etterprøvbar over tid.
 
 Teknisk dokumentasjon for avlevering i API og formatering av eventer finnes her: [Swagger DPS Submission Service API](https://digitalpreservation.no/swagger/)
 
@@ -23,68 +31,79 @@ Teknisk dokumentasjon for avlevering i API og formatering av eventer finnes her:
 
 # Bruk av event-elementer
 
-**Tillatte elementer er:** 
+**Tillatte elementer er:**
 
 **Agent:***
+
 - **agentName***
 - **agentType***
 - **agentVersion**
 - **agentNotes**
 
 **Event:***
+
 - **eventDateTime***
 - **eventType***
 - **eventDetail**
 - **outcome***
 - **outcomeDetail**
 
-Elementer merket med * er påkrevde. 
+Elementer merket med * er påkrevde.
 <br><br>
 
 ## Forklaring til bruk av event-elementer:
 
 ## Agent:
+
 Agent beskriver den aktøren som utførte handlingen. Dette kan være programvare, en organisasjon eller en person.
 
 ### AgentName
+
 Navn på aktøren som utførte handlingen. Navnet skal være entydig og konsekvent brukt.
 
 **Eksempler:**
+
 - "Apache NiFi"
 - "Nasjonalbiblioteket – Team digital bevaring"
 - "Ola Nordmann"
 - "JHOVE"
 
-
 ### AgentType
+
 Angir hvilken type aktør som utførte handlingen.
 
 **Tillatte verdier:**
+
 - "software"
 - "organization"
 - "person"
 
-
 ### AgentVersion
-Versjonsnummer på agenten dersom det er programvare. Agentversjon brukes for å sikre sporbarhet og mulighet for reproduksjon, ulike versjoner av samme verktøy kan gi ulike resultater. 
+
+Versjonsnummer på agenten dersom det er programvare. Agentversjon brukes for å sikre sporbarhet og mulighet for reproduksjon, ulike versjoner av samme verktøy
+kan gi ulike resultater.
 
 **Eksempler:**
+
 - "1.15.0"
 - "3.2"
 - "1.11.0; DROID_SignatureFile_V116.xml; container-signature-20231127.xml"
 
-
-
 ### AgentNotes
-Tilleggsinformasjon om agenten som utførte handlingen. Elementet skal dokumentere egenskaper, kontekst eller oppsett av agenten, ikke hva agenten gjorde i et spesifikt event. 
+
+Tilleggsinformasjon om agenten som utførte handlingen. Elementet skal dokumentere egenskaper, kontekst eller oppsett av agenten, ikke hva agenten gjorde i et
+spesifikt event.
 
 **Dette kan inkludere:**
+
 - Hva agenten er, og hva den gjør generelt.
 - Hvordan agenten er konfigurert eller installert.
 - Operativ kontekst eller ansvar.
-  
+
 **Eksempler:**
-- "Verktøy for identifisering av filformater som bruker PRONOM-signaturer. Installert med signatursett versjon 95, som støtter formatene PDF, TIFF, JPEG og XML."
+
+- "Verktøy for identifisering av filformater som bruker PRONOM-signaturer. Installert med signatursett versjon 95, som støtter formatene PDF, TIFF, JPEG og
+  XML."
 - "Verktøy for automatisering av dataflyt som gjør det mulig å designe og administrere komplekse datapipelines."
 - "Installert i en tilpasset konfigurasjon med aktiverte moduler for PDF, TIFF og JPEG. Løsningen kjører i kjøremiljø Java 17."
 - "Institusjon med formelt ansvar for digital bevaring, mottak og langsiktig forvaltning av arkivmateriale."
@@ -92,59 +111,64 @@ Tilleggsinformasjon om agenten som utførte handlingen. Elementet skal dokumente
 > [!NOTE]
 > Bruk AgentNotes så konsekvent som mulig for samme agent. Ved skriveforskjeller i AgentNotes opprettes ny Agent i registeret.
 
-
 ## Event:
+
 Event beskriver selve handlingen som ble utført på objektet.
 
 ### EventDateTime
+
 Tidspunktet hendelsen fant sted. Skal angis etter ISO 8601-standarden, med tidssone.
 
 **Eksempel:**
+
 - "2026-02-23T10:45:00+01:00 "
 
-
 ### EventType
+
 Angir hvilken type handling som ble utført. Elementet beskriver hva slags prosess hendelsen representerer.
 Verdien skal være en kontrollert og konsekvent brukt betegnelse – se liste med tillatte typer nedenfor.
 
-
 ### EventDetail
+
 En presis beskrivelse av hva som ble gjort i hendelsen. Dette utdyper EventType og beskriver selve operasjonen.
 
 **Eksempler:**
+
 - "MD5-sjekksum generert."
 - "Migrert fra TIFF til JPEG2000."
 - "Validert mot PDF/A-2b-standarden."
 
-
-
 ### Outcome
+
 Overordnet resultat av hendelsen. Dette elementet angir om hendelsen ble gjennomført som forventet, mislyktes eller ble fullført med avvik.
 
 **Tillatte verdier:**
+
 - "success"
 - "failure"
 - "warning"
 
-
 ### OutcomeDetail
+
 En konkret og presis beskrivelse av resultatet av hendelsen.
-Dette elementet skal dokumentere hva som faktisk ble oppnådd eller hvilke avvik som ble identifisert. Beskrivelsen skal være kortfattet og forståelig. Det er ikke alle hendelser som er nødvendig å dokumentere utover success/failure/warning, da holder det å bruke «outcome»-elementet. 
+Dette elementet skal dokumentere hva som faktisk ble oppnådd eller hvilke avvik som ble identifisert. Beskrivelsen skal være kortfattet og forståelig. Det er
+ikke alle hendelser som er nødvendig å dokumentere utover success/failure/warning, da holder det å bruke «outcome»-elementet.
 
 **Eksempler:**
+
 - "Formatet er identifisert som fmt/353 (TIFF 6.0)."
 - "Pakken er validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 og NB-SIP-MOVINGIMAGES-PROFILE-1.0."
 
 <br>
 <br>
 
-# Event-typer 
+# Event-typer
 
-Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.loc.gov/) sin liste over [EventTypes](https://id.loc.gov/vocabulary/preservation/eventType.html). Lista har blitt innskrenket, og bruken av de ulike typene er spesifisert til å passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert i lista nedenfor blir ikke godkjent i API.
-
+Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.loc.gov/) sin liste
+over [EventTypes](https://id.loc.gov/vocabulary/preservation/eventType.html). Lista har blitt innskrenket, og bruken av de ulike typene er spesifisert til å
+passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert i lista nedenfor blir ikke godkjent i API.
 
 ## EventTypes
-
 
 ### Capture
 
@@ -153,12 +177,12 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 | Beskrivelse 	 | Prosessen der en agent (organisasjon, team, rolle, system, tjeneste, automatisert prosess) aktivt tilegner seg et objekt gjennom andre mekanismer enn overføring fra skaper eller giver. 	 |
 | Omfang 	      | IE, Fil 	                                                                                                                                                                                  |
 
-
 **Retningslinjer for bruk:**
+
 - Brukes når det høstes nettsteder ved hjelp av crawling.
 
-
 **Eksempler:**
+
 ```json
 {
   "agent": {
@@ -177,22 +201,21 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 }
 ```
 
-
-### Creation 
-
+### Creation
 
 | Navn 	        | **creation** 	                            |
 |:--------------|:------------------------------------------|
 | Beskrivelse 	 | Prosessen der et nytt objekt opprettes. 	 |
 | Omfang 	      | Fil 	                                     |
 
-
 **Retningslinjer for bruk:**
-- Brukes for å dokumentere det digitale objektet i en informasjonspakke. 
--	Brukes til å dokumentere opprinnelsen til filen eller den Intellektuelle Entiteten (IE), og beskriver metoden og prosessen for å opprette filen/IE. Se også eventType "imaging". 
-  
+
+- Brukes for å dokumentere det digitale objektet i en informasjonspakke.
+- Brukes til å dokumentere opprinnelsen til filen eller den Intellektuelle Entiteten (IE), og beskriver metoden og prosessen for å opprette filen/IE. Se også
+  eventType "imaging".
 
 **Eksempler:**
+
 ```json
 {
   "agent": {
@@ -211,23 +234,21 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 }
 ```
 
+### Filename change
 
-### Filename change 
-
-
- | Navn 	        | **filename change** 	               |
+| Navn 	        | **filename change** 	               |
 |:--------------|:------------------------------------|
 | Beskrivelse 	 | Prosessen der et filnavn endres.  	 |
 | Omfang 	      | Fil 	                               |
 
-
 **Retningslinjer for bruk:**
--	Relevant ved endring av navn på en født digital fil, eller når for eksempel en fil må gis nytt navn for å oppfylle kravene til lagringssystemet. 
--	Enten fjerning av forbudte tegn eller delvis/hel erstatning av det opprinnelige filnavnet. Dette kan brukes for å dokumentere endringer som fjerning av tegn, eller der et system fjerner filnavnet helt og erstatter det med et systemgenerert navn.
 
-
+- Relevant ved endring av navn på en født digital fil, eller når for eksempel en fil må gis nytt navn for å oppfylle kravene til lagringssystemet.
+- Enten fjerning av forbudte tegn eller delvis/hel erstatning av det opprinnelige filnavnet. Dette kan brukes for å dokumentere endringer som fjerning av tegn,
+  eller der et system fjerner filnavnet helt og erstatter det med et systemgenerert navn.
 
 **Eksempler:**
+
  ```json
 {
   "agent": {
@@ -250,23 +271,21 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 }
 ```
 
+### Fixity check
 
- ### Fixity check 
-
-
- | Navn 	        | **fixity check** 	                                                                |
+| Navn 	        | **fixity check** 	                                                                |
 |:--------------|:----------------------------------------------------------------------------------|
 | Beskrivelse 	 | Prosessen med å verifisere at et objekt ikke har blitt endret i en gitt periode.	 |
 | Omfang 	      | IE, Fil 	                                                                         |
 
-
 **Retningslinjer for bruk:**
--	Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
--	Vil mest sannsynlig inneholde resultatene fra eventen «message digest calculation».
-- Spesielt viktig når sjekksummer mottas fra eksterne. 
 
+- Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
+- Vil mest sannsynlig inneholde resultatene fra eventen «message digest calculation».
+- Spesielt viktig når sjekksummer mottas fra eksterne.
 
 **Eksempler:**
+
 ```json
 {
   "agent": {
@@ -284,41 +303,37 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 }
 ```
 
+### Imaging
 
- ### Imaging 
-
-
- | Navn 	        | **imaging** 	                                                            |
+| Navn 	        | **imaging** 	                                                            |
 |:--------------|:-------------------------------------------------------------------------|
 | Beskrivelse 	 | Prosessen med å hente ut et diskbilde fra et fysisk informasjonsmedium.	 |
 | Omfang 	      | IE 	                                                                     |
 
-
 **Retningslinjer for bruk:**
--	Brukes for å dokumentere prosessen med å lage en eksakt digital kopi (diskbilde) av et lagringsmedium, inkludert alle filer, metadata, filsystemstruktur og noen ganger også ledig plass og slettede data.
--	Der det er relevant, skal denne eventen brukes i stedet for, ikke i tillegg til, «creation»-eventen. 
 
+- Brukes for å dokumentere prosessen med å lage en eksakt digital kopi (diskbilde) av et lagringsmedium, inkludert alle filer, metadata, filsystemstruktur og
+  noen ganger også ledig plass og slettede data.
+- Der det er relevant, skal denne eventen brukes i stedet for, ikke i tillegg til, «creation»-eventen.
 
 **Eksempler:**
 
+### Message digest calculation
 
-
-### Message digest calculation 
-
-
- | Navn 	        | **message digest calculation** 	                 |
+| Navn 	        | **message digest calculation** 	                 |
 |:--------------|:-------------------------------------------------|
 | Beskrivelse 	 | Prosessen der en sjekksum (checksum) opprettes.	 |
 | Omfang 	      | IE, Fil	                                         |
 
-
 **Retningslinjer for bruk:**
--	Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
--	Eventen «fixity check» kontrollerer Sjekksummen.
-- Brukes ved opprettelse av nye sjekksummer. Hvis sjekksummer opprettes lokalt, er det ikke behov for å bruke eventen "fixity check" i tillegg til event "message digest calculation". Se også EventType "fixity check". 
 
+- Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
+- Eventen «fixity check» kontrollerer Sjekksummen.
+- Brukes ved opprettelse av nye sjekksummer. Hvis sjekksummer opprettes lokalt, er det ikke behov for å bruke eventen "fixity check" i tillegg til event "
+  message digest calculation". Se også EventType "fixity check".
 
 **Eksempler:**
+
 ```json
 {
   "agent": {
@@ -336,22 +351,20 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 }
 ```
 
+### Metadata extraction
 
-### Metadata extraction 
-
-
- | Navn 	        | **metadata extraction** 	                                                                                            |
+| Navn 	        | **metadata extraction** 	                                                                                            |
 |:--------------|:---------------------------------------------------------------------------------------------------------------------|
 | Beskrivelse 	 | Prosessen med å hente ut metadata fra et objekt. Dette inkluderer tekniske, administrative og beskrivende metadata.	 |
 | Omfang 	      | Fil	                                                                                                                 |
 
-
 **Retningslinjer for bruk:**
-- Brukes når metadata hentes ut av en fil og resulterer i en eller flere metadatafiler. 
-- Filen(e) som utledes må referere til opprinnelsesfila. 
 
+- Brukes når metadata hentes ut av en fil og resulterer i en eller flere metadatafiler.
+- Filen(e) som utledes må referere til opprinnelsesfila.
 
 **Eksempler:**
+
 ```json
 {
   "agent": {
@@ -373,6 +386,7 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
   }
 }
 ```
+
 ```json
 {
   "agent": {
@@ -394,24 +408,22 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 }
 ```
 
-
 ### Migration
 
-
- | Navn 	        | **migration** 	                                                                               |
+| Navn 	        | **migration** 	                                                                               |
 |:--------------|:----------------------------------------------------------------------------------------------|
 | Beskrivelse 	 | Prosessen der et objekt konverteres fra ett filformat til ett eller flere andre filformater.	 |
 | Omfang 	      | IE, Fil	                                                                                      |
 
-
 **Retningslinjer for bruk:**
--	Eventen bør knyttes til IE når det er mulig, for eksempel dersom filene er konvertert på samme måte til samme format.
--	Brukes ved endring av filformat, ikke til å dokumentere komprimering som del av lagringsoptimalisering. Se også eventType «compression».
--	Migration-events skal alltid resultere i en ny pakke eller fil. 
-- Filen(e) som migreres må referere til opprinnelsesfila. 
 
+- Eventen bør knyttes til IE når det er mulig, for eksempel dersom filene er konvertert på samme måte til samme format.
+- Brukes ved endring av filformat, ikke til å dokumentere komprimering som del av lagringsoptimalisering. Se også eventType «compression».
+- Migration-events skal alltid resultere i en ny pakke eller fil.
+- Filen(e) som migreres må referere til opprinnelsesfila.
 
 **Eksempler:**
+
 ```json
 {
   "agent": {
@@ -430,21 +442,20 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 }
 ```
 
+### Transfer
 
-### Transfer 
-
-
- | Navn 	        | **transfer** 	                                                                  |
+| Navn 	        | **transfer** 	                                                                  |
 |:--------------|:--------------------------------------------------------------------------------|
 | Beskrivelse 	 | Prosessen med å overføre metadata og/eller digitale objekter mellom systemer. 	 |
 | Omfang 	      | IE	                                                                             |
 
-
 **Retningslinjer for bruk:**
--	Brukes ved overføring av objekter inn eller ut av bevaringsområdet eller midlertidige arbeidsområder. Dette inkluderer for eksempel flytting mellom bit-lagre, fra bit-lager til arbeidsområde for bearbeiding, eller fra arbeidsområde til bit-lager.
 
+- Brukes ved overføring av objekter inn eller ut av bevaringsområdet eller midlertidige arbeidsområder. Dette inkluderer for eksempel flytting mellom bit-lagre,
+  fra bit-lager til arbeidsområde for bearbeiding, eller fra arbeidsområde til bit-lager.
 
 **Eksempler:**
+
 ```json
 {
   "agent": {
@@ -463,22 +474,22 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 }
 ```
 
+### Validation
 
-### Validation 
-
-
- | Navn 	        | **validation** 	                                                                           |
+| Navn 	        | **validation** 	                                                                           |
 |:--------------|:-------------------------------------------------------------------------------------------|
 | Beskrivelse 	 | Prosessen med å sammenligne et objekt med en standard og registrere samsvar eller avvik. 	 |
 | Omfang 	      | IE, Fil	                                                                                   |
 
-
 **Retningslinjer for bruk:**
--	Objektet som valideres kan være en fil eller en Intellektuell enhet. Eventen bør knyttes til IE når det er mulig. For eksempel hvis filene er validert på samme måte med samme verktøy, eller strukturen er validert for hele pakken. 
--	Det kan være hensiktsmessig å lage én event for hele valideringen der man heller beskriver hvilke verktøy som er brukt i de ulike stegene, i stedet for å lage flere eventer for flere valideringer. 
 
+- Objektet som valideres kan være en fil eller en Intellektuell enhet. Eventen bør knyttes til IE når det er mulig. For eksempel hvis filene er validert på
+  samme måte med samme verktøy, eller strukturen er validert for hele pakken.
+- Det kan være hensiktsmessig å lage én event for hele valideringen der man heller beskriver hvilke verktøy som er brukt i de ulike stegene, i stedet for å lage
+  flere eventer for flere valideringer.
 
 **Eksempler:**
+
 ```json
 {
   "agent": {
@@ -495,6 +506,7 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
   }
 }
 ```
+
 ```json
 {
   "agent": {
@@ -513,21 +525,19 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
 }
 ```
 
+### Virus check
 
-### Virus check 
-
-
- | Navn 	        | **virus check** 	                                                    |
+| Navn 	        | **virus check** 	                                                    |
 |:--------------|:---------------------------------------------------------------------|
 | Beskrivelse 	 | Prosessen der en fil skannes for virus eller skadelig programvare. 	 |
 | Omfang 	      | IE, Fil	                                                             |
 
-
 **Retningslinjer for bruk:**
--	Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
 
+- Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
 
 **Eksempler:**
+
 ```json
 {
   "agent": {
@@ -545,6 +555,7 @@ Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.lo
   }
 }
 ```
+
 ```json
 {
   "agent": {
