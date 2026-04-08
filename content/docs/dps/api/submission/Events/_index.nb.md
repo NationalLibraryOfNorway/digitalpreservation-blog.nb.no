@@ -9,16 +9,17 @@ draft: false
 I digital bevaring dokumenterer en “event” en handling eller hendelse som har påvirket et digitalt objekt, for eksempel opprettelse, migrering, validering eller
 overføring. Dette anses som viktig bevaringsmetadata og gir sporbarhet og bevis for hva som er gjort med objektet gjennom hele livssyklusen.
 
-Event- og agent-modellen som brukes her er basert på PREMIS-datamodellen for bevaringsmetadata.
+Event- og agent-modellen som brukes her er basert på [PREMIS-datamodellen](https://www.loc.gov/standards/premis/) for bevaringsmetadata.
 
 Avlevering av eventer er ikke et krav, men vi anbefaler at det opprettes hvis man har slik informasjon tilgjengelig. Eventer som legges til i API-et vil bevares
 i egen event-database, på lik linje med hendelser som skjer på innsiden av bevaringsomgivelsene (DPS). Ved utlevering gir det enklere oversikt over hendelser
 knyttet til et objekt.
 
-Bevaringsmetadata kan også avleveres som en del av informasjonspakken (SIP). API-et brukes primært for å registrere hendelser knyttet til prosessering og
-håndtering av objektene, mens SIP brukes for metadata som er en del av selve leveransen. Se mer om det under  [metadataveiledning](/docs/dps/sip/1.0/metadata/)
-og [krav til pakkestruktur](/docs/dps/sip/1.0/structure-requirements/). Informasjon som går direkte på proveniens kan legges til
-i [metadata](/docs/dps/api/submission/metadata/).
+Bevaringsmetadata kan også leveres som filer i informasjonspakken (SIP). Forskjellen er at eventer registrert via API-et lagres i en søkbar event-database,
+mens filer i SIP bevares som en del av pakken uten å bli søkbare på samme måte. Vi foretrekker derfor at bevaringsmetadata sendes via API-et. Hvis det av
+praktiske eller tekniske grunner ikke er mulig, er det likevel bedre å ta med informasjonen i SIP-en enn å la være. Se mer om det under
+[metadataveiledning](/docs/dps/sip/1.0/metadata/) og [krav til pakkestruktur](/docs/dps/sip/1.0/structure-requirements/). Informasjon som går direkte på
+proveniens kan legges til i [metadata](/docs/dps/api/submission/metadata/).
 
 ## Kobling av eventer til objekt
 
@@ -125,8 +126,8 @@ Elementer merket med \* er påkrevde.
 
 ## Agent:
 
-Agent beskriver den aktøren som utførte handlingen. Dette kan være programvare, en organisasjon eller en person. Informasjonen skal være tilstrekkelig presis
-til å kunne identifisere hvilken aktør og konfigurasjon som ble brukt.
+Agent beskriver den aktøren som utførte handlingen. Dette kan være programvare, en organisasjon eller en person. 
+Informasjonen skal være tilstrekkelig presis til å kunne identifisere hvilken aktør og konfigurasjon som ble brukt.
 
 ### AgentName
 
@@ -141,13 +142,15 @@ Navn på aktøren som utførte handlingen. Navnet skal være entydig og konsekve
 
 ### AgentType
 
-Angir hvilken type aktør som utførte handlingen.
+Angir hvilken type aktør som utførte handlingen. 
+Verdiene er hentet fra [Library of Congress sitt vokabular for agentType](https://id.loc.gov/vocabulary/preservation/agentType.html).
 
 **Tillatte verdier:**
 
 - "software"
 - "organization"
 - "person"
+- "hardware"
 
 ### AgentVersion
 
@@ -201,8 +204,8 @@ betegnelse – se liste med tillatte typer nedenfor.
 
 ### EventDetail
 
-En presis beskrivelse av hva som ble gjort i hendelsen. Beskrivelsen bør angi hvilken operasjon som ble utført, på hvilket objekt, og eventuelt hvilken metode,
-standard eller prosess som ble brukt.
+En presis beskrivelse av hva som ble gjort i hendelsen. 
+Beskrivelsen bør angi hvilken operasjon som ble utført, på hvilket objekt, og eventuelt hvilken metode, standard eller prosess som ble brukt.
 
 **Eksempler:**
 
@@ -212,8 +215,9 @@ standard eller prosess som ble brukt.
 
 ### Outcome
 
-Overordnet resultat av hendelsen. Dette elementet angir om hendelsen ble gjennomført som forventet, mislyktes eller ble fullført med avvik. Verdien skal være
-konsistent og brukes likt for tilsvarende hendelser.
+Overordnet resultat av hendelsen. 
+Dette elementet angir om hendelsen ble gjennomført som forventet, mislyktes eller ble fullført med avvik. 
+Verdien skal være konsistent og brukes likt for tilsvarende hendelser.
 
 **Tillatte verdier:**
 
@@ -223,9 +227,11 @@ konsistent og brukes likt for tilsvarende hendelser.
 
 ### OutcomeDetail
 
-En konkret og presis beskrivelse av resultatet av hendelsen. Feltet bør brukes når resultatet inneholder informasjon som er relevant for videre bruk, kontroll
-eller dokumentasjon. Dette elementet skal dokumentere hva som faktisk ble oppnådd eller hvilke avvik som ble identifisert. Beskrivelsen skal være kortfattet og
-forståelig. Det er ikke alle hendelser som er nødvendig å dokumentere utover success/failure/warning, da holder det å bruke «outcome»-elementet.
+En konkret og presis beskrivelse av resultatet av hendelsen. 
+Feltet bør brukes når resultatet inneholder informasjon som er relevant for videre bruk, kontroll eller dokumentasjon. 
+Dette elementet skal dokumentere hva som faktisk ble oppnådd eller hvilke avvik som ble identifisert. 
+Beskrivelsen skal være kortfattet og forståelig. 
+Det er ikke alle hendelser som er nødvendig å dokumentere utover success/failure/warning, da holder det å bruke «outcome»-elementet.
 
 **Eksempler:**
 
@@ -626,7 +632,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "ClamAV",
     "agentType": "software",
     "agentVersion": "1.8.7",
-    "agentNotes": "Antivirusprogram brukt til å oppdage og fjerne skadelig programvare."
+    "agentNotes": "Antivirusprogram brukt til å oppdage skadelig programvare."
   },
   "event": {
     "eventDateTime": "2026-02-03T18:27:53.842+01:00",
