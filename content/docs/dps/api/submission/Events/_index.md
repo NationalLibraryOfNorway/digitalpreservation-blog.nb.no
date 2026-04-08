@@ -9,42 +9,111 @@ draft: false
 
 In digital preservation, an “event” documents an action or occurrence that has affected a digital object, such as creation, migration, validation, or transfer. Events are considered important preservation metadata, as they provide traceability and evidence of what has been done to the object throughout its entire lifecycle.
 
-Submitting events is not mandatory, but we recommend doing so when such information is available. Events added through the API will be preserved in a dedicated event database, just like events that occur within the preservation environment (DPS). When disseminated, this provides a clearer overview of all events associated with an object. If you want do submit other types of preservation metadata, it is also possible to submit preservation metadata as part of the information package (SIP). See more information under [metadata primer](/docs/dps/sip/1.0/metadata/) and [requirements for SIP structure](/docs/dps/sip/1.0/structure-requirements/). Information relating directly to provenance may be included under [metadata requirements](/docs/dps/api/submission/metadata/).
+The event and agent model used here is based on the [PREMIS data model](https://www.loc.gov/standards/premis/) for preservation metadata.
 
-Events can be associated with either the entire information package or with individual files. In general, events should be associated with the package level, the Intellectual Entity (IE), where possible. This is to avoid large numbers of events that essentially convey the same information. It is possible to associate events with individual files when there is a need to document file-level actions. The most important consideration is to be deliberate about what is documented, why it is documented, and at which level.
+Submitting events is not mandatory, but we recommend doing so when such information is available. Events added through the API will be preserved in a dedicated event database, just like events that occur within the preservation environment (DPS). When disseminated, this provides a clearer overview of all events associated with an object.
+
+Preservation metadata can also be submitted as files in the information package (SIP). The difference is that events registered via the API are stored in a searchable event database, whereas files in the SIP are preserved as part of the package without becoming searchable in the same way. We therefore prefer that preservation metadata is submitted via the API. If this is not possible for practical or technical reasons, it is still better to include the information in the SIP than to leave it out. See more under [metadata primer](/docs/dps/sip/1.0/metadata/) and [requirements for SIP structure](/docs/dps/sip/1.0/structure-requirements/). Information relating directly to provenance may be included under [metadata](/docs/dps/api/submission/metadata/).
+
+## Linking events to an object
+
+Events are submitted via the API:
+
+`POST /v1/contracts/{contractId}/submissions/{submissionId}/events`
+
+An event is always linked to a submission, which represents an Intellectual Entity (IE).
+
+### Level and reference to file
+
+Events are always linked to a submission (IE). They can apply to the entire information package (IE level) or to a specific file (file level).
+
+This is controlled by `fileRef`:
+
+- Without `fileRef` → the event applies to the entire information package (IE)
+- With `fileRef` → the event applies to a specific file
+
+`fileRef` identifies the file using `relativePath`:
+
+- The reference is based on the file's relative path within the information package
+- `fileId` is generated internally in DPS and must not be provided in the API call
+- Only one `fileRef` can be specified per event
+
+**Example (file level):**
+
+```json
+{
+  "event": {
+    "fileRef": {
+      "relativePath": "representations/rep-images/data/DSC_0456.JPG"
+    }
+  }
+}
+```
+
+In this example, the event applies to the file `DSC_0456.JPG` in the representation `rep-images`.
+
+## JSON payload structure
+
+An event is submitted as a JSON structure with two main elements:
+
+- `agent` – describes the actor that performed the action
+- `event` – describes the action itself and its result
+
+`fileRef` is optional and is only used when the event applies to a specific file. If `fileRef` is not specified, the event applies to the entire information package (IE level).
+
+**Simplified structure:**
+
+```json
+{
+  "agent": {
+    "agentName": "...",
+    "agentType": "...",
+    "agentVersion": "...",
+    "agentNotes": "..."
+  },
+  "event": {
+    "eventDateTime": "...",
+    "eventType": "...",
+    "eventDetail": "...",
+    "fileRef": {
+      "relativePath": "..."
+    },
+    "outcome": "...",
+    "outcomeDetail": "..."
+  }
+}
+```
+
+Events can be registered at both package level and file level. As a general rule, events should be linked to the package level, the Intellectual Entity (IE), where possible. This is to avoid large numbers of events that essentially convey the same information. It is possible to associate events with individual files when there is a need to document file-level actions. The most important consideration is to be deliberate about what is documented, why it is documented, and at which level.
 
 For norwegian submitters it is recommended that events are written in Norwegian whenever possible. In general the events should be formulated with future management and use in mind, so that the information remains as clear and verifiable as possible over time.
 
 For technical documentation of submissions in API and event foramatting see: [Swagger DPS Submission Service API](https://digitalpreservation.no/swagger/)
-
-<br>
-<br>
 
 # Use of event elements
 
 
 **The following elements are permitted:**
 
-**Agent:*** 
-- **agentName***
-- **agentType***
+**Agent:**\*
+- **agentName**\*
+- **agentType**\*
 - **agentVersion**
 - **agentNotes**
 
-**Event:***
-- **eventDateTime***
-- **eventType***
+**Event:**\*
+- **eventDateTime**\*
+- **eventType**\*
 - **eventDetail**
-- **outcome***
+- **outcome**\*
 - **outcomeDetail**
 
-Elements marked with * are required.
-<br><br>
+Elements marked with \* are required.
 
 ## How to use Event Elements:
 
 ## Agent:
-The Agent describes the actor that performed the action. This may be software, an organization, or a person.
+The Agent describes the actor that performed the action. This may be software, an organization, or a person. The information should be sufficiently precise to identify which actor and configuration was used.
 
 
 ### AgentName
@@ -58,12 +127,13 @@ The name of the actor that performed the action. The name must be unique and use
 
 
 ### AgentType
-Specifies the type of actor that performed the action.
+Specifies the type of actor that performed the action. Values are taken from the [Library of Congress vocabulary for agentType](https://id.loc.gov/vocabulary/preservation/agentType.html).
 
 **Allowed values:**
 - "software"
 - "organization"
 - "person"
+- "hardware"
 
 
 
@@ -92,7 +162,7 @@ Additional information about the agent that performed the action. This element d
 - "Institution with formal responsibility for digital preservation, ingest, and long-term management of archival materials."
 
 > [!NOTE]
-> AgentNotes should be used as consistently as possible for the same agent. Variations in the wording of AgentNotes will result in the creation of a new Agent entry in the registry.
+> AgentNotes should be used as consistently as possible for the same agent. Minor variations in wording should be avoided, as this may result in the same agent being registered multiple times.
 
 
 
@@ -115,7 +185,7 @@ The value must be a controlled and consistently used term — see list of allowe
 
 
 ### EventDetail
-A precise description of what was done in the event. This element elaborates on EventType and describes the specific operation carried out.
+A precise description of what was done in the event. The description should indicate which operation was performed, on which object, and where applicable, which method, standard, or process was used.
 
 **Examples:**
 - "MD5 checksum generated." 
@@ -124,7 +194,7 @@ A precise description of what was done in the event. This element elaborates on 
 
 
 ### Outcome
-The overall result of the event. This element indicates whether the event was completed as expected, failed, or was completed with deviations.
+The overall result of the event. This element indicates whether the event was completed as expected, failed, or was completed with deviations. The value should be used consistently for equivalent events.
 
 **Allowed values:**
 - "success"
@@ -134,15 +204,12 @@ The overall result of the event. This element indicates whether the event was co
 
 ### OutcomeDetail
 A concrete and precise description of the result of the event.
-This element documents what was actually achieved or which deviations were identified. The description should be concise and clear. Not all events require additional documentation beyond success/failure/warning — in such cases, the Outcome element alone is sufficient.
+This field should be used when the result contains information relevant for further use, control, or documentation.
+This element documents what was actually achieved or which deviations were identified. The description should be concise and clear.
 
 **Examples:**
 - "Identified as fmt/353 (TIFF 6.0)."
 - "Validated against profile E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 and NB-SIP-MOVINGIMAGES-PROFILE-1.0."
-
-
-<br>
-<br>
 
 
 # Event-types
@@ -187,14 +254,14 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 ### Creation 
 
 
- | Name 	       | **creation** 	                          |
-|:-------------|:----------------------------------------|
-| Description	 | The process of creating a new object. 	 |
-| Scope 	      | File 	                                  |
+| Name         | **creation**                          |
+|:-------------|:--------------------------------------|
+| Description  | The process of creating a new object. |
+| Scope        | File                                  |
 
 
 **Guidelines for use:**
-- Used to document the digital object within an information package. 
+- Used to document the creation of a digital object.
 -	Used to document the origin of the file or Intellectual Entity, describes the method and process of creating the file/IE. See also eventType "imaging".
 
 
@@ -210,9 +277,8 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   "event": {
     "eventDateTime": "2026-02-03T07:14:01.716+01:00",
     "eventType": "creation",
-    "eventDetail": "A digital representation of the physical material was created by means of a digitization process.",
-    "outcome": "success",
-    "outcomeDetail": "The resulting wav-files was rendered to disk on the sound studio workstation."
+    "eventDetail": "Digital representation created through digitisation.",
+    "outcome": "success"
   }
 }
 ```
@@ -221,10 +287,10 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 ### Filename change 
 
 
- | Name	        | **filename change** 	                  |
-|:-------------|:---------------------------------------|
-| Description	 | The process of modifying a filename. 	 |
-| Scope 	      | File 	                                 |
+| Name        | **filename change**              |
+|:------------|:---------------------------------|
+| Description | The process of modifying a filename. |
+| Scope       | File                             |
 
 
 **Guidelines for use:**
@@ -239,14 +305,13 @@ The National Library bases its work on the [Library of Congress](https://www.loc
     "agentName": "Apache NiFi",
     "agentType": "software",
     "agentVersion": "2.4.0",
-    "agentNotes": "Dataflow automation tool that enables the design and management of complex data pipelines."
+    "agentNotes": "Dataflow automation tool."
   },
   "event": {
     "eventDateTime": "2026-02-03T10:47:29.332+01:00",
     "eventType": "filename change",
     "eventDetail": "The filename was changed to conform to current file naming convention.",
     "fileRef": {
-      "fileId": "a1b2c3d4e5f67890123456789abcdef0",
       "relativePath": "representations/rep-text_20230219/data/document_001.pdf"
     },
     "outcome": "success",
@@ -278,12 +343,12 @@ The National Library bases its work on the [Library of Congress](https://www.loc
     "agentName": "md5sum (GNU coreutils)",
     "agentType": "software",
     "agentVersion": "8.32",
-    "agentNotes": "Calculates MD5 checksums and verifies against stored checksum manifest."
+    "agentNotes": "Tool used to calculate and verify checksums to control data integrity over time."
   },
   "event": {
     "eventDateTime": "2026-02-03T12:05:48.210+01:00",
     "eventType": "fixity check",
-    "eventDetail": "Calculated MD5 checksums for all files in the package and verified against the stored checksums in the manifest file.",
+    "eventDetail": "MD5 checksums were verified against previously registered values for all files in the package.",
     "outcome": "success"
   }
 }
@@ -305,7 +370,22 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 **Examples:**
 
-
+```json
+{
+  "agent": {
+    "agentName": "dd",
+    "agentType": "software",
+    "agentVersion": "1.0",
+    "agentNotes": "Tool for creating bit-for-bit copies of storage media."
+  },
+  "event": {
+    "eventDateTime": "2026-02-03T09:00:00+01:00",
+    "eventType": "imaging",
+    "eventDetail": "Created disk image from physical medium.",
+    "outcome": "success"
+  }
+}
+```
 
 ### Message digest calculation 
 
@@ -329,7 +409,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
     "agentName": "md5sum (GNU coreutils)",
     "agentType": "software",
     "agentVersion": "8.32",
-    "agentNotes": "Calculates MD5 checksums and verifies against stored checksum manifest."
+    "agentNotes": "Tool used to calculate checksums for verification of data integrity."
   },
   "event": {
     "eventDateTime": "2026-02-03T13:36:42.455+01:00",
@@ -344,10 +424,10 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 ### Metadata extraction 
 
 
- | Name	         | **metadata extraction** 	                                                                                             |
-|:--------------|:----------------------------------------------------------------------------------------------------------------------|
-| Description 	 | The process of extracting metadata from an object. This includes technical, administrative and descriptive metadata.	 |
-| Scope	        | File	                                                                                                                 |
+| Name        | **metadata extraction**                                                                             |
+|:------------|:----------------------------------------------------------------------------------------------------|
+| Description | Extraction of metadata from an object. This includes technical, administrative and descriptive metadata. |
+| Scope       | File                                                                                                |
 
 
 **Guidelines for use:**
@@ -362,14 +442,13 @@ The National Library bases its work on the [Library of Congress](https://www.loc
     "agentName": "ExifTool",
     "agentType": "software",
     "agentVersion": "12.60",
-    "agentNotes": "Used for extracting metadata from image and video files."
+    "agentNotes": "Extracts technical metadata from files."
   },
   "event": {
     "eventDateTime": "2026-02-19T11:45:32.123+01:00",
     "eventType": "metadata extraction",
-    "eventDetail": "Extracted technical and descriptive metadata from image file: DSC_0456.JPG.",
+    "eventDetail": "Extracted technical metadata from image file.",
     "fileRef": {
-      "fileId": "b1c2d3e4f567890123456789abcdef01",
       "relativePath": "representations/rep-images_20230908/data/DSC_0456.JPG"
     },
     "outcome": "success",
@@ -402,10 +481,10 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 ### Migration
 
 
- | Name 	        | **migration** 	                                                                         |
-|:--------------|:----------------------------------------------------------------------------------------|
-| Description 	 | The act of transforming an object from one file format(s) into another file format(s).	 |
-| Scope 	       | IE, File	                                                                               |
+| Name        | **migration**                               |
+|:------------|:--------------------------------------------|
+| Description | Conversion to a new file format.            |
+| Scope       | IE, File                                    |
 
 
 **Guidelines for use:**
@@ -422,7 +501,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
     "agentName": "FFmpeg",
     "agentType": "software",
     "agentVersion": "6.0",
-    "agentNotes": "Used for media conversion and encoding."
+    "agentNotes": "Media conversion and encoding of AV files."
   },
   "event": {
     "eventDateTime": "2026-02-03T15:09:55.774+01:00",
@@ -438,14 +517,14 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 ### Transfer 
 
 
- | Name	         | **transfer** 	                                                                   |
-|:--------------|:---------------------------------------------------------------------------------|
-| Description 	 | The process of transferring metadata and/or digital object(s) between systems. 	 |
-| Skope	        | IE	                                                                              |
+| Name        | **transfer**                                                                    |
+|:------------|:--------------------------------------------------------------------------------|
+| Description | The process of transferring metadata and/or digital object(s) between systems.  |
+| Scope       | IE                                                                              |
 
 
 **Guidelines for use:**
--	Used for transferring objects into or out of the preservation area or temporary working areas. This typically includes moving objects between storage locations, from storage to a working area for processing, or from a working area to storage.
+-	Used for transferring objects into or out of the preservation area or temporary working areas.
 
 
 **Examples:**
@@ -458,7 +537,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
     "agentNotes": "Dataflow automation tool that enables the design and management of complex data pipelines."
   },
   "event": {
-    "eventDateTime": "2026-02-18T14:02:33Z",
+    "eventDateTime": "2026-02-18T14:02:33+01:00",
     "eventType": "transfer",
     "eventDetail": "Transferred package from Oracle HSM(SAM-FS) to local workspace for further processing; Upload was performed with source checksums verified; Generated E-ARK SIP.",
     "outcome": "success",
@@ -471,10 +550,10 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 ### Validation 
 
 
- | Name	         | **validation** 	                                                                          |
-|:--------------|:------------------------------------------------------------------------------------------|
-| Description 	 | The process of comparing an object with a standard and noting compliance or exceptions. 	 |
-| Scope	        | IE, File	                                                                                 |
+| Name        | **validation**                  |
+|:------------|:--------------------------------|
+| Description | Validation against a standard.  |
+| Scope       | IE, File                        |
 
 
 **Guidelines for use:**
@@ -489,12 +568,12 @@ The National Library bases its work on the [Library of Congress](https://www.loc
     "agentName": "JHOVE",
     "agentType": "software",
     "agentVersion": "1.32.1",
-    "agentNotes": "An extensible software framework for performing format identification, validation, and characterization of digital objects."
+    "agentNotes": "Tool used for identification, validation and characterisation of digital objects."
   },
   "event": {
     "eventDateTime": "2026-02-03T17:30:39.662+01:00",
     "eventType": "validation",
-    "eventDetail": "Validated that the audio-files comply with the specifications of the WAVE format",
+    "eventDetail": "Validated that files comply with the specifications of the applicable file format.",
     "outcome": "success"
   }
 }
@@ -538,14 +617,13 @@ The National Library bases its work on the [Library of Congress](https://www.loc
     "agentName": "ClamAV",
     "agentType": "software",
     "agentVersion": "1.8.7",
-    "agentNotes": "Antivirus program designed to detect malicious software."
+    "agentNotes": "Antivirus program used to detect malicious software."
   },
   "event": {
     "eventDateTime": "2026-02-03T18:27:53.842+01:00",
     "eventType": "virus check",
-    "eventDetail": "All files in the package were scanned prior to transfer.",
-    "outcome": "success",
-    "outcomeDetail": "No infected files were detected."
+    "eventDetail": "All files in the package were scanned for viruses and other malicious software prior to further processing.",
+    "outcome": "success"
   }
 }
 ```
