@@ -507,7 +507,6 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 **Retningslinjer for bruk:**
 
 - Eventen bør knyttes til IE når det er mulig, for eksempel dersom filene er konvertert på samme måte til samme format.
-- Brukes ved endring av filformat, ikke til å dokumentere komprimering som del av lagringsoptimalisering. Se også eventType «compression».
 - Migration-events skal alltid resultere i en ny pakke eller fil.
 - Filen(e) som migreres må referere til opprinnelsesfila.
 

@@ -489,7 +489,6 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 **Guidelines for use:**
 - The event should be associated with the Intellectual Entity (IE) whenever possible, for example, if the files have been converted in the same way to the same format. 
--	Used when changing fileformat, not to document compression as part of storage optimization. See also eventType “compression”.
 -	Migration events should always create a new package or file. 
 - The migrated file(s) must reference the source file. 
 
