@@ -523,9 +523,8 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   "event": {
     "eventDateTime": "2026-02-03T15:09:55.774+01:00",
     "eventType": "migration",
-    "eventDetail": "Konverterte MOV-filer til MXF/Op1a-format med JPEG2000, videokodek og PCM lydkodek.",
-    "outcome": "success",
-    "outcomeDetail": "command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes"
+    "eventDetail": "Konverterte MOV-filer til MXF/Op1a-format med JPEG2000, videokodek og PCM lydkodek. Brukte parametere: command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes",
+    "outcome": "success"
   }
 }
 ```

@@ -505,9 +505,8 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   "event": {
     "eventDateTime": "2026-02-03T15:09:55.774+01:00",
     "eventType": "migration",
-    "eventDetail": "Converted MOV files to MXF/Op1a format with JPEG2000 video codec and PCM audio codec.",
-    "outcome": "success",
-    "outcomeDetail": "command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes"
+    "eventDetail": "Converted MOV files to MXF/Op1a format with JPEG2000 video codec and PCM audio codec. Parameters used: command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes",
+    "outcome": "success"
   }
 }
 ```
