@@ -538,9 +538,8 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   "event": {
     "eventDateTime": "2026-02-18T14:02:33+01:00",
     "eventType": "transfer",
-    "eventDetail": "Transferred package from Oracle HSM(SAM-FS) to local workspace for further processing; Upload was performed with source checksums verified; Generated E-ARK SIP.",
-    "outcome": "success",
-    "outcomeDetail": "Verified checksums with md5sum (GNU coreutils); Generated E-ARK SIP with commons-ip2 2.12.0."
+    "eventDetail": "Transferred package from Oracle HSM(SAM-FS) to local workspace for further processing; Upload was performed with source checksums verified with md5sum (GNU coreutils); Generated E-ARK SIP with commons-ip2 2.12.0.",
+    "outcome": "success"
   }
 }
 ```

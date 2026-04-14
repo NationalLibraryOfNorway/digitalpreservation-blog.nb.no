@@ -554,9 +554,8 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   "event": {
     "eventDateTime": "2026-02-18T14:02:33+01:00",
     "eventType": "transfer",
-    "eventDetail": "Overført pakke fra Oracle HSM(SAM-FS) til lokalt arbeidsområde for videre behandling; Opprinnelige sjekksummer verifisert ved opplasting; Opprettet E-ARK SIP.",
-    "outcome": "success",
-    "outcomeDetail": "Verifiserte sjekksummer med md5sum (GNU coreutils); Opprettet E-ARK SIP med commons-ip2 2.12.0."
+    "eventDetail": "Overført pakke fra Oracle HSM(SAM-FS) til lokalt arbeidsområde for videre behandling; Opprinnelige sjekksummer verifisert med md5sum (GNU coreutils) ved opplasting; Opprettet E-ARK SIP med commons-ip2 2.12.0.",
+    "outcome": "success"
   }
 }
 ```
