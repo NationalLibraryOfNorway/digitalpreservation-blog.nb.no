@@ -301,8 +301,9 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   "event": {
     "eventDateTime": "2026-02-03T07:14:01.716+01:00",
     "eventType": "creation",
-    "eventDetail": "Digital representasjon opprettet gjennom digitalisering.",
-    "outcome": "success"
+    "eventDetail": "Digitalisering av analog lyd til WAV/BWF ved bruk av Pyramix og A/D-konverter. Opptak gjort i sanntid fra analog kilde via ekstern konverter.",
+    "outcome": "success",
+    "outcomeDetail": "Genererte filer i WAV/BWF-format med verifisert opptakskvalitet."
   }
 }
 ```
@@ -450,8 +451,9 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 **Retningslinjer for bruk:**
 
-- Brukes når metadata hentes ut av en fil og resulterer i en eller flere metadatafiler.
-- Filen(e) som utledes må referere til opprinnelsesfila.
+- Brukes når metadata hentes ut av en fil. 
+- Utledet metadata må referere til opprinnelsesfila i `"fileRef"`.
+- Hvis uttrekk resulterer i en eller flere metadatafiler, må `"OutcomeDetail"` inkludere referanse (filsti) til utledet/generert metadatafil.
 
 **Eksempler:**
 
@@ -492,8 +494,8 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
       "relativePath": "representations/primary_20250325/data/something.wav"
     },
     "outcome": "success",
-    "outcomeDetail": "Utledet en XML-metadatafil som inneholder detaljert analyse."
-  }
+    "outcomeDetail": "Utledet en XML-metadatafil som inneholder detaljert analyse: representations/primary20250325/metadata/technical/audioinspector/metadata.xml"
+  
 }
 ```
 
@@ -507,8 +509,9 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 **Retningslinjer for bruk:**
 
 - Eventen bør knyttes til IE når det er mulig, for eksempel dersom filene er konvertert på samme måte til samme format.
-- Migration-events skal alltid resultere i en ny pakke eller fil.
-- Filen(e) som migreres må referere til opprinnelsesfila.
+- Migration-events skal alltid resultere i en ny fil(er) eller pakke.
+- Filen(e) som migreres må referere til opprinnelsesfila i `"fileRef"`når enkeltfiler migreres (ikke knyttet til IE).
+- `"OutcomeDetail"` må inkludere referanse (filsti) til migrert fil(er).
 
 **Eksempler:**
 
@@ -523,8 +526,9 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   "event": {
     "eventDateTime": "2026-02-03T15:09:55.774+01:00",
     "eventType": "migration",
-    "eventDetail": "Konverterte MOV-filer til MXF/Op1a-format med JPEG2000, videokodek og PCM lydkodek. Brukte parametere: command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes",
-    "outcome": "success"
+    "eventDetail": "Batch migrering av alle MOV-filer i pakken (25 filer) til MXF/Op1a-format med JPEG2000, videokodek og PCM lydkodek. Brukte parametere: command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes",
+    "outcome": "success",
+    "outcomeDetail": "Resulterende MXF-filer lagret i representations/primary_20250325/data/." 
   }
 }
 ```
