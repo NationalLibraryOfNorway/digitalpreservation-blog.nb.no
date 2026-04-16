@@ -3,7 +3,7 @@ title: "Updated Strategy for Digital Preservation at the National Library (NB)"
 date: 2026-04-16
 description: "We have updated our digital preservation strategy that will apply to the period 2026–2029."
 tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, Strategy, Policy, Principles"]
-draft: true
+draft: false
 authors: 
   - name: Trond Teigen & Sandra Kråkstad
     image: /apple-touch-icon.png 
