@@ -33,4 +33,4 @@ Følgjande endringar er lagde inn i oppdatert strategi for digital bevaring i NB
 
 - Under strategiske satsingsområde er det teke inn eit punkt som tydeleggjer rolla til NB som bevaringsinstitusjon i forhold til ABM-sektoren og nasjonal kunnskapsberedskap. Dette er teke med som ein direkte konsekvens av Stortingsmelding nr 9.(2024–2025) **Totalberedskapsmeldingen — Forberedt på kriser og krig**. Det som var særleg å merke seg her, var at kunst og kultur er blitt ein del av totalberedskapen. Det inneber at kultur, kulturarv og kulturaktørar òg blir definert som viktige i kriser og krig. 
 
-I tillegg har det vore viktig å sikre at strategidokumentet er kort og konsist, slik at det faktisk blir lese og forstått. [Her er den nye strategien](https://digitalpreservation.no/nb/docs/strategy/). 
+I tillegg har det vore viktig å sikre at strategidokumentet er kort og konsist, slik at det faktisk blir lese og forstått. [Her er den nye strategien](/nb/docs/strategy/). 

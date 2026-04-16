@@ -33,4 +33,4 @@ The following changes have been incorporated into the updated digital preservati
 
 - Under strategic priority areas, a new point has been introduced to clarify NLN’s role as a preservation institution in relation to the archives, libraries, and museums (LAM) sector, as well as its role in national knowledge preparedness. This has been included as a direct consequence of Parliamentary Report No. 9 (2024–2025), **Total Preparedness Report — Prepared for Crises and War**. A key takeaway from this report is that arts and culture are now considered part of total preparedness. This means that culture, cultural heritage, and cultural actors are also recognized as important in times of crisis and war.  
 
-In addition, it has been important to ensure that the strategy document remains short and concise—so that it is actually being read and understood. [Here the new strategy](https://digitalpreservation.no/docs/strategy/). 
+In addition, it has been important to ensure that the strategy document remains short and concise—so that it is actually being read and understood. [Here the new strategy](/docs/strategy/). 
