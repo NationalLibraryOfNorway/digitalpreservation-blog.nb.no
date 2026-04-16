@@ -2,7 +2,7 @@
 title: "Strategi for digital bevaring ved Nasjonalbiblioteket [NO]"
 summary: "🇳🇴 Norwegian primary document. First version. Deprecated"
 date: 2024-02-07
-expiryDate: 2026-15-04 
+expiryDate: 2026-16-04 
 tags: ["Strategy", "Policy", "Principles"]
 authors: 
   - name: Digital Preservation Team
