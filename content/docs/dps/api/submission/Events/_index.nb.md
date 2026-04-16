@@ -510,7 +510,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 - Eventen bør knyttes til IE når det er mulig, for eksempel dersom filene er konvertert på samme måte til samme format.
 - Migration-events skal alltid resultere i en ny fil(er) eller pakke.
-- Filen(e) som migreres må referere til opprinnelsesfila i `"fileRef"`når enkeltfiler migreres (ikke knyttet til IE).
+- Filen(e) som migreres må referere til opprinnelsesfila i `"fileRef"` når enkeltfiler migreres (når eventen ikke er knyttet til IE).
 - `"OutcomeDetail"` må inkludere referanse (filsti) til migrert fil(er).
 
 **Eksempler:**

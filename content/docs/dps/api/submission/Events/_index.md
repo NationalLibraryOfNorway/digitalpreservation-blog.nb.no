@@ -492,7 +492,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 **Guidelines for use:**
 - The event should be associated with the Intellectual Entity (IE) whenever possible, for example, if the files have been converted in the same way to the same format. 
 -	Migration events should always create a new file(s) or package. 
-- The migrated file(s) must reference the source file in `"fileRef"` when singele files are migrated (not associated with IE).
+- The migrated file(s) must reference the source file in `"fileRef"` when singele files are migrated (when the event is not associated with IE).
 -  `"outcomeDetail"` must include a reference (file path) to the migrated file(s).
 
 
