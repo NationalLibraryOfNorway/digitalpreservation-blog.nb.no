@@ -41,7 +41,7 @@ Work began in autumn 2024 with mapping and preparation. The actual rearchiving b
 
 By combining automation with targeted manual reviews, we significantly increased efficiency. Daily processing capacity rose from 25 to over 40 terabytes.
 
-![Rearchiving per day in TeraBytes](/datavolume.jpg "Overview of data volume rearchived per day. 1 TB = 1 GB")
+![Rearchiving per day in TeraBytes](/datavolume.jpg "Overview of data volume rearchived per day. 1 TB = 1.000 GB")
 
 ## Findings and Anomalies
 

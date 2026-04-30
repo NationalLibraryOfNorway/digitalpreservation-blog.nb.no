@@ -277,8 +277,9 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   "event": {
     "eventDateTime": "2026-02-03T07:14:01.716+01:00",
     "eventType": "creation",
-    "eventDetail": "Digital representation created through digitisation.",
-    "outcome": "success"
+    "eventDetail": "Digitization of analog audio to WAV/BWF using Pyramix and an A/D converter. Recording performed in real time from an analog source via an external converter.",
+    "outcome": "success",
+    "outcomeDetail": "Files were generated in WAV/BWF format with verified recording quality."
   }
 }
 ```
@@ -431,8 +432,9 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 
 **Guidelines for use:**
- - Used when metadata is extracted from a file, resulting in one or more metadata files.
-- The derived file(s) must reference the source file. 
+- Used when metadata is extracted from a file.
+- The derived metadata must reference the source file in `"fileRef"`. 
+- If the extraction results in one or more metadata files, `"outcomeDetail"` must include a reference (file path) to the extracted/generated metadata file(s).
 
 
 **Examples:**
@@ -472,7 +474,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
       "relativePath": "representations/primary_20250325/data/something.wav"
     },
     "outcome": "success",
-    "outcomeDetail": "An XML metadata file was created, containing detailed analysis results."
+    "outcomeDetail": "An XML metadata file was created, containing detailed analysis results: representations/primary20250325/metadata/technical/audioinspector/metadata.xml"
   }
 }
 ```
@@ -489,9 +491,9 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 **Guidelines for use:**
 - The event should be associated with the Intellectual Entity (IE) whenever possible, for example, if the files have been converted in the same way to the same format. 
--	Used when changing fileformat, not to document compression as part of storage optimization. See also eventType “compression”.
--	Migration events should always create a new package or file. 
-- The migrated file(s) must reference the source file. 
+-	Migration events should always create a new file(s) or package. 
+- The migrated file(s) must reference the source file in `"fileRef"` when singele files are migrated (when the event is not associated with IE).
+-  `"outcomeDetail"` must include a reference (file path) to the migrated file(s).
 
 
 **Examples:**
@@ -506,9 +508,9 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   "event": {
     "eventDateTime": "2026-02-03T15:09:55.774+01:00",
     "eventType": "migration",
-    "eventDetail": "Converted MOV files to MXF/Op1a format with JPEG2000 video codec and PCM audio codec.",
+    "eventDetail": "Batch migration of all MOV files in the package (25 files) to MXF/Op1a format with JPEG2000 video codec and PCM audio codec. Parameters used: command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes",
     "outcome": "success",
-    "outcomeDetail": "command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes"
+    "outcomeDetail": "Resulting MXF files stored in representations/primary_20250325/data/."
   }
 }
 ```
@@ -539,9 +541,8 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   "event": {
     "eventDateTime": "2026-02-18T14:02:33+01:00",
     "eventType": "transfer",
-    "eventDetail": "Transferred package from Oracle HSM(SAM-FS) to local workspace for further processing; Upload was performed with source checksums verified; Generated E-ARK SIP.",
-    "outcome": "success",
-    "outcomeDetail": "Verified checksums with md5sum (GNU coreutils); Generated E-ARK SIP with commons-ip2 2.12.0."
+    "eventDetail": "Transferred package from Oracle HSM(SAM-FS) to local workspace for further processing; Upload was performed with source checksums verified with md5sum (GNU coreutils); Generated E-ARK SIP with commons-ip2 2.12.0.",
+    "outcome": "success"
   }
 }
 ```

@@ -1,6 +1,6 @@
 ---
 linkTitle: Ambitions, goals and strategy
-title: "Strategy for digital preservation at the National Library of Norway"
+title: "Strategy for digital preservation at the National Library of Norway (2026-2029)"
 weight: 2
 date: 2024-02-07
 draft: false
@@ -21,7 +21,7 @@ The strategy aims to secure long-term access to the digital cultural heritage, s
 
 ## Ambition for Digital Preservation
 
-Ensure the protection of, and meaningful access to, national digital cultural heritage for current and future generations.
+Ensure the protection of, and meaningful access to, national digital cultural heritage for current and future generations. Serve as a cornerstone for the retrieval and dissemination of authentic digital content, and support further service development at the National Library based on the digital collection. 
 
 ## Goals for Digital Preservation
 
@@ -29,22 +29,25 @@ Ensure the protection of, and meaningful access to, national digital cultural he
 - Digital content shall be protected against unintended access, alteration, loss, or damage.
 - The National Library shall at all times know what digital content is being preserved, its provenance, its condition, and what has been done to it.
 - Digitally preserved content shall be accessible for dissemination now and in the future.
+- Data quality shall be ensured through the use of standardized storage formats, file structures, and metadata. This enables, among other things, automated use in AI development and research infrastructure. 
 
 ## Challenges
 
 - **Integrity:** It is easy to alter digital content, and it can be challenging to maintain and verify its integrity.
 - **Data Size and Volume:** Increasing amounts of data challenge existing solutions for management, storage, and security of the digital collection.
 - **Technological Change:** Risk that digital content becomes unusable or incomprehensible when software and hardware become outdated, and the diversity of file formats/variants of formats increases.
-- **Professional Competence:** Lack of professional resources can limit the ability to carry out digital preservation.
+- **Professional Competence:** Lack of expertise and resources can limit the ability to carry out digital preservation.
 - **Changes in Usage Patterns:** Unpredictability in terms of who will want access to and retrieve different parts of the preserved content and how it will be used.
+- **Financials:** Funding and budgeting are unpredictable. Insufficient funding may force irreversible decisions, such as compression with loss of quality or the exclusion of materials from the collection.
 
 ## Strategic areas of focus
 
-- **Developing expertise:** Build expertise in digital preservation and have a good knowledge of current practices in the field.
-  Actively contribute to national and international initiatives and share experiences.
+- **Developing expertise:** Build expertise in digital preservation, contribute to continuous improvement within interdisciplinary teams, and maintain up-to-date knowledge of current practices in the field. Serve as a professional resource for the ABM sector in Norway. 
+  Actively contribute to national and international initiatives and share knowledge and experiences.
 - **Standardization:** Establish uniform, standardized, and automated handling of digital content and metadata.
 - **Technology:** Further develop and ensure robust and scalable technological infrastructure that adheres to the principles[^2] for managing digital content in a secure and sustainable manner.
   This includes both software, hardware, and other infrastructure.
+- **Services:** Provide services for long-term digital preservation within the National Library and for the LAM sector. These are critical societal services that support knowledge preparedness and form the foundation for an informed and trust-based democracy. 
 
 
 [^1]: [The legal deposit act on lovdata.no](https://lovdata.no/dokument/NL/lov/1989-06-09-32 "Link to the legal deposit act on lovdata.no, available only in Norwegian") (in Norwegian)
