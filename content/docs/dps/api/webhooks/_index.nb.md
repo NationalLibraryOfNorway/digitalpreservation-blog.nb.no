@@ -134,11 +134,11 @@ Webhook sendt når en SIP-innlevering er bevart og lagret permanent.
 }
 ```
 
-| Felt           | Type   | Beskrivelse                                                             |
-|----------------|--------|-------------------------------------------------------------------------|
-| `contractId`   | string | Identifikator for kontrakt eller avtale som innsendelsen er knyttet til |
-| `submissionId` | string | Unik identifikator for SIP-innleveringen                                |
-| `archiveId`    | string | Unik identifikator for arkivobjekt i DPS                                |
+| Felt           | Type   | Beskrivelse                                                                                                                                                                                                  |
+|----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `contractId`   | string | Identifikator for kontrakt eller avtale som innsendelsen er knyttet til                                                                                                                                      |
+| `submissionId` | string | Unik identifikator for SIP-innleveringen                                                                                                                                                                     |
+| `archiveId`    | string | Unik identifikator for det bevarte arkivobjektet i DPS. Tildeles når innleveringen er arkivert. Bruk denne ID-en til å referere til objektet i fremtidige forespørsler, f.eks. ved bestilling av utlevering. |
 
 ---
 
@@ -174,7 +174,7 @@ Webhook sendt når en SIP-innlevering er avvist under validering eller behandlin
 |----------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------|
 | `contractId`   | string | Identifikator for kontrakt eller avtale som innsendelsen er knyttet til                                                                        |
 | `submissionId` | string | Unik identifikator for SIP-innleveringen                                                                                                       |
-| `archiveId`    | string | Unik identifikator for arkivobjekt i DPS                                                                                                       |
+| `archiveId`    | string | Unik identifikator for arkivobjektet i DPS.                                                                                                    |
 | `reasons`      | array  | Liste med årsaker til avvisning. Minst én oppføring.                                                                                           |
 | → `code`       | string | Maskinlesbar feilkode som identifiserer typen feil. Stabil over tid                                                                            |
 | → `message`    | string | Menneskelesbar beskrivelse av feilen                                                                                                           |
@@ -212,21 +212,21 @@ Webhook sendt når et leveransesett (DIP) er gjort tilgjengelig for nedlasting.
 }
 ```
 
-| Felt                  | Type      | Beskrivelse                                                                |
-|-----------------------|-----------|----------------------------------------------------------------------------|
-| `archiveId`           | string    | Unik identifikator for arkivobjekt i DPS                                   |
-| `disseminationId`     | string    | Unik identifikator for leveransepakke                                      |
-| `objectId`            | string    | Objekt identifikator fra avvleverer                                        |
-| `clientId`            | string    | Mottaker                                                                   |
-| `contractId`          | string    | Identifikator for kontrakt eller avtale som leveransepakken er knyttet til |
-| `sumSizeInBytes`      | integer   | Total størrelse i bytes                                                    |
-| `files`               | array     | Liste over filer i pakken                                                  |
-| → `downloadURL`       | uri       | Presignert nedlastings-URL                                                 |
-| → `filename`          | string    | Filnavn                                                                    |
-| → `filesize`          | integer   | Filstørrelse i bytes                                                       |
-| → `expirationDate`    | date-time | Utløpsdato for URL                                                         |
-| → `checksum`          | string    | Sjekksum                                                                   |
-| → `checksumAlgorithm` | enum      | Algoritme brukt for sjekksum                                               |
+| Felt                  | Type      | Beskrivelse                                                                                                                                                          |
+|-----------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `archiveId`           | string    | Unik identifikator for det bevarte arkivobjektet i DPS. Samme ID som i `submission.preserved`. Bruk den til å koble utleveringen til den opprinnelige innleveringen. |
+| `disseminationId`     | string    | Unik identifikator for leveransepakke                                                                                                                                |
+| `objectId`            | string    | Objektidentifikator fra avleverer – samme verdi som ble oppgitt ved oppretting av submission                                                                         |
+| `clientId`            | string    | Mottaker                                                                                                                                                             |
+| `contractId`          | string    | Identifikator for kontrakt eller avtale som leveransepakken er knyttet til                                                                                           |
+| `sumSizeInBytes`      | integer   | Total størrelse i bytes                                                                                                                                              |
+| `files`               | array     | Liste over filer i pakken                                                                                                                                            |
+| → `downloadURL`       | uri       | Presignert nedlastings-URL                                                                                                                                           |
+| → `filename`          | string    | Filnavn                                                                                                                                                              |
+| → `filesize`          | integer   | Filstørrelse i bytes                                                                                                                                                 |
+| → `expirationDate`    | date-time | Utløpsdato for URL                                                                                                                                                   |
+| → `checksum`          | string    | Sjekksum                                                                                                                                                             |
+| → `checksumAlgorithm` | enum      | Algoritme brukt for sjekksum                                                                                                                                         |
 
 ---
 

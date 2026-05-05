@@ -26,13 +26,19 @@ Denne dokumentasjonen kompletterer den detaljerte API-spesifikasjonen som er til
 
 ## Endepunkter
 
-| Metode | Path | Beskrivelse |
-| ------ | ---- | ----------- |
-| POST | `/v1/disseminations` | Opprett ny disseminasjon |
-| GET | `/v1/disseminations/{disseminationId}` | Hent disseminasjon |
+| Metode | Path                                   | Beskrivelse              |
+|--------|----------------------------------------|--------------------------|
+| POST   | `/v1/disseminations`                   | Opprett ny disseminasjon |
+| GET    | `/v1/disseminations/{disseminationId}` | Hent disseminasjon       |
 
 ### Opprett disseminasjon
 
+**Felt i forespørselen**
+
+| Felt        | Type    | Påkrevd | Beskrivelse                                                                                                             |
+|-------------|---------|---------|-------------------------------------------------------------------------------------------------------------------------|
+| `archiveId` | string  | Ja      | Unik identifikator for arkivobjektet i DPS som skal utleveres. Mottatt via `submission.preserved`-webhook.              |
+| `priority`  | integer | Nei     | Prioritet for behandling i køen. Gyldige verdier: `1` (høyest) til `100` (lavest). Standard er `50` (normal prioritet). |
 
 **Forespørsel**
 
@@ -108,7 +114,7 @@ Foreløpige statuser (kan utvides):
 ## Beste praksis
 
 1. Gjenbruk eksisterende forespørsel hvis en allerede pågår.
-2. Bruk prioritet med måte – reserver høye verdier for presserende behov.
+2. Bruk prioritet med måte – reserver lave verdier for presserende behov.
 3. Lagre `disseminationId` lokalt.
 4. Håndter 409 ved å hente eksisterende i stedet for å poste på nytt.
 5. Poll med eksponentiell backoff.

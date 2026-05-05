@@ -133,11 +133,11 @@ Webhook sent when a SIP submission is preserved and stored permanently.
 }
 ```
 
-| Field          | Type   | Description                                                          |
-|----------------|--------|----------------------------------------------------------------------|
-| `contractId`   | string | Identifier for the contract or agreement the submission is linked to |
-| `submissionId` | string | Unique identifier for the SIP submission                             |
-| `archiveId`    | string | Unique identifier for the archive object in DPS                      |
+| Field          | Type   | Description                                                                                                                                                                                      |
+|----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `contractId`   | string | Identifier for the contract or agreement the submission is linked to                                                                                                                             |
+| `submissionId` | string | Unique identifier for the SIP submission                                                                                                                                                         |
+| `archiveId`    | string | Unique identifier for the preserved archive object in DPS. Assigned when the submission is archived. Use this ID to reference the object in future requests, e.g. when ordering a dissemination. |
 
 ---
 
@@ -211,21 +211,21 @@ Webhook sent when a delivery package (DIP) is made available for download.
 }
 ```
 
-| Field                  | Type      | Description                                                                |
-|------------------------|-----------|----------------------------------------------------------------------------|
-| `archiveId`            | string    | Unique identifier for the archive object in DPS                            |
-| `disseminationId`      | string    | Unique identifier for the delivery package                                 |
-| `objectId`             | string    | Object identifier from the depositor                                       |
-| `clientId`             | string    | Recipient                                                                  |
-| `contractId`           | string    | Identifier for the contract or agreement the delivery package is linked to |
-| `sumSizeInBytes`       | integer   | Total size in bytes                                                        |
-| `files`                | array     | List of files in the package                                               |
-| → `downloadURL`        | uri       | Pre-signed download URL                                                    |
-| → `filename`           | string    | File name                                                                  |
-| → `filesize`           | integer   | File size in bytes                                                         |
-| → `expirationDate`     | date-time | Expiration date for the URL                                                |
-| → `checksum`           | string    | Checksum                                                                   |
-| → `checksumAlgorithm`  | enum      | Algorithm used for checksum                                                |
+| Field                 | Type      | Description                                                                                                                                                        |
+|-----------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `archiveId`           | string    | Unique identifier for the preserved archive object in DPS. Same ID as in `submission.preserved`. Use it to link the dissemination back to the original submission. |
+| `disseminationId`     | string    | Unique identifier for the delivery package                                                                                                                         |
+| `objectId`            | string    | Object identifier from the depositor – same value as provided when creating the submission                                                                         |
+| `clientId`            | string    | Recipient                                                                                                                                                          |
+| `contractId`          | string    | Identifier for the contract or agreement the delivery package is linked to                                                                                         |
+| `sumSizeInBytes`      | integer   | Total size in bytes                                                                                                                                                |
+| `files`               | array     | List of files in the package                                                                                                                                       |
+| → `downloadURL`       | uri       | Pre-signed download URL                                                                                                                                            |
+| → `filename`          | string    | File name                                                                                                                                                          |
+| → `filesize`          | integer   | File size in bytes                                                                                                                                                 |
+| → `expirationDate`    | date-time | Expiration date for the URL                                                                                                                                        |
+| → `checksum`          | string    | Checksum                                                                                                                                                           |
+| → `checksumAlgorithm` | enum      | Algorithm used for checksum                                                                                                                                        |
 
 ---
 
