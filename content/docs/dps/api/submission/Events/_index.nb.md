@@ -238,6 +238,7 @@ Det er ikke alle hendelser som er nødvendig å dokumentere utover success/failu
 - "Formatet er identifisert som fmt/353 (TIFF 6.0)."
 - "Pakken er validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 og NB-SIP-MOVINGIMAGES-PROFILE-1.0."
 
+
 # Event-typer
 
 Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.loc.gov/) sin liste
