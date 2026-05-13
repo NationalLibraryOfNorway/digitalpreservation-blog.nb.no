@@ -5,7 +5,7 @@ weight: 2
 
 ## Oversikt
 
-Dissemination-tjenesten for digital bevaring tilbyr et REST-basert API for å bestille utlevering av arkiverte og bevarte pakker (AIP-er).
+Utleveringstjenesten for digital bevaring tilbyr et REST-basert API for å bestille utlevering av arkiverte og bevarte pakker (AIP-er).
 Når en utleveringsforespørsel sendes inn, gjennomføres en integritetskontroll og nødvendig forberedelse før innholdet blir gjort tilgjengelig 
 via en presigned URL som sendes gjennom en webhook. Dette er en prosess som tar litt tid, så alt foregår asynkront – 
 og en melding vil bli sendt som en webhook når prosessen er ferdig.
@@ -17,7 +17,7 @@ Denne dokumentasjonen kompletterer den detaljerte API-spesifikasjonen som er til
 
 ## Arbeidsflyt
 
-1. Klient sender disseminasjonsforespørsel med `archiveId` (og ev. `priority`).
+1. Klient sender utleveringsforespørsel med `archiveId` (og ev. `priority`).
 2. Tjenesten validerer (autorisasjon, AIP finnes, bevart status, duplikatkontroll).
 3. Bakgrunnsprosess kjører integritetskontroll og forbereder data.
 4. Objektet blir tilgjengelig via presigned URL avlevert på webhook.
@@ -26,12 +26,12 @@ Denne dokumentasjonen kompletterer den detaljerte API-spesifikasjonen som er til
 
 ## Endepunkter
 
-| Metode | Path                                   | Beskrivelse              |
-|--------|----------------------------------------|--------------------------|
-| POST   | `/v1/disseminations`                   | Opprett ny disseminasjon |
-| GET    | `/v1/disseminations/{disseminationId}` | Hent disseminasjon       |
+| Metode | Path                                   | Beskrivelse           |
+|--------|----------------------------------------|-----------------------|
+| POST   | `/v1/disseminations`                   | Opprett ny utlevering |
+| GET    | `/v1/disseminations/{disseminationId}` | Hent utlevering       |
 
-### Opprett disseminasjon
+### Opprett utlevering
 
 **Felt i forespørselen**
 
