@@ -22,16 +22,22 @@ For general information on authentication and authorization, please refer to the
 
 ## Endpoints
 
-| Method | Path | Description |
-| ------ | ---- | ----------- |
-| POST | `/v1/disseminations` | Create new dissemination |
-| GET | `/v1/disseminations/{disseminationId}` | Fetch dissemination |
+| Method | Path                                   | Description              |
+|--------|----------------------------------------|--------------------------|
+| POST   | `/v1/disseminations`                   | Create new dissemination |
+| GET    | `/v1/disseminations/{disseminationId}` | Fetch dissemination      |
 
 
 ## Example API Usage
 
 ### Create Dissemination
 
+**Request fields**
+
+| Field       | Type    | Required | Description                                                                                                             |
+|-------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------|
+| `archiveId` | string  | Yes      | Unique identifier for the archive object in DPS to be disseminated. Received via the `submission.preserved` webhook.    |
+| `priority`  | integer | No       | Priority for processing in the queue. Valid values: `1` (highest) to `100` (lowest). Default is `50` (normal priority). |
 
 **Request**
 
@@ -108,7 +114,7 @@ Preliminary statuses (may be extended):
 ## Best Practices
 
 1. Reuse existing request if one is already in progress.
-2. Use priority sparingly – reserve elevated urgency for critical needs.
+2. Use priority sparingly – reserve low values for urgent needs.
 3. Store the `disseminationId` locally.
 4. Handle 409 by fetching the existing dissemination instead of posting again.
 5. Avoid tight polling; use exponential backoff.

@@ -30,6 +30,14 @@ The complete submission process follows these steps:
 
 `POST /v1/contracts/{contractId}/submissions`
 
+**Request fields**
+
+| Field      | Type    | Required | Description                                                                                                                                                                                                                                                                                                                                                        |
+|------------|---------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `objectId` | string  | Yes      | The client's identifier for the submission object – typically an ID from the source system (e.g. a database ID or URN fragment). Links DPS events such as webhooks back to the object in your system. Must be unique per contract (the combination of `contractId` + `objectId` must be unique). Cannot be changed after the submission has been delivered to DPS. |
+| `priority` | integer | No       | Priority for processing in the queue. Valid values: `1` (highest) to `100` (lowest). Default is `50` (normal priority), which is what should be used in most cases. Values above `50` indicate lower priority and are used e.g. for re-archiving.                                                                                                                  |
+| `metadata` | object  | Yes      | Descriptive metadata about the content. See the example below for available fields.                                                                                                                                                                                                                                                                                |
+
 **Request**
 ```http
 POST /dps-submission/v1/contracts/1234/submissions HTTP/1.1
@@ -286,7 +294,7 @@ A submission progresses through the following statuses:
 ## Best Practices
 
 1. **Always verify checksums** before uploading files to ensure data integrity
-2. **Use unique objectIds** within each contract to avoid conflicts
+2. **Use unique `objectId` values per contract** – `objectId` is your link between the source system and DPS. It is returned in API responses and webhook events so you can always identify which object an event relates to. `objectId` cannot be changed after the submission has been delivered to DPS.
 3. **Include comprehensive metadata** to enhance discoverability and preservation
 4. **Implement proper error handling** in your client application
 

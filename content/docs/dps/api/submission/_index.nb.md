@@ -31,6 +31,15 @@ Hele prosessen for å levere innhold ser slik ut:
 ## Eksempel på API-bruk
 
 ### Registrer ny submission
+
+**Felt i forespørselen**
+
+| Felt       | Type    | Påkrevd | Beskrivelse                                                                                                                                                                                                                                                                                                                                        |
+|------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `objectId` | string  | Ja      | Klientens identifikator for innleveringsobjektet – vanligvis en ID fra kildesystemet (f.eks. en database-ID eller URN-fragment). Kobler DPS-hendelser som webhooks tilbake til objektet i ditt system. Må være unik per kontrakt (kombinasjonen `contractId` + `objectId` må være unik). Kan ikke endres etter at innleveringen er levert til DPS. |
+| `priority` | integer | Nei     | Prioritet for behandling i køen. Gyldige verdier: `1` (høyest) til `100` (lavest). Standard er `50` (normal prioritet), og er det som vanligvis skal brukes. Verdier over `50` angir lavere prioritet og brukes f.eks. ved rearkivering.                                                                                                           |
+| `metadata` | object  | Ja      | Beskrivende metadata om innholdet. Se eksempelet nedenfor for tilgjengelige felt.                                                                                                                                                                                                                                                                  |
+
 **Forespørsel**
 ```http
 POST /dps-submission/v1/contracts/1234/submissions HTTP/1.1
@@ -291,7 +300,7 @@ En submission går gjennom følgende statuser:
 ## Beste praksis
 
 1. **Verifiser alltid sjekksum** før opplasting
-2. **Bruk unike `objectId` per kontrakt**
+2. **Bruk unike `objectId` per kontrakt** – `objectId` er din kobling mellom kildesystemet og DPS. Den returneres i API-responser og webhook-hendelser, slik at du alltid kan identifisere hvilket objekt en hendelse gjelder. `objectId` kan ikke endres etter at innleveringen er levert til DPS.
 3. **Legg ved rik metadata** for bedre søk og bevaring
 4. **Håndter feil korrekt** i klientapplikasjonen
 
