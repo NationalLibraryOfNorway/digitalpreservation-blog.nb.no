@@ -70,7 +70,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
-### Hent dissemination
+### Hent utlevering
 
 **Forespørsel**
 
