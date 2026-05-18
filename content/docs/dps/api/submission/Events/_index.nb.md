@@ -256,7 +256,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 - Brukes når det høstes nettsteder ved hjelp av crawling.
 
-**Eksempler:**
+**Eksempel:**
 
 ```json
 {
@@ -289,7 +289,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 - Brukes til å dokumentere opprinnelsen til filen eller den Intellektuelle Entiteten (IE), og beskriver metoden og prosessen for å opprette filen/IE. Se også
   eventType "imaging".
 
-**Eksempler:**
+**Eksempel:**
 
 ```json
 {
@@ -322,7 +322,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 - Enten fjerning av forbudte tegn eller delvis/hel erstatning av det opprinnelige filnavnet. Dette kan brukes for å dokumentere endringer som fjerning av tegn,
   eller der et system fjerner filnavnet helt og erstatter det med et systemgenerert navn.
 
-**Eksempler:**
+**Eksempel:**
 
 ```json
 {
@@ -359,7 +359,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 - Spesielt viktig når sjekksummer mottas fra eksterne.
 
 
-**Eksempler:**
+**Eksempel:**
 
 ```json
 {
@@ -391,7 +391,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   noen ganger også ledig plass og slettede data.
 - Der det er relevant, skal denne eventen brukes i stedet for, ikke i tillegg til, «creation»-eventen.
 
-**Eksempler:**
+**Eksempel:**
 
 ```json
 {
@@ -410,6 +410,37 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 }
 ```
 
+### Information package creation
+
+| Navn        | **information package creation**                                                             |
+|-------------|-------------------------------------------------------------------------|
+| Beskrivelse | Prosessen med å opprette en informasjonspakke (SIP, AIP eller DIP).     |
+| Omfang      | IE                                                                      |
+
+**Retningslinjer for bruk:**
+- Brukes når en SIP, AIP eller DIP opprettes som en ny informasjonspakke, inkludert etablering av pakkestruktur, metadata og tilhørende filer i henhold til gjeldende pakkestandard (f.eks. E-ARK).
+- Skal ikke brukes ved ren kopiering eller flytting av eksisterende pakker uten endring av pakkestruktur eller metadata.
+
+**Eksempel:**
+
+```json
+{
+  "agent": {
+    "agentName": "Commons IP",
+    "agentType": "software",
+    "agentVersion": "2.3.0",
+    "agentNotes": "Verktøy brukt for å opprette E-ARK SIP-pakker."
+  },
+  "event": {
+    "eventDateTime": "2026-05-13T12:42:15+02:00",
+    "eventType": "information package creation",
+    "eventDetail": "Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK).",
+    "outcome": "success"
+  }
+}
+```
+
+
 ### Message digest calculation
 
 | Navn        | **message digest calculation** |
@@ -424,7 +455,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 - Brukes ved opprettelse av nye sjekksummer. Hvis sjekksummer opprettes lokalt, er det ikke behov for å bruke eventen "fixity check" i tillegg til event "
   message digest calculation". Se også EventType "fixity check".
 
-**Eksempler:**
+**Eksempel:**
 
 ```json
 {
@@ -514,7 +545,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 - Filen(e) som migreres må referere til opprinnelsesfila i `"fileRef"` når enkeltfiler migreres (når eventen ikke er knyttet til IE).
 - `"OutcomeDetail"` må inkludere referanse (filsti) til migrert fil(er).
 
-**Eksempler:**
+**Eksempel:**
 
 ```json
 {
@@ -543,9 +574,10 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 **Retningslinjer for bruk:**
 
-- Brukes ved overføring av objekter inn eller ut av bevaringsområdet eller midlertidige arbeidsområder.
-
-**Eksempler:**
+- Brukes ved overføring av materiale mellom ulike systemer eller organisatoriske kontekster, for eksempel fra produsent til bevaringssystem eller mellom ulike lagringsmiljøer. Skal ikke brukes for interne arbeidsflyter eller interne prosesseringssteg.
+- Ikke bruk transfer-event for flytting av materiale inn i DPS (avlevering via API), systemet oppretter en event ved mottak.  
+  
+**Eksempel:**
 
 ```json
 {

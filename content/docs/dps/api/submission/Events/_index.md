@@ -231,7 +231,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 **Guidelines for use:**
 - Used for capture of websites during crawling functions of a repository.
 
-**Examples:**
+**Example:**
 ```json
 {
   "agent": {
@@ -265,7 +265,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 -	Used to document the origin of the file or Intellectual Entity, describes the method and process of creating the file/IE. See also eventType "imaging".
 
 
-**Examples:**
+**Example:**
 ```json
 {
   "agent": {
@@ -299,7 +299,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 -	Either a removal of prohibited character or a partial or entire replacement of the original filename. This can be used to note changes such as removing characters, or where a system removes the filename entirely and replaces it with a system generated name.
 
 
-**Examples:**
+**Example:**
 ```json
 {
   "agent": {
@@ -337,7 +337,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 - This is particularly important when checksums are received from external sources. 
 
 
-**Examples:**
+**Example:**
 ```json
 {
   "agent": {
@@ -369,7 +369,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 -	Used to document the process of creating an exact digital copy (disk image) of a storage medium, including all files, metadata, file system structure, and sometimes also free space and deleted data.
 -	When applicable, this event should be used instead of, not in addition to, the “creation” event. 
 
-**Examples:**
+**Example:**
 
 ```json
 {
@@ -388,6 +388,37 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 }
 ```
 
+### Information package creation
+
+ | Name 	        | **information package creation** 	                                         |
+|:--------------|:-----------------------------------------------------------------------------|
+| Description 	 | The process of generating an Information Package (SIP, AIP or DIP).	 |
+| Scope 	       | IE 	                                                                         |
+
+**Guidelines for use:**
+- Used when a SIP, AIP or DIP is created as a new information package, including the establishment of package structure, metadata, and associated files in accordance with the applicable packaging standard (e.g. E-ARK). 
+- Should not be used for simple copying or transfer of existing packages without changes to package structure or metadata.
+
+**Example:**
+
+```json
+{
+  "agent": {
+    "agentName": "Commons IP",
+    "agentType": "software",
+    "agentVersion": "2.3.0",
+    "agentNotes": "Tool used to create E-ARK SIP packages."
+  },
+  "event": {
+    "eventDateTime": "2026-05-13T12:42:15+02:00",
+    "eventType": "information package creation",
+    "eventDetail": "Creation of an E-ARK SIP in accordance with the E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0, and the National Library of Norway specifications SIP 1.0 (E-ARK).",
+    "outcome": "success"
+  }
+}
+```
+
+
 ### Message digest calculation 
 
 
@@ -403,7 +434,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 - Used when generating new checksums. Where checksums are generated locally, there is no need to use the "fixity check" event in addition to the ‘message digest calculation’ event. See also EventType "fixity check".
 
 
-**Examples:**
+**Example:**
 ```json
 {
   "agent": {
@@ -496,7 +527,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 -  `"outcomeDetail"` must include a reference (file path) to the migrated file(s).
 
 
-**Examples:**
+**Example:**
 ```json
 {
   "agent": {
@@ -526,10 +557,11 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 
 **Guidelines for use:**
--	Used for transferring objects into or out of the preservation area or temporary working areas.
+- Used for transfer of material between systems or organisational contexts, for example from a producer to a preservation system or between storage environments. Should not be used for internal workflows or internal processing steps.
+- Do not use the transfer event for transfer of material into DPS (submission via API), the system automatically creates an event when the material is received.
 
 
-**Examples:**
+**Example:**
 ```json
 {
   "agent": {
@@ -541,7 +573,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   "event": {
     "eventDateTime": "2026-02-18T14:02:33+01:00",
     "eventType": "transfer",
-    "eventDetail": "Transferred package from Oracle HSM(SAM-FS) to local workspace for further processing; Upload was performed with source checksums verified with md5sum (GNU coreutils); Generated E-ARK SIP with commons-ip2 2.12.0.",
+    "eventDetail": "Transferred package from preservation storage Oracle HSM(SAM-FS) to local workspace for further processing; Upload was performed with source checksums verified with md5sum (GNU coreutils)",
     "outcome": "success"
   }
 }
