@@ -4,7 +4,6 @@ weight: 2
 draft: false
 ---
 
-> ⚠️ **Disse sidene er under arbeid** ⚠️
 
 I digital bevaring dokumenterer en “event” en handling eller hendelse som har påvirket et digitalt objekt, for eksempel opprettelse, migrering, validering eller
 overføring. Dette anses som viktig bevaringsmetadata og gir sporbarhet og bevis for hva som er gjort med objektet gjennom hele livssyklusen.
@@ -396,15 +395,15 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 ```json
 {
   "agent": {
-    "agentName": "dd",
+    "agentName": "GNU ddrescue",
     "agentType": "software",
-    "agentVersion": "1.0",
-    "agentNotes": "Verktøy for å lage bit-for-bit kopi av lagringsmedier."
+    "agentVersion": "1.27",
+    "agentNotes": "Verktøy brukt for å opprette bit-for-bit diskbilder fra fysiske lagringsmedier."
   },
   "event": {
-    "eventDateTime": "2026-02-03T09:00:00+01:00",
+    "eventDateTime": "2026-02-03T09:00:00+02:00",
     "eventType": "imaging",
-    "eventDetail": "Opprettet diskbilde fra fysisk medium.",
+    "eventDetail": "Opprettet bit-for-bit diskbilde fra ekstern harddisk. Diskbildet inkluderer filsystemstruktur og tilhørende metadata fra originalmediet",
     "outcome": "success"
   }
 }

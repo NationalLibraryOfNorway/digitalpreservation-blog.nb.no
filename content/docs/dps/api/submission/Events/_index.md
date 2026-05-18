@@ -4,7 +4,6 @@ weight: 2
 draft: false
 ---
 
-> ⚠️ **These pages is under construction** ⚠️
 
 
 In digital preservation, an “event” documents an action or occurrence that has affected a digital object, such as creation, migration, validation, or transfer. Events are considered important preservation metadata, as they provide traceability and evidence of what has been done to the object throughout its entire lifecycle.
@@ -374,15 +373,15 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 ```json
 {
   "agent": {
-    "agentName": "dd",
+    "agentName": "GNU ddrescue",
     "agentType": "software",
-    "agentVersion": "1.0",
-    "agentNotes": "Tool for creating bit-for-bit copies of storage media."
+    "agentVersion": "1.27",
+    "agentNotes": "Tool used to create bit-for-bit disk images from physical storage media."
   },
   "event": {
-    "eventDateTime": "2026-02-03T09:00:00+01:00",
+    "eventDateTime": "2026-02-03T09:00:00+02:00",
     "eventType": "imaging",
-    "eventDetail": "Created disk image from physical medium.",
+    "eventDetail": "Created a bit-for-bit disk image from an external hard drive. The disk image includes the file system structure and associated metadata from the original media.",
     "outcome": "success"
   }
 }
