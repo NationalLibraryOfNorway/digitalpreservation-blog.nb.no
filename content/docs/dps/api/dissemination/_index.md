@@ -48,7 +48,7 @@ Content-Type: application/json
 Authorization: Bearer eyJhbGciOxxxxxxx
 
 {
-  "archiveId": "68cd11bce080fe9cdf1dac1d",
+  "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
   "priority": 50
 }
 ```
@@ -58,7 +58,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 ```json
 {
   "disseminationId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
-  "archiveId": "68d3a83aa0be2b1d75eeef77",
+  "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
   "clientId": "client-id",
   "contractId": "2d17",
   "objectId": "digifoto_5584a028-ba43-4ecb-bb67-7663cc802010",
@@ -86,7 +86,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 ```json
 {
   "disseminationId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
-  "archiveId": "68d3a83aa0be2b1d75eeef77",
+  "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
   "clientId": "client-id",
   "contractId": "2d17",
   "objectId": "digifoto_5584a028-ba43-4ecb-bb67-7663cc802010",

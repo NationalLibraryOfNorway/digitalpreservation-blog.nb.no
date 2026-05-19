@@ -129,7 +129,7 @@ Webhook sendt når en SIP-innlevering er bevart og lagret permanent.
   "data": {
     "contractId": "ef23",
     "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
-    "archiveId": "68b803fb25d74833747835f7"
+    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69"
   }
 }
 ```
@@ -154,7 +154,7 @@ Webhook sendt når en SIP-innlevering er avvist under validering eller behandlin
   "data": {
     "contractId": "ef23",
     "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
-    "archiveId": "68b803fb25d74833747835f7",
+    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
     "reasons": [
       {
         "code": "METADATA_SCHEMA_INVALID",
@@ -192,7 +192,7 @@ Webhook sendt når et leveransesett (DIP) er gjort tilgjengelig for nedlasting.
   "type": "dissemination.delivered",
   "timestamp": "2025-10-02T09:18:01.160+02:00",
   "data": {
-    "archiveId": "68d3a838a0be2b1d75eeef75",
+    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
     "disseminationId": "5MfwdzCjkYW4c79MYorXy9",
     "objectId": "digifoto_ae0690eb-22bf-4996-a6a0-9273b7cd9256",
     "clientId": "kulturit",
