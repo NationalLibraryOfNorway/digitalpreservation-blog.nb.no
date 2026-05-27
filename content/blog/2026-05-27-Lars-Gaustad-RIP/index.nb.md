@@ -1,5 +1,5 @@
 ---
-title: "Nekrolog: Lars Gaustad, en pioner innen digital bevaring i Norge"
+title: "Minneord om Lars Gaustad, en pioner innen digital bevaring i Norge"
 date: 2026-05-27
 description: "Minneord om Lars Gaustad og hans betydning for digital bevaring, audiovisuell bevaring og Nasjonalbiblioteket."
 draft: false  # Set to false when ready to publish
