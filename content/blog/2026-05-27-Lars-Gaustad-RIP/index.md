@@ -10,7 +10,7 @@ authors:
 
 ![Photo from Lars’s LinkedIn profile](/LarsG.jfif)
 
-It is with great sadness that we received the news that Lars Gaustad passed away on May 22. He was 73 years old.
+It is with great sadness that we received the news that Lars Gaustad passed away on May 22. He was 72 years old.
 
 Lars worked at the National Library of Norway for more than 30 years in a variety of roles, serving both as a senior advisor and in several leadership positions.
 

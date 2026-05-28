@@ -11,7 +11,7 @@ authors:
 ![Bilde fra Lars sin LinkedIn profil](/LarsG.jfif)
 
 
-Det er med sorg vi mottok meldingen om at Lars Gaustad gikk bort den 22.mai. Han ble 73 år gammel.
+Det er med sorg vi mottok meldingen om at Lars Gaustad gikk bort den 22.mai. Han ble 72 år gammel.
 
 Lars arbeidet i Nasjonalbiblioteket i over 30 år i forskjellige roller, både som spesialrådgiver og flere lederroller.
 
