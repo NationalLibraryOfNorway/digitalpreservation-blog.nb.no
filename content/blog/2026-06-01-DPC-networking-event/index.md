@@ -11,13 +11,13 @@ authors:
 
 ![DPC Members Forum and Networking](/networking.png)
 
-On 20–21 May, representatives from the National Library of Norway's Digital Preservation Team attended the Digital Preservation Coalition (DPC) Members Forum and Networking Event in Edinburgh, Scotland. The event brought together participants from a wide range of institutions and organizations working in the field of digital preservation, providing valuable opportunities for knowledge exchange and networking. The event was organised by the DPC in collaboration with Historic Environment Scotland.
+On May 20-21, representatives from the National Library of Norway's Digital Preservation Team attended the Digital Preservation Coalition (DPC) Members Forum and Networking Event in Edinburgh, Scotland. The event brought together participants from a wide range of institutions and organizations working in the field of digital preservation, providing valuable opportunities for knowledge exchange and networking. The event was organised by the DPC in collaboration with Historic Environment Scotland.
 
 The first day was open to both members and non-members, with a focus on networking and information exchange. The second day was reserved for DPC members and featured member led presentations as well as discussions on current topics in digital preservation.
 
 ![Johannes og Sandra sharing their presentation](/DPC-event.png)
 
-The National Library of Norway contributed with the presentation "NLN DPS – A Domain Agnostic Approach to Digital Preservation", in which Johannes Karlsen and Sandra Kråkstad presented how the National Library works with the long-term preservation of its digital collections. The presentation described how the system has been designed to manage large volumes of digital material across different media types, and how standardization, automation, and open interfaces support long-term preservation and integration with both internal and external clients.
+The National Library of Norway contributed with the presentation "NLN DPS – A Domain Agnostic Approach to Digital Preservation", in which Johannes Karlsen and Sandra Kråkstad presented how the National Library works with long-term preservation of its digital collections. The presentation described how the system has been designed to manage large volumes of digital material across different media types, and how standardization, automation, and open interfaces support long-term preservation and integration with both internal and external clients.
 
 The presentation also covered experiences from the development of DPS 2.0, including the use of E-ARK specifications, preservation metadata management, and the different stages of the preservation workflow — from submission and validation to archiving and long-term storage. A key theme was the National Library's domain-agnostic approach to digital preservation. By this, we mean that the preservation solution is designed to be flexible and capable of handling different media types, data types, and use cases without being tied to a specific domain or type of content.
 
