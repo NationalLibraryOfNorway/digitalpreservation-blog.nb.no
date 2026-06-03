@@ -444,10 +444,10 @@ Forklaring til bruk av *authority*-informasjon:
     },
     {
       "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
-    }
+    },
     {
-    "name": "Norge (NO); Oslo",
-    "type": "Utgiversted"
+      "name": "Norge (NO); Oslo",
+      "type": "Utgiversted"
     }
   ]
 }

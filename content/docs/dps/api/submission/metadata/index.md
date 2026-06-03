@@ -451,9 +451,10 @@ Explanation of *authority* information:
     },
     {
       "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
-    }
-    {"name": "Norge (NO); Oslo",
-    "type": "Place of publication"
+    },
+    {
+      "name": "Norge (NO); Oslo",
+      "type": "Place of publication"
     }
   ]
 }
