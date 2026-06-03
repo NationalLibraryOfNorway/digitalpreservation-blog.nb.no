@@ -372,10 +372,7 @@ Det MÅ oppgis hvilket autoritetsregister som er benyttet, og hvilken type autor
 - `konferanse`
 - `standardtittel`  (traktat, kontrakt).  
 
-Ved bruk av autoritetsregister bør utgiver i tillegg skrives ut i sin fulle form.
-Sted og/eller år for utgivelse kan legges til i parantes bak navnet. 
-Eksempel: 
-Nasjonalbiblioteket (Oslo, 1984). 
+Ved bruk av autoritetsregister bør utgiver i tillegg skrives ut i sin fulle form. 
 
 Forklaring til bruk av *authority*-informasjon: 
 - `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
@@ -387,7 +384,7 @@ Forklaring til bruk av *authority*-informasjon:
 {
   "publisher": [
     {
-      "name": "Nasjonalbiblioteket (Oslo, 1984)",
+      "name": "Nasjonalbiblioteket",
       "type": "Korporasjon",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
@@ -447,6 +444,10 @@ Forklaring til bruk av *authority*-informasjon:
     },
     {
       "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
+    }
+    {
+    "name": "Norge (NO); Oslo",
+    "type": "Utgiversted"
     }
   ]
 }

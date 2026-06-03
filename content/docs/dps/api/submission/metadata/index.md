@@ -377,9 +377,7 @@ Allowed types include:
 - `Standardtittel`  (uniform title  e.g., treaty, contract).
 
 When using an authority register, the publisher’s full name should also be provided. 
-The place and/or year of publication can be added in parentheses after the name. 
-Example: 
-National Library (Oslo, 1984).
+
 
 Explanation of *authority* information:
 - `source`: The name of the authority file from which the value is taken, provided as a plain text string.
@@ -391,7 +389,7 @@ Explanation of *authority* information:
 {
   "publisher": [
     {
-      "name": "National library of Norway (Oslo, 1984)",
+      "name": "National library of Norway",
       "type": "Korporasjon",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
@@ -453,6 +451,9 @@ Explanation of *authority* information:
     },
     {
       "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
+    }
+    {"name": "Norge (NO); Oslo",
+    "type": "Place of publication"
     }
   ]
 }
