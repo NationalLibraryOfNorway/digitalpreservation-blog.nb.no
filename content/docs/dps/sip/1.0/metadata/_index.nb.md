@@ -13,9 +13,9 @@ En pakke kan ha ett sett metadatafiler på rotnivået av pakka og ett sett metad
 Deskriptive metadata beskriver det intellektuelle objektet som pakka representerer (typisk et eksemplar av et verk eller lignende). 
 Kan brukes til identifikasjon og gjenfinning av det intellektuelle innholdet i pakka, og beskriver ikke spesifikke filer.
 
-| Plassering i SIP         | Eksempelfiler                  |  METS-element | 
-| ------------------------ | ------------------------------ | --------------- | 
-| `/metadata/descriptive/` | <ul><li> MODS.xml<br><li> mavisTitle.xml</ul> |  `dmdSec` | 
+| Plassering i SIP         | Eksempelfiler                                 | METS-element | 
+|--------------------------|-----------------------------------------------|--------------| 
+| `/metadata/descriptive/` | <ul><li> MODS.xml<br><li> mavisTitle.xml</ul> | `dmdSec`     | 
 
 ### Bevarings- og digitaliseringsmetadata
 
@@ -28,8 +28,8 @@ Typisk vil dette være beskrivelser av digitale prosesser, handlinger, hendelser
 Vi anbefaler at noen typer bevaringsmetadata avleveres som [eventer via Submission API](/nb/docs/dps/api/submission/events/). Bevaringsmetadata som avleveres i API blir dokumentert i egen database, på lik linje med hendelser som skjer på innsiden av bevaringsomgivelsene (DPS). Ved utlevering gir det enklere oversikt over hendelser knyttet til et objekt. Det står avleverer fritt å legge til andre typer/mer bevaringsmetadata i pakken (SIP). 
 
 
-| Plassering i SIP        | Eksempelfiler                  | METS-element | 
-| ------------------------ | ------------------------------ | -------------- | 
+| Plassering i SIP                            | Eksempelfiler                                                                                                                                                      | METS-element | 
+|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------| 
 | `/representations/*/metadata/preservation/` | <ul><li> ScanityTransfer.xml<br><li> MAVIS_film_carrier.xml (ved digitalisering)<br><li> MAVIS_sound_carrier_*.xml (ved digitalisering)<br><li> PREMIS events</ul> | `digiprovMD` |
 
 
@@ -44,9 +44,9 @@ Kildemetadata beskriver objektet en representasjon er utledet fra.
 Typisk vil dette være metadata om et originalt fysisk eller digitalt kildemateriale (for eksempel en bok, et bilde, en filmrull) og dets tilstand ved digitaliseringtidspunktet. 
 På samme måte kan det være metadata om et digitalt objekt som er blitt brukt til å utlede et annet digitalt objekt.
 
-| Plassering i SIP        | Eksempelfiler                  | METS-element | 
-| ------------------------ | ------------------------------ | -------------- | 
-| `/representations/*/metadata/source/` | <ul><li> mavisAnalogCarrier.xml<br><li> mavisAnalogComponent.xml<br><li> mavisDigitalCarrier.xml<br><li> mavisDigitalComponent.xml<br><li> mavisSoundTrackCarrier.xml<br><li> mavisSoundTrackComponent.xml</ul> | `sourceMD` |
+| Plassering i SIP                      | Eksempelfiler                                                                                                                                                                                                   | METS-element | 
+|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------| 
+| `/representations/*/metadata/source/` | <ul><li> mavisAnalogCarrier.xml<br><li> mavisAnalogComponent.xml<br><li> mavisDigitalCarrier.xml<br><li> mavisDigitalComponent.xml<br><li> mavisSoundTrackCarrier.xml<br><li> mavisSoundTrackComponent.xml</ul> | `sourceMD`   |
 
 
 ### Tekniske metadata
@@ -58,9 +58,9 @@ Tekniske metadata dokumenterer målbare, systemgenererte tekniske egenskaper ved
 Teknisk metadata beskriver hva de digitale filene faktisk er, basert på filanalyse.
 Tekniske metadata er **ikke** beskrivelser av hva det intellektuelle innholdet i fila er, eller hva som er gjort med den/prosesshistorikk.
 
-| Plassering i SIP        | Eksempelfiler                  | METS-element | 
-| ------------------------ | ------------------------------ | -------------- | 
-| `/representations/*/metadata/technical/` | <ul><li> FITS<br><li> MediaInfo<br><li> ExifTool<br><li> JHOVE</ul> | `techMD` |
+| Plassering i SIP                         | Eksempelfiler                                                       | METS-element | 
+|------------------------------------------|---------------------------------------------------------------------|--------------| 
+| `/representations/*/metadata/technical/` | <ul><li> FITS<br><li> MediaInfo<br><li> ExifTool<br><li> JHOVE</ul> | `techMD`     |
 
 
 ### Bevarings- og digitaliseringsmetadata
@@ -74,8 +74,8 @@ Hvis metadata beskriver hvordan, når eller av hvilket system de digitale filene
 
 Vi anbefaler at noen typer bevaringsmetadata avleveres som [eventer via Submission API](/nb/docs/dps/api/submission/events/). Bevaringsmetadata som avleveres i API blir dokumentert i egen database, på lik linje med hendelser som skjer på innsiden av bevaringsomgivelsene (DPS). Ved utlevering gir det enklere oversikt over hendelser knyttet til et objekt. Det står avleverer fritt å legge til andre typer/mer bevaringsmetadata i pakken (SIP). 
 
-| Plassering i SIP        | Eksempelfiler                  | METS-element | 
-| ------------------------ | ------------------------------ | -------------- | 
+| Plassering i SIP                            | Eksempelfiler                                                                                                                                                      | METS-element | 
+|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------| 
 | `/representations/*/metadata/preservation/` | <ul><li> ScanityTransfer.xml<br><li> MAVIS_film_carrier.xml (ved digitalisering)<br><li> MAVIS_sound_carrier_*.xml (ved digitalisering)<br><li> PREMIS events</ul> | `digiprovMD` |
 
 <!-- {{< callout >}} 

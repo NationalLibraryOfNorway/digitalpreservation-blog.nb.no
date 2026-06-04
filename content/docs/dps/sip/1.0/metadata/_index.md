@@ -14,9 +14,9 @@ Descriptive metadata describes the intellectual object the package represents (t
 Descriptive metadata can be used to identify and retrieve the intellectual content of the package.
 It does not describe specific files.
 
-| File location in SIP         | Example files                  |  METS-element | 
-| ------------------------ | ------------------------------ | --------------- | 
-| `/metadata/descriptive/` | <ul><li> MODS.xml<br><li> mavisTitle.xml</ul> |  `dmdSec` | 
+| File location in SIP     | Example files                                 | METS-element | 
+|--------------------------|-----------------------------------------------|--------------| 
+| `/metadata/descriptive/` | <ul><li> MODS.xml<br><li> mavisTitle.xml</ul> | `dmdSec`     | 
 
 ### Preservation/Digital provenance metadata
 
@@ -28,8 +28,8 @@ Preservation metadata typically describes digital processes, actions and events,
 
 We recommend that certain types of preservation metadata are submitted as [events via the Submission API](/docs/dps/api/submission/events/). Preservation metadata submitted through the API are recorded in a dedicated database, just like events that occur within the preservation environment (DPS). When disseminated, this provides a clearer overview of all events associated with an object. Submitters are free to include additional types or more preservation metadata in the package (SIP).
 
-| File location in SIP        | Example files                  | METS-element | 
-| ------------------------ | ------------------------------ | -------------- | 
+| File location in SIP                        | Example files                                                                                                                                                      | METS-element | 
+|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------| 
 | `/representations/*/metadata/preservation/` | <ul><li> ScanityTransfer.xml<br><li> MAVIS_film_carrier.xml (ved digitalisering)<br><li> MAVIS_sound_carrier_*.xml (ved digitalisering)<br><li> PREMIS events</ul> | `digiprovMD` |
 
 ## Representation metadata (per representation)
@@ -42,9 +42,9 @@ Short definition from E-ARK CSIP:
 Source metadata describes the object a representation is derived from.
 This is typically metadata about a physical information carrier (e.g. a book, a photography, a film reel) that has been digitized, and its state and condition at the time of digitization. Similarly it can be metadata about a digital object that has been used to derive a different digital object. 
 
-| File location in SIP        | Example files                  | METS-element | 
-| ------------------------ | ------------------------------ | -------------- | 
-| `/representations/*/metadata/source/` | <ul><li> mavisAnalogCarrier.xml<br><li> mavisAnalogComponent.xml<br><li> mavisDigitalCarrier.xml<br><li> mavisDigitalComponent.xml<br><li> mavisSoundTrackCarrier.xml<br><li> mavisSoundTrackComponent.xml</ul> | `sourceMD` |
+| File location in SIP                  | Example files                                                                                                                                                                                                   | METS-element | 
+|---------------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------| 
+| `/representations/*/metadata/source/` | <ul><li> mavisAnalogCarrier.xml<br><li> mavisAnalogComponent.xml<br><li> mavisDigitalCarrier.xml<br><li> mavisDigitalComponent.xml<br><li> mavisSoundTrackCarrier.xml<br><li> mavisSoundTrackComponent.xml</ul> | `sourceMD`   |
 
 
 ### Technical metadata
@@ -56,9 +56,9 @@ Technical metadata documents measurable, system generated technical properties o
 Technical metadata describes what the digital files actually are, based on file analysis. 
 Technical metadata **is not** descriptions of the intellectual content of those files, or what has been done to the file/process history.
 
-| File location in SIP        | Example files                  | METS-element | 
-| ------------------------ | ------------------------------ | -------------- | 
-| `/representations/*/metadata/technical/` | <ul><li> FITS<br><li> MediaInfo<br><li> ExifTool<br><li> JHOVE</ul> | `techMD` |
+| File location in SIP                     | Example files                                                       | METS-element | 
+|------------------------------------------|---------------------------------------------------------------------|--------------| 
+| `/representations/*/metadata/technical/` | <ul><li> FITS<br><li> MediaInfo<br><li> ExifTool<br><li> JHOVE</ul> | `techMD`     |
 
 ### Preservation/Digital provenance metadata
 
@@ -70,8 +70,8 @@ Preservation metadata typically describes digitization processes, actions and ev
 
 We recommend that certain types of preservation metadata are submitted as [events via the Submission API](/docs/dps/api/submission/events/). Preservation metadata submitted through the API are recorded in a dedicated database, just like events that occur within the preservation environment (DPS). When disseminated, this provides a clearer overview of all events associated with an object. Submitters are free to include additional types or more preservation metadata in the package (SIP).
 
-| File location in SIP        | Example files                  | METS-element | 
-| ------------------------ | ------------------------------ | -------------- | 
+| File location in SIP                        | Example files                                                                                                                                                      | METS-element | 
+|---------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------| 
 | `/representations/*/metadata/preservation/` | <ul><li> ScanityTransfer.xml<br><li> MAVIS_film_carrier.xml (ved digitalisering)<br><li> MAVIS_sound_carrier_*.xml (ved digitalisering)<br><li> PREMIS events</ul> | `digiprovMD` |
 
 [^1]: [Common Specification for Information Packages
