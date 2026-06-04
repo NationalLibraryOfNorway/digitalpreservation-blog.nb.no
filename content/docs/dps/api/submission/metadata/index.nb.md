@@ -398,11 +398,11 @@ Forklaring til bruk av *authority*-informasjon:
 
 ### Spatial
 
-| Navn         | **Spatial**                                                                                                                                                                                                                                         |
-|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Relevante stedsnavn for ressursen. Kan referere til geografiske steder som land, regioner og byer som har betydning for ressursen. <br> Det BØR angis `type` for hvilket sted som oppgis.<br>Attributt `authority` BØR brukes for å angi autoritet. |
-| Krav         | BØR                                                                                                                                                                                                                                                 |
-| Kardinalitet | 0..n                                                                                                                                                                                                                                                |
+| Navn         | **Spatial**                                                                                                                                                                                                                                                                                                  |
+|:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Relevante stedsnavn for ressursen. Kan referere til geografiske steder som land, regioner og byer som har betydning for ressursen. <br> Det BØR angis `type` for hvilket sted som oppgis.<br>Attributt `authority` BØR brukes for å angi autoritet.<br>Attributt `lang` BØR brukes for å definere språkkode. |
+| Krav         | BØR                                                                                                                                                                                                                                                                                                          |
+| Kardinalitet | 0..n                                                                                                                                                                                                                                                                                                         |
 
 **Retningslinjer for bruk:**
 
@@ -440,7 +440,8 @@ Forklaring til bruk av *authority*-informasjon:
       },
       "coordinateReferenceSystem": "EPSG:4326",
       "latitude": 61.788453,
-      "longitude": 10.224725
+      "longitude": 10.224725,
+      "lang": "nor"
     },
     {
       "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
@@ -455,11 +456,11 @@ Forklaring til bruk av *authority*-informasjon:
 
 ### Date
 
-| Navn         | **Date**                                                                                                                                                                          |
-|:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Relevante datoer for ressursen (for eksempel utgivelses-, copyright-, opprettelse-/digitaliseringsdato etc. med type).  <br> Attributt `type` MÅ brukes for å definere type dato. |
-| Krav         | BØR                                                                                                                                                                               |
-| Kardinalitet | 0..n                                                                                                                                                                              |
+| Navn         | **Date**                                                                                                                                                                                                                                  |
+|:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Beskrivelse  | Relevante datoer for ressursen (for eksempel utgivelses-, copyright-, opprettelse-/digitaliseringsdato etc. med type). <br> Attributt `type` MÅ brukes for å definere type dato.<br>Attributt `lang` BØR brukes for å definere språkkode. |
+| Krav         | BØR                                                                                                                                                                                                                                       |
+| Kardinalitet | 0..n                                                                                                                                                                                                                                      |
 
 **Retningslinjer for bruk:**
 
@@ -474,7 +475,8 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
   "date": [
     {
       "type": "motivdato",
-      "value": "1938"
+      "value": "1938",
+      "lang": "nor"
     },
     {
       "type": "digitalisert",

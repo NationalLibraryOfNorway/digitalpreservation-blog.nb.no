@@ -403,11 +403,11 @@ Explanation of *authority* information:
 
 ### Spatial
 
-| Name        | **Spatial**                                                                                                                                                                                                                                                                                                                                        |
-|:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Description | Names of relevant geographic locations (place names). These may refer to geographic locations such as countries, regions or cities that are significant to the resource. <br> The `type` attribute SHOULD be used to specify what type of place is being referred to.<br>The `authority` attribute SHOULD be used to specify the authority source. |
-| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                             |
-| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                               |
+| Name        | **Spatial**                                                                                                                                                                                                                                                                                                                                                                                                             |
+|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Names of relevant geographic locations (place names). These may refer to geographic locations such as countries, regions or cities that are significant to the resource. <br> The `type` attribute SHOULD be used to specify what type of place is being referred to.<br>The `authority` attribute SHOULD be used to specify the authority source.<br>The `lang` attribute SHOULD be used to specify the language code. |
+| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                                                                                                    |
 
 **Guidelines for use:**
 
@@ -447,7 +447,8 @@ Explanation of *authority* information:
       },
       "coordinateReferenceSystem": "EPSG:4326",
       "latitude": 61.788453,
-      "longitude": 10.224725
+      "longitude": 10.224725,
+      "lang": "eng"
     },
     {
       "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
@@ -462,11 +463,11 @@ Explanation of *authority* information:
 
 ### Date
 
-| Name        | **Date**                                                                                                                                                                                                                 |
-|:------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Description | Relevant dates for the resource (such as publication, copyright, creation, digitization date, etc., including the type of date.). <br> The `type` attribute MUST be used to specify what kind of date it is reffered to. |
-| Requirement | SHOULD                                                                                                                                                                                                                   |
-| Cardinality | 0..n                                                                                                                                                                                                                     |
+| Name        | **Date**                                                                                                                                                                                                                                                                                      |
+|:------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Description | Relevant dates for the resource (such as publication, copyright, creation, digitization date, etc., including the type of date.). <br> The `type` attribute MUST be used to specify what kind of date it is reffered to.<br>The `lang` attribute SHOULD be used to specify the language code. |
+| Requirement | SHOULD                                                                                                                                                                                                                                                                                        |
+| Cardinality | 0..n                                                                                                                                                                                                                                                                                          |
 
 **Guidelines for Use:**
 
@@ -481,7 +482,8 @@ The use of the type attribute should be meaningful for the data provider, reflec
   "date": [
     {
       "type": "Content date",
-      "value": "1938"
+      "value": "1938",
+      "lang": "eng"
     },
     {
       "type": "Digitized",
