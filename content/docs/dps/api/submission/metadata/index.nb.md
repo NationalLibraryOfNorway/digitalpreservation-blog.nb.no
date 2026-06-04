@@ -253,7 +253,7 @@ Forklaring til bruk av *authority*-informasjon:
   "creator": [
     {
       "name": "Marek, Václav (1908-1994)",
-      "type": "Person",
+      "type": "person",
       "role": "fotograf",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
@@ -269,7 +269,7 @@ Forklaring til bruk av *authority*-informasjon:
   "creator": [
     {
       "name": "Shakespeare, William (1564-1616)",
-      "type": "Person",
+      "type": "person",
       "role": "forfatter",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
@@ -285,7 +285,7 @@ Forklaring til bruk av *authority*-informasjon:
 
 | Navn         | **Contributor**                                                                                                                                                                                                                                                                                                             |
 |:-------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Navn som opptrer i sentral rolle (illustratør, fotograf, medforfatter). <br>Attributt `role` BØR brukes for å definere rolle. <br>Attributt `type` BØR brukes for å angi type autoritet. Tillatte typer: `Person`, `Korporasjon`, `Konferanse`, `Standardtittel`.<br>Attributt `authority` BØR brukes for å angi autoritet. |
+| Beskrivelse  | Navn som opptrer i sentral rolle (illustratør, fotograf, medforfatter). <br>Attributt `role` BØR brukes for å definere rolle. <br>Attributt `type` BØR brukes for å angi type autoritet. Tillatte typer: `person`, `korporasjon`, `konferanse`, `standardtittel`.<br>Attributt `authority` BØR brukes for å angi autoritet. |
 | Krav         | BØR                                                                                                                                                                                                                                                                                                                         |
 | Kardinalitet | 0..n                                                                                                                                                                                                                                                                                                                        |
 
@@ -326,7 +326,7 @@ Forklaring til bruk av *authority*-informasjon:
   "contributor": [
     {
       "role": "avbildet",
-      "type": "Person",
+      "type": "person",
       "name": "Nordmann, Ola"
     },
     {
@@ -342,7 +342,7 @@ Forklaring til bruk av *authority*-informasjon:
   "contributor": [
     {
       "role": "illustratør",
-      "type": "Person",
+      "type": "person",
       "name": "Solberg, Erna",
       "authority": {
         "source": "Kulturnav",
@@ -385,7 +385,7 @@ Forklaring til bruk av *authority*-informasjon:
   "publisher": [
     {
       "name": "Nasjonalbiblioteket",
-      "type": "Korporasjon",
+      "type": "korporasjon",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
         "code": "90362181",
@@ -747,7 +747,7 @@ Språkkode må angis (lang-attributt).
     "creator": [
       {
         "name": "Marek, Václav",
-        "type": "Person",
+        "type": "person",
         "role": "fotograf",
         "authority": {
           "source": "Felles autoritetsregister (BARE)",
@@ -759,12 +759,12 @@ Språkkode må angis (lang-attributt).
     "contributor": [
       {
         "role": "avbildet",
-        "type": "Person",
+        "type": "person",
         "name": "Nordmann, Ola"
       },
       {
         "role": "avbildet",
-        "type": "Person",
+        "type": "person",
         "name": "Solberg, Erna",
         "authority": {
           "source": "Kulturnav",
@@ -776,7 +776,7 @@ Språkkode må angis (lang-attributt).
     "publisher": [
       {
         "name": "Nasjonalbiblioteket",
-        "type": "Korporasjon",
+        "type": "korporasjon",
         "authority": {
           "source": "Felles autoritetsregister (BARE)",
           "code": "90362181",

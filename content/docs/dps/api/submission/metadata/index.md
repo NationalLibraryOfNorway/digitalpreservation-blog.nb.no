@@ -254,7 +254,7 @@ Explanation of *authority* information:
   "creator": [
     {
       "name": "Marek, Václav (1908-1994)",
-      "type": "Person",
+      "type": "person",
       "role": "Photographer",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
@@ -270,7 +270,7 @@ Explanation of *authority* information:
   "creator": [
     {
       "name": "Shakespeare, William (1564-1616)",
-      "type": "Person",
+      "type": "person",
       "role": "author",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
@@ -329,7 +329,7 @@ Explanation of *authority* information:
   "contributor": [
     {
       "role": "depicted",
-      "type": "Person",
+      "type": "person",
       "name": "Nordmann, Ola"
     },
     {
@@ -345,7 +345,7 @@ Explanation of *authority* information:
   "contributor": [
     {
       "role": "illustrator",
-      "type": "Person",
+      "type": "person",
       "name": "Solberg, Erna",
       "authority": {
         "source": "Kulturnav",
@@ -371,10 +371,10 @@ It is recommended to use an authority register whenever one is available.
 The specific authority register used, as well as the type of authority, MUST be indicated. 
 Allowed types include: 
 
-- `Person`
-- `Korporasjon` (Organization)
-- `Konferanse` (conference)
-- `Standardtittel`  (uniform title  e.g., treaty, contract).
+- `person`
+- `korporasjon` (Organization)
+- `konferanse` (conference)
+- `standardtittel`  (uniform title  e.g., treaty, contract).
 
 When using an authority register, the publisher’s full name should also be provided. 
 
@@ -390,7 +390,7 @@ Explanation of *authority* information:
   "publisher": [
     {
       "name": "National library of Norway",
-      "type": "Korporasjon",
+      "type": "korporasjon",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
         "code": "90362181",
@@ -753,7 +753,7 @@ Language code must be specified.
     "creator": [
       {
         "name": "Marek, Václav",
-        "type": "Person",
+        "type": "person",
         "role": "Photographer",
         "authority": {
           "source": "Felles autoritetsregister (BARE)",
@@ -765,12 +765,12 @@ Language code must be specified.
     "contributor": [
       {
         "role": "depicted",
-        "type": "Person",
+        "type": "person",
         "name": "Nordmann, Ola"
       },
       {
         "role": "illustrator",
-        "type": "Person",
+        "type": "person",
         "name": "Solberg, Erna",
         "authority": {
           "source": "Kulturnav",
@@ -782,7 +782,7 @@ Language code must be specified.
     "publisher": [
       {
         "name": "National library of Norway",
-        "type": "Korporasjon",
+        "type": "korporasjon",
         "authority": {
           "source": "Felles autoritetsregister (BARE)",
           "code": "90362181",
