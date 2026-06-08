@@ -440,8 +440,7 @@ Forklaring til bruk av *authority*-informasjon:
       },
       "coordinateReferenceSystem": "EPSG:4326",
       "latitude": 61.788453,
-      "longitude": 10.224725,
-      "lang": "nor"
+      "longitude": 10.224725
     },
     {
       "name": "Norge (NO);Innlandet;Lillehammer;Lillehammer"
@@ -475,8 +474,7 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
   "date": [
     {
       "type": "motivdato",
-      "value": "1938",
-      "lang": "nor"
+      "value": "1938"
     },
     {
       "type": "digitalisert",
@@ -599,11 +597,11 @@ Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nett
 
 **Retningslinjer for bruk:**
 
-Elementet `source` registrerer det umiddelbare objektet eller de umiddelbare objektene den beskrevne ressursen ble skapt fra. Det gir en søkbar, maskinlesbar kobling til opprinnelsen og er avgjørende for å spore opphavet til digitalisert, migrert eller på annen måte utledet innhold.
+Elementet `source` beskriver objektet eller objektene den beskrevne ressursen ble utledet fra. Det gir en søkbar, maskinlesbar kobling til kildeobjektet og er avgjørende for å spore opphavet til innhold som er digitalisert, migrert eller på andre måter utledet fra andre objekter.
 
-- **`identifier`** – Én eller flere identifikatorer for kildeobjektet, hver med `type` og `value` (samme struktur som toppnivåelementet `identifier`). Bruk dette for å registrere unike identifikatorer for kildeobjektene, for eksempel strekkoder, URN-er eller andre identifikatorer som er relevante for kilden.
-- **`description`** – (Valgfri) En kort fritekstnotis om kildeobjektet, for eksempel dets navn/tittel eller fysiske form.
-- **`URI`** – (Valgfri) En direkte lenke til en katalogpost eller annen ressurs med ytterligere informasjon om kildeobjektet.
+- `identifier` – Én eller flere identifikatorer for kildeobjektet, hver med `type` og `value` (samme struktur som toppnivåelementet `identifier`). Bruk dette for å registrere unike identifikatorer for kildeobjektene, for eksempel strekkoder, URN-er eller andre identifikatorer som er relevante for kilden.
+- `description` – (Valgfri) En kort fritekstnotis om kildeobjektet, for eksempel dets navn/tittel eller fysiske form.
+- `URI` – (Valgfri) En direkte lenke til en katalogpost eller annen ressurs med ytterligere informasjon om kildeobjektet.
 
 Når den beskrevne ressursen er utledet fra **flere** kilder, listes hver kilde som et separat objekt i `source`-listen.
 
