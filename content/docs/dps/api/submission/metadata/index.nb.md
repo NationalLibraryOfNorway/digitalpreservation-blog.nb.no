@@ -126,7 +126,7 @@ Eksempler på identifikatortyper kan være URN, PID, URI til post i en katalog/m
       "value": "NB_PE_VM_M_05_09_01_036"
     },
     {
-      "type": "hyllesignatur",
+      "type": "strekkode",
       "value": "POEL00003975"
     }
   ]
@@ -222,21 +222,21 @@ Det anbefales å referere til autoritetsregistre når relevante registre finnes,
 Det må oppgis hvilket autoritetsregister som er benyttet. 
 Et eksempel på autoritetsregister er [Felles autoritetsregister for personer og korporasjoner](https://bibliotekutvikling.no/kunnskapsorganisering/vokabularer-utkast/felles-autoritetsregister-for-personer-og-korporasjoner/).
 
-Creator identiseres i tillegg ved å skrives ut i sin fulle form (navn, etternavn/korporasjon). 
+Creator identiseres i tillegg ved å skrives ut i sin fulle form ("etternavn, navn" eller "korporasjonsnavn"). 
 Fødselsår - dødsår kan legges til bak navnet i parentes. 
 Eksempler: 
 *Nesbø, Jo (1960-  ), Shakespeare, William (1564-1616)*. 
 
-Det bør oppgis om det er snakk om personnavn eller korporasjon. 
+`type` bruke til å spesifisere om det er snakk om personnavn eller korporasjon. 
 Dette er løst på ulike måter i ulike metadatakataloger og autoritetsregistre.
-Foreløpig er disse verdiene tillat for angivelse av navn/korporasjon (type), men det er mulig å få lagt til flere typer ved behov: 
+Foreløpig er de følgende verdiene tillat for angivelse av navn/korporasjon (type), men det er mulig å få lagt til flere typer ved behov: 
 
 - `person`
 - `korporasjon`
 - `konferanse`
 - `standardtittel`  (traktat, kontrakt).  
 
-Det bør oppgis hvilken rolle (role) navn/korporasjoner har. 
+Det bør oppgis hvilken rolle (role) navn/korporasjoner har med `role`-attributtet. 
 Eksempler på roller er: 
 forfatter, komponist, filmregissør, fotograf, skaper etc. 
 
@@ -588,6 +588,74 @@ Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nett
 }
 ```
 
+
+### Source
+
+| Navn         | **Source** |
+|:-------------|:-----------|
+| Beskrivelse  | Det fysiske eller digitale objektet ressursen er utledet fra. Typiske bruksområder inkluderer: digitisert innhold fra analoge medier (for eksempel en videostrøm tatt opp fra et bånd), digital dokumentasjon av et fysisk objekt (for eksempel fotografier av en fysisk mediebærer og dens etiketter), og digitale objekter utledet fra andre digitale objekter. |
+| Krav         | BØR |
+| Kardinalitet | 0..n |
+
+**Retningslinjer for bruk:**
+
+Elementet `source` registrerer det umiddelbare objektet eller de umiddelbare objektene den beskrevne ressursen ble skapt fra. Det gir en søkbar, maskinlesbar kobling til opprinnelsen og er avgjørende for å spore opphavet til digitalisert, migrert eller på annen måte utledet innhold.
+
+- **`identifier`** – Én eller flere identifikatorer for kildeobjektet, hver med `type` og `value` (samme struktur som toppnivåelementet `identifier`). Bruk dette for å registrere unike identifikatorer for kildeobjektene, for eksempel strekkoder, URN-er eller andre identifikatorer som er relevante for kilden.
+- **`description`** – (Valgfri) En kort fritekstnotis om kildeobjektet, for eksempel dets navn/tittel eller fysiske form.
+- **`URI`** – (Valgfri) En direkte lenke til en katalogpost eller annen ressurs med ytterligere informasjon om kildeobjektet.
+
+Når den beskrevne ressursen er utledet fra **flere** kilder, listes hver kilde som et separat objekt i `source`-listen.
+
+**Eksempler:**
+
+*Én kilde*
+
+```json
+{
+  "source": [
+    {
+      "description": "Hjelp vi flyr, U-matic HB videobånd",
+      "identifier": [
+        { 
+          "type": "inventory number", 
+          "value": "FVVB00000015" 
+        }
+      ],
+      "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/50979618"
+    }
+  ]
+}
+```
+
+*Flere kilder (sammensatt objekt)*
+
+```json
+{
+  "source": [
+    {
+      "description": "Negativ 120, bilderute 7.",
+      "identifier": [
+        { 
+          "type": "inventory number", 
+          "value": "PHOTO_120_007" 
+        }
+      ]
+    },
+    {
+      "description": "Negativ 120, bilderute 8.",
+      "identifier": [
+        { 
+          "type": "inventory number", 
+          "value": "PHOTO_120_008" 
+        }
+      ]
+    }
+  ]
+}
+```
+
+
 ### Provenance
 
 | Navn         | **Provenance**                                                                                                                                                                                               |
@@ -731,7 +799,7 @@ Språkkode må angis (lang-attributt).
         "value": "NB_PE_VM_M_05_09_01_036"
       },
       {
-        "type": "hyllesignatur",
+        "type": "strekkode",
         "value": "POEL00003975"
       }
     ],
@@ -830,6 +898,17 @@ Språkkode må angis (lang-attributt).
         "id": "987654321",
         "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
         "lang": "nor"
+      }
+    ],
+    "source": [
+      {
+        "description": "Negativ 120, rute 7.",
+        "identifier": [
+          {
+            "type": "inventory number",
+            "value": "PHOTO_120_007"
+          }
+        ]
       }
     ],
     "provenance": [
