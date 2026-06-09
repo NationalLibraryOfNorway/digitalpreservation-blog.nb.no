@@ -417,7 +417,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
     }
 }
 
-```json
+
 {
   "agent": {
     "agentName": "Commons IP",
