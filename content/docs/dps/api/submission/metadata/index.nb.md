@@ -596,7 +596,7 @@ Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nett
 
 **Retningslinjer for bruk:**
 
-Elementet `source` beskriver objektet eller objektene den beskrevne ressursen ble utledet fra. Det gir en søkbar, maskinlesbar kobling til kildeobjektet og er avgjørende for å spore opphavet til innhold som er digitalisert, migrert eller på andre måter utledet fra andre objekter.
+Dette elementet beskriver objektet eller objektene den beskrevne ressursen ble utledet fra. Det gir en søkbar, maskinlesbar kobling til kildeobjektet og er avgjørende for å spore opphavet til innhold som er digitalisert, migrert eller på andre måter utledet fra andre objekter.
 
 - `identifier` – Én eller flere identifikatorer for kildeobjektet, hver med `type` og `value` (samme struktur som toppnivåelementet `identifier`). Bruk dette for å registrere unike identifikatorer for kildeobjektene, for eksempel strekkoder, URN-er eller andre identifikatorer som er relevante for kilden.
 - `description` – (Valgfri) En kort fritekstnotis om kildeobjektet, for eksempel dets navn/tittel eller fysiske form.

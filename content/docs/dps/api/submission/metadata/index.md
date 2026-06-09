@@ -601,7 +601,7 @@ The `URI` attribute is used to provide a link to the related resource (such as a
 
 **Guidelines for use:**
 
-The `source` element records the object(s) the described resource was derived from. It provides a searchable, machine‑readable link to the origin and is essential for tracing the origin of digitised, migrated, or otherwise derived content.
+This element records the object(s) the described resource was derived from. It provides a searchable, machine‑readable link to the origin and is essential for tracing the origin of digitised, migrated, or otherwise derived content.
   
 - `identifier` – One or more identifiers for the source object, each with a `type` and `value` (same structure as the top‑level `identifier` element). Use this to record unique identifiers to the source objects such as, inventory numbers, URNs, or any other identifier relevant to the source.
 - `description` – (Optional) A brief free‑text note about the source object, e.g. its name/title, or physical form.
