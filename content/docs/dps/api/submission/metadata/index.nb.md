@@ -186,7 +186,7 @@ Tittelens språk bør angis med språkkode i henhold til [ISO 639-3](https://www
 
 **Retningslinjer for bruk:**
 
-Denne attributten gir mulighet for å oppgi flere titler, for eksempel titler på andre språk, arbeidstitler, etc.
+Dette elementet gir mulighet for å oppgi flere titler, for eksempel titler på andre språk, arbeidstitler, etc.
 
 For å bedre muligheter for søk på tittel anbefales det å legge til alternativ tittel der tittelen inneholder tall og/eller spesialtegn, eller der tall opprinnelig er skrevet som tekst. 
 
@@ -312,7 +312,7 @@ Foreløpig er disse verdiene tillat for angivelse av navn/korporasjon (type), me
 Det bør oppgis hvilken rolle (role) navn/korporasjoner har. 
 Eksempler på roller er: bidragsyter, avbildet, illustratør, modell, redaktør, designer etc.  
 
-Bruk av role-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
+Bruk av `role`-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/system, og bruken bør være konsekvent (standardisert skriveform). 
 
 Forklaring til bruk av *authority*-informasjon: 
 - `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
@@ -400,13 +400,12 @@ Forklaring til bruk av *authority*-informasjon:
 
 | Navn         | **Spatial**                                                                                                                                                                                                                                                                                                  |
 |:-------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Relevante stedsnavn for ressursen. Kan referere til geografiske steder som land, regioner og byer som har betydning for ressursen. <br> Det BØR angis `type` for hvilket sted som oppgis.<br>Attributt `authority` BØR brukes for å angi autoritet.<br>Attributt `lang` BØR brukes for å definere språkkode. |
+| Beskrivelse  | Relevante stedsnavn for ressursen. Kan referere til geografiske steder som land, regioner og byer som har betydning for ressursen. <br> Det BØR angis `type` for hvilket sted som oppgis.<br>Attributt `authority` BØR brukes for å angi autoritet. |
 | Krav         | BØR                                                                                                                                                                                                                                                                                                          |
 | Kardinalitet | 0..n                                                                                                                                                                                                                                                                                                         |
 
 **Retningslinjer for bruk:**
 
-Bruk [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) for angivelse av land. Landekoder skrives bak landet i parentes (NO). 
 
 Vi anbefaler bruk av stedsnavstjenester/registre for angivelse av norske stedsnavn. 
 Et eksempel er [Sentralt stedsnavnregister](https://www.kartverket.no/api-og-data/stedsnavndata) (SSR) fra kartverket. Det MÅ oppgis hvilket register som er benyttet.  
@@ -457,7 +456,7 @@ Forklaring til bruk av *authority*-informasjon:
 
 | Navn         | **Date**                                                                                                                                                                                                                                  |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | Relevante datoer for ressursen (for eksempel utgivelses-, copyright-, opprettelse-/digitaliseringsdato etc. med type). <br> Attributt `type` MÅ brukes for å definere type dato.<br>Attributt `lang` BØR brukes for å definere språkkode. |
+| Beskrivelse  | Relevante datoer for ressursen (for eksempel utgivelses-, copyright-, opprettelse-/digitaliseringsdato etc. med type). <br> Attributt `type` MÅ brukes for å definere type dato. |
 | Krav         | BØR                                                                                                                                                                                                                                       |
 | Kardinalitet | 0..n                                                                                                                                                                                                                                      |
 

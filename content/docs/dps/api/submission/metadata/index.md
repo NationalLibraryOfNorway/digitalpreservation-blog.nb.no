@@ -185,7 +185,7 @@ The language of the title should be specified according to the [ISO 639-3](https
 
 **Guidelines for use:**
 
-This attribute allows the resource to be given multiple titles. For example titles on different languages, working titles, etc.
+This element allows the resource to be given multiple titles. For example titles on different languages, working titles, etc.
 
 To improve searchability by title, it is recommended to add an alternative title when the original title contains numbers and/or special characters, or when numbers are originally written out as words. 
 
