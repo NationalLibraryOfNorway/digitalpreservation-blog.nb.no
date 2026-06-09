@@ -419,8 +419,27 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 **Retningslinjer for bruk:**
 - Brukes når en SIP, AIP eller DIP opprettes som en ny informasjonspakke, inkludert etablering av pakkestruktur, metadata og tilhørende filer i henhold til gjeldende pakkestandard (f.eks. E-ARK).
 - Skal ikke brukes ved ren kopiering eller flytting av eksisterende pakker uten endring av pakkestruktur eller metadata.
+- Hvis det brukes SIP-generator utviklet av Nasjonalbiblioteket, uten endringer, bruk agent fra første eksempel. 
 
 **Eksempel:**
+
+
+```JSON
+{
+    "agent": {
+        "agentName": "nifi-nb-eark-nar.EarkSIPGenerator",
+        "agentType": "software",
+        "agentVersion": "1.0.11",
+        "agentNotes": "Apache NiFi-prosessor utviklet av Nasjonalbiblioteket for opprettelse av E-ARK SIP. Bruker commons-ip, et Java-bibliotek for opprettelse og håndtering av E-ARK-informasjonspakker."
+    },
+    "event": {
+        "eventDateTime": "2026-05-13T12:42:15+02:00",
+        "eventType": "information package creation",
+        "eventDetail": "Opprettet SIP i henhold til Nasjonalbibliotekets SIP-profil 1.0 for Levende Bilder",
+        "outcome": "success"
+    }
+}
+ 
 
 ```json
 {

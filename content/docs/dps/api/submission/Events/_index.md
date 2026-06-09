@@ -397,8 +397,25 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 **Guidelines for use:**
 - Used when a SIP, AIP or DIP is created as a new information package, including the establishment of package structure, metadata, and associated files in accordance with the applicable packaging standard (e.g. E-ARK). 
 - Should not be used for simple copying or transfer of existing packages without changes to package structure or metadata.
+- If the SIP Generator developed by the National Library is used without modification, use the agent from the first example.
 
 **Example:**
+
+```JSON
+{
+    "agent": {
+        "agentName": "nifi-nb-eark-nar.EarkSIPGenerator",
+        "agentType": "software",
+        "agentVersion": "1.0.11",
+        "agentNotes": "Apache NiFi processor developed by the National Library for creating E-ARK SIPs. Uses Commons-ip, a Java library for the creation and management of E-ARK information packages."
+    },
+    "event": {
+        "eventDateTime": "2026-05-13T12:42:15+02:00",
+        "eventType": "information package creation",
+        "eventDetail": "Created a SIP in accordance with the National Library's SIP Profile 1.0 for Moving Images.",
+        "outcome": "success"
+    }
+}
 
 ```json
 {
