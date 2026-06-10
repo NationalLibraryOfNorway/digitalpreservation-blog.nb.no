@@ -435,7 +435,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "event": {
         "eventDateTime": "2026-05-13T12:42:15+02:00",
         "eventType": "information package creation",
-        "eventDetail": "Opprettet SIP i henhold til Nasjonalbibliotekets SIP-profil 1.0 for Levende Bilder",
+        "eventDetail": "Opprettet SIP i henhold til Nasjonalbibliotekets profil SIP 1.0.",
         "outcome": "success"
     }
 }

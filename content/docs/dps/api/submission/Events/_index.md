@@ -412,7 +412,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
     "event": {
         "eventDateTime": "2026-05-13T12:42:15+02:00",
         "eventType": "information package creation",
-        "eventDetail": "Created a SIP in accordance with the National Library's SIP Profile 1.0 for Moving Images.",
+        "eventDetail": "Created a SIP in accordance with the National Library's Profile SIP 1.0.",
         "outcome": "success"
     }
 }
