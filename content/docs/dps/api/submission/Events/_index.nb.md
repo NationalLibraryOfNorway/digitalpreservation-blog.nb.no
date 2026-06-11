@@ -775,7 +775,7 @@ Merk at det kan være én event med event-type «transfer» som inkluderer sjekk
 - **Migration:** Hvis filformat endres. 
 
 
-### Nett-høsting (web-arkiv)
+### Netthøsting (web-arkiv)
 
 **Minimum:**
 
