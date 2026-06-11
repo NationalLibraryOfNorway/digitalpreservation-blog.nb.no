@@ -712,3 +712,79 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   }
 }
 ```
+
+
+
+## Veiledning for bruk av event-typer i ulike datastrømmer
+
+Denne veiledningen er basert på Nasjonalbibliotekets interne arbeidsflyter og er ikke nødvendigvis dekkende for alle typer bevaringsprosesser. Innspill til forbedringer, presiseringer og ytterligere brukstilfeller mottas gjerne.
+
+
+### Digitalisering fra analogt materiale: 
+
+**Minimum:** 
+
+- **Creation eller Imaging (Bruk én av disse):** Når filen(e) faktisk opprettes.<br>
+**Creation** brukes når digitale filer opprettes gjennom digitalisering eller produksjon, for 	eksempel ved skanning, digitalisering av lyd eller overføring av video fra analog kilde.<br>
+**Imaging** brukes når det opprettes et komplett diskbilde (bit-for-bit kopi) av et fysisk 	lagringsmedium, som harddisk, diskett, CD eller minnekort. Imaging omfatter hele 		mediet, inkludert filsystemstruktur, metadata, ledig plass og eventuelt slettede data.
+
+- **Message digest calculation:** Opprettelse av sjekksummer. Det anses ikke som nødvendig å dokumentere verifisering av sjekksummene rett etter at de er opprettet. Gjerne verifiser dem før de sendes videre, men ikke lag en event på det. 
+  
+- **Information package creation:** Opprettelsen av en SIP. Dokumenterer gjeldende pakkestandard (E-ARK).
+  
+
+**Kan være relevant:**
+
+- **Validation:** Validering av kvalitet og/eller format mot en standard.
+- **Metadata extraction:** Hente ut tekniske, administrative og/eller deskriptive metadata fra fil. Uttrekk må beskrives i "OutcomeDetail" eller resultere i ny fil som legges i bevaringspakken.
+
+
+### Digitalt født materiale
+
+**Minimum:**
+
+- **Transfer:** Fra avleverer til intern produksjonsløype/internt område. 
+- **Message digest calculation eller fixity check:** Hvis filer avleveres med sjekksum, må disse verifiseres. Hvis filene mangler sjekksum, må det opprettes. 
+- **Information package cration:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK).
+
+
+**Kan være relevant:**
+
+- **Virus check:** Lag én event for alle filer (hele pakken), eventuelle avvik dokumenteres[TP2.1] på filnivå. 
+- **Validation:** Validering av kvalitet og/eller format mot en standard.
+- **Metadata extraction:** Hente ut tekniske, administrative og/eller deskriptive metadata fra fil. Uttrekk må beskrives i "OutcomeDetail" eller resultere i ny fil som legges i bevaringspakken.
+- **Filename change:** Hvis filnavn endres etter mottak av filene.
+- **Migration:** Hvis filformat endres. 
+
+
+### Overføring av materiale fra tidligere lagringssystem til DPS
+
+**Minimum:**
+
+- **Transfer:** Fra tidligere lagringssystem. 
+- **Fixity check eller message digest calculation:** Kontroll av eksisterende sjekksummer. Hvis materialet mangler sjekksummer, må det opprettes. 
+- **Information package cration:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK). Denne er relevant kun når bevaringspakkene endres.
+  
+Merk at det kan være én event med event-type «transfer» som inkluderer sjekksumverifisering: transfer fra X til Y, med sjekksumverifisering på veien. 
+
+
+**Kan være relevant:**
+
+- **Creation:** Hvis opprettelse av filene ikke er dokumentert tidligere, og man har denne informasjonen tilgjengelig. 
+- **Filenamechange:** Hvis filnavn endres etter at det er flyttet fra tidligere lagringssystem. 
+- **Migration:** Hvis filformat endres. 
+
+
+## Nett-høsting (web-arkiv)
+
+**Minimum:**
+
+- **Capture:** Selve innhøstingen/crawl. 
+- **Creation:** Hvis det lages for eksempel nye WARC-filer.
+- **Message digest calculation:** Opprettelse av sjekksummer. Det anses ikke som nødvendig å dokumentere verifisering av sjekksummene rett etter at de er opprettet. Gjerne verifiser dem før de sendes videre, men ikke lag en event. 
+- **Information package cration:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK). 
+
+
+**Kan være relevant:**
+- **Validation:** Validering av kvalitet og/eller format mot en standard.
+- **Metadata extraction:** Hente ut tekniske, administrative og/eller deskriptive metadata fra fil. Uttrekk må beskrives i "OutcomeDetail" eller resultere i ny fil som legges i bevaringspakken.

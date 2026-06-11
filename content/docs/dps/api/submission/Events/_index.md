@@ -695,3 +695,86 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   }
 }
 ```
+
+
+
+## Guidance for use of event types in different data flows
+
+This guidance is based on the National Library's internal workflows and may not cover all types of preservation processes. Feedback on improvements, clarifications, and additional use cases is welcome.
+
+
+### Digitization from analog materials
+
+**Minimum:**
+
+- **Creation or Imaging (use one of these):** Documents when the file(s) are actually created.<br>
+**Creation** is used when digital files are created through digitization or production processes, such as document scanning, audio digitization, or transfer of video content from an analog source.<br>
+**Imaging** is used when a complete disk image (bit-for-bit copy) of a physical storage medium is created, such as a hard drive, floppy disk, CD, or memory card. Imaging captures the entire medium, including the file system structure, metadata, unallocated space, and any deleted data.
+- **Message Digest Calculation:** Creation of checksums. It is generally not necessary to document checksum verification immediately after the checksums have been generated. Verification before transfer to the next stage is recommended, but no separate event needs to be recorded for this activity. 
+- **Information Package Creation:** Creation of a SIP. Document the applicable packaging standard (e.g., E-ARK). 
+
+
+**May Be Relevant:**
+
+- **Validation:** Validation of file quality and/or format against a specified standard. 
+- **Metadata Extraction:** Extraction of technical, administrative, and/or descriptive metadata from files. The extracted information should either be documented in "outcomeDetail" or result in a new file that is included in the preservation package. 
+
+
+### Born-Digital Material
+
+**Minimum:**
+
+- **Transfer:** Transfer from the producer/depositor to an internal processing workflow or staging area.
+- **Message Digest Calculation or Fixity Check:** If files are delivered with checksums, these must be verified. If no checksums are provided, checksums must be generated.
+**Information Package Creation:** Creation of a SIP. Document the applicable packaging standard (e.g., E-ARK).
+
+**May Be Relevant:**
+
+- **Virus Check:** Create a single event covering all files in the package. Any issues or anomalies should be documented at the file level.
+- **Validation:** Validation of file quality and/or format against a specified standard.
+- **Metadata Extraction:** Extraction of technical, administrative, and/or descriptive metadata from files. The extracted information should either be documented in "outcomeDetail" or result in a new file that is included in the preservation package.
+- **Filename Change:** If file names are changed after receipt of the files.
+- **Migration:** If file formats are changed.
+
+
+
+### Transfer of Material from a previous Storage System to the DPS
+
+**Minimum:**
+
+- **Transfer:** Transfer from the previous storage system.
+- **Fixity Check or Message Digest Calculation:** Verification of existing checksums. If the material does not include checksums, new checksums must be generated.
+- **Information Package Creation:** Creation of a SIP. Document the applicable packaging standard (e.g., E-ARK). This event is only relevant when preservation packages are modified.
+
+Note: A single Transfer event may include checksum verification as part of the transfer process, for example: transfer from system X to system Y with checksum verification performed during transfer.
+
+
+**May Be Relevant:**
+
+- **Creation:** If the creation of the files has not already been documented and the relevant information is available. 
+- **Filename Change:** If file names are changed after transfer from the previous storage system.
+- **Migration:** If file formats are changed.
+
+
+
+### Web Harvesting (Web Archive)
+
+**Minimum:**
+
+- **Capture:** The actual web harvesting or crawl process.
+- **Creation:** If new files are created as part of the harvesting process, for example WARC files.
+- **Message Digest Calculation:** Generation of checksums. It is generally not necessary to document checksum verification immediately after the checksums have been generated. Verification before transfer to the next stage is recommended, but no separate event needs to be recorded for this activity.
+- **Information Package Creation:** Creation of a SIP. Document the applicable packaging standard (e.g., E-ARK).
+
+
+**May Be Relevant:**
+
+- **Validation:** Validation of file quality and/or format against a specified standard.
+- **Virus Check:** Create a single event covering all files in the package. Any issues or anomalies should be documented at the file level.
+- **Metadata Extraction:** Extraction of technical, administrative, and/or descriptive metadata from files. The extracted information should either be documented in "outcomeDetail" or result in a new file that is included in the preservation package.
+
+
+
+
+
+
