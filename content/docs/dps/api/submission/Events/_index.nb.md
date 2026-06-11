@@ -720,7 +720,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 Denne veiledningen er basert på Nasjonalbibliotekets interne arbeidsflyter og er ikke nødvendigvis dekkende for alle typer bevaringsprosesser. Innspill til forbedringer, presiseringer og ytterligere brukstilfeller mottas gjerne.
 
 
-### Digitalisering fra analogt materiale: 
+### Digitalisering fra analogt materiale 
 
 **Minimum:** 
 
@@ -775,7 +775,7 @@ Merk at det kan være én event med event-type «transfer» som inkluderer sjekk
 - **Migration:** Hvis filformat endres. 
 
 
-## Nett-høsting (web-arkiv)
+### Nett-høsting (web-arkiv)
 
 **Minimum:**
 
