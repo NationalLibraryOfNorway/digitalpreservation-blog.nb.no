@@ -750,7 +750,7 @@ Denne veiledningen er basert på Nasjonalbibliotekets interne arbeidsflyter og e
 
 **Kan være relevant:**
 
-- **Virus check:** Lag én event for alle filer (hele pakken), eventuelle avvik dokumenteres[TP2.1] på filnivå. 
+- **Virus check:** Lag én event for alle filer (hele pakken), eventuelle avvik dokumenteres på filnivå. 
 - **Validation:** Validering av kvalitet og/eller format mot en standard.
 - **Metadata extraction:** Hente ut tekniske, administrative og/eller deskriptive metadata fra fil. Uttrekk må beskrives i "OutcomeDetail" eller resultere i ny fil som legges i bevaringspakken.
 - **Filename change:** Hvis filnavn endres etter mottak av filene.
@@ -787,4 +787,5 @@ Merk at det kan være én event med event-type «transfer» som inkluderer sjekk
 
 **Kan være relevant:**
 - **Validation:** Validering av kvalitet og/eller format mot en standard.
+- **Virus check:** Lag én event for alle filer (hele pakken), eventuelle avvik dokumenteres på filnivå. 
 - **Metadata extraction:** Hente ut tekniske, administrative og/eller deskriptive metadata fra fil. Uttrekk må beskrives i "OutcomeDetail" eller resultere i ny fil som legges i bevaringspakken.
