@@ -5,7 +5,7 @@ weight: 2
 
 ## What is metadata?
 
-Metadata is structured information about digital objects. Without metadata, a digital file is just an opaque sequence of bits: you cannot find it, you cannot understand what it represents, and you cannot prove it is what it claims to be.
+Metadata is structured information about digital objects. Without metadata, a digital file is just an opaque sequence of bits: you cannot find it, you cannot understand what it represents, and you cannot prove it is what it claims to be. Metadata exists to enable the preservation of data; for an overview of how the DPS handles data, see [Data management](/docs/services/dps/data/).
 
 For digital preservation, metadata serves several essential functions:
 
@@ -40,6 +40,8 @@ The richer metadata you pack into SIP files is still preserved and available thr
 If you already maintain this metadata in your own cataloguing systems, providing it through the Submission API is typically straightforward. The Dublin Core fields are well-defined, and in many cases mapping from your existing metadata formats is a one-time configuration effort.
 
 Ultimately, the metadata you provide in the DPS enables a higher degree of self-service. Authorized consumers can find and retrieve the content they are after without having to go through intermediaries, whether that is the original submitter, a catalogue team, or a preservation custodian. The searchable and retrievable layers together make the DPS a self-contained platform for discovery and access.
+
+The DPS is first and foremost a system for safeguarding data (see [Data management](/docs/services/dps/data/)). Metadata is what makes that data findable, trustworthy, and reusable.
 
 ## How metadata enters the DPS
 

@@ -6,7 +6,7 @@ weight: 3
 
 The DPS is accessed through a public API. Who can submit and retrieve content is governed by role-based access control: every client is assigned specific roles tied to submission agreements, and those roles determine what the client is authorized to do.
 
-The model governing access to submit data to or retrieve data from DPS has four main components: *clients*, *roles*, *submission agreements*, and *information packages*.
+The model governing access to submit data to or retrieve data from DPS has four main components: *clients*, *roles*, *submission agreements*, and *information packages*. For context on what is submitted and retrieved, see [Data management](/docs/services/dps/data/) and [Metadata management](/docs/services/dps/metadata/).
 
 ### Clients
 All users who need to communicate with the DPS will be given a client (with a clientID) by the National Library.
