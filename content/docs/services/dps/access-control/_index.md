@@ -1,10 +1,12 @@
 ---
-title: Model for Role-Based Access
+title: Access control
 tags: [Digital Preservation, OAIS Model, Role-Based Access Control, Preservation Agreements, Information Packages, Authorization Systems, Access Management, Digital Archives]
 weight: 3
 ---
 
-The model governing access to submit data to or retrieve data from DPS has four main components: *clients*, *roles*, *preservation agreements*, and *information packages*.
+The DPS is accessed through a public API. Who can submit and retrieve content is governed by role-based access control: every client is assigned specific roles tied to submission agreements, and those roles determine what the client is authorized to do.
+
+The model governing access to submit data to or retrieve data from DPS has four main components: *clients*, *roles*, *submission agreements*, and *information packages*.
 
 ### Clients
 All users who need to communicate with the DPS will be given a client (with a clientID) by the National Library.
@@ -29,7 +31,7 @@ The term originates from OAIS and are also summarized in the E-ARK-SIP specifica
 In the context of role-based access, it is not the details of these submission agreements that are important, but rather that the submission agreements are established in our systems.
 
 Producer/consumer roles related to the submission agreements are created in our authorization system.
-A preservation agreement must exist *before* the submission of information packages to DPS can occur.
+A submission agreement must exist *before* the submission of information packages to DPS can occur.
 
 Submission agreements are linked to one or more information packages.
 
@@ -75,7 +77,7 @@ sequenceDiagram
 
 ### Example: Request information packages
 A client wishing to retrieve this information package must specify which package to retrieve using the package's DPS-ID.
-If the client has a consumer role linked to the preservation agreement governing the relevant information package, the DPS will initiate the dissemination process.
+If the client has a consumer role linked to the submission agreement governing the relevant information package, the DPS will initiate the dissemination process.
 
 ```mermaid
 sequenceDiagram
@@ -101,7 +103,7 @@ sequenceDiagram
 ```
 
 ### Example: Search for information packages
-A client wishing to search for contents managed by the DPS, will be able to search all information packages connected to the preservation agreements for which they have a consumer role.
+A client wishing to search for contents managed by the DPS, will be able to search all information packages connected to the submission agreements for which they have a consumer role.
 
 ```mermaid
 sequenceDiagram

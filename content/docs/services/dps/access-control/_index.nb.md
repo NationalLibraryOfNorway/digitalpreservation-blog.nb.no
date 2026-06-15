@@ -1,8 +1,10 @@
 ---
-title: Modell for rollebasert tilgang
+title: Tilgangskontroll
 tags: [Digital bevaring, OAIS-modell, Rollebasert tilgang, Bevaringsavtaler, Informasjonspakker, Autorisasjonssystemer, Tilgangsstyring, Digitale arkiv]
 weight: 3
 ---
+
+Tilgang til DPS styres gjennom et offentlig API. Hvem som kan levere og hente ut innhold styres av rollebasert tilgangskontroll: hver klient tildeles spesifikke roller knyttet til bevaringsavtaler, og disse rollene bestemmer hva klienten er autorisert til å gjøre.
 
 Modellen som styrer tilgang til å avlevere data til eller hente data fra DPS, har fire hovedkomponenter: *klienter*, *roller*, *bevaringsavtaler*, og *informasjonspakker*.
 
