@@ -20,7 +20,7 @@ An API interface has been developed to enable communication between various data
 
 For data ingest and delivery, a data exchange platform based on the Amazon S3 protocol was tested. This solution allows users to transfer data without needing to understand how the data is stored within the platform.
 
-Requirements have been established for data delivered to the National Library to comply with the [E-ARK](https://dilcis.eu/specifications/sip) standard for the structure and content of information packages. More information about these requirements is available [here](https://digitalpreservation.no/docs/dps/sip/1.0/).
+Requirements have been established for data delivered to the National Library to comply with the [E-ARK](https://dilcis.eu/specifications/sip) standard for the structure and content of information packages. More information about these requirements is available [here](https://digitalpreservation.no/docs/dps/sip/).
 
 In addition, metadata requirements have been defined for information packages submitted for preservation. These metadata are considered essential for the management and preservation of the material within the preservation environment and are submitted via the API. More information about the metadata requirements is available [here](https://digitalpreservation.no/docs/dps/api/submission/metadata/).
 

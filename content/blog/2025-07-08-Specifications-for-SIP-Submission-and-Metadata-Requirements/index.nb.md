@@ -21,7 +21,7 @@ Det har i tillegg blitt sett på hvordan vi kan sikre at det avleveres et minimu
 ![Metadata i digital bevaring](/Skjermbilde2_blogg.JPG) 
 <br>
 
-Dokumentasjon for avleveing av SIP finnes her: [SIP 1.0](/nb/docs/dps/sip/1.0/)
+Dokumentasjon for avleveing av SIP finnes her: [SIP 1.0](/nb/docs/dps/sip/)
 
 Dokumentasjon om krav til avlevering av metadata finnes her: [Krav til metadata](/nb/docs/dps/api/submission/metadata/)
 

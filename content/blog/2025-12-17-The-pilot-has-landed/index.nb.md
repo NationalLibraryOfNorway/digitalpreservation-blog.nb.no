@@ -20,7 +20,7 @@ Vi har utviklet et API-grensesnitt som gjør det mulig for ulike datasystemer å
 
 For inn- og utlevering av data ble det testet ut en datautvekslingsplattform basert på Amazon S3-protokollen. Denne løsningen gjør at brukerne ikke trenger å forholde seg til hvordan data faktisk lagres internt på datautvekslingsplattformen. 
 
-Det er klargjort for at data som skal leveres til Nasjonalbiblioteket må følge [E-ARK](https://dilcis.eu/specifications/sip) standarden for struktur og innhold i informasjonspakker. Du kan lese mer om våre krav til informasjonspakker [her](https://digitalpreservation.no/nb/docs/dps/sip/1.0/). 
+Det er klargjort for at data som skal leveres til Nasjonalbiblioteket må følge [E-ARK](https://dilcis.eu/specifications/sip) standarden for struktur og innhold i informasjonspakker. Du kan lese mer om våre krav til informasjonspakker [her](https://digitalpreservation.no/nb/docs/dps/sip/). 
 
 I tillegg er det utarbeidet krav til metadata som skal leveres sammen med informasjonspakken. Dette er metadata som anses som nødvendige for forvaltning av materialet i bevaringsomgivelsene. Disse dataene leveres via API’et. Du kan lese mer om våre krav til metadata [her](https://digitalpreservation.no/nb/docs/dps/api/submission/metadata/). 
 

@@ -28,7 +28,7 @@ De siste årene har vi dokumentert enkelte bevaringshendelser i en egen database
 
 💾 Foreløpig har vi gått for en enkel modellering av PREMIS-eventene. Det som dokumenteres er objekt, event og agent. På objekt er det to nivåer som dokumenteres, intellektuell entitet (som i praksis er informasjonspakken) og på filnivå. Vi viderefører bruken av egen database  for eventer, og (per nå) ikke skrive dem til fil i informasjonspakken. Dette for å gjøre det enklere å samle informasjonen og skrive nye eventer uten å måtte oppdatere informasjonspakken. Vi skriver ikke eventer i PREMIS.xml i databasen, men i JSON-format. Vi tar høyde for at vi ved behov kan skrive eventer fra database til informasjonspakker (feks DIP ved utlevering) i PREMIS.xml. Dette gjelder også eventer som vi tar imot fra avleverere via API. For ordens skyld, så bevares våre databaser etter samme bevaringsprinsipper som data som bevares i bit-lager. 
 
-I tillegg til at vi anbefaler avlevering av bevaringsmetadata i form av eventer i API, er det også mulig å avlevere denne type metadata i informasjonspakken (SIP). Mer om det her: [SIP 1.0 (E-ARK)](/docs/dps/sip/1.0/). 
+I tillegg til at vi anbefaler avlevering av bevaringsmetadata i form av eventer i API, er det også mulig å avlevere denne type metadata i informasjonspakken (SIP). Mer om det her: [SIP 1.0 (E-ARK)](/docs/dps/sip/). 
 
 🚀 Vi anser arbeidet vi har gjort som et utgangspunkt. Vi har valgt å dokumentere det vi vurderer som viktig nå, for å komme i gang, med en bevisst tilnærming om at vi kan justere kursen underveis. For oss er det viktigere å etablere en praksis som kan videreutvikles, enn å prøve å treffe en perfekt løsning fra start, der vi risikerer å bruke tiden på  endeløse diskusjoner - og lite praktiske løsninger. 
 

@@ -12,7 +12,7 @@ The event and agent model used here is based on the [PREMIS data model](https://
 
 Submitting events is not mandatory, but we recommend doing so when such information is available. Events added through the API will be preserved in a dedicated event database, just like events that occur within the preservation environment (DPS). When disseminated, this provides a clearer overview of all events associated with an object.
 
-Preservation metadata can also be submitted as files in the information package (SIP). The difference is that events registered via the API are stored in a searchable event database, whereas files in the SIP are preserved as part of the package without becoming searchable in the same way. We therefore prefer that preservation metadata is submitted via the API. If this is not possible for practical or technical reasons, it is still better to include the information in the SIP than to leave it out. See more under [metadata primer](/docs/dps/sip/1.0/metadata/) and [requirements for SIP structure](/docs/dps/sip/1.0/structure-requirements/). Information relating directly to provenance may be included under [metadata](/docs/dps/api/submission/metadata/).
+Preservation metadata can also be submitted as files in the information package (SIP). The difference is that events registered via the API are stored in a searchable event database, whereas files in the SIP are preserved as part of the package without becoming searchable in the same way. We therefore prefer that preservation metadata is submitted via the API. If this is not possible for practical or technical reasons, it is still better to include the information in the SIP than to leave it out. See more under [metadata primer](/docs/dps/sip/metadata/) and [requirements for SIP structure](/docs/dps/sip/structure-requirements/). Information relating directly to provenance may be included under [metadata](/docs/dps/api/submission/metadata/).
 
 ## Linking events to an object
 
@@ -419,7 +419,6 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 ```
 
 ```json
-
 {
   "agent": {
     "agentName": "Commons IP",

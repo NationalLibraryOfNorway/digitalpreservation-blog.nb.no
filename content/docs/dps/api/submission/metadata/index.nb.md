@@ -87,7 +87,7 @@ Tillatte typer for å beskrive ressursen sortert på medietype:
 
 
 
-**Merk:** I kravene til [METS.xml](/nb/docs/dps/sip/1.0/mets/) har vi et påkrevd attributt som heter Content category `@TYPE`. Content category angir medietype på overordnet nivå.
+**Merk:** I kravene til [METS.xml](/nb/docs/dps/sip/mets/) har vi et påkrevd attributt som heter Content category `@TYPE`. Content category angir medietype på overordnet nivå.
  
 
   
@@ -614,9 +614,9 @@ Når den beskrevne ressursen er utledet fra **flere** kilder, listes hver kilde 
     {
       "description": "Hjelp vi flyr, U-matic HB videobånd",
       "identifier": [
-        { 
-          "type": "inventory number", 
-          "value": "FVVB00000015" 
+        {
+          "type": "inventory number",
+          "value": "FVVB00000015"
         }
       ],
       "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/50979618"
@@ -633,18 +633,18 @@ Når den beskrevne ressursen er utledet fra **flere** kilder, listes hver kilde 
     {
       "description": "Negativ 120, bilderute 7.",
       "identifier": [
-        { 
-          "type": "inventory number", 
-          "value": "PHOTO_120_007" 
+        {
+          "type": "inventory number",
+          "value": "PHOTO_120_007"
         }
       ]
     },
     {
       "description": "Negativ 120, bilderute 8.",
       "identifier": [
-        { 
-          "type": "inventory number", 
-          "value": "PHOTO_120_008" 
+        {
+          "type": "inventory number",
+          "value": "PHOTO_120_008"
         }
       ]
     }

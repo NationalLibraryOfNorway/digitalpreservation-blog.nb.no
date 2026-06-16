@@ -17,7 +17,7 @@ knyttet til et objekt.
 Bevaringsmetadata kan også leveres som filer i informasjonspakken (SIP). Forskjellen er at eventer registrert via API-et lagres i en søkbar event-database,
 mens filer i SIP bevares som en del av pakken uten å bli søkbare på samme måte. Vi foretrekker derfor at bevaringsmetadata sendes via API-et. Hvis det av
 praktiske eller tekniske grunner ikke er mulig, er det likevel bedre å ta med informasjonen i SIP-en enn å la være. Se mer om det under
-[metadataveiledning](/docs/dps/sip/1.0/metadata/) og [krav til pakkestruktur](/docs/dps/sip/1.0/structure-requirements/). Informasjon som går direkte på
+[metadataveiledning](/docs/dps/sip/metadata/) og [krav til pakkestruktur](/docs/dps/sip/structure-requirements/). Informasjon som går direkte på
 proveniens kan legges til i [metadata](/docs/dps/api/submission/metadata/).
 
 ## Kobling av eventer til objekt
@@ -578,7 +578,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "eventType": "migration",
     "eventDetail": "Batch migrering av alle MOV-filer i pakken (25 filer) til MXF/Op1a-format med JPEG2000, videokodek og PCM lydkodek. Brukte parametere: command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes",
     "outcome": "success",
-    "outcomeDetail": "Resulterende MXF-filer lagret i representations/primary_20250325/data/." 
+    "outcomeDetail": "Resulterende MXF-filer lagret i representations/primary_20250325/data/."
   }
 }
 ```

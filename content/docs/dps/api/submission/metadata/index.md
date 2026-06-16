@@ -87,7 +87,7 @@ Allowed types for describing the resource per media type:
 | `Fjernsyn` 	| Television: Audiovisual content produced for television distribution. 	|
 
 
-**Note:** In the requirements for [METS.xml](/nb/docs/dps/sip/1.0/mets/) there is a mandatory attribute named Content category `@TYPE`. Content category specifies the media type on a higher level than this attribute.
+**Note:** In the requirements for [METS.xml](/nb/docs/dps/sip/mets/) there is a mandatory attribute named Content category `@TYPE`. Content category specifies the media type on a higher level than this attribute.
 
 
 **Example:**
@@ -619,9 +619,9 @@ When the described resource is derived from **multiple** sources, list each sour
     {
       "description": "Hjelp vi flyr, U-matic HB video tape",
       "identifier": [
-        { 
-          "type": "inventory number", 
-          "value": "FVVB00000015" 
+        {
+          "type": "inventory number",
+          "value": "FVVB00000015"
         }
       ],
       "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/50979618"
@@ -638,18 +638,18 @@ When the described resource is derived from **multiple** sources, list each sour
     {
       "description": "Negative 120, frame 7.",
       "identifier": [
-        { 
-          "type": "inventory number", 
-          "value": "PHOTO_120_007" 
+        {
+          "type": "inventory number",
+          "value": "PHOTO_120_007"
         }
       ]
     },
     {
       "description": "Negative 120, frame 8.",
       "identifier": [
-        { 
-          "type": "inventory number", 
-          "value": "PHOTO_120_008" 
+        {
+          "type": "inventory number",
+          "value": "PHOTO_120_008"
         }
       ]
     }
@@ -904,9 +904,9 @@ If a description is provided the language code must be specified using the `lang
       {
         "description": "Hjelp vi flyr, U-matic HB video tape",
         "identifier": [
-          { 
-            "type": "inventory number", 
-            "value": "FVVB00000015" 
+          {
+            "type": "inventory number",
+            "value": "FVVB00000015"
           }
         ],
         "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/50979618"

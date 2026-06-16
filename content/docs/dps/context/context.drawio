@@ -1,0 +1,91 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.6.6 Chrome/144.0.7559.236 Electron/40.8.4 Safari/537.36" version="29.6.6">
+  <diagram name="Page-1" id="cmgQq41v93TmF08B7hM8">
+    <mxGraphModel dx="1235" dy="870" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-42" edge="1" parent="1" source="L0Sjl5_GHa392IrYxBYV-43" style="rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0;entryY=0.75;entryDx=0;entryDy=0;edgeStyle=orthogonalEdgeStyle;curved=0;fontFamily=Tahoma;" target="L0Sjl5_GHa392IrYxBYV-47" value="Metadata&lt;div&gt;harvesting&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-43" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;shadow=1;fontFamily=Tahoma;fontStyle=1" value="Metadata management&lt;div&gt;systems&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="260" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-44" edge="1" parent="1" source="L0Sjl5_GHa392IrYxBYV-45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;fontFamily=Tahoma;" value="Data and metadata&lt;div&gt;(DIP)&lt;/div&gt;">
+          <mxGeometry relative="1" x="-0.0036" as="geometry">
+            <mxPoint as="offset" />
+            <mxPoint x="740" y="285" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-45" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;shadow=1;fontFamily=Tahoma;fontStyle=1" value="Digital&lt;div&gt;Preservation&lt;/div&gt;&lt;div&gt;Services&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="480" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-46" edge="1" parent="1" source="L0Sjl5_GHa392IrYxBYV-47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;fontFamily=Tahoma;" target="L0Sjl5_GHa392IrYxBYV-48" value="Access files&amp;nbsp;&lt;div&gt;and metadata&lt;/div&gt;">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-47" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;shadow=1;fontFamily=Tahoma;fontStyle=1" value="Public&lt;div&gt;access&lt;/div&gt;&lt;div&gt;services&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="120" x="480" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-48" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;labelPosition=center;align=center;shadow=1;fontFamily=Tahoma;" value="Public&lt;div&gt;consumer&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="30" x="740" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-49" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;fontFamily=Tahoma;" value="Metadata&amp;nbsp;">
+          <mxGeometry relative="1" x="0.2727" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="170" y="180" />
+              <mxPoint x="170" y="180" />
+            </Array>
+            <mxPoint x="130" y="179.75" as="sourcePoint" />
+            <mxPoint x="260" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-50" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;labelBackgroundColor=default;curved=0;fontFamily=Tahoma;" target="L0Sjl5_GHa392IrYxBYV-45" value="Data and metadata&lt;div&gt;(SIP)&lt;/div&gt;">
+          <mxGeometry relative="1" x="-0.1364" as="geometry">
+            <mxPoint as="offset" />
+            <Array as="points">
+              <mxPoint x="160" y="180" />
+              <mxPoint x="160" y="270" />
+            </Array>
+            <mxPoint x="130" y="180" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-51" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;curved=0;fontFamily=Tahoma;" target="L0Sjl5_GHa392IrYxBYV-47">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="160" y="180" />
+              <mxPoint x="160" y="90" />
+            </Array>
+            <mxPoint x="130" y="180" as="sourcePoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-52" connectable="0" parent="L0Sjl5_GHa392IrYxBYV-51" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Tahoma;" value="Access data" vertex="1">
+          <mxGeometry relative="1" x="0.4108" y="-1" as="geometry">
+            <mxPoint x="-137" y="-1" as="offset" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-53" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;horizontal=1;labelPosition=center;align=center;shadow=1;fontFamily=Tahoma;" value="Authenticated&lt;div&gt;producer&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="30" x="90" y="150" as="geometry" />
+        </mxCell>
+        <mxCell id="L0Sjl5_GHa392IrYxBYV-55" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;horizontal=1;labelPosition=center;align=center;shadow=1;fontFamily=Tahoma;" value="Authenticated&lt;div&gt;&lt;span style=&quot;background-color: transparent; color: light-dark(rgb(0, 0, 0), rgb(255, 255, 255));&quot;&gt;consumer&lt;/span&gt;&lt;/div&gt;" vertex="1">
+          <mxGeometry height="60" width="30" x="740" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="tUqYiZofg6Rdh1MRnxtl-1" edge="1" parent="1" source="L0Sjl5_GHa392IrYxBYV-43" style="edgeStyle=orthogonalEdgeStyle;rounded=1;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.75;exitDx=0;exitDy=0;curved=0;fontFamily=Tahoma;">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="670" y="195" />
+              <mxPoint x="670" y="260" />
+            </Array>
+            <mxPoint x="740" y="260" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="tUqYiZofg6Rdh1MRnxtl-2" connectable="0" parent="tUqYiZofg6Rdh1MRnxtl-1" style="edgeLabel;html=1;align=center;verticalAlign=middle;resizable=0;points=[];fontFamily=Tahoma;" value="Metadata" vertex="1">
+          <mxGeometry relative="1" x="-0.3506" y="1" as="geometry">
+            <mxPoint x="-88" as="offset" />
+          </mxGeometry>
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

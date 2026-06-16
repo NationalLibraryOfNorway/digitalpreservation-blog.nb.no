@@ -17,7 +17,7 @@ In addition, the team have focused on how to ensure that a minimum set of descri
 ![Metadata in digital preservation](/Skjermbilde2_blogg_engelsk.JPG)
 <br>
 
-Documentation for SIP submission is available here: [SIP 1.0](/docs/dps/sip/1.0/).
+Documentation for SIP submission is available here: [SIP 1.0](/docs/dps/sip/).
 
 Documentation on metadata submission requirements is available here: [Metadata Requirements](/docs/dps/api/submission/metadata/).
 
