@@ -9,9 +9,9 @@ Dette er hjemmesidene til Team digital bevaring ved Nasjonalbiblioteket.
 Her deler vi dokumentasjon om våre digitale bevaringstjenester og erfaringer fra arbeidet vårt.
 
 {{< cards >}}
-  {{< card link="blog" title="Blogg" icon="light-bulb" image="/images/blog.png" method="Resize" options="600x q85 webp" >}}
-  {{< card link="docs" title="Dokumentasjon" icon="book-open" image="images/docs.png" method="Resize" options="600x q85 webp" >}}
-  {{< card link="about" title="Om oss" icon="user" image="images/datacenter.jpeg" method="Resize" options="600x q85 webp" >}}
+  {{< card link="blog" title="Blogg" subtitle="Oppdateringer fra Team digital bevaring" icon="light-bulb" >}}
+  {{< card link="docs" title="Dokumentasjon" subtitle="Teknisk dokumentasjon og veiledning" icon="book-open" >}}
+  {{< card link="about" title="Om oss" subtitle="Hvem vi er og hva vi gjør" icon="user" >}}
 {{< /cards >}}
 
 Digital bevaring handler om å ta vare på digitale filer, slik at innholdet deres fortsatt kan forstås og brukes i framtiden. 
