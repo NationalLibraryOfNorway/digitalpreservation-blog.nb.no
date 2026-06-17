@@ -30,7 +30,7 @@ Throughout these pages, we refer to *clients*: the organizations and systems tha
 
 The DPS is publicly available, but access requires an agreement with the National Library of Norway. For details, see [Data management](/docs/dps/data/).
 
-## What DPS does
+## What the DPS does
 
 DPS ingests Submission Information Packages (SIPs), validates their structure and content, stores data and metadata with bit-level integrity, and provides dissemination through a public API. Everything is governed by role-based access control tied to submission agreements.
 
