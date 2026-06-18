@@ -4,7 +4,7 @@ weight: 2
 ---
 
 Denne siden beskriver hvilke typer metadata som finnes, hvor de plasseres i en informasjonspakke, og hvordan de refereres til i METS.
-En pakke kan ha ett sett metadatafiler på rotnivået av pakka og ett sett metadatafiler per representasjon på representasjonsnivået av pakka.
+En pakke kan ha ett sett metadatafiler på rotnivået av pakka og ett sett metadatafiler per representasjon på representasjonsnivået av pakka. For en overordnet oversikt over hvordan DPS håndterer metadata, se [Metadataforvaltning](/docs/dps/metadata/).
 
 ## Pakkemetadata (hele pakka)
 

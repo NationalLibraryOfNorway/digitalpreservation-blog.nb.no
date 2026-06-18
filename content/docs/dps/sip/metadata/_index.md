@@ -4,7 +4,7 @@ weight: 2
 ---
 
 This page describes the kinds of metadata that exists within an information package, where they should be placed in the information package, and how it is referenced in METS.
-A package contains metadata on the root level of the package, as well as on each representation on the representation level of the package.
+A package contains metadata on the root level of the package, as well as on each representation on the representation level of the package. For a broader overview of how the DPS handles metadata, see [Metadata management](/docs/dps/metadata/).
 
 ## Package metadata
 
