@@ -6,6 +6,11 @@ Draft: false
 
 ## Example SIP for images
 ```mermaid
+---
+config:
+    treeView:
+        rowIndent: 30
+---
 treeView-beta
     "URN_bilde_1"
         "metadata"
