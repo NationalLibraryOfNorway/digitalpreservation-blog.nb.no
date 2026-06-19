@@ -302,17 +302,16 @@ The following field is proposed for the existing agents collection:
 |---|---|---|
 | `clientId` | Keycloak client identifier for IAM sync. Present only on API client agents. | No |
 
-{{< callout type="info" >}}
-**Possible expansion: agentIdentifiers.** An `agentIdentifiers[]` array (type + value pairs) could be added for general-purpose identifiers such as organization numbers, URNs, or references to external registries. This would align with the PREMIS `agentIdentifier` semantic unit, which supports multiple identifiers per agent.
-
-```json
-{
-  "agentIdentifiers": [
-    { "type": "orgId", "value": "992029188" }
-  ]
-}
-```
-{{< /callout >}}
+> [!NOTE]
+> **Possible expansion: agentIdentifiers.** An `agentIdentifiers[]` array (type + value pairs) could be added for general-purpose identifiers such as organization numbers, URNs, or references to external registries. This would align with the PREMIS `agentIdentifier` semantic unit, which supports multiple identifiers per agent.
+>
+> ```json
+> {
+>   "agentIdentifiers": [
+>     { "type": "orgId", "value": "992029188" }
+>   ]
+> }
+> ```
 
 PREMIS mapping:
 
@@ -386,9 +385,8 @@ Each preservation agreement represents the organizational relationship between t
 | `lastModifiedDate` | Last modification timestamp | Yes |
 | `version` | Optimistic locking version | Yes |
 
-{{< callout type="info" >}}
-**Possible expansion: status field.** A `status` field (active/suspended/terminated) could be added if the DPS needs to temporarily suspend a preservation agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed.
-{{< /callout >}}
+> [!NOTE]
+> **Possible expansion: status field.** A `status` field (active/suspended/terminated) could be added if the DPS needs to temporarily suspend a preservation agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed.
 
 PREMIS mapping:
 
@@ -432,38 +430,36 @@ Each submission agreement is a functional entity controlling access to a set of 
 | `lastModifiedDate` | Last modification timestamp | Yes |
 | `version` | Optimistic locking version | Yes |
 
-{{< callout type="info" >}}
-**Possible expansion: status field.** A `status` field (active/suspended/closed) could be added if the DPS needs to temporarily suspend a submission agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed. Suspension would require a state beyond what dates alone can express.
-{{< /callout >}}
+> [!NOTE]
+> **Possible expansion: status field.** A `status` field (active/suspended/closed) could be added if the DPS needs to temporarily suspend a submission agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed. Suspension would require a state beyond what dates alone can express.
 
-{{< callout type="info" >}}
-**Possible expansion: enforceable scope.** The submission agreement could carry machine-readable constraints that the ingest pipeline validates against. This would address the gap documented in [Data management](/docs/dps/data/): "We cannot currently validate automatically at the object level against what is stated in the submission agreement."
-
-Example constraints:
-
-```json
-{
-  "constraints": {
-    "allowedTypes": ["Film", "Fjernsyn", "Dokumentasjonslyd"],
-    "allowedFormats": [
-      { "mimeType": "video/x-matroska" },
-      { "pronomId": "fmt/569" }
-    ],
-    "maxFileSizeInBytes": 107374182400,
-    "expectedTotalVolumeInBytes": 53687091200000,
-    "expectedPackageCount": 50000
-  }
-}
-```
-
-- **allowedTypes**: Dublin Core `type` values permitted under this agreement. Validated at submission creation against the controlled vocabulary.
-- **allowedFormats**: accepted file formats as MIME types or PRONOM identifiers. Validated after format identification during ingest.
-- **maxFileSizeInBytes**: per-file size limit. Validated at file registration.
-- **expectedTotalVolumeInBytes**: anticipated cumulative data volume for capacity planning and anomaly detection.
-- **expectedPackageCount**: anticipated number of packages for monitoring.
-
-Whether violations result in soft warnings or hard rejections is an open question.
-{{< /callout >}}
+> [!NOTE]
+> **Possible expansion: enforceable scope.** The submission agreement could carry machine-readable constraints that the ingest pipeline validates against. This would address the gap documented in [Data management](/docs/dps/data/): "We cannot currently validate automatically at the object level against what is stated in the submission agreement."
+>
+> Example constraints:
+>
+> ```json
+> {
+>   "constraints": {
+>     "allowedTypes": ["Film", "Fjernsyn", "Dokumentasjonslyd"],
+>     "allowedFormats": [
+>       { "mimeType": "video/x-matroska" },
+>       { "pronomId": "fmt/569" }
+>     ],
+>     "maxFileSizeInBytes": 107374182400,
+>     "expectedTotalVolumeInBytes": 53687091200000,
+>     "expectedPackageCount": 50000
+>   }
+> }
+> ```
+>
+> - **allowedTypes**: Dublin Core `type` values permitted under this agreement. Validated at submission creation against the controlled vocabulary.
+> - **allowedFormats**: accepted file formats as MIME types or PRONOM identifiers. Validated after format identification during ingest.
+> - **maxFileSizeInBytes**: per-file size limit. Validated at file registration.
+> - **expectedTotalVolumeInBytes**: anticipated cumulative data volume for capacity planning and anomaly detection.
+> - **expectedPackageCount**: anticipated number of packages for monitoring.
+>
+> Whether violations result in soft warnings or hard rejections is an open question.
 
 PREMIS mapping:
 

@@ -102,13 +102,12 @@ This creates an authorization audit trail: who was permitted to do what, and whe
 
 The events collection is reserved for preservation events on objects (using the [LoC preservation event vocabulary](https://id.loc.gov/vocabulary/preservation/eventType)). Role management is an administrative concern and is tracked separately through the roleAssignments collection.
 
-{{< callout type="info" >}}
-**Alternative: separate audit log.** Instead of temporal tracking in roleAssignments, role assignments could be simplified to current state only (created on grant, deleted on revocation), with a separate `auditLog` collection recording administrative actions.
-
-The auditLog would be a generic, append-only collection for documenting administrative actions across the DPS: role grants and revocations, agreement creation and modification, agent registration, Keycloak sync operations, and IE contract changes. Each entry records an action, timestamp, who performed it, what was acted upon, and the outcome.
-
-This separates administrative events (what happened to the DPS system) from preservation events (what happened to preserved objects), keeping both collections focused. The trade-off is an additional collection to maintain.
-{{< /callout >}}
+> [!NOTE]
+> **Alternative: separate audit log.** Instead of temporal tracking in roleAssignments, role assignments could be simplified to current state only (created on grant, deleted on revocation), with a separate `auditLog` collection recording administrative actions.
+>
+> The auditLog would be a generic, append-only collection for documenting administrative actions across the DPS: role grants and revocations, agreement creation and modification, agent registration, Keycloak sync operations, and IE contract changes. Each entry records an action, timestamp, who performed it, what was acted upon, and the outcome.
+>
+> This separates administrative events (what happened to the DPS system) from preservation events (what happened to preserved objects), keeping both collections focused. The trade-off is an additional collection to maintain.
 
 ### DPS as source of truth
 
@@ -207,9 +206,8 @@ The `identifiers[]` array references the agreement in external systems (archive,
 | `lastModifiedDate` | Last modification timestamp | Yes |
 | `version` | Optimistic locking version | Yes |
 
-{{< callout type="info" >}}
-**Possible expansion: status field.** A `status` field (active/suspended/terminated) could be added if the DPS needs to temporarily suspend a preservation agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed.
-{{< /callout >}}
+> [!NOTE]
+> **Possible expansion: status field.** A `status` field (active/suspended/terminated) could be added if the DPS needs to temporarily suspend a preservation agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed.
 
 #### Collection: submissionAgreements
 
@@ -241,38 +239,36 @@ The `identifiers[]` array references the agreement in external systems (archive,
 | `lastModifiedDate` | Last modification timestamp | Yes |
 | `version` | Optimistic locking version | Yes |
 
-{{< callout type="info" >}}
-**Possible expansion: status field.** A `status` field (active/suspended/closed) could be added if the DPS needs to temporarily suspend a submission agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed. Suspension would require a state beyond what dates alone can express.
-{{< /callout >}}
+> [!NOTE]
+> **Possible expansion: status field.** A `status` field (active/suspended/closed) could be added if the DPS needs to temporarily suspend a submission agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed. Suspension would require a state beyond what dates alone can express.
 
-{{< callout type="info" >}}
-**Possible expansion: enforceable scope.** The submission agreement could carry machine-readable constraints that the ingest pipeline validates against. This would address the gap documented in [Data management](/docs/dps/data/): "We cannot currently validate automatically at the object level against what is stated in the submission agreement."
-
-Example constraints:
-
-```json
-{
-  "constraints": {
-    "allowedTypes": ["Film", "Fjernsyn", "Dokumentasjonslyd"],
-    "allowedFormats": [
-      { "mimeType": "video/x-matroska" },
-      { "pronomId": "fmt/569" }
-    ],
-    "maxFileSizeInBytes": 107374182400,
-    "expectedTotalVolumeInBytes": 53687091200000,
-    "expectedPackageCount": 50000
-  }
-}
-```
-
-- **allowedTypes**: Dublin Core `type` values permitted under this agreement. Validated at submission creation against the controlled vocabulary.
-- **allowedFormats**: accepted file formats as MIME types or PRONOM identifiers. Validated after format identification during ingest.
-- **maxFileSizeInBytes**: per-file size limit. Validated at file registration.
-- **expectedTotalVolumeInBytes**: anticipated cumulative data volume for capacity planning and anomaly detection.
-- **expectedPackageCount**: anticipated number of packages for monitoring.
-
-Whether violations result in soft warnings or hard rejections is an open question.
-{{< /callout >}}
+> [!NOTE]
+> **Possible expansion: enforceable scope.** The submission agreement could carry machine-readable constraints that the ingest pipeline validates against. This would address the gap documented in [Data management](/docs/dps/data/): "We cannot currently validate automatically at the object level against what is stated in the submission agreement."
+>
+> Example constraints:
+>
+> ```json
+> {
+>   "constraints": {
+>     "allowedTypes": ["Film", "Fjernsyn", "Dokumentasjonslyd"],
+>     "allowedFormats": [
+>       { "mimeType": "video/x-matroska" },
+>       { "pronomId": "fmt/569" }
+>     ],
+>     "maxFileSizeInBytes": 107374182400,
+>     "expectedTotalVolumeInBytes": 53687091200000,
+>     "expectedPackageCount": 50000
+>   }
+> }
+> ```
+>
+> - **allowedTypes**: Dublin Core `type` values permitted under this agreement. Validated at submission creation against the controlled vocabulary.
+> - **allowedFormats**: accepted file formats as MIME types or PRONOM identifiers. Validated after format identification during ingest.
+> - **maxFileSizeInBytes**: per-file size limit. Validated at file registration.
+> - **expectedTotalVolumeInBytes**: anticipated cumulative data volume for capacity planning and anomaly detection.
+> - **expectedPackageCount**: anticipated number of packages for monitoring.
+>
+> Whether violations result in soft warnings or hard rejections is an open question.
 
 #### Collection: roleAssignments
 
@@ -357,17 +353,16 @@ The following field is proposed for the existing agents collection:
 |---|---|---|
 | `clientId` | Keycloak client identifier for IAM sync. Present only on API client agents. | No |
 
-{{< callout type="info" >}}
-**Possible expansion: agentIdentifiers.** An `agentIdentifiers[]` array (type + value pairs) could be added for general-purpose identifiers such as organization numbers, URNs, or references to external registries. This would align with the PREMIS `agentIdentifier` semantic unit, which supports multiple identifiers per agent.
-
-```json
-{
-  "agentIdentifiers": [
-    { "type": "orgId", "value": "992029188" }
-  ]
-}
-```
-{{< /callout >}}
+> [!NOTE]
+> **Possible expansion: agentIdentifiers.** An `agentIdentifiers[]` array (type + value pairs) could be added for general-purpose identifiers such as organization numbers, URNs, or references to external registries. This would align with the PREMIS `agentIdentifier` semantic unit, which supports multiple identifiers per agent.
+>
+> ```json
+> {
+>   "agentIdentifiers": [
+>     { "type": "orgId", "value": "992029188" }
+>   ]
+> }
+> ```
 
 ### PREMIS mapping
 
