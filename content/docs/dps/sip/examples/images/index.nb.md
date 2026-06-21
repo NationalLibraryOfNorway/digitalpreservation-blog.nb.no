@@ -5,11 +5,6 @@ weight: 1
 
 ## Eksempel på SIP for bilder
 ```mermaid
----
-config:
-    treeView:
-        rowIndent: 30
----
 treeView-beta
     "URN_bilde_1"
         "metadata"
