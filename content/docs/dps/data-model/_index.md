@@ -402,6 +402,9 @@ Each preservation agreement represents the organizational relationship between t
 > **Possible expansion: status field.** A `status` field (active/suspended/terminated) could be added if the DPS needs to temporarily suspend a preservation agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed.
 
 > [!NOTE]
+> **Agreement mutation and history.** Agreements mutate in place: `version` and `lastModifiedDate` track the latest modification but do not preserve prior state. The `documents[]` array is append-only (amendments are added, not edited), providing a partial audit trail of legal documents. However, `rightsInformation.terms` may be updated in place to reflect the current state, and prior terms are lost. The external archive system is the authoritative source for signed documents and their history. If full mutation history is needed, an `agreementHistory` collection or the generic `auditLog` collection proposed in [Role assignments](/docs/dps/agreements/#role-assignments) could preserve the agreement's evolution.
+
+> [!NOTE]
 > **Possible expansion: preservation-level `rightsGranted`.** The preservation agreement could carry `rightsGranted` entries for preservation-level rights: what the NLN may do with the content over time (migration, replication, deletion, normalization, validation, refreshment). These rights are distinct from the content access group's functional rights (submit, access), which are decomposed into role assignments. Preservation-level rights matter for long-term preservation policy and PREMIS fidelity, but are not enforced by the DPS at runtime in the same way. The `act` values draw from the full [LoC eventType vocabulary](https://id.loc.gov/vocabulary/preservation/eventType).
 
 > [!NOTE]
