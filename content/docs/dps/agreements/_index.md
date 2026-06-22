@@ -141,6 +141,9 @@ sequenceDiagram
 > [!NOTE]
 > **Sync consistency gap.** The sequence above shows only the happy path. The DPS-to-Keycloak sync is a write-then-side-effect with no rollback. If the Keycloak Admin API call fails after the MongoDB write succeeds, the role exists in DPS but the JWT won't contain it, so the client can't exercise the right. Options include: (a) auth reads from DPS at request time (consistent, slower), (b) a sync-status field on roleAssignments so assignments are only "active" once synced, (c) queue-based retry with eventual consistency. The Keycloak sync architecture is a separate topic requiring its own examination.
 
+> [!NOTE]
+> **Administrative authority.** Administration (creating preservation agreements, creating content access groups, assigning roles, registering agents) is performed by NLN staff with internal access to the DPS admin API. Administrative authority is not currently modeled as a role assignment in the data model; it is out-of-band. The "DPS Admin" in the sequence diagram above is an NLN staff member, not a role-assigned agent. For transparency and accountability, admins should be modeled so that the system can track who performed administrative actions and why. The proposed `auditLog` collection (see [Role assignments](#role-assignments)) is a step in that direction: it would record who performed each administrative action, when, and with what outcome. If RBAC-gated administration is needed, a management role could be added to the preservation agreement, giving the holder the right to manage content access groups and role assignments under that PA.
+
 ## Data model
 
 ### Entity-relationship diagram
