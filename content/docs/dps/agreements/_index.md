@@ -400,12 +400,12 @@ The following field is proposed for the existing agents collection:
 
 | MongoDB collection | PREMIS entity | Key mapping notes |
 |---|---|---|
-| intellectualEntities | Object (intellectualEntity) | `archiveId`/`objectId`/`objectIdentifiers` → `objectIdentifier`. `accessGroupId` → `linkingRightsStatementIdentifier` |
-| representations | Object (representation) | `repId` → `objectIdentifier`. `relationships` → `relationship` |
-| files | Object (file) | `fixities` → `objectCharacteristics.fixity`. `format` → `objectCharacteristics.format`. `mimeType` has no direct PREMIS field; export as `formatRegistry` with `formatRegistryName=IANA` |
+| intellectualEntities | Object (intellectualEntity) | `archiveId` (type: `dps-archive-id`)/`objectId` (type: `dps-client-object-id`)/`objectIdentifiers` → `objectIdentifier`. `accessGroupId` → `linkingRightsStatementIdentifier` |
+| representations | Object (representation) | `repId` (type: `dps-representation-id`) → `objectIdentifier`. `relationships` → `relationship` |
+| files | Object (file) | `fileId` (type: `dps-file-id`) → `objectIdentifier`. `fixities` → `objectCharacteristics.fixity`. `format` → `objectCharacteristics.format`. `mimeType` has no direct PREMIS field; export as `formatRegistry` with `formatRegistryName=IANA` |
 | events | Event | `agentId` → `linkingAgentIdentifier`. `archiveId`/`fileRef` → `linkingObjectIdentifier` |
 | agents | Agent | Direct match for all fields. `agentIdentifiers` maps to `agentIdentifier` (type + value) |
-| repositoryFiles | Object (file) | `repositoryFileId` → `objectIdentifier`. `fixities` → `objectCharacteristics.fixity`. `locations[]` → `storage`. `files[]` → `relationship` (structural, "includes") |
+| repositoryFiles | Object (file) | `repositoryFileId` (type: `dps-repository-file-id`) → `objectIdentifier`. `fixities` → `objectCharacteristics.fixity`. `locations[]` → `storage`. `files[]` → `relationship` (structural, "includes") |
 | descriptiveMetadata | Not PREMIS | Dublin Core discovery layer, connected to IEs via `archiveId` |
 
 #### New entities

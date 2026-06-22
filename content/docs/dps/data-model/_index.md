@@ -73,8 +73,8 @@ PREMIS mapping:
 
 | Field | PREMIS semantic unit | Notes |
 |---|---|---|
-| `archiveId` | `objectIdentifier` | Internal DPS identifier |
-| `objectId` | `objectIdentifier` | Client-assigned, unique within contract |
+| `archiveId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-archive-id` |
+| `objectId` | `objectIdentifier` | Client-assigned, unique within content access group. Type: `dps-client-object-id` |
 | `objectIdentifiers[]` | `objectIdentifier` | Additional identifiers (URNs, external IDs) |
 | `accessGroupId` | `linkingRightsStatementIdentifier` | Links to content access group |
 | `status` | DPS extension | Workflow state |
@@ -82,6 +82,8 @@ PREMIS mapping:
 | `contentCategory` | DPS extension | Content classification |
 | `repositoryPrefix` | DPS extension | Storage namespace |
 | `CITS` | DPS extension | E-ARK content information type specification |
+
+`objectId` is stored as a flat string for operational reasons: it is a business key used throughout the API (submissions, webhooks, dissemination) and enforced as unique within a content access group. On PREMIS export it becomes a typed `objectIdentifier` with type `dps-client-object-id`, distinguishing it from internal DPS identifiers (`dps-archive-id`) and client-supplied typed identifiers in `objectIdentifiers[]` (URNs, DOIs, etc.).
 
 > [!NOTE]
 > **Open question: direct link to preservation agreement.** The IE currently reaches its preservation agreement only transitively (IE → content access group via `accessGroupId` → preservation agreement via `preservationAgreementId`). PREMIS allows multiple `linkingRightsStatementIdentifier` values on a single object. A direct `preservationAgreementId` field on the IE may be needed so that PREMIS export can link the IE to both rights statements without a join, and so that agreement-level queries (e.g., "all IEs under this preservation agreement") don't require traversing the content access group collection.
@@ -123,7 +125,7 @@ PREMIS mapping:
 
 | Field | PREMIS semantic unit | Notes |
 |---|---|---|
-| `repId` | `objectIdentifier` | Internal DPS identifier |
+| `repId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-representation-id` |
 | `archiveId` | Structural relationship to parent IE | Modeled as FK |
 | `representationName` | `originalName` | Name of the representation directory |
 | `objectIdentifiers[]` | `objectIdentifier` | Additional identifiers |
@@ -194,7 +196,7 @@ PREMIS mapping:
 
 | Field | PREMIS semantic unit | Notes |
 |---|---|---|
-| `fileId` | `objectIdentifier` | Internal DPS identifier |
+| `fileId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-file-id` |
 | `archiveId` | Relationship to IE | FK; always present (every file belongs to exactly one IE) |
 | `repId` | Relationship to representation | FK; optional (only for files within a representation) |
 | `originalName` | `originalName` | Direct match |
@@ -748,7 +750,7 @@ PREMIS mapping:
 
 | Field | PREMIS semantic unit | Notes |
 |---|---|---|
-| `repositoryFileId` | `objectIdentifier` | Internal DPS identifier |
+| `repositoryFileId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-repository-file-id` |
 | `archiveId` | Relationship to IE | FK |
 | `relativePath` | `storage.contentLocation.contentLocationValue` | Path of the repository file |
 | `size` | `objectCharacteristics.size` | Direct match |
