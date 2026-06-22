@@ -138,6 +138,9 @@ sequenceDiagram
     API-->>Admin: 201 Role assigned
 ```
 
+> [!NOTE]
+> **Sync consistency gap.** The sequence above shows only the happy path. The DPS-to-Keycloak sync is a write-then-side-effect with no rollback. If the Keycloak Admin API call fails after the MongoDB write succeeds, the role exists in DPS but the JWT won't contain it, so the client can't exercise the right. Options include: (a) auth reads from DPS at request time (consistent, slower), (b) a sync-status field on roleAssignments so assignments are only "active" once synced, (c) queue-based retry with eventual consistency. The Keycloak sync architecture is a separate topic requiring its own examination.
+
 ## Data model
 
 ### Entity-relationship diagram
@@ -440,5 +443,5 @@ PATCH  /v1/agents/{agentId}                         Update agent metadata
 - Legal deposit (pliktavlevering) agreements can now use `rightsBasis=statute`. The remaining question is which statute-specific fields the document should carry (e.g., `statuteJurisdiction`, `statuteCitation`) to fully populate PREMIS `statuteInformation` on export. The generic `rightsInformation` block covers `statuteNote` and applicable dates, but jurisdiction and citation have no source field yet.
 - Should role granularity go beyond producer/consumer? For example: "can submit but not delete," "can disseminate but not search."
 - The [LoC eventType vocabulary](https://id.loc.gov/vocabulary/preservation/eventType) replaces the deprecated `actionsGranted` list as the source for `rightsGranted.act` values. The exact mapping from DPS roles (`producer`/`consumer`) to eventType values is deferred to implementation. Candidate mappings: `producer`→ingestion/metadata modification, `consumer`→dissemination/exporting.
-- The DPS-to-Keycloak sync is a write-then-side-effect with no rollback. If the Keycloak Admin API call fails after the MongoDB write succeeds, the role exists in DPS but the JWT won't contain it, so the client can't exercise the right. Options include: (a) auth reads from DPS at request time (consistent, slower), (b) a sync-status field on roleAssignments so assignments are only "active" once synced, (c) queue-based retry with eventual consistency. The Keycloak sync architecture is a separate topic requiring its own examination.
+- The DPS-to-Keycloak sync has a consistency gap (see [note above](#dps-as-source-of-truth)). The Keycloak sync architecture is a separate topic requiring its own examination.
 - How should existing `contractId` values be migrated to `accessGroupId`? Backfill Preservation Agreement and Content access group entities for existing `contractId` values, or apply only going forward?
