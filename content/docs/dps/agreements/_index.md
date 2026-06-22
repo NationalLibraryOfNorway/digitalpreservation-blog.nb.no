@@ -14,41 +14,44 @@ The DPS models agreements at two levels, both based on the PREMIS Rights entity.
 
 The Preservation Agreement represents the organizational relationship between the National Library and a client organization. It mirrors a signed contract. The actual document lives in the National Library's document archive systems; the DPS holds a full representation so that it remains self-contained regardless of external systems.
 
-In PREMIS terms, a Preservation Agreement is a `rightsStatement` with `rightsBasis=license`. The `licenseInformation` block references the signed document and summarizes the terms.
+In PREMIS terms, a Preservation Agreement is a `rightsStatement` with a stored `rightsBasis`. The common case is `rightsBasis=other` (a contractual deposit agreement); `license` and `statute` are supported for agreements whose legal basis requires them. The `rightsInformation` block holds the terms and dates; PREMIS structural fields are reconstructed during export.
 
-Each Preservation Agreement links to at least two PREMIS Agents: the client organization (role: licensee) and the National Library (role: licensor). These are the signatories. The signatory agents are distinct from the API client agents that interact with the DPS operationally.
+Each Preservation Agreement links to at least two PREMIS Agents: the client organization (role: depositor) and the National Library (role: custodian). These are the signatories. The signatory agents are distinct from the API client agents that interact with the DPS operationally. Role labels may vary by `rightsBasis` and will be refined as that work progresses.
 
-### Submission Agreement (layer 2)
+### Content access group (layer 2)
 
-A Submission Agreement is a functional entity within the DPS that controls access. One Preservation Agreement can have many Submission Agreements. This is what the current `contractId` (4-character hex identifier) refers to.
+> [!NOTE]
+> **Terminology change (draft).** "Content access group" replaces the current term "submission agreement." The `contractId` field is renamed to `accessGroupId`; the 4-character hex values are unchanged. The production API still uses `/contracts/`; the path rename is an open question.
 
-In PREMIS terms, a Submission Agreement is a `rightsStatement` with `rightsBasis=other` and `otherRightsBasis=submissionAgreement`. It carries `rightsGranted` entries defining what actions (submit, disseminate, search) are permitted.
+A Content access group is a functional entity within the DPS that controls access. One Preservation Agreement can have many Content access groups. This is what the current `contractId` (4-character hex identifier) refers to.
 
-Each Intellectual Entity is linked to exactly one Submission Agreement via `contractId`. The parent Preservation Agreement is always reachable through the Submission Agreement's immutable `preservationAgreementId` field.
+In PREMIS terms, a Content access group is a `rightsStatement` with `rightsBasis=other` and `otherRightsBasis=contentAccessGroup`. It carries `rightsGranted` entries defining what actions (submit, disseminate, search) are permitted.
+
+Each Intellectual Entity is linked to exactly one Content access group via `accessGroupId`. The parent Preservation Agreement is always reachable through the Content access group's immutable `preservationAgreementId` field.
 
 ### Relationship between the layers
 
-| Aspect | Preservation Agreement (layer 1) | Submission Agreement (layer 2) |
+| Aspect | Preservation Agreement (layer 1) | Content access group (layer 2) |
 |---|---|---|
 | Nature | Organizational, legal | Functional, technical |
 | Lifecycle | Signed once, rarely changes | Created as needed under a Preservation Agreement |
-| PREMIS basis | `rightsBasis=license` | `rightsBasis=other` |
-| Identifies | Who can have submission agreements | Which IEs, which roles, which access |
+| PREMIS basis | `rightsBasis` stored per agreement (`other` default; `license`, `statute` supported) | `rightsBasis=other` |
+| Identifies | Who can have content access groups | Which IEs, which roles, which access |
 | Cardinality | One or more per client | Many per Preservation Agreement |
-| Current equivalent | Does not exist in DPS | `contractId` (with no attributes) |
+| Current equivalent | Does not exist in DPS | `contractId` (with no attributes; renamed to `accessGroupId` in the target model) |
 
 ### Immutability rules
 
-- The `preservationAgreementId` on a Submission Agreement is set at creation and cannot be changed. A submission agreement cannot move between preservation agreements.
-- If an IE needs to move between contracts, new submission agreements must exist (or be created) under the target preservation agreement. The IE's `contractId` is updated, and the change is documented as a PREMIS event.
+- The `preservationAgreementId` on a Content access group is set at creation and cannot be changed. A content access group cannot move between preservation agreements.
+- If an IE needs to move between contracts, new content access groups must exist (or be created) under the target preservation agreement. The IE's `accessGroupId` is updated, and the change is documented as a PREMIS event.
 
 ## Clients as Agents
 
-API clients are modeled as PREMIS Agents in the preservation metadata database. This gives them identity, metadata, event attribution, and connects them to the submission agreements they can access.
+API clients are modeled as PREMIS Agents in the preservation metadata database. This gives them identity, metadata, event attribution, and connects them to the content access groups they can access.
 
-The signatory on a Preservation Agreement (an organization agent) and the API clients (software agents) that interact with the DPS are separate agents. A single organization may have multiple software agents with different roles on different submission agreements.
+The signatory on a Preservation Agreement (an organization agent) and the API clients (software agents) that interact with the DPS are separate agents. A single organization may have multiple software agents with different roles on different content access groups.
 
-Agents from different organizations can hold roles on the same submission agreement. For example, a regional archive submits content (producer), while a university library retrieves it (consumer), both under the same submission agreement.
+Agents from different organizations can hold roles on the same content access group. For example, a regional archive submits content (producer), while a university library retrieves it (consumer), both under the same content access group.
 
 ### Agent types
 
@@ -63,10 +66,10 @@ Agents from different organizations can hold roles on the same submission agreem
 ```
 Preservation Agreement 1 (NLN <-> Regional Archive)
   Parties:
-    Regional Archive (organization, licensee)
-    NLN (organization, licensor)
+    Regional Archive (organization, depositor)
+    NLN (organization, custodian)
 
-  Submission Agreement SA1 (contractId: 4eaf)
+  Content access group CAG1 (accessGroupId: 4eaf)
     Roles:
       regional-archive-prod (software) -> producer
       regional-archive-read (software) -> consumer
@@ -75,28 +78,29 @@ Preservation Agreement 1 (NLN <-> Regional Archive)
 
 Preservation Agreement 2 (NLN <-> University)
   Parties:
-    University Library (organization, licensee)
-    NLN (organization, licensor)
+    University Library (organization, depositor)
+    NLN (organization, custodian)
 
-  Submission Agreement SA2 (contractId: 2d17)
+  Content access group CAG2 (accessGroupId: 2d17)
     Roles:
       university-research (software) -> producer
 ```
 
-In this example, `university-research` (a single software agent) is a consumer on SA1 and a producer on SA2. Agents cross agreement boundaries.
+In this example, `university-research` (a single software agent) is a consumer on CAG1 and a producer on CAG2. Agents cross agreement boundaries.
 
 ## Role assignments
 
-Roles link Agents to Submission Agreements. A role assignment is a PREMIS `linkingAgentIdentifier` on the Submission Agreement's `rightsStatement`, with a `linkingAgentRole` of `producer` or `consumer`.
+Roles link Agents to Content access groups. A role assignment is a PREMIS `linkingAgentIdentifier` on the Content access group's `rightsStatement`, with a `linkingAgentRole` of `producer` or `consumer`.
 
-Role assignments are stored in their own MongoDB collection, separate from the submission agreement document. This separation keeps the submission agreement document stable when roles change.
+Role assignments are stored in their own MongoDB collection, separate from the content access group document. This separation keeps the content access group document stable when roles change.
 
-Role assignments are append-only with temporal tracking:
+Role assignments are immutable except for revocation:
 
 - Each assignment has a `startDate` and an optional `endDate`
-- Revoking a role sets the `endDate`; the record is never deleted
-- New assignments are appended as new documents
-- The submission agreement document is not modified when roles change
+- The core fields (`agentId`, `accessGroupId`, `role`, `startDate`) are immutable after creation
+- Revoking a role sets `endDate` once; once set, it cannot be changed. To re-grant a revoked role, create a new assignment document.
+- The document is never deleted
+- The content access group document is not modified when roles change
 
 This creates an authorization audit trail: who was permitted to do what, and when. This complements the existing object-level audit trail (PREMIS events documenting what actually happened to each IE and file).
 
@@ -120,7 +124,7 @@ sequenceDiagram
     participant Meta as Metadata Service
     participant KC as Keycloak
 
-    Admin->>API: POST /v1/contracts/4eaf/roles
+    Admin->>API: POST /v1/content-access-groups/4eaf/roles
     API->>Meta: Store role assignment
     Meta-->>API: 201 Created
     API->>KC: Sync role via Keycloak Admin API
@@ -135,10 +139,10 @@ sequenceDiagram
 ```mermaid
 erDiagram
     PRESERVATION_AGREEMENT ||--o{ AGENT : "parties[]"
-    PRESERVATION_AGREEMENT ||--|{ SUBMISSION_AGREEMENT : "preservationAgreementId"
-    ROLE_ASSIGNMENT }o--|| SUBMISSION_AGREEMENT : "contractId"
+    PRESERVATION_AGREEMENT ||--|{ CONTENT_ACCESS_GROUP : "preservationAgreementId"
+    ROLE_ASSIGNMENT }o--|| CONTENT_ACCESS_GROUP : "accessGroupId"
     ROLE_ASSIGNMENT }o--|| AGENT : "agentId"
-    SUBMISSION_AGREEMENT ||--o{ INTELLECTUAL_ENTITY : "contractId"
+    CONTENT_ACCESS_GROUP ||--o{ INTELLECTUAL_ENTITY : "accessGroupId"
 ```
 
 For the complete data model, see [DPS core data model](/docs/dps/data-model/).
@@ -153,12 +157,16 @@ The `identifiers[]` array references the agreement in external systems (archive,
 {
   "_id": "019f1234-abcd-7000-8000-000000000001",
   "schemaVersion": 1,
+  "rightsBasis": "other",
   "name": "Bevaringsavtale NRK",
   "identifiers": [
-    { "type": "archiveRef", "value": "DOK-2024-00142" }
+    {
+      "type": "archiveRef",
+      "value": "DOK-2024-00142"
+    }
   ],
-  "licenseInformation": {
-    "licenseTerms": "Avtale om sikring og bevaring av NRKs digitale kringkastingsarkiv. Omfatter digitalisert og digitalt født audio- og videomateriale fra NRKs kringkastingsarkiv.",
+  "rightsInformation": {
+    "terms": "Avtale om sikring og bevaring av NRKs digitale kringkastingsarkiv. Omfatter digitalisert og digitalt født audio- og videomateriale fra NRKs kringkastingsarkiv.",
     "startDate": "2024-01-15",
     "endDate": null
   },
@@ -168,14 +176,26 @@ The `identifiers[]` array references the agreement in external systems (archive,
       "description": "Avtale om sikring og bevaring av NRKs digitale kringkastingsarkiv",
       "date": "2024-01-15",
       "files": [
-        { "s3Path": "s3://dps-agreements/019f1234-abcd-7000-8000-000000000001/avtale-2024.pdf", "dateStored": "2024-01-16T10:00:00.000Z" },
-        { "s3Path": "s3://dps-agreements/019f1234-abcd-7000-8000-000000000001/vedlegg-1.pdf", "dateStored": "2024-01-16T10:00:00.000Z" }
+        {
+          "s3Path": "s3://dps-agreements/019f1234-abcd-7000-8000-000000000001/avtale-2024.pdf",
+          "dateStored": "2024-01-16T10:00:00.000Z"
+        },
+        {
+          "s3Path": "s3://dps-agreements/019f1234-abcd-7000-8000-000000000001/vedlegg-1.pdf",
+          "dateStored": "2024-01-16T10:00:00.000Z"
+        }
       ]
     }
   ],
   "parties": [
-    { "agentId": "019f1234-0000-7000-8000-aaaaaaaaaaaa", "role": "licensee" },
-    { "agentId": "019f1234-0000-7000-8000-bbbbbbbbbbbb", "role": "licensor" }
+    {
+      "agentId": "019f1234-0000-7000-8000-aaaaaaaaaaaa",
+      "role": "depositor"
+    },
+    {
+      "agentId": "019f1234-0000-7000-8000-bbbbbbbbbbbb",
+      "role": "custodian"
+    }
   ],
   "createdDate": "2025-09-03T09:01:47.174Z",
   "lastModifiedDate": "2025-09-03T09:01:47.174Z",
@@ -183,25 +203,26 @@ The `identifiers[]` array references the agreement in external systems (archive,
 }
 ```
 
-`licenseTerms` should describe both the agreement's purpose and its scope.
+`rightsInformation.terms` should describe both the agreement's purpose and its scope.
 
 | Field | Description | Required |
 |---|---|---|
 | `_id` (preservationAgreementId) | Internal DPS identifier (UUIDv7) | Yes |
 | `schemaVersion` | Document schema version | Yes |
+| `rightsBasis` | Rights basis: `other` (contractual deposit, default), `license`, or `statute`. Determines the PREMIS export mapping. | Yes |
 | `name` | Human-readable title for the agreement | Yes |
-| `identifiers[].type` | Type of external reference (e.g., `archiveRef`, `contractId`) | Yes per entry |
+| `identifiers[].type` | Type of external reference (e.g., `archiveRef`, `agreementRef`) | Yes per entry |
 | `identifiers[].value` | Reference value in the external system | Yes per entry |
-| `licenseInformation.licenseTerms` | Description of the agreement's purpose and scope | Yes |
-| `licenseInformation.startDate` | Date the agreement took effect | Yes |
-| `licenseInformation.endDate` | Date the agreement ended; null if active | No |
+| `rightsInformation.terms` | Description of the agreement's purpose and scope | Yes |
+| `rightsInformation.startDate` | Date the agreement took effect | Yes |
+| `rightsInformation.endDate` | Date the agreement ended; null if active | No |
 | `documents[].type` | Document category: `signedContract`, `amendment`, `appendix` | Yes per entry |
 | `documents[].description` | Human-readable description of the document | No |
 | `documents[].date` | Date of the document | Yes per entry |
 | `documents[].files[].s3Path` | S3 storage path | Yes per file |
 | `documents[].files[].dateStored` | When the file was stored in S3 | Yes per file |
 | `parties[].agentId` | FK to agent | Yes per entry |
-| `parties[].role` | Role in the agreement: `licensee`, `licensor` | Yes per entry |
+| `parties[].role` | Role in the agreement: `depositor`, `custodian` (for `rightsBasis=other`). May vary by basis. | Yes per entry |
 | `createdDate` | Document creation timestamp | Yes |
 | `lastModifiedDate` | Last modification timestamp | Yes |
 | `version` | Optimistic locking version | Yes |
@@ -209,41 +230,8 @@ The `identifiers[]` array references the agreement in external systems (archive,
 > [!NOTE]
 > **Possible expansion: status field.** A `status` field (active/suspended/terminated) could be added if the DPS needs to temporarily suspend a preservation agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed.
 
-#### Collection: submissionAgreements
-
-```json
-{
-  "_id": "4eaf",
-  "schemaVersion": 1,
-  "preservationAgreementId": "019f1234-abcd-7000-8000-000000000001",
-  "name": "NRK Broadcast Archive - Video",
-  "scope": "Digitized and born-digital broadcast video",
-  "startDate": "2024-02-01",
-  "endDate": null,
-  "createdDate": "2025-09-03T09:01:47.174Z",
-  "lastModifiedDate": "2025-09-03T09:01:47.174Z",
-  "version": 1
-}
-```
-
-| Field | Description | Required |
-|---|---|---|
-| `_id` (contractId) | 4-character hex identifier | Yes |
-| `schemaVersion` | Document schema version | Yes |
-| `preservationAgreementId` | FK to parent preservation agreement (immutable after creation) | Yes |
-| `name` | Human-readable label | Yes |
-| `scope` | Description of what content is covered | Yes |
-| `startDate` | Date the submission agreement took effect | Yes |
-| `endDate` | Date it ended; null if active | No |
-| `createdDate` | Document creation timestamp | Yes |
-| `lastModifiedDate` | Last modification timestamp | Yes |
-| `version` | Optimistic locking version | Yes |
-
 > [!NOTE]
-> **Possible expansion: status field.** A `status` field (active/suspended/closed) could be added if the DPS needs to temporarily suspend a submission agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed. Suspension would require a state beyond what dates alone can express.
-
-> [!NOTE]
-> **Possible expansion: enforceable scope.** The submission agreement could carry machine-readable constraints that the ingest pipeline validates against. This would address the gap documented in [Data management](/docs/dps/data/): "We cannot currently validate automatically at the object level against what is stated in the submission agreement."
+> **Possible expansion: enforceable scope.** The preservation agreement could carry machine-readable constraints that the ingest pipeline validates against. This would address the gap documented in [Data management](/docs/dps/data/): "We cannot currently validate automatically at the object level against what is stated in the submission agreement."
 >
 > Example constraints:
 >
@@ -270,15 +258,48 @@ The `identifiers[]` array references the agreement in external systems (archive,
 >
 > Whether violations result in soft warnings or hard rejections is an open question.
 
+#### Collection: contentAccessGroups
+
+```json
+{
+  "_id": "4eaf",
+  "schemaVersion": 1,
+  "preservationAgreementId": "019f1234-abcd-7000-8000-000000000001",
+  "name": "NRK Broadcast Archive - Video",
+  "description": "Digitized and born-digital broadcast video",
+  "startDate": "2024-02-01",
+  "endDate": null,
+  "createdDate": "2025-09-03T09:01:47.174Z",
+  "lastModifiedDate": "2025-09-03T09:01:47.174Z",
+  "version": 1
+}
+```
+
+| Field | Description | Required |
+|---|---|---|
+| `_id` (accessGroupId) | 4-character hex identifier | Yes |
+| `schemaVersion` | Document schema version | Yes |
+| `preservationAgreementId` | FK to parent preservation agreement (immutable after creation) | Yes |
+| `name` | Human-readable label | Yes |
+| `description` | Description of what content is covered | Yes |
+| `startDate` | Date the content access group took effect | Yes |
+| `endDate` | Date it ended; null if active | No |
+| `createdDate` | Document creation timestamp | Yes |
+| `lastModifiedDate` | Last modification timestamp | Yes |
+| `version` | Optimistic locking version | Yes |
+
+> [!NOTE]
+> **Possible expansion: status field.** A `status` field (active/suspended/closed) could be added if the DPS needs to temporarily suspend a content access group without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed. Suspension would require a state beyond what dates alone can express.
+
 #### Collection: roleAssignments
 
-Append-only with temporal tracking. Revoking a role sets `endDate`; the document is never deleted.
+Immutable except for revocation. Revoking a role sets `endDate` once (write-once); the document is never deleted. To re-grant, create a new assignment.
 
 ```json
 {
   "_id": "019f5678-0001-7000-8000-000000000001",
   "schemaVersion": 1,
-  "contractId": "4eaf",
+  "accessGroupId": "4eaf",
   "agentId": "019f1234-0000-7000-8000-cccccccccccc",
   "role": "producer",
   "startDate": "2024-02-01",
@@ -294,7 +315,7 @@ A revoked role:
 {
   "_id": "019f5678-0002-7000-8000-000000000002",
   "schemaVersion": 1,
-  "contractId": "4eaf",
+  "accessGroupId": "4eaf",
   "agentId": "019f1234-0000-7000-8000-dddddddddddd",
   "role": "consumer",
   "startDate": "2025-03-15",
@@ -308,11 +329,11 @@ A revoked role:
 |---|---|---|
 | `_id` (roleAssignmentId) | Internal DPS identifier (UUIDv7) | Yes |
 | `schemaVersion` | Document schema version | Yes |
-| `contractId` | FK to submission agreement | Yes |
+| `accessGroupId` | FK to content access group | Yes |
 | `agentId` | FK to agent | Yes |
 | `role` | `producer` or `consumer` | Yes |
 | `startDate` | Date the role was granted | Yes |
-| `endDate` | Date the role was revoked; null if active | No |
+| `endDate` | Date the role was revoked; null if active. Write-once: once set, it cannot be changed. | No |
 | `createdDate` | Document creation timestamp | Yes |
 | `lastModifiedDate` | Last modification timestamp | Yes |
 
@@ -370,7 +391,7 @@ The following field is proposed for the existing agents collection:
 
 | MongoDB collection | PREMIS entity | Key mapping notes |
 |---|---|---|
-| intellectualEntities | Object (intellectualEntity) | `archiveId`/`objectId`/`objectIdentifiers` → `objectIdentifier`. `contractId` → `linkingRightsStatementIdentifier` |
+| intellectualEntities | Object (intellectualEntity) | `archiveId`/`objectId`/`objectIdentifiers` → `objectIdentifier`. `accessGroupId` → `linkingRightsStatementIdentifier` |
 | representations | Object (representation) | `repId` → `objectIdentifier`. `relationships` → `relationship` |
 | files | Object (file) | `fixities` → `objectCharacteristics.fixity`. `format` → `objectCharacteristics.format`. `mimeType` has no direct PREMIS field; export as `formatRegistry` with `formatRegistryName=IANA` |
 | events | Event | `agentId` → `linkingAgentIdentifier`. `archiveId`/`fileRef` → `linkingObjectIdentifier` |
@@ -382,8 +403,8 @@ The following field is proposed for the existing agents collection:
 
 | MongoDB collection | PREMIS entity | Key mapping notes |
 |---|---|---|
-| preservationAgreements | Rights (`rightsStatement`) | `rightsBasis=license`. `licenseInformation` maps directly. `parties` → `linkingAgentIdentifier` with role |
-| submissionAgreements | Rights (`rightsStatement`) | `rightsBasis=other` implied. `preservationAgreementId` links to parent. PREMIS structural fields reconstructed during export. |
+| preservationAgreements | Rights (`rightsStatement`) | `rightsBasis` stored per agreement. `rightsInformation` maps to the basis-specific PREMIS block on export (`other`→`otherRightsInformation`, `license`→`licenseInformation`, `statute`→`statuteInformation`). `parties` → `linkingAgentIdentifier` with role |
+| contentAccessGroups | Rights (`rightsStatement`) | `rightsBasis=other` implied. `preservationAgreementId` links to parent. PREMIS structural fields reconstructed during export. |
 | roleAssignments | `linkingAgentIdentifier` on `rightsStatement` | `role` → `linkingAgentRole`. Temporal fields (`startDate`/`endDate`) are a DPS extension |
 
 ### API surface
@@ -393,12 +414,12 @@ POST   /v1/preservation-agreements                                          Crea
 GET    /v1/preservation-agreements/{preservationAgreementId}                 Get preservation agreement
 PATCH  /v1/preservation-agreements/{preservationAgreementId}                 Update preservation agreement
 
-POST   /v1/preservation-agreements/{preservationAgreementId}/contracts       Create submission agreement
-GET    /v1/preservation-agreements/{preservationAgreementId}/contracts        List submission agreements
+POST   /v1/preservation-agreements/{preservationAgreementId}/content-access-groups       Create content access group
+GET    /v1/preservation-agreements/{preservationAgreementId}/content-access-groups        List content access groups
 
-POST   /v1/contracts/{contractId}/roles             Assign role to agent
-GET    /v1/contracts/{contractId}/roles             List role assignments
-PATCH  /v1/contracts/{contractId}/roles/{roleId}    Revoke (set endDate)
+POST   /v1/content-access-groups/{accessGroupId}/roles             Assign role to agent
+GET    /v1/content-access-groups/{accessGroupId}/roles             List role assignments
+PATCH  /v1/content-access-groups/{accessGroupId}/roles/{roleId}    Revoke (set endDate)
 
 POST   /v1/agents                                   Register agent
 GET    /v1/agents/{agentId}                         Get agent
@@ -407,7 +428,7 @@ PATCH  /v1/agents/{agentId}                         Update agent metadata
 
 ## Open questions
 
-- Should agreements covering legal deposit (pliktavlevering) use PREMIS `statuteInformation` to represent the legal basis?
+- Legal deposit (pliktavlevering) agreements can now use `rightsBasis=statute`. The remaining question is which statute-specific fields the document should carry (e.g., `statuteJurisdiction`, `statuteCitation`) to fully populate PREMIS `statuteInformation` on export. The generic `rightsInformation` block covers `statuteNote` and applicable dates, but jurisdiction and citation have no source field yet.
 - Should role granularity go beyond producer/consumer? For example: "can submit but not delete," "can disseminate but not search."
 - How should the Keycloak sync handle failures? Queue-based retry? Eventual consistency?
-- How should existing `contractId` values be migrated? Backfill Preservation Agreement and Submission Agreement entities for existing contracts, or apply only going forward?
+- How should existing `contractId` values be migrated to `accessGroupId`? Backfill Preservation Agreement and Content access group entities for existing `contractId` values, or apply only going forward?
