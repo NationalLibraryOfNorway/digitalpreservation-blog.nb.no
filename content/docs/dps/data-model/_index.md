@@ -1,6 +1,6 @@
 ---
 title: DPS core data model (Draft)
-weight: 6
+weight: 7
 draft: true
 ---
 
