@@ -397,6 +397,9 @@ Each preservation agreement represents the organizational relationship between t
 > **Possible expansion: status field.** A `status` field (active/suspended/terminated) could be added if the DPS needs to temporarily suspend a preservation agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed.
 
 > [!NOTE]
+> **Possible expansion: preservation-level `rightsGranted`.** The preservation agreement could carry `rightsGranted` entries for preservation-level rights: what the NLN may do with the content over time (migration, replication, deletion, normalization, validation, refreshment). These rights are distinct from the content access group's functional rights (submit, access), which are decomposed into role assignments. Preservation-level rights matter for long-term preservation policy and PREMIS fidelity, but are not enforced by the DPS at runtime in the same way. The `act` values draw from the full [LoC eventType vocabulary](https://id.loc.gov/vocabulary/preservation/eventType).
+
+> [!NOTE]
 > **Possible expansion: enforceable scope.** The preservation agreement could carry machine-readable constraints that the ingest pipeline validates against. This would address the gap documented in [Data management](/docs/dps/data/): "We cannot currently validate automatically at the object level against what is stated in the submission agreement."
 >
 > Example constraints:
@@ -479,6 +482,8 @@ PREMIS mapping:
 | `name`, `description` | DPS extensions | Operational metadata |
 | `startDate`, `endDate` | `otherRightsApplicableDates` | Reconstructed as PREMIS structure during export |
 
+`rightsGranted` is not stored on the content access group document. On PREMIS export, active role assignments are collected and reconstructed as `rightsGranted` entries: `role` → `act` (eventType vocabulary, replacing deprecated `actionsGranted`), `startDate`/`endDate` → `termOfGrant`, `agentId` → `linkingAgentIdentifier`.
+
 #### roleAssignments (proposed)
 
 Each role assignment links an agent to a content access group with a specific role. Stored as a separate collection from content access groups so that role changes do not modify the content access group document. The core assignment fields are immutable after creation; only `endDate` is set, once, to revoke.
@@ -533,8 +538,8 @@ PREMIS mapping:
 |---|---|---|
 | `accessGroupId` | Reference to `rightsStatement` | FK to content access group |
 | `agentId` | `linkingAgentIdentifier` | FK to agent |
-| `role` | `linkingAgentRole` | producer or consumer |
-| `startDate`, `endDate` | DPS extension | Temporal tracking for audit trail |
+| `role` | `linkingAgentRole` | producer or consumer; also maps to `rightsGranted.act` on CAG export (eventType vocabulary) |
+| `startDate`, `endDate` | `rightsGranted.termOfGrant` on CAG export | Also DPS audit trail |
 
 ### Descriptive metadata database
 

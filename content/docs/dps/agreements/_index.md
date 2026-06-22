@@ -25,7 +25,7 @@ Each Preservation Agreement links to at least two PREMIS Agents: the client orga
 
 A Content access group is a functional entity within the DPS that controls access. One Preservation Agreement can have many Content access groups. This is what the current `contractId` (4-character hex identifier) refers to.
 
-In PREMIS terms, a Content access group is a `rightsStatement` with `rightsBasis=other` and `otherRightsBasis=contentAccessGroup`. It carries `rightsGranted` entries defining what actions (submit, disseminate, search) are permitted.
+In PREMIS terms, a Content access group is a `rightsStatement` with `rightsBasis=other` and `otherRightsBasis=contentAccessGroup`. PREMIS `rightsGranted` is not stored on the document; it is decomposed into [role assignments](#role-assignments). Each active role assignment becomes a `rightsGranted` entry on export: the `role` determines the permitted `act` (drawn from the [LoC eventType vocabulary](https://id.loc.gov/vocabulary/preservation/eventType), which replaces the deprecated `actionsGranted` list), and the assignment's `startDate`/`endDate` map to `termOfGrant`. Candidate mappings: `producer`→ingestion/metadata modification, `consumer`→dissemination/exporting. The exact mapping is deferred to implementation.
 
 Each Intellectual Entity is linked to exactly one Content access group via `accessGroupId`. The parent Preservation Agreement is always reachable through the Content access group's immutable `preservationAgreementId` field.
 
@@ -38,6 +38,7 @@ Each Intellectual Entity is linked to exactly one Content access group via `acce
 | PREMIS basis | `rightsBasis` stored per agreement (`other` default; `license`, `statute` supported) | `rightsBasis=other` |
 | Identifies | Who can have content access groups | Which IEs, which roles, which access |
 | Cardinality | One or more per client | Many per Preservation Agreement |
+| `rightsGranted` | Could carry preservation-level rights (migrate, replicate, delete) | Decomposed into role assignments (submit, access) |
 | Current equivalent | Does not exist in DPS | `contractId` (with no attributes; renamed to `accessGroupId` in the target model) |
 
 ### Immutability rules
@@ -106,6 +107,8 @@ Role assignments are immutable except for revocation:
 - The content access group document is not modified when roles change
 
 This creates an authorization audit trail: who was permitted to do what, and when. This complements the existing object-level audit trail (PREMIS events documenting what actually happened to each IE and file).
+
+On PREMIS export, active role assignments for a content access group are collected and reconstructed as `rightsGranted` entries on the `rightsStatement`. Each entry carries an `act` (eventType vocabulary), a `termOfGrant` from the assignment's temporal fields, and a `linkingAgentIdentifier` referencing the agent. This separates the storage model (individual assignments with audit trail) from the PREMIS exchange model (aggregated rights on the statement).
 
 The events collection is reserved for preservation events on objects (using the [LoC preservation event vocabulary](https://id.loc.gov/vocabulary/preservation/eventType)). Role management is an administrative concern and is tracked separately through the roleAssignments collection.
 
@@ -232,6 +235,9 @@ The `identifiers[]` array references the agreement in external systems (archive,
 
 > [!NOTE]
 > **Possible expansion: status field.** A `status` field (active/suspended/terminated) could be added if the DPS needs to temporarily suspend a preservation agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed.
+
+> [!NOTE]
+> **Possible expansion: preservation-level `rightsGranted`.** The preservation agreement could carry `rightsGranted` entries for preservation-level rights: what the NLN may do with the content over time (migration, replication, deletion, normalization, validation, refreshment). These rights are distinct from the content access group's functional rights (submit, access), which are decomposed into role assignments. Preservation-level rights matter for long-term preservation policy and PREMIS fidelity, but are not enforced by the DPS at runtime in the same way. The `act` values draw from the full [LoC eventType vocabulary](https://id.loc.gov/vocabulary/preservation/eventType).
 
 > [!NOTE]
 > **Possible expansion: enforceable scope.** The preservation agreement could carry machine-readable constraints that the ingest pipeline validates against. This would address the gap documented in [Data management](/docs/dps/data/): "We cannot currently validate automatically at the object level against what is stated in the submission agreement."
@@ -407,8 +413,8 @@ The following field is proposed for the existing agents collection:
 | MongoDB collection | PREMIS entity | Key mapping notes |
 |---|---|---|
 | preservationAgreements | Rights (`rightsStatement`) | `rightsBasis` stored per agreement. `rightsInformation` maps to the basis-specific PREMIS block on export (`other`→`otherRightsInformation`, `license`→`licenseInformation`, `statute`→`statuteInformation`). `parties` → `linkingAgentIdentifier` with role |
-| contentAccessGroups | Rights (`rightsStatement`) | `rightsBasis=other` implied. `preservationAgreementId` links to parent. PREMIS structural fields reconstructed during export. |
-| roleAssignments | `linkingAgentIdentifier` on `rightsStatement` | `role` → `linkingAgentRole`. Temporal fields (`startDate`/`endDate`) are a DPS extension |
+| contentAccessGroups | Rights (`rightsStatement`) | `rightsBasis=other` implied. `preservationAgreementId` links to parent. `rightsGranted` reconstructed from active roleAssignments on export. Other PREMIS structural fields reconstructed during export. |
+| roleAssignments | `linkingAgentIdentifier` on `rightsStatement` | `role` → `linkingAgentRole`; also maps to `rightsGranted.act` (eventType vocabulary) on CAG export. `startDate`/`endDate` → `rightsGranted.termOfGrant`. |
 
 ### API surface
 
@@ -433,5 +439,6 @@ PATCH  /v1/agents/{agentId}                         Update agent metadata
 
 - Legal deposit (pliktavlevering) agreements can now use `rightsBasis=statute`. The remaining question is which statute-specific fields the document should carry (e.g., `statuteJurisdiction`, `statuteCitation`) to fully populate PREMIS `statuteInformation` on export. The generic `rightsInformation` block covers `statuteNote` and applicable dates, but jurisdiction and citation have no source field yet.
 - Should role granularity go beyond producer/consumer? For example: "can submit but not delete," "can disseminate but not search."
+- The [LoC eventType vocabulary](https://id.loc.gov/vocabulary/preservation/eventType) replaces the deprecated `actionsGranted` list as the source for `rightsGranted.act` values. The exact mapping from DPS roles (`producer`/`consumer`) to eventType values is deferred to implementation. Candidate mappings: `producer`→ingestion/metadata modification, `consumer`→dissemination/exporting.
 - How should the Keycloak sync handle failures? Queue-based retry? Eventual consistency?
 - How should existing `contractId` values be migrated to `accessGroupId`? Backfill Preservation Agreement and Content access group entities for existing `contractId` values, or apply only going forward?
