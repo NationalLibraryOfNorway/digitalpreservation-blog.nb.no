@@ -45,6 +45,9 @@ Each Intellectual Entity is linked to exactly one Content access group via `acce
 - The `preservationAgreementId` on a Content access group is set at creation and cannot be changed. A content access group cannot move between preservation agreements.
 - If an IE needs to move between contracts, new content access groups must exist (or be created) under the target preservation agreement. The IE's `accessGroupId` is updated, and the change is documented as a PREMIS event.
 
+> [!NOTE]
+> **Open question: direct IE-to-preservation-agreement link.** The IE reaches its preservation agreement only transitively through the content access group. A direct `preservationAgreementId` on the IE may be needed for PREMIS export (which allows multiple `linkingRightsStatementIdentifier` values) and for agreement-level queries. See [DPS core data model](/docs/dps/data-model/).
+
 ## Clients as Agents
 
 API clients are modeled as PREMIS Agents in the preservation metadata database. This gives them identity, metadata, event attribution, and connects them to the content access groups they can access.

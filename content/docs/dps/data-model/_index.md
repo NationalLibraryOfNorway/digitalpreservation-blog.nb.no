@@ -83,6 +83,9 @@ PREMIS mapping:
 | `repositoryPrefix` | DPS extension | Storage namespace |
 | `CITS` | DPS extension | E-ARK content information type specification |
 
+> [!NOTE]
+> **Open question: direct link to preservation agreement.** The IE currently reaches its preservation agreement only transitively (IE → content access group via `accessGroupId` → preservation agreement via `preservationAgreementId`). PREMIS allows multiple `linkingRightsStatementIdentifier` values on a single object. A direct `preservationAgreementId` field on the IE may be needed so that PREMIS export can link the IE to both rights statements without a join, and so that agreement-level queries (e.g., "all IEs under this preservation agreement") don't require traversing the content access group collection.
+
 #### representations
 
 Each IE contains at least one representation: the set of files needed to render the Intellectual Entity. The `_id` in this collection is called `repId`.
