@@ -308,7 +308,7 @@ The following field is proposed for the existing agents collection:
 
 | Field | Description | Required |
 |---|---|---|
-| `clientId` | Keycloak client identifier for IAM sync. Present only on API client agents. | No |
+| `clientId` | Keycloak client identifier for IAM sync. Present only on API client agents. Must be unique across all agents; enforced by a unique partial index. | No |
 
 > [!NOTE]
 > **Possible expansion: agentIdentifiers.** An `agentIdentifiers[]` array (type + value pairs) could be added for general-purpose identifiers such as organization numbers, URNs, or references to external registries. This would align with the PREMIS `agentIdentifier` semantic unit, which supports multiple identifiers per agent.
