@@ -44,10 +44,10 @@ Each Intellectual Entity is linked to exactly one Content access group via `acce
 ### Immutability rules
 
 - The `preservationAgreementId` on a Content access group is set at creation and cannot be changed. A content access group cannot move between preservation agreements.
-- If an IE needs to move between contracts, new content access groups must exist (or be created) under the target preservation agreement. The IE's `accessGroupId` is updated, and the change is documented as a PREMIS event.
+- If an IE needs to move between contracts, new content access groups must exist (or be created) under the target preservation agreement. The IE's `accessGroupId` and `preservationAgreementId` are updated atomically, and the change is documented as a PREMIS event.
 
 > [!NOTE]
-> **Open question: direct IE-to-preservation-agreement link.** The IE reaches its preservation agreement only transitively through the content access group. A direct `preservationAgreementId` on the IE may be needed for PREMIS export (which allows multiple `linkingRightsStatementIdentifier` values) and for agreement-level queries. See [DPS core data model](/docs/dps/data-model/).
+> **Two-layer rights on PREMIS export.** The IE carries a denormalized `preservationAgreementId` so that PREMIS export can link it to both rights statements (content access group and preservation agreement) without a join. See [DPS core data model](/docs/dps/data-model/).
 
 ## Clients as Agents
 
@@ -151,6 +151,7 @@ erDiagram
     PRESERVATION_AGREEMENT ||--|{ CONTENT_ACCESS_GROUP : "preservationAgreementId"
     ROLE_ASSIGNMENT }o--|| CONTENT_ACCESS_GROUP : "accessGroupId"
     ROLE_ASSIGNMENT }o--|| AGENT : "agentId"
+    PRESERVATION_AGREEMENT ||--o{ INTELLECTUAL_ENTITY : "preservationAgreementId"
     CONTENT_ACCESS_GROUP ||--o{ INTELLECTUAL_ENTITY : "accessGroupId"
 ```
 
@@ -403,7 +404,7 @@ The following field is proposed for the existing agents collection:
 
 | MongoDB collection | PREMIS entity | Key mapping notes |
 |---|---|---|
-| intellectualEntities | Object (intellectualEntity) | `archiveId` (type: `dps-archive-id`)/`objectId` (type: `dps-client-object-id`)/`objectIdentifiers` → `objectIdentifier`. `accessGroupId` → `linkingRightsStatementIdentifier` |
+| intellectualEntities | Object (intellectualEntity) | `archiveId` (type: `dps-archive-id`)/`objectId` (type: `dps-client-object-id`)/`objectIdentifiers` → `objectIdentifier`. `accessGroupId` and `preservationAgreementId` → `linkingRightsStatementIdentifier` (two values: CAG + PA) |
 | representations | Object (representation) | `repId` (type: `dps-representation-id`) → `objectIdentifier`. `relationships` → `relationship` |
 | files | Object (file) | `fileId` (type: `dps-file-id`) → `objectIdentifier`. `fixities` → `objectCharacteristics.fixity`. `format` → `objectCharacteristics.format`. `mimeType` has no direct PREMIS field; export as `formatRegistry` with `formatRegistryName=IANA` |
 | events | Event | `agentId` → `linkingAgentIdentifier`. `archiveId`/`fileRef` → `linkingObjectIdentifier` |
@@ -443,5 +444,3 @@ PATCH  /v1/agents/{agentId}                         Update agent metadata
 - Legal deposit (pliktavlevering) agreements can now use `rightsBasis=statute`. The remaining question is which statute-specific fields the document should carry (e.g., `statuteJurisdiction`, `statuteCitation`) to fully populate PREMIS `statuteInformation` on export. The generic `rightsInformation` block covers `statuteNote` and applicable dates, but jurisdiction and citation have no source field yet.
 - Should role granularity go beyond producer/consumer? For example: "can submit but not delete," "can disseminate but not search."
 - The [LoC eventType vocabulary](https://id.loc.gov/vocabulary/preservation/eventType) replaces the deprecated `actionsGranted` list as the source for `rightsGranted.act` values. The exact mapping from DPS roles (`producer`/`consumer`) to eventType values is deferred to implementation. Candidate mappings: `producer`→ingestion/metadata modification, `consumer`→dissemination/exporting.
-- The DPS-to-Keycloak sync has a consistency gap (see [note above](#dps-as-source-of-truth)). The Keycloak sync architecture is a separate topic requiring its own examination.
-- How should existing `contractId` values be migrated to `accessGroupId`? Backfill Preservation Agreement and Content access group entities for existing `contractId` values, or apply only going forward?

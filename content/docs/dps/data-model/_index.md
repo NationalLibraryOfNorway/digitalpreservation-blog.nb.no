@@ -19,6 +19,7 @@ The surrounding services (API, ingest pipeline, dissemination pipeline) can be e
 erDiagram
     PRESERVATION_AGREEMENT ||--|{ CONTENT_ACCESS_GROUP : "preservationAgreementId"
     PRESERVATION_AGREEMENT }o--o{ AGENT : "parties[]"
+    PRESERVATION_AGREEMENT ||--o{ INTELLECTUAL_ENTITY : "preservationAgreementId"
     CONTENT_ACCESS_GROUP ||--o{ INTELLECTUAL_ENTITY : "accessGroupId"
     ROLE_ASSIGNMENT }o--|| CONTENT_ACCESS_GROUP : "accessGroupId"
     ROLE_ASSIGNMENT }o--|| AGENT : "agentId"
@@ -51,6 +52,7 @@ Each information package (AIP) is described as one Intellectual Entity document.
   "_id": "019eb642-ab29-7cd3-9700-5b776ac6f572",
   "schemaVersion": 1,
   "accessGroupId": "2d17",
+  "preservationAgreementId": "019f1234-abcd-7000-8000-000000000001",
   "objectId": "av_6e8bcasddd430-9c3a11d9",
   "sumSizeInBytes": 12345678987654321,
   "status": "preserved",
@@ -77,6 +79,7 @@ PREMIS mapping:
 | `objectId` | `objectIdentifier` | Client-assigned, unique within content access group. Type: `dps-client-object-id` |
 | `objectIdentifiers[]` | `objectIdentifier` | Additional identifiers (URNs, external IDs) |
 | `accessGroupId` | `linkingRightsStatementIdentifier` | Links to content access group |
+| `preservationAgreementId` | `linkingRightsStatementIdentifier` | Links to preservation agreement (denormalized from CAG) |
 | `status` | DPS extension | Workflow state |
 | `sumSizeInBytes` | DPS extension | Aggregate size |
 | `contentCategory` | DPS extension | Content classification |
@@ -86,7 +89,7 @@ PREMIS mapping:
 `objectId` is stored as a flat string for operational reasons: it is a business key used throughout the API (submissions, webhooks, dissemination) and enforced as unique within a content access group. On PREMIS export it becomes a typed `objectIdentifier` with type `dps-client-object-id`, distinguishing it from internal DPS identifiers (`dps-archive-id`) and client-supplied typed identifiers in `objectIdentifiers[]` (URNs, DOIs, etc.).
 
 > [!NOTE]
-> **Open question: direct link to preservation agreement.** The IE currently reaches its preservation agreement only transitively (IE → content access group via `accessGroupId` → preservation agreement via `preservationAgreementId`). PREMIS allows multiple `linkingRightsStatementIdentifier` values on a single object. A direct `preservationAgreementId` field on the IE may be needed so that PREMIS export can link the IE to both rights statements without a join, and so that agreement-level queries (e.g., "all IEs under this preservation agreement") don't require traversing the content access group collection.
+> **Two-layer rights on PREMIS export.** The IE carries a denormalized `preservationAgreementId` derived from its content access group. On PREMIS export, the IE produces two `linkingRightsStatementIdentifier` values: one for the content access group (`accessGroupId`) and one for the preservation agreement (`preservationAgreementId`). This gives PREMIS consumers the full two-layer rights picture without resolving intermediate documents, and enables agreement-level queries (e.g., "all IEs under this preservation agreement") without traversing the content access group collection. Both `accessGroupId` and `preservationAgreementId` are updated atomically when an IE moves between content access groups.
 
 #### representations
 
