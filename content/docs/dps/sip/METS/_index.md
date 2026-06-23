@@ -18,6 +18,8 @@ Both METS.xml files must validate against the METS requirements specified by the
 
 ## Use of the METS root element (`mets`)
 
+The METS document’s root element (`mets`) describes the container for the information being stored and/or transmitted. 
+
 
 | **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
 |:---|:---|:---|:---|
@@ -50,7 +52,26 @@ Both METS.xml files must validate against the METS requirements specified by the
 
 ## Use of the METS header (`metsHdr`)
 
-No further requirements beyond [CSIP METS Header](https://earkcsip.dilcis.eu/#useofthemetsheaderelementmetshdr).
+The purpose of the METS header section is to describe the METS document itself, for example information about the creator of the IP.
+
+No further requirements beyond [CSIP METS Header](https://earkcsip.dilcis.eu/#useofthemetsheaderelementmetshdr) and [E-ARK SIP METS Profile](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements).
+
+
+**Example:**
+
+```xml
+    <metsHdr CREATEDATE="2026-06-19T08:47:03.115+02:00" LASTMODDATE="2026-06-19T08:47:03.115+02:00" RECORDSTATUS="NEW" csip:OAISPACKAGETYPE="SIP">
+        <agent ROLE="CREATOR" TYPE="OTHER" OTHERTYPE="SOFTWARE">
+            <name>nifi-eark-nar,no.nb.nifi.processors.dps.eark.EarkSIPGenerator</name>
+            <note csip:NOTETYPE="SOFTWARE VERSION">1.0.12</note>
+        </agent>
+        <agent ROLE="CREATOR" TYPE="ORGANIZATION">
+            <name>National Library of Norway</name>
+            <note csip:NOTETYPE="IDENTIFICATIONCODE"/>
+        </agent>
+    </metsHdr>
+
+```
 
 
 
@@ -58,6 +79,7 @@ No further requirements beyond [CSIP METS Header](https://earkcsip.dilcis.eu/#us
 
 ## Use of the METS descriptive metadata section (`dmdSec`)
 
+The purpose of the METS descriptive metadata section is to refer to files containing descriptive metadata.
 
 | **ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
 |:---|:---|:---|:---|
@@ -144,6 +166,10 @@ The National Library of Norway (NB) considers these metadata types essential for
 
 ## Use of the METS file section (`fileSec`)
 
+The `fileSec` should describe every component of the IP not already described in the `amdSec` and `dmdSec` elements. Location and checksum values must be provided for all file entries.
+The METS file section serves as a manifest, allowing users to ensure all files are present and that a package is complete, as well as testing the integrity of package files using checksum values.
+
+
 |**ID** | **Name, METS element, description** | **Requirement** | **Cardinality** |
 |:---|:---|:---|:---|
 | **NBSIP24** | **Sjekksumtype**<br>`mets/fileSec/fileGrp/file/@CHECKSUMTYPE`<br><br> A value from the METS-standard which identifies the algorithm used to calculate the checksum for the referenced file. Checksum type **MUST** be : `MD5`.<br><br> This requirement is a stricter version of [CSIP71](https://earkcsip.dilcis.eu/#CSIP71) og [CSIP72](https://earkcsip.dilcis.eu/#CSIP72).  | **MUST** | **1..1** |
@@ -169,4 +195,39 @@ The National Library of Norway (NB) considers these metadata types essential for
 
 ## Use of the METS structural map (`structMap`)
 
-No further requirements beyond [CSIP METS structural map](https://earkcsip.dilcis.eu/#useofthemetsstructuralmapelementstructmap).
+The METS structural map element provides an overview of the components described in the METS document. It can also link the elements in the structure to associated content files and metadata. 
+
+No further requirements beyond [CSIP METS structural map](https://earkcsip.dilcis.eu/#useofthemetsstructuralmapelementstructmap) and [E-ARK SIP METS Profile](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements).
+
+
+**Examples:**
+
+METS example of the mandatory structural map including representations:
+
+```xml
+    <structMap ID="uuid-02BC407F-A6BB-4048-8DD5-757565935E3B" TYPE="PHYSICAL" LABEL="CSIP">
+        <div ID="uuid-4C489BCC-1ABC-4EA6-A9B5-4B6B7052B0DB" TYPE="ORIGINAL" LABEL="primary_20140616">
+            <div ID="uuid-F57F3C12-3E99-490B-ADE6-06AE3AFF8A46" ADMID="uuid-F1B0A220-29B4-4742-9660-5664EE2FD699 uuid-49F340DF-21E2-45B0-9C25-1ED048B4B8AE" LABEL="Metadata"/>
+            <div ID="uuid-EEE68439-8E03-403A-A1E4-55E8E3C8E845" LABEL="Data">
+                <fptr FILEID="uuid-DF9C02C3-24F9-4AC0-A033-44D8F8D739A8"/>
+            </div>
+        </div>
+    </structMap>
+```
+
+
+METS example of the mandatory structural map:
+```xml
+
+    <structMap ID="uuid-4589BF89-1216-49B8-9C67-C484F906706F" TYPE="PHYSICAL" LABEL="CSIP">
+        <div ID="uuid-9722E574-4302-4BC2-B0A9-2B9086CB9FD7" LABEL="digifilm_461518_20140616_FYAL00000181">
+            <div ID="uuid-21B503AA-C31A-404A-A168-DEA933F4D367" DMDID="uuid-AF0A86FA-2CE4-41F7-BD61-34004C216342 uuid-B40B9E66-234E-498D-B413-B772D98927D8 uuid-4A9367D6-1272-4A1D-8AD8-D32161152CF5 uuid-470C79A7-9BAB-4637-B416-1367F40A5B52 uuid-19D3CCCA-D098-4FBB-84F1-21F2947B25B2 uuid-8B34AAC6-10AC-4B3C-921D-2B4A52F3CA7E uuid-E9C6212E-12A1-4C83-B77E-FACF41990623 uuid-6E5AFBC1-A883-4FEE-82BA-CABD149FBDD6 uuid-BA48EF33-7610-41D4-9753-A132760856FF uuid-A71910DD-F472-4D9C-AE43-B7EC0C88CCA0 uuid-2EE0FB24-66F4-4365-8579-79357800AD5E uuid-158DF561-FBA5-4057-9AA2-12492230BB53" LABEL="Metadata"/>
+            <div ID="uuid-38407EB1-9882-4C54-88BA-B6D7DECCFC8A" LABEL="Schemas">
+                <fptr FILEID="uuid-4C128011-D82E-41F1-AD03-C86290173DFB"/>
+            </div>
+            <div ID="uuid-070E9A64-C5E9-4634-9889-91912767143F" LABEL="Representations/primary_20140616">
+                <mptr LOCTYPE="URL" xlink:type="simple" xlink:href="representations/primary_20140616/METS.xml" xlink:title="uuid-69FDE799-1A96-4F63-ABF6-69D6EE8F7900"/>
+            </div>
+        </div>
+    </structMap>
+ ```

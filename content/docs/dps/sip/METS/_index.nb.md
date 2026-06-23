@@ -17,6 +17,8 @@ Begge METS.xml må validere på metskravene gitt av E-ARK-spesifikasjonene [CSIP
 
 ### Bruk av rotelementer i METS (`mets`)
 
+METS-dokumentets rotelement (`mets`) beskriver overordnet informasjonen som lagres og/eller utveksles.
+
 | **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
 |:---|:---|:---|:---|
 | **NBSIP1** | **Pakkeidentifikator**<br>`mets/@OBJID`<br><br>Attributten `mets/@OBJID` er obligatorisk, verdien er en strengidentifikator for METS-fila. I METS-fila i pakkas rotmappe **MÅ** denne identifikatoren være det samme som navnet på pakkas rotmappe (se [NBSIPSTR2](/nb/docs/dps/sip/structure-requirements/#:~:text=NBSIPSTR2) for formatering). I METS-fil på de individuelle representasjonene **MÅ** denne identifikatoren være det samme som navnet på den relevante representasjonsmappa (se [NBSIPSTR11](/nb/docs/dps/sip/structure-requirements/#:~:text=NBSIPSTR11) og [NBSIPSTR12](/nb/docs/dps/sip/structure-requirements/#:~:text=NBSIPSTR12) for formatering). <br><br>Dette er en strengere, SIP-spesifikk variant av [CSIP1](https://earkcsip.dilcis.eu/#CSIP1) | **MÅ** | **1..1** |
@@ -49,13 +51,31 @@ Begge METS.xml må validere på metskravene gitt av E-ARK-spesifikasjonene [CSIP
 
 
 ### Bruk av METS header (`metsHdr`) 
-Ingen krav utover [CSIP METS Header](https://earkcsip.dilcis.eu/#useofthemetsheaderelementmetshdr).
 
+Formålet med METS-headerseksjonen er å beskrive selve METS-dokumentet, for eksempel informasjon om oppretteren av informasjonspakken (IP).
 
+Ingen krav utover [CSIP METS Header](https://earkcsip.dilcis.eu/#useofthemetsheaderelementmetshdr) og [E-ARK SIP METS-profil](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements).
+
+**Eksempel:**
+
+```XML
+    <metsHdr CREATEDATE="2026-06-19T08:47:03.115+02:00" LASTMODDATE="2026-06-19T08:47:03.115+02:00" RECORDSTATUS="NEW" csip:OAISPACKAGETYPE="SIP">
+        <agent ROLE="CREATOR" TYPE="OTHER" OTHERTYPE="SOFTWARE">
+            <name>nifi-eark-nar,no.nb.nifi.processors.dps.eark.EarkSIPGenerator</name>
+            <note csip:NOTETYPE="SOFTWARE VERSION">1.0.0</note>
+        </agent>
+        <agent ROLE="CREATOR" TYPE="ORGANIZATION">
+            <name>National Library of Norway</name>
+            <note csip:NOTETYPE="IDENTIFICATIONCODE"/>
+        </agent>
+    </metsHdr>
+```
 
 
 
 ### Bruk av deskriptive metadata i METS (`dmdSec`)
+
+Formålet med METS-seksjonen for deskriptive metadata er å referere til filer som inneholder denne typen metadata. 
 
 
 | **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
@@ -146,6 +166,10 @@ Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen)
 
 ### Bruk av METS filseksjon (`fileSec`)
 
+`fileSec` skal beskrive alle komponenter i informasjonspakken (IP) som ikke allerede er beskrevet i elementene `amdSec` og `dmdSec`. For alle filoppføringer skal filplassering og sjekksumverdi oppgis.
+METS-filseksjonen fungerer som en innholdsfortegnelse som gjør det mulig å kontrollere at alle filer er til stede og at informasjonspakken er komplett. Den gjør det også mulig å verifisere filenes integritet ved hjelp av de registrerte sjekksumverdiene.
+
+
 | **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
 |:---|:---|:---|:---|
 | **NBSIP24** | **Sjekksumtype**<br>`mets/fileSec/fileGrp/file/@CHECKSUMTYPE`<br><br> Verdi fra METS-standarden som angir hvilken algoritme som er brukt for å beregne sjekksummen for den refererte filen. Sjekksumtype **MÅ** være : `MD5`.<br><br>Dette er en strengere variant av [CSIP71](https://earkcsip.dilcis.eu/#CSIP71) og [CSIP72](https://earkcsip.dilcis.eu/#CSIP72).  | **MÅ** | **1..1** |
@@ -171,4 +195,37 @@ Spesifikasjonene åpner derimot også for å oppgi tekniske (`techMD`-seksjonen)
 
 ### Bruk av METS strukturkart (`structMap`)
 
-Ingen krav utover [CSIP METS structural map](https://earkcsip.dilcis.eu/#useofthemetsstructuralmapelementstructmap).
+METS-elementet for strukturkart (`structMap`) gir en oversikt over komponentene som er beskrevet i METS-dokumentet. Det kan også knytte elementene i strukturen til tilhørende innholdsfiler og metadata.
+
+Ingen krav utover [CSIP METS structural map](https://earkcsip.dilcis.eu/#useofthemetsstructuralmapelementstructmap) og [E-ARK SIP METS-profil](https://earksip.dilcis.eu/#e-arksipmetsprofile2.1requirements).
+
+
+**Eksempler:**
+
+METS-eksempel på det obligatoriske strukturkartet med representasjoner:
+
+```xml
+    <structMap ID="uuid-02BC407F-A6BB-4048-8DD5-757565935E3B" TYPE="PHYSICAL" LABEL="CSIP">
+        <div ID="uuid-4C489BCC-1ABC-4EA6-A9B5-4B6B7052B0DB" TYPE="ORIGINAL" LABEL="primary_20140616">
+            <div ID="uuid-F57F3C12-3E99-490B-ADE6-06AE3AFF8A46" ADMID="uuid-F1B0A220-29B4-4742-9660-5664EE2FD699 uuid-49F340DF-21E2-45B0-9C25-1ED048B4B8AE" LABEL="Metadata"/>
+            <div ID="uuid-EEE68439-8E03-403A-A1E4-55E8E3C8E845" LABEL="Data">
+                <fptr FILEID="uuid-DF9C02C3-24F9-4AC0-A033-44D8F8D739A8"/>
+            </div>
+        </div>
+    </structMap>
+```
+METS-eksempel på det obligatoriske strukturkartet:
+```xml
+
+    <structMap ID="uuid-4589BF89-1216-49B8-9C67-C484F906706F" TYPE="PHYSICAL" LABEL="CSIP">
+        <div ID="uuid-9722E574-4302-4BC2-B0A9-2B9086CB9FD7" LABEL="digifilm_461518_20140616_FYAL00000181">
+            <div ID="uuid-21B503AA-C31A-404A-A168-DEA933F4D367" DMDID="uuid-AF0A86FA-2CE4-41F7-BD61-34004C216342 uuid-B40B9E66-234E-498D-B413-B772D98927D8 uuid-4A9367D6-1272-4A1D-8AD8-D32161152CF5 uuid-470C79A7-9BAB-4637-B416-1367F40A5B52 uuid-19D3CCCA-D098-4FBB-84F1-21F2947B25B2 uuid-8B34AAC6-10AC-4B3C-921D-2B4A52F3CA7E uuid-E9C6212E-12A1-4C83-B77E-FACF41990623 uuid-6E5AFBC1-A883-4FEE-82BA-CABD149FBDD6 uuid-BA48EF33-7610-41D4-9753-A132760856FF uuid-A71910DD-F472-4D9C-AE43-B7EC0C88CCA0 uuid-2EE0FB24-66F4-4365-8579-79357800AD5E uuid-158DF561-FBA5-4057-9AA2-12492230BB53" LABEL="Metadata"/>
+            <div ID="uuid-38407EB1-9882-4C54-88BA-B6D7DECCFC8A" LABEL="Schemas">
+                <fptr FILEID="uuid-4C128011-D82E-41F1-AD03-C86290173DFB"/>
+            </div>
+            <div ID="uuid-070E9A64-C5E9-4634-9889-91912767143F" LABEL="Representations/primary_20140616">
+                <mptr LOCTYPE="URL" xlink:type="simple" xlink:href="representations/primary_20140616/METS.xml" xlink:title="uuid-69FDE799-1A96-4F63-ABF6-69D6EE8F7900"/>
+            </div>
+        </div>
+    </structMap>
+ ```
