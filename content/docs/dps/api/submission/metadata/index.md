@@ -25,11 +25,11 @@ Most metadata elements are optional, but it is strongly recommended to provide a
 ### Type
 
 
-| Name        | **Type**                                                                                                                                              |
-|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name        | **Type**                                                                                                                                      |
+|:------------|:----------------------------------------------------------------------------------------------------------------------------------------------|
 | Description | Form/genre of the resource. The National Library uses its own controlled vocabulary for allowed types. The vocabulary terms are in Norwegian. |
-| Requirement | MUST                                                                                                                                                  |
-| Cardinality | 1..1                                                                                                                                                  | 
+| Requirement | MUST                                                                                                                                          |
+| Cardinality | 1..1                                                                                                                                          | 
 
 
 > [!TIP]
@@ -95,7 +95,7 @@ Allowed types for describing the resource per media type:
 {
   "type": "Bilde"
 }
-``` 
+```
 
 ### Identifier
 
@@ -401,11 +401,11 @@ Explanation of *authority* information:
 
 ### Spatial
 
-| Name        | **Spatial**                                                                                                                                                                                                                                                                                                                                                                                                             |
-|:------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name        | **Spatial**                                                                                                                                                                                                                                                                                                                                        |
+|:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description | Names of relevant geographic locations (place names). These may refer to geographic locations such as countries, regions or cities that are significant to the resource. <br> The `type` attribute SHOULD be used to specify what type of place is being referred to.<br>The `authority` attribute SHOULD be used to specify the authority source. |
-| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                                                                                                    |
+| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                             |
+| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                               |
 
 **Guidelines for use:**
 
@@ -534,11 +534,11 @@ The use of the `type` attribute should be meaningful for the designated communit
 
 ### Relation
 
-| Name        | **Relation**                                                                                                                                                                                                                                                                                                                                                                |
-|:------------|:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Name        | **Relation**                                                                                                                                                                                                                                                                                                                                                                 |
+|:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description | A related resource in which the described resource is physically or logically included (e.g., title of the parent or related work, collection, series, or part).<br>Attributes for `title` + `type` OR `id` + `type` MUST be used. <br> The `URI` attribute SHOULD be used.<br> The `lang` attribute SHOULD be used to specify the language of the related resource's title. |
-| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                                                      |
-| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                                                        |
+| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                                                       |
+| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                                                         |
 
 **Guidelines for use:**
 
@@ -593,11 +593,11 @@ The `URI` attribute is used to provide a link to the related resource (such as a
 
 ### Source
 
-| Name        | **Source** |
-|:------------|:-----------|
+| Name        | **Source**                                                                                                                                                                                                                                                                                                                                 |
+|:------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Description | The physical or digital object from which the resource was derived. Typical use cases include: digitized content from analog carriers (e.g. a video stream captured from a tape), digital documentation of a physical object (e.g. photographs of a media carrier and its labels), and digital objects derived from other digital objects. |
-| Requirement | SHOULD |
-| Cardinality | 0..n |
+| Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                     |
+| Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                       |
 
 **Guidelines for use:**
 

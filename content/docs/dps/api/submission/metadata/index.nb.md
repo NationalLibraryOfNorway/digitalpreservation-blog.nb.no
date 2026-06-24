@@ -96,7 +96,7 @@ Tillatte typer for å beskrive ressursen sortert på medietype:
 {
   "type": "Bilde"
 }
-``` 
+```
 
 ### Identifier
 

@@ -73,18 +73,18 @@ Each information package (AIP) is described as one Intellectual Entity document.
 
 PREMIS mapping:
 
-| Field | PREMIS semantic unit | Notes |
-|---|---|---|
-| `archiveId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-archive-id` |
-| `objectId` | `objectIdentifier` | Client-assigned, unique within content access group. Type: `dps-client-object-id` |
-| `objectIdentifiers[]` | `objectIdentifier` | Additional identifiers (URNs, external IDs) |
-| `accessGroupId` | `linkingRightsStatementIdentifier` | Links to content access group |
-| `preservationAgreementId` | `linkingRightsStatementIdentifier` | Links to preservation agreement (denormalized from CAG) |
-| `status` | DPS extension | Workflow state |
-| `sumSizeInBytes` | DPS extension | Aggregate size |
-| `contentCategory` | DPS extension | Content classification |
-| `repositoryPrefix` | DPS extension | Storage namespace |
-| `CITS` | DPS extension | E-ARK content information type specification |
+| Field                     | PREMIS semantic unit               | Notes                                                                             |
+|---------------------------|------------------------------------|-----------------------------------------------------------------------------------|
+| `archiveId`               | `objectIdentifier`                 | Internal DPS identifier. Type: `dps-archive-id`                                   |
+| `objectId`                | `objectIdentifier`                 | Client-assigned, unique within content access group. Type: `dps-client-object-id` |
+| `objectIdentifiers[]`     | `objectIdentifier`                 | Additional identifiers (URNs, external IDs)                                       |
+| `accessGroupId`           | `linkingRightsStatementIdentifier` | Links to content access group                                                     |
+| `preservationAgreementId` | `linkingRightsStatementIdentifier` | Links to preservation agreement (denormalized from CAG)                           |
+| `status`                  | DPS extension                      | Workflow state                                                                    |
+| `sumSizeInBytes`          | DPS extension                      | Aggregate size                                                                    |
+| `contentCategory`         | DPS extension                      | Content classification                                                            |
+| `repositoryPrefix`        | DPS extension                      | Storage namespace                                                                 |
+| `CITS`                    | DPS extension                      | E-ARK content information type specification                                      |
 
 `objectId` is stored as a flat string for operational reasons: it is a business key used throughout the API (submissions, webhooks, dissemination) and enforced as unique within a content access group. On PREMIS export it becomes a typed `objectIdentifier` with type `dps-client-object-id`, distinguishing it from internal DPS identifiers (`dps-archive-id`) and client-supplied typed identifiers in `objectIdentifiers[]` (URNs, DOIs, etc.).
 
@@ -126,13 +126,13 @@ Each IE contains at least one representation: the set of files needed to render 
 
 PREMIS mapping:
 
-| Field | PREMIS semantic unit | Notes |
-|---|---|---|
-| `repId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-representation-id` |
-| `archiveId` | Structural relationship to parent IE | Modeled as FK |
-| `representationName` | `originalName` | Name of the representation directory |
-| `objectIdentifiers[]` | `objectIdentifier` | Additional identifiers |
-| `relationships[]` | `relationship` | Type + subType + relatedObjectIdentifiers |
+| Field                 | PREMIS semantic unit                 | Notes                                                  |
+|-----------------------|--------------------------------------|--------------------------------------------------------|
+| `repId`               | `objectIdentifier`                   | Internal DPS identifier. Type: `dps-representation-id` |
+| `archiveId`           | Structural relationship to parent IE | Modeled as FK                                          |
+| `representationName`  | `originalName`                       | Name of the representation directory                   |
+| `objectIdentifiers[]` | `objectIdentifier`                   | Additional identifiers                                 |
+| `relationships[]`     | `relationship`                       | Type + subType + relatedObjectIdentifiers              |
 
 #### files
 
@@ -197,25 +197,25 @@ Files belonging to an IE. A file may sit inside a representation (content files)
 
 PREMIS mapping:
 
-| Field | PREMIS semantic unit | Notes |
-|---|---|---|
-| `fileId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-file-id` |
-| `archiveId` | Relationship to IE | FK; always present (every file belongs to exactly one IE) |
-| `repId` | Relationship to representation | FK; optional (only for files within a representation) |
-| `originalName` | `originalName` | Direct match |
-| `relativePath` | `storage.contentLocation.contentLocationValue` | Path within the package |
-| `size` | `objectCharacteristics.size` | Direct match |
-| `fileCreatedDate` | `creatingApplication.dateCreatedByApplication` | |
-| `fixities[].algorithm` | `objectCharacteristics.fixity.messageDigestAlgorithm` | Direct match |
-| `fixities[].digest` | `objectCharacteristics.fixity.messageDigest` | Direct match |
-| `fixities[].originator` | `objectCharacteristics.fixity.messageDigestOriginator` | Direct match |
-| `format.formatName` | `objectCharacteristics.format.formatDesignation.formatName` | Direct match |
-| `format.formatVersion` | `objectCharacteristics.format.formatDesignation.formatVersion` | Direct match |
-| `format.pronomId` | `objectCharacteristics.format.formatRegistry.formatRegistryKey` | `formatRegistryName=PRONOM` implied |
-| `format.mimeType` | `objectCharacteristics.format.formatRegistry.formatRegistryKey` | Can be exported with `formatRegistryName=IANA` |
-| `format.formatNotes[]` | `objectCharacteristics.format.formatNote` | Direct match |
-| `techMetadataLocation` | DPS extension | S3 path to extraction outputs |
-| `relationships[]` | `relationship` | Type + subType + relatedObjectIdentifiers |
+| Field                   | PREMIS semantic unit                                            | Notes                                                     |
+|-------------------------|-----------------------------------------------------------------|-----------------------------------------------------------|
+| `fileId`                | `objectIdentifier`                                              | Internal DPS identifier. Type: `dps-file-id`              |
+| `archiveId`             | Relationship to IE                                              | FK; always present (every file belongs to exactly one IE) |
+| `repId`                 | Relationship to representation                                  | FK; optional (only for files within a representation)     |
+| `originalName`          | `originalName`                                                  | Direct match                                              |
+| `relativePath`          | `storage.contentLocation.contentLocationValue`                  | Path within the package                                   |
+| `size`                  | `objectCharacteristics.size`                                    | Direct match                                              |
+| `fileCreatedDate`       | `creatingApplication.dateCreatedByApplication`                  |                                                           |
+| `fixities[].algorithm`  | `objectCharacteristics.fixity.messageDigestAlgorithm`           | Direct match                                              |
+| `fixities[].digest`     | `objectCharacteristics.fixity.messageDigest`                    | Direct match                                              |
+| `fixities[].originator` | `objectCharacteristics.fixity.messageDigestOriginator`          | Direct match                                              |
+| `format.formatName`     | `objectCharacteristics.format.formatDesignation.formatName`     | Direct match                                              |
+| `format.formatVersion`  | `objectCharacteristics.format.formatDesignation.formatVersion`  | Direct match                                              |
+| `format.pronomId`       | `objectCharacteristics.format.formatRegistry.formatRegistryKey` | `formatRegistryName=PRONOM` implied                       |
+| `format.mimeType`       | `objectCharacteristics.format.formatRegistry.formatRegistryKey` | Can be exported with `formatRegistryName=IANA`            |
+| `format.formatNotes[]`  | `objectCharacteristics.format.formatNote`                       | Direct match                                              |
+| `techMetadataLocation`  | DPS extension                                                   | S3 path to extraction outputs                             |
+| `relationships[]`       | `relationship`                                                  | Type + subType + relatedObjectIdentifiers                 |
 
 #### events
 
@@ -244,18 +244,18 @@ PREMIS events, both client-submitted and DPS-generated. Every event is related t
 
 PREMIS mapping:
 
-| Field | PREMIS semantic unit | Notes |
-|---|---|---|
-| `eventId` | `eventIdentifier` | |
-| `eventType` | `eventType` | LoC preservation event vocabulary |
-| `eventDateTime` | `eventDateTime` | Direct match |
-| `eventDetail` | `eventDetailInformation.eventDetail` | |
-| `outcome` | `eventOutcomeInformation.eventOutcome` | |
-| `outcomeDetail` | `eventOutcomeInformation.eventOutcomeDetail.eventOutcomeDetailNote` | |
-| `agentId` | `linkingAgentIdentifier` | FK to agent |
-| `archiveId` | `linkingObjectIdentifier` | FK to IE |
-| `fileRef` | `linkingObjectIdentifier` | FK to file (optional) |
-| `isUserInitiated` | DPS extension | Distinguishes client-submitted from system-generated |
+| Field             | PREMIS semantic unit                                                | Notes                                                |
+|-------------------|---------------------------------------------------------------------|------------------------------------------------------|
+| `eventId`         | `eventIdentifier`                                                   |                                                      |
+| `eventType`       | `eventType`                                                         | LoC preservation event vocabulary                    |
+| `eventDateTime`   | `eventDateTime`                                                     | Direct match                                         |
+| `eventDetail`     | `eventDetailInformation.eventDetail`                                |                                                      |
+| `outcome`         | `eventOutcomeInformation.eventOutcome`                              |                                                      |
+| `outcomeDetail`   | `eventOutcomeInformation.eventOutcomeDetail.eventOutcomeDetailNote` |                                                      |
+| `agentId`         | `linkingAgentIdentifier`                                            | FK to agent                                          |
+| `archiveId`       | `linkingObjectIdentifier`                                           | FK to IE                                             |
+| `fileRef`         | `linkingObjectIdentifier`                                           | FK to file (optional)                                |
+| `isUserInitiated` | DPS extension                                                       | Distinguishes client-submitted from system-generated |
 
 #### agents
 
@@ -309,9 +309,9 @@ Organization agent (agreement signatory, proposed):
 
 The following field is proposed for the existing agents collection:
 
-| Field | Description | Required |
-|---|---|---|
-| `clientId` | Keycloak client identifier for IAM sync. Present only on API client agents. Must be unique across all agents; enforced by a unique partial index. | No |
+| Field      | Description                                                                                                                                       | Required |
+|------------|---------------------------------------------------------------------------------------------------------------------------------------------------|----------|
+| `clientId` | Keycloak client identifier for IAM sync. Present only on API client agents. Must be unique across all agents; enforced by a unique partial index. | No       |
 
 > [!NOTE]
 > **Possible expansion: agentIdentifiers.** An `agentIdentifiers[]` array (type + value pairs) could be added for general-purpose identifiers such as organization numbers, URNs, or references to external registries. This would align with the PREMIS `agentIdentifier` semantic unit, which supports multiple identifiers per agent.
@@ -326,14 +326,14 @@ The following field is proposed for the existing agents collection:
 
 PREMIS mapping:
 
-| Field | PREMIS semantic unit | Notes |
-|---|---|---|
-| `agentId` | `agentIdentifier` | |
-| `agentName` | `agentName` | Direct match |
-| `agentType` | `agentType` | person, organization, software, hardware |
-| `agentVersion` | `agentVersion` | Added in PREMIS 3.0 |
-| `agentNote` | `agentNote` | Direct match |
-| `clientId` | DPS extension | IAM link to Keycloak. Present only on API client agents. |
+| Field          | PREMIS semantic unit | Notes                                                    |
+|----------------|----------------------|----------------------------------------------------------|
+| `agentId`      | `agentIdentifier`    |                                                          |
+| `agentName`    | `agentName`          | Direct match                                             |
+| `agentType`    | `agentType`          | person, organization, software, hardware                 |
+| `agentVersion` | `agentVersion`       | Added in PREMIS 3.0                                      |
+| `agentNote`    | `agentNote`          | Direct match                                             |
+| `clientId`     | DPS extension        | IAM link to Keycloak. Present only on API client agents. |
 
 #### preservationAgreements (proposed)
 
@@ -346,7 +346,10 @@ Each preservation agreement represents the organizational relationship between t
   "rightsBasis": "other",
   "name": "Bevaringsavtale NRK",
   "identifiers": [
-    { "type": "archiveRef", "value": "DOK-2024-00142" }
+    {
+      "type": "archiveRef",
+      "value": "DOK-2024-00142"
+    }
   ],
   "rightsInformation": {
     "terms": "Avtale om sikring og bevaring av NRKs digitale kringkastingsarkiv. Omfatter digitalisert og digitalt født audio- og videomateriale fra NRKs kringkastingsarkiv.",
@@ -359,14 +362,26 @@ Each preservation agreement represents the organizational relationship between t
       "description": "Avtale om sikring og bevaring av NRKs digitale kringkastingsarkiv",
       "date": "2024-01-15",
       "files": [
-        { "s3Path": "s3://dps-agreements/019f1234-abcd-7000-8000-000000000001/avtale-2024.pdf", "dateStored": "2024-01-16T10:00:00.000Z" },
-        { "s3Path": "s3://dps-agreements/019f1234-abcd-7000-8000-000000000001/vedlegg-1.pdf", "dateStored": "2024-01-16T10:00:00.000Z" }
+        {
+          "s3Path": "s3://dps-agreements/019f1234-abcd-7000-8000-000000000001/avtale-2024.pdf",
+          "dateStored": "2024-01-16T10:00:00.000Z"
+        },
+        {
+          "s3Path": "s3://dps-agreements/019f1234-abcd-7000-8000-000000000001/vedlegg-1.pdf",
+          "dateStored": "2024-01-16T10:00:00.000Z"
+        }
       ]
     }
   ],
   "parties": [
-    { "agentId": "019f1234-0000-7000-8000-aaaaaaaaaaaa", "role": "depositor" },
-    { "agentId": "019f1234-0000-7000-8000-bbbbbbbbbbbb", "role": "custodian" }
+    {
+      "agentId": "019f1234-0000-7000-8000-aaaaaaaaaaaa",
+      "role": "depositor"
+    },
+    {
+      "agentId": "019f1234-0000-7000-8000-bbbbbbbbbbbb",
+      "role": "custodian"
+    }
   ],
   "createdDate": "2025-09-03T09:01:47.174Z",
   "lastModifiedDate": "2025-09-03T09:01:47.174Z",
@@ -376,27 +391,27 @@ Each preservation agreement represents the organizational relationship between t
 
 `rightsInformation.terms` should describe both the agreement's purpose and its scope.
 
-| Field | Description | Required |
-|---|---|---|
-| `_id` (preservationAgreementId) | Internal DPS identifier (UUIDv7) | Yes |
-| `schemaVersion` | Document schema version | Yes |
-| `rightsBasis` | Rights basis: `other` (contractual deposit, default), `license`, or `statute`. Determines the PREMIS export mapping. | Yes |
-| `name` | Human-readable title for the agreement | Yes |
-| `identifiers[].type` | Type of external reference (e.g., `archiveRef`, `agreementRef`) | Yes per entry |
-| `identifiers[].value` | Reference value in the external system | Yes per entry |
-| `rightsInformation.terms` | Description of the agreement's purpose and scope | Yes |
-| `rightsInformation.startDate` | Date the agreement took effect | Yes |
-| `rightsInformation.endDate` | Date the agreement ended; null if active | No |
-| `documents[].type` | Document category: `signedContract`, `amendment`, `appendix` | Yes per entry |
-| `documents[].description` | Human-readable description of the document | No |
-| `documents[].date` | Date of the document | Yes per entry |
-| `documents[].files[].s3Path` | S3 storage path | Yes per file |
-| `documents[].files[].dateStored` | When the file was stored in S3 | Yes per file |
-| `parties[].agentId` | FK to agent | Yes per entry |
-| `parties[].role` | Role in the agreement: `depositor`, `custodian` (for `rightsBasis=other`). May vary by basis. | Yes per entry |
-| `createdDate` | Document creation timestamp | Yes |
-| `lastModifiedDate` | Last modification timestamp | Yes |
-| `version` | Optimistic locking version | Yes |
+| Field                            | Description                                                                                                          | Required      |
+|----------------------------------|----------------------------------------------------------------------------------------------------------------------|---------------|
+| `_id` (preservationAgreementId)  | Internal DPS identifier (UUIDv7)                                                                                     | Yes           |
+| `schemaVersion`                  | Document schema version                                                                                              | Yes           |
+| `rightsBasis`                    | Rights basis: `other` (contractual deposit, default), `license`, or `statute`. Determines the PREMIS export mapping. | Yes           |
+| `name`                           | Human-readable title for the agreement                                                                               | Yes           |
+| `identifiers[].type`             | Type of external reference (e.g., `archiveRef`, `agreementRef`)                                                      | Yes per entry |
+| `identifiers[].value`            | Reference value in the external system                                                                               | Yes per entry |
+| `rightsInformation.terms`        | Description of the agreement's purpose and scope                                                                     | Yes           |
+| `rightsInformation.startDate`    | Date the agreement took effect                                                                                       | Yes           |
+| `rightsInformation.endDate`      | Date the agreement ended; null if active                                                                             | No            |
+| `documents[].type`               | Document category: `signedContract`, `amendment`, `appendix`                                                         | Yes per entry |
+| `documents[].description`        | Human-readable description of the document                                                                           | No            |
+| `documents[].date`               | Date of the document                                                                                                 | Yes per entry |
+| `documents[].files[].s3Path`     | S3 storage path                                                                                                      | Yes per file  |
+| `documents[].files[].dateStored` | When the file was stored in S3                                                                                       | Yes per file  |
+| `parties[].agentId`              | FK to agent                                                                                                          | Yes per entry |
+| `parties[].role`                 | Role in the agreement: `depositor`, `custodian` (for `rightsBasis=other`). May vary by basis.                        | Yes per entry |
+| `createdDate`                    | Document creation timestamp                                                                                          | Yes           |
+| `lastModifiedDate`               | Last modification timestamp                                                                                          | Yes           |
+| `version`                        | Optimistic locking version                                                                                           | Yes           |
 
 > [!NOTE]
 > **Possible expansion: status field.** A `status` field (active/suspended/terminated) could be added if the DPS needs to temporarily suspend a preservation agreement without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed.
@@ -437,14 +452,14 @@ Each preservation agreement represents the organizational relationship between t
 
 PREMIS mapping:
 
-| Field | PREMIS semantic unit | Notes |
-|---|---|---|
-| `preservationAgreementId` | `rightsStatementIdentifier` | |
-| `rightsBasis` | `rightsBasis` | Stored field; was implicit before |
-| `identifiers[]` | Basis-specific documentation identifier | `other`→`otherRightsDocumentationIdentifier`, `license`→`licenseDocumentationIdentifier`. Same `{type, value}` pattern as `objectIdentifiers` on IEs. |
-| `rightsInformation` | Basis-specific rights information block | `other`→`otherRightsInformation` (with `otherBasis=preservationAgreement`), `license`→`licenseInformation`, `statute`→`statuteInformation`. Reconstructed from `terms` + `startDate`/`endDate`. |
-| `documents[]` | DPS extension | S3-stored copies of signed agreement files, grouped by logical document. The external archive system is the authoritative source. |
-| `parties[]` | `linkingAgentIdentifier` | With `linkingAgentRole` (depositor/custodian; DPS extension, not in LC vocabulary) |
+| Field                     | PREMIS semantic unit                    | Notes                                                                                                                                                                                           |
+|---------------------------|-----------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `preservationAgreementId` | `rightsStatementIdentifier`             |                                                                                                                                                                                                 |
+| `rightsBasis`             | `rightsBasis`                           | Stored field; was implicit before                                                                                                                                                               |
+| `identifiers[]`           | Basis-specific documentation identifier | `other`→`otherRightsDocumentationIdentifier`, `license`→`licenseDocumentationIdentifier`. Same `{type, value}` pattern as `objectIdentifiers` on IEs.                                           |
+| `rightsInformation`       | Basis-specific rights information block | `other`→`otherRightsInformation` (with `otherBasis=preservationAgreement`), `license`→`licenseInformation`, `statute`→`statuteInformation`. Reconstructed from `terms` + `startDate`/`endDate`. |
+| `documents[]`             | DPS extension                           | S3-stored copies of signed agreement files, grouped by logical document. The external archive system is the authoritative source.                                                               |
+| `parties[]`               | `linkingAgentIdentifier`                | With `linkingAgentRole` (depositor/custodian; DPS extension, not in LC vocabulary)                                                                                                              |
 
 #### contentAccessGroups (proposed)
 
@@ -465,30 +480,30 @@ Each content access group is a functional entity controlling access to a set of 
 }
 ```
 
-| Field | Description | Required |
-|---|---|---|
-| `_id` (accessGroupId) | 4-character hex identifier | Yes |
-| `schemaVersion` | Document schema version | Yes |
-| `preservationAgreementId` | FK to parent preservation agreement (immutable after creation) | Yes |
-| `name` | Human-readable label | Yes |
-| `description` | Description of what content is covered | Yes |
-| `startDate` | Date the content access group took effect | Yes |
-| `endDate` | Date it ended; null if active | No |
-| `createdDate` | Document creation timestamp | Yes |
-| `lastModifiedDate` | Last modification timestamp | Yes |
-| `version` | Optimistic locking version | Yes |
+| Field                     | Description                                                    | Required |
+|---------------------------|----------------------------------------------------------------|----------|
+| `_id` (accessGroupId)     | 4-character hex identifier                                     | Yes      |
+| `schemaVersion`           | Document schema version                                        | Yes      |
+| `preservationAgreementId` | FK to parent preservation agreement (immutable after creation) | Yes      |
+| `name`                    | Human-readable label                                           | Yes      |
+| `description`             | Description of what content is covered                         | Yes      |
+| `startDate`               | Date the content access group took effect                      | Yes      |
+| `endDate`                 | Date it ended; null if active                                  | No       |
+| `createdDate`             | Document creation timestamp                                    | Yes      |
+| `lastModifiedDate`        | Last modification timestamp                                    | Yes      |
+| `version`                 | Optimistic locking version                                     | Yes      |
 
 > [!NOTE]
 > **Possible expansion: status field.** A `status` field (active/suspended/closed) could be added if the DPS needs to temporarily suspend a content access group without closing it. Without status, the lifecycle is binary: `endDate: null` means active, `endDate` set means closed. Suspension would require a state beyond what dates alone can express.
 
 PREMIS mapping:
 
-| Field | PREMIS semantic unit | Notes |
-|---|---|---|
-| `accessGroupId` | `rightsStatementIdentifier` | 4-char hex |
-| `preservationAgreementId` | DPS extension | FK to parent preservation agreement (immutable) |
-| `name`, `description` | DPS extensions | Operational metadata |
-| `startDate`, `endDate` | `otherRightsApplicableDates` | Reconstructed as PREMIS structure during export |
+| Field                     | PREMIS semantic unit         | Notes                                           |
+|---------------------------|------------------------------|-------------------------------------------------|
+| `accessGroupId`           | `rightsStatementIdentifier`  | 4-char hex                                      |
+| `preservationAgreementId` | DPS extension                | FK to parent preservation agreement (immutable) |
+| `name`, `description`     | DPS extensions               | Operational metadata                            |
+| `startDate`, `endDate`    | `otherRightsApplicableDates` | Reconstructed as PREMIS structure during export |
 
 `rightsGranted` is not stored on the content access group document. On PREMIS export, active role assignments are collected and reconstructed as `rightsGranted` entries: `role` → `act` (eventType vocabulary, replacing deprecated `actionsGranted`), `startDate`/`endDate` → `termOfGrant`, `agentId` → `linkingAgentIdentifier`.
 
@@ -526,28 +541,28 @@ A revoked role (endDate set once, document never deleted):
 }
 ```
 
-| Field | Description | Required |
-|---|---|---|
-| `_id` (roleAssignmentId) | Internal DPS identifier (UUIDv7) | Yes |
-| `schemaVersion` | Document schema version | Yes |
-| `accessGroupId` | FK to content access group | Yes |
-| `agentId` | FK to agent | Yes |
-| `role` | `producer` or `consumer` | Yes |
-| `startDate` | Date the role was granted | Yes |
-| `endDate` | Date the role was revoked; null if active. Write-once: once set, it cannot be changed. | No |
-| `createdDate` | Document creation timestamp | Yes |
-| `lastModifiedDate` | Last modification timestamp | Yes |
+| Field                    | Description                                                                            | Required |
+|--------------------------|----------------------------------------------------------------------------------------|----------|
+| `_id` (roleAssignmentId) | Internal DPS identifier (UUIDv7)                                                       | Yes      |
+| `schemaVersion`          | Document schema version                                                                | Yes      |
+| `accessGroupId`          | FK to content access group                                                             | Yes      |
+| `agentId`                | FK to agent                                                                            | Yes      |
+| `role`                   | `producer` or `consumer`                                                               | Yes      |
+| `startDate`              | Date the role was granted                                                              | Yes      |
+| `endDate`                | Date the role was revoked; null if active. Write-once: once set, it cannot be changed. | No       |
+| `createdDate`            | Document creation timestamp                                                            | Yes      |
+| `lastModifiedDate`       | Last modification timestamp                                                            | Yes      |
 
 `version` (optimistic locking) is intentionally omitted: the only mutation is the one-time `endDate` set, guarded by a conditional update on `endDate: null`.
 
 PREMIS mapping:
 
-| Field | PREMIS semantic unit | Notes |
-|---|---|---|
-| `accessGroupId` | Reference to `rightsStatement` | FK to content access group |
-| `agentId` | `linkingAgentIdentifier` | FK to agent |
-| `role` | `linkingAgentRole` | producer or consumer; also maps to `rightsGranted.act` on CAG export (eventType vocabulary) |
-| `startDate`, `endDate` | `rightsGranted.termOfGrant` on CAG export | Also DPS audit trail |
+| Field                  | PREMIS semantic unit                      | Notes                                                                                       |
+|------------------------|-------------------------------------------|---------------------------------------------------------------------------------------------|
+| `accessGroupId`        | Reference to `rightsStatement`            | FK to content access group                                                                  |
+| `agentId`              | `linkingAgentIdentifier`                  | FK to agent                                                                                 |
+| `role`                 | `linkingAgentRole`                        | producer or consumer; also maps to `rightsGranted.act` on CAG export (eventType vocabulary) |
+| `startDate`, `endDate` | `rightsGranted.termOfGrant` on CAG export | Also DPS audit trail                                                                        |
 
 ### Descriptive metadata database
 
@@ -754,17 +769,17 @@ Each `locations[]` entry represents one physical copy in the bit repository. Mul
 
 PREMIS mapping:
 
-| Field | PREMIS semantic unit | Notes |
-|---|---|---|
-| `repositoryFileId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-repository-file-id` |
-| `archiveId` | Relationship to IE | FK |
-| `relativePath` | `storage.contentLocation.contentLocationValue` | Path of the repository file |
-| `size` | `objectCharacteristics.size` | Direct match |
-| `fixities[]` | `objectCharacteristics.fixity` | Direct match |
-| `locations[].locationId` | `storage.storageMedium` | e.g., `hpss`, `s3` |
-| `locations[].filePath` | `storage.contentLocation.contentLocationValue` | Physical path in storage |
-| `files[]` | `relationship` (structural, "includes") | References to contained logical files |
-| `isContainer` | Implied by presence of `files[]` relationships | |
+| Field                    | PREMIS semantic unit                           | Notes                                                   |
+|--------------------------|------------------------------------------------|---------------------------------------------------------|
+| `repositoryFileId`       | `objectIdentifier`                             | Internal DPS identifier. Type: `dps-repository-file-id` |
+| `archiveId`              | Relationship to IE                             | FK                                                      |
+| `relativePath`           | `storage.contentLocation.contentLocationValue` | Path of the repository file                             |
+| `size`                   | `objectCharacteristics.size`                   | Direct match                                            |
+| `fixities[]`             | `objectCharacteristics.fixity`                 | Direct match                                            |
+| `locations[].locationId` | `storage.storageMedium`                        | e.g., `hpss`, `s3`                                      |
+| `locations[].filePath`   | `storage.contentLocation.contentLocationValue` | Physical path in storage                                |
+| `files[]`                | `relationship` (structural, "includes")        | References to contained logical files                   |
+| `isContainer`            | Implied by presence of `files[]` relationships |                                                         |
 
 ### Object storage
 

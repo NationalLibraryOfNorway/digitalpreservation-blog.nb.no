@@ -426,20 +426,20 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 ```JSON
 {
-    "agent": {
-        "agentName": "nifi-nb-eark-nar.EarkSIPGenerator",
-        "agentType": "software",
-        "agentVersion": "1.0.11",
-        "agentNotes": "Apache NiFi-prosessor utviklet av Nasjonalbiblioteket for opprettelse av E-ARK SIP. Bruker commons-ip, et Java-bibliotek for opprettelse og håndtering av E-ARK-informasjonspakker."
-    },
-    "event": {
-        "eventDateTime": "2026-05-13T12:42:15+02:00",
-        "eventType": "information package creation",
-        "eventDetail": "Opprettet SIP i henhold til Nasjonalbibliotekets profil SIP 1.0.",
-        "outcome": "success"
-    }
+  "agent": {
+    "agentName": "nifi-nb-eark-nar.EarkSIPGenerator",
+    "agentType": "software",
+    "agentVersion": "1.0.11",
+    "agentNotes": "Apache NiFi-prosessor utviklet av Nasjonalbiblioteket for opprettelse av E-ARK SIP. Bruker commons-ip, et Java-bibliotek for opprettelse og håndtering av E-ARK-informasjonspakker."
+  },
+  "event": {
+    "eventDateTime": "2026-05-13T12:42:15+02:00",
+    "eventType": "information package creation",
+    "eventDetail": "Opprettet SIP i henhold til Nasjonalbibliotekets profil SIP 1.0.",
+    "outcome": "success"
+  }
 }
- ```
+```
 
 ```json
 {
