@@ -61,9 +61,9 @@ Det er her intellektuelle entiteter[^1] defineres: valget av hva som utgjør
 
 ### Digital Preservation Services (DPS)
 
-Bevaringssystemet. Forvalter bevaringsdata med en PREMIS-basert datamodell[^2] (intellektuelle entiteter, representasjoner, filer, eventer, agenter). DPS tilbyr langtidslagring med asynkron tilgang. DPS er hovedkilden for tekniske metadata på filnivå i Nasjonalbiblioteket. DPS er ikke hovedkilden for deskriptive metadata: systemet holder metadataene det trenger for å operere selvstendig, uten å gjenskape metadatasystemenes fulle katalogstrukturer.  
+**Bevaringssystemet**: Forvalter bevaringsdata med en PREMIS-basert datamodell[^2] (intellektuelle entiteter, representasjoner, filer, eventer, agenter). DPS tilbyr langtidslagring med asynkron tilgang. DPS er hovedkilden for tekniske metadata på filnivå i Nasjonalbiblioteket. DPS er ikke hovedkilden for deskriptive metadata: systemet holder metadataene det trenger for å operere selvstendig, uten å gjenskape metadatasystemenes fulle katalogstrukturer.  
 
-DPS fungerer som en selvstendig tjeneste: identifikatorer og metadata leveres gjennom API-et, og DPS håndterer bevaringen. For detaljer om hvordan data og metadata håndteres i DPS, se [Dataforvaltning](/docs/dps/data/) og [Metadataforvaltning](/docs/dps/metadata/).
+**DPS fungerer som en selvstendig tjeneste**: identifikatorer og metadata leveres gjennom API-et, og DPS håndterer bevaringen. For detaljer om hvordan data og metadata håndteres i DPS, se [Dataforvaltning](/docs/dps/data/) og [Metadataforvaltning](/docs/dps/metadata/).
 
 ### Offentlige tilgangstjenester
 
@@ -86,7 +86,6 @@ SIP-en inneholder bevaringsdata og en kopi av deskriptive metadata fra metad
 Disse sidene forklarer konsepter, ansvarsområder og hvordan DPS fungerer:
 
 {{< cards >}}
-  {{< card link="context" title="DPS sin rolle i NB" subtitle="Systemkonteksten DPS ble bygget i og hvordan den former tjenesten" icon="view-grid" >}}
   {{< card link="data" title="Datahåndtering" subtitle="Hvordan data bevares, lagres og uthentes i DPS" icon="database" >}}
   {{< card link="metadata" title="Metadatahåndtering" subtitle="Hvordan metadata kommer inn, lagres og brukes i DPS" icon="tag" >}}
   {{< card link="access-control" title="Tilgangskontroll" subtitle="Hvordan roller, bevaringsavtaler og tillatelser styrer tilgang" icon="shield-check" >}}
