@@ -1,6 +1,7 @@
 ---
 title: The role of DPS in the NLN
 weight: 1
+draft: true
 aliases:
   - /system-architecture
   - /premis-architecture

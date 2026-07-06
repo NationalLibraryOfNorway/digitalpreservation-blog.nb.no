@@ -1,6 +1,7 @@
 ---
 title: DPS sin rolle i NB
 weight: 1
+draft: true
 aliases:
   - /systemarkitektur
   - /forvaltningsarkitektur
