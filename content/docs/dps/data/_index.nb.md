@@ -53,7 +53,7 @@ Som en del av mottaksprosessen gjør DPS formatidentifikasjon og ekstraherer tek
 
 Informasjonen som samles inn danner grunnlaget for bevaringsplanlegging. Kunnskap om hvilke filformater som finnes i DPS, og i hvilket omfang de forekommer, gjør det mulig å overvåke formater som kan være utsatt for teknologisk foreldelse og vurdere når bevaringstiltak kan bli nødvendige. Periodiske integritetskontroller verifiserer at filene ikke har blitt endret over tid. Alle operasjoner dokumenteres og viser hvilke handlinger som er utført på hver fil og når de fant sted. 
 
-For en nærmere beskrivelse av hvordan metadata forvaltes, se [Metadatahåndtering](/docs/dps/metadata/).
+For en nærmere beskrivelse av hvordan metadata forvaltes, se [Metadataforvaltning](/docs/dps/metadata/).
 
 ## Hvordan data kan benyttes
 
