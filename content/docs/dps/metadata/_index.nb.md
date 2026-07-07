@@ -7,147 +7,120 @@ aliases:
 
 ## Hva er metadata?
 
-Metadata er strukturert informasjon om digitale objekter. Uten metadata er en digital fil bare en ugjennomsiktig sekvens av biter: du kan ikke finne den, du kan ikke forstå hva den representerer, og du kan ikke bevise at den er det den utgir seg for å være. Metadata finnes for å muliggjøre bevaring av data; for mer informasjon om over hvordan DPS håndterer data, se [Dataforvaltning](/docs/dps/data/).
+Metadata er strukturert informasjon som beskriver digitale objekter. Metadata gjør det mulig å identifisere, finne, forstå og forvalte digitale filer over tid. Uten metadata vil ikke en digital fil ha tilstrekkelig kontekst til å kunne tolkes, forstås eller dokumenteres. For mer informasjon om over hvordan DPS håndterer data, se [Dataforvaltning](/docs/dps/data/). 
 
-Innen digital bevaring har metadata flere sentrale funksjoner:
+Innen digital bevaring har metadata flere sentrale funksjoner: 
 
-- De støtter fire grunnleggende brukeroppgaver: å **finne** innhold som matcher kriteriene dine, **identifisere** riktig objekt blant lignende treff, **velge** riktig representasjon og **hente** det faktiske innholdet gjennom tilgjengeliggjøring
-- De dokumenterer **hvem som skapte** innholdet, **når** det ble skapt, og hvilke **rettigheter** som gjelder
-- De registrerer objektets **livsløp**: hva som har skjedd med det og når, og dokumenterer opprinnelse, skapelseskontekst og proveniens slik at fremtidige brukere kan stole på hva det representerer
-- De fanger opp **tekniske egenskaper** som er nødvendige for å holde filer brukbare etter hvert som formater utvikler seg
-- De gir **kontekst**: hvordan innholdet er relatert til andre objekter i (eller utenfor) samlingen
+- De støtter fire grunnleggende brukeroppgaver: å **finne** innhold som tilsvarer kriteriene dine, **identifisere** riktig objekt, **velge** riktig representasjon og **hente** og tilgjengeliggjøre det digitale objektet. 
+- De dokumenterer **hvem som skapte** innholdet, **når** det ble skapt, og hvilke **rettigheter** som gjelder.
+- De registrerer objektets **livsløp**: hva som har skjedd med det og når. Dokumenterer hvordan og i hvilken sammenheng objektet ble til, og proveniens, slik at fremtidige brukere kan stole på hva det representerer.
+- De beskriver **tekniske egenskaper** som er nødvendige for å holde filer brukbare etter hvert som formater utvikler seg.
+- De gir **kontekst**: hvordan innholdet er relatert til andre objekter i (eller utenfor) samlingen 
 
-Rike metadata opprettes ikke på én gang. De akkumuleres gjennom levetiden til et digitalt objekt: noen metadata leveres av klienter ved innlevering, andre produseres under inmmating av pakker til DPS, og andre bygges opp gjennom flere tiår med bevaringsaktiviteter. 
+Metadata berikes over tid. Ny informasjon legges til gjennom hele levetiden til et digitalt objekt. Noen metadata mottas ved innlevering, andre produseres når pakkene behandles i DPS, og andre bygges opp gjennom flere tiår med bevaringsaktiviteter. 
 
-Noen metadatalag er utformet for å kunne berikes over tid, mens andre er bevisste øyeblikksbilder som fryses ved innleveringstidspunktet. Hvert lag har et eget formål og opprettes på ulike stadier. Sammen danner disse lagene et helhetlig bilde av hvert digitalt objekt vi forvalter.
+Noen metadata kan oppdateres og suppleres over tid, mens andre beskriver objektet slik det så ut da det ble avlevert, og endres ikke senere. De ulike metadataene har forskjellige formål og opprettes på ulike tidspunkt i bevaringsprosessen. Til sammen gir de en helhetlig beskrivelse av hvert digitalt objekt. 
 
-Metadata er så sentral for digital bevaring at de er nedfelt som et av prinsippene i Nasjonalbibliotekets [Prinsipper for digital bevaring](/docs/principles/).
+Metadata er et grunnleggende element i digital bevaring og er nedfelt som ett av prinsippene i Nasjonalbibliotekets [Prinsipper for digital bevaring](/docs/principles/).
 
 ## Hvorfor metadata er viktige i DPS
 
-Mange av våre brukere har allerede omfattende katalog- og metadatasystemer. Et naturlig spørsmål er derfor: Hvis innholdet allerede er godt beskrevet i deres egne systemer, hvorfor må de levere metadata på nytt til DPS?
+Mange av brukerne av DPS har allerede etablerte katalog- og metadatasystemer med omfattende beskrivelser av innholdet sitt. Metadata leveres likevel også til DPS fordi de har en annen funksjon enn metadataene i de opprinnelige systemene. 
 
-Svaret ligger i hvordan tilgang til bevart innhold fungerer. Tilgang til DPS styres av [bevaringsavtaler ("submission agreements") og konsumentroller](/docs/dps/access-control/) . En klient som leverer innhold (produsent) er ikke nødvendigvis den samme klienten som henter det ut igjen (konsument). For eksempel:
+Tilgang til innhold i DPS styres gjennom bevaringsavtaler og konsumentroller. Den som leverer innhold (produsenten) er derfor ikke nødvendigvis den samme som senere skal hente det ut (konsumenten). En konsument kan ha tilgang til innhold fra mange produsenter og bevaringsavtaler, der materialet er beskrevet i ulike katalogsystemer og etter forskjellige katalogiseringsprinsipper. 
 
-- Et regionalt arkiv deponerer digitaliserte fotografier
-- Et universitetsbibliotek får konsumenttilgang til disse fotografiene for forskningsformål
-- Forskeren kan søke etter fotografiene i DPS, selv om forskeren ikke har tilgang til det regionale arkivets interne katalog
+Dublin Core-metadataene etablerer et felles metadatagrunnlag i DPS. De gjør det mulig for autoriserte konsumenter å søke på tvers av alt innhold de har tilgang til, uavhengig av hvilket katalogsystem materialet kommer fra eller om de har tilgang til den opprinnelige katalogen. Et fotografi fra et museum og en film fra et kringkastingsarkiv kan dermed gjenfinnes gjennom de samme grunnleggende metadataene, selv om de opprinnelig er beskrevet på ulike måter. 
 
-Mer generelt kan én konsument ha tilgang til innhold som er fordelt på mange ulike innleveringsavtaler, levert av mange forskjellige innsendere. Det samme digitale innholdet kan til og med være beskrevet i flere ulike katalogsystemer på tvers av organisasjoner. Dublin Core-metadatamodellen gir en felles måte å søke på tvers av alt dette innholdet i DPS, uavhengig av hvilket katalogsystem det kommer fra, hvordan det er katalogisert, eller om det i det hele tatt er katalogisert i et annet system. 
+Metadata har også en viktig funksjon utover søk og gjenfinning. De gjør det mulig å forstå et digitalt objekt også når de opprinnelige katalogene eller systemene ikke lenger finnes. Dette er i tråd med prinsippene i OAIS-modellen, hvor et bevaringsobjekt bør være mest mulig selvstendig. Informasjonen som er nødvendig for å forstå og tolke innholdet følger derfor objektet inn i bevaringsløsningen, i stedet for å være avhengig av eksterne systemer. 
 
-Et fotografi kan være beskrevet på én måte i et museums samlingssystem, mens en film beskrives annerledes i et kringkastingsarkiv. Gjennom Dublin Core beskrives begge med det samme settet av attributter som et minimum: type, tittel, opphavsperson og dato. Dette gjør søk på tvers av samlinger mulig for enhver autorisert konsument.
+De mer detaljerte metadataene som følger med i SIP-en bevares som en del av bevaringspakken og kan gjøres tilgjengelige ved uthenting. De søkbare Dublin Core-metadataene brukes til å identifisere og finne riktig bevaringspakke.  
 
-I dette scenariet er DPS det eneste oppdagelseslaget som er tilgjengelig for konsumenten. Dublin Core-metadataene som sendes inn gjennom API-et er det som gjør innholdet søkbart. Sammen utgjør de et felles, selvstendig oppslagsgrensesnitt som fungerer for alle autoriserte konsumenter, uavhengig av om de har tilgang til den opprinnelige katalogen.
-
-De rike metadataene du pakker inn i SIP-ene blir fortsatt bevart og gjort tilgjengelige gjennom tilgjengeliggjøring av dataene, men en konsument må først kunne finne riktig pakke for å få tilgang til dem. Det er dette de søkbare metadataene muliggjør.
-
-Hvis du allerede forvalter slike metadata i egne katalogsystemer, er det som regel enkelt å levere dem gjennom Submission API-et. Dublin Core-feltene er godt definerte, og i mange tilfeller er mapping fra eksisterende metadataformater en engangsjobb.
-
-Til syvende og sist muliggjør metadataene du leverer til DPS en høyere grad av selvbetjening for brukere av DPS. Autoriserte konsumenter kan finne og hente innholdet de leter etter på egenhånd, uten å måtte gå gjennom mellomledd, enten det er den opprinnelige innsenderen, et katalogteam eller en samlingsforvalter. De søkbare og uthentbare metadatalagene gjør DPS til en selvstendig plattform for gjenfinning og tilgang.
-
-DPS er først og fremst et system for å sikre *data* (se [Dataforvaltning](/docs/dps/data/)). Metadata er det som gjør disse dataene søkbare, troverdige og brukbare over tid.
+For organisasjoner som allerede forvalter metadata i egne katalogsystemer, er levering til DPS normalt en enkel prosess. Dublin Core-feltene er godt definerte, og mapping fra eksisterende metadataformater er i mange tilfeller en engangsoppgave. 
 
 ## Hvordan metadata kommer inn i DPS
 
-Hver type metadata har et spesifikt formål i bevaringssyklusen, fra å gjøre innhold søkbart, til å bygge revisjonsspor, samt bevare konteksten rundt en innlevering. De følgende avsnittene beskriver hvordan forskjellige metadata kommer inn i DPS og hvor de ender opp i metadatatjenesten ("metadata service").
+Metadata brukes til ulike formål gjennom hele bevaringsprosessen. De gjør innholdet søkbart, dokumenterer objektets historie og bevarer informasjon om opphav og sammenheng. I de følgende avsnittene beskrives hvordan de ulike metadataene kommer inn i og forvaltes av DPS. 
 
-Metadata kan komme inn i DPS gjennom tre kanaler:
+Metadata kan komme inn i DPS gjennom tre kanaler: 
 
 ### Gjennom Submission API-et
 
-Metadata kommer inn gjennom Submission API-et på flere tidspunkt i innleveringsprosessen.
+Metadata registreres gjennom API på flere trinn i innleveringsprosessen. 
 
-Den typiske sekvensen er: opprett en avlevering ("submission") → registrer filene som utgjør SIP-en → send inn eventuelle PREMIS-hendelser → fullfør avlevering for å starte innmating.
+En vellykket avlevering resulterer i at det opprettes en AIP (Intellectual Entity) i databasen for bevaringsmetadata. Dersom en avlevering avvises, slettes tilhørende metadata fra databasen. 
 
-En vellykket avlevering fører til at det opprettes en "Intellectual Entity" (AIP) opprettes i databasen for bevaringsmetadata. En avvist avlevering slettes fra databasen.
-
-- **Administrative metadata** leveres når du oppretter en avlevering. En kontrakt-ID identifiserer hvilken bevaringsavtale som gjelder for den avleverte informasjonspakken (se [rollebasert tilgangskontroll](/docs/dps/access-control/)), og en objekt-ID identifiserer objektet unikt innenfor bevaringsavtalen. Begge lagres i databasen for bevaringsmetadata og beriker Intellectual Entity-dokumentet.
-- **Dublin Core-metadata** leveres også når en informasjonspakke avleveres. De lagres i databasen for deskriptive metadata, koblet til Intellectual Entity, og gjør innholdet søkbart. Dublin Core gjør det også mulig å knytte en pakke til en post i et eksternt fagsystem, slik at alle som henter ut pakken ut vet hvilke systemer som inneholder mer detaljert informasjon om dens innhold. Obligatoriske felter inkluderer en type fra et kontrollert vokabular (for eksempel `Bok`, `Film`, `Bilde`), en tittel og minst én identifikator. Valgfrie felter gjør det mulig å registrere opphavspersoner, bidragsytere, utgivere, datoer, språk, geografisk dekning, emner, beskrivelser og relasjoner, mange med støtte for autoritetsregistre. Se [Metadatakrav](/docs/dps/api/submission/metadata/) for full spesifikasjon.
-- **PREMIS-hendelser** kan valgfritt sendes inn i løpet av avleveringen. Hver hendelse dokumenterer en bevaringsaktivitet som har skjedd utenfor DPS, for eksempel overføring, opprettelse, digitalisering, validering eller virusskanning, og kan valgfritt referere til en spesifikk fil i den avleverte informasjonspakka. De lagres i databasen for bevaringsmetadata som event-dokumenter, koblet til IE og eventuelt en fil. Se [eventer/bevaringsmetadata](/docs/dps/api/submission/events/) for mer detaljer.
+- **Administrative metadata** registreres når en avlevering opprettes. En avtale-ID identifiserer hvilken bevaringsavtale informasjonspakken tilhører, mens en objekt-ID identifiserer objektet entydig innenfor denne avtalen. Begge verdiene lagres i databasen for bevaringsmetadata som en del av informasjonspakken.
+- **Deskriptive metadata** leveres i form av Dublin Core når informasjonspakken avleveres. Metadataene lagres i databasen for deskriptive metadata og knyttes til den tilhørende informasjonspakken. Dette gjør innholdet søkbart og muliggjør kobling til eksterne systemer gjennom identifikatorer. En slik kobling gjør det mulig å identifisere systemer som inneholder mer detaljert informasjon om innholdet i informasjonspakken. Det er et mål at de deskriptive metadataene på sikt skal kunne oppdateres etter avlevering. Dette vil gjøre det mulig å korrigere, supplere og berike metadataene over tid, uten at selve AIP-en eller det bevarte innholdet endres. Obligatoriske metadata omfatter *Type* fra et kontrollert vokabular (for eksempel `Bok`, `Film` eller `Bilde`), *Tittel* og minst én *Identifikator*. I tillegg kan det registreres valgfrie metadata som: *opphavspersoner, bidragsytere, utgivere, datoer, språk, geografisk dekning, emner, beskrivelser* og *relasjoner*. Flere av disse feltene kan knyttes til autoritetsregistre. Se [Metadatakrav](/docs/dps/api/submission/metadata/) for en fullstendig spesifikasjon.
+- **PREMIS-hendelser** (event'er) kan registreres som en valgfri del av avleveringen. PREMIS-hendelser som legges til ved avlevering er for å dokumentere bevaringsrelaterte aktiviteter utenfor DPS. Eksempler på slike hendelser er overføring, opprettelse, digitalisering, validering eller virusskanning. En hendelse kan knyttes til informasjonspakken som helhet eller til en spesifikk fil. Hendelsene lagres i databasen for bevaringsmetadata, med referanse til informasjonspakken og eventuelt til den aktuelle filen. Når en hendelse er registrert, kan den ikke endres eller slettes. Nye hendelser vil legges til av DPS etter hvert som objektet gjennomgår nye bevaringsrelaterte aktiviteter. Se [Bevaringsmetadata](/docs/dps/api/submission/events/) for en nærmere beskrivelse.
 
 ### Som metadatafiler i informasjonspakker (SIP)
 
-Metadata kan også avleveres som filer direkte i SIP-strukturen, der de følger innholdsfilene. Se [krav til SIP-struktur](/docs/dps/sip/structure-requirements/) for fullstendige krav pakkestruktur.
+Metadata kan også avleveres som filer direkte i informasjonspakken (SIP). Se våre [krav til pakkestruktur](/docs/dps/sip/structure-requirements/).
 
-- **METS.xml-filer** er obligatoriske både i pakkas rotmappe og i hver representasjonsmappe. I motsetning til de andre metadatafilene i SIP-en blir METS.xml analysert av DPS ved avlevering. DPS henter metadata fra METS-headeren for å berike Intellectual Entity-dokumentet, og henter filer og sjekksummer fra filseksjonen for å opprette Representation- og File-dokumenter i databasen for bevaringsmetadata. Se [krav til METS.xml](/docs/dps/sip/mets/) for full spesifikasjon.
-- **Rike metadatafiler**, som MARC, MODS, Dublin Core XML eller domenespesifikke metadata, kan også legges inn i SIP-strukturen som filer sammen med innholdsfilene, både på pakke- og representasjonsnivå. DPS behandler disse filene som enhver annen datafil: de modelleres som File-dokumenter i databasen for bevaringsmetadata og gjennomgår formatidentifikasjon og tekniske metadata ekstraheres fra dem. Innholdet i disse filene derimot **hverken tolkes eller indekseres av DPS**. Se [innføring i metadata](/docs/dps/sip/metadata/) for veiledning om plassering i informasjonspakker.
+- **METS.xml-filer** er obligatoriske både i pakkens rotmappe og i hver representasjonsmappe. DPS analyserer METS.xml-filene ved avlevering og henter ut informasjon som brukes til å berike informasjonspakken med metadata om innhold, struktur og filer. Se [krav til METS.xml](/docs/dps/sip/mets/) for full spesifikasjon.
+- **Metadatafiler** som MARC, MODS, Dublin Core XML eller domenespesifikke metadata, legges ved i informasjonspakken. DPS bevarer disse filene, identifiserer filformatet og registrerer tekniske metadata, men tolker eller indekserer ikke innholdet. Se [innføring i metadata](/docs/dps/sip/metadata/) for veiledning om plassering i informasjonspakker.
 
 ### Generert av DPS
 
-Når en informasjonspakke mottas, beskriver DPS pakkas innhold PREMIS-objektmodellen i databasen for bevaringsmetadata. Intellectual Entity-, representasjon- og fil-dokumenter fylles med dataene du leverer (METS.xml, administrative metadata og Dublin Core) kombinert med det DPS dokumenterer i innmatingsprosessen. Denne interne modellen binder alt sammen. Den er ikke noe du forholder deg direkte med. Det nærmeste man kommer er å levere PREMIS-hendelser i riktig format gjennom API-et.
+Når en informasjonspakke mottas, beskriver DPS innholdet i henhold til objekt-elementet i PREMIS-modellen. Informasjon om Intellectual Entity, representasjoner og filer bygges opp fra metadataene som leveres (METS.xml, administrative metadata og Dublin Core), sammen med informasjon DPS selv registrerer ved mottak. Den interne PREMIS-modelleringen knytter sammen og samler denne informasjonen i databasen for bevaringsmetadata.  
 
-Flere typer metadata genereres også automatisk under innmating:
+Metadata som genereres ved mottak i DPS:
 
-- **PREMIS-hendelser**: DPS oppretter en hendelse for hver operasjon som utføres under innmating: overføring, validering, innmating, formatidentifikasjon og metadataekstraksjon. På samme måte dokumenteres bevaringsaktiviteter og tilgjengeliggjøring av filer også etter innmatings-fasen er over. Hver hendelse lagres i databasen for bevaringsmetadata som et event-dokument, koblet til IE og eventuelt en fil, med tidsstempel, resultat og agent.
-- **Resultater fra formatidentifikasjon** lagres i databasen for bevaringsmetadata og beriker File-dokumentene med identifisert format.
-- **Ekstraherte tekniske metadata** produseres for hver fil ved hjelp av MediaInfo og ExifTool. Resultatene lagres som filer i S3-objektlagringen og refereres fra File-dokumentene. De fanger opp filenes tekniske egenskaper, som oppløsning, bitrate, fargerom og mer. De lagres i objektlagring for enklere uthenting og mulig bruk i analyseverktøy.
+- **PREMIS-hendelser**: DPS oppretter en hendelse for hver operasjon som utføres: overføring, validering, verifisering, formatidentifikasjon og metadataekstraksjon. På samme måte dokumenteres bevaringsaktiviteter og utlevering av filer også etter mottaksfasen er over. Hver hendelse lagres i databasen for bevaringsmetadata med tidsstempel, resultat og agent.
+- **Resultater fra formatidentifikasjon** lagres i databasen for bevaringsmetadata og identifisert format dokumenteres på filnivå.
+- **Ekstraherte tekniske metadata** ekstraheres for hver fil ved bruk av analyseverktøyer (MediaInfo og ExifTool). Resultatene lagres som separate filer i en objektlagringsløsning (S3) og refererer til tilhørende filer. Metadataene beskriver filenes tekniske egenskaper, som oppløsning, bitrate og fargerom. Bruk av objektlagring legger til rette for effektiv uthenting og mulig videre bruk i analyseverktøy.
 
 ## Hvordan metadata lagres
 
-Metadata i DPS håndteres av metadatatjenesten, som består av flere komponenter. På samme måte som data i DPS beskyttes metadata av den samme 3-2-1-lagringspolicyen (se [Prinsipper for digital bevaring](/docs/principles/)). 
+I DPS håndteres de ulike metadataene i en egen metadatatjeneste som består av flere komponenter. Metadataene beskyttes og lagres etter de samme prinsippene som de bevarte dataene, og følger 3-2-1-prinsippet for sikker og langsiktig lagring, se [Prinsipper for digital bevaring](/docs/principles/). 
 
 {{< figure src="metadata-service.svg" alt="Diagram som viser databasene i metadatatjenesten og relasjonene mellom dem. Databasen for bevaringsmetadata (PREMIS) inneholder intellectual entities, representasjoner, filer, hendelser, agenter og en planlagt rettighetsentitet. Databasen for deskriptive metadata inneholder Dublin Core-dokumenter. Lokasjonsdatabasen sporer depotfiler. Tekniske metadata lagres i S3-objektlagring." >}}
 
 ### Database for bevaringsmetadata
 
-En MongoDB-database basert på PREMIS-datamodellen. Den inneholder følgende dokumenttyper:
+Databasen for bevaringsmetadata (MongoDB) er basert på PREMIS-datamodellen (lenke). Den inneholder metadata som dokumenterer det bevarte innholdet og bevaringsprosessen. 
 
-- **Intellectual Entities (IE-er)**: Hver informasjonspakke (AIP) beskrives som ett IE-dokument som representerer rotnivået i pakken. Hver IE har en identifikator for bevaringsavtalen som gjelder for pakken. Det er planlagt en egen rettighetsentitet for å lagre denne informasjonen i fremtiden.
-- **Representasjoner**: Hver IE inneholder minst én representasjon.
-- **Filer**: Filene i hver representasjon. Resultater fra formatidentifikasjon under innmating lagres her og beriker hvert fildokument med identifisert format.
-- **Hendelser**: PREMIS-hendelser ("events"), både innsendt av klienter og generert av DPS. Hver hendelse er knyttet til en IE og kan valgfritt også knyttes til en spesifikk fil.
-- **Agenter**: Personene, organisasjonene, programvaren eller utstyret som utførte hver hendelse.
+Databasen lagrer blant annet informasjon om: 
 
-For ytterligere definisjoner av disse PREMIS-entitetstypene, se [DPS sin rolle i NLN](/docs/dps/context/).
+- **Informasjonspakker (*Intellectual Entity*)**: Hver informasjonspakke registreres som en egen enhet med informasjon om blant annet hvilken bevaringsavtale den tilhører.
+- **Representasjoner**: En informasjonspakke (*Intellectual Entity*) kan bestå av én eller flere representasjoner, for eksempel ulike versjoner eller presentasjonsformer av det samme innholdet.
+- **Filer**: Alle filer som inngår i informasjonspakken (*Intellectual Entity*). For hver fil lagres blant annet resultatet av formatidentifikasjonen som utføres ved avlevering. 
+- **Hendelser**: Hendelser som dokumenterer hva som har skjedd med informasjonspakken (*Intellectual Entity*) eller filene, for eksempel ved avlevering, validering eller annen behandling. Hendelsene kan være registrert av avleverer eller opprettet automatisk av DPS. 
+- **Agenter**: Personer, organisasjoner eller systemer som har utført hendelsene.
 
 ### Database for deskriptive metadata
 
-En MongoDB-database. Hver IE er koblet til nøyaktig ett Dublin Core-dokument. Dette er metadataene du sender inn gjennom Submission API-et, lagret separat fra bevaringsmetadataene, men koblet til de samme IE-ene.
+En database (MongoDB) som lagrer de deskriptive metadataene som avleveres gjennom API-et. Hver informasjonspakke (*Intellectual Entity*) er knyttet til ett sett med deskriptive metadata, basert på Dublin Core. Metadataene lagres separat fra bevaringsmetadataene, men er koblet til den samme informasjonspakken.
 
 ### Lokasjonsdatabase
 
-En MongoDB-database. DPS pakker om og reorganiserer filene som sendes inn i SIP-er for bedre utnyttelse av det til det gjeldende bitlageret vårt. Denne databasen sporer hvor filene er fysisk lagret. Hvert depotfildokument er koblet til både et IE-dokument og fildokumentene det inneholder.
+En database (MongoDB) som holder oversikt over hvor filene er fysisk lagret i bevaringslageret. Ved avlevering kan DPS omorganisere filene for å tilpasse dem til lagringsløsningen. Lokasjonsdatabasen sørger for at hver fil fortsatt kan knyttes til riktig informasjonspakke og gjenfinnes. 
 
 ### Objektlagring for ekstraherte metadata
 
-Resultatene fra metadataekstraksjonsverktøyene (MediaInfo og ExifTool) lagres som filer i en S3-bøtte for objektlagring. Fildokumentene i databasene refererer til stiene i denne bøtta.
+Metadata som DPS automatisk ekstraherer fra filer ved hjelp av analyseverktøy (MediaInfo og ExifTool), lagres i en egen objektlagring (S3). De ekstraherte metadataene er koblet til de tilhørende filene i metadatatjenesten. 
 
 ## Hvordan metadata kan benyttes
 
-Tilgang til metadata skjer i dag gjennom det offentlige API-et. Følgende data er tilgjengelige:
+Tilgang til metadata skjer i dag gjennom det offentlige API-et. Følgende metadata er tilgjengelige:
 
 ### Dublin Core-metadata
 
-Kan hentes per avleverte informasjonspakke gjennom API-et. Når du ber om en spesifikk informasjonspakke, kan du inkludere de deskriptive metadataene som ble sendt inn sammen med den.
+API-et gir tilgang til de deskriptive Dublin Core-metadataene for hver avlevert informasjonspakke. Metadataene kan returneres sammen med informasjonspakken ved uthenting.  
 
 ### PREMIS-hendelser
 
-Kan hentes per avleverte informasjonspakke gjennom API-et. Både hendelser innsendt av klienter og hendelser generert av DPS kan hentes for en gitt informasjonspakke.
+PREMIS-hendelser kan hentes via API-et for hver avlevert informasjonspakke. Dette omfatter både hendelser som er registrert av avleverer, og hendelser som er opprettet av DPS.
 
 ### Filmetadata
 
-Kan hentes per fil gjennom API-et, inkludert filstier og sjekksummer.
+Filmetadata kan hentes via API-et for hver fil. Dette omfatter blant annet filstier og sjekksummer.
 
-### Utlisting av bevarte objekter
+### Oversikt over bevarte informasjonspakker
 
-Du kan hente en paginert liste over avleverte informasjonspakker innenfor en gitt kontrakt gjennom API-et.
+API-et kan brukes til å hente en oversikt over informasjonspakkene som er avlevert under en bestemt bevaringsavtale.  
 
-### Utlevering ("dissemination")
+### Utlevering
 
-Du kan bestille utlevering av bevarte informasjonspakker og sjekke statusen på utleveringsjobben gjennom API-et. Selve nedlastingen av innhold skjer utenfor API-et. Metadatafilene i SIP-en bevares på samme måte som dataene og kan hentes ut på denne måten.
+Det er mulig å bestille utlevering av bevarte informasjonspakker via API-et og følge statusen på utleveringsjobben. Selve nedlastningen av innholdet skjer utenfor API-et. Metadatafiler som inngår i bevaringspakken, følger med ved utlevering.  
 
----
-
-Metadata som lagres, men som foreløpig ikke er tilgjengelige gjennom API-et:
-
-- **Ekstraherte tekniske metadata** lagres i S3-objektlagring, men er ennå ikke tilgjengelige for klienter gjennom API-et.
-
-Vi arbeider for å muliggjøre søl på tvers av intellectual entiteter i bevaringsdatabasen, og der hendelser og andre metadata kan hentes i konteksten av IE-er. Denne sida beskriver hva som er tilgjengelig i dag. DPS er under aktiv utvikling.
-
-## Hvordan metadata endrer seg over tid
-
-Metadata i DPS følger tre ulike oppdateringsmodeller. Noen er implementert, mens andre er planlagt:
-
-- **Versjoneres** (planlagt): Dublin Core-metadata skal kunne oppdateres gjennom API-et, med hver endring håndtert som en versjon hendelse. Dette er ikke implementert enda.
-- **Tillegg**: PREMIS-hendelser kan bare legges til, aldri endres. Nye hendelser kobles til de relevante entitetene, og dokumenter slik det som har skjedd med objektet over tid. En forvalter kan utløse ny ekstraksjon av tekniske metadata for enkeltfiler, noe som produserer et nytt ekstraksjonsresultat samtidig som det gamle bevares.
-- **Uforanderlige**: Metadatafilene i SIP-en fryses ved innlevering og kan ikke endres per nå.
