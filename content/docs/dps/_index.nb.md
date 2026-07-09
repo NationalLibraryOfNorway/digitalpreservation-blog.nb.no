@@ -86,8 +86,8 @@ SIP-en inneholder bevaringsdata og en kopi av deskriptive metadata fra metad
 Disse sidene forklarer konsepter, ansvarsområder og hvordan DPS fungerer:
 
 {{< cards >}}
-  {{< card link="data" title="Datahåndtering" subtitle="Hvordan data bevares, lagres og uthentes i DPS" icon="database" >}}
-  {{< card link="metadata" title="Metadatahåndtering" subtitle="Hvordan metadata kommer inn, lagres og brukes i DPS" icon="tag" >}}
+  {{< card link="data" title="Dataforvaltning" subtitle="Hvordan data bevares, lagres og uthentes i DPS" icon="database" >}}
+  {{< card link="metadata" title="Metadataforvaltning" subtitle="Hvordan metadata kommer inn, lagres og brukes i DPS" icon="tag" >}}
   {{< card link="access-control" title="Tilgangskontroll" subtitle="Hvordan roller, bevaringsavtaler og tillatelser styrer tilgang" icon="shield-check" >}}
 {{< /cards >}}
 
