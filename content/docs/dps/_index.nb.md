@@ -30,7 +30,7 @@ DPS er offentlig tilgjengelig, men tilgang krever en avtale med Nasjonalbibliote
 
 ## Hva DPS gjør
 
-DPS bruker et offentlig API både for innlevering og utlevering av informasjon. Systemet tar imot informasjonspakker (SIP-er), validerer dem og lagrer data og metadata på en sikker måte. Systemet tilbyr utlevering gjennom det samme API-et. All tilgang og bruk styres av rollebasert tilgangskontroll knyttet til bevaringsavtaler. 
+DPS bruker et offentlig API både for innlevering og utlevering av informasjon. Systemet tar imot informasjonspakker (SIP-er), validerer dem og lagrer data og metadata på en sikker måte. Systemet tilbyr utlevering av informasjonspakker (DIP-er) gjennom det samme API-et. All tilgang og bruk styres av rollebasert tilgangskontroll knyttet til bevaringsavtaler. 
 
 DPS består av flere tjenester: 
 

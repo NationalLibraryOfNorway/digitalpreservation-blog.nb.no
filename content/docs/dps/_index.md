@@ -34,24 +34,22 @@ DPS uses a public API for both ingest and dissemination of information. The syst
 
 DPS consists of several services: 
 
-**API service**: 
+- **API service**: 
 The interface is used for both submission and dissemination, including file transfers. All communication with DPS takes place through the API service. 
-
-**Ingest**: 
+- **Ingest**: 
 A chain of services (transfer, validation, characterization, packaging, archiving, and notification) that processes packages before they are preserved in the bit repository. 
-
-**Dissemination**: 
+- **Dissemination**: 
 A chain of services that processes packages for retrieval before they are delivered through the API. 
 
-The metadata service and the bit repository form the core of DPS. This is where digital content is preserved and secured. 
+The **metadata service** and the **bit repository** form the core of DPS. This is where digital content is preserved and secured. 
 
-**Metadata service**: 
+- **Metadata service**: 
 Databases and object storage that maintain an overview of preserved content and associated metadata. Most services in DPS store metadata in, or retrieve metadata from, the metadata service.  
 
-**Bit repository**: 
+- **Bit repository**: 
 Various technical solutions that ensure secure and long-term storage of digital content. 
 
-**API service**: 
+- **API service**: 
 All communication with DPS takes place through the API service. 
 
 {{< figure src="dpskonsept.drawio.svg" alt="DPS conceptual architecture" caption="Conceptual overview of the DPS. Solid lines represent submission and ingest, dashed lines represent dissemination. Data flows are shown in black, metadata in red." >}}
@@ -71,7 +69,7 @@ This is where intellectual entities[^1] are defined: the decision regarding what
 
 **The preservation system**: DPS manages preservation data using a PREMIS-based data model[^2] (intellectual entities, representations, files, events, and agents). DPS provides long-term storage with asynchronous access. DPS is the primary source for technical metadata at file level within the National Library of Norway. DPS is not the primary source for descriptive metadata: the system maintains the metadata it requires to operate independently, without recreating the full catalogue structures of the metadata systems.   
 
-**DPS functions as an independent service**: identifiers and metadata are provided through the API, and DPS manages preservation. For details on how data and metadata are managed in DPS, see [Data Management](/docs/dps/data/) og [Metadata Management](/docs/dps/metadata/).
+**DPS functions as an independent service**: identifiers and metadata are provided through the API, and DPS manages preservation. For details on how data and metadata are managed in DPS, see [Data management](/docs/dps/data/) and [Metadata management](/docs/dps/metadata/).
 
 ### Public access services
 
