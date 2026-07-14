@@ -58,7 +58,7 @@ En vellykket avlevering resulterer i at det opprettes en AIP[^1] representert so
 Metadata kan også avleveres som filer direkte i informasjonspakken (SIP). Noen filer som inneholder metadata er påkrevede i SIP-en, se våre [krav til pakkestruktur](/docs/dps/sip/structure-requirements/).
 
 - **METS.xml-filer** er obligatoriske både i pakkens rotmappe og i hver representasjonsmappe. DPS analyserer METS.xml-filene ved avlevering og henter ut informasjon som brukes til å berike informasjonspakken med metadata om innhold, struktur og filer. Se [krav til METS.xml](/docs/dps/sip/mets/) for full spesifikasjon.
-- **Metadatafiler** som MARC, MODS, Dublin Core XML eller domenespesifikke metadata, legges ved i informasjonspakken. DPS bevarer disse filene, identifiserer filformatet og registrerer tekniske metadata, men tolker eller indekserer ikke innholdet. Se [innføring i metadata](/docs/dps/sip/metadata/) for veiledning om plassering i informasjonspakker.
+- **Metadatafiler** som MARC, MODS, Dublin Core XML eller domenespesifikke metadata, legges ved i informasjonspakken. Det er påkrevd å levere minst en fil som inneholder deskriptive metadata. DPS bevarer disse filene, identifiserer filformatet og registrerer tekniske metadata, men tolker eller indekserer ikke innholdet. Se [innføring i metadata](/docs/dps/sip/metadata/) for veiledning om plassering i informasjonspakker.
 
 ### Generert av DPS
 
@@ -78,7 +78,7 @@ I DPS håndteres de ulike metadataene i en egen metadatatjeneste som består av 
 
 ### Database for bevaringsmetadata
 
-Databasen for bevaringsmetadata (MongoDB) er basert på PREMIS-datamodellen (lenke). Den inneholder metadata som dokumenterer det bevarte innholdet og bevaringsprosessen. 
+Databasen for bevaringsmetadata (MongoDB) er basert på [PREMIS-datamodellen](https://www.loc.gov/standards/premis/v3/). Den inneholder metadata som dokumenterer det bevarte innholdet og bevaringsprosessen. 
 
 Databasen lagrer blant annet informasjon om: 
 
