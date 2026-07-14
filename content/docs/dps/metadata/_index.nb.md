@@ -126,4 +126,4 @@ Det er mulig å bestille utlevering av bevarte informasjonspakker via API-et og 
 
 
 
-[^1] Archival Information Package: Informasjonspakken slik den er lagret i bit-lageret. Kan være identisk med SIP-en eller inneholde ytterligere bevaringsinformasjon.
+[^1]: Archival Information Package: Informasjonspakken slik den er lagret i bit-lageret. Kan være identisk med SIP-en eller inneholde ytterligere bevaringsinformasjon.
