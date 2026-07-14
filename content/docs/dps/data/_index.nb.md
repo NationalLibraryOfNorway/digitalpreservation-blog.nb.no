@@ -9,7 +9,7 @@ aliases:
 
 DPS er et sett med tjenester utviklet for å bevare data. I DPS-sammenheng snakker vi om *data og metadata*. **Data** er ressursen som skal bevares, for eksempel dokumenter, bilder, lyd- og filmopptak eller databasedumper. **Metadata** beskriver dataene og gir informasjon om innhold, struktur, kontekst og forvaltning. DPS tar ikke imot metadata uten data. 
 
-For å avlevere data må dataene pakkes i en SIP, strukturert i henhold til våre [SIP-spesifikasjoner](/docs/dps/sip/). I en SIP ligger representasjoner i egen mappe for data. METS.xml-filene, metadata-mappene, skjemaene og dokumentasjonen utenfor data-mappene utgjør strukturen som gjør innholdet maskinlesbart og verifiserbart.[E-ARK-spesifikasjonene](https://dilcis.eu/specifications) definerer hvor de ulike filtypene skal plasseres i bevaringspakken. Dette gjør det enklere å finne, tolke og gjenbruke innholdet i framtiden. 
+For å avlevere data må dataene pakkes i en SIP [^1], strukturert i henhold til våre [SIP-spesifikasjoner](/docs/dps/sip/). I en SIP ligger representasjoner i egen mappe for data. METS.xml-filene, metadata-mappene, skjemaene og dokumentasjonen utenfor data-mappene utgjør strukturen som gjør innholdet maskinlesbart og verifiserbart.[E-ARK-spesifikasjonene](https://dilcis.eu/specifications) definerer hvor de ulike filtypene skal plasseres i bevaringspakken. Dette gjør det enklere å finne, tolke og gjenbruke innholdet i framtiden. 
 
 ## Valg av hva som skal bevares
 
@@ -66,3 +66,6 @@ Data som er bevart i DPS er uforanderlige. Når en informasjonspakke er avlevert
 Bevaringsaktiviteter, som formatmigrering og integritetskontroller, dokumenteres som en del av bevaringsprosessen. Slike aktiviteter kan resultere i nye derivater, men påvirker ikke de bevarte originalfilene. 
 
 DPS er under kontinuerlig utvikling. Det pågår arbeid med å vurdere hvordan muligheten for å legge til nye data i eksisterende informasjonspakker kan støttes i framtiden. Denne funksjonaliteten er foreløpig ikke implementert.
+
+
+[^1]: En OAIS-informasjonspakke som leveres av produsenten (Producer) for bruk av opprettelse eller oppdatering av én eller flere archival information packages (AIP-er). 

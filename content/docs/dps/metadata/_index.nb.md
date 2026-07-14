@@ -43,11 +43,11 @@ Metadata brukes til ulike formål gjennom hele bevaringsprosessen. De gjør innh
 
 Metadata kan komme inn i DPS gjennom tre kanaler: 
 
-### Gjennom Submission API-et
+### Gjennom API-et
 
 Metadata registreres gjennom API på flere trinn i innleveringsprosessen. 
 
-En vellykket avlevering resulterer i at det opprettes en AIP (Intellectual Entity) i databasen for bevaringsmetadata. Dersom en avlevering avvises, slettes tilhørende metadata fra databasen. 
+En vellykket avlevering resulterer i at det opprettes en AIP[^1] (Intellectual Entity) i databasen for bevaringsmetadata. Dersom en avlevering avvises, slettes tilhørende metadata fra databasen. 
 
 - **Administrative metadata** registreres når en avlevering opprettes. En avtale-ID identifiserer hvilken bevaringsavtale informasjonspakken tilhører, mens en objekt-ID identifiserer objektet entydig innenfor denne avtalen. Begge verdiene lagres i databasen for bevaringsmetadata som en del av informasjonspakken.
 - **Deskriptive metadata** leveres i form av Dublin Core når informasjonspakken avleveres. Metadataene lagres i databasen for deskriptive metadata og knyttes til den tilhørende informasjonspakken. Dette gjør innholdet søkbart og muliggjør kobling til eksterne systemer gjennom identifikatorer. En slik kobling gjør det mulig å identifisere systemer som inneholder mer detaljert informasjon om innholdet i informasjonspakken. Det er et mål at de deskriptive metadataene på sikt skal kunne oppdateres etter avlevering. Dette vil gjøre det mulig å korrigere, supplere og berike metadataene over tid, uten at selve AIP-en eller det bevarte innholdet endres. Obligatoriske metadata omfatter *Type* fra et kontrollert vokabular (for eksempel `Bok`, `Film` eller `Bilde`), *Tittel* og minst én *Identifikator*. I tillegg kan det registreres valgfrie metadata som: *opphavspersoner, bidragsytere, utgivere, datoer, språk, geografisk dekning, emner, beskrivelser* og *relasjoner*. Flere av disse feltene kan knyttes til autoritetsregistre. Se [Metadatakrav](/docs/dps/api/submission/metadata/) for en fullstendig spesifikasjon.
@@ -124,3 +124,6 @@ API-et kan brukes til å hente en oversikt over informasjonspakkene som er avlev
 
 Det er mulig å bestille utlevering av bevarte informasjonspakker via API-et og følge statusen på utleveringsjobben. Selve nedlastningen av innholdet skjer utenfor API-et. Metadatafiler som inngår i bevaringspakken, følger med ved utlevering.  
 
+
+
+[^1] Archival Information Package: En OAIS-informasjonspakke som består av innholdsinformasjonen (Content Information) og den tilhørende bevaringsbeskrivende informasjonen (Preservation Description Information, PDI).
