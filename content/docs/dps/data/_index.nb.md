@@ -68,4 +68,4 @@ Bevaringsaktiviteter, som formatmigrering og integritetskontroller, dokumenteres
 DPS er under kontinuerlig utvikling. Det pågår arbeid med å vurdere hvordan muligheten for å legge til nye data i eksisterende informasjonspakker kan støttes i framtiden. Denne funksjonaliteten er foreløpig ikke implementert.
 
 
-[^1]: En OAIS-informasjonspakke som leveres av produsenten (Producer) for bruk av opprettelse eller oppdatering av én eller flere archival information packages (AIP-er). 
+[^1]: Submission Information Package: Informasjonspakken slik den leveres for bevaring. Inneholder innholdsdata, dokumentasjon og metadata som trengs for langsiktig bevaring og tilgang. 

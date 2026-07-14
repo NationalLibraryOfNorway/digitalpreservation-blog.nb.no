@@ -47,7 +47,7 @@ Metadata kan komme inn i DPS gjennom tre kanaler:
 
 Metadata registreres gjennom API på flere trinn i innleveringsprosessen. 
 
-En vellykket avlevering resulterer i at det opprettes en AIP[^1] representert som en *Intellectual Entity* i databasen for bevaringsmetadata. Dersom en avlevering avvises, slettes tilhørende metadata fra databasen. 
+En vellykket avlevering resulterer i at det opprettes en AIP [^1] representert som en *Intellectual Entity* i databasen for bevaringsmetadata. Dersom en avlevering avvises, slettes tilhørende metadata fra databasen. 
 
 - **Administrative metadata** registreres når en avlevering opprettes. En avtale-ID identifiserer hvilken bevaringsavtale informasjonspakken tilhører, mens en objekt-ID identifiserer objektet entydig innenfor denne avtalen. Begge verdiene lagres i databasen for bevaringsmetadata som en del av informasjonspakken.
 - **Deskriptive metadata** leveres i form av Dublin Core når informasjonspakken avleveres. Metadataene lagres i databasen for deskriptive metadata og knyttes til den tilhørende informasjonspakken. Dette gjør innholdet søkbart og muliggjør kobling til eksterne systemer gjennom identifikatorer. En slik kobling gjør det mulig å identifisere systemer som inneholder mer detaljert informasjon om innholdet i informasjonspakken. Det er et mål at de deskriptive metadataene på sikt skal kunne oppdateres etter avlevering. Dette vil gjøre det mulig å korrigere, supplere og berike metadataene over tid, uten at selve AIP-en eller det bevarte innholdet endres. Obligatoriske metadata omfatter *Type* fra et kontrollert vokabular (for eksempel `Bok`, `Film` eller `Bilde`), *Tittel* og minst én *Identifikator*. I tillegg kan det registreres valgfrie metadata som: *opphavspersoner, bidragsytere, utgivere, datoer, språk, geografisk dekning, emner, beskrivelser* og *relasjoner*. Flere av disse feltene kan knyttes til autoritetsregistre. Se [Metadatakrav](/docs/dps/api/submission/metadata/) for en fullstendig spesifikasjon.
@@ -126,4 +126,4 @@ Det er mulig å bestille utlevering av bevarte informasjonspakker via API-et og 
 
 
 
-[^1] Archival Information Package: En OAIS-informasjonspakke som består av innholdsinformasjonen (Content Information) og den tilhørende bevaringsbeskrivende informasjonen (Preservation Description Information, PDI).
+[^1] Archival Information Package: Informasjonspakken slik den er lagret i bit-lageret. Kan være identisk med SIP-en eller inneholde ytterligere bevaringsinformasjon.
