@@ -7,78 +7,68 @@ aliases:
 
 ## What is data?
 
-The DPS is a set of services created to preseve data. In the context of the DPS we talk about *data* and *metadata*. Data is the content being preserved: the digital files you submit to the DPS. DPS metadata exists to enable preservation and provide access to those data. Without data, nothing else follows. The DPS does not accept metadata without data.
+The Digital Preservation Service (DPS) is a set of services designed to preserve digital information. Within the DPS context, we distinguish between *data* and *metadata*. **Data** refers to the digital content being preserved, such as documents, images, audio and video recordings, or database exports. **Metadata** describes the data by providing information about its content, structure, context, and management. DPS does not accept metadata without the associated data.  
 
-To submit data, you must give it to us in the shape of a SIP, structured according to our [SIP specifications](/docs/dps/sip/). Within the SIP, data lives in the `data/` directory inside each representation. The METS.xml files, metadata folders, schemas, and documentation outside the data directories are the packaging that makes the content machine-readable and verifiable. The [E-ARK specifications](https://dilcis.eu/specifications) define what kind of files belong in which folders, so a future user retrieving the data knows where to look for what.
-
-If you want to preserve metadata (such as library catalogue exports), you will treat them as *data* in the context of the DPS and put them in the `data/` directory of the SIP. In turn the DPS will also require metadata that describes those data. DPS allows for this, but whether this is an appropriate system of preserving metadata is up for discussion.
-
-The purpose of digital preservation is to ensure that digital materials remain unchanged and accessible. The DPS currently manages petabytes of preserved data. Once data enters the DPS, the obligation to preserve it follows the content for as long as it has been deemed worthy of preservation by the client and the submission agreement. Unless otherwise stated, this means indefinitely. The DPS is not intended to be temporary storage for files.
+Before data can be transferred to DPS, it must be packaged as a Submission Information Package (SIP)[^1] in accordance with the [SIP specifications](/docs/dps/sip/). Within a SIP, the digital content is stored in a dedicated data directory. The METS.xml files, metadata directories, schemas, and supporting documentation located outside the data directory define the package structure, making its contents machine-readable and verifiable. The [E-ARK specifications](https://dilcis.eu/specifications) define where each file type belongs within the preservation package. This standardized structure makes it easier to locate, interpret, and reuse the preserved content in the future. 
 
 ## Choosing what to preserve
 
-The DPS and the digital preservation team **do not** decide what is worthy of preservation. Selection happens at two levels:
+Neither DPS nor the Digital Preservation team determines whether digital objects are suitable for long-term preservation. The Producer is responsible for selecting what should be preserved. This selection takes place at two levels:  
 
-- **Agreement level**: the National Library and the submitting client organization agree on a contract allowing use of the DPS. A single contract may result in multiple submission agreements, each controlling which clients can submit and access the content under it.
-- **Object level**: the selection criteria lie entirely with the client. You determine which individual objects enter the DPS and which stays out.
+- **Agreement level**: The National Library and the Producer establish a preservation agreement for the use of DPS. A single preservation agreement may include one or more access agreements, which define who is authorized to transfer content to DPS and who is permitted to access the preserved content.
+- **Object level**: The Producer decides which digital objects are submitted to DPS for preservation.
 
-At the agreement level, the submission agreement defines the scope of what may be submitted and under what terms. We cannot currently validate automatically at the object level against what is stated in the submission agreement, and rely on you as the client to follow your obligations.
+At the agreement level, the preservation agreement defines the types of content that may be transferred and the terms under which they are preserved. DPS does not automatically verify that each individual object complies with the preservation agreement. Instead, the system assumes that all submissions are made in accordance with the agreed terms. 
 
-At the object level, the selection is fully in the hands of the client. After the submission agreement has been signed, our role is not to judge what merits preservation; it is to ensure that what you entrust to us remains unchanged and accessible, regardless of the files you choose to preserve. 
+Once content has been submitted under a preservation agreement, DPS is responsible for ensuring that it is preserved unchanged, remains authentic, and continues to be accessible over time, regardless of which files the Producer has chosen to submit. 
 
-We strongly encourage clients to make informed decisions at the object level, in line with the [Principles for Digital Preservation](/docs/principles/). In particular, we recommend:
-
-- **Use well-documented and open file formats**: this increases the likelihood that files will remain usable over time (principle 2). See [Preferred file formats](/docs/formats) for our recommendations.
-- **Avoid unnecessarily large files**: every bit stored in the DPS carries a perpetual cost of storage and management (principle 1). Bloated files carry unnecessary cost without providing additional value. Submitting the smallest reasonable version of each digital object helps keep the system sustainable.
-- **Avoid unnecessary duplication of data**: files that can be automatically generated from preserved master files (such as access copies or lower-resolution derivatives) should not be submitted (principle 1). The DPS focuses on preserving the source from which other versions can be produced.
-- **Analyze the file**: generate checksums early, confirm file formats, and validate that the content is what it claims to be (principle 4). The DPS requires checksums to be delivered with each file in the SIP.
+When selecting digital objects and file formats for preservation, Producers are encouraged to follow the [Principles for Digital Preservation](/docs/principles/).
 
 ## How data enters the DPS
 
-Data enters the DPS through Submission Information Packages submitted through the submission service. You authenticate with the API, which verifies that you are authorized to submit against your submission agreement (see [role-based access control](/docs/dps/access-control/)).
+Data is transferred to DPS by submitting Submission Information Packages (SIPs) through the Submission Service. Before a submission can be made, the submitter authenticates with the API. The API verifies that the submitter has the necessary permissions under the applicable preservation agreement (see [role-based access control](/docs/dps/access-control/)). 
 
-The submission workflow: create a submission → register the files that make up the SIP → upload the file content → finalize to trigger ingest.
+The submission workflow consists of the following steps: 
 
-Files are preserved if they validate against the [SIP structure requirements](/docs/dps/sip/structure-requirements/), the [METS.xml requirements](/docs/dps/sip/mets/), and the [API requirements](/docs/dps/api/submission/). Submissions that do not comply will be rejected.
+Create a submission → Register the files that make up the SIP → Upload the file contents → Upload the file contents.  
+
+A submission is accepted for preservation only if it complies with the [SIP structure requirements](/docs/dps/sip/structure-requirements/), the [METS.xml requirements](/docs/dps/sip/mets/), and the [API requirements](/docs/dps/api/submission/). Submissions that do not meet these requirements are rejected. 
 
 ## How data is preserved in the DPS
 
-Once data enters the DPS, the commitment is simple: what you submit is what you get back, unchanged. Preservation happens at two levels:
+Once data has been ingested into DPS, the guiding principle is simple: what you submit is what you get back, unchanged. Preservation is carried out at two levels, passive preservation and active preservation.
 
 ### Passive preservation
 
-Passive preservation ensures the bits themselves survive. It requires no understanding of the content, only that the files remain unchanged.
+Passive preservation ensures that data remains unchanged over time. It does not require any understanding of the content itself, only that the files remain identical to the originals.
 
-- **Bit-level preservation**: the original file is preserved. Data is stored as a faithful copy of what was received, with no transformation, compression, or alteration that would change the bits of the original files. The DPS requires files to be delivered with a checksum in the SIP. Those checksums are stored, verified at ingest, and re-checked whenever content is disseminated. If a discrepancy is found, it is documented and the other two copies are checked to restore an undamaged copy. In practice, this works at scale: over 16 million files have been checksum-verified through five technological shifts over 20 years, with zero bit-level changes found.
-- **Redundant storage**: data is protected by the 3-2-1 policy: three copies, on two different storage technologies, with one copy stored off-site. If a single copy is lost or corrupted, the other copies ensure the data survives. Multiple copies also make the integrity verification meaningful: when a discrepancy is found, the uncorrupted copies provide the reference for determining the correct version.
+- **Bit-level preservation**: Original files are preserved exactly as received. Data is stored without conversion, compression, or any other modification that would alter its bitstream. DPS requires every file to be accompanied by a checksum in the SIP. These checksums are stored, verified during ingest, and checked again when the data is retrieved. If a mismatch is detected, it is documented, and the remaining copies are used to restore an intact version.
+- **Redundant storage**: Data is protected according to the 3-2-1 backup principle: three copies, stored on two different storage technologies, with one copy kept at a separate geographic location. If one copy is lost or becomes corrupted, the remaining copies ensure that the data survives. Multiple copies also make integrity verification meaningful. If an inconsistency is detected in one copy, the remaining copies provide a trusted reference for identifying and restoring the correct version.
 
-All data is stored in the bit repository. Every file's physical location is tracked, linked to the digital object it belongs to. The DPS may repackage files behind the scenes for storage efficiency, but this is transparent: dissemination returns your content in its original form.
+All data is stored in the bit repository. The physical location of each file is recorded and linked to the digital object to which it belongs. DPS may internally repackage files to optimize storage efficiency, but this process is transparent to users. When data is retrieved, it is delivered in its original form.
 
 ### Active preservation
 
-Active preservation goes beyond storing bits. An aspect of active preservation is the gathering of knowledge about the content so that the DPS can act on it over time.
+Active preservation involves more than the secure storage of digital objects. Its purpose is to establish and maintain knowledge about the preserved content so that it can be managed and preserved over time. 
 
-As part of ingest, the DPS performs format identification and technical metadata extraction on every file. This builds an overview of what files exist in the repository, their formats, and their technical properties. It also detects potential issues: if the DPS finds something that may be wrong with a file, even after the file has passed SIP structure validation, the issue is documented, the client is infomred aout the issue, before the file is preserved as usual. A future user who discovers a fault can see that the DPS already recorded it at the point of ingestion, and that the file's integrity has remained unchanged since.
+As part of the ingest process, DPS performs file format identification and extracts technical metadata for every file. This provides an inventory of the files stored in DPS, their file formats, and their technical characteristics. The process may also identify anomalies or potential issues. If DPS detects conditions that may indicate a problem with a file after the SIP structure has been successfully validated, the issue is documented and the Producer is notified. The file is then preserved as part of DPS. If the same issue is identified at a later date, the documentation will show that it was already present at the time of ingest and that the file's integrity has remained unchanged since then. 
 
-This knowledge feeds into preservation planning. Understanding what file formats are present and in what volumes allows the DPS to monitor at-risk formats and assess when intervention may be needed. Periodic integrity checks verify that files have not changed. Every operation is documented, forming an audit trail that records what happened to each file and when.
+The information collected during ingest forms the basis for preservation planning. Knowing which file formats are stored in DPS, and how extensively they are used, makes it possible to monitor formats that may become technologically obsolete and to determine when preservation actions may be required. Periodic integrity checks verify that files have not changed over time. All preservation activities are documented, providing a complete record of the actions performed on each file and when they occurred. 
 
-The digital preservation team maintains expertise on different formats, their strengths and weaknesses, and the implications of migrating from one to another. This allows us to help clients make informed decisions about what actions to take, if and when a format becomes at risk. For a detailed walkthrough of how all this metadata is managed, see [Metadata management](/docs/dps/metadata/).
+For more information about how metadata is managed, see [Metadata management](/docs/dps/metadata/).
 
 ## How data is accessed
 
-Data in the DPS is cold storage: access is not immediate. The DPS operates on an asynchronous architecture, and dissemination requests are processed as background jobs with inherent delays. This is a conscious trade-off: the bit repository is optimized for long-term safety and cost efficiency over fast retrieval.
+Content stored in DPS is not available for immediate retrieval. The system is based on an asynchronous architecture, and the underlying storage solution is designed to prioritize long-term preservation, durability, and cost-efficient operation rather than low-latency access. 
 
-Data is retrieved through dissemination. Access to retrieve data requires a consumer role tied to your submission agreement (see [role-based access control](/docs/dps/access-control/)):
-
-- You create a dissemination request through the API, specifying the DPS-ID of the content you want to retrieve (see [Dissemination API](/docs/dps/api/dissemination/)).
-- A fixity check is performed as part of the dissemination process, verifying that the content has not been altered since it was stored.
-- Once ready, the content is made available through a presigned URL, delivered via a webhook.
-- You can also poll the status of the request through the API while the DPS prepares the content.
-
-When content is disseminated, files are returned in their original form. The repackaging applied during storage is transparent to retrieval.
+Access to preserved content and data retrieval is governed by separate access agreements. Retrieval requests are submitted through the API, which verifies that the requester has the necessary permissions (see [role-based access control](/docs/dps/access-control/)).
 
 ## How data changes over time
 
-Today, data in the DPS is immutable. Once preserved, the original files cannot be altered. If you need to update or replace content, you submit a new version through a new submission. The original is kept alongside the updated version. Preservation actions such as format migrations or fixity checks are documented and may produce derivative copies, but they do not modify the preserved originals.
+Data preserved in DPS is immutable. Once a Submission Information Package (SIP) has been ingested and preserved, its original files cannot be modified. If content needs to be updated or replaced, it must be submitted as a new SIP. The original version is preserved alongside the new one, ensuring that both versions remain available. 
 
-The DPS is a work in progress. We are actively discussing ways of enabling versioning and additions of new data to existing packages. This is not yet implemented, but reflects an ongoing commitment to making the system more flexible over time.
+Preservation activities, such as format migration and integrity checks, are documented as part of the preservation process. These activities may produce new derivative files, but they do not alter the preserved original files. 
+
+DPS is continuously evolving. Support for adding new data to existing information packages is currently being evaluated. This functionality is not yet available. 
+
+[^1]: Submission Information Package: The information package as submitted for preservation. It contains the data, documentation, and metadata required for long-term preservation and access.
