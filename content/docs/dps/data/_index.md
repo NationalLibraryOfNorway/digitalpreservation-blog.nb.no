@@ -11,7 +11,7 @@ The Digital Preservation Service (DPS) is a set of services designed to preserve
 
 Before data can be transferred to DPS, it must be packaged as a Submission Information Package (SIP)[^1] in accordance with the [SIP specifications](/docs/dps/sip/). Within a SIP, the digital content is stored in a dedicated data directory. The METS.xml files, metadata directories, schemas, and supporting documentation located outside the data directory define the package structure, making its contents machine-readable and verifiable. The [E-ARK specifications](https://dilcis.eu/specifications) define where each file type belongs within the preservation package. This standardized structure makes it easier to locate, interpret, and reuse the preserved content in the future. 
 
-## Choosing what to preserve
+## Selecting Content for Preservation
 
 Neither DPS nor the Digital Preservation team determines whether digital objects are suitable for long-term preservation. The Producer is responsible for selecting what should be preserved. This selection takes place at two levels:  
 
