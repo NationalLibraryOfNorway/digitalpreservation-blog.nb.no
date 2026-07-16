@@ -67,9 +67,9 @@ This is where intellectual entities[^1] are defined: the decision regarding what
 
 ### Digital Preservation Services (DPS)
 
-**The preservation system**: DPS manages preservation data using a PREMIS-based data model[^2] (intellectual entities, representations, files, events, and agents). DPS provides long-term storage with asynchronous access. DPS is the primary source for technical metadata at file level within the National Library of Norway. DPS is not the primary source for descriptive metadata: the system maintains the metadata it requires to operate independently, without recreating the full catalogue structures of the metadata systems.   
+DPS is the preservation system. It manages preservation data using a PREMIS-based data model[^2] (intellectual entities, representations, files, events, and agents). DPS provides long-term storage with asynchronous access, and is the primary source for technical metadata at file level within the National Library of Norway. DPS is not the primary source for descriptive metadata: the system maintains the metadata it requires to operate independently, without recreating the full catalogue structures of the metadata systems.   
 
-**DPS functions as an independent service**: identifiers and metadata are provided through the API, and DPS manages preservation. For details on how data and metadata are managed in DPS, see [Data management](/docs/dps/data/) and [Metadata management](/docs/dps/metadata/).
+Digital Preservation Services functions as an independent service. Identifiers and metadata are provided through the API, and DPS manages preservation. For details on how data and metadata are managed in DPS, see [Data management](/docs/dps/data/) and [Metadata management](/docs/dps/metadata/).
 
 ### Public access services
 

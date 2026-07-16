@@ -61,9 +61,9 @@ Det er her intellektuelle entiteter[^1] defineres: valget av hva som utgjør
 
 ### Digital Preservation Services (DPS)
 
-**Bevaringssystemet**: Forvalter bevaringsdata med en PREMIS-basert datamodell[^2] (intellektuelle entiteter, representasjoner, filer, eventer, agenter). DPS tilbyr langtidslagring med asynkron tilgang. DPS er hovedkilden for tekniske metadata på filnivå i Nasjonalbiblioteket. DPS er ikke hovedkilden for deskriptive metadata: systemet holder metadataene det trenger for å operere selvstendig, uten å gjenskape metadatasystemenes fulle katalogstrukturer.  
+DPS er bevaringssystemet. Det forvalter bevaringsdata med en PREMIS-basert datamodell[^2] (intellektuelle entiteter, representasjoner, filer, eventer, agenter). DPS tilbyr langtidslagring med asynkron tilgang, og er hovedkilden for tekniske metadata på filnivå i Nasjonalbiblioteket. DPS er ikke hovedkilden for deskriptive metadata: systemet holder metadataene det trenger for å operere selvstendig, uten å gjenskape metadatasystemenes fulle katalogstrukturer.  
 
-**DPS fungerer som en selvstendig tjeneste**: identifikatorer og metadata leveres gjennom API-et, og DPS håndterer bevaringen. For detaljer om hvordan data og metadata håndteres i DPS, se [Dataforvaltning](/docs/dps/data/) og [Metadataforvaltning](/docs/dps/metadata/).
+Digital Preservation Services fungerer som en selvstendig tjeneste. Identifikatorer og metadata leveres gjennom API-et, og DPS håndterer bevaringen. For detaljer om hvordan data og metadata håndteres i DPS, se [Dataforvaltning](/docs/dps/data/) og [Metadataforvaltning](/docs/dps/metadata/).
 
 ### Offentlige tilgangstjenester
 
