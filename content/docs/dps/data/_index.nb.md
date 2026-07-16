@@ -9,7 +9,7 @@ aliases:
 
 DPS er et sett med tjenester utviklet for å bevare data. I DPS-sammenheng snakker vi om *data og metadata*. **Data** er ressursen som skal bevares, for eksempel dokumenter, bilder, lyd- og filmopptak eller databasedumper. **Metadata** beskriver dataene og gir informasjon om innhold, struktur, kontekst og forvaltning. DPS tar ikke imot metadata uten data. 
 
-For å avlevere data må dataene pakkes i en SIP [^1], strukturert i henhold til våre [SIP-spesifikasjoner](/docs/dps/sip/). I en SIP ligger representasjoner i egen mappe for data. METS.xml-filene, metadata-mappene, skjemaene og dokumentasjonen utenfor data-mappene utgjør strukturen som gjør innholdet maskinlesbart og verifiserbart.[E-ARK-spesifikasjonene](https://dilcis.eu/specifications) definerer hvor de ulike filtypene skal plasseres i bevaringspakken. Dette gjør det enklere å finne, tolke og gjenbruke innholdet i framtiden. 
+For å avlevere data må dataene pakkes i en SIP [^1], strukturert i henhold til våre [SIP-spesifikasjoner](/docs/dps/sip/). I en SIP ligger representasjoner i egen mappe for data. METS.xml-filene, metadata-mappene, skjemaene og dokumentasjonen utenfor data-mappene utgjør strukturen som gjør innholdet maskinlesbart og verifiserbart. [E-ARK-spesifikasjonene](https://dilcis.eu/specifications) definerer hvor de ulike filtypene skal plasseres i bevaringspakken. Dette gjør det enklere å finne, tolke og gjenbruke innholdet i framtiden. 
 
 ## Valg av hva som skal bevares
 
@@ -26,7 +26,7 @@ Ved valg av objekter og filformater anbefales det å følge [Prinsipper for digi
 
 ## Hvordan data kommer inn i DPS
 
-Data kommer inn i DPS gjennom avlevering av informasjonspakker (SIPer) som sendes inn via avleveringstjenesten. Avleverer autentiserer seg mot API-et. API-et verifiserer at avleverer har de nødvendige rettigheter i henhold til inngått bevaringsavtale (se [rollebasert tilgangskontroll](/docs/dps/access-control/)). 
+Data overføres til DPS som informasjonspakker (SIP-er) gjennom API-et. Før en SIP kan avleveres, autentiserer avlevereren seg mot API-et, og det verifiseres at de nødvendige rettighetene foreligger i henhold til den aktuelle bevaringsavtalen (se rollebasert tilgangskontroll). (se [rollebasert tilgangskontroll](/docs/dps/access-control/)). 
 
 Avleveringsflyten er: opprett en avlevering → registrer filene som utgjør SIP-en → last opp filinnholdet → fullfør avleveringen for å starte behandling i DPS. 
 

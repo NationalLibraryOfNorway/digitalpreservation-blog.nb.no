@@ -15,7 +15,7 @@ Innen digital bevaring har metadata flere sentrale funksjoner:
 - De dokumenterer **hvem som skapte** innholdet, **når** det ble skapt, og hvilke **rettigheter** som gjelder.
 - De registrerer objektets **livsløp**: hva som har skjedd med det og når. Dokumenterer hvordan og i hvilken sammenheng objektet ble til, og proveniens, slik at fremtidige brukere kan stole på hva det representerer.
 - De beskriver **tekniske egenskaper** som er nødvendige for å holde filer brukbare etter hvert som formater utvikler seg.
-- De gir **kontekst**: hvordan innholdet er relatert til andre objekter i (eller utenfor) samlingen 
+- De gir **kontekst**: hvordan innholdet er relatert til andre objekter i (eller utenfor) samlingen. 
 
 Metadata berikes over tid. Ny informasjon legges til gjennom hele levetiden til et digitalt objekt. Noen metadata mottas ved innlevering, andre produseres når pakkene behandles i DPS, og andre bygges opp gjennom flere tiår med bevaringsaktiviteter. 
 
