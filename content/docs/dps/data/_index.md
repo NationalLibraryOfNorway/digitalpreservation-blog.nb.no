@@ -26,7 +26,7 @@ When selecting digital objects and file formats for preservation, Producers are 
 
 ## How data enters the DPS
 
-Data is transferred to DPS by submitting Submission Information Packages (SIPs) through the Submission Service. Before a submission can be made, the submitter authenticates with the API. The API verifies that the submitter has the necessary permissions under the applicable preservation agreement (see [role-based access control](/docs/dps/access-control/)). 
+Data is ingested into DPS through the API as Submission Information Packages (SIPs). Before submitting a SIP, the submitter authenticates with the API. The API verifies that the submitter has the necessary permissions under the applicable preservation agreement (see [role-based access control](/docs/dps/access-control/)). 
 
 The submission workflow consists of the following steps: 
 
