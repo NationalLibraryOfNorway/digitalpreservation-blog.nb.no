@@ -702,13 +702,13 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 This guidance is based on the National Library's internal workflows and may not cover all types of preservation processes. Feedback on improvements, clarifications, and additional use cases is welcome.
 
 
-### Digitization from analog materials
+### Digitization of physical sources
 
 **Minimum:**
 
 - **Creation or Imaging (use one of these):** Documents when the file(s) are actually created.<br>
 **Creation** is used when digital files are created through digitization or production processes, such as document scanning, audio digitization, or transfer of video content from an analog source.<br>
-**Imaging** is used when a complete disk image (bit-for-bit copy) of a physical storage medium is created, such as a hard drive, floppy disk, CD, or memory card. Imaging captures the entire medium, including the file system structure, metadata, unallocated space, and any deleted data.
+**Imaging** is used when a complete disk image (bit-for-bit copy) of a physical storage medium is created, such as a hard drive, floppy disk, CD, or memory card. Imaging captures the entire medium, including the file system structure, metadata, unallocated space, and any deleted data. 
 - **Message Digest Calculation:** Creation of checksums. It is generally not necessary to document checksum verification immediately after the checksums have been generated. Verification before transfer to the next stage is recommended, but no separate event needs to be recorded for this activity. 
 - **Information Package Creation:** Creation of a SIP. Document the applicable packaging standard (e.g., E-ARK). 
 
