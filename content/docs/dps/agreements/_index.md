@@ -47,7 +47,7 @@ Each Intellectual Entity is linked to exactly one Content access group via `acce
 - If an IE needs to move between contracts, new content access groups must exist (or be created) under the target preservation agreement. The IE's `accessGroupId` and `preservationAgreementId` are updated atomically, and the change is documented as a PREMIS event.
 
 > [!NOTE]
-> **Two-layer rights on PREMIS export.** The IE carries a denormalized `preservationAgreementId` so that PREMIS export can link it to both rights statements (content access group and preservation agreement) without a join. See [DPS core data model](/docs/dps/data-model/).
+> **Two-layer rights on PREMIS export.** The IE carries a denormalized `preservationAgreementId` so that PREMIS export can link it to both rights statements (content access group and preservation agreement) without a join. See [DPS core data model](/docs/dps/data-model-proposed-expansion/).
 
 ## Clients as Agents
 
@@ -158,7 +158,7 @@ erDiagram
     CONTENT_ACCESS_GROUP ||--o{ INTELLECTUAL_ENTITY : "accessGroupId"
 ```
 
-For the complete data model, see [DPS core data model](/docs/dps/data-model/).
+For the complete data model, see [DPS core data model](/docs/dps/data-model-proposed-expansion/).
 
 ### MongoDB documents
 
