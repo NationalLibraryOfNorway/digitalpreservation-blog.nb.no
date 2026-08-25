@@ -15,7 +15,7 @@ Team digital bevaring jobber tett med de andre spesialiserte medieteamene i orga
 ## Organisasjon
 Team digital bevaring består i dag av 9 medlemmer:
 
-{{< cards cols="3" >}}
+{{< cards cols="6" >}}
   {{< card link="/" title="Trond Teigen" image="images/team/trond-Small.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Teamleder"  >}}
   {{< card link="/" title="Torbjørn Bakken Pedersen" image="images/team/torbjorn-Small.jpeg" link="https://www.linkedin.com/in/torbjørn-pedersen-57617b227b" subtitle="Produktleder" >}}
   {{< card link="/" title="Thomas Edvardsen" image="images/team/thomas-Small.jpeg" link="https://www.linkedin.com/in/thomasedvardsen" subtitle="Techleder" >}}
@@ -23,7 +23,7 @@ Team digital bevaring består i dag av 9 medlemmer:
   {{< card link="/" title="Siarhei Kulakou" image="images/team/siarhei-Small.jpeg" link="https://www.linkedin.com/in/siarhei-kulakou-0702ba245" subtitle="Applikasjonsutvikler" >}}
   {{< card link="/" title="Johannes Karlsen" image="images/team/johannes2.0-Small.jpeg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Applikasjonsutvikler" >}}
   {{< card link="/" title="Lise-Lotte Melkild" image="images/team/LiseLotte-Small.jpeg" link="" subtitle="Metadataspesialist" >}}
-  {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra-Small.jpeg" link="" subtitle="Metadataspesialist" >}}
+  {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra-Small.jpeg" link="https://www.linkedin.com/in/sandra-ivanov-kr%C3%A5kstad-471015407" subtitle="Metadataspesialist" >}}
   {{< card link="/" title="Jøran Henriksen" image="images/team/joran-small.jpg" link="" subtitle="Senior Applikasjonsutvikler" >}}
 {{< /cards >}}
 

@@ -15,7 +15,7 @@ The Digital Preservation Team works closely with other specialised media teams w
 ## Organisation
 The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page about Digital Preservation at NLN") team consist of 9 members:
 
-{{< cards cols="3" >}}
+{{< cards cols="6" >}}
   {{< card link="/" title="Trond Teigen" image="images/team/trond-Small.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Team lead" >}}
   {{< card link="/" title="Torbjørn Bakken Pedersen" image="images/team/torbjorn-Small.jpeg" link="https://www.linkedin.com/in/torbjørn-pedersen-57617b227b" subtitle="Product lead" >}}
   {{< card link="/" title="Thomas Edvardsen" image="images/team/thomas-Small.jpeg" link="https://www.linkedin.com/in/thomasedvardsen" subtitle="Tech lead" >}}
@@ -23,7 +23,7 @@ The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page
   {{< card link="/" title="Siarhei Kulakou" image="images/team/siarhei-Small.jpeg" link="https://www.linkedin.com/in/siarhei-kulakou-0702ba245" subtitle="Application developer" >}}
   {{< card link="/" title="Johannes Karlsen" image="images/team/johannes2.0-Small.jpeg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Application developer" >}}
   {{< card link="/" title="Lise-Lotte Melkild" image="images/team/LiseLotte-Small.jpeg" link="" subtitle="Metadata specialist" >}}
-  {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra-Small.jpeg" link="" subtitle="Metadata specialist" >}}
+  {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra-Small.jpeg" link="https://www.linkedin.com/in/sandra-ivanov-kr%C3%A5kstad-471015407" subtitle="Metadata specialist" >}}
   {{< card link="/" title="Jøran Henriksen" image="images/team/joran-small.jpg" link="" subtitle="Senior Application Developer" >}}
 {{< /cards >}}
 
