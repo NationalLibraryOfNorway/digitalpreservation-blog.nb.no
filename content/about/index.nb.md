@@ -15,7 +15,7 @@ Team digital bevaring jobber tett med de andre spesialiserte medieteamene i orga
 ## Organisasjon
 Team digital bevaring består i dag av 9 medlemmer:
 
-{{< cards cols="4" >}}
+{{< cards cols="3" >}}
   {{< card link="/" title="Trond Teigen" image="images/team/trond-Small.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Teamleder"  >}}
   {{< card link="/" title="Torbjørn Bakken Pedersen" image="images/team/torbjorn-Small.jpeg" link="https://www.linkedin.com/in/torbjørn-pedersen-57617b227b" subtitle="Produktleder" >}}
   {{< card link="/" title="Thomas Edvardsen" image="images/team/thomas-Small.jpeg" link="https://www.linkedin.com/in/thomasedvardsen" subtitle="Techleder" >}}
