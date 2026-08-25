@@ -13,7 +13,7 @@ Teamet har ansvar for å forvalte løsninger for langtidsbevaring av digitalt ma
 Team digital bevaring jobber tett med de andre spesialiserte medieteamene i organisasjonen, i tillegg til å samarbeide med eksterne aktører både nasjonalt og internasjonalt. Teamet er blant annet medlem av [Digital Preservation Coalition (DPC)](https://www.dpconline.org/ "Digital Preservation Coalitions hjemmesider").
 
 ## Organisasjon
-Team digital bevaring består i dag av 8 medlemmer:
+Team digital bevaring består i dag av 9 medlemmer:
 
 {{< cards cols="6" >}}
   {{< card link="/" title="Trond Teigen" image="images/team/trond-Small.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Teamleder"  >}}
@@ -24,6 +24,8 @@ Team digital bevaring består i dag av 8 medlemmer:
   {{< card link="/" title="Johannes Karlsen" image="images/team/johannes2.0-Small.jpeg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Applikasjonsutvikler" >}}
   {{< card link="/" title="Lise-Lotte Melkild" image="images/team/LiseLotte-Small.jpeg" link="" subtitle="Metadataspesialist" >}}
   {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra-Small.jpeg" link="" subtitle="Metadataspesialist" >}}
+{{< /cards >}}
+{{< card link="/" title="Jøran Henriksen" image="images/team/joran-small.jpg" link="" subtitle="Senior Applikasjonsutvikler" >}}
 {{< /cards >}}
 
 Teamet svarer til en eiergruppe bestående av:
