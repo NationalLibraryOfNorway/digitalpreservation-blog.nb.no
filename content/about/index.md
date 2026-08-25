@@ -24,8 +24,7 @@ The [Digital Preservation](https://www.nb.no/en/digital-preservation "Short page
   {{< card link="/" title="Johannes Karlsen" image="images/team/johannes2.0-Small.jpeg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Application developer" >}}
   {{< card link="/" title="Lise-Lotte Melkild" image="images/team/LiseLotte-Small.jpeg" link="" subtitle="Metadata specialist" >}}
   {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra-Small.jpeg" link="" subtitle="Metadata specialist" >}}
-{{< /cards >}}
-{{< card link="/" title="Jøran Henriksen" image="images/team/joran-small.jpg" link="" subtitle="Senior Application Developer" >}}
+  {{< card link="/" title="Jøran Henriksen" image="images/team/joran-small.jpg" link="" subtitle="Senior Application Developer" >}}
 {{< /cards >}}
 
 This team reports to a committee of leaders responsible for this area in the National Library. The members are:

@@ -24,8 +24,7 @@ Team digital bevaring består i dag av 9 medlemmer:
   {{< card link="/" title="Johannes Karlsen" image="images/team/johannes2.0-Small.jpeg" link="https://www.linkedin.com/in/johannes-karlsen-476197267" subtitle="Applikasjonsutvikler" >}}
   {{< card link="/" title="Lise-Lotte Melkild" image="images/team/LiseLotte-Small.jpeg" link="" subtitle="Metadataspesialist" >}}
   {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra-Small.jpeg" link="" subtitle="Metadataspesialist" >}}
-{{< /cards >}}
-{{< card link="/" title="Jøran Henriksen" image="images/team/joran-small.jpg" link="" subtitle="Senior Applikasjonsutvikler" >}}
+  {{< card link="/" title="Jøran Henriksen" image="images/team/joran-small.jpg" link="" subtitle="Senior Applikasjonsutvikler" >}}
 {{< /cards >}}
 
 Teamet svarer til en eiergruppe bestående av:
