@@ -9,7 +9,7 @@ authors:
     image: /apple-touch-icon.png 
 ---
 
-<img src="/000000_jøran_henriksen_xx.jpg" alt="Vår nye kollega, Jøran Henriksen" width="600">
+![Vår nye kollega, Jøran Henriksen](/000000_jøran_henriksen_xx.jpg)
 
 Nasjonalbiblioteket har tilsatt Jøran Henriksen som Senior Applikasjonsutvikler i Team Digital Bevaring.  
 
