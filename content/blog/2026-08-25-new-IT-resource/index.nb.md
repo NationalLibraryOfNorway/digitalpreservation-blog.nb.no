@@ -13,6 +13,6 @@ authors:
 
 Nasjonalbiblioteket har tilsatt Jøran Henriksen som Senior Applikasjonsutvikler i Team Digital Bevaring.  
 
-For teamet betyr det at de fire eksisterende IT-ressursene utvides med ytterligere en erfaren applikasjonsutvikler.  
+For teamet betyr det at de fire eksisterende IT-ressursene utvides med ytterligere en erfaren applikasjonsutvikler. 
 
 Jøran kommer fra stilling som Senior Systemutvikler i The Coring Company. Han har også tidligere erfaring fra Nasjonalbiblioteket. I perioden 2023-2025 arbeidet han som Senior Systemutvikler med utvikling av programvare for produksjon og avlevering av lyd og levende bildemateriale til digital bevaring. Nå skal han bidra på mottakersiden og vil bli en viktig ressurs i utvikling av løsninger for langtidsbevaring av Nasjonalbibliotekets digitale samlinger.
