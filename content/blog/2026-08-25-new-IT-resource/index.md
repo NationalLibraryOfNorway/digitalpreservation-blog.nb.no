@@ -9,7 +9,7 @@ authors:
     image: /apple-touch-icon.png 
 ---
 
-![Our new colleague, Jøran Henriksen](/000000_jøran_henriksen_xx.jpg)
+![Our new colleague, Jøran Henriksen](/joran_henriksen.jpg)
 
 The National Library of Norway has appointed Jøran Henriksen as Senior Application Developer in the Digital Preservation Team. 
 
