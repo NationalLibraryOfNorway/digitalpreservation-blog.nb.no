@@ -15,3 +15,9 @@
     flex: 0 0 var(--my-right-toc-width);
   }
 }
+
+@media (min-width: 768px) {
+  .team-cards .hextra-cards {
+    grid-template-columns: repeat(var(--hextra-cards-grid-cols), minmax(180px, 1fr)) !important;
+  }
+}

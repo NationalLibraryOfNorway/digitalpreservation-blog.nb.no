@@ -15,7 +15,9 @@ Team digital bevaring jobber tett med de andre spesialiserte medieteamene i orga
 ## Organisasjon
 Team digital bevaring består i dag av 9 medlemmer:
 
-{{< cards cols="6" >}}
+<div class="team-cards">
+
+{{< cards cols="3" >}}
   {{< card link="/" title="Trond Teigen" image="images/team/trond-Small.jpeg" link="https://www.linkedin.com/in/trond-teigen-191954ab" subtitle="Teamleder"  >}}
   {{< card link="/" title="Torbjørn Bakken Pedersen" image="images/team/torbjorn-Small.jpeg" link="https://www.linkedin.com/in/torbjørn-pedersen-57617b227b" subtitle="Produktleder" >}}
   {{< card link="/" title="Thomas Edvardsen" image="images/team/thomas-Small.jpeg" link="https://www.linkedin.com/in/thomasedvardsen" subtitle="Techleder" >}}
@@ -26,6 +28,8 @@ Team digital bevaring består i dag av 9 medlemmer:
   {{< card link="/" title="Sandra Kråkstad" image="images/team/sandra-Small.jpeg" link="https://www.linkedin.com/in/sandra-ivanov-kr%C3%A5kstad-471015407" subtitle="Metadataspesialist" >}}
   {{< card link="/" title="Jøran Henriksen" image="images/team/joran-small.jpg" link="" subtitle="Senior Applikasjonsutvikler" >}}
 {{< /cards >}}
+
+</div>
 
 Teamet svarer til en eiergruppe bestående av:
 - Direktør for IT (produkteier)
