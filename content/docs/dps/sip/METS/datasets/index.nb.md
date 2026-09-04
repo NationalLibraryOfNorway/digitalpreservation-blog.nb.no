@@ -1,6 +1,5 @@
 ---
 title: Krav for datasett
-draft: true
 weight: 5
 ---
 
@@ -8,7 +7,7 @@ weight: 5
 Dette er en liste over krav til METS.xml for pakker med datasett og databaser som leveres til Nasjonalbiblioteket. Dette er krav utover det som er definert i [Krav til METS.xml](/nb/docs/dps/sip/mets/). <br><br>
 
 > [!NOTE]
-> E-ARK har egne Content Information Type-spesifikasjoner for [relasjonsdatabaser med SIARD (CITS SIARD)](https://dilcis.eu/content-types/cs-siard) og [geodata (CITS Geospatial)](https://dilcis.eu/content-types/cs-geospatial-data). Nasjonalbiblioteket har ennå ikke full oversikt over hvorvidt disse spesifikasjonene er forenlige med våre øvrige SIP-krav. Ønsker du å avlevere geodata eller SIARD-strukturert data, ta kontakt med teamet for digital bevaring før leveranse.
+> E-ARK har egne Content Information Type-spesifikasjoner for [relasjonsdatabaser i SIARD-format (CITS SIARD)](https://dilcis.eu/content-types/cs-siard) og [geodata (CITS Geospatial)](https://dilcis.eu/content-types/cs-geospatial-data). Nasjonalbiblioteket har ennå ikke full oversikt over hvorvidt disse spesifikasjonene er forenlige med våre øvrige SIP-krav. Ønsker du å avlevere geodata eller SIARD-strukturert data, ta kontakt med teamet for digital bevaring før leveranse.
 
 | **ID** | **Navn, METS-element, beskrivelse** | **Krav** | **Kardinalitet** |
 |:---|:---|:---|:---|

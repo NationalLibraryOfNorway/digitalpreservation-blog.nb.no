@@ -1,6 +1,5 @@
 ---
-title: Requirements for datasets
-draft: true
+title: Requirements for dataset
 weight: 5
 ---
 

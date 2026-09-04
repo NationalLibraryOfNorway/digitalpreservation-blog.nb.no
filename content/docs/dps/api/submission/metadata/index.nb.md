@@ -86,6 +86,13 @@ Tillatte typer for å beskrive ressursen sortert på medietype:
 | `Fjernsyn` 	| Audiovisuelt innhold produsert for fjernsynsdistribusjon. 	|
 
 
+**Datasett:**
+| Type | Beskrivelse |
+|---|---|
+| `Datasett` | Data kodet i en definert struktur, f.eks. datadumper og dataeksporter i formater som CSV, JSON, XML eller Parquet. |
+| `Database` | Et komplett sett av innholdet i en database, f.eks. databasedumper eller eksporter. |
+
+
 
 **Merk:** I kravene til [METS.xml](/nb/docs/dps/sip/mets/) har vi et påkrevd attributt som heter Content category `@TYPE`. Content category angir medietype på overordnet nivå.
  

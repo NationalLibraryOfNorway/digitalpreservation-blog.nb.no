@@ -87,6 +87,13 @@ Allowed types for describing the resource per media type:
 | `Fjernsyn` 	| Television: Audiovisual content produced for television distribution. 	|
 
 
+**Datasets:**
+| Type | Description |
+|---|---|
+| `Datasett` | Dataset: Data encoded in a defined structure, e.g. data dumps and data exports in formats such as CSV, JSON, XML, or Parquet. |
+| `Database` | Database: A complete set of the content contained within a database, e.g. database dumps or exports. |
+
+
 **Note:** In the requirements for [METS.xml](/nb/docs/dps/sip/mets/) there is a mandatory attribute named Content category `@TYPE`. Content category specifies the media type on a higher level than this attribute.
 
 
