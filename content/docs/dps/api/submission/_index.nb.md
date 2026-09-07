@@ -297,12 +297,32 @@ En submission går gjennom følgende statuser:
 7. `REJECTED` – Submission er avvist pga. feil
 
 
-## Beste praksis
+## Viktig informasjon
 
-1. **Verifiser alltid sjekksum** før opplasting
-2. **Bruk unike `objectId` per kontrakt** – `objectId` er din kobling mellom kildesystemet og DPS. Den returneres i API-responser og webhook-hendelser, slik at du alltid kan identifisere hvilket objekt en hendelse gjelder. `objectId` kan ikke endres etter at innleveringen er levert til DPS.
-3. **Legg ved rik metadata** for bedre søk og bevaring
-4. **Håndter feil korrekt** i klientapplikasjonen
+1. **Verifiser alltid sjekksum før opplasting.**
+Kontroller at filene har forventet sjekksum før de lastes opp til DPS. Sjekksummen bekrefter at filene er intakte og ikke har blitt endret siden den ble beregnet.
+
+1. **Gjør grundige kvalitetssjekker før innsending.**
+Når en innlevering er verifisert og har fått status `preserved`, kan den ikke enkelt slettes eller trekkes tilbake. Det er derfor viktig å vurdere materialet nøye og kontrollere at innhold, filer og metadata er korrekte før pakken sendes til DPS.
+
+1. **Bruk unike `objectId` per kontrakt og ta vare på disse.**
+`objectId` er koblingen mellom kildesystemet og DPS. Den returneres i API-responser og webhook-hendelser, slik at du alltid kan identifisere hvilket objekt en hendelse gjelder. `objectId` kan ikke endres.
+
+1. **Legg ved rik metadata.**
+Gode og komplette metadata gir bedre søkbarhet og bidrar til at materialet kan identifiseres og forstås over tid.
+
+1. **Ta vare på `submissionId` og `archiveId`.**
+- Ta vare på `submissionId` helt til du har mottatt meldingen `submission.preserved`. `submissionId` brukes til å slå opp innleveringen og til eventuell feilhåndtering eller korrigering.
+
+- Meldingen `200 OK` fra `finalize` bekrefter at opplastingen er gjennomført. 
+En `200 OK`-respons fra `finalize` bekrefter at filene er mottatt og sendt til S3, men betyr ikke at SIP-en er validert mot kravene for digital bevaring. API-et validerer så mye som mulig før overføring, men validering av filenes innhold skjer først etter at pakken er overført til DPS. Hvis valideringen feiler, mottar du en `submission.rejected`-melding.
+
+- Ta vare på `archiveId`. Dette er materialets unike og varige identifikator i DPS.
+  
+6. **Ikke slett kildematerialet før du har mottatt meldingen `submission.preserved`.**
+`submission.preserved` er bekreftelsen på at materialet er bevart i DPS og har gjennomgått nødvendig validering og verifisering. Vent derfor med å slette kildematerialet til denne meldingen er mottatt.
+
+
 
 ## Støtte
 

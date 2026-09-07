@@ -291,12 +291,31 @@ A submission progresses through the following statuses:
 7. `REJECTED` - The submission has been rejected due to validation errors or other issues
 
 
-## Best Practices
+## Important information
 
-1. **Always verify checksums** before uploading files to ensure data integrity
-2. **Use unique `objectId` values per contract** – `objectId` is your link between the source system and DPS. It is returned in API responses and webhook events so you can always identify which object an event relates to. `objectId` cannot be changed after the submission has been delivered to DPS.
-3. **Include comprehensive metadata** to enhance discoverability and preservation
-4. **Implement proper error handling** in your client application
+1. **Always verify checksums before uploading.**
+Verify that the files have the expected checksum before uploading them to DPS. The checksum confirms that the files are intact and have not been modified since the checksum was calculated.
+
+2. **Perform thorough quality checks before submission.**
+Once a submission has been verified and assigned the status `preserved`, it cannot easily be deleted or withdrawn. It is therefore important to carefully review the material and ensure that the content, files, and metadata are accurate before the package is sent to the DPS.
+
+3. **Use unique `objectId` values per contract and retain them.**
+`objectId` is the link between the source system and DPS. It is returned in API responses and webhook events, allowing you to identify which object an event relates to. `objectId` cannot be changed.
+
+4. **Provide rich metadata.**
+High-quality and complete metadata improves searchability and helps ensure that the material can be identified and understood over time.
+
+5. **Keep the `submissionId` and `archiveId`.**
+- Keep the `submissionId` until you have received the `submission.preserved` message. The `submissionId` is used to look up the submission and for any necessary error handling or corrections.
+
+- A `200 OK` response from `finalize` confirms that the upload has been completed. However, it does not mean that the SIP has been validated against the requirements for digital preservation. The API performs as much validation as possible before transfer, but validation of the file contents takes place only after the package has been transferred to DPS. If validation fails, you will receive a `submission.rejected` message.
+
+- Keep the `archiveId`. This is the material's unique and persistent identifier in DPS.
+  
+6. **Do not delete the source material until you have received the `submission.preserved message`.**
+`submission.preserved` confirms that the material has been preserved in DPS and has undergone the necessary validation and verification. Do not delete the source material until this message has been received.
+
+
 
 ## Support
 
