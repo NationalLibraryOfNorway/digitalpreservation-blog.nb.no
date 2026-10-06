@@ -36,7 +36,6 @@ Når en institusjon skal etablere et system for digital bevaring, er et av de f�
 Her kan du lese artikkelen som ligger til grunn for presentasjonen: [Should I buil or should I buy?](LigtenbergTeigen_Should_I_build_or_should_I_buy.pdf)
 
 
-
 ![Community pussle on iPRES](pussleipres.png) ![City Hall Copenhagen](cityhallcph.png)
 
 For oss var iPRES 2026 først og fremst en anledning til å møte andre som arbeider med mange av de samme problemstillingene som oss, og få nye perspektiver på hvordan vi kan videreutvikle arbeidet med digital bevaring i Nasjonalbiblioteket.
@@ -44,3 +43,4 @@ For oss var iPRES 2026 først og fremst en anledning til å møte andre som arbe
 Konferansen ga også anledning til å knytte nye kontakter og styrke eksisterende nettverk. Det er verdifullt å kunne diskutere konkrete utfordringer med fagfolk fra andre institusjoner og land, og se hvordan de har valgt å løse dem. Selv om institusjonene har ulike forutsetninger og velger ulike tekniske og organisatoriske løsninger, er mange av utfordringene de samme. 
 
 Vi reiste hjem med både nye ideer, nye kontakter og en bekreftelse på at mye av det arbeidet vi gjør i Nasjonalbiblioteket er godt forankret i den internasjonale utviklingen av fagfeltet. Samtidig minner konferansen oss om at digital bevaring er et arbeid som aldri blir helt «ferdig», det krever kontinuerlig utvikling, samarbeid og at blikket er rettet mot det som kommer.
+

@@ -17,7 +17,6 @@ iPRES is one of the leading international conferences on digital preservation, b
 
 The program covered a wide range of topics related to technology, organizational structures, workflows and strategies for digital preservation. This year’s theme highlighted the community surrounding digital preservation, the preservation work itself, and the need to look ahead. How can we collaborate and share knowledge? How do we ensure that digital materials remain accessible and usable over time? And what new challenges and opportunities do we need to prepare for?
 
-
 The Digital Preservation team contributed two presentations to the conference, both built on our own experiences of establishing and operating digital preservation at the National Library of Norway.
 
 ![Panel Torbjørn](panelT.png)
