@@ -40,7 +40,6 @@ Her kan du lese artikkelen som ligger til grunn for presentasjonen: [Should I bu
 <img src="cityhallcph.png" style="width:48%; display:block; margin-left:20px;">
 </div>
 
-
 For oss var iPRES 2026 først og fremst en anledning til å møte andre som arbeider med mange av de samme problemstillingene som oss, og få nye perspektiver på hvordan vi kan videreutvikle arbeidet med digital bevaring i Nasjonalbiblioteket.
 
 Konferansen ga også anledning til å knytte nye kontakter og styrke eksisterende nettverk. Det er verdifullt å kunne diskutere konkrete utfordringer med fagfolk fra andre institusjoner og land, og se hvordan de har valgt å løse dem. Selv om institusjonene har ulike forutsetninger og velger ulike tekniske og organisatoriske løsninger, er mange av utfordringene de samme. 
