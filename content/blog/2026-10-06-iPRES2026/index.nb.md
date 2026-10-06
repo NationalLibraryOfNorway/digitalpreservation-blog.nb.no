@@ -33,7 +33,7 @@ Sandra Kråkstad presenterte innlegget «Should I build or should I buy?... Buil
 
 Når en institusjon skal etablere et system for digital bevaring, er et av de første spørsmålene ofte om man skal bygge selv eller kjøpe en ferdig løsning. Her tok Sandra og Richard utgangspunkt i erfaringene fra de to nasjonalbibliotekene, som har valgt forskjellige tilnærminger. Nasjonalbiblioteket i Norge har bygget et eget digitalt bevaringssystem, mens KBNL har valgt å kjøpe og implementere en eksisterende løsnin (Rosetta fra Clarivate). Gjennom å sette disse to erfaringene opp mot hverandre ønsket vi å vise at det finnes ulike veier til et fungerende system for digital bevaring, og at både «build» og «buy» kommer med sine egne utfordringer og muligheter. Målet var ikke å kåre en vinner mellom de to tilnærmingene, men å dele erfaringer som kan være nyttige for andre institusjoner som står overfor det samme valget.
 
-Her kan du lese artikkelen som ligger til grunn for presentasjonen: [Should I buil or should I buy?](LigtenbergTeigen_Should_I_build_or_should_I_buy.pdf)
+Her kan du lese artikkelen som ligger til grunn for presentasjonen: [Should I buil or should I buy?](/blog/2026-10-06-iPRES2026/LigtenbergTeigen_Should_I_build_or_should_I_buy.pdf)
 
 <div style="display:flex; align-items:flex-start; gap:20px;">
 <img src="/blog/2026-10-06-ipres2026/pussleipres.png" style="width:48%; display:block;">
