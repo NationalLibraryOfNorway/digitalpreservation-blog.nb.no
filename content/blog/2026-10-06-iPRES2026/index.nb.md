@@ -1,6 +1,6 @@
 ---
 title: "iPRES 2026 i København - Community, Preservation, Horizon"
-date: 2026-09-04
+date: 2026-10-06
 description: "Fra 21–26 september deltok team Digital bevaring på den 22. internasjonale konferansen for digital bevaring (iPRES 2026) i København."
 tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, Cultural heritage, Kulturarv"]
 draft: false
@@ -19,7 +19,7 @@ Konferansen hadde et bredt program med temaer knyttet til både teknologi, organ
 
 Team Digital Bevaring bidro med to innlegg på konferansen, med utgangspunkt i våre egne erfaringer med å etablere og drifte digital bevaring ved Nasjonalbiblioteket.
 
-![Panel Torbjørn](panelT.png)
+![Panel Torbjørn](panelTP.png)
 
 
 Torbjørn Pedersen deltok i paneldebatten «Are We Nearly There Yet? Digital Preservation as Business as Usual».
@@ -27,7 +27,7 @@ Torbjørn Pedersen deltok i paneldebatten «Are We Nearly There Yet? Digital Pre
 Paneldebatten tok for seg hva som skjer når digital bevaring går fra å være et utviklings- og etableringsprosjekt til å bli en integrert del av den daglige virksomheten. Når systemer, arbeidsflyter og retningslinjer er på plass, hvordan sørger man for at digital bevaring faktisk blir en del av den ordinære driften? Panelet samlet erfaringer fra ulike organisasjoner og diskuterte blant annet hva «business as usual» betyr i forskjellige sammenhenger hos ulike institusjoner, og hva som skal til for å komme dit. For oss er dette en interessant problemstilling. Arbeidet handler ikke bare om å etablere gode tekniske løsninger, men også om å få på plass arbeidsprosesser, roller og organisering som gjør at bevaringen fungerer i praksis og er i stand til å tilpasse seg endringer over tid.
 
 
-![Sandra & Richard](buildbuy.png)
+![Sandra & Richard](builorbuy.png)
 
 Sandra Kråkstad presenterte innlegget «Should I build or should I buy?... Building will give trouble, buying makes it double…», sammen med Richard Ligtenberg fra det nederlandske nasjonalbiblioteket KBNL.
 
@@ -35,8 +35,14 @@ Når en institusjon skal etablere et system for digital bevaring, er et av de f�
 
 Her kan du lese artikkelen som ligger til grunn for presentasjonen: [Should I buil or should I buy?](LigtenbergTeigen_Should_I_build_or_should_I_buy.pdf)
 
+<div style="display: flex; gap: 20px;">
 
-![Community pussle on iPRES](pussleipres.png) ![City Hall Copenhagen](cityhallcph.png)
+![Community puzzle on iPRES](pussleipres.png)
+
+![City HAll Copenhagen](cityhallcph.png)
+
+</div>
+
 
 For oss var iPRES 2026 først og fremst en anledning til å møte andre som arbeider med mange av de samme problemstillingene som oss, og få nye perspektiver på hvordan vi kan videreutvikle arbeidet med digital bevaring i Nasjonalbiblioteket.
 

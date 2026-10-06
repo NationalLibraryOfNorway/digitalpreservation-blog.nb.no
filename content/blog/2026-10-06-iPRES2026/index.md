@@ -1,6 +1,6 @@
 ---
 title: "iPRES 2026 in Copenhagen - Community, Preservation, Horizon"
-date: 2026-09-04
+date: 2026-10-06
 description: "From 21–26 September, the Digital Preservation team attended the 22nd International Conference on Digital Preservation (iPRES 2026) in Copenhagen."
 tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, Cultural heritage, Kulturarv"]
 draft: false
@@ -19,14 +19,14 @@ The program covered a wide range of topics related to technology, organizational
 
 The Digital Preservation team contributed two presentations to the conference, both built on our own experiences of establishing and operating digital preservation at the National Library of Norway.
 
-![Panel Torbjørn](panelT.png)
+![Panel Torbjørn](panelTP.png)
 
 Torbjørn Pedersen were a part of the panel discussion “Are We Nearly There Yet? Digital Preservation as Business as Usual.” 
 
 The panel explored what happens when digital preservation moves from being a development and implementation project to becoming an integrated part of day-to-day operations. Once systems, workflows and policies are in place, how do you ensure that digital preservation actually becomes part of business as usual?
 The panel brought together experiences from different organizations and discussed what “business as usual” means in different institutional contexts, and what it takes to get there. For us, this is a particularly relevant question. Digital preservation is not simply about establishing good technical solutions. It is also about developing workflows, roles and organizational structures that enable preservation to function effectively over time.
 
-![Sandra & Richard](buildbuy.png)
+![Sandra & Richard](builorbuy.png)
 
 Sandra Kråkstad presented “Should I build or should I buy?... Building will give trouble, buying makes it double…”, together with Richard Ligtenberg from the National Library of the Netherlands (KBNL).
 
@@ -35,7 +35,14 @@ The aim was not to determine a winner between the two approaches, but to share e
 
 Read the paper behind the presentation here: [Should I buil or should I buy?](LigtenbergTeigen_Should_I_build_or_should_I_buy.pdf)
 
-![Community pussle on iPRES](pussleipres.png) ![City Hall Copenhagen](cityhallcph.png)
+<div style="display: flex; gap: 20px;">
+
+![Community puzzle on iPRES](pussleipres.png)
+
+![City HAll Copenhagen](cityhallcph.png)
+
+</div>
+
 
 For us, iPRES 2026 was first and foremost an opportunity to meet other people working on many of the same challenges we face, and to gain new perspectives on how we can continue to develop digital preservation at the National Library of Norway.
 
