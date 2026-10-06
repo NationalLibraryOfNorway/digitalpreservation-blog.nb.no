@@ -39,9 +39,7 @@ Her kan du lese artikkelen som ligger til grunn for presentasjonen: [Should I bu
 
 ![Community puzzle on iPRES](pussleipres.png)
 
-![City HAll Copenhagen](cityhallcph.png)
-
-</div>
+![City HAll Copenhagen](cityhallcph.png) </div>
 
 
 For oss var iPRES 2026 først og fremst en anledning til å møte andre som arbeider med mange av de samme problemstillingene som oss, og få nye perspektiver på hvordan vi kan videreutvikle arbeidet med digital bevaring i Nasjonalbiblioteket.

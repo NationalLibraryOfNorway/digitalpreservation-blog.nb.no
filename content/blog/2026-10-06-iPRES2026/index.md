@@ -39,9 +39,7 @@ Read the paper behind the presentation here: [Should I buil or should I buy?](Li
 
 ![Community puzzle on iPRES](pussleipres.png)
 
-![City HAll Copenhagen](cityhallcph.png)
-
-</div>
+![City HAll Copenhagen](cityhallcph.png) </div>
 
 
 For us, iPRES 2026 was first and foremost an opportunity to meet other people working on many of the same challenges we face, and to gain new perspectives on how we can continue to develop digital preservation at the National Library of Norway.
