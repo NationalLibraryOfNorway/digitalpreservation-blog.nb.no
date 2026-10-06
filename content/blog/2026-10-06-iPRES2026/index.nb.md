@@ -35,7 +35,7 @@ N√•r en institusjon skal etablere et system for digital bevaring, er et av de f√
 
 Her kan du lese artikkelen som ligger til grunn for presentasjonen: [Should I buil or should I buy?](LigtenbergTeigen_Should_I_build_or_should_I_buy.pdf)
 
-<div style="display: flex; gap: 20px;">
+<div style="display: flex; gap: 20px; align-items: flex-start;">
 
 ![Community puzzle on iPRES](pussleipres.png)
 

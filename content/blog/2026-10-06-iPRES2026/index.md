@@ -35,7 +35,7 @@ The aim was not to determine a winner between the two approaches, but to share e
 
 Read the paper behind the presentation here: [Should I buil or should I buy?](LigtenbergTeigen_Should_I_build_or_should_I_buy.pdf)
 
-<div style="display: flex; gap: 20px;">
+<div style="display: flex; gap: 20px; align-items: flex-start;">
 
 ![Community puzzle on iPRES](pussleipres.png)
 
