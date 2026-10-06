@@ -35,12 +35,10 @@ The aim was not to determine a winner between the two approaches, but to share e
 
 Read the paper behind the presentation here: [Should I buil or should I buy?](LigtenbergTeigen_Should_I_build_or_should_I_buy.pdf)
 
-<div style="display: flex; gap: 20px; align-items: flex-start;">
-
-![Community puzzle on iPRES](pussleipres.png)
-
-![City HAll Copenhagen](cityhallcph.png) </div>
-
+<div style="display:flex; align-items:flex-start;">
+<img src="pussleipres.png" style="width:48%; display:block;">
+<img src="cityhallcph.png" style="width:48%; display:block; margin-left:20px;">
+</div>
 
 For us, iPRES 2026 was first and foremost an opportunity to meet other people working on many of the same challenges we face, and to gain new perspectives on how we can continue to develop digital preservation at the National Library of Norway.
 
