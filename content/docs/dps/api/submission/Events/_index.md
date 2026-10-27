@@ -10,9 +10,11 @@ In digital preservation, an “event” documents an action or occurrence that h
 
 The event and agent model used here is based on the [PREMIS data model](https://www.loc.gov/standards/premis/) for preservation metadata.
 
-Submitting events is not mandatory, but we recommend doing so when such information is available. Events added through the API will be preserved in a dedicated event database, just like events that occur within the preservation environment (DPS). When disseminated, this provides a clearer overview of all events associated with an object.
+Providing events is not mandatory, but we recommend doing so whenever such information is available. Events submitted through the API are preserved in the same way as events recorded internally within the preservation environment (DPS). This makes it easier to get an overview of all events associated with an object when it is delivered.
 
-Preservation metadata can also be submitted as files in the information package (SIP). The difference is that events registered via the API are stored in a searchable event database, whereas files in the SIP are preserved as part of the package without becoming searchable in the same way. We therefore prefer that preservation metadata is submitted via the API. If this is not possible for practical or technical reasons, it is still better to include the information in the SIP than to leave it out. See more under [metadata primer](/docs/dps/sip/metadata/) and [requirements for SIP structure](/docs/dps/sip/structure-requirements/). Information relating directly to provenance may be included under [metadata](/docs/dps/api/submission/metadata/).
+Preservation metadata can be provided in two ways: through the API or as files included in the Submission Information Package (SIP). We recommend submitting preservation metadata through the API. Events submitted through the API are also accessible via the API, while metadata provided as files in the SIP are preserved as part of the package. If practical or technical constraints prevent you from submitting metadata through the API, we still recommend including it in the SIP rather than leaving it out. The SIP may also contain other types of preservation metadata than those described on this page. See more under [metadata primer](/docs/dps/sip/metadata/) and [requirements for SIP structure](/docs/dps/sip/structure-requirements/). Information relating directly to provenance may be included under [metadata](/docs/dps/api/submission/metadata/).
+
+
 
 ## Linking events to an object
 
@@ -112,7 +114,7 @@ Elements marked with \* are required.
 ## How to use Event Elements:
 
 ## Agent:
-The Agent describes the actor that performed the action. This may be software, an organization, or a person. The information should be sufficiently precise to identify which actor and configuration was used.
+The Agent describes the actor (who or what) that performed the action. This may be software, an organization, or a person. The information should be sufficiently precise to identify which actor and configuration was used.
 
 
 ### AgentName
@@ -137,7 +139,7 @@ Specifies the type of actor that performed the action. Values are taken from the
 
 
 ### AgentVersion
-The version number of the agent if it is software. AgentVersion is used to ensure traceability and reproducibility, as different versions of the same tool may produce different results.
+The version or revision of the agent. This field is **only** relevant for software and hardware agents. AgentVersion is used to ensure traceability and reproducibility, as different versions of the same tool may produce different results.
 
 **Examples:**
 - "1.15.0"
@@ -161,7 +163,7 @@ Additional information about the agent that performed the action. This element d
 - "Institution with formal responsibility for digital preservation, ingest, and long-term management of archival materials."
 
 > [!NOTE]
-> AgentNotes should be used as consistently as possible for the same agent. Minor variations in wording should be avoided, as this may result in the same agent being registered multiple times.
+> Use consistent wording in agentNote when describing the same agent.
 
 
 
@@ -202,7 +204,9 @@ The overall result of the event. This element indicates whether the event was co
 
 
 ### OutcomeDetail
-A concrete and precise description of the result of the event.
+
+This element is only used when additional information about the outcome needs to be documented. In many cases, it is sufficient to use the "Outcome"-element (success, failure, warning).
+"OutcomeDetail" is a concrete and precise description of the result of the event.
 This field should be used when the result contains information relevant for further use, control, or documentation.
 This element documents what was actually achieved or which deviations were identified. The description should be concise and clear.
 
@@ -223,7 +227,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 | Name 	        | **capture** 	                                                                                                                                                                                  |
 |:--------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Description 	 | The process whereby an agent (organization, team, role, system, service, or automated process) actively acquires an object through mechanisms other than transfer from the creator or donor. 	 |
+| Description 	 | The process whereby an agent (organization, team, role, system, service, or automated process) actively acquires an object through mechanisms other than transfer from the creator or donor. Retrieval of existing digital data. |
 | Scope	        | IE, File 	                                                                                                                                                                                     |
 
 
@@ -255,7 +259,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 | Name         | **creation**                          |
 |:-------------|:--------------------------------------|
-| Description  | The process of creating a new object. |
+| Description  | The process of creating a new object. A new file or digital object is created, for example through digitization. |
 | Scope        | File                                  |
 
 
@@ -276,9 +280,8 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   "event": {
     "eventDateTime": "2026-02-03T07:14:01.716+01:00",
     "eventType": "creation",
-    "eventDetail": "Digitization of analog audio to WAV/BWF using Pyramix and an A/D converter. Recording performed in real time from an analog source via an external converter.",
-    "outcome": "success",
-    "outcomeDetail": "Files were generated in WAV/BWF format with verified recording quality."
+    "eventDetail": "Digitization of a physical carrier, 1/4-inch audio tape, to WAV/BWF using Pyramix and an A/D converter. Recording performed in real time from an analog source via an external converter. Verified recording quality.",
+    "outcome": "success"
   }
 }
 ```

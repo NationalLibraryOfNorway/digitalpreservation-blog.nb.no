@@ -10,15 +10,9 @@ overføring. Dette anses som viktig bevaringsmetadata og gir sporbarhet og bevis
 
 Event- og agent-modellen som brukes her er basert på [PREMIS-datamodellen](https://www.loc.gov/standards/premis/) for bevaringsmetadata.
 
-Avlevering av eventer er ikke et krav, men vi anbefaler at det opprettes hvis man har slik informasjon tilgjengelig. Eventer som legges til i API-et vil bevares
-i egen event-database, på lik linje med hendelser som skjer på innsiden av bevaringsomgivelsene (DPS). Ved utlevering gir det enklere oversikt over hendelser
-knyttet til et objekt.
+Det er ikke et krav å levere eventer, men vi anbefaler å gjøre det dersom slik informasjon er tilgjengelig. Eventer som registreres via API-et, bevares på lik linje med hendelser som registreres internt i bevaringsomgivelsene (DPS). Ved utlevering gir dette en samlet oversikt over hendelser knyttet til et objekt.
 
-Bevaringsmetadata kan også leveres som filer i informasjonspakken (SIP). Forskjellen er at eventer registrert via API-et lagres i en søkbar event-database,
-mens filer i SIP bevares som en del av pakken uten å bli søkbare på samme måte. Vi foretrekker derfor at bevaringsmetadata sendes via API-et. Hvis det av
-praktiske eller tekniske grunner ikke er mulig, er det likevel bedre å ta med informasjonen i SIP-en enn å la være. Se mer om det under
-[metadataveiledning](/docs/dps/sip/metadata/) og [krav til pakkestruktur](/docs/dps/sip/structure-requirements/). Informasjon som går direkte på
-proveniens kan legges til i [metadata](/docs/dps/api/submission/metadata/).
+Bevaringsmetadata kan leveres på to måter: via API-et eller som filer i informasjonspakken (SIP). Vi anbefaler å levere bevaringsmetadata via API-et. Eventer som registreres denne veien, blir tilgjengelige gjennom API-et, mens metadata som leveres som filer i SIP-en, bevares som en del av informasjonspakken. Dersom det av praktiske eller tekniske grunner ikke er mulig å levere metadata via API-et, anbefaler vi likevel å inkludere dem i SIP-en fremfor å utelate dem. Det kan også være relevant å dokumentere andre typer bevaringsmetadata i SIP-en enn det som er beskrevet på denne siden. Se [metadataveiledning](/docs/dps/sip/metadata/) og [krav til pakkestruktur](/docs/dps/sip/structure-requirements/) for mer informasjon. Informasjon som går direkte på proveniens kan legges til i [metadata](/docs/dps/api/submission/metadata/).
 
 ## Kobling av eventer til objekt
 
@@ -125,7 +119,7 @@ Elementer merket med \* er påkrevde.
 
 ## Agent:
 
-Agent beskriver den aktøren som utførte handlingen. Dette kan være programvare, en organisasjon eller en person. 
+Agent beskriver den aktøren (hvem eller hva) som utførte handlingen. Dette kan være programvare, en organisasjon eller en person. 
 Informasjonen skal være tilstrekkelig presis til å kunne identifisere hvilken aktør og konfigurasjon som ble brukt.
 
 ### AgentName
@@ -153,7 +147,7 @@ Verdiene er hentet fra [Library of Congress sitt vokabular for agentType](https:
 
 ### AgentVersion
 
-Versjonsnummer på agenten dersom det er programvare. Agentversjon brukes for å sikre sporbarhet og mulighet for reproduksjon, ulike versjoner av samme verktøy
+Angir agentens versjon eller revisjon. Feltet er **kun** relevant for agenter av typen programvare og maskinvare. Agentversjon brukes for å sikre sporbarhet og mulighet for reproduksjon, ulike versjoner av samme verktøy
 kan gi ulike resultater.
 
 **Eksempler:**
@@ -182,7 +176,7 @@ spesifikt event.
 - "Institusjon med formelt ansvar for digital bevaring, mottak og langsiktig forvaltning av arkivmateriale."
 
 > [!NOTE]
-> Bruk AgentNotes så konsekvent som mulig for samme agent. Mindre variasjoner i formulering bør unngås, da dette kan føre til at samme agent registreres flere ganger.
+> Bruk konsekvente formuleringer i agentNote når du beskriver samme agent.
 
 ## Event:
 
@@ -226,11 +220,12 @@ Verdien skal være konsistent og brukes likt for tilsvarende hendelser.
 
 ### OutcomeDetail
 
-En konkret og presis beskrivelse av resultatet av hendelsen. 
+Dette elementet brukes bare der det er behov for å dokumentere ytterligere informasjon om utfallet. I mange tilfeller er det tilstrekkelig å bruke «outcome»-elementet (success, failure, warning).
+"OutcomeDetail" er en konkret og presis beskrivelse av resultatet av hendelsen. 
 Feltet bør brukes når resultatet inneholder informasjon som er relevant for videre bruk, kontroll eller dokumentasjon. 
 Dette elementet skal dokumentere hva som faktisk ble oppnådd eller hvilke avvik som ble identifisert. 
 Beskrivelsen skal være kortfattet og forståelig. 
-Det er ikke alle hendelser som er nødvendig å dokumentere utover success/failure/warning, da holder det å bruke «outcome»-elementet.
+
 
 **Eksempler:**
 
@@ -248,7 +243,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 | Navn          | **capture**                                                                                                                                                                                |
 |:--------------|:-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse 	 | Prosessen der en agent (organisasjon, team, rolle, system, tjeneste, automatisert prosess) aktivt tilegner seg et objekt gjennom andre mekanismer enn overføring fra skaper eller giver. 	 |
+| Beskrivelse 	 | Prosessen der en agent (organisasjon, team, rolle, system, tjeneste, automatisert prosess) aktivt tilegner seg et objekt gjennom andre mekanismer enn overføring fra skaper eller giver. Innhenting av eksisterende digitale data.	 |
 | Omfang        | IE, Fil                                                                                                                                                                                    |
 
 **Retningslinjer for bruk:**
@@ -279,7 +274,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 | Navn        | **creation**                            |
 |:------------|:----------------------------------------|
-| Beskrivelse | Prosessen der et nytt objekt opprettes. |
+| Beskrivelse | Prosessen der et nytt objekt opprettes. En ny fil eller et digitalt objekt skapes, for eksempel ved digitalisering. |
 | Omfang      | Fil                                     |
 
 **Retningslinjer for bruk:**
@@ -301,9 +296,8 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   "event": {
     "eventDateTime": "2026-02-03T07:14:01.716+01:00",
     "eventType": "creation",
-    "eventDetail": "Digitalisering av analog lyd til WAV/BWF ved bruk av Pyramix og A/D-konverter. Opptak gjort i sanntid fra analog kilde via ekstern konverter.",
-    "outcome": "success",
-    "outcomeDetail": "Genererte filer i WAV/BWF-format med verifisert opptakskvalitet."
+    "eventDetail": "Digitalisering av fysisk bærer, 1/4-lydbånd, til WAV/BWF ved bruk av Pyramix og A/D-konverter. Opptak gjort i sanntid fra analog kilde via ekstern konverter. Verifisert opptakskvalitet",
+    "outcome": "success"
   }
 }
 ```
