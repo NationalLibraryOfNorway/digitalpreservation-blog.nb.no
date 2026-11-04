@@ -549,7 +549,7 @@ The use of the `type` attribute should be meaningful for the designated communit
 
 **Guidelines for use:**
 
-The use of attributes may vary, but the `type` attribute AND `title` attribute or `id` attribute are always required. The API only enforces `type`, but a relation without `title` or `id` does not meet the National Library's requirements.
+The use of attributes may vary, but the `type` attribute AND `title` attribute or `id` attribute are always required.
 
 The `title` attribute specifies the title of the related resource. Language of the title should be specified using the `lang` attribute and a code from the [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) standard.
 
@@ -674,7 +674,7 @@ When the described resource is derived from **multiple** sources, list each sour
 
 **Guidelines for use:**
 
-The language of the provenance value must be provided using the `lang` attribute according to the [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) standard. The API accepts provenance without `lang`, but the National Library requires it.
+The language of the provenance value must be provided using the `lang` attribute according to the [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) standard.
 
 **Example:**
 ```json

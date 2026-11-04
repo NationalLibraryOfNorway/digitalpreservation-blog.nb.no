@@ -543,7 +543,7 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
 
 **Retningslinjer for bruk:**
 
-Bruk av attributter kan varieres, men det kreves alltid bruk av `type` OG `title` eller `id`. API-et håndhever bare `type`, men en relasjon uten `title` eller `id` oppfyller ikke Nasjonalbibliotekets krav.
+Bruk av attributter kan varieres, men det kreves alltid bruk av `type` OG `title` eller `id`.
 
 Attributt `title` angir tittel på relatert ressurs. Tittelens språk bør angis med med `lang`-attributten i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en).
 
@@ -670,7 +670,7 @@ Når den beskrevne ressursen er utledet fra **flere** kilder, listes hver kilde 
 
 **Retningslinjer for bruk:**
 
-Språket brukt til å beskrive provenance må oppgis med `lang`-attributtet for verdien i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en). API-et godtar provenance uten `lang`, men Nasjonalbiblioteket krever det.
+Språket brukt til å beskrive provenance må oppgis med `lang`-attributtet for verdien i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en).
 
 **Eksempel:**
 ```json
