@@ -27,7 +27,7 @@ python3 scripts/lint_format_json_codeblocks.py --folder content # same, whole tr
 
 - `content/blog/YYYY-MM-DD-slug/` — one page bundle per post (`index.md` + images/PDFs). README.md documents the required front matter (`title`, `date`, `description`, `tags`, `authors`, `images`, `draft`).
 - `content/docs/` — preservation documentation: `dps/` (the preservation system: SIP/METS specs, APIs, data model, metadata), `formats/`, `principles/`, `strategy/`. Section order is controlled by `weight` in front matter; moved pages keep old URLs via `aliases`. `old_revisions/` hold superseded versions kept for reference.
-- `static/swagger/` — vendored Swagger UI + `swagger.json`, served at `/swagger/` and linked from `content/docs/dps/api/`. `static/schema/` — published XSDs.
+- `static/swagger/` — vendored Swagger UI, served at `/swagger/` and linked from `content/docs/dps/api/`. `swagger-initializer.js` loads the live OpenAPI spec from `https://api.nb.no/dps-submission/v1/api-docs`; that spec, not this repo, is the source of truth for field names and allowed values. `static/schema/` — published XSDs.
 - `layouts/partials/` — overrides of Hextra partials: `opengraph.html` (OG tags, uses page `images` param), `custom/head-end.html` (GoatCounter analytics), `components/last-updated.html` (adds a GitHub commit-history link).
 - `hugo.yaml` — menus, languages, Hextra params. Pages and sections also emit a `markdown` output format alongside HTML.
 
