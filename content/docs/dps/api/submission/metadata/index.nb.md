@@ -252,7 +252,7 @@ Bruk av role-attributt bør gi mening for avleverer, gjenspeile metadatakatalog/
 Forklaring til bruk av *authority*-informasjon: 
 - `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
 - `code`: En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
-- `URI`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
+- `uri`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempler:**
 ```json
@@ -324,7 +324,7 @@ Bruk av `role`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
 Forklaring til bruk av *authority*-informasjon: 
 - `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
 - `code`: En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
-- `URI`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
+- `uri`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 
 **Eksempler:**
@@ -384,7 +384,7 @@ Ved bruk av autoritetsregister bør utgiver i tillegg skrives ut i sin fulle for
 Forklaring til bruk av *authority*-informasjon: 
 - `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
 - `code`: En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
-- `URI`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
+- `uri`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempel:**
 ```json
@@ -430,7 +430,7 @@ Bruk av `type`-attributt her bør gi mening for avleverer, gjenspeile metadataka
 Forklaring til bruk av *authority*-informasjon: 
 - `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
 - `code`: En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
-- `URI`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
+- `uri`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempel:**
 ```json
@@ -537,13 +537,13 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
 
 | Navn         | **Relation**                                                                                                                                                                                                                                                                                                                              |
 |:-------------|:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Beskrivelse  | En relatert ressurs der den beskrevne ressursen er fysisk eller logisk inkludert (tittel på overordnet verk, samling, serie, del).<br>Det MÅ brukes attributter for `title` + `type` ELLER `id` + `type`.<br>Attributt `URI` BØR brukes. <br> Attributt `lang` BØR brukes for å definere språket på tittelen til den relaterte ressursen. |
+| Beskrivelse  | En relatert ressurs der den beskrevne ressursen er fysisk eller logisk inkludert (tittel på overordnet verk, samling, serie, del).<br>Det MÅ brukes attributter for `title` + `type` ELLER `id` + `type`.<br>Attributt `uri` BØR brukes. <br> Attributt `lang` BØR brukes for å definere språket på tittelen til den relaterte ressursen. |
 | Krav         | BØR                                                                                                                                                                                                                                                                                                                                       |
 | Kardinalitet | 0..n                                                                                                                                                                                                                                                                                                                                      |
 
 **Retningslinjer for bruk:**
 
-Bruk av attributter kan varieres, men det kreves alltid bruk av `type` OG `title` eller `id`.
+Bruk av attributter kan varieres, men det kreves alltid bruk av `type` OG `title` eller `id`. API-et håndhever bare `type`, men en relasjon uten `title` eller `id` oppfyller ikke Nasjonalbibliotekets krav.
 
 Attributt `title` angir tittel på relatert ressurs. Tittelens språk bør angis med med `lang`-attributten i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en).
 
@@ -553,7 +553,7 @@ Hvis andre termer brukes bør de gi mening for avleverer, gjenspeile metadatakat
 
 Eksempel på bruk av attributt `id` er henvisning til en seriepost, verkspost, eller andre ressurser i samme i serie/verk.
 
-Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nettside).  
+Attributt `uri` brukes for å angi lenke til relatert ressurs (katalogpost, nettside).  
 
 **Eksempler:**
 ```json
@@ -564,7 +564,7 @@ Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nett
       "lang": "nor",
       "id": "987654321",
       "type": "IsPartOf",
-      "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
+      "uri": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
     }
   ]
 }
@@ -586,7 +586,7 @@ Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nett
     {
       "title": "20161203.jpg",
       "type": "hasPart",
-      "URI": "https://www.nb.no/items/83af9a36b005c5737aa33d1fb64f429d?page"
+      "uri": "https://www.nb.no/items/83af9a36b005c5737aa33d1fb64f429d?page"
     }
   ]
 }
@@ -605,9 +605,9 @@ Attributt `URI` brukes for å angi lenke til relatert ressurs (katalogpost, nett
 
 Dette elementet beskriver objektet eller objektene den beskrevne ressursen ble utledet fra. Det gir en søkbar, maskinlesbar kobling til kildeobjektet og er avgjørende for å spore opphavet til innhold som er digitalisert, migrert eller på andre måter utledet fra andre objekter.
 
-- `identifier` – Én eller flere identifikatorer for kildeobjektet, hver med `type` og `value` (samme struktur som toppnivåelementet `identifier`). Bruk dette for å registrere unike identifikatorer for kildeobjektene, for eksempel strekkoder, URN-er eller andre identifikatorer som er relevante for kilden.
+- `identifier` – (Påkrevd) Én eller flere identifikatorer for kildeobjektet, hver med `type` og `value` (samme struktur som toppnivåelementet `identifier`). Bruk dette for å registrere unike identifikatorer for kildeobjektene, for eksempel strekkoder, URN-er eller andre identifikatorer som er relevante for kilden.
 - `description` – (Valgfri) En kort fritekstnotis om kildeobjektet, for eksempel dets navn/tittel eller fysiske form.
-- `URI` – (Valgfri) En direkte lenke til en katalogpost eller annen ressurs med ytterligere informasjon om kildeobjektet.
+- `uri` – (Valgfri) En direkte lenke til en katalogpost eller annen ressurs med ytterligere informasjon om kildeobjektet.
 
 Når den beskrevne ressursen er utledet fra **flere** kilder, listes hver kilde som et separat objekt i `source`-listen.
 
@@ -626,7 +626,7 @@ Når den beskrevne ressursen er utledet fra **flere** kilder, listes hver kilde 
           "value": "FVVB00000015"
         }
       ],
-      "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/50979618"
+      "uri": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/50979618"
     }
   ]
 }
@@ -670,7 +670,7 @@ Når den beskrevne ressursen er utledet fra **flere** kilder, listes hver kilde 
 
 **Retningslinjer for bruk:**
 
-Språket brukt til å beskrive provenance bør oppgis med `lang`-attributtet for verdien i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en).
+Språket brukt til å beskrive provenance må oppgis med `lang`-attributtet for verdien i henhold til [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en). API-et godtar provenance uten `lang`, men Nasjonalbiblioteket krever det.
 
 **Eksempel:**
 ```json
@@ -725,7 +725,7 @@ Det kan brukes henvisning til autoritetsregistre der det er relevant. Der det br
 Forklaring til bruk av *authority*-informasjon: 
 - `source`: Navnet på autoritetsregisteret verdien er hentet fra, oppgitt som en tekststreng.
 - `code`: En unik identifikator for autoriteten i registeret, ofte i form av en tall- eller alfanumerisk kode.
-- `URI`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
+- `uri`: En entydig lenke (URI) som peker til autoritetsoppføringen verdien er hentet fra.
 
 **Eksempler:**
 ```json
@@ -900,7 +900,7 @@ Språkkode må angis (lang-attributt).
         "title": "Norge på langs med Ola og Kari",
         "type": "IsPartOf",
         "id": "987654321",
-        "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
+        "uri": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
         "lang": "nor"
       }
     ],

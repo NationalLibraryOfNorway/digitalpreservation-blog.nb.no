@@ -23,7 +23,27 @@ The complete submission process follows these steps:
 2. **Register files** to get pre-signed upload URLs
 3. **Upload files** to the provided URLs
 4. **Finalize the submission** to initiate preservation processing
-5. Track the **submission status** as it progresses through the preservation system (at a later stage we will support status updates)
+5. Track the **submission status** as it progresses through the preservation system, via [webhooks](../webhooks/) or by fetching the submission
+
+## Endpoints
+
+| Method | Path                                                       | Description                       |
+|--------|------------------------------------------------------------|-----------------------------------|
+| POST   | `/v1/contracts/{contractId}/submissions`                         | Create submission                 |
+| GET    | `/v1/contracts/{contractId}/submissions`                         | List submissions for the contract |
+| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}`          | Fetch submission                  |
+| DELETE | `/v1/contracts/{contractId}/submissions/{submissionId}`          | Delete submission                 |
+| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/files`    | Register file and get upload URL  |
+| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Fetch file                |
+| DELETE | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Delete file               |
+| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/finalize` | Finalize submission               |
+| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Submit event, see [Events](events/) |
+| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Fetch events                      |
+
+- **List submissions:** Ordered by creation date and paginated with `page` (zero-based, default `0`) and `size` (default `10`). Filter with `objectId` and/or `archiveId` (exact match; multiple filters are combined with AND). If nothing matches, the response is an empty page.
+- **Fetch submission:** Use the `include` query parameter to add related data to the response: `FILES` (registered files), `DESCRIPTIVE_METADATA` (the metadata from the request) and `EVENTS` (preservation events), e.g. `?include=FILES&include=EVENTS`.
+- **Delete submission:** Only allowed while the submission has the status `REGISTERED` and has no registered files. Delete the files first; a submission that still has files returns `409 Conflict`.
+- **Delete file:** Only allowed while the submission has the status `REGISTERED`; otherwise the API returns `409 Conflict`. By default only the file registration is deleted. Add `deleteFromS3=true` to also delete the uploaded file from S3.
 
 
 ## Example API Usage
@@ -36,7 +56,7 @@ The complete submission process follows these steps:
 
 | Field      | Type    | Required | Description                                                                                                                                                                                                                                                                                                                                                        |
 |------------|---------|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `objectId` | string  | Yes      | The client's identifier for the submission object – typically an ID from the source system (e.g. a database ID or URN fragment). Links DPS events such as webhooks back to the object in your system. Must be unique per contract (the combination of `contractId` + `objectId` must be unique). Cannot be changed after the submission has been delivered to DPS. |
+| `objectId` | string  | Yes      | The client's identifier for the submission object – typically an ID from the source system (e.g. a database ID or URN fragment). Links DPS events such as webhooks back to the object in your system. Must be unique per contract (the combination of `contractId` + `objectId` must be unique). Cannot be changed after the submission has been delivered to DPS. Must be 3–200 characters and may only contain `a-z`, `A-Z`, `0-9`, `-` and `_`. |
 | `priority` | integer | No       | Priority for processing in the queue. Valid values: `1` (highest) to `100` (lowest). Default is `50` (normal priority), which is what should be used in most cases. Values above `50` indicate lower priority and are used e.g. for re-archiving.                                                                                                                  |
 | `metadata` | object  | Yes      | Descriptive metadata about the content. See the example below for available fields.                                                                                                                                                                                                                                                                                |
 
@@ -72,7 +92,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     "creator": [
       {
         "name": "Marek, Václav",
-        "type": "Person",
+        "type": "person",
         "role": "Fotograf",
         "authority": {
           "source": "Example authority",
@@ -84,7 +104,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     "contributor": [
       {
         "name": "Nordmann, Ola",
-        "type": "Person",
+        "type": "person",
         "role": "Avbildet",
         "authority": {
           "source": "Example authority",
@@ -96,7 +116,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     "publisher": [
       {
         "name": "Gyldendal",
-        "type": "Organization",
+        "type": "korporasjon",
         "authority": {
           "source": "Example authority",
           "code": "198097",
@@ -127,14 +147,14 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     "language": [
       {
         "type": "Subtitles",
-        "value": "Swedish",
-        "lang": "eng"
+        "value": "swe"
       }
     ],
-    "isPartOf": [
+    "relation": [
       {
-        "value": "Chronicles of Narnia",
-        "lang": "eng"
+        "title": "Chronicles of Narnia",
+        "lang": "eng",
+        "type": "isPartOf"
       }
     ],
     "provenance": [
@@ -145,7 +165,6 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     ],
     "subject": [
       {
-        "lang": "nob",
         "value": "Norge"
       }
     ],
@@ -176,6 +195,14 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 
 The `isPackaged` field indicates whether files are packaged temporarily for transmission purposes only. These files are packed to facilitate transfer and will be unpacked by the preservation flow.
 
+**Request fields**
+
+| Field        | Type    | Required | Description                                                                                                                                                                     |
+|--------------|---------|----------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `filePath`   | string  | Yes      | Relative path of the file within the submission. Must be unique within the submission, at most 900 characters, may only contain `a-z`, `A-Z`, `0-9`, `-`, `_`, `.`, `(`, `)` and `/`, and cannot start with `/` or `.`. |
+| `checksum`   | string  | Yes      | MD5 checksum of the file as 32 lowercase hexadecimal characters.                                                                                                                 |
+| `isPackaged` | boolean | No       | Whether the file is packaged temporarily for transfer only. Default is `false`.                                                                                                 |
+
 **Request**
 ```http
 POST /dps-submission/v1/contracts/1234/submissions/8Z7x1T9rN0Xc2B5Yq4L3zP/files HTTP/1.1
@@ -204,6 +231,8 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 
 ### Finalize the submission after upload
 
+Call `finalize` when all files have been uploaded. The submission must have at least one registered, non-empty file, and every registered file must be in S3; otherwise the API returns `422 Unprocessable Entity`. A submission can only be finalized once; a second call returns `409 Conflict`.
+
 **Request**
 ```http
 POST /dps-submission/v1/contracts/1234/submissions/8Z7x1T9rN0Xc2B5Yq4L3zP/finalize HTTP/1.1
@@ -225,7 +254,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     {
       "fileId": "1M0x4T9rN8Xc7B2Yq5L3zK",
       "filePath": "representations/primary_20250217/data/ranablad_20250215.pdf",
-      "s3ObjectKey": "myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
+      "s3ObjectKey": "bucket/myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
       "checksum": "d41d8cd98f00b204e9800998ecf8427e",
       "isPackaged": false,
       "uploadUrl": "https://s3.nb.no/examplebucket/...&X-Amz-Signature=..."
@@ -278,7 +307,7 @@ s3 cp path/to/my_big_movie_file.mov s3://examplebucket/clientId/contract/submiss
 
 If an upload fails or times out:
 1. You can retry the upload using the same pre-signed URL if it hasn't expired
-2. If the URL has expired, delete the file registration and register it again to get a new URL
+2. If the URL has expired, delete the file registration (`DELETE /v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}`) and register it again to get a new URL
 
 ## Status Lifecycle
 
@@ -286,11 +315,9 @@ A submission progresses through the following statuses:
 
 1. `REGISTERED` - Initial state when a submission is created
 2. `UPLOAD_COMPLETED` - All files have been uploaded and the submission has been finalized
-3. `TRANSFERRING` - The submission is being transferred from S3 Storage to the preservation system
-4. `VALIDATING` - The submission is being validated for integrity and completeness
-5. `ARCHIVING` - The submission is being archived in the preservation system
-6. `PRESERVED` - The submission has been successfully preserved
-7. `REJECTED` - The submission has been rejected due to validation errors or other issues
+3. `PROCESSING` - The submission is being transferred to, validated and archived in the preservation system
+4. `PRESERVED` - The submission has been successfully preserved
+5. `REJECTED` - The submission has been rejected due to validation errors or other issues
 
 
 ## Important information
@@ -299,7 +326,7 @@ A submission progresses through the following statuses:
 Verify that the files have the expected checksum before uploading them to DPS. The checksum confirms that the files are intact and have not been modified since the checksum was calculated.
 
 2. **Perform thorough quality checks before submission.**
-Once a submission has been verified and assigned the status `preserved`, it cannot easily be deleted or withdrawn. It is therefore important to carefully review the material and ensure that the content, files, and metadata are accurate before the package is sent to the DPS.
+Once a submission has been verified and assigned the status `PRESERVED`, it cannot easily be deleted or withdrawn. It is therefore important to carefully review the material and ensure that the content, files, and metadata are accurate before the package is sent to the DPS.
 
 3. **Use unique `objectId` values per contract and retain them.**
 `objectId` is the link between the source system and DPS. It is returned in API responses and webhook events, allowing you to identify which object an event relates to. `objectId` cannot be changed.

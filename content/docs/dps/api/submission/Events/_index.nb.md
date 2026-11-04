@@ -22,6 +22,10 @@ Eventer sendes inn via API:
 
 Et event knyttes alltid til en submission, som representerer en Intellektuell entitet (IE).
 
+Eventer kan bare sendes inn mens submissionen har status `REGISTERED`, altså før submissionen er fullført. En vellykket forespørsel gir `204 No Content`. Feltet `isUserInitiated` settes automatisk til `true` for eventer som sendes inn via API-et, og trenger ikke å være med.
+
+Innsendte eventer kan hentes med `GET /v1/contracts/{contractId}/submissions/{submissionId}/events`.
+
 ### Nivå og referanse til fil
 
 Eventer knyttes alltid til en submission (IE). De kan enten gjelde hele informasjonspakken (IE-nivå) eller en spesifikk fil (filnivå).

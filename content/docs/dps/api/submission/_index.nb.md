@@ -27,7 +27,27 @@ Hele prosessen for å levere innhold ser slik ut:
 2. **Registrer filer** for å få pre-signerte opplastingslenker
 3. **Last opp filer** via disse lenkene
 4. **Fullfør submissionen** for å starte bevaringsbehandling
-5. Spor **submission-status** etter hvert som den behandles (statusoppdatering kommer i senere versjon)
+5. Spor **submission-status** etter hvert som den behandles, via [webhooks](../webhooks/) eller ved å hente submissionen
+
+## Endepunkter
+
+| Metode | Sti                                                        | Beskrivelse                           |
+|--------|------------------------------------------------------------|---------------------------------------|
+| POST   | `/v1/contracts/{contractId}/submissions`                         | Opprett submission                    |
+| GET    | `/v1/contracts/{contractId}/submissions`                         | List submissions for kontrakten       |
+| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}`          | Hent submission                       |
+| DELETE | `/v1/contracts/{contractId}/submissions/{submissionId}`          | Slett submission                      |
+| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/files`    | Registrer fil og få opplastings-URL   |
+| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Hent fil                      |
+| DELETE | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Slett fil                     |
+| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/finalize` | Fullfør submission                    |
+| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Send inn event, se [Events](events/)  |
+| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Hent eventer                          |
+
+- **Liste over submissions:** Sortert etter når de ble opprettet, og paginert med `page` (nullbasert, standard `0`) og `size` (standard `10`). Filtrer med `objectId` og/eller `archiveId` (eksakt treff; flere filtre kombineres med OG). Hvis ingenting treffer, er responsen en tom side.
+- **Hent submission:** Bruk query-parameteren `include` for å ta med relaterte data i responsen: `FILES` (registrerte filer), `DESCRIPTIVE_METADATA` (metadataene fra forespørselen) og `EVENTS` (bevaringshendelser), f.eks. `?include=FILES&include=EVENTS`.
+- **Slett submission:** Bare tillatt mens submissionen har status `REGISTERED` og ikke har registrerte filer. Slett filene først; en submission som fortsatt har filer, gir `409 Conflict`.
+- **Slett fil:** Bare tillatt mens submissionen har status `REGISTERED`; ellers svarer API-et med `409 Conflict`. Som standard slettes bare filregistreringen. Legg til `deleteFromS3=true` for også å slette den opplastede filen fra S3.
 
 
 ## Eksempel på API-bruk
@@ -38,7 +58,7 @@ Hele prosessen for å levere innhold ser slik ut:
 
 | Felt       | Type    | Påkrevd | Beskrivelse                                                                                                                                                                                                                                                                                                                                        |
 |------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `objectId` | string  | Ja      | Klientens identifikator for innleveringsobjektet – vanligvis en ID fra kildesystemet (f.eks. en database-ID eller URN-fragment). Kobler DPS-hendelser som webhooks tilbake til objektet i ditt system. Må være unik per kontrakt (kombinasjonen `contractId` + `objectId` må være unik). Kan ikke endres etter at innleveringen er levert til DPS. |
+| `objectId` | string  | Ja      | Klientens identifikator for innleveringsobjektet – vanligvis en ID fra kildesystemet (f.eks. en database-ID eller URN-fragment). Kobler DPS-hendelser som webhooks tilbake til objektet i ditt system. Må være unik per kontrakt (kombinasjonen `contractId` + `objectId` må være unik). Kan ikke endres etter at innleveringen er levert til DPS. Må være 3–200 tegn og kan bare inneholde `a-z`, `A-Z`, `0-9`, `-` og `_`. |
 | `priority` | integer | Nei     | Prioritet for behandling i køen. Gyldige verdier: `1` (høyest) til `100` (lavest). Standard er `50` (normal prioritet), og er det som vanligvis skal brukes. Verdier over `50` angir lavere prioritet og brukes f.eks. ved rearkivering.                                                                                                           |
 | `metadata` | object  | Ja      | Beskrivende metadata om innholdet. Se eksempelet nedenfor for tilgjengelige felt.                                                                                                                                                                                                                                                                  |
 
@@ -74,7 +94,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     "creator": [
       {
         "name": "Marek, Václav",
-        "type": "Person",
+        "type": "person",
         "role": "Fotograf",
         "authority": {
           "source": "Example authority",
@@ -86,7 +106,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     "contributor": [
       {
         "name": "Nordmann, Ola",
-        "type": "Person",
+        "type": "person",
         "role": "Avbildet",
         "authority": {
           "source": "Example authority",
@@ -98,7 +118,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     "publisher": [
       {
         "name": "Gyldendal",
-        "type": "Organization",
+        "type": "korporasjon",
         "authority": {
           "source": "Example authority",
           "code": "198097",
@@ -129,14 +149,14 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     "language": [
       {
         "type": "Subtitles",
-        "value": "Swedish",
-        "lang": "eng"
+        "value": "swe"
       }
     ],
-    "isPartOf": [
+    "relation": [
       {
-        "value": "Chronicles of Narnia",
-        "lang": "eng"
+        "title": "Chronicles of Narnia",
+        "lang": "eng",
+        "type": "isPartOf"
       }
     ],
     "provenance": [
@@ -147,7 +167,6 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     ],
     "subject": [
       {
-        "lang": "nob",
         "value": "Norge"
       }
     ],
@@ -177,6 +196,14 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 
 `isPackaged` angir om filer er pakket midlertidig kun for overføringsformål. Disse filene pakkes for å lette overføringen, og pakkes ut av bevaringsflyten.
 
+**Felt i forespørselen**
+
+| Felt         | Type    | Påkrevd | Beskrivelse                                                                                                                                                                     |
+|--------------|---------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `filePath`   | string  | Ja      | Relativ sti til filen i submissionen. Må være unik i submissionen, kan være maks 900 tegn, kan bare inneholde `a-z`, `A-Z`, `0-9`, `-`, `_`, `.`, `(`, `)` og `/`, og kan ikke starte med `/` eller `.`. |
+| `checksum`   | string  | Ja      | MD5-sjekksum for filen, som 32 heksadesimale tegn med små bokstaver.                                                                                                             |
+| `isPackaged` | boolean | Nei     | Om filen er pakket midlertidig kun for overføring. Standard er `false`.                                                                                                         |
+
 **Forespørsel**
 ```http
 POST /dps-submission/v1/contracts/1234/submissions/8Z7x1T9rN0Xc2B5Yq4L3zP/files HTTP/1.1
@@ -196,7 +223,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 {
   "fileId": "1M0x4T9rN8Xc7B2Yq5L3zK",
   "filePath": "representations/primary_20250217/data/ranablad_20250215.pdf",
-  "s3ObjectKey": "examplebucket/clientId/contract/submissionId/path/to/file.txt",
+  "s3ObjectKey": "bucket/myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
   "checksum": "d41d8cd98f00b204e9800998ecf8427e",
   "isPackaged": false,
   "uploadUrl": "https://s3.nb.no/examplebucket/...&X-Amz-Signature=..."
@@ -204,6 +231,8 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 ```
 
 ### Fullfør submission
+
+Kall `finalize` når alle filene er lastet opp. Submissionen må ha minst én registrert fil som ikke er tom, og alle registrerte filer må ligge i S3; ellers svarer API-et med `422 Unprocessable Entity`. En submission kan bare fullføres én gang; et nytt kall gir `409 Conflict`.
 
 **Forespørsel**
 ```http
@@ -284,7 +313,7 @@ s3 cp path/to/my_big_movie_file.mov s3://examplebucket/clientId/contract/submiss
 ### Håndtering av feil
 
 - Hvis opplasting feiler eller går ut på tid, kan du prøve på nytt med samme URL (hvis gyldig)
-- Hvis URL-en er utløpt, slett filregistreringen og registrer på nytt for å få en ny URL
+- Hvis URL-en er utløpt, slett filregistreringen (`DELETE /v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}`) og registrer på nytt for å få en ny URL
 
 ## Statusflyt
 
@@ -292,11 +321,9 @@ En submission går gjennom følgende statuser:
 
 1. `REGISTERED` – Opprettet
 2. `UPLOAD_COMPLETED` – Alle filer er lastet opp og submission er fullført
-3. `TRANSFERRING` – Innhold overføres til bevaringssystemet
-4. `VALIDATING` – Innholdet valideres
-5. `ARCHIVING` – Innholdet arkiveres
-6. `PRESERVED` – Innholdet er bevart
-7. `REJECTED` – Submission er avvist pga. feil
+3. `PROCESSING` – Innholdet overføres til, valideres og arkiveres i bevaringssystemet
+4. `PRESERVED` – Innholdet er bevart
+5. `REJECTED` – Submission er avvist pga. feil
 
 
 ## Viktig informasjon
@@ -305,7 +332,7 @@ En submission går gjennom følgende statuser:
 Kontroller at filene har forventet sjekksum før de lastes opp til DPS. Sjekksummen bekrefter at filene er intakte og ikke har blitt endret siden den ble beregnet.
 
 1. **Gjør grundige kvalitetssjekker før innsending.**
-Når en innlevering er verifisert og har fått status `preserved`, kan den ikke enkelt slettes eller trekkes tilbake. Det er derfor viktig å vurdere materialet nøye og kontrollere at innhold, filer og metadata er korrekte før pakken sendes til DPS.
+Når en innlevering er verifisert og har fått status `PRESERVED`, kan den ikke enkelt slettes eller trekkes tilbake. Det er derfor viktig å vurdere materialet nøye og kontrollere at innhold, filer og metadata er korrekte før pakken sendes til DPS.
 
 1. **Bruk unike `objectId` per kontrakt og ta vare på disse.**
 `objectId` er koblingen mellom kildesystemet og DPS. Den returneres i API-responser og webhook-hendelser, slik at du alltid kan identifisere hvilket objekt en hendelse gjelder. `objectId` kan ikke endres.
