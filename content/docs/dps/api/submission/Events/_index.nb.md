@@ -41,10 +41,8 @@ Dette styres av `fileRef`:
 
 ```json
 {
-  "event": {
-    "fileRef": {
-      "relativePath": "representations/rep-images/data/DSC_0456.JPG"
-    }
+  "fileRef": {
+    "relativePath": "representations/rep-images/data/DSC_0456.JPG"
   }
 }
 ```
@@ -53,10 +51,7 @@ I dette eksemplet gjelder eventet filen `DSC_0456.JPG` i representasjonen `rep-i
 
 ## Struktur på JSON-payload
 
-Et event sendes inn som en JSON-struktur med to hovedelementer:
-
-- `agent` – beskriver aktøren som utførte handlingen
-- `event` – beskriver selve handlingen og resultatet
+Et event sendes inn som ett JSON-objekt. Feltene som beskriver selve handlingen og resultatet ligger på toppnivå. Aktøren som utførte handlingen, beskrives i objektet `agent`.
 
 `fileRef` er valgfritt og brukes bare når eventet gjelder en spesifikk fil. Hvis `fileRef` ikke er angitt, gjelder eventet hele informasjonspakken (IE-nivå).
 
@@ -68,18 +63,16 @@ Et event sendes inn som en JSON-struktur med to hovedelementer:
     "agentName": "...",
     "agentType": "...",
     "agentVersion": "...",
-    "agentNotes": "..."
+    "agentNote": "..."
   },
-  "event": {
-    "eventDateTime": "...",
-    "eventType": "...",
-    "eventDetail": "...",
-    "fileRef": {
-      "relativePath": "..."
-    },
-    "outcome": "...",
-    "outcomeDetail": "..."
-  }
+  "eventDateTime": "...",
+  "eventType": "...",
+  "eventDetail": "...",
+  "fileRef": {
+    "relativePath": "..."
+  },
+  "outcome": "...",
+  "outcomeDetail": "..."
 }
 ```
 
@@ -98,18 +91,19 @@ Teknisk dokumentasjon for avlevering i API og formatering av eventer finnes her:
 
 **Tillatte elementer er:**
 
-**Agent:**\*
+**Agent (`agent`):**\*
 
 - **agentName**\*
 - **agentType**\*
 - **agentVersion**
-- **agentNotes**
+- **agentNote**
 
-**Event:**\*
+**Event (på toppnivå):**
 
 - **eventDateTime**\*
 - **eventType**\*
 - **eventDetail**
+- **fileRef** (med **relativePath**\* når `fileRef` brukes)
 - **outcome**\*
 - **outcomeDetail**
 
@@ -156,7 +150,7 @@ kan gi ulike resultater.
 - "3.2"
 - "1.11.0; DROID\_SignatureFile\_V116.xml; container-signature-20231127.xml"
 
-### AgentNotes
+### AgentNote
 
 Tilleggsinformasjon om agenten som utførte handlingen. Elementet skal dokumentere egenskaper, kontekst eller oppsett av agenten, ikke hva agenten gjorde i et
 spesifikt event.
@@ -171,7 +165,7 @@ spesifikt event.
 
 - "Verktøy for identifisering av filformater som bruker PRONOM-signaturer. Installert med signatursett versjon 95, som støtter formatene PDF, TIFF, JPEG og
   XML."
-- "Verktøy for automatisering av dataflyt som gjør det mulig å designe og administrere komplekse datapipelines."
+- "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
 - "Installert i en tilpasset konfigurasjon med aktiverte moduler for PDF, TIFF og JPEG. Løsningen kjører i kjøremiljø Java 17."
 - "Institusjon med formelt ansvar for digital bevaring, mottak og langsiktig forvaltning av arkivmateriale."
 
@@ -188,7 +182,7 @@ Tidspunktet hendelsen fant sted. Skal angis etter ISO 8601-standarden, med tidss
 
 **Eksempel:**
 
-- "2026-02-23T10:45:00+01:00 "
+- "2026-02-23T10:45:00+01:00"
 
 ### EventType
 
@@ -211,16 +205,17 @@ Beskrivelsen bør angi hvilken operasjon som ble utført, på hvilket objekt, og
 Overordnet resultat av hendelsen. 
 Dette elementet angir om hendelsen ble gjennomført som forventet, mislyktes eller ble fullført med avvik. 
 Verdien skal være konsistent og brukes likt for tilsvarende hendelser.
+Verdiene er hentet fra [Library of Congress sitt vokabular for eventOutcome](https://id.loc.gov/vocabulary/preservation/eventOutcome.html).
 
 **Tillatte verdier:**
 
-- "success"
-- "failure"
-- "warning"
+- "success" – hendelsen ga det tiltenkte resultatet.
+- "warning" – hendelsen ga en advarsel som må vurderes. Dette omfatter også delvis vellykkede hendelser, for eksempel en validering som rapporterer brudd på et BØR-krav.
+- "fail" – hendelsen ga ikke det tiltenkte resultatet.
 
 ### OutcomeDetail
 
-Dette elementet brukes bare der det er behov for å dokumentere ytterligere informasjon om utfallet. I mange tilfeller er det tilstrekkelig å bruke «outcome»-elementet (success, failure, warning).
+Dette elementet brukes bare der det er behov for å dokumentere ytterligere informasjon om utfallet. I mange tilfeller er det tilstrekkelig å bruke «outcome»-elementet (success, warning, fail).
 "OutcomeDetail" er en konkret og presis beskrivelse av resultatet av hendelsen. 
 Feltet bør brukes når resultatet inneholder informasjon som er relevant for videre bruk, kontroll eller dokumentasjon. 
 Dette elementet skal dokumentere hva som faktisk ble oppnådd eller hvilke avvik som ble identifisert. 
@@ -258,15 +253,45 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "Heritrix Web Crawler",
     "agentType": "software",
     "agentVersion": "3.5.0",
-    "agentNotes": "Brukt til nettarkivering for å høste inn nettsteder; HTML, bilder, skript og lenkede ressurser."
+    "agentNote": "Brukt til nettarkivering for å høste inn nettsteder; HTML, bilder, skript og lenkede ressurser."
   },
-  "event": {
-    "eventDateTime": "2026-02-03T07:14:01.716+01:00",
-    "eventType": "capture",
-    "eventDetail": "Høstet nettstedet 'https://example.no'; alle sider, bilder, PDF-er og lenkede ressurser, i henhold til automatisk periodisk webhøsting.",
-    "outcome": "success",
-    "outcomeDetail": "Totalt antall sider høstet: 234; total datastørrelse: 1,2 GB; alle URL-er arkivert i WARC-format."
-  }
+  "eventDateTime": "2026-02-03T07:14:01.716+01:00",
+  "eventType": "capture",
+  "eventDetail": "Høstet nettstedet 'https://example.org'; alle sider, bilder, PDF-er og lenkede ressurser, i henhold til automatisk periodisk webhøsting.",
+  "outcome": "success",
+  "outcomeDetail": "Totalt antall sider høstet: 234; total datastørrelse: 1,2 GB; alle URL-er arkivert i WARC-format."
+}
+```
+
+### Compression
+
+| Navn        | **compression**                                                          |
+|:------------|:-------------------------------------------------------------------------|
+| Beskrivelse | Prosessen der data kodes for å spare lagringsplass eller overføringstid. |
+| Omfang      | IE, Fil                                                                  |
+
+**Retningslinjer for bruk:**
+
+- Brukes når filer komprimeres uten at filformatet endres, for eksempel når ukomprimerte TIFF-filer komprimeres med LZW. Hvis filformatet endres (for
+  eksempel fra WAV til FLAC), bruk «migration».
+- Eventen bør knyttes til IE når det er mulig, for eksempel når alle filene er komprimert på samme måte.
+- `"eventDetail"` bør angi komprimeringsmetode og om komprimeringen er tapsfri eller tapsbeheftet.
+
+**Eksempel:**
+
+```json
+{
+  "agent": {
+    "agentName": "libtiff (tiffcp)",
+    "agentType": "software",
+    "agentVersion": "4.7.1",
+    "agentNote": "Verktøy fra libtiff for kopiering og konvertering av TIFF-filer, blant annet for å endre komprimering."
+  },
+  "eventDateTime": "2026-02-03T14:20:31.087+01:00",
+  "eventType": "compression",
+  "eventDetail": "Tapsfri komprimering av alle TIFF-filer i pakken (120 filer) med LZW og horisontal prediktor. Brukte parametere: command=tiffcp -c lzw:2 input.tif output.tif; compression=LZW; predictor=2; integrityChecked=yes",
+  "outcome": "success",
+  "outcomeDetail": "Komprimerte filer lagret i representations/primary_20250325/data/. Pikselinnholdet er verifisert uendret. Samlet størrelse redusert fra 6,1 GB til 3,4 GB."
 }
 ```
 
@@ -275,7 +300,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 | Navn        | **creation**                            |
 |:------------|:----------------------------------------|
 | Beskrivelse | Prosessen der et nytt objekt opprettes. En ny fil eller et digitalt objekt skapes, for eksempel ved digitalisering. |
-| Omfang      | Fil                                     |
+| Omfang      | IE, Fil                                 |
 
 **Retningslinjer for bruk:**
 
@@ -291,14 +316,12 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "Pyramix",
     "agentType": "software",
     "agentVersion": "15.0.8",
-    "agentNotes": "Programvare for innspilling, redigering, mixing og mastering av lyd."
+    "agentNote": "Programvare for innspilling, redigering, miksing og mastering av lyd."
   },
-  "event": {
-    "eventDateTime": "2026-02-03T07:14:01.716+01:00",
-    "eventType": "creation",
-    "eventDetail": "Digitalisering av fysisk bærer, 1/4-lydbånd, til WAV/BWF ved bruk av Pyramix og A/D-konverter. Opptak gjort i sanntid fra analog kilde via ekstern konverter. Verifisert opptakskvalitet",
-    "outcome": "success"
-  }
+  "eventDateTime": "2026-02-03T08:02:17.304+01:00",
+  "eventType": "creation",
+  "eventDetail": "Digitalisering av fysisk bærer, 1/4-tommes lydbånd, til WAV/BWF ved bruk av Pyramix og A/D-konverter. Opptak gjort i sanntid fra analog kilde via ekstern konverter. Verifisert opptakskvalitet.",
+  "outcome": "success"
 }
 ```
 
@@ -323,18 +346,16 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "Apache NiFi",
     "agentType": "software",
     "agentVersion": "2.4.0",
-    "agentNotes": "Programvare for automatisering av dataflyter."
+    "agentNote": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
   },
-  "event": {
-    "eventDateTime": "2026-02-03T10:47:29.332+01:00",
-    "eventType": "filename change",
-    "eventDetail": "Filnavn ble endret for å følge gjeldende filnavnstandard.",
-    "fileRef": {
-      "relativePath": "representations/rep-text_20230219/data/document_001.pdf"
-    },
-    "outcome": "success",
-    "outcomeDetail": "Filnavn endret fra NN_TR_2011_01_31_18_40.mp4 til NRK_TR_2011_01_31_18_40.mp4."
-  }
+  "eventDateTime": "2026-02-03T10:47:29.332+01:00",
+  "eventType": "filename change",
+  "eventDetail": "Filnavn ble endret for å følge gjeldende filnavnstandard.",
+  "fileRef": {
+    "relativePath": "representations/primary_20250325/data/NRK_TR_2011_01_31_18_40.mp4"
+  },
+  "outcome": "success",
+  "outcomeDetail": "Filnavn endret fra NN_TR_2011_01_31_18_40.mp4 til NRK_TR_2011_01_31_18_40.mp4."
 }
 ```
 
@@ -360,14 +381,12 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "md5sum (GNU coreutils)",
     "agentType": "software",
     "agentVersion": "8.32",
-    "agentNotes": "Verktøy brukt til å beregne og verifisere sjekksummer for å kontrollere dataintegritet over tid."
+    "agentNote": "Verktøy brukt til å beregne og verifisere sjekksummer for å kontrollere dataintegritet over tid."
   },
-  "event": {
-    "eventDateTime": "2026-02-03T12:05:48.210+01:00",
-    "eventType": "fixity check",
-    "eventDetail": "MD5-sjekksummer ble kontrollert mot tidligere registrerte verdier for alle filer i pakken.",
-    "outcome": "success"
-  }
+  "eventDateTime": "2026-02-03T12:05:48.210+01:00",
+  "eventType": "fixity check",
+  "eventDetail": "MD5-sjekksummer ble kontrollert mot tidligere registrerte verdier for alle filer i pakken.",
+  "outcome": "success"
 }
 ```
 
@@ -392,14 +411,12 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "GNU ddrescue",
     "agentType": "software",
     "agentVersion": "1.27",
-    "agentNotes": "Verktøy brukt for å opprette bit-for-bit diskbilder fra fysiske lagringsmedier."
+    "agentNote": "Verktøy brukt for å opprette bit-for-bit diskbilder fra fysiske lagringsmedier."
   },
-  "event": {
-    "eventDateTime": "2026-02-03T09:00:00+02:00",
-    "eventType": "imaging",
-    "eventDetail": "Opprettet bit-for-bit diskbilde fra ekstern harddisk. Diskbildet inkluderer filsystemstruktur og tilhørende metadata fra originalmediet",
-    "outcome": "success"
-  }
+  "eventDateTime": "2026-02-03T09:00:00+01:00",
+  "eventType": "imaging",
+  "eventDetail": "Opprettet bit-for-bit diskbilde fra ekstern harddisk. Diskbildet inkluderer filsystemstruktur og tilhørende metadata fra originalmediet.",
+  "outcome": "success"
 }
 ```
 
@@ -418,37 +435,33 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 **Eksempel:**
 
 
-```JSON
+```json
 {
   "agent": {
     "agentName": "nifi-nb-eark-nar.EarkSIPGenerator",
     "agentType": "software",
     "agentVersion": "1.0.11",
-    "agentNotes": "Apache NiFi-prosessor utviklet av Nasjonalbiblioteket for opprettelse av E-ARK SIP. Bruker commons-ip, et Java-bibliotek for opprettelse og håndtering av E-ARK-informasjonspakker."
+    "agentNote": "Apache NiFi-prosessor utviklet av Nasjonalbiblioteket for opprettelse av E-ARK SIP. Bruker commons-ip, et Java-bibliotek for opprettelse og håndtering av E-ARK-informasjonspakker."
   },
-  "event": {
-    "eventDateTime": "2026-05-13T12:42:15+02:00",
-    "eventType": "information package creation",
-    "eventDetail": "Opprettet SIP i henhold til Nasjonalbibliotekets profil SIP 1.0.",
-    "outcome": "success"
-  }
+  "eventDateTime": "2026-02-03T16:42:15+01:00",
+  "eventType": "information package creation",
+  "eventDetail": "Opprettet SIP i henhold til Nasjonalbibliotekets profil SIP 1.0.",
+  "outcome": "success"
 }
 ```
 
 ```json
 {
   "agent": {
-    "agentName": "Commons IP",
+    "agentName": "org.roda-community:commons-ip2",
     "agentType": "software",
-    "agentVersion": "2.3.0",
-    "agentNotes": "Verktøy brukt for å opprette E-ARK SIP-pakker."
+    "agentVersion": "2.12.0",
+    "agentNote": "Java-bibliotek for opprettelse og håndtering av E-ARK-informasjonspakker."
   },
-  "event": {
-    "eventDateTime": "2026-05-13T12:42:15+02:00",
-    "eventType": "information package creation",
-    "eventDetail": "Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK).",
-    "outcome": "success"
-  }
+  "eventDateTime": "2026-02-03T16:58:03+01:00",
+  "eventType": "information package creation",
+  "eventDetail": "Opprettelse av E-ARK SIP i henhold til E-ARK Common Specification (CSIP) V.2.2.0, E-ARK SIP V.2.2.0 og Nasjonalbibliotekets spesifikasjoner SIP 1.0 (E-ARK).",
+  "outcome": "success"
 }
 ```
 
@@ -475,14 +488,12 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "md5sum (GNU coreutils)",
     "agentType": "software",
     "agentVersion": "8.32",
-    "agentNotes": "Verktøy brukt til å beregne sjekksummer for verifikasjon av dataintegritet."
+    "agentNote": "Verktøy brukt til å beregne og verifisere sjekksummer for å kontrollere dataintegritet over tid."
   },
-  "event": {
-    "eventDateTime": "2026-02-03T13:36:42.455+01:00",
-    "eventType": "message digest calculation",
-    "eventDetail": "MD5-sjekksummer ble beregnet for alle filer i pakken.",
-    "outcome": "success"
-  }
+  "eventDateTime": "2026-02-03T13:36:42.455+01:00",
+  "eventType": "message digest calculation",
+  "eventDetail": "MD5-sjekksummer ble beregnet for alle filer i pakken.",
+  "outcome": "success"
 }
 ```
 
@@ -507,18 +518,16 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "ExifTool",
     "agentType": "software",
     "agentVersion": "12.60",
-    "agentNotes": "Utleder tekniske metadata fra filer."
+    "agentNote": "Utleder tekniske metadata fra filer."
   },
-  "event": {
-    "eventDateTime": "2026-02-19T11:45:32.123+01:00",
-    "eventType": "metadata extraction",
-    "eventDetail": "Utledet tekniske metadata fra bildefil",
-    "fileRef": {
-      "relativePath": "representations/rep-images_20230908/data/DSC_0456.JPG"
-    },
-    "outcome": "success",
-    "outcomeDetail": "Bilde: format JPEG, oppløsning 6000x4000 piksler, 24-bit farge; Kamera: Nikon D850; Linse: 24-70mm f/2.8; Eksponering: 1/125 sec at f/8; ISO: 100; Filstørrelse: 18.2 MB."
-  }
+  "eventDateTime": "2026-02-19T11:45:32.123+01:00",
+  "eventType": "metadata extraction",
+  "eventDetail": "Utledet tekniske metadata fra bildefil.",
+  "fileRef": {
+    "relativePath": "representations/rep-images_20230908/data/DSC_0456.JPG"
+  },
+  "outcome": "success",
+  "outcomeDetail": "Bilde: format JPEG, oppløsning 8256x5504 piksler, 24-bit farge; Kamera: Nikon D850; Linse: 24-70mm f/2.8; Eksponering: 1/125 s ved f/8; ISO: 100; Filstørrelse: 18,2 MB."
 }
 ```
 
@@ -528,18 +537,16 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "Audioinspector",
     "agentType": "software",
     "agentVersion": "5.5",
-    "agentNotes": "Programvare for automatisk analyse, kvalitetskontroll, og metadatahåndtering av lydfiler."
+    "agentNote": "Programvare for automatisk analyse, kvalitetskontroll og metadatahåndtering av lydfiler."
   },
-  "event": {
-    "eventDateTime": "2026-02-11T12:01:08Z",
-    "eventType": "metadata extraction",
-    "eventDetail": "Wav-filer ble analysert for kvalitetskontroll og dokumentasjon.",
-    "fileRef": {
-      "relativePath": "representations/primary_20250325/data/something.wav"
-    },
-    "outcome": "success",
-    "outcomeDetail": "Utledet en XML-metadatafil som inneholder detaljert analyse: representations/primary20250325/metadata/technical/audioinspector/metadata.xml"
-  
+  "eventDateTime": "2026-02-11T12:01:08Z",
+  "eventType": "metadata extraction",
+  "eventDetail": "WAV-filen ble analysert for kvalitetskontroll og dokumentasjon.",
+  "fileRef": {
+    "relativePath": "representations/primary_20250325/data/something.wav"
+  },
+  "outcome": "success",
+  "outcomeDetail": "Utledet en XML-metadatafil som inneholder detaljert analyse: representations/primary_20250325/metadata/technical/audioinspector/metadata.xml"
 }
 ```
 
@@ -565,15 +572,13 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "FFmpeg",
     "agentType": "software",
     "agentVersion": "6.0",
-    "agentNotes": "Mediekonvertering og koding av AV-filer."
+    "agentNote": "Mediekonvertering og koding av AV-filer."
   },
-  "event": {
-    "eventDateTime": "2026-02-03T15:09:55.774+01:00",
-    "eventType": "migration",
-    "eventDetail": "Batch migrering av alle MOV-filer i pakken (25 filer) til MXF/Op1a-format med JPEG2000, videokodek og PCM lydkodek. Brukte parametere: command=ffmpeg -i input.mov -c:v jpeg2000 -c:a pcm_s16le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000; audioCodec=PCM; integrityChecked=yes",
-    "outcome": "success",
-    "outcomeDetail": "Resulterende MXF-filer lagret i representations/primary_20250325/data/."
-  }
+  "eventDateTime": "2026-02-03T15:09:55.774+01:00",
+  "eventType": "migration",
+  "eventDetail": "Batch-migrering av alle MOV-filer i pakken (25 filer) til MXF/Op1a-format med tapsfri JPEG2000-videokodek og 24-bit PCM-lydkodek. Brukte parametere: command=ffmpeg -i input.mov -c:v jpeg2000 -pred dwt53 -c:a pcm_s24le output.mxf; container=MXF/Op1a; videoCodec=JPEG2000 (tapsfri, dwt53); audioCodec=PCM 24-bit; integrityChecked=yes",
+  "outcome": "success",
+  "outcomeDetail": "Resulterende MXF-filer lagret i representations/primary_20250325/data/."
 }
 ```
 
@@ -596,15 +601,13 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   "agent": {
     "agentName": "Apache NiFi",
     "agentType": "software",
-    "agentVersion": "2.2.0",
-    "agentNotes": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+    "agentVersion": "2.4.0",
+    "agentNote": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
   },
-  "event": {
-    "eventDateTime": "2026-02-18T14:02:33+01:00",
-    "eventType": "transfer",
-    "eventDetail": "Overført pakke fra Oracle HSM(SAM-FS) til lokalt arbeidsområde for videre behandling; Opprinnelige sjekksummer verifisert med md5sum (GNU coreutils) ved opplasting.",
-    "outcome": "success"
-  }
+  "eventDateTime": "2026-02-18T14:02:33+01:00",
+  "eventType": "transfer",
+  "eventDetail": "Overført pakke fra bevaringslageret Oracle HSM (SAM-FS) til lokalt arbeidsområde for videre behandling; opprinnelige sjekksummer verifisert med md5sum (GNU coreutils) ved opplasting.",
+  "outcome": "success"
 }
 ```
 
@@ -630,14 +633,12 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "JHOVE",
     "agentType": "software",
     "agentVersion": "1.32.1",
-    "agentNotes": "Verktøy brukt til identifikasjon, validering og karakterisering av digitale objekter."
+    "agentNote": "Verktøy brukt til identifikasjon, validering og karakterisering av digitale objekter."
   },
-  "event": {
-    "eventDateTime": "2026-02-03T17:30:39.662+01:00",
-    "eventType": "validation",
-    "eventDetail": "Validerte at filer samsvarer med spesifikasjonene til det aktuelle filformatet.",
-    "outcome": "success"
-  }
+  "eventDateTime": "2026-02-03T17:30:39.662+01:00",
+  "eventType": "validation",
+  "eventDetail": "Validerte at filer samsvarer med spesifikasjonene til det aktuelle filformatet.",
+  "outcome": "success"
 }
 ```
 
@@ -647,15 +648,31 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
     "agentName": "Apache NiFi",
     "agentType": "software",
     "agentVersion": "2.4.0",
-    "agentNotes": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+    "agentNote": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
   },
-  "event": {
-    "eventDateTime": "2026-02-03T17:30:39.662+01:00",
-    "eventType": "validation",
-    "eventDetail": "Validerte E-ARK SIP ved bruk av DPS Validation workflow v.a00f683: nifi-nb-eark-nar,EarkSIPValidator 1.0.7; org.roda-community,commons-ip2 2.12.0.",
-    "outcome": "success",
-    "outcomeDetail": "Validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 and NB-SIP-MOVINGIMAGES-PROFILE-1.0."
-  }
+  "eventDateTime": "2026-02-03T17:41:12.508+01:00",
+  "eventType": "validation",
+  "eventDetail": "Validerte E-ARK SIP ved bruk av DPS Validation workflow v.a00f683: nifi-nb-eark-nar.EarkSIPValidator 1.0.7; org.roda-community:commons-ip2 2.12.0.",
+  "outcome": "success",
+  "outcomeDetail": "Validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 og NB-SIP-MOVINGIMAGES-PROFILE-1.0."
+}
+```
+
+Eksempel på validering med avvik som ikke stoppet behandlingen:
+
+```json
+{
+  "agent": {
+    "agentName": "Apache NiFi",
+    "agentType": "software",
+    "agentVersion": "2.4.0",
+    "agentNote": "Programvare for automatisering av dataflyter som muliggjør utforming og administrasjon av komplekse datapipelines."
+  },
+  "eventDateTime": "2026-02-03T17:48:05.219+01:00",
+  "eventType": "validation",
+  "eventDetail": "Validerte E-ARK SIP ved bruk av DPS Validation workflow v.a00f683: nifi-nb-eark-nar.EarkSIPValidator 1.0.7; org.roda-community:commons-ip2 2.12.0.",
+  "outcome": "warning",
+  "outcomeDetail": "Validert mot profilene E-ARK-SIP-v2-2-0 og NB-SIP-STRUCTURE-1.0 med én advarsel: CSIPSTR13 – representasjonsmappen primary_20250325 mangler undermappen metadata (BØR-krav). Behandlingen fortsatte."
 }
 ```
 
@@ -669,6 +686,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 **Retningslinjer for bruk:**
 
 - Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
+- Hvis det blir funnet virus eller annen skadelig programvare, skal `outcome` være `fail`. Knytt eventen til den berørte filen med `fileRef`, og beskriv funnet i `outcomeDetail`.
 
 **Eksempler:**
 
@@ -677,15 +695,13 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   "agent": {
     "agentName": "ClamAV",
     "agentType": "software",
-    "agentVersion": "1.8.7",
-    "agentNotes": "Antivirusprogram brukt til å oppdage skadelig programvare."
+    "agentVersion": "1.4.2",
+    "agentNote": "Antivirusprogram brukt til å oppdage skadelig programvare."
   },
-  "event": {
-    "eventDateTime": "2026-02-03T18:27:53.842+01:00",
-    "eventType": "virus check",
-    "eventDetail": "Alle filer i pakken ble skannet for virus og annen skadelig programvare før videre behandling.",
-    "outcome": "success"
-  }
+  "eventDateTime": "2026-02-03T18:27:53.842+01:00",
+  "eventType": "virus check",
+  "eventDetail": "Alle filer i pakken ble skannet for virus og annen skadelig programvare før videre behandling.",
+  "outcome": "success"
 }
 ```
 
@@ -694,16 +710,17 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   "agent": {
     "agentName": "ClamAV",
     "agentType": "software",
-    "agentVersion": "1.8.7",
-    "agentNotes": "Antivirusprogram utviklet for å oppdage skadelig programvare."
+    "agentVersion": "1.4.2",
+    "agentNote": "Antivirusprogram brukt til å oppdage skadelig programvare."
   },
-  "event": {
-    "eventDateTime": "2026-02-03T07:14:01.716+01:00",
-    "eventType": "virus check",
-    "eventDetail": "Alle filer i pakken ble skannet før overføring.",
-    "outcome": "success",
-    "outcomeDetail": "Oppdaget signaturen Win.Trojan.MacroVirus-12345 i file_2026.xml."
-  }
+  "eventDateTime": "2026-02-03T08:51:40.127+01:00",
+  "eventType": "virus check",
+  "eventDetail": "Filen ble skannet for virus og annen skadelig programvare før overføring.",
+  "fileRef": {
+    "relativePath": "representations/primary_20250325/data/file_2026.xml"
+  },
+  "outcome": "fail",
+  "outcomeDetail": "Oppdaget signaturen Win.Trojan.MacroVirus-12345."
 }
 ```
 
@@ -739,7 +756,7 @@ Denne veiledningen er basert på Nasjonalbibliotekets interne arbeidsflyter og e
 
 - **Transfer:** Fra avleverer til intern produksjonsløype/internt område. 
 - **Message digest calculation eller fixity check:** Hvis filer avleveres med sjekksum, må disse verifiseres. Hvis filene mangler sjekksum, må det opprettes. 
-- **Information package cration:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK).
+- **Information package creation:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK).
 
 
 **Kan være relevant:**
@@ -757,7 +774,7 @@ Denne veiledningen er basert på Nasjonalbibliotekets interne arbeidsflyter og e
 
 - **Transfer:** Fra tidligere lagringssystem. 
 - **Fixity check eller message digest calculation:** Kontroll av eksisterende sjekksummer. Hvis materialet mangler sjekksummer, må det opprettes. 
-- **Information package cration:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK). Denne er relevant kun når bevaringspakkene endres.
+- **Information package creation:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK). Denne er relevant kun når bevaringspakkene endres.
   
 Merk at det kan være én event med event-type «transfer» som inkluderer sjekksumverifisering: transfer fra X til Y, med sjekksumverifisering på veien. 
 
@@ -765,7 +782,7 @@ Merk at det kan være én event med event-type «transfer» som inkluderer sjekk
 **Kan være relevant:**
 
 - **Creation:** Hvis opprettelse av filene ikke er dokumentert tidligere, og man har denne informasjonen tilgjengelig. 
-- **Filenamechange:** Hvis filnavn endres etter at det er flyttet fra tidligere lagringssystem. 
+- **Filename change:** Hvis filnavn endres etter at det er flyttet fra tidligere lagringssystem. 
 - **Migration:** Hvis filformat endres. 
 
 
@@ -776,7 +793,7 @@ Merk at det kan være én event med event-type «transfer» som inkluderer sjekk
 - **Capture:** Selve innhøstingen/crawl. 
 - **Creation:** Hvis det lages for eksempel nye WARC-filer.
 - **Message digest calculation:** Opprettelse av sjekksummer. Det anses ikke som nødvendig å dokumentere verifisering av sjekksummene rett etter at de er opprettet. Gjerne verifiser dem før de sendes videre, men ikke lag en event. 
-- **Information package cration:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK). 
+- **Information package creation:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK). 
 
 
 **Kan være relevant:**
