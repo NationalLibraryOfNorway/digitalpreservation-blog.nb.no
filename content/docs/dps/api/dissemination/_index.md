@@ -120,7 +120,7 @@ Preliminary statuses (may be extended):
 3. Store the `disseminationId` locally.
 4. Handle 409 by fetching the existing dissemination instead of posting again.
 5. Avoid tight polling; use exponential backoff.
-6. Download the files before the links expire (`expirationDate` in the `dissemination.delivered` webhook). If the links expire before you have downloaded the files, contact the digital preservation team.
+6. Download the files before the links expire (`expirationDate` in the `dissemination.delivered` webhook). If the links expire, create a new dissemination request; each dissemination gets new links.
 
 ## Support
 

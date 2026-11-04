@@ -120,7 +120,7 @@ Foreløpige statuser (kan utvides):
 3. Lagre `disseminationId` lokalt.
 4. Håndter 409 ved å hente eksisterende i stedet for å poste på nytt.
 5. Poll med eksponentiell backoff.
-6. Last ned filene før lenkene utløper (`expirationDate` i webhooken `dissemination.delivered`). Hvis lenkene utløper før du har lastet ned filene, kontakt teamet for digital bevaring.
+6. Last ned filene før lenkene utløper (`expirationDate` i webhooken `dissemination.delivered`). Hvis lenkene utløper, send en ny forespørsel om dissemination; hver dissemination får nye lenker.
 
 ## Støtte
 

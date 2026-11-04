@@ -222,7 +222,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 {
   "fileId": "1M0x4T9rN8Xc7B2Yq5L3zK",
   "filePath": "representations/primary_20250217/data/ranablad_20250215.pdf",
-  "s3ObjectKey": "bucket/myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
+  "s3ObjectKey": "examplebucket/myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
   "checksum": "d41d8cd98f00b204e9800998ecf8427e",
   "isPackaged": false,
   "uploadUrl": "https://s3.nb.no/examplebucket/...&X-Amz-Signature=..."
@@ -254,7 +254,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     {
       "fileId": "1M0x4T9rN8Xc7B2Yq5L3zK",
       "filePath": "representations/primary_20250217/data/ranablad_20250215.pdf",
-      "s3ObjectKey": "bucket/myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
+      "s3ObjectKey": "examplebucket/myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
       "checksum": "d41d8cd98f00b204e9800998ecf8427e",
       "isPackaged": false,
       "uploadUrl": "https://s3.nb.no/examplebucket/...&X-Amz-Signature=..."
@@ -288,7 +288,7 @@ Content-Length: {file-size-in-bytes}
 The upload process follows these steps:
 1. **Register a file** by sending a POST request to `/contracts/{contractId}/submissions/{submissionId}/files`
 2. **Retrieve the s3ObjectKey** from the response
-3. **Upload the file content** directly to S3 using the s3ObjectKey as the object key
+3. **Upload the file content** directly to S3, using `s3://{s3ObjectKey}` as the destination. The `s3ObjectKey` starts with the bucket name, followed by the object key.
 
 We recommend using the AWS CLI for the upload. Documentation can be found here: https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html
 
