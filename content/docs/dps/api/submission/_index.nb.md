@@ -12,6 +12,8 @@ For generell informasjon om autentisering og autorisasjon, se [hovedsiden for AP
 
 Denne dokumentasjonen kompletterer den detaljerte API-spesifikasjonen som er tilgjengelig via Swagger på [https://digitalpreservation.no/swagger/](https://digitalpreservation.no/swagger/).
 
+Den maskinlesbare OpenAPI-spesifikasjonen (JSON) er tilgjengelig på <https://api.nb.no/dps-submission/v1/api-docs>.
+
 **Filstørrelsesbegrensning:**
 
 * Maks filstørrelse: 5 GB per fil

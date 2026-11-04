@@ -10,6 +10,8 @@ The Digital Preservation services at the National Library of Norway provide a RE
 
 This documentation provides a high-level overview of the available APIs. For complete technical details, please refer to our [Swagger UI](https://digitalpreservation.no/swagger/).
 
+The machine-readable OpenAPI specification (JSON) is available at <https://api.nb.no/dps-submission/v1/api-docs>.
+
 The following services are available:
 - [**Submission Service API**](submission/): For submitting digital objects for preservation.
 - [**Dissemination Service API**](dissemination/): For requesting preserved digital objects.

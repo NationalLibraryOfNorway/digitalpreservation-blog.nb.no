@@ -9,6 +9,8 @@ Nasjonalbibliotekets tjenester for digital bevaring tilbyr REST-baserte API-er f
 
 Denne dokumentasjonen gir en overordnet oversikt over tilgjengelige API-er. For komplette tekniske detaljer, se vår [Swagger UI](https://digitalpreservation.no/swagger/).
 
+Den maskinlesbare OpenAPI-spesifikasjonen (JSON) er tilgjengelig på <https://api.nb.no/dps-submission/v1/api-docs>.
+
 Følgende tjenester er tilgjengelige:
 - [**Submission Service API**](submission/): For innlevering av digitale objekter for bevaring.
 - [**Dissemination Service API**](dissemination/): For bestilling av bevarte digitale objekter.
