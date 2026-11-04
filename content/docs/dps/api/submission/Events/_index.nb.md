@@ -87,6 +87,8 @@ mulig forståelig og etterprøvbar over tid.
 
 Teknisk dokumentasjon for avlevering i API og formatering av eventer finnes her: [Swagger DPS Submission Service API](https://digitalpreservation.no/swagger/)
 
+Den maskinlesbare OpenAPI-spesifikasjonen (JSON) er tilgjengelig på <https://api.nb.no/dps-submission/v1/api-docs>. Eventer er beskrevet i skjemaet `SubmitEventDto`.
+
 # Bruk av event-elementer
 
 **Tillatte elementer er:**

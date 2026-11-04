@@ -84,6 +84,8 @@ For Norwegian submitters it is recommended that events are written in Norwegian 
 
 For technical documentation of submissions in API and event formatting see: [Swagger DPS Submission Service API](https://digitalpreservation.no/swagger/)
 
+The machine-readable OpenAPI specification (JSON) is available at <https://api.nb.no/dps-submission/v1/api-docs>. Events are described by the `SubmitEventDto` schema.
+
 # Use of event elements
 
 
