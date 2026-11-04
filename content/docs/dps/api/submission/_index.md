@@ -9,6 +9,8 @@ The Submission Service API allows clients to submit digital objects for long-ter
 
 This documentation complements the detailed API reference available through Swagger UI at https://digitalpreservation.no/swagger/.
 
+The machine-readable OpenAPI specification (JSON) is available at <https://api.nb.no/dps-submission/v1/api-docs>.
+
 **File Size Limitations:**
 - Maximum file size: 5 GB per file
 - This limitation is due to constraints with S3 pre-signed URLs used for direct file uploads

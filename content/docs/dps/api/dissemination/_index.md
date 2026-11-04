@@ -9,6 +9,8 @@ The Dissemination Service lets clients request delivery of archived and preserve
 
 This documentation complements the detailed API reference available through Swagger UI at https://digitalpreservation.no/swagger/.
 
+The machine-readable OpenAPI specification (JSON) is available at <https://api.nb.no/dps-submission/v1/api-docs>.
+
 For general information on authentication and authorization, please refer to the main [API documentation](../).
 
 ## Workflow
