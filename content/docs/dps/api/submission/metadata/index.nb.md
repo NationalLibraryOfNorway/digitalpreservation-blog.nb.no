@@ -563,7 +563,7 @@ Attributt `uri` brukes for å angi lenke til relatert ressurs (katalogpost, nett
       "title": "Norge på langs med Ola og Kari",
       "lang": "nor",
       "id": "987654321",
-      "type": "IsPartOf",
+      "type": "isPartOf",
       "uri": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
     }
   ]
@@ -575,7 +575,7 @@ Attributt `uri` brukes for å angi lenke til relatert ressurs (katalogpost, nett
     {
       "title": "Chronicles of Narnia",
       "lang": "eng",
-      "type": "IsPartOf"
+      "type": "isPartOf"
     }
   ]
 }
@@ -898,7 +898,7 @@ Språkkode må angis (lang-attributt).
     "relation": [
       {
         "title": "Norge på langs med Ola og Kari",
-        "type": "IsPartOf",
+        "type": "isPartOf",
         "id": "987654321",
         "uri": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
         "lang": "nor"

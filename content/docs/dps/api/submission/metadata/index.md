@@ -569,7 +569,7 @@ The `uri` attribute is used to provide a link to the related resource (such as a
       "title": "Norway from end to end with Ola and Kari",
       "lang": "eng",
       "id": "987654321",
-      "type": "IsPartOf",
+      "type": "isPartOf",
       "uri": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
     }
   ]
@@ -581,7 +581,7 @@ The `uri` attribute is used to provide a link to the related resource (such as a
     {
       "title": "Chronicles of Narnia",
       "lang": "eng",
-      "type": "IsPartOf"
+      "type": "isPartOf"
     }
   ]
 }
@@ -902,7 +902,7 @@ If a description is provided the language code must be specified using the `lang
       {
         "title": "Norway from end to end with Ola and Kari",
         "lang": "eng",
-        "type": "IsPartOf",
+        "type": "isPartOf",
         "id": "987654321",
         "uri": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
       }
