@@ -70,19 +70,34 @@ API-et bruker vanlige HTTP-statuskoder:
 - `409 Conflict` – Duplikat forespørsel
 - `422 Unprocessable Entity` – Ressurs finnes men er ikke bevart / ikke klar
 - `500 Internal Server Error` – Uventet feil
+- `502 Bad Gateway` – En tjeneste API-et er avhengig av, feilet
 
 
-Ved feil returneres et JSON-objekt med `error`:
+Feilresponser følger [RFC 9457 Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457) og returneres med medietypen `application/problem+json`:
 
 ```json
 {
-  "error": {
-    "code": "ERROR_CODE",
-    "message": "A descriptive error message",
-    "details": "Additional details about the error"
-  }
+  "type": "https://digitalpreservation.no/problems/submission-not-found",
+  "title": "Submission Not Found",
+  "status": 404,
+  "detail": "Submission with ID 7mVKGHwOA6w2Ot8feF9fIU was not found",
+  "instance": "/v1/contracts/4eaf/submissions/7mVKGHwOA6w2Ot8feF9fIU",
+  "timestamp": "2025-10-14T10:03:00.123Z",
+  "errorCategory": "NOT_FOUND"
 }
 ```
+
+| Felt               | Beskrivelse                                                                                                                                                        |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`             | URI som identifiserer typen problem                                                                                                                                |
+| `title`            | Kort, lesbar oppsummering av typen problem                                                                                                                         |
+| `status`           | HTTP-statuskoden                                                                                                                                                   |
+| `detail`           | Lesbar forklaring av akkurat denne feilen                                                                                                                          |
+| `instance`         | URI som identifiserer akkurat denne feilen                                                                                                                         |
+| `timestamp`        | Når feilen oppsto (ISO 8601)                                                                                                                                       |
+| `errorCategory`    | En av `NOT_FOUND`, `CONFLICT`, `VALIDATION_ERROR`, `BUSINESS_RULE_VIOLATION`, `AUTHORIZATION_ERROR`, `INTERNAL_ERROR`, `EXTERNAL_SERVICE_ERROR`                    |
+| `validationErrors` | Bare ved valideringsfeil: et objekt der hvert ugyldig felt har en liste med meldinger                                                                              |
+| `currentStatus`    | Bare ved feil som skyldes ressursens tilstand: ressursens nåværende status                                                                                         |
 
 
 ## Støtte

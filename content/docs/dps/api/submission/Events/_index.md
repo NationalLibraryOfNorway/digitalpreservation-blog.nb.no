@@ -24,6 +24,10 @@ Events are submitted via the API:
 
 An event is always linked to a submission, which represents an Intellectual Entity (IE).
 
+Events can only be submitted while the submission has the status `REGISTERED`, that is, before the submission is finalized. A successful request returns `204 No Content`. The field `isUserInitiated` is set to `true` automatically for events submitted through the API and does not need to be included.
+
+Submitted events can be retrieved with `GET /v1/contracts/{contractId}/submissions/{submissionId}/events`.
+
 ### Level and reference to file
 
 Events are always linked to a submission (IE). They can apply to the entire information package (IE level) or to a specific file (file level).

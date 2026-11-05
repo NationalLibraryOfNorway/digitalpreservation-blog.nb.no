@@ -67,18 +67,33 @@ The API uses standard HTTP status codes to indicate the success or failure of re
 - `409 Conflict` - Duplicate/concurrent request
 - `422 Unprocessable Entity` – Resource exists but is not preserved / not ready
 - `500 Internal Server Error` - An unexpected error occurred on the server
+- `502 Bad Gateway` - A service the API depends on failed
 
 
-When an error occurs, the API returns a JSON response with an `error` object containing:
+Error responses follow [RFC 9457 Problem Details for HTTP APIs](https://www.rfc-editor.org/rfc/rfc9457) and are returned with the media type `application/problem+json`:
 ```json
 {
-  "error": {
-    "code": "ERROR_CODE",
-    "message": "A descriptive error message",
-    "details": "Additional details about the error"
-  }
+  "type": "https://digitalpreservation.no/problems/submission-not-found",
+  "title": "Submission Not Found",
+  "status": 404,
+  "detail": "Submission with ID 7mVKGHwOA6w2Ot8feF9fIU was not found",
+  "instance": "/v1/contracts/4eaf/submissions/7mVKGHwOA6w2Ot8feF9fIU",
+  "timestamp": "2025-10-14T10:03:00.123Z",
+  "errorCategory": "NOT_FOUND"
 }
 ```
+
+| Field              | Description                                                                                                                                                        |
+|--------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `type`             | URI that identifies the problem type                                                                                                                               |
+| `title`            | Short, human-readable summary of the problem type                                                                                                                  |
+| `status`           | HTTP status code                                                                                                                                                   |
+| `detail`           | Human-readable explanation of this occurrence of the problem                                                                                                       |
+| `instance`         | URI that identifies this occurrence of the problem                                                                                                                 |
+| `timestamp`        | When the error occurred (ISO 8601)                                                                                                                                 |
+| `errorCategory`    | One of `NOT_FOUND`, `CONFLICT`, `VALIDATION_ERROR`, `BUSINESS_RULE_VIOLATION`, `AUTHORIZATION_ERROR`, `INTERNAL_ERROR`, `EXTERNAL_SERVICE_ERROR`                   |
+| `validationErrors` | Only for validation errors: an object that maps each invalid field to a list of messages                                                                           |
+| `currentStatus`    | Only for errors caused by the resource's state: the current status of the resource                                                                                 |
 
 
 ## Support

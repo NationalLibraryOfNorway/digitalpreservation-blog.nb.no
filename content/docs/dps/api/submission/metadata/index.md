@@ -251,7 +251,7 @@ The use of the `role` attribute should be meaningful for the designated communit
 Explanation of *authority* information:
 - `source`: The name of the authority file from which the value is taken, provided as a plain text string.
 - `code`: A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
-- `URI`: A persistent link (URI) that points directly to the authority record from which the value is derived.
+- `uri`: A persistent link (URI) that points directly to the authority record from which the value is derived.
 
 
 **Examples:**
@@ -325,7 +325,7 @@ The use of the `role` attribute should be meaningful for the designated communit
 Explanation of *authority* information:
 - `source`: The name of the authority file from which the value is taken, provided as a plain text string.
 - `code`: A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
-- `URI`: A persistent link (URI) that points directly to the authority record from which the value is derived.
+- `uri`: A persistent link (URI) that points directly to the authority record from which the value is derived.
 
 
 **Examples:**
@@ -387,7 +387,7 @@ When using an authority file, the publisher’s full name should also be provide
 Explanation of *authority* information:
 - `source`: The name of the authority file from which the value is taken, provided as a plain text string.
 - `code`: A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
-- `URI`: A persistent link (URI) that points directly to the authority record from which the value is derived.
+- `uri`: A persistent link (URI) that points directly to the authority record from which the value is derived.
 
 **Example:**
 ```json
@@ -436,7 +436,7 @@ The use of the `type` attribute should be meaningful for the designated communit
 Explanation of *authority* information:
 - `source`: The name of the authority file from which the value is taken, provided as a plain text string.
 - `code`: A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
-- `URI`: A persistent link (URI) that points directly to the authority record from which the value is derived.
+- `uri`: A persistent link (URI) that points directly to the authority record from which the value is derived.
 
 **Examples:**
 ```json
@@ -543,7 +543,7 @@ The use of the `type` attribute should be meaningful for the designated communit
 
 | Name        | **Relation**                                                                                                                                                                                                                                                                                                                                                                 |
 |:------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Description | A related resource in which the described resource is physically or logically included (e.g., title of the parent or related work, collection, series, or part).<br>Attributes for `title` + `type` OR `id` + `type` MUST be used. <br> The `URI` attribute SHOULD be used.<br> The `lang` attribute SHOULD be used to specify the language of the related resource's title. |
+| Description | A related resource in which the described resource is physically or logically included (e.g., title of the parent or related work, collection, series, or part).<br>Attributes for `title` + `type` OR `id` + `type` MUST be used. <br> The `uri` attribute SHOULD be used.<br> The `lang` attribute SHOULD be used to specify the language of the related resource's title. |
 | Requirement | SHOULD                                                                                                                                                                                                                                                                                                                                                                       |
 | Cardinality | 0..n                                                                                                                                                                                                                                                                                                                                                                         |
 
@@ -559,7 +559,7 @@ If other terms are used for the `type` attribute, they should be meaningful to t
 
 An example of using the `id` attribute is to reference a series record, work record, or other resources within the same series or work.
 
-The `URI` attribute is used to provide a link to the related resource (such as a catalog record or webpage). 
+The `uri` attribute is used to provide a link to the related resource (such as a catalog record or webpage). 
 
 **Examples:**
 ```json
@@ -569,8 +569,8 @@ The `URI` attribute is used to provide a link to the related resource (such as a
       "title": "Norway from end to end with Ola and Kari",
       "lang": "eng",
       "id": "987654321",
-      "type": "IsPartOf",
-      "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
+      "type": "isPartOf",
+      "uri": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
     }
   ]
 }
@@ -581,7 +581,7 @@ The `URI` attribute is used to provide a link to the related resource (such as a
     {
       "title": "Chronicles of Narnia",
       "lang": "eng",
-      "type": "IsPartOf"
+      "type": "isPartOf"
     }
   ]
 }
@@ -592,7 +592,7 @@ The `URI` attribute is used to provide a link to the related resource (such as a
     {
       "title": "20161203.jpg",
       "type": "hasPart",
-      "URI": "https://www.nb.no/items/83af9a36b005c5737aa33d1fb64f429d?page"
+      "uri": "https://www.nb.no/items/83af9a36b005c5737aa33d1fb64f429d?page"
     }
   ]
 }
@@ -610,9 +610,9 @@ The `URI` attribute is used to provide a link to the related resource (such as a
 
 This element records the object(s) the described resource was derived from. It provides a searchable, machine‑readable link to the origin and is essential for tracing the origin of digitised, migrated, or otherwise derived content.
   
-- `identifier` – One or more identifiers for the source object, each with a `type` and `value` (same structure as the top‑level `identifier` element). Use this to record unique identifiers to the source objects such as, inventory numbers, URNs, or any other identifier relevant to the source.
+- `identifier` – (Required) One or more identifiers for the source object, each with a `type` and `value` (same structure as the top‑level `identifier` element). Use this to record unique identifiers to the source objects such as, inventory numbers, URNs, or any other identifier relevant to the source.
 - `description` – (Optional) A brief free‑text note about the source object, e.g. its name/title, or physical form.
-- `URI` – (Optional) A direct link to a catalogue record or other resource with further information about the source object.
+- `uri` – (Optional) A direct link to a catalogue record or other resource with further information about the source object.
 
 When the described resource is derived from **multiple** sources, list each source as a separate object in the `source` array.
 
@@ -631,7 +631,7 @@ When the described resource is derived from **multiple** sources, list each sour
           "value": "FVVB00000015"
         }
       ],
-      "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/50979618"
+      "uri": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/50979618"
     }
   ]
 }
@@ -674,7 +674,7 @@ When the described resource is derived from **multiple** sources, list each sour
 
 **Guidelines for use:**
 
-The language of the provenance value must be provided using the `lang` attribute according to the [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) standard. 
+The language of the provenance value must be provided using the `lang` attribute according to the [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) standard.
 
 **Example:**
 ```json
@@ -729,7 +729,7 @@ When using an authority file, subject terms must still be spelled out alongside 
 Explanation of *authority* information:
 - `source`: The name of the authority file from which the value is taken, provided as a plain text string.
 - `code`: A unique identifier for the authority entry within the register, typically a numeric or alphanumeric code.
-- `URI`: A persistent link (URI) that points directly to the authority record from which the value is derived.
+- `uri`: A persistent link (URI) that points directly to the authority record from which the value is derived.
 
 **Examples:**
 ```json
@@ -767,7 +767,7 @@ Explanation of *authority* information:
 
 | Name        | **Description**                                                                                                                                                                                                                              |
 |:------------|:---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Description | Description of the resource. The description may include a summary, a table of contents, a graphical representation or any free-text information about the resource.  <br> The `lang` attribute SHOULD be used to specify the language code. |
+| Description | Description of the resource. The description may include a summary, a table of contents, a graphical representation or any free-text information about the resource.  <br> The `lang` attribute MUST be used to specify the language code. |
 | Requirement | MAY                                                                                                                                                                                                                                          |
 | Cardinality | 0..n                                                                                                                                                                                                                                         |
 
@@ -902,9 +902,9 @@ If a description is provided the language code must be specified using the `lang
       {
         "title": "Norway from end to end with Ola and Kari",
         "lang": "eng",
-        "type": "IsPartOf",
+        "type": "isPartOf",
         "id": "987654321",
-        "URI": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
+        "uri": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page"
       }
     ],
     "source": [
@@ -916,7 +916,7 @@ If a description is provided the language code must be specified using the `lang
             "value": "FVVB00000015"
           }
         ],
-        "URI": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/50979618"
+        "uri": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/50979618"
       }
     ],
     "provenance": [
