@@ -21,7 +21,7 @@ Many of these media are becoming increasingly vulnerable. The physical media deg
 Around the National Library, staff are therefore encountering some rather unusual personal ads: 
 
 <div style="display:flex; align-items:flex-start; gap:20px;">
-<img src="/blog/2026-11-05-wdpd2026/floppydisk_eng.png" style="width:48%; display:block;">
+<img src="/blog/2026-11-05-wdpd2026/Floppydisk_eng.png" style="width:48%; display:block;">
 <img src="/blog/2026-11-05-wdpd2026/usb_eng.png" style="width:48%; display:block;">
 </div>
 

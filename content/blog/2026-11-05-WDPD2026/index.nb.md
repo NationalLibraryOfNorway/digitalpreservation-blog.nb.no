@@ -21,7 +21,7 @@ Mange av disse mediene blir stadig mer sårbare. Selve mediet kan brytes ned, n�
 Rundt omkring i Nasjonalbiblioteket møter de ansatte derfor i disse dager litt uvanlige kontaktannonser: 
 
 <div style="display:flex; align-items:flex-start; gap:20px;">
-<img src="/blog/2026-11-05-wdpd2026/diskett.png" style="width:48%; display:block;">
+<img src="/blog/2026-11-05-wdpd2026/Diskett.png" style="width:48%; display:block;">
 <img src="/blog/2026-11-05-wdpd2026/usb.png" style="width:48%; display:block;">
 </div>
 
