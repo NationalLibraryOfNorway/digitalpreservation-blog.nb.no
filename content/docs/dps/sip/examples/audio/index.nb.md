@@ -1,7 +1,7 @@
 ---
 title: Lyd
-draft: true
-weight: 4
+draft: false
+weight: 3
 ---
 
 ## Eksempel på SIP for lyd
