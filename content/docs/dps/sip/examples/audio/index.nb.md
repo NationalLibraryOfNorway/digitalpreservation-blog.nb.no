@@ -79,6 +79,7 @@ no-nb_nrk_RAK202303190100
 ```
 
 
+### Eksempel på SIP for lyd: 
 
 ![Eksempel SIP lyd](eksempel_lydpakke.png)
 

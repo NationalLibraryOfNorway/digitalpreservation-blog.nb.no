@@ -80,6 +80,9 @@ no-nb_nrk_RAK202303190100
 ```
 
 
+
+### Eksample of audio SIP:
+
 ![Example SIP audio](eksempel_lydpakke.png)
 
 **Explanation of symbols:**
