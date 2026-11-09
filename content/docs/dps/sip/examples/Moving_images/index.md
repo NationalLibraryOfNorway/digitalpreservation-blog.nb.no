@@ -1,7 +1,7 @@
 ---
 title: Moving images
 draft: false
-weight: 3
+weight: 2
 ---
 
 ## Example of moving images SIP

@@ -1,7 +1,7 @@
 ---
 title: Levende bilder
-draft: False
-weight: 3
+draft: false
+weight: 2
 ---
 
 ## Eksempel på SIP for levende bilder
