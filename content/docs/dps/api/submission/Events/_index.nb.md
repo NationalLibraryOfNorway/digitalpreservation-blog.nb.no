@@ -687,7 +687,7 @@ Eksempel på validering med avvik som ikke stoppet behandlingen:
     "agentName": "ClamAV",
     "agentType": "software",
     "agentVersion": "1.4.2",
-    "agentNote": "Antivirusprogram brukt til å oppdage skadelig programvare."
+    "agentNote": "Antivirusprogram brukt til å oppdage skadelig programvare. Virussignatur: daily.cvd, versjon 27890; main.cvd, versjon 12345."
   },
   "eventDateTime": "2026-02-03T08:51:40.127+01:00",
   "eventType": "virus check",

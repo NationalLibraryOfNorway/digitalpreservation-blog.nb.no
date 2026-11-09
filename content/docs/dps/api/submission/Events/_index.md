@@ -684,7 +684,7 @@ Example of a validation with deviations that did not stop processing:
     "agentName": "ClamAV",
     "agentType": "software",
     "agentVersion": "1.4.2",
-    "agentNote": "Antivirus program used to detect malicious software."
+    "agentNote": "Antivirus software used to detect malicious software. Virus signatures: daily.cvd, version 27890; main.cvd, version 12345."
   },
   "eventDateTime": "2026-02-03T08:51:40.127+01:00",
   "eventType": "virus check",
