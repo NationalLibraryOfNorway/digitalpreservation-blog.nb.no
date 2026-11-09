@@ -78,3 +78,11 @@ no-nb_nrk_RAK202303190100
     └── xlink.xsd
 ```
 
+
+
+![Eksempel SIP lyd](eksempel_lydpakke.png)
+
+**Forklaring av symboler:**
+- **Blå ruter:** Mapper
+- **Gule ruter:** Filer
+- **Røde rammer:** Viser elementer som er omfattet av MÅ-krav i pakkestrukturen.
