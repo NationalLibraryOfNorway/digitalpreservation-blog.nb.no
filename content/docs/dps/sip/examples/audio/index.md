@@ -85,5 +85,4 @@ no-nb_nrk_RAK202303190100
 **Explanation of symbols:**
 - **Blue boxes:** Folders
 - **Yellow boxes:** Files
-- **Red borders:** Indicate elements subject to mandatory (MUST) requirements in the package structure.
-- 
+- **Red borders:** Indicate elements subject to mandatory (MUST) requirements in the package structure. 
