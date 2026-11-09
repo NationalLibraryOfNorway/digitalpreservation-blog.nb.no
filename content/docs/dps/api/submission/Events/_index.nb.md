@@ -231,7 +231,7 @@ Beskrivelsen skal være kortfattet og forståelig.
 **Eksempler:**
 
 - "Formatet er identifisert som fmt/353 (TIFF 6.0)."
-- "Pakken er validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 og NB-SIP-MOVINGIMAGES-PROFILE-1.0."
+- "Pakken er validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 og NB-SIP-MOVINGIMAGES-PROFILE-1.0 med én advarsel: CSIPSTR13 representasjonsmappen primary_20250325 mangler undermappen metadata (BØR-krav). Behandlingen fortsatte."
 
 
 ## Event-typer
@@ -267,39 +267,8 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   "outcome": "success",
   "outcomeDetail": "Totalt antall sider høstet: 234; total datastørrelse: 1,2 GB; alle URL-er arkivert i WARC-format."
 }
-```
 
-### Compression
 
-| Navn        | **compression**                                                          |
-|:------------|:-------------------------------------------------------------------------|
-| Beskrivelse | Prosessen der data kodes for å spare lagringsplass eller overføringstid. |
-| Omfang      | IE, Fil                                                                  |
-
-**Retningslinjer for bruk:**
-
-- Brukes når filer komprimeres uten at filformatet endres, for eksempel når ukomprimerte TIFF-filer komprimeres med LZW. Hvis filformatet endres (for
-  eksempel fra WAV til FLAC), bruk «migration».
-- Eventen bør knyttes til IE når det er mulig, for eksempel når alle filene er komprimert på samme måte.
-- `"eventDetail"` bør angi komprimeringsmetode og om komprimeringen er tapsfri eller tapsbeheftet.
-
-**Eksempel:**
-
-```json
-{
-  "agent": {
-    "agentName": "libtiff (tiffcp)",
-    "agentType": "software",
-    "agentVersion": "4.7.1",
-    "agentNote": "Verktøy fra libtiff for kopiering og konvertering av TIFF-filer, blant annet for å endre komprimering."
-  },
-  "eventDateTime": "2026-02-03T14:20:31.087+01:00",
-  "eventType": "compression",
-  "eventDetail": "Tapsfri komprimering av alle TIFF-filer i pakken (120 filer) med LZW og horisontal prediktor. Brukte parametere: command=tiffcp -c lzw:2 input.tif output.tif; compression=LZW; predictor=2; integrityChecked=yes",
-  "outcome": "success",
-  "outcomeDetail": "Komprimerte filer lagret i representations/primary_20250325/data/. Pikselinnholdet er verifisert uendret. Samlet størrelse redusert fra 6,1 GB til 3,4 GB."
-}
-```
 
 ### Creation
 
@@ -340,9 +309,8 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 **Retningslinjer for bruk:**
 
-- Relevant ved endring av navn på en født digital fil, eller når for eksempel en fil må gis nytt navn for å oppfylle kravene til lagringssystemet.
-- Enten fjerning av forbudte tegn eller delvis/hel erstatning av det opprinnelige filnavnet. Dette kan brukes for å dokumentere endringer som fjerning av tegn,
-  eller der et system fjerner filnavnet helt og erstatter det med et systemgenerert navn.
+- Brukes ved endring av filnavnet på en digitalt født fil.
+- Dokumenterer hel eller delvis endring av det opprinnelige filnavnet, for eksempel ved fjerning av forbudte tegn eller mellomrom, tilpasning til gjeldende filnavnstandard eller korrigering av feil i filnavnet.
 
 **Eksempel:**
 
@@ -356,12 +324,11 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   },
   "eventDateTime": "2026-02-03T10:47:29.332+01:00",
   "eventType": "filename change",
-  "eventDetail": "Filnavn ble endret for å følge gjeldende filnavnstandard.",
+  "eventDetail": "Filnavnet ble endret fra NN_TR_2011_01_31_18_40.mp4 til NRK_TR_2011_01_31_18_40.mp4 for å følge gjeldende filnavnstandard. Filnavnprefikset angir hvilken radiokanal filen stammer fra. Det opprinnelige prefikset NN var feil og ble erstattet med NRK.",
   "fileRef": {
     "relativePath": "representations/primary_20250325/data/NRK_TR_2011_01_31_18_40.mp4"
   },
-  "outcome": "success",
-  "outcomeDetail": "Filnavn endret fra NN_TR_2011_01_31_18_40.mp4 til NRK_TR_2011_01_31_18_40.mp4."
+  "outcome": "success"
 }
 ```
 
@@ -369,11 +336,12 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 | Navn        | **fixity check**                         |
 |-------------|------------------------------------------|
-| Beskrivelse | Verifiserer at et objekt ikke er endret. |
+| Beskrivelse | Prosessen der det verifiseres at et objekt ikke er endret ved å kontrollere sjekksum(er). |
 | Omfang      | IE, Fil                                  |
 
 
 **Retningslinjer for bruk:**
+- Brukes til å verifisere at et digitalt objekt ikke er endret ved å kontrollere og sammenligne objektets sjekksum med en tidligere registrert sjekksum.
 - Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
 - Vil mest sannsynlig inneholde resultatene fra eventen «message digest calculation».
 - Spesielt viktig når sjekksummer mottas fra eksterne.
@@ -407,7 +375,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 - Brukes for å dokumentere prosessen med å lage en eksakt digital kopi (diskbilde) av et lagringsmedium, inkludert alle filer, metadata, filsystemstruktur og
   noen ganger også ledig plass og slettede data.
-- Der det er relevant, skal denne eventen brukes i stedet for, ikke i tillegg til, «creation»-eventen.
+- Som hovedregel brukes denne eventen i stedet for «creation»-eventen, ikke i tillegg til. I enkelte tilfeller kan det likevel være relevant å benytte begge eventene.
 
 **Eksempel:**
 
@@ -476,15 +444,15 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 | Navn        | **message digest calculation** |
 |-------------|--------------------------------|
-| Beskrivelse | Oppretter sjekksum.            |
+| Beskrivelse | Opprettelsen av sjekksum(er).            |
 | Omfang      | IE, Fil                        |
 
 **Retningslinjer for bruk:**
 
-- Eventen bør knyttes til IE når det er mulig. Knyttes kun til fil dersom det er behov for å dokumentere avvik.
-- Eventen «fixity check» kontrollerer Sjekksummen.
-- Brukes ved opprettelse av nye sjekksummer. Hvis sjekksummer opprettes lokalt, er det ikke behov for å bruke eventen "fixity check" i tillegg til event "
-  message digest calculation". Se også EventType "fixity check".
+- Brukes ved opprettelse av nye sjekksummer. Hvis sjekksummer opprettes lokalt, er det ikke behov for å bruke eventen "fixity check" i tillegg til event "message digest calculation". Se også EventType "fixity check".
+- Eventen «fixity check» dokumenterer kontroll av sjekksum(er).
+- Eventen bør knyttes til IE når det er mulig. Dersom det er behov for å dokumentere avvik, skal avviket knyttes til den aktuelle filen.
+
 
 **Eksempel:**
 
@@ -514,10 +482,11 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 - Brukes når metadata hentes ut av en fil. 
 - Utledet metadata må referere til opprinnelsesfila i `"fileRef"`.
-- Hvis uttrekk resulterer i en eller flere metadatafiler, må `"OutcomeDetail"` inkludere referanse (filsti) til utledet/generert metadatafil.
+- Hvis uttrekk resulterer i en eller flere metadatafiler, må `"OutcomeDetail"` inkludere referanse (relativ filsti) til utledet/generert metadatafil.
 
 **Eksempler:**
 
+Eksempel på metadatauttrekk dokumentert i outcomeDetail:
 ```json
 {
   "agent": {
@@ -537,6 +506,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 }
 ```
 
+Eksempel på metadatauttrekk resulterende i en ny fil:
 ```json
 {
   "agent": {
@@ -547,7 +517,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   },
   "eventDateTime": "2026-02-11T12:01:08Z",
   "eventType": "metadata extraction",
-  "eventDetail": "WAV-filen ble analysert for kvalitetskontroll og dokumentasjon.",
+  "eventDetail": "WAV-filen ble analysert for kvalitetskontroll og dokumenta++sjon.",
   "fileRef": {
     "relativePath": "representations/primary_20250325/data/something.wav"
   },
@@ -565,10 +535,12 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 **Retningslinjer for bruk:**
 
+- Brukes når en eller flere filer konverteres til et annet filformat. 
 - Eventen bør knyttes til IE når det er mulig, for eksempel dersom filene er konvertert på samme måte til samme format.
 - Migration-events skal alltid resultere i en ny fil(er) eller pakke.
-- Filen(e) som migreres må referere til opprinnelsesfila i `"fileRef"` når enkeltfiler migreres (når eventen ikke er knyttet til IE).
-- `"OutcomeDetail"` må inkludere referanse (filsti) til migrert fil(er).
+- Relevante parametere som beskriver migreringsprosessen, bør dokumenteres i `eventDetail`.
+- Filen(e) som migreres må referere til opprinnelsesfila i `fileRef` når enkeltfiler migreres (når eventen ikke er knyttet til IE).
+- `OutcomeDetail` må inkludere referanse (relativ filsti) til migrert fil(er).
 
 **Eksempel:**
 
@@ -626,10 +598,9 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
 
 **Retningslinjer for bruk:**
 
-- Objektet som valideres kan være en fil eller en Intellektuell enhet. Eventen bør knyttes til IE når det er mulig. For eksempel hvis filene er validert på
-  samme måte med samme verktøy, eller strukturen er validert for hele pakken.
-- Det kan være hensiktsmessig å lage én event for hele valideringen der man heller beskriver hvilke verktøy som er brukt i de ulike stegene, i stedet for å lage
-  flere eventer for flere valideringer.
+- Brukes når en pakke eller fil kontrolleres for å verifisere at den er i samsvar med en bestemt standard, profil, spesifikasjon eller andre definerte krav.
+- Objektet som valideres, kan være en enkelt fil eller en intellektuell enhet (IE). Eventen bør knyttes til IE når det er mulig, for eksempel når flere filer er validert på samme måte og med samme verktøy, eller når pakkens struktur er validert som en helhet. Det bør også fremgå hva valideringen er utført mot, for eksempel en standard, profil, spesifikasjon eller andre definerte krav.
+- Det kan være hensiktsmessig å lage én event for hele valideringen der man heller beskriver hvilke verktøy som er brukt i de ulike stegene, i stedet for å lage flere eventer for flere valideringer.
 
 **Eksempler:**
 
@@ -643,7 +614,7 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   },
   "eventDateTime": "2026-02-03T17:30:39.662+01:00",
   "eventType": "validation",
-  "eventDetail": "Validerte at filer samsvarer med spesifikasjonene til det aktuelle filformatet.",
+  "eventDetail": "Validerte alle PDF-filer i pakken (35 filer) med JHOVE for å kontrollere at filene samsvarer med spesifikasjonene for PDF 1.7.",
   "outcome": "success"
 }
 ```
@@ -658,9 +629,8 @@ passe våre behov og bevaringsomgivelser. Andre typer enn det som er spesifisert
   },
   "eventDateTime": "2026-02-03T17:41:12.508+01:00",
   "eventType": "validation",
-  "eventDetail": "Validerte E-ARK SIP ved bruk av DPS Validation workflow v.a00f683: nifi-nb-eark-nar.EarkSIPValidator 1.0.7; org.roda-community:commons-ip2 2.12.0.",
-  "outcome": "success",
-  "outcomeDetail": "Validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 og NB-SIP-MOVINGIMAGES-PROFILE-1.0."
+  "eventDetail": "Validerte E-ARK SIP ved bruk av DPS Validation workflow v.a00f683: nifi-nb-eark-nar.EarkSIPValidator 1.0.7; org.roda-community:commons-ip2 2.12.0. Validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 og NB-SIP-MOVINGIMAGES-PROFILE-1.0.",
+  "outcome": "success"
 }
 ```
 
@@ -702,7 +672,7 @@ Eksempel på validering med avvik som ikke stoppet behandlingen:
     "agentName": "ClamAV",
     "agentType": "software",
     "agentVersion": "1.4.2",
-    "agentNote": "Antivirusprogram brukt til å oppdage skadelig programvare."
+    "agentNote": "Antivirusprogram brukt til å oppdage skadelig programvare. Virussignatur: daily.cvd, versjon 27890; main.cvd, versjon 12345."
   },
   "eventDateTime": "2026-02-03T18:27:53.842+01:00",
   "eventType": "virus check",

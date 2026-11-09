@@ -212,7 +212,7 @@ This element documents what was actually achieved or which deviations were ident
 
 **Examples:**
 - "Identified as fmt/353 (TIFF 6.0)."
-- "Validated against profile E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 and NB-SIP-MOVINGIMAGES-PROFILE-1.0."
+- "The package was validated against the profiles E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0, and NB-SIP-MOVINGIMAGES-PROFILE-1.0, resulting in one warning: CSIPSTR13 the representation folder primary_20250325 is missing the metadata subfolder (SHOULD requirement). Processing continued."
 
 
 # Event-types
@@ -249,39 +249,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   "outcome": "success",
   "outcomeDetail": "Total pages captured: 234; total data size: 1.2 GB; all URLs successfully archived in WARC format."
 }
-```
 
-
-### Compression
-
-| Name        | **compression**                                                           |
-|:------------|:--------------------------------------------------------------------------|
-| Description | The process of encoding data to save storage space or transmission time. |
-| Scope       | IE, File                                                                  |
-
-
-**Guidelines for use:**
-- Used when files are compressed without changing the file format, for example when uncompressed TIFF files are compressed with LZW. If the file format changes (for example from WAV to FLAC), use "migration".
-- The event should be linked to the IE where possible, for example when all files are compressed in the same way.
-- `"eventDetail"` should state the compression method and whether the compression is lossless or lossy.
-
-
-**Example:**
-```json
-{
-  "agent": {
-    "agentName": "libtiff (tiffcp)",
-    "agentType": "software",
-    "agentVersion": "4.7.1",
-    "agentNote": "libtiff tool for copying and converting TIFF files, including changing their compression."
-  },
-  "eventDateTime": "2026-02-03T14:20:31.087+01:00",
-  "eventType": "compression",
-  "eventDetail": "Lossless compression of all TIFF files in the package (120 files) using LZW with horizontal predictor. Parameters used: command=tiffcp -c lzw:2 input.tif output.tif; compression=LZW; predictor=2; integrityChecked=yes",
-  "outcome": "success",
-  "outcomeDetail": "Compressed files stored in representations/primary_20250325/data/. Pixel content verified unchanged. Total size reduced from 6.1 GB to 3.4 GB."
-}
-```
 
 
 ### Creation 
@@ -325,9 +293,8 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 
 **Guidelines for use:**
--	Relevant when changing name of a born digital file, or e.g when renaming a file to comply with the constraints of the storage system.
--	Either a removal of prohibited character or a partial or entire replacement of the original filename. This can be used to note changes such as removing characters, or where a system removes the filename entirely and replaces it with a system generated name.
-
+-	Used when changing the filename of a digitally created file.
+- Documents a complete or partial change to the original filename, for example to remove prohibited characters or spaces, comply with the current filename standard, or correct errors in the filename.
 
 **Example:**
 ```json
@@ -340,12 +307,11 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   },
   "eventDateTime": "2026-02-03T10:47:29.332+01:00",
   "eventType": "filename change",
-  "eventDetail": "The filename was changed to conform to current file naming convention.",
+  "eventDetail": "The filename was changed from NN_TR_2011_01_31_18_40.mp4 to NRK_TR_2011_01_31_18_40.mp4 to comply with the current filename standard. The filename prefix indicates the radio channel from which the file originates. The original prefix, NN, was incorrect and was replaced with NRK.",
   "fileRef": {
     "relativePath": "representations/primary_20250325/data/NRK_TR_2011_01_31_18_40.mp4"
   },
-  "outcome": "success",
-  "outcomeDetail": "Filename changed from NN_TR_2011_01_31_18_40.mp4 to NRK_TR_2011_01_31_18_40.mp4."
+  "outcome": "success"
 }
 ```
 
@@ -355,14 +321,15 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
  | Name 	        | **fixity check** 	                                                               |
 |:--------------|:---------------------------------------------------------------------------------|
-| Description 	 | The process of verifying that an object has not been changed in a given period.	 |
+| Description 	 | The process of verifying that an object has not been altered by checking its checksum(s).	 |
 | Scope 	       | IE, File 	                                                                       |
 
 
 **Guidelines for use:**
--	The event should be linked to the IE where possible. Linked to the File only when it is necessary to document discrepancies.
--	This will most likely utilize the results of the "message digest calculation" event.
-- This is particularly important when checksums are received from external sources. 
+-	Used to verify that a digital object has not been altered by checking and comparing its checksum against a previously recorded checksum.
+- The event should be associated with the IE whenever possible. It should only be associated with an individual file when deviations need to be documented.
+- Will most likely contain the results of the "message digest calculation" event.
+- Particularly important when checksums are received from external sources.
 
 
 **Example:**
@@ -393,7 +360,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 **Guidelines for use:**
 -	Used to document the process of creating an exact digital copy (disk image) of a storage medium, including all files, metadata, file system structure, and sometimes also free space and deleted data.
--	When applicable, this event should be used instead of, not in addition to, the “creation” event. 
+-	As a general rule, this event should be used instead of the creation event, rather than in addition to it. However, in some cases, it may be relevant to use both events.
 
 **Example:**
 
@@ -467,9 +434,9 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 
 **Guidelines for use:**
--	The event should be linked to the IE where possible. Linked to the File only when it is necessary to document discrepancies.
--	Message digest is also commonly referred to as a "checksum". The event "fixity check" checks the message digest.
-- Used when generating new checksums. Where checksums are generated locally, there is no need to use the "fixity check" event in addition to the ‘message digest calculation’ event. See also EventType "fixity check".
+-	Used when generating new checksums. If checksums are generated locally, there is no need to use the "fixity check" event in addition to the "message digest calculation" event. See also EventType "fixity check".
+- The "fixity check" event documents the verification of checksum(s).
+- The event should be associated with the IE whenever possible. If deviations need to be documented, they should be associated with the relevant file.
 
 
 **Example:**
@@ -501,10 +468,13 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 **Guidelines for use:**
 - Used when metadata is extracted from a file.
 - The derived metadata must reference the source file in `"fileRef"`. 
-- If the extraction results in one or more metadata files, `"outcomeDetail"` must include a reference (file path) to the extracted/generated metadata file(s).
+- If the extraction results in one or more metadata files, `"outcomeDetail"` must include a reference (relative file path) to the extracted/generated metadata file(s).
 
 
 **Examples:**
+
+Example of metadata extraction documented in outcomeDetail:
+
 ```json
 {
   "agent": {
@@ -523,6 +493,9 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   "outcomeDetail": "Image: format JPEG, resolution 8256x5504 pixels, 24-bit color; Camera: Nikon D850; Lens: 24-70mm f/2.8; Exposure: 1/125 sec at f/8; ISO: 100; File size: 18.2 MB."
 }
 ```
+
+Example of metadata extraction stored as a separate file: 
+
 ```json
 {
   "agent": {
@@ -553,10 +526,13 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 
 **Guidelines for use:**
+
+- Used when one or more files are converted to a different file format.
 - The event should be associated with the Intellectual Entity (IE) whenever possible, for example, if the files have been converted in the same way to the same format. 
 -	Migration events should always create a new file(s) or package. 
-- The migrated file(s) must reference the source file in `"fileRef"` when single files are migrated (when the event is not associated with IE).
--  `"outcomeDetail"` must include a reference (file path) to the migrated file(s).
+- Relevant parameters describing the migration process should be documented in `eventDetail`.
+- The migrated file(s) must reference the source file in `fileRef` when single files are migrated (when the event is not associated with IE).
+-  `outcomeDetail` must include a reference (relative file path) to the migrated file(s).
 
 
 **Example:**
@@ -618,7 +594,9 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 
 
 **Guidelines for use:**
--	The object being validated may be a file or an Intellectual Entity. The event should be linked to the IE whenever possible, for example when the files are validated in the same way using the same tool, or when the structure is validated for the entire information package.
+
+- Used when a package or file is checked to verify that it complies with a specific standard, profile, specification, or other defined requirements.
+-	The object being validated may be an individual file or an Intellectual Entity (IE). Whenever possible, the event should be associated with the IE, for example when multiple files are validated in the same way using the same tool, or when the structure of the package is validated as a whole. The event should also specify what the validation was performed against, such as a standard, profile, specification, or other defined requirements.
 - It may be appropriate to create a single event covering the entire validation process, and instead describe which tools are used in the different steps, rather than creating multiple events for multiple validations.
 
 
@@ -633,7 +611,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   },
   "eventDateTime": "2026-02-03T17:30:39.662+01:00",
   "eventType": "validation",
-  "eventDetail": "Validated that files comply with the specifications of the applicable file format.",
+  "eventDetail": "Validated all PDF files in the package (35 files) using JHOVE to verify that they comply with the PDF 1.7 specifications.",
   "outcome": "success"
 }
 ```
@@ -647,9 +625,8 @@ The National Library bases its work on the [Library of Congress](https://www.loc
   },
   "eventDateTime": "2026-02-03T17:41:12.508+01:00",
   "eventType": "validation",
-  "eventDetail": "Validated E-ARK SIP using DPS Validation workflow v.a00f683: nifi-nb-eark-nar.EarkSIPValidator 1.0.7; org.roda-community:commons-ip2 2.12.0.",
-  "outcome": "success",
-  "outcomeDetail": "Validated against profiles E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 and NB-SIP-MOVINGIMAGES-PROFILE-1.0."
+  "eventDetail": "Validated E-ARK SIP using DPS Validation workflow v.a00f683: nifi-nb-eark-nar.EarkSIPValidator 1.0.7; org.roda-community:commons-ip2 2.12.0. Validated against profiles E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 and NB-SIP-MOVINGIMAGES-PROFILE-1.0.",
+  "outcome": "success"
 }
 ```
 
@@ -693,7 +670,7 @@ Example of a validation with deviations that did not stop processing:
     "agentName": "ClamAV",
     "agentType": "software",
     "agentVersion": "1.4.2",
-    "agentNote": "Antivirus program used to detect malicious software."
+    "agentNote": "Antivirus software used to detect malicious software. Virus signatures: daily.cvd, version 27890; main.cvd, version 12345."
   },
   "eventDateTime": "2026-02-03T18:27:53.842+01:00",
   "eventType": "virus check",
