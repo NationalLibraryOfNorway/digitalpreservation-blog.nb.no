@@ -8,7 +8,7 @@ aliases:
 
 ## Hva er metadata?
 
-Metadata er strukturert informasjon som beskriver digitale objekter. Metadata gjør det mulig å identifisere, finne, forstå og forvalte digitale filer over tid. Uten metadata vil ikke en digital fil ha tilstrekkelig kontekst til å kunne tolkes, forstås eller dokumenteres. For mer informasjon om over hvordan DPS håndterer data, se [Dataforvaltning](/docs/dps/understanding/data-management/). 
+Metadata er strukturert informasjon som beskriver digitale objekter. Metadata gjør det mulig å identifisere, finne, forstå og forvalte digitale filer over tid. Uten metadata vil ikke en digital fil ha tilstrekkelig kontekst til å kunne tolkes, forstås eller dokumenteres. For mer informasjon om over hvordan DPS håndterer data, se [Dataforvaltning](/nb/docs/dps/understanding/data-management/). 
 
 Innen digital bevaring har metadata flere sentrale funksjoner: 
 
@@ -22,7 +22,7 @@ Metadata berikes over tid. Ny informasjon legges til gjennom hele levetiden til 
 
 Noen metadata kan oppdateres og suppleres over tid, mens andre beskriver objektet slik det så ut da det ble avlevert, og endres ikke senere. De ulike metadataene har forskjellige formål og opprettes på ulike tidspunkt i bevaringsprosessen. Til sammen gir de en helhetlig beskrivelse av hvert digitalt objekt. 
 
-Metadata er et grunnleggende element i digital bevaring og er nedfelt som ett av prinsippene i Nasjonalbibliotekets [Prinsipper for digital bevaring](/docs/policies/principles/).
+Metadata er et grunnleggende element i digital bevaring og er nedfelt som ett av prinsippene i Nasjonalbibliotekets [Prinsipper for digital bevaring](/nb/docs/policies/principles/).
 
 ## Hvorfor metadata er viktige i DPS
 
@@ -51,15 +51,15 @@ Metadata registreres gjennom API på flere trinn i innleveringsprosessen.
 En vellykket avlevering resulterer i at det opprettes en AIP [^1] representert som en *Intellectual Entity* i databasen for bevaringsmetadata. Dersom en avlevering avvises, slettes tilhørende metadata fra databasen. 
 
 - **Administrative metadata** registreres når en avlevering opprettes. En avtale-ID identifiserer hvilken bevaringsavtale informasjonspakken tilhører, mens en objekt-ID identifiserer objektet entydig innenfor denne avtalen. Begge verdiene lagres i databasen for bevaringsmetadata som en del av informasjonspakken.
-- **Deskriptive metadata** leveres i form av Dublin Core når informasjonspakken avleveres. Metadataene lagres i databasen for deskriptive metadata og knyttes til den tilhørende informasjonspakken. Dette gjør innholdet søkbart og muliggjør kobling til eksterne systemer gjennom identifikatorer. En slik kobling gjør det mulig å identifisere systemer som inneholder mer detaljert informasjon om innholdet i informasjonspakken. Det er et mål at de deskriptive metadataene på sikt skal kunne oppdateres etter avlevering. Dette vil gjøre det mulig å korrigere, supplere og berike metadataene over tid, uten at selve AIP-en eller det bevarte innholdet endres. Obligatoriske metadata omfatter *Type* fra et kontrollert vokabular (for eksempel `Bok`, `Film` eller `Bilde`), *Tittel* og minst én *Identifikator*. I tillegg kan det registreres valgfrie metadata som: *opphavspersoner, bidragsytere, utgivere, datoer, språk, geografisk dekning, emner, beskrivelser* og *relasjoner*. Flere av disse feltene kan knyttes til autoritetsregistre. Se [Metadatakrav](/docs/dps/reference/descriptive-metadata/) for en fullstendig spesifikasjon.
+- **Deskriptive metadata** leveres i form av Dublin Core når informasjonspakken avleveres. Metadataene lagres i databasen for deskriptive metadata og knyttes til den tilhørende informasjonspakken. Dette gjør innholdet søkbart og muliggjør kobling til eksterne systemer gjennom identifikatorer. En slik kobling gjør det mulig å identifisere systemer som inneholder mer detaljert informasjon om innholdet i informasjonspakken. Det er et mål at de deskriptive metadataene på sikt skal kunne oppdateres etter avlevering. Dette vil gjøre det mulig å korrigere, supplere og berike metadataene over tid, uten at selve AIP-en eller det bevarte innholdet endres. Obligatoriske metadata omfatter *Type* fra et kontrollert vokabular (for eksempel `Bok`, `Film` eller `Bilde`), *Tittel* og minst én *Identifikator*. I tillegg kan det registreres valgfrie metadata som: *opphavspersoner, bidragsytere, utgivere, datoer, språk, geografisk dekning, emner, beskrivelser* og *relasjoner*. Flere av disse feltene kan knyttes til autoritetsregistre. Se [Metadatakrav](/nb/docs/dps/reference/descriptive-metadata/) for en fullstendig spesifikasjon.
 - **PREMIS-hendelser** (event'er) kan registreres som en valgfri del av avleveringen. PREMIS-hendelser som legges til ved avlevering er for å dokumentere bevaringsrelaterte aktiviteter utenfor DPS. Eksempler på slike hendelser er overføring, opprettelse, digitalisering, validering eller virusskanning. En hendelse kan knyttes til informasjonspakken som helhet eller til en spesifikk fil. Hendelsene lagres i databasen for bevaringsmetadata, med referanse til informasjonspakken og eventuelt til den aktuelle filen. Når en hendelse er registrert, kan den ikke endres eller slettes. Nye hendelser vil legges til av DPS etter hvert som objektet gjennomgår nye bevaringsrelaterte aktiviteter. Se [Bevaringseventer](/nb/docs/dps/understanding/metadata-management/preservation-events/) for en nærmere beskrivelse.
 
 ### Som metadatafiler i informasjonspakker (SIP)
 
-Metadata kan også avleveres som filer direkte i informasjonspakken (SIP). Noen filer som inneholder metadata er påkrevede i SIP-en, se våre [krav til pakkestruktur](/docs/dps/reference/sip/structure-requirements/).
+Metadata kan også avleveres som filer direkte i informasjonspakken (SIP). Noen filer som inneholder metadata er påkrevede i SIP-en, se våre [krav til pakkestruktur](/nb/docs/dps/reference/sip/structure-requirements/).
 
-- **METS.xml-filer** er obligatoriske både i pakkens rotmappe og i hver representasjonsmappe. DPS analyserer METS.xml-filene ved avlevering og henter ut informasjon som brukes til å berike informasjonspakken med metadata om innhold, struktur og filer. Se [krav til METS.xml](/docs/dps/reference/sip/mets/) for full spesifikasjon.
-- **Metadatafiler** som MARC, MODS, Dublin Core XML eller domenespesifikke metadata, legges ved i informasjonspakken. Det er påkrevd å levere minst en fil som inneholder deskriptive metadata. DPS bevarer disse filene, identifiserer filformatet og registrerer tekniske metadata, men tolker eller indekserer ikke innholdet. Se [innføring i metadata](/docs/dps/reference/sip/metadata/) for veiledning om plassering i informasjonspakker.
+- **METS.xml-filer** er obligatoriske både i pakkens rotmappe og i hver representasjonsmappe. DPS analyserer METS.xml-filene ved avlevering og henter ut informasjon som brukes til å berike informasjonspakken med metadata om innhold, struktur og filer. Se [krav til METS.xml](/nb/docs/dps/reference/sip/mets/) for full spesifikasjon.
+- **Metadatafiler** som MARC, MODS, Dublin Core XML eller domenespesifikke metadata, legges ved i informasjonspakken. Det er påkrevd å levere minst en fil som inneholder deskriptive metadata. DPS bevarer disse filene, identifiserer filformatet og registrerer tekniske metadata, men tolker eller indekserer ikke innholdet. Se [innføring i metadata](/nb/docs/dps/reference/sip/metadata/) for veiledning om plassering i informasjonspakker.
 
 ### Generert av DPS
 
@@ -73,7 +73,7 @@ Metadata som genereres ved mottak i DPS:
 
 ## Hvordan metadata lagres
 
-I DPS håndteres de ulike metadataene i en egen metadatatjeneste som består av flere komponenter. Metadataene beskyttes og lagres etter de samme prinsippene som de bevarte dataene, og følger 3-2-1-prinsippet for sikker og langsiktig lagring, se [Prinsipper for digital bevaring](/docs/policies/principles/). 
+I DPS håndteres de ulike metadataene i en egen metadatatjeneste som består av flere komponenter. Metadataene beskyttes og lagres etter de samme prinsippene som de bevarte dataene, og følger 3-2-1-prinsippet for sikker og langsiktig lagring, se [Prinsipper for digital bevaring](/nb/docs/policies/principles/). 
 
 {{< figure src="metadata-service.svg" alt="Diagram som viser databasene i metadatatjenesten og relasjonene mellom dem. Databasen for bevaringsmetadata (PREMIS) inneholder intellectual entities, representasjoner, filer, hendelser, agenter og en planlagt rettighetsentitet. Databasen for deskriptive metadata inneholder Dublin Core-dokumenter. Lokasjonsdatabasen sporer depotfiler. Tekniske metadata lagres i S3-objektlagring." >}}
 

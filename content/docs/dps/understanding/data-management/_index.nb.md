@@ -10,7 +10,7 @@ aliases:
 
 DPS er et sett med tjenester utviklet for å bevare data. I DPS-sammenheng snakker vi om *data og metadata*. **Data** er ressursen som skal bevares, for eksempel dokumenter, bilder, lyd- og filmopptak eller databasedumper. **Metadata** beskriver dataene og gir informasjon om innhold, struktur, kontekst og forvaltning. DPS tar ikke imot metadata uten data. 
 
-For å avlevere data må dataene pakkes i en SIP [^1], strukturert i henhold til våre [SIP-spesifikasjoner](/docs/dps/reference/sip/). I en SIP ligger representasjoner i egen mappe for data. METS.xml-filene, metadata-mappene, skjemaene og dokumentasjonen utenfor data-mappene utgjør strukturen som gjør innholdet maskinlesbart og verifiserbart. [E-ARK-spesifikasjonene](https://dilcis.eu/specifications) definerer hvor de ulike filtypene skal plasseres i bevaringspakken. Dette gjør det enklere å finne, tolke og gjenbruke innholdet i framtiden. 
+For å avlevere data må dataene pakkes i en SIP [^1], strukturert i henhold til våre [SIP-spesifikasjoner](/nb/docs/dps/reference/sip/). I en SIP ligger representasjoner i egen mappe for data. METS.xml-filene, metadata-mappene, skjemaene og dokumentasjonen utenfor data-mappene utgjør strukturen som gjør innholdet maskinlesbart og verifiserbart. [E-ARK-spesifikasjonene](https://dilcis.eu/specifications) definerer hvor de ulike filtypene skal plasseres i bevaringspakken. Dette gjør det enklere å finne, tolke og gjenbruke innholdet i framtiden. 
 
 ## Valg av hva som skal bevares
 
@@ -23,15 +23,15 @@ På avtalenivå fastsetter bevaringsavtalen hvilke typer innhold som kan avlever
 
 Når materiale er avlevert i henhold til en bevaringsavtale, er DPS sin oppgave å sikre at innholdet bevares uendret, autentisk og tilgjengelig over tid, uavhengig av hvilke filer Produsenten har valgt å avlevere.
 
-Ved valg av objekter og filformater anbefales det å følge [Prinsipper for digital bevaring](/docs/policies/principles/). 
+Ved valg av objekter og filformater anbefales det å følge [Prinsipper for digital bevaring](/nb/docs/policies/principles/). 
 
 ## Hvordan data kommer inn i DPS
 
-Data overføres til DPS som informasjonspakker (SIP-er) gjennom API-et. Før en SIP kan avleveres, autentiserer avlevereren seg mot API-et, og det verifiseres at de nødvendige rettighetene foreligger i henhold til den aktuelle bevaringsavtalen (se rollebasert tilgangskontroll). (se [rollebasert tilgangskontroll](/docs/dps/understanding/access-and-agreements/)). 
+Data overføres til DPS som informasjonspakker (SIP-er) gjennom API-et. Før en SIP kan avleveres, autentiserer avlevereren seg mot API-et, og det verifiseres at de nødvendige rettighetene foreligger i henhold til den aktuelle bevaringsavtalen (se rollebasert tilgangskontroll). (se [rollebasert tilgangskontroll](/nb/docs/dps/understanding/access-and-agreements/)). 
 
 Avleveringsflyten er: opprett en avlevering → registrer filene som utgjør SIP-en → last opp filinnholdet → fullfør avleveringen for å starte behandling i DPS. 
 
-Filene bevares dersom de validerer mot [krav til SIP-struktur](/docs/dps/reference/sip/structure-requirements/), [krav til METS.xml](/docs/dps/reference/sip/mets/) og krav til [API-et](/docs/dps/reference/api/#innleveringer). Avleveringer som ikke oppfyller kravene vil bli avvist. 
+Filene bevares dersom de validerer mot [krav til SIP-struktur](/nb/docs/dps/reference/sip/structure-requirements/), [krav til METS.xml](/nb/docs/dps/reference/sip/mets/) og krav til [API-et](/nb/docs/dps/reference/api/#innleveringer). Avleveringer som ikke oppfyller kravene vil bli avvist. 
 
 ## Hvordan data bevares i DPS
 
@@ -54,11 +54,11 @@ Som en del av mottaksprosessen gjør DPS formatidentifikasjon og ekstraherer tek
 
 Informasjonen som samles inn danner grunnlaget for bevaringsplanlegging. Kunnskap om hvilke filformater som finnes i DPS, og i hvilket omfang de forekommer, gjør det mulig å overvåke formater som kan være utsatt for teknologisk foreldelse og vurdere når bevaringstiltak kan bli nødvendige. Periodiske integritetskontroller verifiserer at filene ikke har blitt endret over tid. Alle operasjoner dokumenteres og viser hvilke handlinger som er utført på hver fil og når de fant sted. 
 
-For en nærmere beskrivelse av hvordan metadata forvaltes, se [Metadataforvaltning](/docs/dps/understanding/metadata-management/).
+For en nærmere beskrivelse av hvordan metadata forvaltes, se [Metadataforvaltning](/nb/docs/dps/understanding/metadata-management/).
 
 ## Hvordan data kan benyttes
 
-Innholdet i DPS er ikke tilgjengelig for umiddelbar uthenting. Systemet er basert på en asynkron arkitektur. Lagringsløsningen er utformet for å prioritere langsiktig bevaringssikkerhet og kostnadseffektiv drift fremfor lav responstid ved utlevering. Tilgang og utlevering reguleres av egne avtaler. Forespørsler behandles via API'et. (se [rollebasert tilgangskontroll](/docs/dps/understanding/access-and-agreements/)).
+Innholdet i DPS er ikke tilgjengelig for umiddelbar uthenting. Systemet er basert på en asynkron arkitektur. Lagringsløsningen er utformet for å prioritere langsiktig bevaringssikkerhet og kostnadseffektiv drift fremfor lav responstid ved utlevering. Tilgang og utlevering reguleres av egne avtaler. Forespørsler behandles via API'et. (se [rollebasert tilgangskontroll](/nb/docs/dps/understanding/access-and-agreements/)).
 
 ## Hvordan data endrer seg over tid
 

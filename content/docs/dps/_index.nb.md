@@ -26,7 +26,7 @@ Med mindre noe annet er spesifisert, refererer vi til SIP-er når vi snakker om 
 
 ## Hvem kan bruke DPS
 
-DPS er offentlig tilgjengelig, men tilgang krever en avtale med Nasjonalbiblioteket. For detaljer, se [Dataforvaltning](/docs/dps/understanding/data-management/).
+DPS er offentlig tilgjengelig, men tilgang krever en avtale med Nasjonalbiblioteket. For detaljer, se [Dataforvaltning](/nb/docs/dps/understanding/data-management/).
 
 ## Hva DPS gjør
 
@@ -57,13 +57,13 @@ DPS er ett av tre systemdomener som deler ansvaret for digitale objekter i Nasjo
 
 Biblioteksystemer, kataloger, registre og forvaltningssystemer (som Alma, Mavis og Hanske). De er hovedkilden for deskriptive metadata og utsteder unike identifikatorer (UID-er, typisk URN-er) for digitale objekter. Disse systemene forvalter et bredt spekter av ressurser.  
 
-Det er her intellektuelle entiteter[^1] defineres: valget av hva som utgjør en bevaringsverdig informasjonspakke starter her, ikke i DPS. Én URN tilsvarer typisk én pakke. For detaljer om pakkeomfang, se [Pakke-, representasjons- og dataomfang](/docs/dps/understanding/information-packages/).  
+Det er her intellektuelle entiteter[^1] defineres: valget av hva som utgjør en bevaringsverdig informasjonspakke starter her, ikke i DPS. Én URN tilsvarer typisk én pakke. For detaljer om pakkeomfang, se [Pakke-, representasjons- og dataomfang](/nb/docs/dps/understanding/information-packages/).  
 
 ### Digital Preservation Services (DPS)
 
 DPS er bevaringssystemet. Det forvalter bevaringsdata med en PREMIS-basert datamodell[^2] (intellektuelle entiteter, representasjoner, filer, eventer, agenter). DPS tilbyr langtidslagring med asynkron tilgang, og er hovedkilden for tekniske metadata på filnivå i Nasjonalbiblioteket. DPS er ikke hovedkilden for deskriptive metadata: systemet holder metadataene det trenger for å operere selvstendig, uten å gjenskape metadatasystemenes fulle katalogstrukturer.  
 
-Digital Preservation Services fungerer som en selvstendig tjeneste. Identifikatorer og metadata leveres gjennom API-et, og DPS håndterer bevaringen. For detaljer om hvordan data og metadata håndteres i DPS, se [Dataforvaltning](/docs/dps/understanding/data-management/) og [Metadataforvaltning](/docs/dps/understanding/metadata-management/).
+Digital Preservation Services fungerer som en selvstendig tjeneste. Identifikatorer og metadata leveres gjennom API-et, og DPS håndterer bevaringen. For detaljer om hvordan data og metadata håndteres i DPS, se [Dataforvaltning](/nb/docs/dps/understanding/data-management/) og [Metadataforvaltning](/nb/docs/dps/understanding/metadata-management/).
 
 ### Offentlige tilgangstjenester
 

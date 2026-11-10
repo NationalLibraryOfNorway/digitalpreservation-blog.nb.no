@@ -26,13 +26,13 @@ Internt i Nasjonalbibliotekets egne samlinger er ansvaret for digitale objekter[
 
 Biblioteksystemer, kataloger, registre og forvaltningssystemer (som Alma, Mavis og Hanske). De er hovedkilden for deskriptive metadata og utsteder unike identifikatorer (UID-er, typisk URN-er) for digitale objekter. Disse systemene forvalter et bredt spekter av entiteter; kun en delmengde beskriver digitale objekter relevante for digital bevaring.
 
-Det er her intellektuelle entiteter defineres: valget av hva som utgjør en bevaringsverdig informasjonspakke starter her, ikke i DPS. Én URN tilsvarer typisk én pakke. For detaljer om pakkeomfang, se [Pakke-, representasjons- og dataomfang](/docs/dps/understanding/information-packages/).
+Det er her intellektuelle entiteter defineres: valget av hva som utgjør en bevaringsverdig informasjonspakke starter her, ikke i DPS. Én URN tilsvarer typisk én pakke. For detaljer om pakkeomfang, se [Pakke-, representasjons- og dataomfang](/nb/docs/dps/understanding/information-packages/).
 
 ### Digital Preservation Services (DPS)
 
 Bevaringssystemet. Forvalter bevaringsdata med en PREMIS-basert datamodell (intellektuelle entiteter, representasjoner, filer, eventer, agenter). DPS tilbyr "kald" langtidslagring med asynkron tilgang, designet for bevaring fremfor umiddelbar uthenting. DPS er hovedkilden for tekniske metadata på filnivå i Nasjonalbiblioteket. DPS er ikke hovedkilden for deskriptive metadata: systemet holder metadataene det trenger for å operere selvstendig, uten å gjenskape metadatasystemenes fulle katalogstrukturer.
 
-For eksterne produsenter og konsumenter fungerer DPS som en selvstendig tjeneste: du leverer dine egne identifikatorer og metadata gjennom API-et, og DPS håndterer bevaringen uavhengig. For detaljer om hvordan data og metadata håndteres i DPS, se [Dataforvaltning](/docs/dps/understanding/data-management/) og [Metadataforvaltning](/docs/dps/understanding/metadata-management/).
+For eksterne produsenter og konsumenter fungerer DPS som en selvstendig tjeneste: du leverer dine egne identifikatorer og metadata gjennom API-et, og DPS håndterer bevaringen uavhengig. For detaljer om hvordan data og metadata håndteres i DPS, se [Dataforvaltning](/nb/docs/dps/understanding/data-management/) og [Metadataforvaltning](/nb/docs/dps/understanding/metadata-management/).
 
 ### Offentlige tilgangstjenester
 
@@ -60,7 +60,7 @@ DPS bruker PREMIS som sin bevaringsmetadatamodell. Verken metadatasystemene elle
 
 > An **Intellectual Entity** is a distinct intellectual or artistic creation that is considered relevant to a designated community in the context of digital preservation: for example, a particular book, map, photograph, database, or hardware or software. An intellectual Entity can include other Intellectual Entities[...]
 
-I vår implementering er det et én-til-én-forhold mellom SIP og IE. IE-en er entiteten som identifiseres av UID-en som binder de tre systemdomenene sammen. Vanligvis er dette den **minste** beskrevne enheten i våre metadatasystemer. For detaljer om hvordan dette former pakkeomfang, se [Pakke-, representasjons- og dataomfang](/docs/dps/understanding/information-packages/).
+I vår implementering er det et én-til-én-forhold mellom SIP og IE. IE-en er entiteten som identifiseres av UID-en som binder de tre systemdomenene sammen. Vanligvis er dette den **minste** beskrevne enheten i våre metadatasystemer. For detaljer om hvordan dette former pakkeomfang, se [Pakke-, representasjons- og dataomfang](/nb/docs/dps/understanding/information-packages/).
 
 Metadata på pakkerota beskriver IE-en som SIP-en inneholder representasjoner av. Representasjonene er ulike datagjengivelser av IE-en og har ikke egne beskrivende metadata.
 
@@ -79,7 +79,7 @@ En pakke kan inneholde flere representasjoner. For de aller fleste SIP-er i Nasj
 Innenfor NB er PREMIS-entiteter fordelt på de tre systemdomenene. For eksterne brukere forvalter DPS sin egen datamodell (intellektuelle entiteter, representasjoner og filer) og omfang defineres av klienten. Rollene til de to andre domenene fylles av dine egne systemer.
 
 - **Metadatasystemer**: internt i NB er det her intellektuelle entiteter defineres og identifiseres. Representasjonsnivået er typisk *ikke* beskrevet i disse systemene. De definerer representasjoner implisitt gjennom representasjonens én-til-én-forhold til IE-en.
-- **Digital Preservation Services (DPS)**: forvalter den fulle PREMIS-datamodellen: intellektuelle entiteter, representasjoner og filer. DPS gjenskaper ikke metadatasystemenes fulle deskriptive metadatastrukturer. Systemet tilbyr søk basert på metadata som leveres til og genereres av DPS. For detaljer, se [Metadataforvaltning](/docs/dps/understanding/metadata-management/).
+- **Digital Preservation Services (DPS)**: forvalter den fulle PREMIS-datamodellen: intellektuelle entiteter, representasjoner og filer. DPS gjenskaper ikke metadatasystemenes fulle deskriptive metadatastrukturer. Systemet tilbyr søk basert på metadata som leveres til og genereres av DPS. For detaljer, se [Metadataforvaltning](/nb/docs/dps/understanding/metadata-management/).
 - **Offentlige tilgangstjenester**: forvalter og formidler en høstet delmengde av intellektuelle entiteter, tilgangsrepresentasjoner og filer.
 
 

@@ -9,7 +9,7 @@ aliases:
 
 Tilgang til DPS styres gjennom et offentlig API. Hvem som kan levere og hente ut innhold styres av rollebasert tilgangskontroll: hver klient tildeles spesifikke roller knyttet til bevaringsavtaler, og disse rollene bestemmer hva klienten er autorisert til å gjøre.
 
-Modellen som styrer tilgang til å avlevere data til eller hente data fra DPS, har fire hovedkomponenter: *klienter*, *roller*, *bevaringsavtaler*, og *informasjonspakker*. For kontekst om hva som leveres og hentes, se [Datahåndtering](/docs/dps/understanding/data-management/) og [Metadatahåndtering](/docs/dps/understanding/metadata-management/).
+Modellen som styrer tilgang til å avlevere data til eller hente data fra DPS, har fire hovedkomponenter: *klienter*, *roller*, *bevaringsavtaler*, og *informasjonspakker*. For kontekst om hva som leveres og hentes, se [Datahåndtering](/nb/docs/dps/understanding/data-management/) og [Metadatahåndtering](/nb/docs/dps/understanding/metadata-management/).
 
 ### Klienter
 Alle brukere som skal snakke med DPS får tildelt en klient (med en klientID) av Nasjonalbiblioteket.
@@ -133,4 +133,4 @@ sequenceDiagram
 ```
 
 [^1]: [E-ARK SIP: 4.1. Submission Agreements](https://earksip.dilcis.eu/#submissionagreements)
-[^2]: For mer informasjon om informasjonspakker se [OAIS-modellen](/nb/oais).
+[^2]: For mer informasjon om informasjonspakker se [OAIS-terminologien](/nb/docs/dps/).

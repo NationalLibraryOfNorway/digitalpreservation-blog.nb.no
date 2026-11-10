@@ -34,7 +34,7 @@ Rammebetingelser for bevaring kan endre seg over tid.
 Dette øker muligheten for at vi kan lese og forstå filen nå og i framtiden.
 Gode formatvalg gjør forvaltningen enklere over tid.
 Proprietære og udokumenterte filformater kan ha kort og uforutsigbar levetid.
-Nasjonalbiblioteket anbefaler å bruke følgende filformater: [foretrukne filformater](/docs/policies/formats/ "Linken til dokumentet med liste over foretrukne filformater").
+Nasjonalbiblioteket anbefaler å bruke følgende filformater: [foretrukne filformater](/nb/docs/policies/formats/ "Linken til dokumentet med liste over foretrukne filformater").
 
 ## 3. Ta vare på originalfilen
 

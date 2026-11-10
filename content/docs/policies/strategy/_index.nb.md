@@ -53,4 +53,4 @@ Sørge for sikring av og meningsfull tilgang til nasjonal digital kulturarv for 
 
 [^1]: [Pliktavleveringsloven på lovdata.no](https://lovdata.no/dokument/NL/lov/1989-06-09-32 "Link til pliktavleveringsloven på lovdata.no")
 
-[^2]: [Prinsipper for digital bevaring](/docs/policies/principles/ "Link til prinsipper for digital bevaring i Nasjonalbiblioteket")
+[^2]: [Prinsipper for digital bevaring](/nb/docs/policies/principles/ "Link til prinsipper for digital bevaring i Nasjonalbiblioteket")
