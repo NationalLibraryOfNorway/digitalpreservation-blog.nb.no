@@ -11,6 +11,23 @@ This guide shows how to choose which events to document for your workflow, and h
 - You need a submission with the status `REGISTERED`. See [Submit content for preservation](/docs/dps/how-to/submit-content/).
 - Events can only be submitted before the submission is finalized. Submit all events first, then finalize.
 
+## Event types you can submit
+
+The API accepts the following values for `eventType`. Requests with other values are rejected. The [preservation events reference](/docs/dps/reference/preservation-events/) describes each type with guidelines and examples. It also covers event types that DPS records itself, which cannot be submitted. The [Swagger documentation](/swagger/) is the authoritative source for the values the API accepts.
+
+- [`capture`](/docs/dps/reference/preservation-events/#capture)
+- [`creation`](/docs/dps/reference/preservation-events/#creation)
+- [`filename change`](/docs/dps/reference/preservation-events/#filename-change)
+- [`fixity check`](/docs/dps/reference/preservation-events/#fixity-check)
+- [`imaging`](/docs/dps/reference/preservation-events/#imaging)
+- [`information package creation`](/docs/dps/reference/preservation-events/#information-package-creation)
+- [`message digest calculation`](/docs/dps/reference/preservation-events/#message-digest-calculation)
+- [`metadata extraction`](/docs/dps/reference/preservation-events/#metadata-extraction)
+- [`migration`](/docs/dps/reference/preservation-events/#migration)
+- [`transfer`](/docs/dps/reference/preservation-events/#transfer)
+- [`validation`](/docs/dps/reference/preservation-events/#validation)
+- [`virus check`](/docs/dps/reference/preservation-events/#virus-check)
+
 ## Choose which events to document
 
 This guidance is based on the National Library's internal workflows and may not cover all types of preservation processes. Feedback on improvements, clarifications, and additional use cases is welcome.

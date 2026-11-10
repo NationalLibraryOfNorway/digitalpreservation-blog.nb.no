@@ -5,64 +5,25 @@ aliases:
   - /docs/dps/api/submission/
 ---
 
-## Oversikt
+Denne veiledningen viser hvordan du leverer materiale til DPS via API-et: fra en ferdig innleveringspakke (SIP) til et bevart objekt. Feltnavn, begrensninger og statuskoder er listet i [referansen for innleveringer](/nb/docs/dps/reference/api/#innleveringer).
 
-Submission-tjenesten for digital bevaring tilbyr et REST-basert API for å håndtere digitale leveranser og tilhørende filer. 
-Tjenesten lar klienter opprette leveranser, registrere filer, laste opp innhold og spore statusen gjennom hele bevaringsprosessen.
+## Før du starter
 
-For generell informasjon om autentisering og autorisasjon, se [hovedsiden for API-dokumentasjon](../../reference/api/).
+- **Klientlegitimasjon og et tilgangstoken.** Se [Autentisering og autorisasjon](/nb/docs/dps/reference/api/).
+- **En kontrakt-ID (`contractId`)** for avtalen du leverer under, og en produsentrolle for den kontrakten.
+- **Materialet klargjort som en SIP** i henhold til [SIP-spesifikasjonene](/nb/docs/dps/reference/sip/).
 
-Denne dokumentasjonen kompletterer den detaljerte API-spesifikasjonen som er tilgjengelig via Swagger på [https://digitalpreservation.no/swagger/](https://digitalpreservation.no/swagger/).
+## Steg
 
-Den maskinlesbare OpenAPI-spesifikasjonen (JSON) er tilgjengelig på <https://api.nb.no/dps-submission/v1/api-docs>.
+{{% steps %}}
 
-**Filstørrelsesbegrensning:**
+### Klargjør SIP-en
 
-* Maks filstørrelse: 5 GB per fil
-* Begrensningen skyldes restriksjoner i pre-signerte S3-URL-er
+Pakk materialet som en SIP som oppfyller [kravene til SIP-struktur](/nb/docs/dps/reference/sip/structure-requirements/) og [kravene til METS.xml](/nb/docs/dps/reference/sip/mets/). Beregn en MD5-sjekksum for hver fil i pakken. Filene du registrerer i de neste stegene er filene i SIP-en, og stiene deres i API-et speiler pakkestrukturen.
 
-## Leveringsflyt
+### Opprett en submission
 
-Hele prosessen for å levere innhold ser slik ut:
-
-1. **Opprett en submission** med metadata
-2. **Registrer filer** for å få pre-signerte opplastingslenker
-3. **Last opp filer** via disse lenkene
-4. **Fullfør submissionen** for å starte bevaringsbehandling
-5. Spor **submission-status** etter hvert som den behandles, via [webhooks](../receive-notifications/) eller ved å hente submissionen
-
-## Endepunkter
-
-| Metode | Sti                                                        | Beskrivelse                           |
-|--------|------------------------------------------------------------|---------------------------------------|
-| POST   | `/v1/contracts/{contractId}/submissions`                         | Opprett submission                    |
-| GET    | `/v1/contracts/{contractId}/submissions`                         | List submissions for kontrakten       |
-| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}`          | Hent submission                       |
-| DELETE | `/v1/contracts/{contractId}/submissions/{submissionId}`          | Slett submission                      |
-| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/files`    | Registrer fil og få opplastings-URL   |
-| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Hent fil                      |
-| DELETE | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Slett fil                     |
-| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/finalize` | Fullfør submission                    |
-| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Send inn event, se [Legge til bevaringseventer](../add-preservation-events/)  |
-| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Hent eventer                          |
-
-- **Liste over submissions:** Sortert etter når de ble opprettet, og paginert med `page` (nullbasert, standard `0`) og `size` (standard `10`). Filtrer med `objectId` og/eller `archiveId` (eksakt treff; flere filtre kombineres med OG). Hvis ingenting treffer, er responsen en tom side.
-- **Hent submission:** Bruk query-parameteren `include` for å ta med relaterte data i responsen: `FILES` (registrerte filer), `DESCRIPTIVE_METADATA` (metadataene fra forespørselen) og `EVENTS` (bevaringshendelser), f.eks. `?include=FILES&include=EVENTS`.
-- **Slett submission:** Bare tillatt mens submissionen har status `REGISTERED` og ikke har registrerte filer. Slett filene først; en submission som fortsatt har filer, gir `409 Conflict`.
-- **Slett fil:** Bare tillatt mens submissionen har status `REGISTERED`; ellers svarer API-et med `409 Conflict`. Som standard slettes bare filregistreringen. Legg til `deleteFromS3=true` for også å slette den opplastede filen fra S3.
-
-
-## Eksempel på API-bruk
-
-### Registrer ny submission
-
-**Felt i forespørselen**
-
-| Felt       | Type    | Påkrevd | Beskrivelse                                                                                                                                                                                                                                                                                                                                        |
-|------------|---------|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `objectId` | string  | Ja      | Klientens identifikator for innleveringsobjektet – vanligvis en ID fra kildesystemet (f.eks. en database-ID eller URN-fragment). Kobler DPS-hendelser som webhooks tilbake til objektet i ditt system. Må være unik per kontrakt (kombinasjonen `contractId` + `objectId` må være unik). Kan ikke endres etter at innleveringen er levert til DPS. Må være 3–200 tegn og kan bare inneholde `a-z`, `A-Z`, `0-9`, `-` og `_`. |
-| `priority` | integer | Nei     | Prioritet for behandling i køen. Gyldige verdier: `1` (høyest) til `100` (lavest). Standard er `50` (normal prioritet), og er det som vanligvis skal brukes. Verdier over `50` angir lavere prioritet og brukes f.eks. ved rearkivering.                                                                                                           |
-| `metadata` | object  | Ja      | Beskrivende metadata om innholdet. Se eksempelet nedenfor for tilgjengelige felt.                                                                                                                                                                                                                                                                  |
+En submission representerer én informasjonspakke. Opprett den med din identifikator for objektet (`objectId`) og de deskriptive metadataene. Se [Krav til metadata](/nb/docs/dps/reference/descriptive-metadata/) for metadataelementene.
 
 **Forespørsel**
 ```http
@@ -194,17 +155,11 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
-### Registrer fil for opplasting
+Ta vare på `submissionId` fra responsen. Du trenger den i de neste stegene.
 
-`isPackaged` angir om filer er pakket midlertidig kun for overføringsformål. Disse filene pakkes for å lette overføringen, og pakkes ut av bevaringsflyten.
+### Registrer hver fil
 
-**Felt i forespørselen**
-
-| Felt         | Type    | Påkrevd | Beskrivelse                                                                                                                                                                     |
-|--------------|---------|---------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `filePath`   | string  | Ja      | Relativ sti til filen i submissionen. Må være unik i submissionen, kan være maks 900 tegn, kan bare inneholde `a-z`, `A-Z`, `0-9`, `-`, `_`, `.`, `(`, `)` og `/`, og kan ikke starte med `/` eller `.`. |
-| `checksum`   | string  | Ja      | MD5-sjekksum for filen, som 32 heksadesimale tegn med små bokstaver.                                                                                                             |
-| `isPackaged` | boolean | Nei     | Om filen er pakket midlertidig kun for overføring. Standard er `false`.                                                                                                         |
+Registrer hver fil i SIP-en med stien i pakken og sjekksummen. Responsen inneholder en pre-signert `uploadUrl` for filen.
 
 **Forespørsel**
 ```http
@@ -232,9 +187,51 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
-### Fullfør submission
+### Last opp filene
 
-Kall `finalize` når alle filene er lastet opp. Submissionen må ha minst én registrert fil som ikke er tom, og alle registrerte filer må ligge i S3; ellers svarer API-et med `422 Unprocessable Entity`. En submission kan bare fullføres én gang; et nytt kall gir `409 Conflict`.
+Last opp innholdet i hver fil med HTTP PUT til filens `uploadUrl`. URL-en er gyldig i ca. én time, og innholdet må ha samme MD5-sjekksum som du registrerte.
+
+```http
+PUT {uploadUrl} HTTP/1.1
+Content-Length: {file-size-in-bytes}
+
+[FILE CONTENT]
+```
+
+Hvis opplastingen feiler eller går ut på tid:
+
+- Prøv på nytt med samme `uploadUrl` hvis den ikke er utløpt.
+- Hvis den er utløpt, slett filregistreringen (`DELETE /v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}`) og registrer filen på nytt for å få en ny URL.
+
+{{% details title="Alternativ opplasting for store filer (filer over 5 GiB)" closed="true" %}}
+
+> [!NOTE]
+> Denne funksjonaliteten er primært ment for intern bruk på Nasjonalbiblioteket, spesielt for store filer, 
+> siden pre-signerte URL-er kun støtter filer med en maksimal størrelse på 5 GiB. 
+> Tilgang til S3-bøtta for digital bevaring kan fås ved å kontakte Plattform-teamet.
+
+
+Opplastingsprosessen følger disse stegene:
+1. **Registrer en fil** ved å sende POST til `/contracts/{contractId}/submissions/{submissionId}/files`
+2. **Hent ut s3ObjectKey** i responsen
+3. **Last opp filinnholdet** direkte til S3, med `s3://{s3ObjectKey}` som mål. `s3ObjectKey` starter med navnet på bøtta, etterfulgt av objektnøkkelen.
+
+Vi anbefaler å bruke AWS CLI til opplastingen. Dokumentasjon finnes her: https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html
+
+Her er et eksempel på hvordan du kan gjøre dette:
+```shell
+s3 cp path/to/my_big_movie_file.mov s3://examplebucket/clientId/contract/submissionId/path/to/my_big_movie_file.mov --endpoint-url=https://s3.nb.no
+```
+
+{{% /details %}}
+
+### Legg til bevaringseventer (valgfritt)
+
+Hvis du har dokumentert bevaringseventer før innlevering, for eksempel digitalisering eller validering, legger du dem til nå. Eventer kan bare legges til før submissionen er fullført. Se [Legge til bevaringseventer](/nb/docs/dps/how-to/add-preservation-events/).
+
+### Fullfør submissionen
+
+Når alle filene er lastet opp, fullfører du submissionen. Dette starter overføringen til DPS, og det kan ikke legges til flere filer eller eventer.
 
 **Forespørsel**
 ```http
@@ -266,67 +263,11 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
+### Følg statusen
 
-## Filopplasting
+Submissionen går nå gjennom `PROCESSING` til enten `PRESERVED` eller `REJECTED`. Følg den ved å [motta varsler](/nb/docs/dps/how-to/receive-notifications/) eller ved å hente submissionen. En `200 OK` fra `finalize` bekrefter bare at opplastingen er fullført: innholdet i filene valideres etter overføringen til DPS. Når submissionen er bevart, tar du vare på `archiveId` fra meldingen `submission.preserved`. Den er materialets varige identifikator i DPS.
 
-Opplastingsprosessen følger disse stegene:
-1. **Registrer en fil** ved å sende POST til `/contracts/{contractId}/submissions/{submissionId}/files`
-2. **Hent pre-signert URL** fra responsen. Feltet heter `uploadUrl`, og  er gyldig i ca. 1 time.
-3. **Last opp filinnholdet** direkte til S3 ved å bruke HTTP PUT til den angitte URL-en
-
-
-### Opplasting av fil med bruk av pre-signert URL
-
-```http
-PUT {uploadUrl} HTTP/1.1
-Content-Length: {file-size-in-bytes}
-
-[FILE CONTENT]
-```
-
-
-{{% details title="Alternativ opplasting for store filer (filer over 5 GiB)" closed="true" %}}
-
-> [!NOTE]
-> Denne funksjonaliteten er primært ment for intern bruk på Nasjonalbiblioteket, spesielt for store filer, 
-> siden pre-signerte URL-er kun støtter filer med en maksimal størrelse på 5 GiB. 
-> Tilgang til S3-bøtta for digital bevaring kan fås ved å kontakte Plattform-teamet.
-
-
-Opplastingsprosessen følger disse stegene:
-1. **Registrer en fil** ved å sende POST til `/contracts/{contractId}/submissions/{submissionId}/files`
-2. **Hent ut s3ObjectKey** i responsen
-3. **Last opp filinnholdet** direkte til S3, med `s3://{s3ObjectKey}` som mål. `s3ObjectKey` starter med navnet på bøtta, etterfulgt av objektnøkkelen.
-
-Vi anbefaler å bruke AWS CLI til opplastingen. Dokumentasjon finnes her: https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html
-
-Her er et eksempel på hvordan du kan gjøre dette:
-```shell
-s3 cp path/to/my_big_movie_file.mov s3://examplebucket/clientId/contract/submissionId/path/to/my_big_movie_file.mov --endpoint-url=https://s3.nb.no
-```
-
-{{% /details %}}
-
-
-### Krav til opplasting
-- Filen må lastes opp via oppgitt pre-signert URL
-- Filinnholdet må ha samme MD5-sjekksum som oppgitt ved registrering
-
-### Håndtering av feil
-
-- Hvis opplasting feiler eller går ut på tid, kan du prøve på nytt med samme URL (hvis gyldig)
-- Hvis URL-en er utløpt, slett filregistreringen (`DELETE /v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}`) og registrer på nytt for å få en ny URL
-
-## Statusflyt
-
-En submission går gjennom følgende statuser:
-
-1. `REGISTERED` – Opprettet
-2. `UPLOAD_COMPLETED` – Alle filer er lastet opp og submission er fullført
-3. `PROCESSING` – Innholdet overføres til, valideres og arkiveres i bevaringssystemet
-4. `PRESERVED` – Innholdet er bevart
-5. `REJECTED` – Submission er avvist pga. feil
-
+{{% /steps %}}
 
 ## Viktig informasjon
 
@@ -353,12 +294,6 @@ En `200 OK`-respons fra `finalize` bekrefter at filene er mottatt og sendt til S
 6. **Ikke slett kildematerialet før du har mottatt meldingen `submission.preserved`.**
 `submission.preserved` er bekreftelsen på at materialet er bevart i DPS og har gjennomgått nødvendig validering og verifisering. Vent derfor med å slette kildematerialet til denne meldingen er mottatt.
 
-
-
 ## Støtte
 
 Trenger du hjelp eller har spørsmål, kontakt teamet for digital bevaring ved Nasjonalbiblioteket.
-
-## API-referanse
-
-For fullstendig informasjon om endepunkter, parametere, skjema og statuser, se [Swagger-dokumentasjonen](https://digitalpreservation.no/swagger/).

@@ -11,6 +11,23 @@ Denne veiledningen viser hvordan du velger hvilke eventer du skal dokumentere fo
 - Du trenger en innlevering (submission) med status `REGISTERED`. Se [Levere materiale til bevaring](/nb/docs/dps/how-to/submit-content/).
 - Eventer kan bare leveres før innleveringen er fullført. Lever alle eventer først, og fullfør deretter.
 
+## Eventtyper du kan levere
+
+API-et godtar følgende verdier for `eventType`. Forespørsler med andre verdier blir avvist. [Referansen for bevaringseventer](/nb/docs/dps/reference/preservation-events/) beskriver hver type med retningslinjer og eksempler. Den omfatter også eventtyper som DPS registrerer selv, og som ikke kan leveres. [Swagger-dokumentasjonen](/swagger/) er den autoritative kilden for hvilke verdier API-et godtar.
+
+- [`capture`](/nb/docs/dps/reference/preservation-events/#capture)
+- [`creation`](/nb/docs/dps/reference/preservation-events/#creation)
+- [`filename change`](/nb/docs/dps/reference/preservation-events/#filename-change)
+- [`fixity check`](/nb/docs/dps/reference/preservation-events/#fixity-check)
+- [`imaging`](/nb/docs/dps/reference/preservation-events/#imaging)
+- [`information package creation`](/nb/docs/dps/reference/preservation-events/#information-package-creation)
+- [`message digest calculation`](/nb/docs/dps/reference/preservation-events/#message-digest-calculation)
+- [`metadata extraction`](/nb/docs/dps/reference/preservation-events/#metadata-extraction)
+- [`migration`](/nb/docs/dps/reference/preservation-events/#migration)
+- [`transfer`](/nb/docs/dps/reference/preservation-events/#transfer)
+- [`validation`](/nb/docs/dps/reference/preservation-events/#validation)
+- [`virus check`](/nb/docs/dps/reference/preservation-events/#virus-check)
+
 ## Velg hvilke eventer du skal dokumentere
 
 Denne veiledningen er basert på Nasjonalbibliotekets interne arbeidsflyter og er ikke nødvendigvis dekkende for alle typer bevaringsprosesser. Innspill til forbedringer, presiseringer og ytterligere brukstilfeller mottas gjerne.

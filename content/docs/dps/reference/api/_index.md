@@ -20,6 +20,8 @@ The API lets you:
 - [**Request preserved content**](../../how-to/retrieve-content/): request preserved digital objects.
 - [**Receive notifications**](../../how-to/receive-notifications/): get automatic status updates in your systems through webhooks.
 
+This page also lists the endpoints, request fields, limits, and status lifecycle for [submissions](#submissions).
+
 ## Authentication & Authorization
 
 The API uses OAuth 2.0 with JWT tokens for authentication, specifically implementing the OAuth 2.0 Client Credentials flow.
@@ -98,6 +100,74 @@ Error responses follow [RFC 9457 Problem Details for HTTP APIs](https://www.rfc-
 | `validationErrors` | Only for validation errors: an object that maps each invalid field to a list of messages                                                                           |
 | `currentStatus`    | Only for errors caused by the resource's state: the current status of the resource                                                                                 |
 
+
+## Submissions
+
+Endpoints for submitting content. For a step-by-step walkthrough, see [Submit content for preservation](/docs/dps/how-to/submit-content/). All paths are relative to `https://api.nb.no/dps-submission`.
+
+### Submission endpoints
+
+| Method | Path                                                                   | Description                       |
+|--------|------------------------------------------------------------------------|-----------------------------------|
+| POST   | `/v1/contracts/{contractId}/submissions`                               | Create submission                 |
+| GET    | `/v1/contracts/{contractId}/submissions`                               | List submissions for the contract |
+| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}`                | Fetch submission                  |
+| DELETE | `/v1/contracts/{contractId}/submissions/{submissionId}`                | Delete submission                 |
+| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/files`          | Register file and get upload URL  |
+| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Fetch file                        |
+| DELETE | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Delete file                       |
+| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/finalize`       | Finalize submission               |
+| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/events`         | Submit event, see [Preservation events](/docs/dps/reference/preservation-events/) |
+| GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/events`         | Fetch events                      |
+
+- **List submissions:** Ordered by creation date and paginated with `page` (zero-based, default `0`) and `size` (default `10`). Filter with `objectId` and/or `archiveId` (exact match; multiple filters are combined with AND). If nothing matches, the response is an empty page.
+- **Fetch submission:** Use the `include` query parameter to add related data to the response: `FILES` (registered files), `DESCRIPTIVE_METADATA` (the metadata from the request) and `EVENTS` (preservation events), e.g. `?include=FILES&include=EVENTS`.
+- **Delete submission:** Only allowed while the submission has the status `REGISTERED` and has no registered files. Delete the files first; a submission that still has files returns `409 Conflict`.
+- **Delete file:** Only allowed while the submission has the status `REGISTERED`; otherwise the API returns `409 Conflict`. By default only the file registration is deleted. Add `deleteFromS3=true` to also delete the uploaded file from S3.
+- **Finalize submission:** The submission must have at least one registered, non-empty file, and every registered file must be in S3; otherwise the API returns `422 Unprocessable Entity`. A submission can only be finalized once; a second call returns `409 Conflict`.
+- **Submit event:** Only allowed while the submission has the status `REGISTERED`. A successful request returns `204 No Content`.
+
+### Submission request fields
+
+#### Create submission
+
+| Field      | Type    | Required | Description |
+|------------|---------|----------|-------------|
+| `objectId` | string  | Yes      | The client's identifier for the submission object – typically an ID from the source system (e.g. a database ID or URN fragment). Links DPS events such as webhooks back to the object in your system. Must be unique per contract (the combination of `contractId` + `objectId` must be unique). Cannot be changed after the submission has been delivered to DPS. Must be 3–200 characters and may only contain `a-z`, `A-Z`, `0-9`, `-` and `_`. |
+| `priority` | integer | No       | Priority for processing in the queue. Valid values: `1` (highest) to `100` (lowest). Default is `50` (normal priority), which is what should be used in most cases. Values above `50` indicate lower priority and are used e.g. for re-archiving. |
+| `metadata` | object  | Yes      | Descriptive metadata about the content. See [Metadata Requirements](/docs/dps/reference/descriptive-metadata/) for the available elements. |
+
+#### Register file
+
+| Field        | Type    | Required | Description |
+|--------------|---------|----------|-------------|
+| `filePath`   | string  | Yes      | Relative path of the file within the submission. Must be unique within the submission, at most 900 characters, may only contain `a-z`, `A-Z`, `0-9`, `-`, `_`, `.`, `(`, `)` and `/`, and cannot start with `/` or `.`. |
+| `checksum`   | string  | Yes      | MD5 checksum of the file as 32 lowercase hexadecimal characters. |
+| `isPackaged` | boolean | No       | Whether the file is packaged temporarily for transfer only (for example as TAR or ZIP). Such files are unpacked by the preservation flow. Default is `false`. |
+
+The response contains the `fileId`, the `s3ObjectKey`, and an `uploadUrl` for uploading the file content.
+
+### Submission limits
+
+| Limit | Value |
+|-------|-------|
+| Maximum file size for upload through a pre-signed URL | 5 GiB per file |
+| Validity of a pre-signed upload URL (`uploadUrl`) | Approximately 1 hour |
+| Checksum algorithm | MD5 |
+
+The file size limit is due to constraints in S3 pre-signed URLs. Larger files can be uploaded directly to S3 using the `s3ObjectKey`; this is primarily intended for internal use at the National Library.
+
+### Submission status lifecycle
+
+A submission progresses through the following statuses:
+
+1. `REGISTERED` - Initial state when a submission is created
+2. `UPLOAD_COMPLETED` - All files have been uploaded and the submission has been finalized
+3. `PROCESSING` - The submission is being transferred to, validated and archived in the preservation system
+4. `PRESERVED` - The submission has been successfully preserved
+5. `REJECTED` - The submission has been rejected due to validation errors or other issues
+
+Changes to `PRESERVED` and `REJECTED` are also sent as [webhook](/docs/dps/how-to/receive-notifications/) messages (`submission.preserved` and `submission.rejected`).
 
 ## Support
 
