@@ -1,21 +1,3 @@
-:root {
-  --my-left-sidebar-width: 20rem;  /* default-ish is commonly 16rem (w-64) */
-  --my-right-toc-width: 16rem;
-}
-
-/* Desktop-only: avoid fighting the mobile drawer behavior */
-@media (min-width: 1280px) {
-  .hextra-sidebar-container {
-    width: var(--my-left-sidebar-width);
-    flex: 0 0 var(--my-left-sidebar-width);
-  }
-
-  .hextra-toc {
-    width: var(--my-right-toc-width);
-    flex: 0 0 var(--my-right-toc-width);
-  }
-}
-
 @media (min-width: 768px) {
   .team-cards .hextra-cards {
     grid-template-columns: repeat(var(--hextra-cards-grid-cols), minmax(180px, 1fr)) !important;
@@ -183,4 +165,29 @@ p.hx\:opacity-50.hx\:text-sm.hx\:mt-4 {
   font-size: 0.75rem;
   letter-spacing: 0.06em;
   text-transform: uppercase;
+}
+
+/* Navbar: language switcher and icons at the same size and weight as the menu links. */
+nav .hextra-language-switcher {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--hx-color-gray-600);
+}
+
+nav .hextra-language-switcher:hover {
+  color: var(--hx-color-gray-900);
+}
+
+.dark nav .hextra-language-switcher {
+  color: var(--hx-color-gray-400);
+}
+
+.dark nav .hextra-language-switcher:hover {
+  color: var(--hx-color-gray-100);
+}
+
+nav .hextra-language-switcher svg,
+nav .hextra-theme-toggle svg {
+  width: 1.125rem;
+  height: 1.125rem;
 }
