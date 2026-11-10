@@ -81,8 +81,8 @@ params:
     displayTitle: true
     displayLogo: true
     logo:
-      path: images/NB-aubergine.svg
-      dark: images/NB-fersken40.svg
+      path: images/NB-svart.svg
+      dark: images/NB-hvit.svg
       width: 25
     width: wide
 
