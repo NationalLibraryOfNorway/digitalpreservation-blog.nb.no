@@ -1,6 +1,6 @@
 ---
 title: Digital Preservation Services (DPS)
-weight: 4
+weight: 2
 aliases:
   - /docs/services/dps/
   - /docs/services/
@@ -26,7 +26,7 @@ Med mindre noe annet er spesifisert, refererer vi til SIP-er når vi snakker om 
 
 ## Hvem kan bruke DPS
 
-DPS er offentlig tilgjengelig, men tilgang krever en avtale med Nasjonalbiblioteket. For detaljer, se [Dataforvaltning](/docs/dps/data/).
+DPS er offentlig tilgjengelig, men tilgang krever en avtale med Nasjonalbiblioteket. For detaljer, se [Dataforvaltning](/docs/dps/understanding/data-management/).
 
 ## Hva DPS gjør
 
@@ -57,13 +57,13 @@ DPS er ett av tre systemdomener som deler ansvaret for digitale objekter i Nasjo
 
 Biblioteksystemer, kataloger, registre og forvaltningssystemer (som Alma, Mavis og Hanske). De er hovedkilden for deskriptive metadata og utsteder unike identifikatorer (UID-er, typisk URN-er) for digitale objekter. Disse systemene forvalter et bredt spekter av ressurser.  
 
-Det er her intellektuelle entiteter[^1] defineres: valget av hva som utgjør en bevaringsverdig informasjonspakke starter her, ikke i DPS. Én URN tilsvarer typisk én pakke. For detaljer om pakkeomfang, se [Pakke-, representasjons- og dataomfang](/docs/dps/sip/scope/).  
+Det er her intellektuelle entiteter[^1] defineres: valget av hva som utgjør en bevaringsverdig informasjonspakke starter her, ikke i DPS. Én URN tilsvarer typisk én pakke. For detaljer om pakkeomfang, se [Pakke-, representasjons- og dataomfang](/docs/dps/understanding/information-packages/).  
 
 ### Digital Preservation Services (DPS)
 
 DPS er bevaringssystemet. Det forvalter bevaringsdata med en PREMIS-basert datamodell[^2] (intellektuelle entiteter, representasjoner, filer, eventer, agenter). DPS tilbyr langtidslagring med asynkron tilgang, og er hovedkilden for tekniske metadata på filnivå i Nasjonalbiblioteket. DPS er ikke hovedkilden for deskriptive metadata: systemet holder metadataene det trenger for å operere selvstendig, uten å gjenskape metadatasystemenes fulle katalogstrukturer.  
 
-Digital Preservation Services fungerer som en selvstendig tjeneste. Identifikatorer og metadata leveres gjennom API-et, og DPS håndterer bevaringen. For detaljer om hvordan data og metadata håndteres i DPS, se [Dataforvaltning](/docs/dps/data/) og [Metadataforvaltning](/docs/dps/metadata/).
+Digital Preservation Services fungerer som en selvstendig tjeneste. Identifikatorer og metadata leveres gjennom API-et, og DPS håndterer bevaringen. For detaljer om hvordan data og metadata håndteres i DPS, se [Dataforvaltning](/docs/dps/understanding/data-management/) og [Metadataforvaltning](/docs/dps/understanding/metadata-management/).
 
 ### Offentlige tilgangstjenester
 
@@ -86,19 +86,32 @@ SIP-en inneholder bevaringsdata og en kopi av deskriptive metadata fra metad
 Disse sidene forklarer konsepter, ansvarsområder og hvordan DPS fungerer:
 
 {{< cards >}}
-  {{< card link="data" title="Dataforvaltning" subtitle="Hvordan data bevares, lagres og uthentes i DPS" icon="database" >}}
-  {{< card link="metadata" title="Metadataforvaltning" subtitle="Hvordan metadata kommer inn, lagres og brukes i DPS" icon="tag" >}}
-  {{< card link="access-control" title="Tilgangskontroll" subtitle="Hvordan roller, bevaringsavtaler og tillatelser styrer tilgang" icon="shield-check" >}}
+  {{< card link="understanding/information-packages" title="Pakke-, representasjons- og dataomfang" subtitle="Hva en informasjonspakke inneholder og hvor grensene går" icon="archive" >}}
+  {{< card link="understanding/data-management" title="Dataforvaltning" subtitle="Hvordan data bevares, lagres og uthentes i DPS" icon="database" >}}
+  {{< card link="understanding/metadata-management" title="Metadataforvaltning" subtitle="Hvordan metadata kommer inn, lagres og brukes i DPS" icon="tag" >}}
+  {{< card link="understanding/access-and-agreements" title="Tilgangskontroll" subtitle="Hvordan roller, bevaringsavtaler og tillatelser styrer tilgang" icon="shield-check" >}}
 {{< /cards >}}
 
 ## Bruke DPS
 
-Disse sidene er spesifikasjoner og API-referanser for produsenter og konsumenter:
+Trinnvise veiledninger for produsenter og konsumenter:
 
 {{< cards >}}
-  {{< card link="api" title="Submission Service API" subtitle="Endepunkter for innlevering, utlevering og webhooks" icon="code" >}} 
-  {{< card link="sip" title="SIP-spesifikasjoner" subtitle="E-ARK pakkestruktur, METS.xml-krav og eksempler" icon="archive" >}}
+  {{< card link="how-to/submit-a-package" title="Lever inn en pakke" subtitle="Registrer en innlevering, last opp filer og fullfør" icon="upload" >}}
+  {{< card link="how-to/retrieve-a-package" title="Hent ut en pakke" subtitle="Be om en bevart pakke og last den ned" icon="download" >}}
+  {{< card link="how-to/receive-notifications" title="Motta varsler" subtitle="Få statusoppdateringer i egne systemer via webhooks" icon="bell" >}}
 {{< /cards >}}
 
-[^1]: [Intellektuelle entiteter og innhold](https://digitalpreservation.no/nb/docs/dps/sip/scope/#intellektuelle-entiteter-og-innhold)
+## Referanse
+
+Spesifikasjoner og API-referanse:
+
+{{< cards >}}
+  {{< card link="reference/api" title="Programmeringsgrensesnitt (API)" subtitle="Autentisering, roller og feilhåndtering" icon="code" >}}
+  {{< card link="reference/sip" title="SIP-spesifikasjoner" subtitle="E-ARK pakkestruktur, METS.xml-krav og eksempler" icon="archive" >}}
+  {{< card link="reference/descriptive-metadata" title="Krav til metadata" subtitle="Dublin Core-elementer som leveres med hver pakke" icon="tag" >}}
+  {{< card link="reference/preservation-events" title="Eventer/ bevaringsmetadata" subtitle="PREMIS-agenter, eventer og eventtyper" icon="collection" >}}
+{{< /cards >}}
+
+[^1]: [Intellektuelle entiteter og innhold](https://digitalpreservation.no/nb/docs/dps/understanding/information-packages/#intellektuelle-entiteter-og-innhold)
 [^2]: *PREMIS Data Dictionary (full document)*, Version 3.0, Nov. 2015, [https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf)

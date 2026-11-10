@@ -1,0 +1,521 @@
+---
+title: DPS core data model (Draft)
+weight: 5
+draft: true
+---
+
+This page documents the data model of the DPS core: the metadata service and the bit repository. Together, these hold everything the DPS preserves and safeguards.
+
+## DPS core
+
+The DPS core consists of two components:
+
+- **Metadata service**: databases and object storage that track everything about preserved content. Most services in the DPS read from or write to the metadata service.
+- **Bit repository**: tape robots and disk libraries for safe long-term storage of the actual preserved data.
+
+The surrounding services (API, ingest pipeline, dissemination pipeline) can be exchanged. The DPS core can also be replaced, but its contents would need to be migrated.
+
+```mermaid
+erDiagram
+    INTELLECTUAL_ENTITY ||--|| DESCRIPTIVE_METADATA : "archiveId"
+    INTELLECTUAL_ENTITY ||--|{ REPRESENTATION : "archiveId"
+    REPRESENTATION |o--}| FILE : "repId"
+    INTELLECTUAL_ENTITY ||--}| FILE : "archiveId"
+    INTELLECTUAL_ENTITY ||--o{ EVENT : "archiveId"
+    FILE |o--o{ EVENT : "fileRef"
+    EVENT }o--|| AGENT : "agentId"
+    INTELLECTUAL_ENTITY ||--o{ REPOSITORY_FILE : "archiveId"
+    REPOSITORY_FILE ||--o{ FILE : "files[]"
+```
+
+## Metadata service
+
+The metadata service consists of four storage components.
+
+### Preservation metadata database
+
+A MongoDB database. The data model is based on PREMIS (Preservation Metadata: Implementation Strategies). It holds the following collections.
+
+#### intellectualEntities
+
+Each information package (AIP) is described as one Intellectual Entity document. The `_id` in this collection is called `archiveId`.
+
+```json
+{
+  "_id": "019eb642-ab29-7cd3-9700-5b776ac6f572",
+  "schemaVersion": 1,
+  "contractId": "2d17",
+  "objectId": "av_6e8bcasddd430-9c3a11d9",
+  "sumSizeInBytes": 12345678987654321,
+  "status": "preserved",
+  "objectIdentifiers": [
+    {
+      "type": "URN",
+      "value": "URN:NBN:no-nb_plfut_00001"
+    }
+  ],
+  "contentCategory": "Photographs – Digital",
+  "repositoryPrefix": "bilder",
+  "CITS": "NB-METS-AUDIO-PROFILE-1.0",
+  "createdDate": "2025-09-03T09:01:47.174Z",
+  "lastModifiedDate": "2025-09-03T09:01:47.174Z",
+  "version": 1
+}
+```
+
+PREMIS mapping:
+
+| Field | PREMIS semantic unit | Notes |
+|---|---|---|
+| `archiveId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-archive-id` |
+| `objectId` | `objectIdentifier` | Client-assigned, unique within a submission agreement. Type: `dps-client-object-id` |
+| `objectIdentifiers[]` | `objectIdentifier` | Additional identifiers (URNs, external IDs) |
+| `contractId` | DPS extension | Submission agreement identifier (4-character hex) |
+| `status` | DPS extension | Workflow state |
+| `sumSizeInBytes` | DPS extension | Aggregate size |
+| `contentCategory` | DPS extension | Content classification |
+| `repositoryPrefix` | DPS extension | Storage namespace |
+| `CITS` | DPS extension | E-ARK content information type specification |
+
+`objectId` is stored as a flat string for operational reasons: it is a business key used throughout the API (submissions, webhooks, dissemination) and enforced as unique within a submission agreement. On PREMIS export it becomes a typed `objectIdentifier` with type `dps-client-object-id`, distinguishing it from internal DPS identifiers (`dps-archive-id`) and client-supplied typed identifiers in `objectIdentifiers[]` (URNs, DOIs, etc.).
+
+#### representations
+
+Each IE contains at least one representation: the set of files needed to render the Intellectual Entity. The `_id` in this collection is called `repId`.
+
+```json
+{
+  "_id": "019eafee-cb2f-7724-bb63-92a973d395bc",
+  "schemaVersion": 1,
+  "archiveId": "019eb642-ab29-7cd3-9700-5b776ac6f572",
+  "representationName": "primary_20250325",
+  "objectIdentifiers": [
+    {
+      "type": "URN",
+      "value": "urn:roda:premis:representation:ca91729c-a8fc-35d8-be9a-97191114fcd3"
+    }
+  ],
+  "relationships": [
+    {
+      "type": "structural",
+      "subType": "is Part Of",
+      "relatedObjectIdentifiers": [
+        {
+          "type": "URN",
+          "value": "urn:roda:AIP:8ebdc91d-aa4d-4433-a33e-bcedc260a11f"
+        }
+      ]
+    }
+  ],
+  "createdDate": "2025-09-03T09:01:47.174Z",
+  "lastModifiedDate": "2025-09-03T09:01:47.174Z"
+}
+```
+
+PREMIS mapping:
+
+| Field | PREMIS semantic unit | Notes |
+|---|---|---|
+| `repId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-representation-id` |
+| `archiveId` | Structural relationship to parent IE | Reference to parent IE |
+| `representationName` | `originalName` | Name of the representation directory |
+| `objectIdentifiers[]` | `objectIdentifier` | Additional identifiers |
+| `relationships[]` | `relationship` | Structural relationship to another object (e.g., is Part Of an AIP) |
+
+#### files
+
+Files belonging to an IE. A file may sit inside a representation (content files) or at the package root (METS.xml, descriptive and preservation metadata, schemas, documentation). Format identification results and technical metadata references are stored here. The `_id` in this collection is called `fileId`.
+
+```json
+{
+  "_id": "019e5265-91f6-7c9f-b738-dd0b937bb65a",
+  "schemaVersion": 1,
+  "archiveId": "019eb642-ab29-7cd3-9700-5b776ac6f572",
+  "repId": "019eafee-cb2f-7724-bb63-92a973d395bc",
+  "originalName": "iPRES2021_paper_38.pdf",
+  "relativePath": "representations/primary_20250325/data/iPRES2021_paper_38.pdf",
+  "size": 12041,
+  "fileCreatedDate": "2025-07-31T10:04:20.772Z",
+  "fixities": [
+    {
+      "algorithm": "MD5",
+      "digest": "83f3af18b269075b6a87d2f6a758b706",
+      "originator": "SIP"
+    },
+    {
+      "algorithm": "SHA-1",
+      "digest": "8838ae19801cd361d8054ec7bb82b2df4043c422",
+      "originator": "DPS"
+    },
+    {
+      "algorithm": "SHA-256",
+      "digest": "1a8bbd231dd17586ec20e9988e9fbbff16d57bacaf8819f086f0ead4e73fb604",
+      "originator": "DPS"
+    }
+  ],
+  "format": {
+    "mimeType": "application/pdf",
+    "pronomId": "fmt/101",
+    "formatName": "Portable Document Format",
+    "formatVersion": "1.7",
+    "formatNotes": [
+      "SIEGFRIED WARNING: extension mismatch"
+    ]
+  },
+  "techMetadataLocation": "s3://characterization-service-prod/clientId=nb-levende-bilder/contractId=91c5/submissionId=3DSyxDJoRPEqugBvNWHDc8/objectId=digifilm_248053_20130815_FT--42220185/fileId=019e5265-91ec-7adc-813b-0b7534e4cef6/extractor=mediainfo/runAt=2026-05-23T01-14-09.045Z/metadata.json/mediainfo_digifilm_248053_20130815_FT--42220185_batchPRE.mkv.json",
+  "relationships": [
+    {
+      "type": "structural",
+      "subType": "is Part Of",
+      "relatedObjectIdentifiers": [
+        {
+          "type": "URN",
+          "value": "representation:ca91729c-a8fc-35d8-be9a-97191114fcd3"
+        }
+      ]
+    }
+  ],
+  "createdDate": "2025-09-03T09:01:47.174Z",
+  "lastModifiedDate": "2025-09-03T09:01:47.174Z",
+  "version": 1
+}
+```
+
+`repId` is absent for files at the package root (METS.xml, metadata, schemas, documentation); these files relate directly to the IE via `archiveId`.
+
+PREMIS mapping:
+
+| Field | PREMIS semantic unit | Notes |
+|---|---|---|
+| `fileId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-file-id` |
+| `archiveId` | Relationship to IE | FK; always present (every file belongs to exactly one IE) |
+| `repId` | Relationship to representation | FK; optional (only for files within a representation) |
+| `originalName` | `originalName` | Name of the file as submitted |
+| `relativePath` | `storage.contentLocation.contentLocationValue` | Path within the package |
+| `size` | `objectCharacteristics.size` | File size in bytes |
+| `fileCreatedDate` | `creatingApplication.dateCreatedByApplication` | Creation timestamp reported by the creating application |
+| `fixities[].algorithm` | `objectCharacteristics.fixity.messageDigestAlgorithm` | Checksum algorithm (MD5, SHA-1, SHA-256) |
+| `fixities[].digest` | `objectCharacteristics.fixity.messageDigest` | Checksum value |
+| `fixities[].originator` | `objectCharacteristics.fixity.messageDigestOriginator` | Who created the checksum (SIP or DPS) |
+| `format.formatName` | `objectCharacteristics.format.formatDesignation.formatName` | Identified format name |
+| `format.formatVersion` | `objectCharacteristics.format.formatDesignation.formatVersion` | Identified format version |
+| `format.pronomId` | `objectCharacteristics.format.formatRegistry.formatRegistryKey` | `formatRegistryName=PRONOM` implied |
+| `format.mimeType` | `objectCharacteristics.format.formatRegistry.formatRegistryKey` | Can be exported with `formatRegistryName=IANA` |
+| `format.formatNotes[]` | `objectCharacteristics.format.formatNote` | Notes from format identification (e.g., SIEGFRIED warnings) |
+| `techMetadataLocation` | DPS extension | S3 path to extraction outputs |
+| `relationships[]` | `relationship` | Structural relationship to another object (e.g., is Part Of a representation) |
+
+#### events
+
+PREMIS events, both client-submitted and DPS-generated. Every event is related to an IE and can optionally be attached to a specific file. The `_id` in this collection is called `eventId`.
+
+```json
+{
+  "_id": "019e49af-a253-7ef0-b579-62050505db76",
+  "schemaVersion": 1,
+  "agentId": "019e3bcf-ca62-73eb-a698-9bad2e17eb7b",
+  "archiveId": "019eb642-ab29-7cd3-9700-5b776ac6f572",
+  "isUserInitiated": false,
+  "fileRef": {
+    "fileId": "019e5265-91f6-7c9f-b738-dd0b937bb65a",
+    "relativePath": "metadata/descriptive/METS_digifilm_727480_20130730_FE--13281071_0003.xml"
+  },
+  "eventType": "ingest end",
+  "eventDateTime": "2025-07-31T10:04:20.772Z",
+  "eventDetail": "The ingest process has ended.",
+  "outcome": "SUCCESS",
+  "outcomeDetail": "The ingest process has successfully ended.",
+  "createdDate": "2025-09-03T09:01:47.174Z",
+  "lastModifiedDate": "2025-09-03T09:01:47.174Z"
+}
+```
+
+PREMIS mapping:
+
+| Field | PREMIS semantic unit | Notes |
+|---|---|---|
+| `eventId` | `eventIdentifier` | Unique event identifier |
+| `eventType` | `eventType` | LoC preservation event vocabulary |
+| `eventDateTime` | `eventDateTime` | When the event occurred |
+| `eventDetail` | `eventDetailInformation.eventDetail` | Free-text description of the event |
+| `outcome` | `eventOutcomeInformation.eventOutcome` | Result of the event (e.g., SUCCESS) |
+| `outcomeDetail` | `eventOutcomeInformation.eventOutcomeDetail.eventOutcomeDetailNote` | Free-text detail about the outcome |
+| `agentId` | `linkingAgentIdentifier` | FK to agent |
+| `archiveId` | `linkingObjectIdentifier` | FK to IE |
+| `fileRef` | `linkingObjectIdentifier` | FK to file (optional) |
+| `isUserInitiated` | DPS extension | Distinguishes client-submitted from system-generated |
+
+#### agents
+
+The people, organizations, software, or hardware that performed each event. The `_id` in this collection is called `agentId`.
+
+Software agent (DPS tool):
+
+```json
+{
+  "_id": "019e3bcf-ca62-73eb-a698-9bad2e17eb7b",
+  "schemaVersion": 1,
+  "agentName": "Configurable Ingest Plugin",
+  "agentType": "software",
+  "agentVersion": "1.2.3",
+  "agentNote": "Performs all the tasks needed to ingest a SIP into the repository and therefore creating an AIP",
+  "createdDate": "2025-09-03T09:01:47.174Z",
+  "lastModifiedDate": "2025-09-03T09:01:47.174Z"
+}
+```
+
+PREMIS mapping:
+
+| Field | PREMIS semantic unit | Notes |
+|---|---|---|
+| `agentId` | `agentIdentifier` | Internal DPS identifier |
+| `agentName` | `agentName` | Name of the person, organization, or tool |
+| `agentType` | `agentType` | person, organization, software, hardware |
+| `agentVersion` | `agentVersion` | Version of a software agent (added in PREMIS 3.0) |
+| `agentNote` | `agentNote` | Free-text description of the agent |
+
+### Descriptive metadata database
+
+A MongoDB database. Each IE is linked to exactly one Dublin Core document. This is the metadata submitted through the Submission API, stored separately from the preservation metadata but connected to the same IEs.
+
+#### descriptiveMetadata
+
+Dublin Core metadata for discovery. The `_id` in this collection is called `descId`.
+
+```json
+{
+  "_id": "019e4fd5-99d4-79e3-8503-ab4ae7a513f0",
+  "schemaVersion": 1,
+  "archiveId": "019eb642-ab29-7cd3-9700-5b776ac6f572",
+  "type": "Bilde",
+  "identifier": [
+    {
+      "type": "URN",
+      "value": "URN:NBN:no-nb_digifoto_20220311_00191_NB_PE_VM_M_05_09_01_036"
+    }
+  ],
+  "title": {
+    "value": "Ola og Kari på fisketur i Rondane",
+    "lang": "nor"
+  },
+  "alternative": [
+    {
+      "type": "originaltittel",
+      "value": "Ola and Kari on fishing trip in Rondane",
+      "lang": "eng"
+    }
+  ],
+  "creator": [
+    {
+      "name": "Marek, Václav",
+      "type": "person",
+      "role": "fotograf",
+      "authority": {
+        "source": "Felles autoritetsregister (BARE)",
+        "code": "90362181",
+        "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+      }
+    }
+  ],
+  "contributor": [
+    {
+      "name": "Nordmann, Ola",
+      "type": "person",
+      "role": "avbildet",
+      "authority": {
+        "source": "Felles autoritetsregister (BARE)",
+        "code": "90362181",
+        "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+      }
+    }
+  ],
+  "publisher": [
+    {
+      "name": "Nasjonalbiblioteket",
+      "type": "Korporasjon",
+      "authority": {
+        "source": "Felles autoritetsregister (BARE)",
+        "code": "90362181",
+        "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+      }
+    }
+  ],
+  "spatial": [
+    {
+      "name": "Norge (NO);Innlandet;Stor-Elvdal;Rondane gjestegård",
+      "type": "Avbildet sted",
+      "authority": {
+        "source": "Felles autoritetsregister (BARE)",
+        "code": "90362181",
+        "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+      },
+      "coordinateReferenceSystem": "EPSG:4326",
+      "latitude": 61.788453,
+      "longitude": 10.224725
+    }
+  ],
+  "date": [
+    {
+      "type": "digitalisert",
+      "value": "2022-03-05T14:28:12+02:00"
+    }
+  ],
+  "language": [
+    {
+      "type": "undertekster",
+      "value": "nor"
+    }
+  ],
+  "relation": [
+    {
+      "title": "Norge på langs med Ola og Kari",
+      "type": "IsPartOf",
+      "id": "987654321",
+      "uri": "https://www.nb.no/items/eb57e3c314894b0120cf631104065e74?page",
+      "lang": "nor"
+    }
+  ],
+  "provenance": [
+    {
+      "value": "Bildet er del av en digital samling, som ble donert til Nasjonalbiblioteket av Ola Nordmann 2025-01-01.",
+      "lang": "nor"
+    }
+  ],
+  "source": [
+    {
+      "description": "Hjelp vi flyr, U-matic HB videobånd",
+      "identifier": [
+        {
+          "type": "URN",
+          "value": "URN:NBN:no-nb_digifoto_20220311_00191_NB_PE_VM_M_05_09_01_036"
+        }
+      ],
+      "uri": "https://collections.nb.no/collections/link/xplus/audiovisualcatalogue/50979618"
+    }
+  ],
+  "subject": [
+    {
+      "value": "rondane",
+      "authority": {
+        "source": "Felles autoritetsregister (BARE)",
+        "code": "90362181",
+        "uri": "https://bibsys-almaprimo.hosted.exlibrisgroup.com/permalink/f/nelpa2/AUTREG90362181"
+      }
+    }
+  ],
+  "description": [
+    {
+      "value": "Bildet er en del av samlingen etter Václav Marek, der han fulgte Ola og Kari Nordmann Norge på langs. Václav Marek var en engelskmann som var interessert i Norge og norsk natur.",
+      "lang": "nob"
+    }
+  ]
+}
+```
+
+### Location database
+
+A MongoDB database. The DPS repackages and reorganizes files submitted in SIPs for better utilization of the bit repository. This database tracks where files are physically stored.
+
+#### repositoryFiles
+
+Each repository file document is linked to an IE and the file documents it contains. The `_id` in this collection is called `repositoryFileId`.
+
+```json
+{
+  "_id": "019e4a63-2e5c-711d-90fc-6d259ca94226",
+  "schemaVersion": 1,
+  "archiveId": "019eb642-ab29-7cd3-9700-5b776ac6f572",
+  "isContainer": true,
+  "relativePath": "metadata.tar",
+  "size": 12041,
+  "fileCreatedDate": "2025-07-31T10:04:20.772Z",
+  "fixities": [
+    {
+      "algorithm": "MD5",
+      "digest": "83f3af18b269075b6a87d2f6a758b706",
+      "originator": "SIP"
+    },
+    {
+      "algorithm": "SHA-1",
+      "digest": "8838ae19801cd361d8054ec7bb82b2df4043c422",
+      "originator": "DPS"
+    }
+  ],
+  "files": [
+    {
+      "fileId": "019e5265-92e6-75d6-ae8f-a7c740605ea7",
+      "relativePath": "representations/primary_20250325/data/iPRES2021_paper_38.pdf"
+    },
+    {
+      "fileId": "019e5265-9305-75c6-a456-9ef0f062716f",
+      "relativePath": "METS.xml"
+    }
+  ],
+  "locations": [
+    {
+      "locationId": "hpss",
+      "filePath": "/bilder/f28/740/6df/68b803fb25d74833747835f7/metadata.tar",
+      "dateStored": "2025-09-02T21:18:16.562Z",
+      "fixityStatus": "VALIDATED",
+      "dateFixityStatus": "2025-09-02T21:20:30.928Z"
+    },
+    {
+      "locationId": "s3",
+      "filePath": "s3://preservation-bucket/bilder/f28/740/6df/68b803fb25d74833747835f7/metadata.tar",
+      "dateStored": "2025-09-02T21:18:16.562Z",
+      "fixityStatus": "VALIDATED",
+      "dateFixityStatus": "2025-09-02T21:20:30.928Z"
+    }
+  ],
+  "createdDate": "2025-09-03T09:01:47.174Z",
+  "lastModifiedDate": "2025-09-03T09:01:47.174Z",
+  "version": 1
+}
+```
+
+The `files[]` array is the TAR manifest: it lists the logical files (from the `files` collection) that are packed into this repository file. For unpacked repository files (`isContainer: false`), this array is empty and the repository file corresponds directly to a single logical file.
+
+Each `locations[]` entry represents the repository file as stored in one storage system (e.g., `hpss`, `s3`). Each storage system handles redundancy internally: HPSS keeps three copies and tracks them itself; similarly, the S3 instance is secured in adequate instances.
+
+PREMIS mapping:
+
+| Field | PREMIS semantic unit | Notes |
+|---|---|---|
+| `repositoryFileId` | `objectIdentifier` | Internal DPS identifier. Type: `dps-repository-file-id` |
+| `archiveId` | Relationship to IE | Reference to parent IE |
+| `relativePath` | `storage.contentLocation.contentLocationValue` | Path of the repository file |
+| `size` | `objectCharacteristics.size` | Size of the repository file in bytes |
+| `fixities[]` | `objectCharacteristics.fixity` | Checksums for the repository file (algorithm, digest, originator) |
+| `locations[].locationId` | `storage.storageMedium` | e.g., `hpss`, `s3` |
+| `locations[].filePath` | `storage.contentLocation.contentLocationValue` | Physical path in storage |
+| `files[]` | `relationship` (structural, "includes") | References to contained logical files |
+| `isContainer` | Implied by presence of `files[]` relationships | True when the repository file is a TAR container holding multiple logical files |
+
+### Object storage
+
+Extracted technical metadata produced by MediaInfo and ExifTool during ingest is stored as files in an S3 object storage bucket. File documents in the preservation metadata database reference these outputs via the `techMetadataLocation` field.
+
+## Bit repository
+
+The bit repository is the physical storage infrastructure that holds the actual preserved data. It consists of 2 tape libraries and a disk library, providing redundant storage across different media types and geographic locations.
+
+The bit repository is not a database. Its contents are tracked by the `repositoryFiles` collection in the location database. The relationship chain from logical content to physical storage is:
+
+```mermaid
+flowchart LR
+    F["files<br/>(logical files as submitted)"]
+    RF["repositoryFiles<br/>(physical packaging)"]
+    L["locations[]<br/>(storage systems)"]
+    BR["Bit repository<br/>(tape + disk)"]
+
+    F --> RF
+    RF --> L
+    L --> BR
+```
+
+- **files** describe the content as submitted in the SIP
+- **repositoryFiles** describe how that content is physically stored, possibly packed into TAR containers for storage efficiency
+- **locations** within each repository file describe which storage systems hold the file in the bit repository
+- The **bit repository** holds the actual bytes, protected by the 3-2-1 storage policy: three copies, on two different storage technologies, with one copy stored off-site
+
+

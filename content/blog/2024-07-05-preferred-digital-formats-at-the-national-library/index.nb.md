@@ -20,7 +20,7 @@ De *foretrukne* formatene er de vi i utgangspunktet ønsker å motta og bruke i 
 
 Alle andre formater bør avklares med relevante medieavdelinger i Nasjonalbiblioteket før de kan godkjennes og tas inn i forvaltningssystemet. 
 
-Formatlisten finnes [her](https://digitalpreservation.no/nb/docs/formats/). 
+Formatlisten finnes [her](https://digitalpreservation.no/nb/docs/policies/formats/). 
 
 
 Planen er å revidere listen årlig.  

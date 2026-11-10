@@ -1,0 +1,133 @@
+---
+title: Dissemination Service
+weight: 2
+aliases:
+  - /docs/dps/api/dissemination/
+---
+
+## Overview
+
+The Dissemination Service lets clients request delivery of archived and preserved packages (AIPs). When a dissemination request is submitted, an integrity (fixity) check and required preparation are performed before the content is made available through a presigned URL that is returned via a webhook.
+
+This documentation complements the detailed API reference available through Swagger UI at https://digitalpreservation.no/swagger/.
+
+The machine-readable OpenAPI specification (JSON) is available at <https://api.nb.no/dps-submission/v1/api-docs>.
+
+For general information on authentication and authorization, please refer to the main [API documentation](../../reference/api/).
+
+## Workflow
+
+1. Client sends dissemination request with `archiveId` (and optional `priority`).
+2. Service validates (authorization, AIP exists, preserved status, duplicate check).
+3. Background process runs integrity check and prepares data.
+4. The object becomes available via a presigned URL delivered on a webhook.
+5. Client may fetch status by polling on `disseminationId`.
+
+
+## Endpoints
+
+| Method | Path                                   | Description              |
+|--------|----------------------------------------|--------------------------|
+| POST   | `/v1/disseminations`                   | Create new dissemination |
+| GET    | `/v1/disseminations/{disseminationId}` | Fetch dissemination      |
+
+
+## Example API Usage
+
+### Create Dissemination
+
+**Request fields**
+
+| Field       | Type    | Required | Description                                                                                                             |
+|-------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------|
+| `archiveId` | string  | Yes      | Unique identifier for the archive object in DPS to be disseminated. Received via the `submission.preserved` webhook.    |
+| `priority`  | integer | No       | Priority for processing in the queue. Valid values: `1` (highest) to `100` (lowest). Default is `50` (normal priority). |
+
+**Request**
+
+```http
+POST /dps-submission/v1/disseminations HTTP/1.1
+Host: api.nb.no
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOxxxxxxx
+
+{
+  "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
+  "priority": 50
+}
+```
+
+**Response (201 Created)**
+
+```json
+{
+  "disseminationId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
+  "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
+  "clientId": "client-id",
+  "contractId": "2d17",
+  "objectId": "digifoto_5584a028-ba43-4ecb-bb67-7663cc802010",
+  "sumSizeInBytes": 123456,
+  "status": "RECEIVED",
+  "priority": 50,
+  "dateCreated": "2025-09-09T12:34:56.123456+01:00"
+}
+```
+
+
+### Get Dissemination
+
+**Request**
+
+```http
+GET /dps-submission/v1/disseminations/8Z7x1T9rN0Xc2B5Yq4L3zP HTTP/1.1
+Host: api.nb.no
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOxxxxxxx
+```
+
+**Response (200 OK)**
+
+```json
+{
+  "disseminationId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
+  "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
+  "clientId": "client-id",
+  "contractId": "2d17",
+  "objectId": "digifoto_5584a028-ba43-4ecb-bb67-7663cc802010",
+  "sumSizeInBytes": 123456,
+  "status": "FIXITY_CHECK",
+  "priority": 50,
+  "dateCreated": "2025-09-09T12:34:56.123456+01:00"
+}
+```
+
+
+## Status Flow
+
+Preliminary statuses (may be extended):
+
+1. `RECEIVED` – Received
+2. `QUEUED` – Placed in queue
+3. `DOWNLOADING_FROM_REPOSITORY` – Downloading from repository
+4. `FIXITY_CHECK` – Integrity verification
+5. `UPLOADING_TO_S3` – Uploading to S3
+6. `DISSEMINATED` – Delivered
+7. `FAILED` – Failed
+8. `REJECTED` – Rejected
+
+## Best Practices
+
+1. Reuse existing request if one is already in progress.
+2. Use priority sparingly – reserve low values for urgent needs.
+3. Store the `disseminationId` locally.
+4. Handle 409 by fetching the existing dissemination instead of posting again.
+5. Avoid tight polling; use exponential backoff.
+6. Download the files before the links expire (`expirationDate` in the `dissemination.delivered` webhook). If the links expire, create a new dissemination request; each dissemination gets new links.
+
+## Support
+
+Contact the digital preservation team for questions or assistance.
+
+## API Reference
+
+See Swagger: <https://digitalpreservation.no/swagger/> for full schemas and future endpoints.

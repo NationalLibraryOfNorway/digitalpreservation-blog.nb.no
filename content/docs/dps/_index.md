@@ -1,6 +1,6 @@
 ---
 title: Digital Preservation Services (DPS)
-weight: 4
+weight: 2
 aliases:
   - /docs/services/dps/
   - /docs/services/
@@ -26,7 +26,7 @@ Unless otherwise specified, references to information packages in these document
 
 ## Who can use the DPS
 
-DPS is publicly available, but access requires an agreement with the National Library of Norway. For details, see [Data management](/docs/dps/data/).
+DPS is publicly available, but access requires an agreement with the National Library of Norway. For details, see [Data management](/docs/dps/understanding/data-management/).
 
 ## What the DPS does
 
@@ -63,13 +63,13 @@ DPS is one of three system domains that share responsibility for digital objects
 ### Metadata management systems
 Library systems, catalogues, registers, and collection management systems (such as Alma, Mavis, and Hanske). These are the primary sources of descriptive metadata and issue unique identifiers (UIDs, typically URNs) for digital objects. These systems manage a wide range of resources. 
 
-This is where intellectual entities[^1] are defined: the decision regarding what constitutes a preservation-worthy information package starts here, not in DPS. One URN typically corresponds to one package. For details about package scope, see [Package, representation, and data scope](/docs/dps/sip/scope/). 
+This is where intellectual entities[^1] are defined: the decision regarding what constitutes a preservation-worthy information package starts here, not in DPS. One URN typically corresponds to one package. For details about package scope, see [Package, representation, and data scope](/docs/dps/understanding/information-packages/). 
 
 ### Digital Preservation Services (DPS)
 
 DPS is the preservation system. It manages preservation data using a PREMIS-based data model[^2] (intellectual entities, representations, files, events, and agents). DPS provides long-term storage with asynchronous access, and is the primary source for technical metadata at file level within the National Library of Norway. DPS is not the primary source for descriptive metadata: the system maintains the metadata it requires to operate independently, without recreating the full catalogue structures of the metadata systems.   
 
-Digital Preservation Services functions as an independent service. Identifiers and metadata are provided through the API, and DPS manages preservation. For details on how data and metadata are managed in DPS, see [Data management](/docs/dps/data/) and [Metadata management](/docs/dps/metadata/).
+Digital Preservation Services functions as an independent service. Identifiers and metadata are provided through the API, and DPS manages preservation. For details on how data and metadata are managed in DPS, see [Data management](/docs/dps/understanding/data-management/) and [Metadata management](/docs/dps/understanding/metadata-management/).
 
 ### Public access services
 
@@ -92,19 +92,32 @@ The SIP contains preservation data and a copy of descriptive metadata from the m
 These pages explain concepts, responsibilities, and how the DPS works:
 
 {{< cards >}}
-  {{< card link="data" title="Data management" subtitle="How data is preserved, stored, and accessed in the DPS" icon="database" >}}
-  {{< card link="metadata" title="Metadata management" subtitle="How metadata enters, is stored, and utilized in the DPS" icon="tag" >}}
-  {{< card link="access-control" title="Access control" subtitle="How roles, submission agreements, and permissions govern access" icon="shield-check" >}}
+  {{< card link="understanding/information-packages" title="Package, representation and data scope" subtitle="What an information package contains and where its boundaries are" icon="archive" >}}
+  {{< card link="understanding/data-management" title="Data management" subtitle="How data is preserved, stored, and accessed in the DPS" icon="database" >}}
+  {{< card link="understanding/metadata-management" title="Metadata management" subtitle="How metadata enters, is stored, and utilized in the DPS" icon="tag" >}}
+  {{< card link="understanding/access-and-agreements" title="Access control" subtitle="How roles, agreements, and permissions govern access" icon="shield-check" >}}
 {{< /cards >}}
 
 ## Using the DPS
 
-These pages are specifications and API references for producers and consumers:
+Step-by-step guides for producers and consumers:
 
 {{< cards >}}
-  {{< card link="api" title="Submission Service API" subtitle="Endpoints for submission, dissemination, and webhooks" icon="code" >}} 
-  {{< card link="sip" title="SIP specifications" subtitle="E-ARK package structure, METS.xml requirements, and examples" icon="archive" >}}
+  {{< card link="how-to/submit-a-package" title="Submit a package" subtitle="Register a submission, upload files, and finalize it" icon="upload" >}}
+  {{< card link="how-to/retrieve-a-package" title="Retrieve a package" subtitle="Request a preserved package and download it" icon="download" >}}
+  {{< card link="how-to/receive-notifications" title="Receive notifications" subtitle="Get status updates in your systems through webhooks" icon="bell" >}}
 {{< /cards >}}
 
-[^1]: [Intellectial entities and content](https://digitalpreservation.no/docs/dps/sip/scope/#intellectial-entities-and-content)
+## Reference
+
+Specifications and API reference:
+
+{{< cards >}}
+  {{< card link="reference/api" title="Application Programming Interface" subtitle="Authentication, roles, and error handling" icon="code" >}}
+  {{< card link="reference/sip" title="SIP specifications" subtitle="E-ARK package structure, METS.xml requirements, and examples" icon="archive" >}}
+  {{< card link="reference/descriptive-metadata" title="Metadata Requirements" subtitle="Dublin Core elements submitted with each package" icon="tag" >}}
+  {{< card link="reference/preservation-events" title="Events/preservation metadata" subtitle="PREMIS agents, events, and event types" icon="collection" >}}
+{{< /cards >}}
+
+[^1]: [Intellectial entities and content](https://digitalpreservation.no/docs/dps/understanding/information-packages/#intellectial-entities-and-content)
 [^2]: *PREMIS Data Dictionary (full document)*, Version 3.0, Nov. 2015, [https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf)

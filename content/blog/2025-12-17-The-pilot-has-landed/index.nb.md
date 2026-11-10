@@ -16,13 +16,13 @@ Nasjonalbiblioteket, Kulturdirektoratet og KulturIT fikk i oppdrag fra Kultur- o
 
 Nasjonalbiblioteket og KulturIT har det siste året samarbeidet om å utvikle og teste en løsning for inn- og utlevering av digitale museumsobjekter i form av bilder. For oss i Team Digital Bevaring innebar det at vi har måttet etablere flere nye funksjoner i vårt DPS.  
 
-Vi har utviklet et API-grensesnitt som gjør det mulig for ulike datasystemer å kommunisere med vårt DPS. API’et håndterer autentisering og autorisering, og all kommunikasjon vil være regulert av avtaler mellom Nasjonalbiblioteket og de institusjoner som ønsker å benytte løsningen. Du kan lese mer om vårt nye API [her](https://digitalpreservation.no/nb/docs/dps/api/). 
+Vi har utviklet et API-grensesnitt som gjør det mulig for ulike datasystemer å kommunisere med vårt DPS. API’et håndterer autentisering og autorisering, og all kommunikasjon vil være regulert av avtaler mellom Nasjonalbiblioteket og de institusjoner som ønsker å benytte løsningen. Du kan lese mer om vårt nye API [her](https://digitalpreservation.no/nb/docs/dps/reference/api/). 
 
 For inn- og utlevering av data ble det testet ut en datautvekslingsplattform basert på Amazon S3-protokollen. Denne løsningen gjør at brukerne ikke trenger å forholde seg til hvordan data faktisk lagres internt på datautvekslingsplattformen. 
 
-Det er klargjort for at data som skal leveres til Nasjonalbiblioteket må følge [E-ARK](https://dilcis.eu/specifications/sip) standarden for struktur og innhold i informasjonspakker. Du kan lese mer om våre krav til informasjonspakker [her](https://digitalpreservation.no/nb/docs/dps/sip/). 
+Det er klargjort for at data som skal leveres til Nasjonalbiblioteket må følge [E-ARK](https://dilcis.eu/specifications/sip) standarden for struktur og innhold i informasjonspakker. Du kan lese mer om våre krav til informasjonspakker [her](https://digitalpreservation.no/nb/docs/dps/reference/sip/). 
 
-I tillegg er det utarbeidet krav til metadata som skal leveres sammen med informasjonspakken. Dette er metadata som anses som nødvendige for forvaltning av materialet i bevaringsomgivelsene. Disse dataene leveres via API’et. Du kan lese mer om våre krav til metadata [her](https://digitalpreservation.no/nb/docs/dps/api/submission/metadata/). 
+I tillegg er det utarbeidet krav til metadata som skal leveres sammen med informasjonspakken. Dette er metadata som anses som nødvendige for forvaltning av materialet i bevaringsomgivelsene. Disse dataene leveres via API’et. Du kan lese mer om våre krav til metadata [her](https://digitalpreservation.no/nb/docs/dps/reference/descriptive-metadata/). 
 
 [KulturIT](https://kulturit.org/) har på sin side utviklet funksjonalitet for utvelgelse av museumsobjekter som skal bevares. Samt løsning for å levere inn- og hente ut bevarte museumsobjekter i Nasjonalbibliotekets løsning for langtidsbevaring (DPS). 
 

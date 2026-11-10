@@ -1,0 +1,34 @@
+# Docs restructure (Phase A): old URL prefix -> new URL prefix.
+# Language-neutral paths; /nb/ and https://digitalpreservation.no variants are handled by the script.
+# Longest prefix wins. Matching is case-insensitive and only on whole path segments.
+/docs/dps/api/submission/events/	/docs/dps/reference/preservation-events/
+/docs/dps/api/submission/metadata/	/docs/dps/reference/descriptive-metadata/
+/docs/dps/api/submission/	/docs/dps/how-to/submit-a-package/
+/docs/dps/api/dissemination/	/docs/dps/how-to/retrieve-a-package/
+/docs/dps/api/webhooks/	/docs/dps/how-to/receive-notifications/
+/docs/dps/api/	/docs/dps/reference/api/
+/docs/dps/sip/1.0/scope/	/docs/dps/understanding/information-packages/
+/docs/dps/sip/1.0/	/docs/dps/reference/sip/
+/docs/dps/sip/scope/	/docs/dps/understanding/information-packages/
+/docs/dps/sip/examples/moving_images/	/docs/dps/reference/sip/examples/moving-images/
+/docs/dps/sip/mets/moving_images/	/docs/dps/reference/sip/mets/moving-images/
+/docs/dps/sip/	/docs/dps/reference/sip/
+/docs/dps/data-model-proposed-expansion/	/docs/dps/reference/data-model/proposed-expansion/
+/docs/dps/agreements/	/docs/dps/reference/data-model/agreements/
+/docs/dps/data-model/	/docs/dps/reference/data-model/
+/docs/dps/context/	/docs/dps/understanding/preservation-at-nln/
+/docs/dps/data/	/docs/dps/understanding/data-management/
+/docs/dps/metadata/	/docs/dps/understanding/metadata-management/
+/docs/dps/access-control/	/docs/dps/understanding/access-and-agreements/
+# Old alias URLs point at the page itself (the policies/ variants repair an earlier run).
+/docs/formats/preferred-formats-en/	/docs/policies/formats/
+/docs/formats/2024-05-07-formats-in-use-en/	/docs/policies/formats/
+/docs/principles/nln-digipres-principles-en/	/docs/policies/principles/
+/docs/strategy/nln-digipres-strategy-en/	/docs/policies/strategy/
+/docs/policies/formats/preferred-formats-en/	/docs/policies/formats/
+/docs/policies/formats/2024-05-07-formats-in-use-en/	/docs/policies/formats/
+/docs/policies/principles/nln-digipres-principles-en/	/docs/policies/principles/
+/docs/policies/strategy/nln-digipres-strategy-en/	/docs/policies/strategy/
+/docs/principles/	/docs/policies/principles/
+/docs/strategy/	/docs/policies/strategy/
+/docs/formats/	/docs/policies/formats/
