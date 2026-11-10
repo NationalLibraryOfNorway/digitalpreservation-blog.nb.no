@@ -21,3 +21,38 @@
     grid-template-columns: repeat(var(--hextra-cards-grid-cols), minmax(180px, 1fr)) !important;
   }
 }
+
+/*
+ * Colours from the National Library's profile manual ("Profilmanual, forenklet").
+ * Light mode: Plomme (#550029) accents on Fersken 20 (#FDF2F2).
+ * Dark mode:  Rose (#FE91B8) accents on Aubergine (#40263E).
+ * Hextra derives its primary shades from hue/saturation/lightness. Content links
+ * use shade 600 (0.9 x lightness) in both modes, so the base values below are
+ * chosen to make shade 600 land on Plomme (light) and Rose (dark).
+ */
+:root {
+  --primary-hue: 331deg;
+  --primary-saturation: 100%;
+  --primary-lightness: 19%;
+  --hx-color-white: #fdf2f2; /* Fersken 20 */
+}
+
+.dark {
+  --primary-hue: 338deg;
+  --primary-saturation: 98%;
+  --primary-lightness: 87%;
+  --hx-color-dark: #40263e; /* Aubergine */
+}
+
+/* Fade shadows above the sidebar footer and below the TOC: use the page background
+   instead of the theme's hard-coded white / #111. */
+.hx\:shadow-\[0_-12px_16px_\#fff\],
+.hx\:shadow-\[0_-12px_16px_white\] {
+  --tw-shadow-color: var(--hx-color-white);
+}
+
+.dark .hx\:shadow-\[0_-12px_16px_\#fff\],
+.dark .hx\:shadow-\[0_-12px_16px_white\],
+.dark .hx\:dark\:shadow-\[0_-12px_16px_\#111\] {
+  --tw-shadow-color: var(--hx-color-dark);
+}
