@@ -217,3 +217,148 @@ nav .hextra-theme-toggle svg {
     display: inline;
   }
 }
+
+/*
+ * Link cards (text only; image cards such as the team photos keep the theme style):
+ * a soft fill instead of a border, the title in Clearface, no generic icons, and an
+ * arrow that marks the card as a link. Colours from nb.no's neutrals.
+ */
+.hextra-card:not(:has(.hextra-card-image)) {
+  position: relative;
+  min-height: 8.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background-color: #f4f4f4;
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+}
+
+.hextra-card:not(:has(.hextra-card-image)):hover {
+  background-color: var(--nb-highlight);
+  box-shadow: none;
+}
+
+.hextra-card:not(:has(.hextra-card-image)):focus-visible {
+  outline: 2px solid var(--nb-plomme);
+  outline-offset: 2px;
+}
+
+.hextra-card:not(:has(.hextra-card-image)) > div {
+  margin-top: 0;
+}
+
+.hextra-card:not(:has(.hextra-card-image)) .hextra-card-icon {
+  padding: 0;
+  gap: 0;
+  font-family: "Clearface", Georgia, serif;
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--nb-text);
+}
+
+.hextra-card:not(:has(.hextra-card-image)) .hextra-card-icon svg {
+  display: none;
+}
+
+.hextra-card:not(:has(.hextra-card-image)) .hextra-card-subtitle {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--hx-color-gray-600);
+}
+
+.hextra-card:not(:has(.hextra-card-image))::after {
+  content: "→";
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: 1.125rem;
+  line-height: 1;
+  color: var(--nb-text);
+  transition: transform 0.2s ease;
+}
+
+.hextra-card:not(:has(.hextra-card-image)):hover::after {
+  transform: translateX(0.25rem);
+}
+
+.dark .hextra-card:not(:has(.hextra-card-image)) {
+  background-color: #28292d;
+}
+
+.dark .hextra-card:not(:has(.hextra-card-image)):hover {
+  background-color: #34353a;
+}
+
+.dark .hextra-card:not(:has(.hextra-card-image)):focus-visible {
+  outline-color: var(--nb-rose);
+}
+
+.dark .hextra-card:not(:has(.hextra-card-image)) .hextra-card-icon,
+.dark .hextra-card:not(:has(.hextra-card-image))::after {
+  color: var(--hx-color-gray-100);
+}
+
+.dark .hextra-card:not(:has(.hextra-card-image)) .hextra-card-subtitle {
+  color: var(--hx-color-gray-400);
+}
+
+/* Page titles on the home page, blog list and About: left-aligned with room below,
+   like the docs pages (the theme centres them with no bottom margin). */
+h1.hx\:text-center {
+  margin-bottom: 1.5rem;
+  text-align: left;
+  color: var(--nb-text);
+}
+
+.dark h1.hx\:text-center {
+  color: var(--hx-color-gray-100);
+}
+
+/* Image cards (team photos on About): same surface and typography as the link cards. */
+.hextra-card:has(.hextra-card-image) {
+  border: 0;
+  border-radius: 0.25rem;
+  background-color: #f4f4f4;
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+}
+
+.hextra-card:has(.hextra-card-image):hover {
+  background-color: var(--nb-highlight);
+  box-shadow: none;
+}
+
+.hextra-card:has(.hextra-card-image) .hextra-card-icon {
+  font-family: "Clearface", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--nb-text);
+}
+
+.hextra-card:has(.hextra-card-image) .hextra-card-subtitle {
+  color: var(--hx-color-gray-600);
+}
+
+.dark .hextra-card:has(.hextra-card-image) {
+  background-color: #28292d;
+}
+
+.dark .hextra-card:has(.hextra-card-image):hover {
+  background-color: #34353a;
+}
+
+.dark .hextra-card:has(.hextra-card-image) .hextra-card-icon {
+  color: var(--hx-color-gray-100);
+}
+
+.dark .hextra-card:has(.hextra-card-image) .hextra-card-subtitle {
+  color: var(--hx-color-gray-400);
+}
+
+.hextra-card .hextra-card-image {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
