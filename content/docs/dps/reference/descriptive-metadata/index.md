@@ -20,7 +20,7 @@ Most metadata elements are optional, but it is strongly recommended to provide a
 - Punctuation and character encoding for field input should follow [UTF-8](https://snl.no/UTF-8).
 - [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for specifying language when the lang attribute is applied.
 - [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) is used as the standard format for specifying dates and times.
-- [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-2:ed-4:v1:en) is used to specify country codes.
+- [ISO 3166-1 alpha-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) is used to specify country codes.
 
 ## Metadata elements
 
@@ -96,7 +96,7 @@ Allowed types for describing the resource per media type:
 | `Database` | Database: A complete set of the content contained within a database, e.g. database dumps or exports. |
 
 
-**Note:** In the requirements for [METS.xml](/nb/docs/dps/reference/sip/mets/) there is a mandatory attribute named Content category `@TYPE`. Content category specifies the media type on a higher level than this attribute.
+**Note:** In the requirements for [METS.xml](/docs/dps/reference/sip/mets/) there is a mandatory attribute named Content category `@TYPE`. Content category specifies the media type on a higher level than this attribute.
 
 
 **Example:**
@@ -375,8 +375,8 @@ Explanation of *authority* information:
 **Guidelines for use:**
 
 It is recommended to use an authority file whenever one is available. 
-The specific authority file used, as well as the type of authority, MUST be indicated. 
-Allowed types include: 
+If an authority file is used, it MUST be identified. 
+The type of authority SHOULD be indicated. Allowed types include: 
 
 - `person`
 - `korporasjon` (Organization)
@@ -418,11 +418,11 @@ Explanation of *authority* information:
 
 **Guidelines for use:**
 
-- Use [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-2:ed-4:v1:en) for specifying countries. Country codes should be placed in parentheses after the country name (e.g., Norway (NO)). 
+- Use [ISO 3166-1 alpha-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) for specifying countries. Country codes should be placed in parentheses after the country name (e.g., Norway (NO)). 
 
 It is recommended to use official place name services or registries for specifying Norwegian place names. 
 One example is the  [Central Place Name Register (SSR)](https://www.kartverket.no/api-og-data/stedsnavndata) provided by the Norwegian Mapping Authority (Kartverket). 
-The source registry MUST be specified. 
+If a registry is used, it MUST be specified in `authority`. 
 
 When using an authority file to specify spatial information, the full form of the place name should also be included. 
 If no registry is used, the location should preferably be written in the following format: 
@@ -535,7 +535,7 @@ The use of the `type` attribute should be meaningful for the designated communit
   "language": [
     {
       "type": "written language",
-      "value": "fre"
+      "value": "fra"
     }
   ]
 }
