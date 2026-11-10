@@ -61,7 +61,9 @@
   --hx-radius-3xl: var(--nb-radius);
   --nb-code-text: var(--nb-text);
   --nb-code-accent: var(--nb-plomme);
-  --nb-code-literal: #40263e;
+  --nb-code-name: #8a164a;
+  --nb-code-literal: #176447;
+  --nb-code-number: #8f5515;
   --nb-code-muted: #5b5c62;
   --nb-code-highlight: var(--nb-highlight);
   --nb-code-error: #a61717;
@@ -86,7 +88,9 @@
 .dark {
   --nb-code-text: #f3f4f6;
   --nb-code-accent: var(--nb-rose);
-  --nb-code-literal: #ffc9c9;
+  --nb-code-name: #fe91b8;
+  --nb-code-literal: #8ed6b1;
+  --nb-code-number: #f1ba74;
   --nb-code-muted: #b5b5bb;
   --nb-code-highlight: #40353b;
   --nb-code-error: #ffb4b4;
@@ -759,7 +763,8 @@ h1.hx\:text-center {
   --nb-callout-bg: #302324;
 }
 
-/* Code: a small profile palette, rather than Hextra's GitHub rainbow.
+/* Code: Plomme/Rose for structure, green for strings and amber for numbers.
+   Functional colours distinguish values without relying on brightness alone.
    The :is() specificity also overrides the theme's dark token rules. */
 .hextra-code-block {
   color: var(--nb-code-text);
@@ -771,17 +776,30 @@ h1.hx\:text-center {
 }
 
 :is(.dark .highlight, .highlight) .chroma :is(
-  .k, .kc, .kd, .kn, .kp, .kr, .kt, .nt, .na, .nc, .nd, .ne, .nf, .fm, .nl,
-  .gh, .gu
+  .k, .kc, .kd, .kn, .kp, .kr, .kt, .gh, .gu, .ow
 ) {
   color: var(--nb-code-accent);
+  font-weight: 700;
 }
 
 :is(.dark .highlight, .highlight) .chroma :is(
-  .l, .ld, .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss,
-  .m, .mb, .mf, .mh, .mi, .il, .mo, .no, .ni
+  .nt, .na, .nc, .nd, .ne, .nf, .fm, .nl, .nb, .bp
+) {
+  color: var(--nb-code-name);
+  font-weight: 600;
+}
+
+:is(.dark .highlight, .highlight) .chroma :is(
+  .l, .ld, .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss
 ) {
   color: var(--nb-code-literal);
+}
+
+:is(.dark .highlight, .highlight) .chroma :is(
+  .m, .mb, .mf, .mh, .mi, .il, .mo, .no, .ni
+) {
+  color: var(--nb-code-number);
+  font-weight: 600;
 }
 
 :is(.dark .highlight, .highlight) .chroma :is(
