@@ -18,7 +18,7 @@ Dette gir bedre søkbarhet og forståelse av ressursene – også i et langtidsp
 - Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8).
 - [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 - [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) brukes som standard for angivelse av tid/dato.
-- [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) brukes for angivelse av land.
+- [ISO 3166-1 alpha-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) brukes for angivelse av land.
 
 ## Metadataelementer
 
@@ -372,7 +372,8 @@ Forklaring til bruk av *authority*-informasjon:
 **Retningslinjer for bruk:**
 
 Det anbefales å bruke autoritetsregister når relevante registre finnes. 
-Det MÅ oppgis hvilket autoritetsregister som er benyttet, og hvilken type autoritet det er (type): 
+Hvis et autoritetsregister brukes, MÅ det oppgis hvilket register det er. 
+Det BØR oppgis hvilken type autoritet det er (type): 
 
 - `person`
 - `korporasjon`
@@ -415,7 +416,7 @@ Forklaring til bruk av *authority*-informasjon:
 
 
 Vi anbefaler bruk av stedsnavstjenester/registre for angivelse av norske stedsnavn. 
-Et eksempel er [Sentralt stedsnavnregister](https://www.kartverket.no/api-og-data/stedsnavndata) (SSR) fra kartverket. Det MÅ oppgis hvilket register som er benyttet.  
+Et eksempel er [Sentralt stedsnavnregister](https://www.kartverket.no/api-og-data/stedsnavndata) (SSR) fra kartverket. Hvis et register brukes, MÅ det oppgis i `authority` hvilket register det er.  
 
 Ved bruk av autoritetsregistre for å angi Spatial, bør man skrive plassering/navn i sin fulle form i tillegg. 
 Brukes ikke register, skrives plassering/navn fortrinnsvis land;region/fylke;kommune;sted;gate;. 
@@ -527,7 +528,7 @@ Bruk av `type`-attributt bør gi mening for avleverer, gjenspeile metadatakatalo
   "language": [
     {
       "type": "skriftspråk",
-      "value": "fre"
+      "value": "fra"
     }
   ]
 }
