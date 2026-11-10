@@ -1,0 +1,23 @@
+{{- /*
+  Returns the source image (resource) for a blog post's thumbnail in the blog list;
+  the list template crops and converts it to the size it needs:
+  1. the image named first in the post's `images` front matter,
+  2. otherwise the first raster image in the post's bundle,
+  3. otherwise the generated preview card (og-card.html).
+*/ -}}
+{{- $page := . -}}
+{{- $img := false -}}
+{{- with $page.Params.images -}}
+  {{- $img = $page.Resources.GetMatch (strings.TrimPrefix "/" (index . 0)) -}}
+{{- end -}}
+{{- if not $img -}}
+  {{- range $page.Resources.ByType "image" -}}
+    {{- if and (not $img) (ne .MediaType.SubType "svg") -}}
+      {{- $img = . -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- if not $img -}}
+  {{- $img = partial "og-card.html" $page -}}
+{{- end -}}
+{{- return $img -}}

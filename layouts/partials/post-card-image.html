@@ -1,0 +1,24 @@
+{{- /*
+  Renders the thumbnail <img> for a post card in the blog list.
+  Arguments: dict "page" (the post), "w" and "h" (target size), "eager" (bool).
+  Images close to the target shape (typically photos) are cropped to fill it;
+  much wider or taller images (typically logos, banners, posters) are fitted whole
+  and shown centred on a white background, so they are not cut off.
+*/ -}}
+{{- $img := partial "post-thumbnail.html" .page -}}
+{{- $w := .w -}}
+{{- $h := .h -}}
+{{- $class := "nb-post__image" -}}
+{{- if ne $img.MediaType.SubType "svg" -}}
+  {{- $target := div (float $w) $h -}}
+  {{- $ratio := div (float $img.Width) $img.Height -}}
+  {{- if and (ge $ratio (mul $target 0.8)) (le $ratio (mul $target 1.25)) -}}
+    {{- $img = $img.Fill (printf "%dx%d Center webp q82" $w $h) -}}
+  {{- else -}}
+    {{- $img = $img.Fit (printf "%dx%d webp q82" $w $h) -}}
+    {{- $class = "nb-post__image nb-post__image--contain" -}}
+  {{- end -}}
+{{- else -}}
+  {{- $class = "nb-post__image nb-post__image--contain" -}}
+{{- end -}}
+<img class="{{ $class }}" src="{{ $img.RelPermalink }}" alt="" loading="{{ if .eager }}eager{{ else }}lazy{{ end }}" decoding="async" width="{{ $w }}" height="{{ $h }}">
