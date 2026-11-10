@@ -1,6 +1,6 @@
 ---
 title: Data management
-weight: 3
+weight: 4
 aliases:
   - /docs/services/dps/data/
   - /docs/dps/data/

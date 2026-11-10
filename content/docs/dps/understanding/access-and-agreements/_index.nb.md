@@ -1,7 +1,7 @@
 ---
 title: Tilgangskontroll
 tags: [Digital bevaring, OAIS-modell, Rollebasert tilgang, Bevaringsavtaler, Informasjonspakker, Autorisasjonssystemer, Tilgangsstyring, Digitale arkiv]
-weight: 5
+weight: 6
 aliases:
   - /docs/services/dps/access-control/
   - /docs/dps/access-control/
@@ -135,4 +135,4 @@ sequenceDiagram
 ```
 
 [^1]: [E-ARK SIP: 4.1. Submission Agreements](https://earksip.dilcis.eu/#submissionagreements)
-[^2]: For mer informasjon om informasjonspakker se [OAIS-terminologien](/nb/docs/dps/).
+[^2]: For mer informasjon om informasjonspakker se [OAIS-terminologien](/nb/docs/dps/understanding/how-dps-works/#oais-som-referansepunkt).

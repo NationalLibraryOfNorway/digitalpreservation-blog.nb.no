@@ -1,7 +1,6 @@
 ---
 title: DPS sin rolle i NB
-weight: 1
-draft: true
+weight: 2
 aliases:
   - /systemarkitektur
   - /forvaltningsarkitektur
@@ -26,7 +25,7 @@ Internt i Nasjonalbibliotekets egne samlinger er ansvaret for digitale objekter[
 
 Biblioteksystemer, kataloger, registre og forvaltningssystemer (som Alma, Mavis og Hanske). De er hovedkilden for deskriptive metadata og utsteder unike identifikatorer (UID-er, typisk URN-er) for digitale objekter. Disse systemene forvalter et bredt spekter av entiteter; kun en delmengde beskriver digitale objekter relevante for digital bevaring.
 
-Det er her intellektuelle entiteter defineres: valget av hva som utgjør en bevaringsverdig informasjonspakke starter her, ikke i DPS. Én URN tilsvarer typisk én pakke. For detaljer om pakkeomfang, se [Pakke-, representasjons- og dataomfang](/nb/docs/dps/understanding/information-packages/).
+Det er her intellektuelle entiteter defineres: valget av hva som utgjør en bevaringsverdig informasjonspakke starter her, ikke i DPS. Én URN tilsvarer typisk én pakke. For detaljer om pakkeomfang, se [Informasjonspakker](/nb/docs/dps/understanding/information-packages/).
 
 ### Digital Preservation Services (DPS)
 
@@ -60,7 +59,7 @@ DPS bruker PREMIS som sin bevaringsmetadatamodell. Verken metadatasystemene elle
 
 > An **Intellectual Entity** is a distinct intellectual or artistic creation that is considered relevant to a designated community in the context of digital preservation: for example, a particular book, map, photograph, database, or hardware or software. An intellectual Entity can include other Intellectual Entities[...]
 
-I vår implementering er det et én-til-én-forhold mellom SIP og IE. IE-en er entiteten som identifiseres av UID-en som binder de tre systemdomenene sammen. Vanligvis er dette den **minste** beskrevne enheten i våre metadatasystemer. For detaljer om hvordan dette former pakkeomfang, se [Pakke-, representasjons- og dataomfang](/nb/docs/dps/understanding/information-packages/).
+I vår implementering er det et én-til-én-forhold mellom SIP og IE. IE-en er entiteten som identifiseres av UID-en som binder de tre systemdomenene sammen. Vanligvis er dette den **minste** beskrevne enheten i våre metadatasystemer. For detaljer om hvordan dette former pakkeomfang, se [Informasjonspakker](/nb/docs/dps/understanding/information-packages/).
 
 Metadata på pakkerota beskriver IE-en som SIP-en inneholder representasjoner av. Representasjonene er ulike datagjengivelser av IE-en og har ikke egne beskrivende metadata.
 

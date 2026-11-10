@@ -1,7 +1,6 @@
 ---
 title: The role of DPS in the NLN
-weight: 1
-draft: true
+weight: 2
 aliases:
   - /system-architecture
   - /premis-architecture
@@ -26,7 +25,7 @@ Within the National Library's own collections, responsibility for any digital ob
 
 Catalogs, registries, and collection management systems (such as Alma, Mavis, and Hanske). They are the authoritative source for descriptive metadata and issue unique identifiers (UIDs, typically URNs) for digital objects. These systems manage a wide range of entities; only a subset describe digital objects relevant to digital preservation.
 
-This is where intellectual entities are defined: the choice of what constitutes a preservable information package originates here, not in DPS. A single URN typically maps to a single package. For details on scoping, see [Package, representation and data scope](/docs/dps/understanding/information-packages/).
+This is where intellectual entities are defined: the choice of what constitutes a preservable information package originates here, not in DPS. A single URN typically maps to a single package. For details on scoping, see [Information packages](/docs/dps/understanding/information-packages/).
 
 ### Digital Preservation Services (DPS)
 
@@ -60,7 +59,7 @@ The DPS uses PREMIS as its preservation metadata model. Neither the metadata man
 
 > An **Intellectual Entity** is a distinct intellectual or artistic creation that is considered relevant to a designated community in the context of digital preservation: for example, a particular book, map, photograph, database, or hardware or software.
 
-In our implementation, there is a 1:1 relationship between SIP and IE. The IE is the entity identified by the UID that links the three system domains together. Typically this is the **smallest** described size in any of our metadata management systems. For details on how this shapes package scope, see [Package, representation and data scope](/docs/dps/understanding/information-packages/).
+In our implementation, there is a 1:1 relationship between SIP and IE. The IE is the entity identified by the UID that links the three system domains together. Typically this is the **smallest** described size in any of our metadata management systems. For details on how this shapes package scope, see [Information packages](/docs/dps/understanding/information-packages/).
 
 Metadata at the package root describes the IE that the SIP holds representations of. The representations are different data renditions of the IE and do not have their own discrete descriptive metadata.
 

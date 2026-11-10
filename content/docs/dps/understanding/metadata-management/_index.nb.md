@@ -1,6 +1,6 @@
 ---
 title: Metadataforvaltning
-weight: 4
+weight: 5
 aliases:
   - /docs/services/dps/metadata/
   - /docs/dps/metadata/
