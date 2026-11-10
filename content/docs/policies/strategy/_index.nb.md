@@ -2,7 +2,7 @@
 linkTitle: Ambisjon, mål og strategi
 title: Strategi for digital bevaring ved Nasjonalbiblioteket (2026-2029)
 weight: 2
-date: 2024-02-07
+date: 2026-04-16
 draft: false
 tags: [Strategy, Policy, Principles]
 authors: 

@@ -31,7 +31,7 @@ Data is ingested into DPS through the API as Submission Information Packages (SI
 
 The submission workflow consists of the following steps: 
 
-Create a submission → Register the files that make up the SIP → Upload the file contents → Upload the file contents.  
+Create a submission → Register the files that make up the SIP → Upload the file contents → Finalize the submission to start processing in DPS.  
 
 A submission is accepted for preservation only if it complies with the [SIP structure requirements](/docs/dps/reference/sip/structure-requirements/), the [METS.xml requirements](/docs/dps/reference/sip/mets/), and the [API requirements](/docs/dps/reference/api/#submissions). Submissions that do not meet these requirements are rejected. 
 

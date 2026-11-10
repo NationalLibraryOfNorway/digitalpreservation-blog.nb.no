@@ -1,7 +1,7 @@
 ---
 title: Requirements for images
 weight: 1
-Draft: false
+draft: false
 aliases:
   - /docs/dps/sip/mets/images/
 ---

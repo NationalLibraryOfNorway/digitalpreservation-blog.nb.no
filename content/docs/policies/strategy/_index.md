@@ -2,7 +2,7 @@
 linkTitle: Ambitions, goals and strategy
 title: "Strategy for digital preservation at the National Library of Norway (2026-2029)"
 weight: 2
-date: 2024-02-07
+date: 2026-04-16
 draft: false
 tags: [Strategy, Policy, Principles]
 authors: 

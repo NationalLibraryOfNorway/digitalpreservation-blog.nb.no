@@ -1,7 +1,7 @@
 ---
 title: Images
 weight: 1
-Draft: false
+draft: false
 aliases:
   - /docs/dps/sip/examples/images/
 ---

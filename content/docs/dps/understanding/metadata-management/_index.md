@@ -54,7 +54,7 @@ A successful submission results in the creation of an Archival Information Packa
 
 ### As metadata files contained in SIPs
 
-Metadata can also be submitted as files included in the Submission Information Package (SIP). Some files containing metadata is mandatory in the SIP. See the [SIP structure requirements](/docs/dps/reference/sip/structure-requirements/) for details.
+Metadata can also be submitted as files included in the Submission Information Package (SIP). Some files containing metadata are mandatory in the SIP. See the [SIP structure requirements](/docs/dps/reference/sip/structure-requirements/) for details.
 
 - **METS.xml files** files are mandatory both in the root of the package and within each representation. During ingest, DPS analyses the METS.xml files and extracts information about the package structure, content, and files, which is used to enrich the preservation metadata. See the [METS.xml requirements](/docs/dps/reference/sip/mets/) for the complete specification.
 - **Additional metadata files**, such as MARC, MODS, Dublin Core XML, or domain-specific metadata formats, may also be included in the SIP. At least one file containing descriptive metadata must be submitted. DPS preserves these files, identifies their file formats, and extracts technical metadata, but it does not interpret or index their contents. See [Metadata placement at a glance](/docs/dps/reference/sip/structure-requirements/#metadata-placement-at-a-glance) for where metadata files should be placed within the SIP.
