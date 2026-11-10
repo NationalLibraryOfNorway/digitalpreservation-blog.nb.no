@@ -28,7 +28,7 @@ Dokumentet er delt inn i fem hoveddeler:
 - Deretter skisserer vi NBs visjon for digital bevaring. Her bruker vi begrepet nasjonal digital kulturarv for å definere omfanget. Dette begrepet understreker at vårt ansvar strekker seg utover pliktavlevert materiale og også inkluderer materiale fra andre kulturinstitusjoner.
 - Videre beskriver vi fire konkrete mål. Disse handler om effektiv innsamling, sikker lagring og aktiv forvaltning av den digitale samlingen, samt å sikre nåværende og fremtidig tilgang til materialet. Vi anerkjenner at umiddelbar tilgang utgjør en nødvendig forutsetning for langtidsbevaring.
 - Dokumentet belyser også noen av de viktigste utfordringene NB står overfor innen digital bevaring, og anerkjenner at disse utfordringene stadig utvikler seg.
-- Til slutt spesifiserer vi tre strategiske prioriteringer: å styrke kunnskapen om digital bevaring i organisasjonen, å følge etablerte standarder og å bruke verktøy og teknologi på en ansvarlig og bærekraftig måte. Disse bygger på de [gjeldende prinsippene](https://digitalpreservation.no/nb/docs/policies/principles/) for digital bevaring ved NB.
+- Til slutt spesifiserer vi tre strategiske prioriteringer: å styrke kunnskapen om digital bevaring i organisasjonen, å følge etablerte standarder og å bruke verktøy og teknologi på en ansvarlig og bærekraftig måte. Disse bygger på de [gjeldende prinsippene](https://digitalpreservation.no/nb/policies/principles/) for digital bevaring ved NB.
 
 ## Bruk av strategien i teamet
 For å bruke strategien i praksis har teamet utarbeidet et veikart som skisserer sentrale aktiviteter for de to kommende årene. Alle aktivitetene i veikartet er knyttet til de tre strategiske prioriteringene. 
@@ -52,4 +52,4 @@ Dette skaper en sammenhengende linje fra den overordnede strategien til de konkr
 
 Denne strukturerte tilnærmingen har vist seg å være effektiv. Den har gitt en tydelig retning for NBs arbeid med digital bevaring og fungerer som en kontinuerlig påminnelse om våre strategiske mål gjennom daglige Jira-oppgaver og aktiviteter.
 
-Strategien er tilgjengelig [her](https://digitalpreservation.no/nb/docs/policies/strategy/).
+Strategien er tilgjengelig [her](https://digitalpreservation.no/nb/policies/strategy/).

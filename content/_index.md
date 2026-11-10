@@ -10,6 +10,7 @@ Here we attempt to share documentation related to our digital preservation servi
 
 {{< cards >}}
   {{< card link="blog" title="Blog" subtitle="Updates from the digital preservation team" icon="light-bulb" >}}
+  {{< card link="policies" title="Policies" subtitle="Principles, strategy, and preferred file formats" icon="shield-check" >}}
   {{< card link="docs" title="Docs" subtitle="Technical documentation and guides" icon="book-open" >}}
   {{< card link="about" title="About" subtitle="Who we are and what we do" icon="user" >}}
 {{< /cards >}}

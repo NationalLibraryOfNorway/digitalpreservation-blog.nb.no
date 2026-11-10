@@ -21,9 +21,9 @@ Det har i tillegg blitt sett på hvordan vi kan sikre at det avleveres et minimu
 ![Metadata i digital bevaring](/Skjermbilde2_blogg.JPG) 
 <br>
 
-Dokumentasjon for avleveing av SIP finnes her: [SIP 1.0](/nb/docs/dps/reference/sip/)
+Dokumentasjon for avleveing av SIP finnes her: [SIP 1.0](/nb/docs/reference/sip/)
 
-Dokumentasjon om krav til avlevering av metadata finnes her: [Krav til metadata](/nb/docs/dps/reference/descriptive-metadata/)
+Dokumentasjon om krav til avlevering av metadata finnes her: [Krav til metadata](/nb/docs/reference/descriptive-metadata/)
 
 I første omgang er dokumentasjonen som er publisert myntet på piloten. Det er også i hovedsak tatt utgangspunkt i avlevering av medietypen bilder. Planen er å innføre samme spesifikasjoner også for interne avlevere i Nasjonalbiblioteket (produksjonsløypene våre). Oppdateringer og endringer på dokumentasjonen vil komme etter hvert som vi jobber videre utover piloten.
 

@@ -1,38 +1,41 @@
-# Docs restructure (Phase A): old URL prefix -> new URL prefix.
+# Docs restructure: old URL prefix -> current URL prefix (including navigation flattening).
 # Language-neutral paths; /nb/ and https://digitalpreservation.no variants are handled by the script.
 # Longest prefix wins. Matching is case-insensitive and only on whole path segments.
-/docs/dps/api/submission/events/	/docs/dps/reference/preservation-events/
-/docs/dps/api/submission/metadata/	/docs/dps/reference/descriptive-metadata/
-/docs/dps/api/submission/	/docs/dps/how-to/submit-content/
-/docs/dps/api/dissemination/	/docs/dps/how-to/retrieve-content/
-/docs/dps/api/webhooks/	/docs/dps/how-to/receive-notifications/
-/docs/dps/api/	/docs/dps/reference/api/
-/docs/dps/sip/1.0/scope/	/docs/dps/understanding/information-packages/
-/docs/dps/sip/1.0/	/docs/dps/reference/sip/
-/docs/dps/sip/scope/	/docs/dps/understanding/information-packages/
-/docs/dps/sip/examples/moving_images/	/docs/dps/reference/sip/examples/moving-images/
-/docs/dps/sip/mets/moving_images/	/docs/dps/reference/sip/mets/moving-images/
-/docs/dps/sip/	/docs/dps/reference/sip/
-/docs/dps/data-model-proposed-expansion/	/docs/dps/reference/data-model/proposed-expansion/
-/docs/dps/agreements/	/docs/dps/reference/data-model/agreements/
-/docs/dps/data-model/	/docs/dps/reference/data-model/
-/docs/dps/context/	/docs/dps/understanding/preservation-at-nln/
-/docs/dps/data/	/docs/dps/understanding/data-management/
-/docs/dps/metadata/	/docs/dps/understanding/metadata-management/
-/docs/dps/access-control/	/docs/dps/understanding/access-and-agreements/
+/docs/dps/api/submission/events/	/docs/reference/preservation-events/
+/docs/dps/api/submission/metadata/	/docs/reference/descriptive-metadata/
+/docs/dps/api/submission/	/docs/how-to/submit-content/
+/docs/dps/api/dissemination/	/docs/how-to/retrieve-content/
+/docs/dps/api/webhooks/	/docs/how-to/receive-notifications/
+/docs/dps/api/	/docs/reference/api/
+/docs/dps/sip/1.0/scope/	/docs/understanding/information-packages/
+/docs/dps/sip/1.0/	/docs/reference/sip/
+/docs/dps/sip/scope/	/docs/understanding/information-packages/
+/docs/dps/sip/examples/moving_images/	/docs/reference/sip/examples/moving-images/
+/docs/dps/sip/mets/moving_images/	/docs/reference/sip/mets/moving-images/
+/docs/dps/sip/	/docs/reference/sip/
+/docs/dps/data-model-proposed-expansion/	/docs/reference/data-model/proposed-expansion/
+/docs/dps/agreements/	/docs/reference/data-model/agreements/
+/docs/dps/data-model/	/docs/reference/data-model/
+/docs/dps/context/	/docs/understanding/preservation-at-nln/
+/docs/dps/data/	/docs/understanding/data-management/
+/docs/dps/metadata/	/docs/understanding/metadata-management/
+/docs/dps/access-control/	/docs/understanding/access-and-agreements/
 # Slugs renamed in B1 (repair rows for re-runs).
-/docs/dps/how-to/submit-a-package/	/docs/dps/how-to/submit-content/
-/docs/dps/how-to/retrieve-a-package/	/docs/dps/how-to/retrieve-content/
-/docs/dps/how-to/document-events/	/docs/dps/how-to/add-preservation-events/
+/docs/dps/how-to/submit-a-package/	/docs/how-to/submit-content/
+/docs/dps/how-to/retrieve-a-package/	/docs/how-to/retrieve-content/
+/docs/dps/how-to/document-events/	/docs/how-to/add-preservation-events/
 # Old alias URLs point at the page itself (the policies/ variants repair an earlier run).
-/docs/formats/preferred-formats-en/	/docs/policies/formats/
-/docs/formats/2024-05-07-formats-in-use-en/	/docs/policies/formats/
-/docs/principles/nln-digipres-principles-en/	/docs/policies/principles/
-/docs/strategy/nln-digipres-strategy-en/	/docs/policies/strategy/
-/docs/policies/formats/preferred-formats-en/	/docs/policies/formats/
-/docs/policies/formats/2024-05-07-formats-in-use-en/	/docs/policies/formats/
-/docs/policies/principles/nln-digipres-principles-en/	/docs/policies/principles/
-/docs/policies/strategy/nln-digipres-strategy-en/	/docs/policies/strategy/
-/docs/principles/	/docs/policies/principles/
-/docs/strategy/	/docs/policies/strategy/
-/docs/formats/	/docs/policies/formats/
+/docs/formats/preferred-formats-en/	/policies/formats/
+/docs/formats/2024-05-07-formats-in-use-en/	/policies/formats/
+/docs/principles/nln-digipres-principles-en/	/policies/principles/
+/docs/strategy/nln-digipres-strategy-en/	/policies/strategy/
+/docs/policies/formats/preferred-formats-en/	/policies/formats/
+/docs/policies/formats/2024-05-07-formats-in-use-en/	/policies/formats/
+/docs/policies/principles/nln-digipres-principles-en/	/policies/principles/
+/docs/policies/strategy/nln-digipres-strategy-en/	/policies/strategy/
+/docs/principles/	/policies/principles/
+/docs/strategy/	/policies/strategy/
+/docs/formats/	/policies/formats/
+# Flattened navigation: Policies is top-level; Docs is the DPS tree.
+/docs/policies/	/policies/
+/docs/dps/	/docs/

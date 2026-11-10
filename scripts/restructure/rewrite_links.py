@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Docs restructure helper (Phase A).
+"""Docs restructure helper (including the flattened Policies/Docs navigation).
 
 Subcommands (run from the repository root):
 
@@ -26,9 +26,9 @@ MAPPING = Path(__file__).with_name("mapping.tsv")
 
 # Extra aliases for URLs that are linked from published spec files but never existed.
 EXTRA_ALIASES = {
-    "content/docs/dps/understanding/information-packages/_index": ["/docs/dps/sip/1.0/scope/"],
-    "content/docs/dps/reference/sip/mets/_index": ["/docs/dps/sip/1.0/mets/"],
-    "content/docs/dps/reference/sip/structure-requirements/_index": [
+    "content/docs/understanding/information-packages/_index": ["/docs/dps/sip/1.0/scope/"],
+    "content/docs/reference/sip/mets/_index": ["/docs/dps/sip/1.0/mets/"],
+    "content/docs/reference/sip/structure-requirements/_index": [
         "/docs/dps/sip/1.0/structure-requirements/"
     ],
 }
@@ -173,7 +173,7 @@ def add_aliases(path, new_aliases, dry_run):
 def cmd_aliases(dry_run):
     seen = set()
     for old, new in staged_renames():
-        if not new.startswith("content/docs/") or Path(new).name not in PAGE_NAMES:
+        if not new.startswith(("content/docs/", "content/policies/")) or Path(new).name not in PAGE_NAMES:
             continue
         aliases = [url_for(old)]
         key = str(Path(new).parent / Path(new).name.split(".")[0])

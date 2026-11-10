@@ -16,13 +16,13 @@ The National Library of Norway, the Norwegian Directorate for Cultural Heritage,
 
 Over the past year, the National Library and KulturIT have worked closely together to develop and test a solution for the ingest and delivery of digital museum objects, initially focusing on images. For the Digital Preservation team at the National Library, this work required the establishment of several new functions within the DPS.
 
-An API interface has been developed to enable communication between various data systems and the DPS. The API handles authentication and authorization, and all data exchange is governed by agreements between the National Library and the institutions that chooses to use the service. More information about the API is available [here](https://digitalpreservation.no/docs/dps/reference/api/).
+An API interface has been developed to enable communication between various data systems and the DPS. The API handles authentication and authorization, and all data exchange is governed by agreements between the National Library and the institutions that chooses to use the service. More information about the API is available [here](https://digitalpreservation.no/docs/reference/api/).
 
 For data ingest and delivery, a data exchange platform based on the Amazon S3 protocol was tested. This solution allows users to transfer data without needing to understand how the data is stored within the platform.
 
-Requirements have been established for data delivered to the National Library to comply with the [E-ARK](https://dilcis.eu/specifications/sip) standard for the structure and content of information packages. More information about these requirements is available [here](https://digitalpreservation.no/docs/dps/reference/sip/).
+Requirements have been established for data delivered to the National Library to comply with the [E-ARK](https://dilcis.eu/specifications/sip) standard for the structure and content of information packages. More information about these requirements is available [here](https://digitalpreservation.no/docs/reference/sip/).
 
-In addition, metadata requirements have been defined for information packages submitted for preservation. These metadata are considered essential for the management and preservation of the material within the preservation environment and are submitted via the API. More information about the metadata requirements is available [here](https://digitalpreservation.no/docs/dps/reference/descriptive-metadata/).
+In addition, metadata requirements have been defined for information packages submitted for preservation. These metadata are considered essential for the management and preservation of the material within the preservation environment and are submitted via the API. More information about the metadata requirements is available [here](https://digitalpreservation.no/docs/reference/descriptive-metadata/).
 
 [KulturIT](https://kulturit.org/) has, in parallel, developed functionality for selecting museum objects for preservation, as well as solutions for for ingesting and retrieving preserved museum objects from the National Library’s digital preservation system (DPS) based on our requirements.
 

@@ -10,6 +10,7 @@ Her deler vi dokumentasjon om våre digitale bevaringstjenester og erfaringer fr
 
 {{< cards >}}
   {{< card link="blog" title="Blogg" subtitle="Oppdateringer fra Team digital bevaring" icon="light-bulb" >}}
+  {{< card link="policies" title="Retningslinjer" subtitle="Prinsipper, strategi og foretrukne filformater" icon="shield-check" >}}
   {{< card link="docs" title="Dokumentasjon" subtitle="Teknisk dokumentasjon og veiledning" icon="book-open" >}}
   {{< card link="about" title="Om oss" subtitle="Hvem vi er og hva vi gjør" icon="user" >}}
 {{< /cards >}}

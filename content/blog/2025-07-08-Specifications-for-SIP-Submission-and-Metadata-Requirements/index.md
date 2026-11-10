@@ -17,9 +17,9 @@ In addition, the team have focused on how to ensure that a minimum set of descri
 ![Metadata in digital preservation](/Skjermbilde2_blogg_engelsk.JPG)
 <br>
 
-Documentation for SIP submission is available here: [SIP 1.0](/docs/dps/reference/sip/).
+Documentation for SIP submission is available here: [SIP 1.0](/docs/reference/sip/).
 
-Documentation on metadata submission requirements is available here: [Metadata Requirements](/docs/dps/reference/descriptive-metadata/).
+Documentation on metadata submission requirements is available here: [Metadata Requirements](/docs/reference/descriptive-metadata/).
 
 
 Initially, the published documentation is intended for use within the scope of the pilot project. It primarily focuses on the submission of still image material. However, the intention is to use the same specifications for internal deposit workflows at the National Library as well. Further updates and modifications to the documentation will be introduced as we proceed beyond the pilot.
