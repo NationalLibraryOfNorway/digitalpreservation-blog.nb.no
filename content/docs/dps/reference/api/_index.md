@@ -20,7 +20,7 @@ The API lets you:
 - [**Request preserved content**](../../how-to/retrieve-content/): request preserved digital objects.
 - [**Receive notifications**](../../how-to/receive-notifications/): get automatic status updates in your systems through webhooks.
 
-This page also lists the endpoints, request fields, limits, and status lifecycle for [submissions](#submissions).
+This page also lists the endpoints, request fields, and status lifecycles for [submissions](#submissions) and [disseminations](#disseminations).
 
 ## Authentication & Authorization
 
@@ -168,6 +168,41 @@ A submission progresses through the following statuses:
 5. `REJECTED` - The submission has been rejected due to validation errors or other issues
 
 Changes to `PRESERVED` and `REJECTED` are also sent as [webhook](/docs/dps/how-to/receive-notifications/) messages (`submission.preserved` and `submission.rejected`).
+
+## Disseminations
+
+Endpoints for requesting delivery of preserved content. For a step-by-step walkthrough, see [Request preserved content](/docs/dps/how-to/retrieve-content/). All paths are relative to `https://api.nb.no/dps-submission`.
+
+### Dissemination endpoints
+
+| Method | Path                                   | Description              |
+|--------|----------------------------------------|--------------------------|
+| POST   | `/v1/disseminations`                   | Create new dissemination |
+| GET    | `/v1/disseminations/{disseminationId}` | Fetch dissemination      |
+
+- **Create dissemination:** The API checks that the client is authorized, that the package exists and is preserved, and that the request is not a duplicate. If a dissemination is already in progress, the API returns `409 Conflict`. Preparation then runs in the background, and the result is delivered through the `dissemination.delivered` [webhook](/docs/dps/how-to/receive-notifications/).
+
+### Dissemination request fields
+
+| Field       | Type    | Required | Description |
+|-------------|---------|----------|-------------|
+| `archiveId` | string  | Yes      | Unique identifier for the archive object in DPS to be disseminated. Received via the `submission.preserved` webhook. |
+| `priority`  | integer | No       | Priority for processing in the queue. Valid values: `1` (highest) to `100` (lowest). Default is `50` (normal priority). |
+
+### Dissemination status lifecycle
+
+Preliminary statuses (may be extended):
+
+1. `RECEIVED` – Received
+2. `QUEUED` – Placed in queue
+3. `DOWNLOADING_FROM_REPOSITORY` – Downloading from repository
+4. `FIXITY_CHECK` – Integrity verification
+5. `UPLOADING_TO_S3` – Uploading to S3
+6. `DISSEMINATED` – Delivered
+7. `FAILED` – Failed
+8. `REJECTED` – Rejected
+
+The download links in the `dissemination.delivered` webhook expire at the time given in `expirationDate`. Each new dissemination gets new links.
 
 ## Support
 

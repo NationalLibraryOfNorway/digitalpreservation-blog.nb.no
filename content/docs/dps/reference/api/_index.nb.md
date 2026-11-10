@@ -19,7 +19,7 @@ Med API-et kan du:
 - [**Bestille utlevering av bevart materiale**](../../how-to/retrieve-content/): bestille bevarte digitale objekter.
 - [**Motta varsler**](../../how-to/receive-notifications/): få automatiske statusoppdateringer i dine systemer via webhooks.
 
-Denne siden lister også endepunkter, felt i forespørsler, begrensninger og statusflyt for [innleveringer](#innleveringer).
+Denne siden lister også endepunkter, felt i forespørsler og statusflyt for [innleveringer](#innleveringer) og [utleveringer](#utleveringer).
 
 ## Autentisering og autorisasjon
 
@@ -172,6 +172,41 @@ En submission går gjennom følgende statuser:
 5. `REJECTED` – Submission er avvist pga. feil
 
 Endringer til `PRESERVED` og `REJECTED` sendes også som [webhook](/nb/docs/dps/how-to/receive-notifications/)-meldinger (`submission.preserved` og `submission.rejected`).
+
+## Utleveringer
+
+Endepunkter for å bestille utlevering av bevart materiale. En trinnvis gjennomgang finnes under [Bestille utlevering av bevart materiale](/nb/docs/dps/how-to/retrieve-content/). Alle stier er relative til `https://api.nb.no/dps-submission`.
+
+### Endepunkter for utlevering
+
+| Metode | Sti                                    | Beskrivelse           |
+|--------|----------------------------------------|-----------------------|
+| POST   | `/v1/disseminations`                   | Opprett ny utlevering |
+| GET    | `/v1/disseminations/{disseminationId}` | Hent utlevering       |
+
+- **Opprett utlevering:** API-et kontrollerer at klienten er autorisert, at pakken finnes og er bevart, og at forespørselen ikke er et duplikat. Hvis en utlevering allerede pågår, svarer API-et med `409 Conflict`. Forberedelsen kjører deretter i bakgrunnen, og resultatet leveres gjennom [webhooken](/nb/docs/dps/how-to/receive-notifications/) `dissemination.delivered`.
+
+### Felt i forespørsler om utlevering
+
+| Felt        | Type    | Påkrevd | Beskrivelse |
+|-------------|---------|---------|-------------|
+| `archiveId` | string  | Ja      | Unik identifikator for arkivobjektet i DPS som skal utleveres. Mottatt via `submission.preserved`-webhook. |
+| `priority`  | integer | Nei     | Prioritet for behandling i køen. Gyldige verdier: `1` (høyest) til `100` (lavest). Standard er `50` (normal prioritet). |
+
+### Statusflyt for utlevering
+
+Foreløpige statuser (kan utvides):
+
+1. `RECEIVED` – Mottatt
+2. `QUEUED` – Lagt i kø
+3. `DOWNLOADING_FROM_REPOSITORY` – Laster ned fra repository
+4. `FIXITY_CHECK` – Integritetskontroll
+5. `UPLOADING_TO_S3` – Laster opp til S3
+6. `DISSEMINATED` – Utlevert
+7. `FAILED` – Feilet
+8. `REJECTED` – Avvist
+
+Nedlastingslenkene i webhooken `dissemination.delivered` utløper på tidspunktet som er angitt i `expirationDate`. Hver nye utlevering får nye lenker.
 
 ## Støtte
 

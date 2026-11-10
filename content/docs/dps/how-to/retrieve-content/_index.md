@@ -5,43 +5,21 @@ aliases:
   - /docs/dps/api/dissemination/
 ---
 
-## Overview
+This guide shows how to request delivery of content that has been preserved in DPS, and how to download it. Delivery is asynchronous: DPS verifies and prepares the content first, and notifies you when it is ready. Field names and statuses are listed in the [API reference](/docs/dps/reference/api/#disseminations).
 
-The Dissemination Service lets clients request delivery of archived and preserved packages (AIPs). When a dissemination request is submitted, an integrity (fixity) check and required preparation are performed before the content is made available through a presigned URL that is returned via a webhook.
+## Before you start
 
-This documentation complements the detailed API reference available through Swagger UI at https://digitalpreservation.no/swagger/.
+- **Client credentials and an access token**, with a consumer role for the contract the content belongs to. See [Authentication & Authorization](/docs/dps/reference/api/#authentication--authorization).
+- **The `archiveId`** of the content you want. It is sent in the `submission.preserved` webhook when the content is preserved.
+- **A webhook endpoint** to receive the `dissemination.delivered` message with the download links. See [Receive notifications](/docs/dps/how-to/receive-notifications/).
 
-The machine-readable OpenAPI specification (JSON) is available at <https://api.nb.no/dps-submission/v1/api-docs>.
+## Steps
 
-For general information on authentication and authorization, please refer to the main [API documentation](../../reference/api/).
+{{% steps %}}
 
-## Workflow
+### Request delivery
 
-1. Client sends dissemination request with `archiveId` (and optional `priority`).
-2. Service validates (authorization, AIP exists, preserved status, duplicate check).
-3. Background process runs integrity check and prepares data.
-4. The object becomes available via a presigned URL delivered on a webhook.
-5. Client may fetch status by polling on `disseminationId`.
-
-
-## Endpoints
-
-| Method | Path                                   | Description              |
-|--------|----------------------------------------|--------------------------|
-| POST   | `/v1/disseminations`                   | Create new dissemination |
-| GET    | `/v1/disseminations/{disseminationId}` | Fetch dissemination      |
-
-
-## Example API Usage
-
-### Create Dissemination
-
-**Request fields**
-
-| Field       | Type    | Required | Description                                                                                                             |
-|-------------|---------|----------|-------------------------------------------------------------------------------------------------------------------------|
-| `archiveId` | string  | Yes      | Unique identifier for the archive object in DPS to be disseminated. Received via the `submission.preserved` webhook.    |
-| `priority`  | integer | No       | Priority for processing in the queue. Valid values: `1` (highest) to `100` (lowest). Default is `50` (normal priority). |
+Create a dissemination with the `archiveId`. Use the default priority unless the need is urgent.
 
 **Request**
 
@@ -73,8 +51,13 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
+Store the `disseminationId` from the response. If a dissemination of the same content is already in progress, the API returns `409 Conflict`: fetch the existing dissemination instead of creating a new one.
 
-### Get Dissemination
+### Wait for the content to be prepared
+
+DPS retrieves the content from the repository, checks its integrity, and makes it available for download. This can take some time. When the content is ready, you receive a `dissemination.delivered` webhook message.
+
+You can also follow the status by fetching the dissemination. Avoid tight polling; use exponential backoff.
 
 **Request**
 
@@ -101,21 +84,15 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
+### Download and verify the files
 
-## Status Flow
+The [`dissemination.delivered`](/docs/dps/how-to/receive-notifications/#disseminationdelivered) message contains a `files` list. For each file, download it from `downloadURL` and compare it with `checksum`, using the algorithm given in `checksumAlgorithm`.
 
-Preliminary statuses (may be extended):
+Download the files before the links expire (`expirationDate`). If the links expire, create a new dissemination request; each dissemination gets new links.
 
-1. `RECEIVED` – Received
-2. `QUEUED` – Placed in queue
-3. `DOWNLOADING_FROM_REPOSITORY` – Downloading from repository
-4. `FIXITY_CHECK` – Integrity verification
-5. `UPLOADING_TO_S3` – Uploading to S3
-6. `DISSEMINATED` – Delivered
-7. `FAILED` – Failed
-8. `REJECTED` – Rejected
+{{% /steps %}}
 
-## Best Practices
+## Best practices
 
 1. Reuse existing request if one is already in progress.
 2. Use priority sparingly – reserve low values for urgent needs.
@@ -127,7 +104,3 @@ Preliminary statuses (may be extended):
 ## Support
 
 Contact the digital preservation team for questions or assistance.
-
-## API Reference
-
-See Swagger: <https://digitalpreservation.no/swagger/> for full schemas and future endpoints.

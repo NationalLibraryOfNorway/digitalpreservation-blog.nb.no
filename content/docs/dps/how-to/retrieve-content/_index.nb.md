@@ -5,44 +5,21 @@ aliases:
   - /docs/dps/api/dissemination/
 ---
 
-## Oversikt
+Denne veiledningen viser hvordan du bestiller utlevering av materiale som er bevart i DPS, og hvordan du laster det ned. Utleveringen skjer asynkront: DPS kontrollerer og klargjør materialet først, og varsler deg når det er klart. Feltnavn og statuser er listet i [API-referansen](/nb/docs/dps/reference/api/#utleveringer).
 
-Utleveringstjenesten for digital bevaring tilbyr et REST-basert API for å bestille utlevering av arkiverte og bevarte pakker (AIP-er).
-Når en utleveringsforespørsel sendes inn, gjennomføres en integritetskontroll og nødvendig forberedelse før innholdet blir gjort tilgjengelig 
-via en presigned URL som sendes gjennom en webhook. Dette er en prosess som tar litt tid, så alt foregår asynkront – 
-og en melding vil bli sendt som en webhook når prosessen er ferdig.
+## Før du starter
 
-For generell informasjon om autentisering og autorisasjon, se [hovedsiden for API-dokumentasjon](../../reference/api/).
+- **Klientlegitimasjon og et tilgangstoken**, med en konsumentrolle for kontrakten materialet tilhører. Se [Autentisering og autorisasjon](/nb/docs/dps/reference/api/#autentisering-og-autorisasjon).
+- **`archiveId`** for materialet du vil ha. Den sendes i webhooken `submission.preserved` når materialet er bevart.
+- **Et webhook-endepunkt** for å motta meldingen `dissemination.delivered` med nedlastingslenkene. Se [Motta varsler](/nb/docs/dps/how-to/receive-notifications/).
 
-Denne dokumentasjonen kompletterer den detaljerte API-spesifikasjonen som er tilgjengelig via Swagger på [https://digitalpreservation.no/swagger/](https://digitalpreservation.no/swagger/).
+## Steg
 
-Den maskinlesbare OpenAPI-spesifikasjonen (JSON) er tilgjengelig på <https://api.nb.no/dps-submission/v1/api-docs>.
+{{% steps %}}
 
+### Bestill utlevering
 
-## Arbeidsflyt
-
-1. Klient sender utleveringsforespørsel med `archiveId` (og ev. `priority`).
-2. Tjenesten validerer (autorisasjon, AIP finnes, bevart status, duplikatkontroll).
-3. Bakgrunnsprosess kjører integritetskontroll og forbereder data.
-4. Objektet blir tilgjengelig via presigned URL avlevert på webhook.
-5. Klient kan hente status ved å poll'e på `disseminationId`.
-
-
-## Endepunkter
-
-| Metode | Path                                   | Beskrivelse           |
-|--------|----------------------------------------|-----------------------|
-| POST   | `/v1/disseminations`                   | Opprett ny utlevering |
-| GET    | `/v1/disseminations/{disseminationId}` | Hent utlevering       |
-
-### Opprett utlevering
-
-**Felt i forespørselen**
-
-| Felt        | Type    | Påkrevd | Beskrivelse                                                                                                             |
-|-------------|---------|---------|-------------------------------------------------------------------------------------------------------------------------|
-| `archiveId` | string  | Ja      | Unik identifikator for arkivobjektet i DPS som skal utleveres. Mottatt via `submission.preserved`-webhook.              |
-| `priority`  | integer | Nei     | Prioritet for behandling i køen. Gyldige verdier: `1` (høyest) til `100` (lavest). Standard er `50` (normal prioritet). |
+Opprett en utlevering (dissemination) med `archiveId`. Bruk standard prioritet med mindre behovet er presserende.
 
 **Forespørsel**
 
@@ -74,7 +51,13 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
-### Hent utlevering
+Lagre `disseminationId` fra responsen. Hvis en utlevering av det samme materialet allerede pågår, svarer API-et med `409 Conflict`: hent den eksisterende utleveringen i stedet for å opprette en ny.
+
+### Vent til materialet er klargjort
+
+DPS henter materialet fra repositoriet, kontrollerer integriteten og gjør det tilgjengelig for nedlasting. Dette kan ta litt tid. Når materialet er klart, mottar du en webhook-melding `dissemination.delivered`.
+
+Du kan også følge statusen ved å hente utleveringen. Unngå hyppig polling; bruk eksponentiell backoff.
 
 **Forespørsel**
 
@@ -101,19 +84,13 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 }
 ```
 
+### Last ned og kontroller filene
 
-## Statusflyt
+Meldingen [`dissemination.delivered`](/nb/docs/dps/how-to/receive-notifications/#disseminationdelivered) inneholder en liste `files`. Last ned hver fil fra `downloadURL` og sammenlign den med `checksum`, med algoritmen som er angitt i `checksumAlgorithm`.
 
-Foreløpige statuser (kan utvides):
+Last ned filene før lenkene utløper (`expirationDate`). Hvis lenkene utløper, send en ny forespørsel om utlevering; hver utlevering får nye lenker.
 
-1. `RECEIVED` – Mottatt  
-2. `QUEUED` – Lagt i kø  
-3. `DOWNLOADING_FROM_REPOSITORY` – Laster ned fra repository  
-4. `FIXITY_CHECK` – Integritetskontroll
-5. `UPLOADING_TO_S3` – Laster opp til S3
-6. `DISSEMINATED` – Utlevert
-7. `FAILED` – Feilet  
-8. `REJECTED` – Avvist  
+{{% /steps %}}
 
 ## Beste praksis
 
@@ -127,7 +104,3 @@ Foreløpige statuser (kan utvides):
 ## Støtte
 
 Kontakt teamet for digital bevaring for spørsmål eller hjelp.
-
-## API-referanse
-
-Se Swagger: <https://digitalpreservation.no/swagger/> for fullstendige skjema og fremtidige endepunkter.
