@@ -2,7 +2,7 @@
 title: "Specifications for SIP Submission and Metadata Requirements"
 date: 2025-07-08
 description: "As part of the pilot project on long-term preservation of museums’ digital cultural heritage, the team has been working on standardizing the submission of digital objects, as well as ensuring that a minimum set of descriptive metadata is included alongside the deposited material."
-tags: ["Digital preservation, National library of Norway, E-ARK, Digital Preservation Services, OAIS, Dublin Core, metadata, digital cultural heritage"]
+tags: ["Digital preservation, National Library of Norway, E-ARK, Digital Preservation Services, OAIS, Dublin Core, metadata, digital cultural heritage"]
 draft: false 
 authors: 
   - name: Lise-Lotte Melkild 

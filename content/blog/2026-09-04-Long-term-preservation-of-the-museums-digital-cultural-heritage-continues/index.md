@@ -2,7 +2,7 @@
 title: "Long-term preservation of the museums’ digital cultural heritage continues!"
 date: 2026-09-04
 description: "The work to preserve museums’ digital cultural heritage for the long term continues."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, Cultural heritage, Kulturarv"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, Cultural heritage, Kulturarv"]
 draft: false
 authors: 
   - name: Lise-Lotte Melkild

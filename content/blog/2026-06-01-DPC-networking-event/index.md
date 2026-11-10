@@ -2,7 +2,7 @@
 title: "DPC Members Forum and Networking Event 2026"
 date: 2026-06-01
 description: "The National Library of Norway has participated at the DPC Members Forum and Networking event in Edingburgh."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, DPC, Digital Preservation Coalition"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, DPC, Digital Preservation Coalition"]
 draft: false
 authors: 
   - name: Sandra Kråkstad & Johannes Karlsen

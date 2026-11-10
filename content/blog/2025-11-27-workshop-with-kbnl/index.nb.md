@@ -2,7 +2,7 @@
 title: "Workshop med KBNL"
 date: 2025-11-27
 description: "Den 18-19. november hadde Team Digital Bevaring i NB besøk av 3 kollegaer fra Kongelige bibliotek i Nederland (KBNL)."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, National library of the Netherlands, Nationale bibliotheek, workshop"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, National library of the Netherlands, Nationale bibliotheek, workshop"]
 draft: false  
 authors: 
   - name: Trond Teigen

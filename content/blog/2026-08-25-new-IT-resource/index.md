@@ -2,7 +2,7 @@
 title: "New IT Resource Joins the Digital Preservation Team"
 date: 2026-08-25
 description: "The National Library of Norway has appointed Jøran Henriksen as Senior Application Developer in the Digital Preservation Team."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, New colleague"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, New colleague"]
 draft: false
 authors: 
   - name: Trond Teigen

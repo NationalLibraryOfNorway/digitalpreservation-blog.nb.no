@@ -2,7 +2,7 @@
 title: "World Digital Preservation Day"
 date: 2025-11-06
 description: "World Digital Preservation Day is an annual event held on the first Thursday of November. The event is organized by the Digital Preservation Coalition (DPC), and the day features events, campaigns, and the sharing of experiences worldwide. Its goal is to highlight both the value and the challenges of long-term preservation of digital data. This year’s theme is 'Why preserve?'. Here you can read about the importance of digital preservation in the context of the National Library of Norway’s mandate and societal mission."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, digital kulturarv, National library of Norway"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, digital kulturarv, National Library of Norway"]
 draft: false 
 authors: 
   - name: Lise-Lotte Melkild
@@ -22,7 +22,7 @@ The National Library of Norway’s mandate is to collect, preserve, and make acc
 The library’s societal mission is to give the people of Norway access to our shared knowledge and cultural history. This is achieved by preserving, digitizing, and disseminating everything published for the public. Access to our cultural heritage is essential for democracy and public enlightenment, and provides a foundation for identity and historical understanding. [^1]
 
 
-[^1]: National library of Norway strategy and societal mission, https://www.nb.no/om-nb/mandat-og-strategi/
+[^1]: National Library of Norway strategy and societal mission, https://www.nb.no/om-nb/mandat-og-strategi/
 
 **The efforts in digital preservation at the National Library are closely related to:**
 

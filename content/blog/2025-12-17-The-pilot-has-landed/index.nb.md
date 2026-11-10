@@ -2,7 +2,7 @@
 title: "Piloten har landet - Oppdrag utført!"
 date: 2025-12-17
 description: "Team digital bevaring, Kulturdirektoratet og KulturIT har fullført pilotprosjetet for langtidsbevaring av museenes digitale materiale."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, kulturarv"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, kulturarv"]
 draft: false
 authors: 
   - name: Trond Teigen

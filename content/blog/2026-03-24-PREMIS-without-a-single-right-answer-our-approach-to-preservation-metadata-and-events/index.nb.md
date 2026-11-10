@@ -2,7 +2,7 @@
 title: "PREMIS uten fasit – vår tilnærming til bevaringsmetadata og eventer"
 date: 2026-03-24
 description: "Team digital bevaring har jobbet med hvordan vi skal dokumentere bevaringsmetadata i bevaringsomgivelsene våre, her kan du lese om jobben vi har gjort sålangt."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, metadata, bevaringsmetadata, preservation metadata, PREMIS"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, metadata, bevaringsmetadata, preservation metadata, PREMIS"]
 draft: false
 authors: 
   - name: Lise-Lotte Melkild

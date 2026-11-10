@@ -2,7 +2,7 @@
 title: "Mission accomplished!"
 date: 2025-12-17
 description: "Team digital preservation, the Norwegian Directorate for Cultural Heritage and KulturIT has completed the pilot project for the long-term preservation of museums’ digital materials."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, kulturarv"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, kulturarv"]
 draft: false
 authors: 
   - name: Trond Teigen

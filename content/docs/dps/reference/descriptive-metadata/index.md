@@ -396,7 +396,7 @@ Explanation of *authority* information:
 {
   "publisher": [
     {
-      "name": "National library of Norway",
+      "name": "National Library of Norway",
       "type": "korporasjon",
       "authority": {
         "source": "Felles autoritetsregister (BARE)",
@@ -854,7 +854,7 @@ If a description is provided the language code must be specified using the `lang
     ],
     "publisher": [
       {
-        "name": "National library of Norway",
+        "name": "National Library of Norway",
         "type": "korporasjon",
         "authority": {
           "source": "Felles autoritetsregister (BARE)",

@@ -2,7 +2,7 @@
 title: "PREMIS without a single right answer – our approach to preservation metadata and events"
 date: 2026-03-24
 description: "The Digital Preservation team has been working on how to document preservation metadata in our preservation environment. Here you can read about our progress so far."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, metadata, bevaringsmetadata, preservation metadata, PREMIS"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, metadata, bevaringsmetadata, preservation metadata, PREMIS"]
 draft: false
 authors: 
   - name: Lise-Lotte Melkild
