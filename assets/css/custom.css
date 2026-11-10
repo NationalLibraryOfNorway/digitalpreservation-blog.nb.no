@@ -47,6 +47,22 @@
 }
 
 @font-face {
+  font-family: "Gerhard";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("/fonts/STKGerhard-Standard.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Gerhard";
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: url("/fonts/STKGerhard-Bold.woff2") format("woff2");
+}
+
+@font-face {
   font-family: "Clearface";
   font-style: normal;
   font-weight: 400;
@@ -60,6 +76,8 @@
   --nb-rose: #fe91b8;
   --nb-highlight: #e4dfde;
   --hx-font-sans: "Bureau Sans", -apple-system, system-ui, sans-serif;
+  /* STK Gerhard is the profile's monospace typeface. */
+  --hx-font-mono: "Gerhard", ui-monospace, SFMono-Regular, Menlo, monospace;
   /* Primary shades: 600 (used for accents) lands on Plomme. */
   --primary-hue: 331deg;
   --primary-saturation: 100%;
@@ -145,4 +163,24 @@ h1,
 
 .dark .hx\:text-\[color\:hsl\(var\(--primary-hue\)\,100\%\,50\%\)\]:hover {
   color: var(--nb-rose);
+}
+
+/*
+ * Short factual texts in STK Gerhard, as the profile manual prescribes for
+ * kickers, tags, and metadata: the "On this page" label, dates, and "last
+ * updated". Kickers may be set in capitals. (Breadcrumbs stay in Bureau Sans:
+ * the wider monospace makes the theme truncate them.)
+ */
+.nb-meta,
+p.hx\:opacity-50.hx\:text-sm.hx\:mt-4 {
+  font-family: var(--hx-font-mono);
+  font-size: 0.8125rem;
+}
+
+.hextra-toc p.hx\:mb-4.hx\:font-semibold {
+  font-family: var(--hx-font-mono);
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
 }
