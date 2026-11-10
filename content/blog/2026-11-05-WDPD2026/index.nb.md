@@ -2,7 +2,7 @@
 title: "CD-R søker leser – Nasjonalbiblioteket markerer World Digital Preservation Day"
 date: 2026-11-05
 description: "På Den internasjonale dagen for digital bevaring retter Team Digital Bevaring søkelyset mot organisasjonens digitale offline-medier."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, Cultural heritage, Kulturarv, World digital preservation day, Den internasjonale dagen for digital bevaring"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, Cultural heritage, Kulturarv, World digital preservation day, Den internasjonale dagen for digital bevaring"]
 draft: false
 authors: 
   - name: Trond Teigen  

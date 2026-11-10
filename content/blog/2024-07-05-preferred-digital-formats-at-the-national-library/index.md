@@ -22,6 +22,6 @@ All other formats should be discussed with the relevant media departments within
 
 The list is published in both Norwegian and English and can be found here: 
 
-The Preferred file formats list is available [here](/docs/formats/preferred-formats-en/ "Link to our Preferred file formats list").
+The Preferred file formats list is available [here](/docs/policies/formats/ "Link to our Preferred file formats list").
 
 The Digital Preservation Team plans to conduct annual reviews of the list. 

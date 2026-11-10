@@ -1,23 +1,219 @@
-:root {
-  --my-left-sidebar-width: 20rem;  /* default-ish is commonly 16rem (w-64) */
-  --my-right-toc-width: 16rem;
-}
-
-/* Desktop-only: avoid fighting the mobile drawer behavior */
-@media (min-width: 1280px) {
-  .hextra-sidebar-container {
-    width: var(--my-left-sidebar-width);
-    flex: 0 0 var(--my-left-sidebar-width);
-  }
-
-  .hextra-toc {
-    width: var(--my-right-toc-width);
-    flex: 0 0 var(--my-right-toc-width);
-  }
-}
-
 @media (min-width: 768px) {
   .team-cards .hextra-cards {
     grid-template-columns: repeat(var(--hextra-cards-grid-cols), minmax(180px, 1fr)) !important;
+  }
+}
+
+/*
+ * National Library of Norway look, based on the design tokens of nb.no:
+ * neutral backgrounds, near-black text, Bureau Sans for text, Clearface for
+ * the main headings, and the brand colours used sparingly (Plomme for active
+ * and hover states in light mode, Rose in dark mode).
+ * Fonts are self-hosted copies of the files nb.no serves.
+ */
+@font-face {
+  font-family: "Bureau Sans";
+  font-style: normal;
+  font-weight: 300 700;
+  font-display: fallback;
+  src: url("/fonts/STKBureauSansVariableComplete.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Bureau Sans";
+  font-style: italic;
+  font-weight: 300 700;
+  font-display: fallback;
+  src: url("/fonts/STKBureauSansVariableComplete.woff2") format("woff2");
+  font-variation-settings: "slnt" -9.5;
+}
+
+@font-face {
+  font-family: "Gerhard";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("/fonts/STKGerhard-Standard.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Gerhard";
+  font-style: normal;
+  font-weight: 700;
+  font-display: fallback;
+  src: url("/fonts/STKGerhard-Bold.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: "Clearface";
+  font-style: normal;
+  font-weight: 400;
+  font-display: fallback;
+  src: url("/fonts/ClearfaceStd-Regular.woff2") format("woff2");
+}
+
+:root {
+  --nb-text: #17181b;
+  --nb-plomme: #550029;
+  --nb-rose: #fe91b8;
+  --nb-highlight: #e4dfde;
+  --hx-font-sans: "Bureau Sans", -apple-system, system-ui, sans-serif;
+  /* STK Gerhard is the profile's monospace typeface. */
+  --hx-font-mono: "Gerhard", ui-monospace, SFMono-Regular, Menlo, monospace;
+  /* Primary shades: 600 (used for accents) lands on Plomme. */
+  --primary-hue: 331deg;
+  --primary-saturation: 100%;
+  --primary-lightness: 19%;
+  /* Active sidebar item: warm grey highlight instead of a tinted primary. */
+  --hx-color-primary-100: var(--nb-highlight);
+  /* Neutral greys from nb.no instead of the theme's blue-tinted greys. */
+  --hx-color-gray-900: #17181b;
+  --hx-color-gray-600: #5b5c62;
+  --hx-color-gray-500: #6d6f76;
+}
+
+.dark {
+  --hx-color-dark: #17181b;
+  /* Primary shade 600 lands on Rose. */
+  --primary-hue: 338deg;
+  --primary-saturation: 98%;
+  --primary-lightness: 87%;
+}
+
+body {
+  color: var(--nb-text);
+}
+
+.dark body {
+  color: var(--hx-color-gray-100);
+}
+
+/* Headings: Clearface for the page title and section headings, as on nb.no. */
+h1,
+.content h2 {
+  font-family: "Clearface", Georgia, serif;
+  font-weight: 400;
+  letter-spacing: normal;
+}
+
+/* Links in text: text colour with underline; brand colour on hover. */
+.content :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  color: inherit;
+  text-decoration-color: currentColor;
+}
+
+.content :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
+  color: var(--nb-plomme);
+}
+
+.dark .content :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)):hover {
+  color: var(--nb-rose);
+}
+
+/* Fade shadows above the sidebar footer and below the TOC follow the dark background. */
+.dark .hx\:dark\:shadow-\[0_-12px_16px_\#111\] {
+  --tw-shadow-color: var(--hx-color-dark);
+}
+
+/* Smaller headings: Bureau Sans semibold, as on nb.no. */
+.content h3,
+.content h4,
+.content h5,
+.content h6 {
+  font-weight: 600;
+}
+
+/* Code blocks on nb.no's neutral greys instead of a tinted primary. */
+.hextra-code-block pre {
+  background-color: #f4f4f4;
+  border-color: var(--nb-highlight);
+}
+
+.dark .hextra-code-block pre {
+  background-color: #28292d;
+  border-color: rgb(255 255 255 / 0.1);
+}
+
+/* Blog "Read more" links use a fixed 50% lightness in the theme; use the text colour instead. */
+.hx\:text-\[color\:hsl\(var\(--primary-hue\)\,100\%\,50\%\)\] {
+  color: inherit;
+}
+
+.hx\:text-\[color\:hsl\(var\(--primary-hue\)\,100\%\,50\%\)\]:hover {
+  color: var(--nb-plomme);
+}
+
+.dark .hx\:text-\[color\:hsl\(var\(--primary-hue\)\,100\%\,50\%\)\]:hover {
+  color: var(--nb-rose);
+}
+
+/*
+ * Short factual texts in STK Gerhard, as the profile manual prescribes for
+ * kickers, tags, and metadata: the "On this page" label, dates, and "last
+ * updated". Kickers may be set in capitals. (Breadcrumbs stay in Bureau Sans:
+ * the wider monospace makes the theme truncate them.)
+ */
+.nb-meta,
+p.hx\:opacity-50.hx\:text-sm.hx\:mt-4 {
+  font-family: var(--hx-font-mono);
+  font-size: 0.8125rem;
+}
+
+.hextra-toc p.hx\:mb-4.hx\:font-semibold {
+  font-family: var(--hx-font-mono);
+  font-weight: 400;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+/* Navbar: language switcher and icons at the same size and weight as the menu links. */
+nav .hextra-language-switcher {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--hx-color-gray-600);
+}
+
+nav .hextra-language-switcher:hover {
+  color: var(--hx-color-gray-900);
+}
+
+.dark nav .hextra-language-switcher {
+  color: var(--hx-color-gray-400);
+}
+
+.dark nav .hextra-language-switcher:hover {
+  color: var(--hx-color-gray-100);
+}
+
+nav .hextra-language-switcher svg,
+nav .hextra-theme-toggle svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* Navbar title: logo lockup with the site's sub-label (see layouts/partials/navbar-title.html). */
+.nb-site-title {
+  gap: 0.875rem;
+}
+
+.nb-site-title__sublabel {
+  display: none;
+  padding-left: 0.875rem;
+  border-left: 1px solid var(--hx-color-gray-300, #d4d4d4);
+  font-size: 0.9375rem;
+  color: var(--nb-text);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dark .nb-site-title__sublabel {
+  color: var(--hx-color-gray-100);
+  border-left-color: rgb(255 255 255 / 0.2);
+}
+
+@media (min-width: 640px) {
+  .nb-site-title__sublabel {
+    display: inline;
   }
 }

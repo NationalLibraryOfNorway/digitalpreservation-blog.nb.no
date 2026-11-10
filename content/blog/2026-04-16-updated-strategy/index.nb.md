@@ -2,7 +2,7 @@
 title: "Oppdatert strategi for digital bevaring i Nasjonalbiblioteket (NB) "
 date: 2026-04-16
 description: "Vi har oppdatert strategien for digital bevaring som skal gjelde for perioden 2026-2029."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, strategi, prinsipper"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, strategi, prinsipper"]
 draft: false
 authors: 
   - name: Trond Teigen & Sandra Kråkstad
@@ -33,4 +33,4 @@ Følgjande endringar er lagde inn i oppdatert strategi for digital bevaring i NB
 
 - Under strategiske satsingsområde er det teke inn eit punkt som tydeleggjer rolla til NB som bevaringsinstitusjon i forhold til ABM-sektoren og nasjonal kunnskapsberedskap. Dette er teke med som ein direkte konsekvens av Stortingsmelding nr 9.(2024–2025) **Totalberedskapsmeldingen — Forberedt på kriser og krig**. Det som var særleg å merke seg her, var at kunst og kultur er blitt ein del av totalberedskapen. Det inneber at kultur, kulturarv og kulturaktørar òg blir definert som viktige i kriser og krig. 
 
-I tillegg har det vore viktig å sikre at strategidokumentet er kort og konsist, slik at det faktisk blir lese og forstått. [Her er den nye strategien](/nb/docs/strategy/). 
+I tillegg har det vore viktig å sikre at strategidokumentet er kort og konsist, slik at det faktisk blir lese og forstått. [Her er den nye strategien](/nb/docs/policies/strategy/). 

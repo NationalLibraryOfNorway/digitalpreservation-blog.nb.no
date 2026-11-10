@@ -2,7 +2,7 @@
 title: "Backend Developer – Preserving the Nation’s Memory"
 date: 2026-01-16
 description: "We have received funding to expand our team with a new IT position."
-tags: ["Digital Preservation, National library of Norway, Backend developer, job advertisement"]
+tags: ["Digital Preservation, National Library of Norway, Backend developer, job advertisement"]
 draft: false
 authors: 
   - name: Digital Preservation Team

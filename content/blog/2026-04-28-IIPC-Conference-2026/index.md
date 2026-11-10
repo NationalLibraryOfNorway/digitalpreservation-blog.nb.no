@@ -2,7 +2,7 @@
 title: "IIPC Web Archiving Conference 2026"
 date: 2026-04-28
 description: "The National Library of Norway participated in the IIPC’s international web archiving conference in Brussels."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, web archiving, Nettarkiv, IIPC"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, web archiving, Nettarkiv, IIPC"]
 draft: false
 authors: 
   - name: Lise-Lotte Melkild

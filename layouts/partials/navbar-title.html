@@ -1,0 +1,15 @@
+{{- /*
+  Navbar title: the National Library's logo lockup (emblem + name) in the page language,
+  followed by the site's sub-label, like nb.no's logo with sub-label.
+  Lockups from the profile manual's logo package: black in light mode, white in dark mode.
+*/ -}}
+{{- $lang := .Language.Lang -}}
+{{- $lockup := cond (eq $lang "nb") "nb-lockup-nb" "nb-lockup-en" -}}
+{{- $width := cond (eq $lang "nb") 162 212 -}}
+{{- $alt := cond (eq $lang "nb") "Nasjonalbiblioteket" "National Library of Norway" -}}
+{{- $sublabel := cond (eq $lang "nb") "Digital bevaring" "Digital preservation" -}}
+<a class="nb-site-title hx:flex hx:items-center hx:hover:opacity-75 hx:ltr:mr-auto hx:rtl:ml-auto" href="{{ .Site.Home.RelPermalink }}">
+  <img class="hx:block hx:dark:hidden" src="{{ printf "images/logo/%s-black.svg" $lockup | relURL }}" alt="{{ $alt }}" height="22" width="{{ $width }}" />
+  <img class="hx:hidden hx:dark:block" src="{{ printf "images/logo/%s-white.svg" $lockup | relURL }}" alt="{{ $alt }}" height="22" width="{{ $width }}" />
+  <span class="nb-site-title__sublabel">{{ $sublabel }}</span>
+</a>

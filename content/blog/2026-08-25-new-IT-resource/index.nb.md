@@ -2,7 +2,7 @@
 title: "Ny IT-ressurs til Team Digital Bevaring"
 date: 2026-08-25
 description: "Nasjonalbiblioteket har tilsatt Jøran Henriksen som Senior Applikasjonsutvikler i Team Digital Bevaring."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, Ny kollega"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, Ny kollega"]
 draft: false
 authors: 
   - name: Trond Teigen

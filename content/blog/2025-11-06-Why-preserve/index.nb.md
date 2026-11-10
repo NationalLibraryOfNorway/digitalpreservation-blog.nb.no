@@ -2,7 +2,7 @@
 title: "Verdensdagen for digital bevaring"
 date: 2025-11-06
 description: "Verdensdagen for digital bevaring er en årlig markering som holdes den første torsdagen i november. Dagen organiseres av Digital Preservation Coalition (DPC) og omfatter arrangementer, kampanjer og deling av erfaringer verden over. Målet er å fremheve både verdien og utfordringene ved langtidsbevaring av digitale data. Tema for årets verdensdag er 'Hvorfor digital bevaring?'. Her kan du lese litt om viktigheten av digital bevaring i kontekst av Nasjonalbibliotekets mandat og samfunnsoppdrag."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, digital kulturarv, National library of Norway"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, digital kulturarv, National Library of Norway"]
 draft: false  
 authors: 
   - name: Lise-Lotte Melkild

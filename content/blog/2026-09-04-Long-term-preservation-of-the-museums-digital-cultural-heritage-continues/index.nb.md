@@ -2,7 +2,7 @@
 title: "Langtidsbevaring av museenes digitale kulturarv fortsetter!"
 date: 2026-09-04
 description: "Arbeidet med langtidsbevaring av museenes digitale kulturarv videreføres."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, Cultural heritage, Kulturarv"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, Cultural heritage, Kulturarv"]
 draft: false
 authors: 
   - name: Lise-Lotte Melkild 

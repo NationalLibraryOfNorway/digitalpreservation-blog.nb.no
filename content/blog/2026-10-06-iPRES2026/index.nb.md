@@ -2,7 +2,7 @@
 title: "iPRES 2026 i København - Community, Preservation, Horizon"
 date: 2026-10-06
 description: "Fra 21–26 september deltok team Digital bevaring på den 22. internasjonale konferansen for digital bevaring (iPRES 2026) i København."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, Cultural heritage, Kulturarv"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, Cultural heritage, Kulturarv"]
 draft: false
 authors: 
   - name: Lise-Lotte Melkild 

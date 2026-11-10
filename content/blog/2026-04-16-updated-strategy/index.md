@@ -2,7 +2,7 @@
 title: "Updated Strategy for Digital Preservation at the National Library (NB)"
 date: 2026-04-16
 description: "We have updated our digital preservation strategy that will apply to the period 2026–2029."
-tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National library of Norway, Strategy, Policy, Principles"]
+tags: ["Digital bevaring, Nasjonalbiblioteket, Digital Preservation, National Library of Norway, Strategy, Policy, Principles"]
 draft: false
 authors: 
   - name: Trond Teigen & Sandra Kråkstad
@@ -33,4 +33,4 @@ The following changes have been incorporated into the updated digital preservati
 
 - Under strategic priority areas, a new point has been introduced to clarify NLN’s role as a preservation institution in relation to the archives, libraries, and museums (LAM) sector, as well as its role in national knowledge preparedness. This has been included as a direct consequence of Parliamentary Report No. 9 (2024–2025), **Total Preparedness Report — Prepared for Crises and War**. A key takeaway from this report is that arts and culture are now considered part of total preparedness. This means that culture, cultural heritage, and cultural actors are also recognized as important in times of crisis and war.  
 
-In addition, it has been important to ensure that the strategy document remains short and concise—so that it is actually being read and understood. [Here is the new strategy](/docs/strategy/). 
+In addition, it has been important to ensure that the strategy document remains short and concise—so that it is actually being read and understood. [Here is the new strategy](/docs/policies/strategy/). 

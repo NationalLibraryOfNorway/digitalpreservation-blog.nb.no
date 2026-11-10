@@ -26,9 +26,15 @@ python3 scripts/lint_format_json_codeblocks.py --folder content # same, whole tr
 ## Structure
 
 - `content/blog/YYYY-MM-DD-slug/` — one page bundle per post (`index.md` + images/PDFs). README.md documents the required front matter (`title`, `date`, `description`, `tags`, `authors`, `images`, `draft`).
-- `content/docs/` — preservation documentation: `dps/` (the preservation system: SIP/METS specs, APIs, data model, metadata), `formats/`, `principles/`, `strategy/`. Section order is controlled by `weight` in front matter; moved pages keep old URLs via `aliases`. `old_revisions/` hold superseded versions kept for reference.
-- `static/swagger/` — vendored Swagger UI, served at `/swagger/` and linked from `content/docs/dps/api/`. `swagger-initializer.js` loads the live OpenAPI spec from `https://api.nb.no/dps-submission/v1/api-docs`; that spec, not this repo, is the source of truth for field names and allowed values. `static/schema/` — published XSDs.
-- `layouts/partials/` — overrides of Hextra partials: `opengraph.html` (OG tags, uses page `images` param), `custom/head-end.html` (GoatCounter analytics), `components/last-updated.html` (adds a GitHub commit-history link).
+- `content/docs/` — preservation documentation, organised subject first:
+  - `policies/` — governing documents: `principles/`, `strategy/`, `formats/`. Not Diátaxis; `old_revisions/` hold superseded versions kept for reference.
+  - `dps/` — the preservation system, split along Diátaxis lines (no tutorials):
+    - `understanding/` — explanation: what happens and why. No field tables or normative requirements.
+    - `how-to/` — one task per page, self-sufficient for that task; links to reference for exact values.
+    - `reference/` — `api/`, `sip/` (structure, `mets/` profiles, examples), `descriptive-metadata/`, `preservation-events/`, `data-model/` (draft). Reference describes what DPS does, not only what the public API accepts; mark API-only subsets explicitly.
+  - Section order is controlled by `weight` in front matter. Moved pages keep old URLs via `aliases` in both language files. `scripts/restructure/` holds the URL mapping and link-rewrite script used for the 2026 restructure.
+- `static/swagger/` — vendored Swagger UI, served at `/swagger/` and linked from `content/docs/dps/reference/api/`. `swagger-initializer.js` loads the live OpenAPI spec from `https://api.nb.no/dps-submission/v1/api-docs`; that spec, not this repo, is the source of truth for field names and allowed values. `static/schema/` — published XSDs.
+- `layouts/partials/` — overrides of Hextra partials: `opengraph.html` and `twitter_cards.html` (preview tags; image from `og-image-url.html`: a page's own `images` param if set, otherwise a generated card with the title in Clearface on `assets/images/og/base.png`, fonts in `assets/fonts/`), `custom/head-end.html` (GoatCounter analytics), `components/last-updated.html` (adds a GitHub commit-history link).
 - `hugo.yaml` — menus, languages, Hextra params. Pages and sections also emit a `markdown` output format alongside HTML.
 
 ## Bilingual content
