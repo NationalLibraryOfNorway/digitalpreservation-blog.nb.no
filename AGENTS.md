@@ -47,4 +47,5 @@ python3 scripts/lint_format_json_codeblocks.py --folder content # same, whole tr
 
 - Start headings at `##`; the title renders as h1.
 - Use `{{< figure src="x.svg" >}}` for SVG — the Markdown image syntax does not handle SVG. Raster images are resized and converted to webp at build time; do not supply webp sources (re-encoding degrades quality).
-- Hextra shortcodes in use: `card`/`cards`, `filetree`, `figure`, `details`, `steps`, `callout`, `youtube`, `icon`.
+- Hextra shortcodes in use: `card`/`cards`, `filetree`, `figure`, `details`, `steps`, `youtube`, `icon`.
+- Callouts use GitHub alert syntax (`> [!NOTE]`, `[!TIP]`, `[!IMPORTANT]`, `[!WARNING]`, `[!CAUTION]`), not the `callout` shortcode; `assets/css/custom.css` styles them by type.

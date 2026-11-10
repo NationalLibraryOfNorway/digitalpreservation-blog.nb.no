@@ -66,13 +66,12 @@ A package contains four kinds of metadata. They are kept apart because they desc
 - **Technical metadata** documents measurable, system-generated technical properties of the files in a representation, based on file analysis. It describes what the files actually are, not their intellectual content or what has been done to them.
 - **Preservation metadata** (digital provenance) describes where the package or its files come from and how they came into being: digital processes, actions, events, and their outcomes. At package level it describes the origin of the package; at representation level it describes the origin of the files. Some of it is better submitted as [preservation events](/docs/dps/understanding/metadata-management/preservation-events/) through the API.
 
-{{< callout >}}
-**Rule of thumb:**
-- **Descriptive:** what the package is, intellectually
-- **Source:** what was digitized
-- **Technical:** what the files are
-- **Preservation:** how the files came into being
-{{< /callout >}}
+> [!TIP]
+> **Rule of thumb:**
+> - **Descriptive:** what the package is, intellectually
+> - **Source:** what was digitized
+> - **Technical:** what the files are
+> - **Preservation:** how the files came into being
 
 Where each kind is placed, and which METS element refers to it, is summarized in [Metadata placement at a glance](/docs/dps/reference/sip/structure-requirements/#metadata-placement-at-a-glance).
 
