@@ -86,7 +86,7 @@ SIP-en inneholder bevaringsdata og en kopi av deskriptive metadata fra metad
 Disse sidene forklarer konsepter, ansvarsområder og hvordan DPS fungerer:
 
 {{< cards >}}
-  {{< card link="understanding/information-packages" title="Pakke-, representasjons- og dataomfang" subtitle="Hva en informasjonspakke inneholder og hvor grensene går" icon="archive" >}}
+  {{< card link="understanding/information-packages" title="Informasjonspakker" subtitle="Hva en pakke inneholder, typer metadata og pakkens omfang" icon="archive" >}}
   {{< card link="understanding/data-management" title="Dataforvaltning" subtitle="Hvordan data bevares, lagres og uthentes i DPS" icon="database" >}}
   {{< card link="understanding/metadata-management" title="Metadataforvaltning" subtitle="Hvordan metadata kommer inn, lagres og brukes i DPS" icon="tag" >}}
   {{< card link="understanding/access-and-agreements" title="Tilgangskontroll" subtitle="Hvordan roller, bevaringsavtaler og tillatelser styrer tilgang" icon="shield-check" >}}
@@ -97,6 +97,7 @@ Disse sidene forklarer konsepter, ansvarsområder og hvordan DPS fungerer:
 Trinnvise veiledninger for produsenter og konsumenter:
 
 {{< cards >}}
+  {{< card link="how-to/prepare-content" title="Klargjøre materiale for levering" subtitle="Pakk materialet som en SIP som oppfyller kravene" icon="archive" >}}
   {{< card link="how-to/submit-content" title="Levere materiale til bevaring" subtitle="Registrer en innlevering, last opp filer og fullfør" icon="upload" >}}
   {{< card link="how-to/add-preservation-events" title="Legge til bevaringseventer" subtitle="Velg og legg til bevaringseventer i en innlevering" icon="collection" >}}
   {{< card link="how-to/retrieve-content" title="Bestille utlevering av bevart materiale" subtitle="Bestill utlevering av bevart materiale og last det ned" icon="download" >}}

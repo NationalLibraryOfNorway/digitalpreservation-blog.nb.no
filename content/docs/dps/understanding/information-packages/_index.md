@@ -1,5 +1,5 @@
 ---
-title: Package, representation and data scope
+title: Information packages
 weight: 2
 aliases:
   - /docs/dps/sip/scope/
@@ -14,6 +14,68 @@ Each information package can contain one or more representations.
 To be able to create and submit an information package to the DPS you first need to decide what data to put in a single package.
 Each package has an **intellectual scope**, which again defines the **data scope** of each package.
 
+## What a package contains
+
+A Submission Information Package (SIP) is a folder with a fixed structure, based on the [E-ARK specifications](https://dilcis.eu/specifications) and the National Library's own requirements. The structure has two levels: the **package** as a whole, which describes the intellectual entity, and one or more **representations**, which hold the files.
+
+{{< filetree/container >}}
+  {{< filetree/folder name="root_folder" >}}
+    {{< filetree/file name="METS.xml" >}}
+    {{< filetree/folder name="metadata" >}}
+      {{< filetree/folder name="descriptive" state="closed" >}}
+      {{< /filetree/folder >}}
+      {{< filetree/folder name="preservation" state="closed" >}}
+      {{< /filetree/folder >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="representations" >}}
+      {{< filetree/folder name="primary_YYYYMMDD" >}}
+        {{< filetree/file name="METS.xml" >}}
+        {{< filetree/folder name="data" state="closed" >}}
+        {{< /filetree/folder >}}
+        {{< filetree/folder name="metadata" >}}
+          {{< filetree/folder name="source" state="closed" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="technical" state="closed" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="preservation" state="closed" >}}
+          {{< /filetree/folder >}}
+        {{< /filetree/folder >}}
+      {{< /filetree/folder >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="schemas" state="closed" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="documentation" state="closed" >}}
+    {{< /filetree/folder >}}
+  {{< /filetree/folder >}}
+{{< /filetree/container >}}
+
+- **`METS.xml` in the root folder** identifies the package and refers to the METS files of the representations.
+- **`metadata/`** holds metadata about the package as a whole. Descriptive metadata belongs here, and only here.
+- **`representations/`** holds the representations. Each has its own `METS.xml`, the content files in `data/`, and metadata about those files in `metadata/`.
+- **`schemas/`** holds the XML schemas for the structured metadata in the package.
+- **`documentation/`** holds any additional documentation needed to make use of the content.
+
+The exact requirements are listed in [Requirements for SIP structure](/docs/dps/reference/sip/structure-requirements/) and [METS.xml requirements](/docs/dps/reference/sip/mets/).
+
+## Kinds of metadata
+
+A package contains four kinds of metadata. They are kept apart because they describe different things, and because they belong at different levels of the package.
+
+- **Descriptive metadata** describes the intellectual object the package represents, typically an exemplar of a work. It is used to identify and retrieve the intellectual content of the package, and does not describe specific files. It belongs at package level.
+- **Source metadata** describes the object a representation is derived from. Typically this is metadata about a physical information carrier (for example a book, a photograph, or a film reel) that has been digitized, and its state and condition at the time of digitization. It can also be metadata about a digital object that has been used to derive another digital object.
+- **Technical metadata** documents measurable, system-generated technical properties of the files in a representation, based on file analysis. It describes what the files actually are, not their intellectual content or what has been done to them.
+- **Preservation metadata** (digital provenance) describes where the package or its files come from and how they came into being: digital processes, actions, events, and their outcomes. At package level it describes the origin of the package; at representation level it describes the origin of the files. Some of it is better submitted as [preservation events](/docs/dps/understanding/metadata-management/preservation-events/) through the API.
+
+{{< callout >}}
+**Rule of thumb:**
+- **Descriptive:** what the package is, intellectually
+- **Source:** what was digitized
+- **Technical:** what the files are
+- **Preservation:** how the files came into being
+{{< /callout >}}
+
+Where each kind is placed, and which METS element refers to it, is summarized in [Metadata placement at a glance](/docs/dps/reference/sip/structure-requirements/#metadata-placement-at-a-glance).
+
 ## Representations
 The representation concept is defined in PREMIS:
 
@@ -25,7 +87,7 @@ The representation concept is defined in PREMIS:
 Representations can thus be either **simple objects** consisting of single discrete files, or **composite objects** consisting of groups of files intended to be utilized together. 
 An example of a simple digital object can be a singular image in TIFF-format, while an example of a composite digital object can be the aforementioned example of the article represented by 12 TIFF images and an XML or a DCP (which is a directory containing image and audio streams in MXF containers along with xml-files).
 
-## Intellectial entities and content
+## Intellectual entities and content
 The following definitions stem from the PREMIS data dictionary:
 > An **Intellectual Entity** is a distinct intellectual or artistic creation that is considered relevant to a designated community in the context of digital preservation: for example, a particular book, map, photograph, database, or hardware or software.
 

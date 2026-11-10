@@ -1,6 +1,6 @@
 ---
 title: Bestille utlevering av bevart materiale
-weight: 3
+weight: 4
 aliases:
   - /docs/dps/api/dissemination/
 ---

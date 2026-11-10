@@ -1,7 +1,7 @@
 ---
 title: Add preservation events to a submission
 linkTitle: Add preservation events
-weight: 2
+weight: 3
 ---
 
 This guide shows how to choose which events to document for your workflow, and how to submit them through the API as part of a submission. For what events are and why they matter, see [Preservation events](/docs/dps/understanding/metadata-management/preservation-events/). For the meaning and allowed values of each element, see the [preservation events reference](/docs/dps/reference/preservation-events/).

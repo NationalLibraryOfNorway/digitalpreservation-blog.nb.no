@@ -1,6 +1,6 @@
 ---
 title: Submit content for preservation
-weight: 1
+weight: 2
 aliases:
   - /docs/dps/api/submission/
 ---
@@ -11,7 +11,7 @@ This guide shows how to submit content to DPS through the API: from a prepared S
 
 - **Client credentials and an access token.** See [Authentication & Authorization](/docs/dps/reference/api/#authentication--authorization).
 - **A contract ID (`contractId`)** for the agreement you submit under, and a producer role for that contract.
-- **Content prepared as a SIP** according to the [SIP specifications](/docs/dps/reference/sip/).
+- **Content prepared as a SIP.** See [Prepare content for submission](/docs/dps/how-to/prepare-content/).
 
 ## Steps
 
@@ -19,7 +19,7 @@ This guide shows how to submit content to DPS through the API: from a prepared S
 
 ### Prepare the SIP
 
-Package the content as a SIP that meets the [requirements for SIP structure](/docs/dps/reference/sip/structure-requirements/) and the [METS.xml requirements](/docs/dps/reference/sip/mets/). Calculate an MD5 checksum for every file in the package. The files you register in the next steps are the files of the SIP, and their paths in the API mirror the package structure.
+Package the content as a SIP, with an MD5 checksum for every file. See [Prepare content for submission](/docs/dps/how-to/prepare-content/). The files you register in the next steps are the files of the SIP, and their paths in the API mirror the package structure.
 
 ### Create a submission
 

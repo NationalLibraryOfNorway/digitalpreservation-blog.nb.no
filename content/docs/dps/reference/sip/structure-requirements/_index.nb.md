@@ -4,6 +4,8 @@ weight: 3
 aliases:
   - /docs/dps/sip/structure-requirements/
   - /docs/dps/sip/1.0/structure-requirements/
+  - /docs/dps/sip/metadata/
+  - /docs/dps/reference/sip/metadata/
 ---
 
 Pakkestrukturen i E-ARK følger en standardisert oppbygging av mapper og filer i en informasjonspakke. Mapper er forhåndsdefinerte. Hver mappe har et definert formål for innhold og plassering av filer. Standardisert pakke- og mappestruktur sikrer at bevaringsmaterialet kan forstås, valideres, utveksles og bevares over tid, uavhengig av system og leverandør. 
@@ -37,3 +39,18 @@ Enhver pakke som leveres til NB må validere både på samtlige CSIPSTR-krav og 
 | **NBSIPSTR18** | `rotmappe/schemas`<br><br>En SIP **MÅ** ha én undermappe i rotmappa om heter `schemas` som **MÅ** inneholde alle XML-skjemadokumenter for alle strukturerte metadata i pakken. Skjemaer **SKAL IKKE** legges i representasjonsmappene.   <br><br>Dette er en strengere, SIP-spesifikk variant av [CSIPSTR15](https://earkcsip.dilcis.eu/#CSIPSTR15). | **MÅ** | **1..1** |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 | **NBSIPSTR19** | `rotmappe/documentation`<br><br>**Hvis** det finnes tilleggsdokumentasjon som er nødvendig for å nyttiggjøre seg av innholdet i en pakke, anbefales det å inkludere dette. Tilleggsdokumentasjon **BØR** plasseres i én mappe på rot som heter `documentation`. Eksempler på dokumentasjon kan være manualer for systemet dataobjektene er eksportert fra, installasjonsveiledning og krav til bruk av system (maskin- og programvarekrav). Slik tilleggsdokumentasjon **BØR** være på et [anbefalt filformat](/nb/docs/policies/formats/), slik som ren tekst (UTF-8) (f.eks. XML, JSON, TXT) eller PDF/A.   <br><br>Dette er en strengere, SIP-spesifikk variant av [CSIPSTR16](https://earkcsip.dilcis.eu/#CSIPSTR16). | **BØR** | **0..1** |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 | **NBSIPSTR20** | En SIP **MÅ** kun inneholde mapper som er eksplisitt tillatt av NBSIPSTR-krav. <br><br>Dette er en strengere, SIP-spesifikk variant av [CSIPSTR14](https://earkcsip.dilcis.eu/#CSIPSTR14). | **MÅ** | **0..1** |
+
+## Plassering av metadata i korte trekk
+
+Hvor hver type metadata hører hjemme i pakken, og hvilket METS-element som refererer til den. Kravene over er normative; denne tabellen er en oppsummering. Hva de ulike typene metadata er, forklares under [Informasjonspakker](/nb/docs/dps/understanding/information-packages/#typer-metadata).
+
+| Type metadata | Nivå | Mappe | METS-element | Krav | Eksempelfiler |
+|---|---|---|---|---|---|
+| Deskriptive | Pakke | `metadata/descriptive/` | `dmdSec` | [NBSIPSTR7](#:~:text=NBSIPSTR7), [NBSIPSTR9](#:~:text=NBSIPSTR9) (MÅ) | MODS.xml, mavisTitle.xml |
+| Bevaring (digital proveniens) | Pakke | `metadata/preservation/` | `digiprovMD` | [NBSIPSTR6](#:~:text=NBSIPSTR6) (MÅ, hvis til stede) | PREMIS-eventer |
+| Andre | Pakke | `metadata/other/` (eller en annen navngitt undermappe) | | [CSIPSTR8](https://earkcsip.dilcis.eu/#CSIPSTR8) (KAN) | |
+| Kilde | Representasjon | `representations/<rep>/metadata/source/` | `sourceMD` | [NBSIPSTR17](#:~:text=NBSIPSTR17) (BØR, når utledet fra en kilde) | mavisAnalogCarrier.xml, mavisDigitalComponent.xml |
+| Teknisk | Representasjon | `representations/<rep>/metadata/technical/<type>/` | `techMD` | [NBSIPSTR16](#:~:text=NBSIPSTR16) (BØR) | Utdata fra FITS, MediaInfo, ExifTool, JHOVE |
+| Bevaring (digital proveniens) | Representasjon | `representations/<rep>/metadata/preservation/` | `digiprovMD` | [NBSIPSTR15](#:~:text=NBSIPSTR15) (KAN) | ScanityTransfer.xml, MAVIS_film_carrier.xml (ved digitalisering), PREMIS-eventer |
+
+Vi anbefaler å levere bevaringseventer [via API-et](/nb/docs/dps/how-to/add-preservation-events/) i stedet for som filer, slik at de er tilgjengelige som eventer. Se [Bevaringseventer](/nb/docs/dps/understanding/metadata-management/preservation-events/).

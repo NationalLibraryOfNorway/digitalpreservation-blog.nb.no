@@ -1,7 +1,7 @@
 ---
 title: Legge til bevaringseventer i en innlevering
 linkTitle: Legge til bevaringseventer
-weight: 2
+weight: 3
 ---
 
 Denne veiledningen viser hvordan du velger hvilke eventer du skal dokumentere for din arbeidsflyt, og hvordan du leverer dem via API-et som en del av en innlevering. Hva eventer er og hvorfor de er viktige, er beskrevet under [Bevaringseventer](/nb/docs/dps/understanding/metadata-management/preservation-events/). Betydning og tillatte verdier for hvert element finnes i [referansen for bevaringseventer](/nb/docs/dps/reference/preservation-events/).

@@ -1,6 +1,6 @@
 ---
 title: Request preserved content
-weight: 3
+weight: 4
 aliases:
   - /docs/dps/api/dissemination/
 ---

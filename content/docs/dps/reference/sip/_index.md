@@ -11,16 +11,10 @@ Within E-ARK, the Common Specification for Information Packages (CSIP) is a core
 
 The applicable specifications for Submission Information Packages (SIP) at the National Library are based on E-ARK and include internal adaptations and clarifications. The documents in this specification define how information packages must be structured and described when delivered to the National Library.
 
-Here you will find information about:
-- Content of preservation packages (intellectual scope limitations and the concept of representations).
-- Guidance for metadata in preservation packages.
-- General requirements for package structure.
-- The use of METS.xml to describe the package and its contents.
-- Examples for different media types.
+The specification consists of the requirements for package structure, the requirements for METS.xml (with additional requirements per media type), and examples. What a package contains and how to decide its scope is explained in [Information packages](/docs/dps/understanding/information-packages/). For a step-by-step guide, see [Prepare content for submission](/docs/dps/how-to/prepare-content/).
 
 {{< cards >}}
-  {{< card link="../../understanding/information-packages" title="Package, representation and data scope" icon="document-text">}}
-  {{< card link="metadata" title="Metadata primer" icon="document-text">}}
+  {{< card link="../../understanding/information-packages" title="Information packages" subtitle="What a package contains, kinds of metadata, and package scope" icon="document-text">}}
   {{< card link="structure-requirements" title="Requirements for SIP structure" icon="document-text" >}}
   {{< card link="mets" title="METS.xml requirements" icon="document-text" >}}
   {{< card link="examples" title="Examples" icon="document-text">}}

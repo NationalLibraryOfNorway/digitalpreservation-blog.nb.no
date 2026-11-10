@@ -92,7 +92,7 @@ The SIP contains preservation data and a copy of descriptive metadata from the m
 These pages explain concepts, responsibilities, and how the DPS works:
 
 {{< cards >}}
-  {{< card link="understanding/information-packages" title="Package, representation and data scope" subtitle="What an information package contains and where its boundaries are" icon="archive" >}}
+  {{< card link="understanding/information-packages" title="Information packages" subtitle="What a package contains, kinds of metadata, and package scope" icon="archive" >}}
   {{< card link="understanding/data-management" title="Data management" subtitle="How data is preserved, stored, and accessed in the DPS" icon="database" >}}
   {{< card link="understanding/metadata-management" title="Metadata management" subtitle="How metadata enters, is stored, and utilized in the DPS" icon="tag" >}}
   {{< card link="understanding/access-and-agreements" title="Access control" subtitle="How roles, agreements, and permissions govern access" icon="shield-check" >}}
@@ -103,6 +103,7 @@ These pages explain concepts, responsibilities, and how the DPS works:
 Step-by-step guides for producers and consumers:
 
 {{< cards >}}
+  {{< card link="how-to/prepare-content" title="Prepare content for submission" subtitle="Package content as a SIP that meets the requirements" icon="archive" >}}
   {{< card link="how-to/submit-content" title="Submit content for preservation" subtitle="Register a submission, upload files, and finalize it" icon="upload" >}}
   {{< card link="how-to/add-preservation-events" title="Add preservation events" subtitle="Choose and add preservation events to a submission" icon="collection" >}}
   {{< card link="how-to/retrieve-content" title="Request preserved content" subtitle="Order delivery of preserved content and download it" icon="download" >}}
@@ -120,5 +121,5 @@ Specifications and API reference:
   {{< card link="reference/preservation-events" title="Preservation events" subtitle="Event elements, agents, and event types" icon="collection" >}}
 {{< /cards >}}
 
-[^1]: [Intellectial entities and content](https://digitalpreservation.no/docs/dps/understanding/information-packages/#intellectial-entities-and-content)
+[^1]: [Intellectual entities and content](/docs/dps/understanding/information-packages/#intellectual-entities-and-content)
 [^2]: *PREMIS Data Dictionary (full document)*, Version 3.0, Nov. 2015, [https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf](https://www.loc.gov/standards/premis/v3/premis-3-0-final.pdf)

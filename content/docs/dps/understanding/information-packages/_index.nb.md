@@ -1,5 +1,5 @@
 ---
-title: Pakke-, representasjons- og dataomfang
+title: Informasjonspakker
 weight: 2
 aliases:
   - /docs/dps/sip/scope/
@@ -13,6 +13,68 @@ DPS organiserer mottak, forvaltning og utlevering av slike representasjoner gjen
 Envher informasjonspakke kan inneholde én eller flere representasjoner.
 For å kunne lage og levere en pakke til DPS må man ha en foremening om hva om som skal ligge i én pakke.
 Enhver pakke har et **intellektuelt omfang**, som igjen styrer hvor stort **dataomfanget** er i en pakke.
+
+## Hva en pakke inneholder
+
+En innleveringspakke (SIP) er en mappe med fast struktur, basert på [E-ARK-spesifikasjonene](https://dilcis.eu/specifications) og Nasjonalbibliotekets egne krav. Strukturen har to nivåer: **pakken** som helhet, som beskriver den intellektuelle entiteten, og én eller flere **representasjoner**, som inneholder filene.
+
+{{< filetree/container >}}
+  {{< filetree/folder name="root_folder" >}}
+    {{< filetree/file name="METS.xml" >}}
+    {{< filetree/folder name="metadata" >}}
+      {{< filetree/folder name="descriptive" state="closed" >}}
+      {{< /filetree/folder >}}
+      {{< filetree/folder name="preservation" state="closed" >}}
+      {{< /filetree/folder >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="representations" >}}
+      {{< filetree/folder name="primary_YYYYMMDD" >}}
+        {{< filetree/file name="METS.xml" >}}
+        {{< filetree/folder name="data" state="closed" >}}
+        {{< /filetree/folder >}}
+        {{< filetree/folder name="metadata" >}}
+          {{< filetree/folder name="source" state="closed" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="technical" state="closed" >}}
+          {{< /filetree/folder >}}
+          {{< filetree/folder name="preservation" state="closed" >}}
+          {{< /filetree/folder >}}
+        {{< /filetree/folder >}}
+      {{< /filetree/folder >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="schemas" state="closed" >}}
+    {{< /filetree/folder >}}
+    {{< filetree/folder name="documentation" state="closed" >}}
+    {{< /filetree/folder >}}
+  {{< /filetree/folder >}}
+{{< /filetree/container >}}
+
+- **`METS.xml` i rotmappa** identifiserer pakken og refererer til METS-filene i representasjonene.
+- **`metadata/`** inneholder metadata om pakken som helhet. Deskriptive metadata hører hjemme her, og bare her.
+- **`representations/`** inneholder representasjonene. Hver har sin egen `METS.xml`, innholdsfilene i `data/`, og metadata om disse filene i `metadata/`.
+- **`schemas/`** inneholder XML-skjemaene for de strukturerte metadataene i pakken.
+- **`documentation/`** inneholder eventuell tilleggsdokumentasjon som trengs for å nyttiggjøre seg innholdet.
+
+De nøyaktige kravene er listet i [Krav til SIP-struktur](/nb/docs/dps/reference/sip/structure-requirements/) og [Krav til METS.xml](/nb/docs/dps/reference/sip/mets/).
+
+## Typer metadata
+
+En pakke inneholder fire typer metadata. De holdes adskilt fordi de beskriver ulike ting, og fordi de hører hjemme på ulike nivåer i pakken.
+
+- **Deskriptive metadata** beskriver det intellektuelle objektet som pakken representerer, typisk et eksemplar av et verk. De brukes til identifikasjon og gjenfinning av det intellektuelle innholdet i pakken, og beskriver ikke spesifikke filer. De hører hjemme på pakkenivå.
+- **Kildemetadata** beskriver objektet en representasjon er utledet fra. Typisk er dette metadata om et fysisk informasjonsmedium (for eksempel en bok, et fotografi eller en filmrull) som er digitalisert, og dets tilstand på digitaliseringstidspunktet. Det kan også være metadata om et digitalt objekt som er brukt til å utlede et annet digitalt objekt.
+- **Tekniske metadata** dokumenterer målbare, systemgenererte tekniske egenskaper ved filene i en representasjon, basert på filanalyse. De beskriver hva filene faktisk er, ikke det intellektuelle innholdet eller hva som er gjort med dem.
+- **Bevaringsmetadata** (digital proveniens) beskriver hvor pakken eller filene kommer fra og hvordan de er fremstilt: digitale prosesser, handlinger, hendelser og resultatene av disse. På pakkenivå beskriver de opphavet til pakken; på representasjonsnivå beskriver de opphavet til filene. Noe av dette leveres heller som [bevaringseventer](/nb/docs/dps/understanding/metadata-management/preservation-events/) via API-et.
+
+{{< callout >}}
+**Kort huskeregel:**
+- **Deskriptive:** hva pakken intellektuelt er
+- **Kilde:** hva som ble digitalisert
+- **Teknisk:** hva filene er
+- **Bevaring:** hvordan filene ble skapt
+{{< /callout >}}
+
+Hvor hver type plasseres, og hvilket METS-element som refererer til den, er oppsummert i [Plassering av metadata i korte trekk](/nb/docs/dps/reference/sip/structure-requirements/#plassering-av-metadata-i-korte-trekk).
 
 ## Representasjoner
 

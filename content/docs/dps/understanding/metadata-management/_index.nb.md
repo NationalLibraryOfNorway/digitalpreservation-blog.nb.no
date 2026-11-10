@@ -59,7 +59,7 @@ En vellykket avlevering resulterer i at det opprettes en AIP [^1] representert s
 Metadata kan også avleveres som filer direkte i informasjonspakken (SIP). Noen filer som inneholder metadata er påkrevede i SIP-en, se våre [krav til pakkestruktur](/nb/docs/dps/reference/sip/structure-requirements/).
 
 - **METS.xml-filer** er obligatoriske både i pakkens rotmappe og i hver representasjonsmappe. DPS analyserer METS.xml-filene ved avlevering og henter ut informasjon som brukes til å berike informasjonspakken med metadata om innhold, struktur og filer. Se [krav til METS.xml](/nb/docs/dps/reference/sip/mets/) for full spesifikasjon.
-- **Metadatafiler** som MARC, MODS, Dublin Core XML eller domenespesifikke metadata, legges ved i informasjonspakken. Det er påkrevd å levere minst en fil som inneholder deskriptive metadata. DPS bevarer disse filene, identifiserer filformatet og registrerer tekniske metadata, men tolker eller indekserer ikke innholdet. Se [innføring i metadata](/nb/docs/dps/reference/sip/metadata/) for veiledning om plassering i informasjonspakker.
+- **Metadatafiler** som MARC, MODS, Dublin Core XML eller domenespesifikke metadata, legges ved i informasjonspakken. Det er påkrevd å levere minst en fil som inneholder deskriptive metadata. DPS bevarer disse filene, identifiserer filformatet og registrerer tekniske metadata, men tolker eller indekserer ikke innholdet. Se [Plassering av metadata i korte trekk](/nb/docs/dps/reference/sip/structure-requirements/#plassering-av-metadata-i-korte-trekk) for veiledning om plassering i informasjonspakker.
 
 ### Generert av DPS
 

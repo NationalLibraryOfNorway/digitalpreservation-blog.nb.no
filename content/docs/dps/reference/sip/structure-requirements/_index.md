@@ -5,6 +5,8 @@ weight: 3
 aliases:
   - /docs/dps/sip/structure-requirements/
   - /docs/dps/sip/1.0/structure-requirements/
+  - /docs/dps/sip/metadata/
+  - /docs/dps/reference/sip/metadata/
 ---
 
 The package structure in E-ARK follows a standardized organization of folders and files within an information package. The folders are predefined, and each folder has a defined purpose regarding content and file placement. A standardized package and folder structure ensures that preservation materials can be understood, validated, exchanged, and preserved over time, regardless of system or vendor. 
@@ -39,3 +41,18 @@ Any information package submitted to the National Library of Norway is required 
 | **NBSIPSTR18** | `root_folder/schemas`<br><br> The Information Package **MUST** have one subfolder at the root level named `schemas`, which **MUST** contain all XML schema documents for all structured metadata in the package. Schemas **MUST NOT** be placed in the representation folders. <br><br> This requirement is a stricter version of [CSIPSTR15](https://earkcsip.dilcis.eu/#CSIPSTR15). | **MUST** | **1..1** |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 | **NBSIPSTR19** | `root_folder/documentation`<br><br> **If** there is additional documentation necessary to make use of the contents of a package, it is recommended to include it. Such additional documentation **SHOULD** be placed in a folder at the root level named `documentation`. Examples of documentation include manuals for the system from which the data objects were exported, installation guides, and system usage requirements (hardware and software requirements). This additional documentation SHOULD be in a [recommended file format](/docs/policies/formats/), such as plain text (UTF-8) (e.g., XML, JSON, TXT) or PDF/A. <br><br> This requirement is a stricter version of [CSIPSTR16](https://earkcsip.dilcis.eu/#CSIPSTR16). | **SHOULD** | **0..1** |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
 | **NBSIPSTR20** | The Information Package **MUST** only contain folders that are explicitly permitted by the NBSIPSTR requirements. <br><br> This requirement is a stricter version of [CSIPSTR14](https://earkcsip.dilcis.eu/#CSIPSTR14). | **MUST** | **0..1** |
+
+## Metadata placement at a glance
+
+Where each kind of metadata belongs in the package, and which METS element refers to it. The requirements above are normative; this table is a summary. What the kinds of metadata are is explained in [Information packages](/docs/dps/understanding/information-packages/#kinds-of-metadata).
+
+| Kind of metadata | Level | Folder | METS element | Requirement | Example files |
+|---|---|---|---|---|---|
+| Descriptive | Package | `metadata/descriptive/` | `dmdSec` | [NBSIPSTR7](#:~:text=NBSIPSTR7), [NBSIPSTR9](#:~:text=NBSIPSTR9) (MUST) | MODS.xml, mavisTitle.xml |
+| Preservation (digital provenance) | Package | `metadata/preservation/` | `digiprovMD` | [NBSIPSTR6](#:~:text=NBSIPSTR6) (MUST, if present) | PREMIS events |
+| Other | Package | `metadata/other/` (or another named subfolder) | | [CSIPSTR8](https://earkcsip.dilcis.eu/#CSIPSTR8) (MAY) | |
+| Source | Representation | `representations/<rep>/metadata/source/` | `sourceMD` | [NBSIPSTR17](#:~:text=NBSIPSTR17) (SHOULD, when derived from a source) | mavisAnalogCarrier.xml, mavisDigitalComponent.xml |
+| Technical | Representation | `representations/<rep>/metadata/technical/<type>/` | `techMD` | [NBSIPSTR16](#:~:text=NBSIPSTR16) (SHOULD) | FITS, MediaInfo, ExifTool, JHOVE output |
+| Preservation (digital provenance) | Representation | `representations/<rep>/metadata/preservation/` | `digiprovMD` | [NBSIPSTR15](#:~:text=NBSIPSTR15) (MAY) | ScanityTransfer.xml, MAVIS_film_carrier.xml (from digitization), PREMIS events |
+
+We recommend submitting preservation events [through the API](/docs/dps/how-to/add-preservation-events/) rather than as files, so that they are available as events. See [Preservation events](/docs/dps/understanding/metadata-management/preservation-events/).

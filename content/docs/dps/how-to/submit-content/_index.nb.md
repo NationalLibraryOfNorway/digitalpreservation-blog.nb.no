@@ -1,6 +1,6 @@
 ---
 title: Levere materiale til bevaring
-weight: 1
+weight: 2
 aliases:
   - /docs/dps/api/submission/
 ---
@@ -11,7 +11,7 @@ Denne veiledningen viser hvordan du leverer materiale til DPS via API-et: fra en
 
 - **Klientlegitimasjon og et tilgangstoken.** Se [Autentisering og autorisasjon](/nb/docs/dps/reference/api/).
 - **En kontrakt-ID (`contractId`)** for avtalen du leverer under, og en produsentrolle for den kontrakten.
-- **Materialet klargjort som en SIP** i henhold til [SIP-spesifikasjonene](/nb/docs/dps/reference/sip/).
+- **Materialet klargjort som en SIP.** Se [Klargjøre materiale for levering](/nb/docs/dps/how-to/prepare-content/).
 
 ## Steg
 
@@ -19,7 +19,7 @@ Denne veiledningen viser hvordan du leverer materiale til DPS via API-et: fra en
 
 ### Klargjør SIP-en
 
-Pakk materialet som en SIP som oppfyller [kravene til SIP-struktur](/nb/docs/dps/reference/sip/structure-requirements/) og [kravene til METS.xml](/nb/docs/dps/reference/sip/mets/). Beregn en MD5-sjekksum for hver fil i pakken. Filene du registrerer i de neste stegene er filene i SIP-en, og stiene deres i API-et speiler pakkestrukturen.
+Pakk materialet som en SIP, med en MD5-sjekksum for hver fil. Se [Klargjøre materiale for levering](/nb/docs/dps/how-to/prepare-content/). Filene du registrerer i de neste stegene er filene i SIP-en, og stiene deres i API-et speiler pakkestrukturen.
 
 ### Opprett en submission
 
