@@ -5,48 +5,26 @@ aliases:
   - /docs/dps/api/webhooks/
 ---
 
-The National Library of Norway can send event notifications directly to your systems via webhooks.  
-DPS uses **Standard Webhooks**[^1] for format and signing, allowing notifications to be securely validated and automatically processed.
-
-This enables you to receive automatic messages when submissions or disseminations change status – without having to poll our API continuously.
-
-To receive these notifications, you must have an **endpoint (a URL)** that can accept **HTTPS POST** requests with **JSON data** from DPS.  
-Currently, the National Library manually registers all webhook endpoints in collaboration with each partner.
-
----
-
-## Purpose
-
-- Notify about status changes in submissions
-- Notify about completed disseminations
-- Ensure secure and predictable delivery with clear contracts
-
----
-
-## How it works
+DPS can send notifications directly to your systems via webhooks when submissions or disseminations change status, so you do not have to poll the API. This guide shows how to set up an endpoint that receives and verifies these messages. The headers, message structure, and the fields of each message are listed in the [API reference](/docs/dps/reference/api/#webhooks).
 
 When an event occurs in DPS:
 
 1. DPS sends an **HTTP POST** request to the URL you have provided
-2. The message contains information about the event in **JSON format**, according to *Standard Webhooks*
+2. The message contains information about the event in **JSON format**, according to *Standard Webhooks*[^1]
 3. Your system receives the message, validates that it comes from DPS, and responds with **HTTP 200 OK**
 
-## Technical Requirements
+## Before you start
 
-### Transport and Format
+- **An HTTPS endpoint** that DPS can reach, with a valid TLS certificate (TLS 1.2 or higher).
+- **Contact with the digital preservation team.** The National Library currently registers all webhook endpoints manually in collaboration with each partner.
 
-| Property           | Requirement                                    |
-|--------------------|------------------------------------------------|
-| **Protocol**       | HTTPS (TLS 1.2 or higher)                      |
-| **Method**         | POST                                           |
-| **Content-Type**   | `application/json`                             |
-| **Authentication** | HMAC signature in header (`webhook-signature`) |
-| **Response Time**  | Maximum 10 seconds                             |
-| **Certificate**    | Valid TLS certificate required                 |
+## Steps
 
-### Endpoint Setup
+{{% steps %}}
 
-You must expose a publicly accessible URL, for example:
+### Set up an endpoint
+
+You must expose a publicly accessible URL that accepts HTTPS POST requests with JSON data, for example:
 
 ```http
 https://partner.example.com/api/dps/webhook
@@ -58,181 +36,13 @@ https://partner.example.com/api/dps/webhook
 - Set up monitoring and alerting to ensure your service is operational
 - Validate the signature for each message before processing
 
----
+### Register the endpoint with the National Library
 
-## HTTP Headers (Standard Webhooks Format)
+At this stage, the registration of the webhook URL and shared secret key is **handled manually by the National Library**. We coordinate setup and testing before production use. Contact the digital preservation team to register your endpoint.
 
-All messages are sent with the following headers:
+### Verify the signature
 
-```
-webhook-id: <unique id>
-webhook-timestamp: <unix seconds>
-webhook-signature: v1,<base64-signature>
-```
-
-| Header              | Description                                                                            |
-|---------------------|----------------------------------------------------------------------------------------|
-| `webhook-id`        | Unique ID for the message (same ID used for retries – use as deduplication key)        |
-| `webhook-timestamp` | UNIX time in seconds; use a time window (±5–10 min) to reject old messages             |
-| `webhook-signature` | HMAC-SHA256 of `id + "." + timestamp + "." + raw request body`, signed with shared key |
-
->  **Tip:** Always verify the signature against the raw **request body**, not a re-serialized JSON structure.
-
----
-
-## Responding to the Message
-
-The webhook receiver must:
-
-- Respond with **HTTP 200 OK** or **204 No Content** within 10 seconds
-- Return no or minimal body (DPS only cares about the status code)
-- For 4xx/5xx or timeout, DPS will retry with exponential backoff
-
----
-
-## Common JSON Structure
-
-All webhook messages follow the same structure ("envelope"):
-
-```json
-{
-  "type": "<event type>",
-  "timestamp": "2025-09-10T00:08:11.407000+02:00",
-  "data": {}
-}
-```
-
-| Field       | Type   | Description                                                                                   |
-|-------------|--------|-----------------------------------------------------------------------------------------------|
-| `type`      | string | Event type (see below)                                                                        |
-| `timestamp` | string | Timestamp when the event occurred, in RFC3339/ISO 8601 format with explicit offset or UTC (Z) |
-| `data`      | object | Event-specific fields                                                                         |
-
----
-
-## Events
-
-DPS currently supports the following events.
-
----
-
-### `submission.preserved`
-
-Webhook sent when a SIP submission is preserved and stored permanently.
-
-**Example**
-```json
-{
-  "type": "submission.preserved",
-  "timestamp": "2025-09-10T00:08:11.407000+02:00",
-  "data": {
-    "contractId": "ef23",
-    "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
-    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69"
-  }
-}
-```
-
-| Field          | Type   | Description                                                                                                                                                                                      |
-|----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `contractId`   | string | Identifier for the contract or agreement the submission is linked to                                                                                                                             |
-| `submissionId` | string | Unique identifier for the SIP submission                                                                                                                                                         |
-| `archiveId`    | string | Unique identifier for the preserved archive object in DPS. Assigned when the submission is archived. Use this ID to reference the object in future requests, e.g. when ordering a dissemination. |
-
----
-
-### `submission.rejected`
-
-Webhook sent when a SIP submission is rejected during validation or processing.
-
-**Example**
-```json
-{
-  "type": "submission.rejected",
-  "timestamp": "2025-09-10T00:08:11.407000+02:00",
-  "data": {
-    "contractId": "ef23",
-    "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
-    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
-    "reasons": [
-      {
-        "code": "METADATA_SCHEMA_INVALID",
-        "message": "Descriptive metadata did not validate against the required profile."
-      },
-      {
-        "code": "FILE_CHECKSUM_MISMATCH",
-        "message": "Checksum mismatch.",
-        "filePath": "objects/issue_1942_05.pdf"
-      }
-    ]
-  }
-}
-```
-
-| Field          | Type   | Description                                                                                                                                                        |
-|----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `contractId`   | string | Identifier for the contract or agreement the submission is linked to                                                                                               |
-| `submissionId` | string | Unique identifier for the SIP submission                                                                                                                           |
-| `archiveId`    | string | Unique identifier for the archive object in DPS                                                                                                                    |
-| `reasons`      | array  | List of reasons for rejection. At least one entry.                                                                                                                 |
-| → `code`       | string | Machine-readable error code identifying the type of error. Stable over time                                                                                        |
-| → `message`    | string | Human-readable description of the error                                                                                                                            |
-| → `filePath`   | string | Relative path to the file the error pertains to, if the error can be linked to a specific file. If this field is missing, the error applies to the entire package. |
-
----
-
-### `dissemination.delivered`
-
-Webhook sent when a delivery package (DIP) is made available for download.
-
-**Example**
-```json
-{
-  "type": "dissemination.delivered",
-  "timestamp": "2025-10-02T09:18:01.160+02:00",
-  "data": {
-    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
-    "disseminationId": "5MfwdzCjkYW4c79MYorXy9",
-    "objectId": "digifoto_ae0690eb-22bf-4996-a6a0-9273b7cd9256",
-    "clientId": "kulturit",
-    "contractId": "2d17",
-    "sumSizeInBytes": "1",
-    "files": [
-      {
-        "downloadURL": "https://minio.dev.nb.no/submission-service-stage/dissemination/5MfwdzCjkYW4c79MYorXy9/68d3a838a0be2b1d75eeef75/primary_20250325.tar?...",
-        "filename": "primary_20250325.tar",
-        "filesize": 3481600,
-        "expirationDate": "2025-10-03T09:18:01.023897767+02:00",
-        "checksum": "ae958c69059974c63980035882d2178c",
-        "checksumAlgorithm": "MD5"
-      }
-    ]
-  }
-}
-```
-
-| Field                 | Type      | Description                                                                                                                                                        |
-|-----------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `archiveId`           | string    | Unique identifier for the preserved archive object in DPS. Same ID as in `submission.preserved`. Use it to link the dissemination back to the original submission. |
-| `disseminationId`     | string    | Unique identifier for the delivery package                                                                                                                         |
-| `objectId`            | string    | Object identifier from the depositor – same value as provided when creating the submission                                                                         |
-| `clientId`            | string    | Recipient                                                                                                                                                          |
-| `contractId`          | string    | Identifier for the contract or agreement the delivery package is linked to                                                                                         |
-| `sumSizeInBytes`      | integer   | Total size in bytes                                                                                                                                                |
-| `files`               | array     | List of files in the package                                                                                                                                       |
-| → `downloadURL`       | uri       | Pre-signed download URL                                                                                                                                            |
-| → `filename`          | string    | File name                                                                                                                                                          |
-| → `filesize`          | integer   | File size in bytes                                                                                                                                                 |
-| → `expirationDate`    | date-time | Expiration date for the URL                                                                                                                                        |
-| → `checksum`          | string    | Checksum                                                                                                                                                           |
-| → `checksumAlgorithm` | enum      | Algorithm used for checksum                                                                                                                                        |
-
----
-
-## Signature Verification
-
-The webhooks are signed to ensure authenticity and integrity.  
-The receiver must validate the signature before processing the message.
+The webhooks are signed to ensure authenticity and integrity. The receiver must validate the signature before processing the message. The signature is calculated from the `webhook-id` and `webhook-timestamp` headers and the raw request body.
 
 **Pseudocode:**
 
@@ -250,23 +60,38 @@ calc = base64(hmac_sha256(secret, base))
 # Parse JSON after successful verification
 ```
 
----
+>  **Tip:** Always verify the signature against the raw **request body**, not a re-serialized JSON structure.
+
+### Respond to the message
+
+The webhook receiver must:
+
+- Respond with **HTTP 200 OK** or **204 No Content** within 10 seconds
+- Return no or minimal body (DPS only cares about the status code)
+- For 4xx/5xx or timeout, DPS will retry with exponential backoff
+
+Because DPS retries, the same message can arrive more than once. Use `webhook-id` as a deduplication key.
+
+### Handle the message
+
+Use the `type` field to decide what to do:
+
+- **`submission.preserved`:** the content is preserved. Store the `archiveId`; you need it to request the content later. You can now delete the source material.
+- **`submission.rejected`:** the submission was rejected. The `reasons` list tells you what went wrong, and `filePath` points to the file when an error applies to a single file.
+- **`dissemination.delivered`:** requested content is ready. Download the files before the links expire. See [Request preserved content](/docs/dps/how-to/retrieve-content/).
+
+The fields of each message are listed under [Webhook events](/docs/dps/reference/api/#webhook-events).
+
+{{% /steps %}}
 
 ## Troubleshooting
-
-### Common Issues
 
 1. **Timeout:** Ensure the endpoint responds within the deadline
 2. **Certificate Errors:** The TLS certificate must be valid and correctly configured
 3. **Signature Errors:** Check that HMAC verification is implemented correctly
 4. **Duplicates:** Implement deduplication based on `webhook-id`
 
----
-
-## Configuration and Support
-
-At this stage, the registration of the webhook URL and shared secret key is **handled manually by the National Library**.  
-We coordinate setup and testing before production use.
+## Support
 
 For questions about webhook setup or if you experience issues, contact the digital preservation team at the National Library.
 
@@ -275,22 +100,5 @@ We can assist with:
 - Testing the webhook endpoint
 - Providing fixed IP addresses for allowlisting
 - Troubleshooting delivery issues
-
----
-
-## Summary
-
-| Property       | Value                                                 |
-|----------------|-------------------------------------------------------|
-| Transport      | HTTPS                                                 |
-| Method         | POST                                                  |
-| Content Type   | `application/json`                                    |
-| Standard       | [Standard Webhooks](https://www.standardwebhooks.com) |
-| Authentication | HMAC signature (`webhook-signature`)                  |
-| Response       | `200 OK` or `204 No Content` within 10 seconds        |
-| Retries        | Yes (exponential backoff, up to 5 days total)         |
-| Configuration  | Handled manually by NB                                |
-
-
 
 [^1]: Standard Webhooks: [https://www.standardwebhooks.com](https://www.standardwebhooks.com)

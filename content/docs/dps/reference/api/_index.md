@@ -20,7 +20,7 @@ The API lets you:
 - [**Request preserved content**](../../how-to/retrieve-content/): request preserved digital objects.
 - [**Receive notifications**](../../how-to/receive-notifications/): get automatic status updates in your systems through webhooks.
 
-This page also lists the endpoints, request fields, and status lifecycles for [submissions](#submissions) and [disseminations](#disseminations).
+This page also lists the endpoints, request fields, and status lifecycles for [submissions](#submissions) and [disseminations](#disseminations), and the messages sent through [webhooks](#webhooks).
 
 ## Authentication & Authorization
 
@@ -203,6 +203,171 @@ Preliminary statuses (may be extended):
 8. `REJECTED` – Rejected
 
 The download links in the `dissemination.delivered` webhook expire at the time given in `expirationDate`. Each new dissemination gets new links.
+
+## Webhooks
+
+Messages that DPS sends to your webhook endpoint. For how to set up and verify an endpoint, see [Receive notifications](/docs/dps/how-to/receive-notifications/). DPS uses [Standard Webhooks](https://www.standardwebhooks.com) for format and signing.
+
+### Webhook delivery
+
+| Property           | Requirement                                    |
+|--------------------|------------------------------------------------|
+| **Protocol**       | HTTPS (TLS 1.2 or higher)                      |
+| **Method**         | POST                                           |
+| **Content-Type**   | `application/json`                             |
+| **Authentication** | HMAC signature in header (`webhook-signature`) |
+| **Certificate**    | Valid TLS certificate required                 |
+| **Standard** | [Standard Webhooks](https://www.standardwebhooks.com) |
+| **Response** | `200 OK` or `204 No Content` within 10 seconds        |
+| **Retries** | Yes (exponential backoff, up to 5 days total)         |
+| **Configuration** | Handled manually by NB                                |
+
+### Webhook headers
+
+All messages are sent with the following headers:
+
+```
+webhook-id: <unique id>
+webhook-timestamp: <unix seconds>
+webhook-signature: v1,<base64-signature>
+```
+
+| Header              | Description                                                                            |
+|---------------------|----------------------------------------------------------------------------------------|
+| `webhook-id`        | Unique ID for the message (same ID used for retries – use as deduplication key)        |
+| `webhook-timestamp` | UNIX time in seconds; use a time window (±5–10 min) to reject old messages             |
+| `webhook-signature` | HMAC-SHA256 of `id + "." + timestamp + "." + raw request body`, signed with shared key |
+
+>  **Tip:** Always verify the signature against the raw **request body**, not a re-serialized JSON structure.
+
+### Webhook message structure
+
+All webhook messages follow the same structure ("envelope"):
+
+```json
+{
+  "type": "<event type>",
+  "timestamp": "2025-09-10T00:08:11.407000+02:00",
+  "data": {}
+}
+```
+
+| Field       | Type   | Description                                                                                   |
+|-------------|--------|-----------------------------------------------------------------------------------------------|
+| `type`      | string | Event type (see below)                                                                        |
+| `timestamp` | string | Timestamp when the event occurred, in RFC3339/ISO 8601 format with explicit offset or UTC (Z) |
+| `data`      | object | Event-specific fields                                                                         |
+
+### Webhook events
+
+DPS currently supports the following events.
+
+#### `submission.preserved`
+
+Webhook sent when a SIP submission is preserved and stored permanently.
+
+**Example**
+```json
+{
+  "type": "submission.preserved",
+  "timestamp": "2025-09-10T00:08:11.407000+02:00",
+  "data": {
+    "contractId": "ef23",
+    "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
+    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69"
+  }
+}
+```
+
+| Field          | Type   | Description                                                                                                                                                                                      |
+|----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `contractId`   | string | Identifier for the contract or agreement the submission is linked to                                                                                                                             |
+| `submissionId` | string | Unique identifier for the SIP submission                                                                                                                                                         |
+| `archiveId`    | string | Unique identifier for the preserved archive object in DPS. Assigned when the submission is archived. Use this ID to reference the object in future requests, e.g. when ordering a dissemination. |
+
+#### `submission.rejected`
+
+Webhook sent when a SIP submission is rejected during validation or processing.
+
+**Example**
+```json
+{
+  "type": "submission.rejected",
+  "timestamp": "2025-09-10T00:08:11.407000+02:00",
+  "data": {
+    "contractId": "ef23",
+    "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
+    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
+    "reasons": [
+      {
+        "code": "METADATA_SCHEMA_INVALID",
+        "message": "Descriptive metadata did not validate against the required profile."
+      },
+      {
+        "code": "FILE_CHECKSUM_MISMATCH",
+        "message": "Checksum mismatch.",
+        "filePath": "objects/issue_1942_05.pdf"
+      }
+    ]
+  }
+}
+```
+
+| Field          | Type   | Description                                                                                                                                                        |
+|----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `contractId`   | string | Identifier for the contract or agreement the submission is linked to                                                                                               |
+| `submissionId` | string | Unique identifier for the SIP submission                                                                                                                           |
+| `archiveId`    | string | Unique identifier for the archive object in DPS                                                                                                                    |
+| `reasons`      | array  | List of reasons for rejection. At least one entry.                                                                                                                 |
+| → `code`       | string | Machine-readable error code identifying the type of error. Stable over time                                                                                        |
+| → `message`    | string | Human-readable description of the error                                                                                                                            |
+| → `filePath`   | string | Relative path to the file the error pertains to, if the error can be linked to a specific file. If this field is missing, the error applies to the entire package. |
+
+#### `dissemination.delivered`
+
+Webhook sent when a delivery package (DIP) is made available for download.
+
+**Example**
+```json
+{
+  "type": "dissemination.delivered",
+  "timestamp": "2025-10-02T09:18:01.160+02:00",
+  "data": {
+    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
+    "disseminationId": "5MfwdzCjkYW4c79MYorXy9",
+    "objectId": "digifoto_ae0690eb-22bf-4996-a6a0-9273b7cd9256",
+    "clientId": "kulturit",
+    "contractId": "2d17",
+    "sumSizeInBytes": "1",
+    "files": [
+      {
+        "downloadURL": "https://minio.dev.nb.no/submission-service-stage/dissemination/5MfwdzCjkYW4c79MYorXy9/68d3a838a0be2b1d75eeef75/primary_20250325.tar?...",
+        "filename": "primary_20250325.tar",
+        "filesize": 3481600,
+        "expirationDate": "2025-10-03T09:18:01.023897767+02:00",
+        "checksum": "ae958c69059974c63980035882d2178c",
+        "checksumAlgorithm": "MD5"
+      }
+    ]
+  }
+}
+```
+
+| Field                 | Type      | Description                                                                                                                                                        |
+|-----------------------|-----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `archiveId`           | string    | Unique identifier for the preserved archive object in DPS. Same ID as in `submission.preserved`. Use it to link the dissemination back to the original submission. |
+| `disseminationId`     | string    | Unique identifier for the delivery package                                                                                                                         |
+| `objectId`            | string    | Object identifier from the depositor – same value as provided when creating the submission                                                                         |
+| `clientId`            | string    | Recipient                                                                                                                                                          |
+| `contractId`          | string    | Identifier for the contract or agreement the delivery package is linked to                                                                                         |
+| `sumSizeInBytes`      | integer   | Total size in bytes                                                                                                                                                |
+| `files`               | array     | List of files in the package                                                                                                                                       |
+| → `downloadURL`       | uri       | Pre-signed download URL                                                                                                                                            |
+| → `filename`          | string    | File name                                                                                                                                                          |
+| → `filesize`          | integer   | File size in bytes                                                                                                                                                 |
+| → `expirationDate`    | date-time | Expiration date for the URL                                                                                                                                        |
+| → `checksum`          | string    | Checksum                                                                                                                                                           |
+| → `checksumAlgorithm` | enum      | Algorithm used for checksum                                                                                                                                        |
 
 ## Support
 

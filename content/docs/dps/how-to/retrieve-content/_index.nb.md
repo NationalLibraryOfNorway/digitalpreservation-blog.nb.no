@@ -86,7 +86,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 
 ### Last ned og kontroller filene
 
-Meldingen [`dissemination.delivered`](/nb/docs/dps/how-to/receive-notifications/#disseminationdelivered) inneholder en liste `files`. Last ned hver fil fra `downloadURL` og sammenlign den med `checksum`, med algoritmen som er angitt i `checksumAlgorithm`.
+Meldingen [`dissemination.delivered`](/nb/docs/dps/reference/api/#disseminationdelivered) inneholder en liste `files`. Last ned hver fil fra `downloadURL` og sammenlign den med `checksum`, med algoritmen som er angitt i `checksumAlgorithm`.
 
 Last ned filene før lenkene utløper (`expirationDate`). Hvis lenkene utløper, send en ny forespørsel om utlevering; hver utlevering får nye lenker.
 

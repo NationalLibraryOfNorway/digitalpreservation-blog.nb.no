@@ -19,7 +19,7 @@ Med API-et kan du:
 - [**Bestille utlevering av bevart materiale**](../../how-to/retrieve-content/): bestille bevarte digitale objekter.
 - [**Motta varsler**](../../how-to/receive-notifications/): få automatiske statusoppdateringer i dine systemer via webhooks.
 
-Denne siden lister også endepunkter, felt i forespørsler og statusflyt for [innleveringer](#innleveringer) og [utleveringer](#utleveringer).
+Denne siden lister også endepunkter, felt i forespørsler og statusflyt for [innleveringer](#innleveringer) og [utleveringer](#utleveringer), og meldingene som sendes via [webhooks](#webhooks).
 
 ## Autentisering og autorisasjon
 
@@ -207,6 +207,171 @@ Foreløpige statuser (kan utvides):
 8. `REJECTED` – Avvist
 
 Nedlastingslenkene i webhooken `dissemination.delivered` utløper på tidspunktet som er angitt i `expirationDate`. Hver nye utlevering får nye lenker.
+
+## Webhooks
+
+Meldinger som DPS sender til webhook-endepunktet ditt. Hvordan du setter opp og verifiserer et endepunkt, er beskrevet under [Motta varsler](/nb/docs/dps/how-to/receive-notifications/). DPS bruker [Standard Webhooks](https://www.standardwebhooks.com) for format og signering.
+
+### Levering av webhooks
+
+| Egenskap          | Krav                                         |
+|-------------------|----------------------------------------------|
+| **Protokoll**     | HTTPS (TLS 1.2 eller høyere)                 |
+| **Metode**        | POST                                         |
+| **Content-Type**  | `application/json`                           |
+| **Autentisering** | HMAC-signatur i header (`webhook-signature`) |
+| **Sertifikat**    | Gyldig TLS-sertifikat kreves                 |
+| **Standard** | [Standard Webhooks](https://www.standardwebhooks.com) |
+| **Respons** | `200 OK` eller `204 No Content` innen 10 sek          |
+| **Retries** | Ja (eksponentiell backoff. opptil 5 døgn totalt)      |
+| **Konfigurasjon** | Håndteres manuelt av NB                               |
+
+### Webhook-headere
+
+Alle meldinger sendes med følgende headere:
+
+```
+webhook-id: <unik id>
+webhook-timestamp: <unix-sekunder>
+webhook-signature: v1,<base64-signatur>
+```
+
+| Header              | Beskrivelse                                                                            |
+|---------------------|----------------------------------------------------------------------------------------|
+| `webhook-id`        | Unik ID for meldingen (samme ID brukes ved retries – bruk som dedup-nøkkel)            |
+| `webhook-timestamp` | UNIX-tid i sekunder; bruk tidsvindu (±5–10 min) for å avvise gamle meldinger           |
+| `webhook-signature` | HMAC-SHA256 av `id + "." + timestamp + "." + rå request-body`, signert med delt nøkkel |
+
+>  **Tips:** verifiser alltid signaturen mot rå **request-body**, ikke en reserialisert JSON-struktur.
+
+### Struktur på webhook-meldinger
+
+Alle webhook-meldinger følger samme struktur («envelope»):
+
+```json
+{
+  "type": "<event type>",
+  "timestamp": "2025-09-10T00:08:11.407000+02:00",
+  "data": {}
+}
+```
+
+| Felt        | Type   | Beskrivelse                                                                                  |
+|-------------|--------|----------------------------------------------------------------------------------------------|
+| `type`      | string | Hendelsestype (se nedenfor)                                                                  |
+| `timestamp` | string | Tidspunkt da hendelsen oppsto, i RFC3339/ISO 8601-format med eksplisitt offset eller UTC (Z) |
+| `data`      | object | Hendelsesspesifikke felter                                                                   |
+
+### Webhook-hendelser
+
+DPS støtter foreløpig følgende hendelser.
+
+#### `submission.preserved`
+
+Webhook sendt når en SIP-innlevering er bevart og lagret permanent.
+
+**Eksempel**
+```json
+{
+  "type": "submission.preserved",
+  "timestamp": "2025-09-10T00:08:11.407000+02:00",
+  "data": {
+    "contractId": "ef23",
+    "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
+    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69"
+  }
+}
+```
+
+| Felt           | Type   | Beskrivelse                                                                                                                                                                                                  |
+|----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `contractId`   | string | Identifikator for kontrakt eller avtale som innsendelsen er knyttet til                                                                                                                                      |
+| `submissionId` | string | Unik identifikator for SIP-innleveringen                                                                                                                                                                     |
+| `archiveId`    | string | Unik identifikator for det bevarte arkivobjektet i DPS. Tildeles når innleveringen er arkivert. Bruk denne ID-en til å referere til objektet i fremtidige forespørsler, f.eks. ved bestilling av utlevering. |
+
+#### `submission.rejected`
+
+Webhook sendt når en SIP-innlevering er avvist under validering eller behandling.
+
+**Eksempel**
+```json
+{
+  "type": "submission.rejected",
+  "timestamp": "2025-09-10T00:08:11.407000+02:00",
+  "data": {
+    "contractId": "ef23",
+    "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
+    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
+    "reasons": [
+      {
+        "code": "METADATA_SCHEMA_INVALID",
+        "message": "Descriptive metadata did not validate against the required profile."
+      },
+      {
+        "code": "FILE_CHECKSUM_MISMATCH",
+        "message": "Checksum mismatch.",
+        "filePath": "objects/issue_1942_05.pdf"
+      }
+    ]
+  }
+}
+```
+
+| Felt           | Type   | Beskrivelse                                                                                                                                    |
+|----------------|--------|------------------------------------------------------------------------------------------------------------------------------------------------|
+| `contractId`   | string | Identifikator for kontrakt eller avtale som innsendelsen er knyttet til                                                                        |
+| `submissionId` | string | Unik identifikator for SIP-innleveringen                                                                                                       |
+| `archiveId`    | string | Unik identifikator for arkivobjektet i DPS.                                                                                                    |
+| `reasons`      | array  | Liste med årsaker til avvisning. Minst én oppføring.                                                                                           |
+| → `code`       | string | Maskinlesbar feilkode som identifiserer typen feil. Stabil over tid                                                                            |
+| → `message`    | string | Menneskelesbar beskrivelse av feilen                                                                                                           |
+| → `filePath`   | string | Relativ sti til filen feilen gjelder, dersom feilen kan knyttes til en bestemt fil. Om dette feltet mangler, gjelder feilen pakken som helhet. |
+
+#### `dissemination.delivered`
+
+Webhook sendt når et leveransesett (DIP) er gjort tilgjengelig for nedlasting.
+
+**Eksempel**
+```json
+{
+  "type": "dissemination.delivered",
+  "timestamp": "2025-10-02T09:18:01.160+02:00",
+  "data": {
+    "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
+    "disseminationId": "5MfwdzCjkYW4c79MYorXy9",
+    "objectId": "digifoto_ae0690eb-22bf-4996-a6a0-9273b7cd9256",
+    "clientId": "kulturit",
+    "contractId": "2d17",
+    "sumSizeInBytes": "1",
+    "files": [
+      {
+        "downloadURL": "https://minio.dev.nb.no/submission-service-stage/dissemination/5MfwdzCjkYW4c79MYorXy9/68d3a838a0be2b1d75eeef75/primary_20250325.tar?...",
+        "filename": "primary_20250325.tar",
+        "filesize": 3481600,
+        "expirationDate": "2025-10-03T09:18:01.023897767+02:00",
+        "checksum": "ae958c69059974c63980035882d2178c",
+        "checksumAlgorithm": "MD5"
+      }
+    ]
+  }
+}
+```
+
+| Felt                  | Type      | Beskrivelse                                                                                                                                                          |
+|-----------------------|-----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `archiveId`           | string    | Unik identifikator for det bevarte arkivobjektet i DPS. Samme ID som i `submission.preserved`. Bruk den til å koble utleveringen til den opprinnelige innleveringen. |
+| `disseminationId`     | string    | Unik identifikator for leveransepakke                                                                                                                                |
+| `objectId`            | string    | Objektidentifikator fra avleverer – samme verdi som ble oppgitt ved oppretting av submission                                                                         |
+| `clientId`            | string    | Mottaker                                                                                                                                                             |
+| `contractId`          | string    | Identifikator for kontrakt eller avtale som leveransepakken er knyttet til                                                                                           |
+| `sumSizeInBytes`      | integer   | Total størrelse i bytes                                                                                                                                              |
+| `files`               | array     | Liste over filer i pakken                                                                                                                                            |
+| → `downloadURL`       | uri       | Presignert nedlastings-URL                                                                                                                                           |
+| → `filename`          | string    | Filnavn                                                                                                                                                              |
+| → `filesize`          | integer   | Filstørrelse i bytes                                                                                                                                                 |
+| → `expirationDate`    | date-time | Utløpsdato for URL                                                                                                                                                   |
+| → `checksum`          | string    | Sjekksum                                                                                                                                                             |
+| → `checksumAlgorithm` | enum      | Algoritme brukt for sjekksum                                                                                                                                         |
 
 ## Støtte
 

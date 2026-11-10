@@ -86,7 +86,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 
 ### Download and verify the files
 
-The [`dissemination.delivered`](/docs/dps/how-to/receive-notifications/#disseminationdelivered) message contains a `files` list. For each file, download it from `downloadURL` and compare it with `checksum`, using the algorithm given in `checksumAlgorithm`.
+The [`dissemination.delivered`](/docs/dps/reference/api/#disseminationdelivered) message contains a `files` list. For each file, download it from `downloadURL` and compare it with `checksum`, using the algorithm given in `checksumAlgorithm`.
 
 Download the files before the links expire (`expirationDate`). If the links expire, create a new dissemination request; each dissemination gets new links.
 
