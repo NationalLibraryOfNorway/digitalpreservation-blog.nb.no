@@ -1,6 +1,6 @@
 # Hugo configuration file
 baseURL: "https://digitalpreservation.no/"
-title: "NLN Digital preservation"
+title: "Digital preservation at the National Library of Norway"
 
 enableRobotsTXT: true
 enableGitInfo: true
@@ -71,7 +71,7 @@ languages:
   nb:
     label: Norsk
     weight: 2
-    title: NB Digital bevaring
+    title: Digital bevaring i Nasjonalbiblioteket
 
 params:
   navbar:
