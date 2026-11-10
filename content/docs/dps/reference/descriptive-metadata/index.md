@@ -20,7 +20,7 @@ Most metadata elements are optional, but it is strongly recommended to provide a
 - Punctuation and character encoding for field input should follow [UTF-8](https://snl.no/UTF-8).
 - [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) is used as the standard for specifying language when the lang attribute is applied.
 - [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) is used as the standard format for specifying dates and times.
-- [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) is used to specify country codes.
+- [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-2:ed-4:v1:en) is used to specify country codes.
 
 ## Metadata elements
 
@@ -418,7 +418,7 @@ Explanation of *authority* information:
 
 **Guidelines for use:**
 
-- Use [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) for specifying countries. Country codes should be placed in parentheses after the country name (e.g., Norway (NO)). 
+- Use [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-2:ed-4:v1:en) for specifying countries. Country codes should be placed in parentheses after the country name (e.g., Norway (NO)). 
 
 It is recommended to use official place name services or registries for specifying Norwegian place names. 
 One example is the  [Central Place Name Register (SSR)](https://www.kartverket.no/api-og-data/stedsnavndata) provided by the Norwegian Mapping Authority (Kartverket). 

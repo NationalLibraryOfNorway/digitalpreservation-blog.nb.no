@@ -20,7 +20,7 @@ Dette gir bedre søkbarhet og forståelse av ressursene – også i et langtidsp
 - Tegnsetting for utfylling av felter følger [UTF-8](https://snl.no/UTF-8).
 - [ISO 639-3](https://www.iso.org/obp/ui/#iso:std:iso:639:-3:ed-1:v1:en) brukes som standard for å angi språk når attributt `lang` brukes.
 - [ISO 8601-2](https://www.iso.org/obp/ui/en/#iso:std:iso:8601:-2:ed-1:v1:en) brukes som standard for angivelse av tid/dato.
-- [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-1:ed-4:v1:en) brukes for angivelse av land.
+- [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-2:ed-4:v1:en) brukes for angivelse av land.
 
 ## Metadataelementer
 
@@ -415,6 +415,7 @@ Forklaring til bruk av *authority*-informasjon:
 
 **Retningslinjer for bruk:**
 
+- Bruk [ISO 3166-2](https://www.iso.org/obp/ui/en/#iso:std:iso:3166:-2:ed-4:v1:en) for angivelse av land. Landkoden skal stå i parentes etter landnavnet (f.eks. Norge (NO)).
 
 Vi anbefaler bruk av stedsnavstjenester/registre for angivelse av norske stedsnavn. 
 Et eksempel er [Sentralt stedsnavnregister](https://www.kartverket.no/api-og-data/stedsnavndata) (SSR) fra kartverket. Det MÅ oppgis hvilket register som er benyttet.  
