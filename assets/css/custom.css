@@ -191,3 +191,29 @@ nav .hextra-theme-toggle svg {
   width: 1.125rem;
   height: 1.125rem;
 }
+
+/* Navbar title: logo lockup with the site's sub-label (see layouts/partials/navbar-title.html). */
+.nb-site-title {
+  gap: 0.875rem;
+}
+
+.nb-site-title__sublabel {
+  display: none;
+  padding-left: 0.875rem;
+  border-left: 1px solid var(--hx-color-gray-300, #d4d4d4);
+  font-size: 0.9375rem;
+  color: var(--nb-text);
+  user-select: none;
+  white-space: nowrap;
+}
+
+.dark .nb-site-title__sublabel {
+  color: var(--hx-color-gray-100);
+  border-left-color: rgb(255 255 255 / 0.2);
+}
+
+@media (min-width: 640px) {
+  .nb-site-title__sublabel {
+    display: inline;
+  }
+}
