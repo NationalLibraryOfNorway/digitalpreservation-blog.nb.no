@@ -1,98 +1,14 @@
 ---
-title: Events/preservation metadata
+title: Preservation events
 weight: 4
 draft: false
 aliases:
   - /docs/dps/api/submission/events/
 ---
 
+This page specifies the elements of a preservation event and the event types used in DPS. For what events are and why they matter, see [Preservation events](/docs/dps/understanding/metadata-management/preservation-events/). For how to choose and submit events, see [Add preservation events](/docs/dps/how-to/add-preservation-events/).
 
-
-In digital preservation, an “event” documents an action or occurrence that has affected a digital object, such as creation, migration, validation, or transfer. Events are considered important preservation metadata, as they provide traceability and evidence of what has been done to the object throughout its entire lifecycle.
-
-The event and agent model used here is based on the [PREMIS data model](https://www.loc.gov/standards/premis/) for preservation metadata.
-
-Providing events is not mandatory, but we recommend doing so whenever such information is available. Events submitted through the API are preserved in the same way as events recorded internally within the preservation environment (DPS). This makes it easier to get an overview of all events associated with an object when it is delivered.
-
-Preservation metadata can be provided in two ways: through the API or as files included in the Submission Information Package (SIP). We recommend submitting preservation metadata through the API. Events submitted through the API are also accessible via the API, while metadata provided as files in the SIP are preserved as part of the package. If practical or technical constraints prevent you from submitting metadata through the API, we still recommend including it in the SIP rather than leaving it out. The SIP may also contain other types of preservation metadata than those described on this page. See more under [metadata primer](/docs/dps/reference/sip/metadata/) and [requirements for SIP structure](/docs/dps/reference/sip/structure-requirements/). Information relating directly to provenance may be included under [metadata](/docs/dps/reference/descriptive-metadata/).
-
-
-
-## Linking events to an object
-
-Events are submitted via the API:
-
-`POST /v1/contracts/{contractId}/submissions/{submissionId}/events`
-
-An event is always linked to a submission, which represents an Intellectual Entity (IE).
-
-Events can only be submitted while the submission has the status `REGISTERED`, that is, before the submission is finalized. A successful request returns `204 No Content`. The field `isUserInitiated` is set to `true` automatically for events submitted through the API and does not need to be included.
-
-Submitted events can be retrieved with `GET /v1/contracts/{contractId}/submissions/{submissionId}/events`.
-
-### Level and reference to file
-
-Events are always linked to a submission (IE). They can apply to the entire information package (IE level) or to a specific file (file level).
-
-This is controlled by `fileRef`:
-
-- Without `fileRef` → the event applies to the entire information package (IE)
-- With `fileRef` → the event applies to a specific file
-
-`fileRef` identifies the file using `relativePath`:
-
-- The reference is based on the file's relative path within the information package
-- `fileId` is generated internally in DPS and must not be provided in the API call
-- Only one `fileRef` can be specified per event
-
-**Example (file level):**
-
-```json
-{
-  "fileRef": {
-    "relativePath": "representations/rep-images/data/DSC_0456.JPG"
-  }
-}
-```
-
-In this example, the event applies to the file `DSC_0456.JPG` in the representation `rep-images`.
-
-## JSON payload structure
-
-An event is submitted as a single JSON object. The fields describing the action itself and its result are at the top level. The actor that performed the action is described in the `agent` object.
-
-`fileRef` is optional and is only used when the event applies to a specific file. If `fileRef` is not specified, the event applies to the entire information package (IE level).
-
-**Simplified structure:**
-
-```json
-{
-  "agent": {
-    "agentName": "...",
-    "agentType": "...",
-    "agentVersion": "...",
-    "agentNote": "..."
-  },
-  "eventDateTime": "...",
-  "eventType": "...",
-  "eventDetail": "...",
-  "fileRef": {
-    "relativePath": "..."
-  },
-  "outcome": "...",
-  "outcomeDetail": "..."
-}
-```
-
-Events can be registered at both package level and file level. As a general rule, events should be linked to the package level, the Intellectual Entity (IE), where possible. This is to avoid large numbers of events that essentially convey the same information. It is possible to associate events with individual files when there is a need to document file-level actions. The most important consideration is to be deliberate about what is documented, why it is documented, and at which level.
-
-For Norwegian submitters it is recommended that events are written in Norwegian whenever possible. In general the events should be formulated with future management and use in mind, so that the information remains as clear and verifiable as possible over time.
-
-For technical documentation of submissions in API and event formatting see: [Swagger DPS Submission Service API](https://digitalpreservation.no/swagger/)
-
-The machine-readable OpenAPI specification (JSON) is available at <https://api.nb.no/dps-submission/v1/api-docs>. Events are described by the `SubmitEventDto` schema.
-
-# Use of event elements
+## Event elements
 
 
 **The following elements are permitted:**
@@ -113,9 +29,8 @@ The machine-readable OpenAPI specification (JSON) is available at <https://api.n
 
 Elements marked with \* are required.
 
-## How to use Event Elements:
 
-## Agent:
+## Agent
 The Agent describes the actor (who or what) that performed the action. This may be software, an organization, or a person. The information should be sufficiently precise to identify which actor and configuration was used.
 
 
@@ -139,7 +54,6 @@ Specifies the type of actor that performed the action. Values are taken from the
 - "hardware"
 
 
-
 ### AgentVersion
 The version or revision of the agent. This field is **only** relevant for software and hardware agents. AgentVersion is used to ensure traceability and reproducibility, as different versions of the same tool may produce different results.
 
@@ -147,7 +61,6 @@ The version or revision of the agent. This field is **only** relevant for softwa
 - "1.15.0"
 - "3.2"
 - "1.11.0; DROID_SignatureFile_V116.xml; container-signature-20231127.xml"
-
 
 
 ### AgentNote
@@ -168,8 +81,7 @@ Additional information about the agent that performed the action. This element d
 > Use consistent wording in agentNote when describing the same agent.
 
 
-
-## Event:
+## Event
 The Event describes the action performed on the object.
 
 
@@ -180,11 +92,9 @@ The date and time when the event occurred. Must be expressed according to the IS
 - "2026-02-23T10:45:00+01:00"
 
 
-
 ### EventType
 Specifies the type of action performed. This element describes the kind of process the event represents.
 The value must be a controlled and consistently used term — see list of allowed event types below.
-
 
 
 ### EventDetail
@@ -217,12 +127,9 @@ This element documents what was actually achieved or which deviations were ident
 - "The package was validated against the profiles E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0, and NB-SIP-MOVINGIMAGES-PROFILE-1.0, resulting in one warning: CSIPSTR13 the representation folder primary_20250325 is missing the metadata subfolder (SHOULD requirement). Processing continued."
 
 
-# Event-types
+## Event types accepted through the API
 
 The National Library bases its work on the [Library of Congress](https://www.loc.gov/) list of [EventTypes](https://id.loc.gov/vocabulary/preservation/eventType.html). This list has been narrowed down, and the use of the different types has been specified to suit our needs and preservation environments. Event types other than those specified in the list below are not approved in the API.
-
-
-## EventTypes
 
 
 ### Capture
@@ -318,7 +225,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 ```
 
 
- ### Fixity check 
+### Fixity check 
 
 
  | Name 	        | **fixity check** 	                                                               |
@@ -351,7 +258,7 @@ The National Library bases its work on the [Library of Congress](https://www.loc
 ```
 
 
- ### Imaging 
+### Imaging 
 
 
  | Name 	        | **imaging** 	                                                                |
@@ -699,85 +606,9 @@ Example of a validation with deviations that did not stop processing:
 }
 ```
 
+## Events generated by DPS
 
+> [!NOTE]
+> This section is being written. It will list the event types DPS records itself, when each is recorded, and which agent is used.
 
-## Guidance for use of event types in different data flows
-
-This guidance is based on the National Library's internal workflows and may not cover all types of preservation processes. Feedback on improvements, clarifications, and additional use cases is welcome.
-
-
-### Digitization of physical sources
-
-**Minimum:**
-
-- **Creation or Imaging (use one of these):** Documents when the file(s) are actually created.<br>
-**Creation** is used when digital files are created through digitization or production processes, such as document scanning, audio digitization, or transfer of video content from an analog source.<br>
-**Imaging** is used when a complete disk image (bit-for-bit copy) of a physical storage medium is created, such as a hard drive, floppy disk, CD, or memory card. Imaging captures the entire medium, including the file system structure, metadata, unallocated space, and any deleted data. 
-- **Message Digest Calculation:** Creation of checksums. It is generally not necessary to document checksum verification immediately after the checksums have been generated. Verification before transfer to the next stage is recommended, but no separate event needs to be recorded for this activity. 
-- **Information Package Creation:** Creation of a SIP. Document the applicable packaging standard (e.g., E-ARK). 
-
-
-**May Be Relevant:**
-
-- **Validation:** Validation of file quality and/or format against a specified standard. 
-- **Metadata Extraction:** Extraction of technical, administrative, and/or descriptive metadata from files. The extracted information should either be documented in "outcomeDetail" or result in a new file that is included in the preservation package. 
-
-
-### Born-Digital Material
-
-**Minimum:**
-
-- **Transfer:** Transfer from the producer/depositor to an internal processing workflow or staging area.
-- **Message Digest Calculation or Fixity Check:** If files are delivered with checksums, these must be verified. If no checksums are provided, checksums must be generated.
-- **Information Package Creation:** Creation of a SIP. Document the applicable packaging standard (e.g., E-ARK).
-
-**May Be Relevant:**
-
-- **Virus Check:** Create a single event covering all files in the package. Any issues or anomalies should be documented at the file level.
-- **Validation:** Validation of file quality and/or format against a specified standard.
-- **Metadata Extraction:** Extraction of technical, administrative, and/or descriptive metadata from files. The extracted information should either be documented in "outcomeDetail" or result in a new file that is included in the preservation package.
-- **Filename Change:** If file names are changed after receipt of the files.
-- **Migration:** If file formats are changed.
-
-
-
-### Transfer of Material from a previous Storage System to the DPS
-
-**Minimum:**
-
-- **Transfer:** Transfer from the previous storage system.
-- **Fixity Check or Message Digest Calculation:** Verification of existing checksums. If the material does not include checksums, new checksums must be generated.
-- **Information Package Creation:** Creation of a SIP. Document the applicable packaging standard (e.g., E-ARK). This event is only relevant when preservation packages are modified.
-
-Note: A single Transfer event may include checksum verification as part of the transfer process, for example: transfer from system X to system Y with checksum verification performed during transfer.
-
-
-**May Be Relevant:**
-
-- **Creation:** If the creation of the files has not already been documented and the relevant information is available. 
-- **Filename Change:** If file names are changed after transfer from the previous storage system.
-- **Migration:** If file formats are changed.
-
-
-
-### Web Harvesting (Web Archive)
-
-**Minimum:**
-
-- **Capture:** The actual web harvesting or crawl process.
-- **Creation:** If new files are created as part of the harvesting process, for example WARC files.
-- **Message Digest Calculation:** Generation of checksums. It is generally not necessary to document checksum verification immediately after the checksums have been generated. Verification before transfer to the next stage is recommended, but no separate event needs to be recorded for this activity.
-- **Information Package Creation:** Creation of a SIP. Document the applicable packaging standard (e.g., E-ARK).
-
-
-**May Be Relevant:**
-
-- **Validation:** Validation of file quality and/or format against a specified standard.
-- **Virus Check:** Create a single event covering all files in the package. Any issues or anomalies should be documented at the file level.
-- **Metadata Extraction:** Extraction of technical, administrative, and/or descriptive metadata from files. The extracted information should either be documented in "outcomeDetail" or result in a new file that is included in the preservation package.
-
-
-
-
-
-
+DPS records its own events during ingest, during preservation, and when content is retrieved. These include events for transfer, validation, verification, file format identification, and technical metadata extraction. Some of these event types are only used internally and cannot be submitted through the API.

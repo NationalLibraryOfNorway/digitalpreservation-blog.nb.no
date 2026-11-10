@@ -1,11 +1,9 @@
 ---
-title: Webhooks
-weight: 3
+title: Motta varsler
+weight: 4
 aliases:
   - /docs/dps/api/webhooks/
 ---
-
-# Webhooks fra Digital Preservation System (DPS)
 
 Nasjonalbiblioteket kan sende hendelsesvarsler direkte til dine systemer via webhooks.  
 DPS bruker **Standard Webhooks**[^1] for format og signering,

@@ -31,7 +31,7 @@ Data overføres til DPS som informasjonspakker (SIP-er) gjennom API-et. Før en 
 
 Avleveringsflyten er: opprett en avlevering → registrer filene som utgjør SIP-en → last opp filinnholdet → fullfør avleveringen for å starte behandling i DPS. 
 
-Filene bevares dersom de validerer mot [krav til SIP-struktur](/docs/dps/reference/sip/structure-requirements/), [krav til METS.xml](/docs/dps/reference/sip/mets/) og krav til [Submission API-et](/docs/dps/how-to/submit-a-package/). Avleveringer som ikke oppfyller kravene vil bli avvist. 
+Filene bevares dersom de validerer mot [krav til SIP-struktur](/docs/dps/reference/sip/structure-requirements/), [krav til METS.xml](/docs/dps/reference/sip/mets/) og krav til [Submission API-et](/docs/dps/how-to/submit-content/). Avleveringer som ikke oppfyller kravene vil bli avvist. 
 
 ## Hvordan data bevares i DPS
 

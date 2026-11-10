@@ -1,11 +1,9 @@
 ---
-title: Webhooks
-weight: 3
+title: Receive notifications
+weight: 4
 aliases:
   - /docs/dps/api/webhooks/
 ---
-
-# Webhooks from Digital Preservation System (DPS)
 
 The National Library of Norway can send event notifications directly to your systems via webhooks.  
 DPS uses **Standard Webhooks**[^1] for format and signing, allowing notifications to be securely validated and automatically processed.

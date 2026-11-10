@@ -1,101 +1,14 @@
 ---
-title: Eventer/ bevaringsmetadata
+title: Bevaringseventer
 weight: 4
 draft: false
 aliases:
   - /docs/dps/api/submission/events/
 ---
 
+Denne siden spesifiserer elementene i en bevaringsevent og eventtypene som brukes i DPS. Hva eventer er og hvorfor de er viktige, er beskrevet under [Bevaringseventer](/nb/docs/dps/understanding/metadata-management/preservation-events/). Hvordan du velger og leverer eventer, er beskrevet under [Legge til bevaringseventer](/nb/docs/dps/how-to/add-preservation-events/).
 
-I digital bevaring dokumenterer en “event” en handling eller hendelse som har påvirket et digitalt objekt, for eksempel opprettelse, migrering, validering eller
-overføring. Dette anses som viktig bevaringsmetadata og gir sporbarhet og bevis for hva som er gjort med objektet gjennom hele livssyklusen.
-
-Event- og agent-modellen som brukes her er basert på [PREMIS-datamodellen](https://www.loc.gov/standards/premis/) for bevaringsmetadata.
-
-Det er ikke et krav å levere eventer, men vi anbefaler å gjøre det dersom slik informasjon er tilgjengelig. Eventer som registreres via API-et, bevares på lik linje med hendelser som registreres internt i bevaringsomgivelsene (DPS). Ved utlevering gir dette en samlet oversikt over hendelser knyttet til et objekt.
-
-Bevaringsmetadata kan leveres på to måter: via API-et eller som filer i informasjonspakken (SIP). Vi anbefaler å levere bevaringsmetadata via API-et. Eventer som registreres denne veien, blir tilgjengelige gjennom API-et, mens metadata som leveres som filer i SIP-en, bevares som en del av informasjonspakken. Dersom det av praktiske eller tekniske grunner ikke er mulig å levere metadata via API-et, anbefaler vi likevel å inkludere dem i SIP-en fremfor å utelate dem. Det kan også være relevant å dokumentere andre typer bevaringsmetadata i SIP-en enn det som er beskrevet på denne siden. Se [metadataveiledning](/docs/dps/reference/sip/metadata/) og [krav til pakkestruktur](/docs/dps/reference/sip/structure-requirements/) for mer informasjon. Informasjon som går direkte på proveniens kan legges til i [metadata](/docs/dps/reference/descriptive-metadata/).
-
-## Kobling av eventer til objekt
-
-Eventer sendes inn via API:
-
-`POST /v1/contracts/{contractId}/submissions/{submissionId}/events`
-
-Et event knyttes alltid til en submission, som representerer en Intellektuell entitet (IE).
-
-Eventer kan bare sendes inn mens submissionen har status `REGISTERED`, altså før submissionen er fullført. En vellykket forespørsel gir `204 No Content`. Feltet `isUserInitiated` settes automatisk til `true` for eventer som sendes inn via API-et, og trenger ikke å være med.
-
-Innsendte eventer kan hentes med `GET /v1/contracts/{contractId}/submissions/{submissionId}/events`.
-
-### Nivå og referanse til fil
-
-Eventer knyttes alltid til en submission (IE). De kan enten gjelde hele informasjonspakken (IE-nivå) eller en spesifikk fil (filnivå).
-
-Dette styres av `fileRef`:
-
-- Uten `fileRef` → eventet gjelder hele informasjonspakken (IE)
-- Med `fileRef` → eventet gjelder en spesifikk fil
-
-`fileRef` identifiserer filen ved hjelp av `relativePath`:
-
-- Referansen baseres på filens relative sti i informasjonspakken
-- `fileId` genereres internt i DPS og skal ikke oppgis i API-kallet
-- Det kan kun angis én `fileRef` per event
-
-**Eksempel (filnivå):**
-
-```json
-{
-  "fileRef": {
-    "relativePath": "representations/rep-images/data/DSC_0456.JPG"
-  }
-}
-```
-
-I dette eksemplet gjelder eventet filen `DSC_0456.JPG` i representasjonen `rep-images`.
-
-## Struktur på JSON-payload
-
-Et event sendes inn som ett JSON-objekt. Feltene som beskriver selve handlingen og resultatet ligger på toppnivå. Aktøren som utførte handlingen, beskrives i objektet `agent`.
-
-`fileRef` er valgfritt og brukes bare når eventet gjelder en spesifikk fil. Hvis `fileRef` ikke er angitt, gjelder eventet hele informasjonspakken (IE-nivå).
-
-**Forenklet struktur:**
-
-```json
-{
-  "agent": {
-    "agentName": "...",
-    "agentType": "...",
-    "agentVersion": "...",
-    "agentNote": "..."
-  },
-  "eventDateTime": "...",
-  "eventType": "...",
-  "eventDetail": "...",
-  "fileRef": {
-    "relativePath": "..."
-  },
-  "outcome": "...",
-  "outcomeDetail": "..."
-}
-```
-
-
-
-Eventer kan registreres både på pakkenivå og filnivå. Som hovedregel bør eventer knyttes til pakkenivå, Intellektuell entitet (IE), der det er mulig. Dette for
-å unngå store mengder eventer som i utgangspunktet sier det samme. Det er åpent for å legge eventer på filer der det er behov for å dokumentere hendelser på
-enkeltfiler. Det viktigste er at man har et bevisst forhold til hva som dokumenteres, hvorfor det dokumenteres, og på hvilket nivå.
-
-Det anbefales at eventene skrives på norsk der det er mulig. Eventene bør utformes med hensyn til framtidig forvaltning og bruk, slik at informasjonen er mest
-mulig forståelig og etterprøvbar over tid.
-
-Teknisk dokumentasjon for avlevering i API og formatering av eventer finnes her: [Swagger DPS Submission Service API](https://digitalpreservation.no/swagger/)
-
-Den maskinlesbare OpenAPI-spesifikasjonen (JSON) er tilgjengelig på <https://api.nb.no/dps-submission/v1/api-docs>. Eventer er beskrevet i skjemaet `SubmitEventDto`.
-
-# Bruk av event-elementer
+## Event-elementer
 
 **Tillatte elementer er:**
 
@@ -117,9 +30,8 @@ Den maskinlesbare OpenAPI-spesifikasjonen (JSON) er tilgjengelig på <https://ap
 
 Elementer merket med \* er påkrevde.
 
-## Forklaring til bruk av event-elementer:
 
-## Agent:
+## Agent
 
 Agent beskriver den aktøren (hvem eller hva) som utførte handlingen. Dette kan være programvare, en organisasjon eller en person. 
 Informasjonen skal være tilstrekkelig presis til å kunne identifisere hvilken aktør og konfigurasjon som ble brukt.
@@ -180,7 +92,7 @@ spesifikt event.
 > [!NOTE]
 > Bruk konsekvente formuleringer i agentNote når du beskriver samme agent.
 
-## Event:
+## Event
 
 Event beskriver selve handlingen som ble utført på objektet.
 
@@ -236,7 +148,7 @@ Beskrivelsen skal være kortfattet og forståelig.
 - "Pakken er validert mot profilene E-ARK-SIP-v2-2-0, NB-SIP-STRUCTURE-1.0 og NB-SIP-MOVINGIMAGES-PROFILE-1.0 med én advarsel: CSIPSTR13 representasjonsmappen primary_20250325 mangler undermappen metadata (BØR-krav). Behandlingen fortsatte."
 
 
-## Event-typer
+## Eventtyper som godtas via API-et
 
 Nasjonalbiblioteket har tatt utgangspunkt i [Library of Congress](https://www.loc.gov/) sin liste
 over [EventTypes](https://id.loc.gov/vocabulary/preservation/eventType.html). Lista har blitt innskrenket, og bruken av de ulike typene er spesifisert til å
@@ -702,79 +614,9 @@ Eksempel på validering med avvik som ikke stoppet behandlingen:
 }
 ```
 
+## Eventer som genereres av DPS
 
+> [!NOTE]
+> Denne delen er under arbeid. Den vil liste eventtypene DPS registrerer selv, når hver av dem registreres, og hvilken agent som brukes.
 
-## Veiledning for bruk av event-typer i ulike datastrømmer
-
-Denne veiledningen er basert på Nasjonalbibliotekets interne arbeidsflyter og er ikke nødvendigvis dekkende for alle typer bevaringsprosesser. Innspill til forbedringer, presiseringer og ytterligere brukstilfeller mottas gjerne.
-
-
-### Digitalisering av fysiske kilder 
-
-**Minimum:** 
-
-- **Creation eller Imaging (Bruk én av disse):** Når filen(e) faktisk opprettes.<br>
-**Creation** brukes når digitale filer opprettes gjennom digitalisering eller produksjon, for 	eksempel ved skanning, digitalisering av lyd eller overføring av video fra analog kilde.<br>
-**Imaging** brukes når det opprettes et komplett diskbilde (bit-for-bit kopi) av et fysisk 	lagringsmedium, som harddisk, diskett, CD eller minnekort. Imaging omfatter hele 		mediet, inkludert filsystemstruktur, metadata, ledig plass og eventuelt slettede data.
-
-- **Message digest calculation:** Opprettelse av sjekksummer. Det anses ikke som nødvendig å dokumentere verifisering av sjekksummene rett etter at de er opprettet. Gjerne verifiser dem før de sendes videre, men ikke lag en event på det. 
-  
-- **Information package creation:** Opprettelsen av en SIP. Dokumenterer gjeldende pakkestandard (E-ARK).
-  
-
-**Kan være relevant:**
-
-- **Validation:** Validering av kvalitet og/eller format mot en standard.
-- **Metadata extraction:** Hente ut tekniske, administrative og/eller deskriptive metadata fra fil. Uttrekk må beskrives i "OutcomeDetail" eller resultere i ny fil som legges i bevaringspakken.
-
-
-### Digitalt født materiale
-
-**Minimum:**
-
-- **Transfer:** Fra avleverer til intern produksjonsløype/internt område. 
-- **Message digest calculation eller fixity check:** Hvis filer avleveres med sjekksum, må disse verifiseres. Hvis filene mangler sjekksum, må det opprettes. 
-- **Information package creation:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK).
-
-
-**Kan være relevant:**
-
-- **Virus check:** Lag én event for alle filer (hele pakken), eventuelle avvik dokumenteres på filnivå. 
-- **Validation:** Validering av kvalitet og/eller format mot en standard.
-- **Metadata extraction:** Hente ut tekniske, administrative og/eller deskriptive metadata fra fil. Uttrekk må beskrives i "OutcomeDetail" eller resultere i ny fil som legges i bevaringspakken.
-- **Filename change:** Hvis filnavn endres etter mottak av filene.
-- **Migration:** Hvis filformat endres. 
-
-
-### Overføring av materiale fra tidligere lagringssystem til DPS
-
-**Minimum:**
-
-- **Transfer:** Fra tidligere lagringssystem. 
-- **Fixity check eller message digest calculation:** Kontroll av eksisterende sjekksummer. Hvis materialet mangler sjekksummer, må det opprettes. 
-- **Information package creation:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK). Denne er relevant kun når bevaringspakkene endres.
-  
-Merk at det kan være én event med event-type «transfer» som inkluderer sjekksumverifisering: transfer fra X til Y, med sjekksumverifisering på veien. 
-
-
-**Kan være relevant:**
-
-- **Creation:** Hvis opprettelse av filene ikke er dokumentert tidligere, og man har denne informasjonen tilgjengelig. 
-- **Filename change:** Hvis filnavn endres etter at det er flyttet fra tidligere lagringssystem. 
-- **Migration:** Hvis filformat endres. 
-
-
-### Netthøsting (web-arkiv)
-
-**Minimum:**
-
-- **Capture:** Selve innhøstingen/crawl. 
-- **Creation:** Hvis det lages for eksempel nye WARC-filer.
-- **Message digest calculation:** Opprettelse av sjekksummer. Det anses ikke som nødvendig å dokumentere verifisering av sjekksummene rett etter at de er opprettet. Gjerne verifiser dem før de sendes videre, men ikke lag en event. 
-- **Information package creation:** Opprettelsen av en SIP. Dokumenter gjeldende pakkestandard (E-ARK). 
-
-
-**Kan være relevant:**
-- **Validation:** Validering av kvalitet og/eller format mot en standard.
-- **Virus check:** Lag én event for alle filer (hele pakken), eventuelle avvik dokumenteres på filnivå. 
-- **Metadata extraction:** Hente ut tekniske, administrative og/eller deskriptive metadata fra fil. Uttrekk må beskrives i "OutcomeDetail" eller resultere i ny fil som legges i bevaringspakken.
+DPS registrerer egne eventer under mottak, under bevaring og når innhold hentes ut. Dette omfatter eventer for overføring, validering, verifisering, filformatidentifisering og uttrekk av teknisk metadata. Noen av disse eventtypene brukes bare internt og kan ikke leveres via API-et.

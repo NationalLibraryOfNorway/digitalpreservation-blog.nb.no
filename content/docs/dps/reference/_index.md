@@ -9,5 +9,5 @@ Specifications and technical reference for the DPS: the API, the requirements fo
   {{< card link="api" title="Application Programming Interface" subtitle="Authentication, roles, and error handling" icon="code" >}}
   {{< card link="sip" title="SIP specifications" subtitle="E-ARK package structure, METS.xml requirements, and examples" icon="archive" >}}
   {{< card link="descriptive-metadata" title="Metadata Requirements" subtitle="Dublin Core elements submitted with each package" icon="tag" >}}
-  {{< card link="preservation-events" title="Events/preservation metadata" subtitle="PREMIS agents, events, and event types" icon="collection" >}}
+  {{< card link="preservation-events" title="Preservation events" subtitle="Event elements, agents, and event types" icon="collection" >}}
 {{< /cards >}}

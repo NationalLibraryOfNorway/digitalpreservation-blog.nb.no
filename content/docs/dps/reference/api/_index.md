@@ -14,10 +14,11 @@ This documentation provides a high-level overview of the available APIs. For com
 
 The machine-readable OpenAPI specification (JSON) is available at <https://api.nb.no/dps-submission/v1/api-docs>.
 
-The following services are available:
-- [**Submission Service API**](../../how-to/submit-a-package/): For submitting digital objects for preservation.
-- [**Dissemination Service API**](../../how-to/retrieve-a-package/): For requesting preserved digital objects.
-- [**Webhooks**](../../how-to/receive-notifications/): For receiving automatic status updates in your systems.
+The API lets you:
+- [**Submit content for preservation**](../../how-to/submit-content/): submit digital objects for preservation.
+- [**Add preservation events**](../../how-to/add-preservation-events/): add preservation events to a submission.
+- [**Request preserved content**](../../how-to/retrieve-content/): request preserved digital objects.
+- [**Receive notifications**](../../how-to/receive-notifications/): get automatic status updates in your systems through webhooks.
 
 ## Authentication & Authorization
 

@@ -103,8 +103,9 @@ These pages explain concepts, responsibilities, and how the DPS works:
 Step-by-step guides for producers and consumers:
 
 {{< cards >}}
-  {{< card link="how-to/submit-a-package" title="Submit a package" subtitle="Register a submission, upload files, and finalize it" icon="upload" >}}
-  {{< card link="how-to/retrieve-a-package" title="Retrieve a package" subtitle="Request a preserved package and download it" icon="download" >}}
+  {{< card link="how-to/submit-content" title="Submit content for preservation" subtitle="Register a submission, upload files, and finalize it" icon="upload" >}}
+  {{< card link="how-to/add-preservation-events" title="Add preservation events" subtitle="Choose and add preservation events to a submission" icon="collection" >}}
+  {{< card link="how-to/retrieve-content" title="Request preserved content" subtitle="Order delivery of preserved content and download it" icon="download" >}}
   {{< card link="how-to/receive-notifications" title="Receive notifications" subtitle="Get status updates in your systems through webhooks" icon="bell" >}}
 {{< /cards >}}
 
@@ -116,7 +117,7 @@ Specifications and API reference:
   {{< card link="reference/api" title="Application Programming Interface" subtitle="Authentication, roles, and error handling" icon="code" >}}
   {{< card link="reference/sip" title="SIP specifications" subtitle="E-ARK package structure, METS.xml requirements, and examples" icon="archive" >}}
   {{< card link="reference/descriptive-metadata" title="Metadata Requirements" subtitle="Dublin Core elements submitted with each package" icon="tag" >}}
-  {{< card link="reference/preservation-events" title="Events/preservation metadata" subtitle="PREMIS agents, events, and event types" icon="collection" >}}
+  {{< card link="reference/preservation-events" title="Preservation events" subtitle="Event elements, agents, and event types" icon="collection" >}}
 {{< /cards >}}
 
 [^1]: [Intellectial entities and content](https://digitalpreservation.no/docs/dps/understanding/information-packages/#intellectial-entities-and-content)

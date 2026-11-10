@@ -33,7 +33,7 @@ The submission workflow consists of the following steps:
 
 Create a submission → Register the files that make up the SIP → Upload the file contents → Upload the file contents.  
 
-A submission is accepted for preservation only if it complies with the [SIP structure requirements](/docs/dps/reference/sip/structure-requirements/), the [METS.xml requirements](/docs/dps/reference/sip/mets/), and the [API requirements](/docs/dps/how-to/submit-a-package/). Submissions that do not meet these requirements are rejected. 
+A submission is accepted for preservation only if it complies with the [SIP structure requirements](/docs/dps/reference/sip/structure-requirements/), the [METS.xml requirements](/docs/dps/reference/sip/mets/), and the [API requirements](/docs/dps/how-to/submit-content/). Submissions that do not meet these requirements are rejected. 
 
 ## How data is preserved in the DPS
 

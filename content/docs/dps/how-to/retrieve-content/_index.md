@@ -1,6 +1,6 @@
 ---
-title: Dissemination Service
-weight: 2
+title: Request preserved content
+weight: 3
 aliases:
   - /docs/dps/api/dissemination/
 ---

@@ -1,5 +1,5 @@
 ---
-title: Submission Service
+title: Submit content for preservation
 weight: 1
 aliases:
   - /docs/dps/api/submission/
@@ -39,7 +39,7 @@ The complete submission process follows these steps:
 | GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Fetch file                |
 | DELETE | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Delete file               |
 | POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/finalize` | Finalize submission               |
-| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Submit event, see [Events](../../reference/preservation-events/) |
+| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Submit event, see [Add preservation events](../add-preservation-events/) |
 | GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Fetch events                      |
 
 - **List submissions:** Ordered by creation date and paginated with `page` (zero-based, default `0`) and `size` (default `10`). Filter with `objectId` and/or `archiveId` (exact match; multiple filters are combined with AND). If nothing matches, the response is an empty page.

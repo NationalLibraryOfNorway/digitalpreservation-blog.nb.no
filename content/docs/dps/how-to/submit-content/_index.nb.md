@@ -1,5 +1,5 @@
 ---
-title: Submission Service
+title: Levere materiale til bevaring
 weight: 1
 aliases:
   - /docs/dps/api/submission/
@@ -43,7 +43,7 @@ Hele prosessen for å levere innhold ser slik ut:
 | GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Hent fil                      |
 | DELETE | `/v1/contracts/{contractId}/submissions/{submissionId}/files/{fileId}` | Slett fil                     |
 | POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/finalize` | Fullfør submission                    |
-| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Send inn event, se [Events](../../reference/preservation-events/)  |
+| POST   | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Send inn event, se [Legge til bevaringseventer](../add-preservation-events/)  |
 | GET    | `/v1/contracts/{contractId}/submissions/{submissionId}/events`   | Hent eventer                          |
 
 - **Liste over submissions:** Sortert etter når de ble opprettet, og paginert med `page` (nullbasert, standard `0`) og `size` (standard `10`). Filtrer med `objectId` og/eller `archiveId` (eksakt treff; flere filtre kombineres med OG). Hvis ingenting treffer, er responsen en tom side.

@@ -13,10 +13,11 @@ Denne dokumentasjonen gir en overordnet oversikt over tilgjengelige API-er. For 
 
 Den maskinlesbare OpenAPI-spesifikasjonen (JSON) er tilgjengelig på <https://api.nb.no/dps-submission/v1/api-docs>.
 
-Følgende tjenester er tilgjengelige:
-- [**Submission Service API**](../../how-to/submit-a-package/): For innlevering av digitale objekter for bevaring.
-- [**Dissemination Service API**](../../how-to/retrieve-a-package/): For bestilling av bevarte digitale objekter.
-- [**Webhooks**](../../how-to/receive-notifications/): For å motta automatiske statusoppdateringer i dine systemer.
+Med API-et kan du:
+- [**Levere materiale til bevaring**](../../how-to/submit-content/): levere digitale objekter til bevaring.
+- [**Legge til bevaringseventer**](../../how-to/add-preservation-events/): legge til bevaringseventer i en innlevering.
+- [**Bestille utlevering av bevart materiale**](../../how-to/retrieve-content/): bestille bevarte digitale objekter.
+- [**Motta varsler**](../../how-to/receive-notifications/): få automatiske statusoppdateringer i dine systemer via webhooks.
 
 ## Autentisering og autorisasjon
 

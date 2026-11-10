@@ -1,6 +1,6 @@
 ---
-title: Dissemination Service
-weight: 2
+title: Bestille utlevering av bevart materiale
+weight: 3
 aliases:
   - /docs/dps/api/dissemination/
 ---

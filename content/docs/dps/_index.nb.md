@@ -97,8 +97,9 @@ Disse sidene forklarer konsepter, ansvarsområder og hvordan DPS fungerer:
 Trinnvise veiledninger for produsenter og konsumenter:
 
 {{< cards >}}
-  {{< card link="how-to/submit-a-package" title="Lever inn en pakke" subtitle="Registrer en innlevering, last opp filer og fullfør" icon="upload" >}}
-  {{< card link="how-to/retrieve-a-package" title="Hent ut en pakke" subtitle="Be om en bevart pakke og last den ned" icon="download" >}}
+  {{< card link="how-to/submit-content" title="Levere materiale til bevaring" subtitle="Registrer en innlevering, last opp filer og fullfør" icon="upload" >}}
+  {{< card link="how-to/add-preservation-events" title="Legge til bevaringseventer" subtitle="Velg og legg til bevaringseventer i en innlevering" icon="collection" >}}
+  {{< card link="how-to/retrieve-content" title="Bestille utlevering av bevart materiale" subtitle="Bestill utlevering av bevart materiale og last det ned" icon="download" >}}
   {{< card link="how-to/receive-notifications" title="Motta varsler" subtitle="Få statusoppdateringer i egne systemer via webhooks" icon="bell" >}}
 {{< /cards >}}
 
@@ -110,7 +111,7 @@ Spesifikasjoner og API-referanse:
   {{< card link="reference/api" title="Programmeringsgrensesnitt (API)" subtitle="Autentisering, roller og feilhåndtering" icon="code" >}}
   {{< card link="reference/sip" title="SIP-spesifikasjoner" subtitle="E-ARK pakkestruktur, METS.xml-krav og eksempler" icon="archive" >}}
   {{< card link="reference/descriptive-metadata" title="Krav til metadata" subtitle="Dublin Core-elementer som leveres med hver pakke" icon="tag" >}}
-  {{< card link="reference/preservation-events" title="Eventer/ bevaringsmetadata" subtitle="PREMIS-agenter, eventer og eventtyper" icon="collection" >}}
+  {{< card link="reference/preservation-events" title="Bevaringseventer" subtitle="Event-elementer, agenter og eventtyper" icon="collection" >}}
 {{< /cards >}}
 
 [^1]: [Intellektuelle entiteter og innhold](https://digitalpreservation.no/nb/docs/dps/understanding/information-packages/#intellektuelle-entiteter-og-innhold)
