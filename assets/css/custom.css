@@ -1,9 +1,3 @@
-@media (min-width: 768px) {
-  .team-cards .hextra-cards {
-    grid-template-columns: repeat(var(--hextra-cards-grid-cols), minmax(180px, 1fr)) !important;
-  }
-}
-
 /*
  * National Library of Norway look, based on the design tokens of nb.no:
  * neutral backgrounds, near-black text, Bureau Sans for text, Clearface for
@@ -361,4 +355,48 @@ h1.hx\:text-center {
 .hextra-card .hextra-card-image {
   aspect-ratio: 1 / 1;
   object-fit: cover;
+}
+
+/* Team list on About: compact cards with a small round portrait beside name and role. */
+.team-cards .hextra-cards {
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .team-cards .hextra-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-cards .hextra-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.team-cards .hextra-card {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem;
+}
+
+.team-cards .hextra-card .hextra-card-image {
+  flex: 0 0 auto;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.team-cards .hextra-card .hextra-card-icon {
+  padding: 0;
+  font-size: 1.0625rem;
+  line-height: 1.25;
+}
+
+.team-cards .hextra-card .hextra-card-subtitle {
+  margin: 0.25rem 0 0;
+  padding: 0;
+  font-size: 0.875rem;
 }
