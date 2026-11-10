@@ -51,6 +51,23 @@
   --nb-plomme: #550029;
   --nb-rose: #fe91b8;
   --nb-highlight: #e4dfde;
+  --nb-radius: 0.25rem;
+  /* Hextra's radius utilities share the cards' corners; circles stay circular. */
+  --hx-radius-sm: var(--nb-radius);
+  --hx-radius-md: var(--nb-radius);
+  --hx-radius-lg: var(--nb-radius);
+  --hx-radius-xl: var(--nb-radius);
+  --hx-radius-2xl: var(--nb-radius);
+  --hx-radius-3xl: var(--nb-radius);
+  --nb-code-text: var(--nb-text);
+  --nb-code-accent: var(--nb-plomme);
+  --nb-code-literal: #40263e;
+  --nb-code-muted: #5b5c62;
+  --nb-code-highlight: var(--nb-highlight);
+  --nb-code-error: #a61717;
+  --nb-code-error-bg: #fbeded;
+  --nb-code-added: #315b3b;
+  --nb-code-added-bg: #edf4ee;
   --hx-font-sans: "Bureau Sans", -apple-system, system-ui, sans-serif;
   /* STK Gerhard is the profile's monospace typeface. */
   --hx-font-mono: "Gerhard", ui-monospace, SFMono-Regular, Menlo, monospace;
@@ -67,11 +84,25 @@
 }
 
 .dark {
+  --nb-code-text: #f3f4f6;
+  --nb-code-accent: var(--nb-rose);
+  --nb-code-literal: #ffc9c9;
+  --nb-code-muted: #b5b5bb;
+  --nb-code-highlight: #40353b;
+  --nb-code-error: #ffb4b4;
+  --nb-code-error-bg: #40282c;
+  --nb-code-added: #b8d9bd;
+  --nb-code-added-bg: #25382c;
   --hx-color-dark: #17181b;
   /* Primary shade 600 lands on Rose. */
   --primary-hue: 338deg;
   --primary-saturation: 98%;
   --primary-lightness: 87%;
+}
+
+/* Text badges and pill links share the same corners, but portraits and icons do not. */
+.content :is(a, button, div).hx\:rounded-full {
+  border-radius: var(--nb-radius);
 }
 
 body {
@@ -222,7 +253,7 @@ nav .hextra-theme-toggle svg {
   min-height: 8.5rem;
   padding: 1.25rem 1.5rem;
   border: 0;
-  border-radius: 0.25rem;
+  border-radius: var(--nb-radius);
   background-color: #f4f4f4;
   box-shadow: none;
   transition: background-color 0.2s ease;
@@ -314,7 +345,7 @@ h1.hx\:text-center {
 /* Image cards (team photos on About): same surface and typography as the link cards. */
 .hextra-card:has(.hextra-card-image) {
   border: 0;
-  border-radius: 0.25rem;
+  border-radius: var(--nb-radius);
   background-color: #f4f4f4;
   box-shadow: none;
   transition: background-color 0.2s ease;
@@ -406,7 +437,7 @@ h1.hx\:text-center {
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-radius: 0.25rem;
+  border-radius: var(--nb-radius);
   background-color: #f4f4f4;
   color: inherit;
   text-decoration: none;
@@ -655,7 +686,7 @@ h1.hx\:text-center {
   --nb-callout-bg: #f4f4f4;
   border: 0;
   border-left: 3px solid var(--nb-callout-accent);
-  border-radius: 0 0.25rem 0.25rem 0;
+  border-radius: 0 var(--nb-radius) var(--nb-radius) 0;
   background-color: var(--nb-callout-bg);
   color: var(--nb-text);
   padding: 0.875rem 1.125rem;
@@ -726,4 +757,65 @@ h1.hx\:text-center {
 .dark .content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border.hx\:bg-red-100 {
   --nb-callout-accent: #ef7b7b;
   --nb-callout-bg: #302324;
+}
+
+/* Code: a small profile palette, rather than Hextra's GitHub rainbow.
+   The :is() specificity also overrides the theme's dark token rules. */
+.hextra-code-block {
+  color: var(--nb-code-text);
+}
+
+:is(.dark .highlight, .highlight) .chroma [class] {
+  color: var(--nb-code-text);
+  background-color: transparent;
+}
+
+:is(.dark .highlight, .highlight) .chroma :is(
+  .k, .kc, .kd, .kn, .kp, .kr, .kt, .nt, .na, .nc, .nd, .ne, .nf, .fm, .nl,
+  .gh, .gu
+) {
+  color: var(--nb-code-accent);
+}
+
+:is(.dark .highlight, .highlight) .chroma :is(
+  .l, .ld, .s, .sa, .sb, .sc, .dl, .sd, .s2, .se, .sh, .si, .sx, .sr, .s1, .ss,
+  .m, .mb, .mf, .mh, .mi, .il, .mo, .no, .ni
+) {
+  color: var(--nb-code-literal);
+}
+
+:is(.dark .highlight, .highlight) .chroma :is(
+  .c, .ch, .cm, .c1, .cs, .cp, .cpf, .ln, .lnt, .go, .gp, .w
+) {
+  color: var(--nb-code-muted);
+}
+
+:is(.dark .highlight, .highlight) .chroma .hl {
+  background-color: var(--nb-code-highlight);
+}
+
+:is(.dark .highlight, .highlight) .chroma :is(.err, .gr, .gt, .gd) {
+  color: var(--nb-code-error);
+  background-color: var(--nb-code-error-bg);
+}
+
+:is(.dark .highlight, .highlight) .chroma .gi {
+  color: var(--nb-code-added);
+  background-color: var(--nb-code-added-bg);
+}
+
+.hextra-code-block .hextra-code-filename {
+  background-color: var(--nb-code-highlight);
+  color: var(--nb-code-text);
+}
+
+.hextra-code-copy-btn {
+  background-color: var(--nb-code-highlight);
+}
+
+/* Diagram layout is still controlled by Mermaid; do not reshape semantic symbols. */
+.content .mermaid {
+  overflow-x: auto;
+  border-radius: var(--nb-radius);
+  background-color: transparent;
 }
