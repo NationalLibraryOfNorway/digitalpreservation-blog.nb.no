@@ -66,13 +66,12 @@ En pakke inneholder fire typer metadata. De holdes adskilt fordi de beskriver ul
 - **Tekniske metadata** dokumenterer målbare, systemgenererte tekniske egenskaper ved filene i en representasjon, basert på filanalyse. De beskriver hva filene faktisk er, ikke det intellektuelle innholdet eller hva som er gjort med dem.
 - **Bevaringsmetadata** (digital proveniens) beskriver hvor pakken eller filene kommer fra og hvordan de er fremstilt: digitale prosesser, handlinger, hendelser og resultatene av disse. På pakkenivå beskriver de opphavet til pakken; på representasjonsnivå beskriver de opphavet til filene. Noe av dette leveres heller som [bevaringseventer](/nb/docs/dps/understanding/metadata-management/preservation-events/) via API-et.
 
-{{< callout >}}
-**Kort huskeregel:**
-- **Deskriptive:** hva pakken intellektuelt er
-- **Kilde:** hva som ble digitalisert
-- **Teknisk:** hva filene er
-- **Bevaring:** hvordan filene ble skapt
-{{< /callout >}}
+> [!TIP]
+> **Kort huskeregel:**
+> - **Deskriptive:** hva pakken intellektuelt er
+> - **Kilde:** hva som ble digitalisert
+> - **Teknisk:** hva filene er
+> - **Bevaring:** hvordan filene ble skapt
 
 Hvor hver type plasseres, og hvilket METS-element som refererer til den, er oppsummert i [Plassering av metadata i korte trekk](/nb/docs/dps/reference/sip/structure-requirements/#plassering-av-metadata-i-korte-trekk).
 

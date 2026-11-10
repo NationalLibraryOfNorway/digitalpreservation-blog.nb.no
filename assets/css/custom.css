@@ -1,9 +1,3 @@
-@media (min-width: 768px) {
-  .team-cards .hextra-cards {
-    grid-template-columns: repeat(var(--hextra-cards-grid-cols), minmax(180px, 1fr)) !important;
-  }
-}
-
 /*
  * National Library of Norway look, based on the design tokens of nb.no:
  * neutral backgrounds, near-black text, Bureau Sans for text, Clearface for
@@ -216,4 +210,520 @@ nav .hextra-theme-toggle svg {
   .nb-site-title__sublabel {
     display: inline;
   }
+}
+
+/*
+ * Link cards (text only; image cards such as the team photos keep the theme style):
+ * a soft fill instead of a border, the title in Clearface, no generic icons, and an
+ * arrow that marks the card as a link. Colours from nb.no's neutrals.
+ */
+.hextra-card:not(:has(.hextra-card-image)) {
+  position: relative;
+  min-height: 8.5rem;
+  padding: 1.25rem 1.5rem;
+  border: 0;
+  border-radius: 0.25rem;
+  background-color: #f4f4f4;
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+}
+
+.hextra-card:not(:has(.hextra-card-image)):hover {
+  background-color: var(--nb-highlight);
+  box-shadow: none;
+}
+
+.hextra-card:not(:has(.hextra-card-image)):focus-visible {
+  outline: 2px solid var(--nb-plomme);
+  outline-offset: 2px;
+}
+
+.hextra-card:not(:has(.hextra-card-image)) > div {
+  margin-top: 0;
+}
+
+.hextra-card:not(:has(.hextra-card-image)) .hextra-card-icon {
+  padding: 0;
+  gap: 0;
+  font-family: "Clearface", Georgia, serif;
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--nb-text);
+}
+
+.hextra-card:not(:has(.hextra-card-image)) .hextra-card-icon svg {
+  display: none;
+}
+
+.hextra-card:not(:has(.hextra-card-image)) .hextra-card-subtitle {
+  margin: 0.5rem 0 0;
+  padding: 0;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: var(--hx-color-gray-600);
+}
+
+.hextra-card:not(:has(.hextra-card-image))::after {
+  content: "→";
+  margin-top: auto;
+  padding-top: 1rem;
+  font-size: 1.125rem;
+  line-height: 1;
+  color: var(--nb-text);
+  transition: transform 0.2s ease;
+}
+
+.hextra-card:not(:has(.hextra-card-image)):hover::after {
+  transform: translateX(0.25rem);
+}
+
+.dark .hextra-card:not(:has(.hextra-card-image)) {
+  background-color: #28292d;
+}
+
+.dark .hextra-card:not(:has(.hextra-card-image)):hover {
+  background-color: #34353a;
+}
+
+.dark .hextra-card:not(:has(.hextra-card-image)):focus-visible {
+  outline-color: var(--nb-rose);
+}
+
+.dark .hextra-card:not(:has(.hextra-card-image)) .hextra-card-icon,
+.dark .hextra-card:not(:has(.hextra-card-image))::after {
+  color: var(--hx-color-gray-100);
+}
+
+.dark .hextra-card:not(:has(.hextra-card-image)) .hextra-card-subtitle {
+  color: var(--hx-color-gray-400);
+}
+
+/* Page titles on the home page, blog list and About: left-aligned with room below,
+   like the docs pages (the theme centres them with no bottom margin). */
+h1.hx\:text-center {
+  margin-bottom: 1.5rem;
+  text-align: left;
+  color: var(--nb-text);
+}
+
+.dark h1.hx\:text-center {
+  color: var(--hx-color-gray-100);
+}
+
+/* Image cards (team photos on About): same surface and typography as the link cards. */
+.hextra-card:has(.hextra-card-image) {
+  border: 0;
+  border-radius: 0.25rem;
+  background-color: #f4f4f4;
+  box-shadow: none;
+  transition: background-color 0.2s ease;
+}
+
+.hextra-card:has(.hextra-card-image):hover {
+  background-color: var(--nb-highlight);
+  box-shadow: none;
+}
+
+.hextra-card:has(.hextra-card-image) .hextra-card-icon {
+  font-family: "Clearface", Georgia, serif;
+  font-size: 1.25rem;
+  font-weight: 400;
+  color: var(--nb-text);
+}
+
+.hextra-card:has(.hextra-card-image) .hextra-card-subtitle {
+  color: var(--hx-color-gray-600);
+}
+
+.dark .hextra-card:has(.hextra-card-image) {
+  background-color: #28292d;
+}
+
+.dark .hextra-card:has(.hextra-card-image):hover {
+  background-color: #34353a;
+}
+
+.dark .hextra-card:has(.hextra-card-image) .hextra-card-icon {
+  color: var(--hx-color-gray-100);
+}
+
+.dark .hextra-card:has(.hextra-card-image) .hextra-card-subtitle {
+  color: var(--hx-color-gray-400);
+}
+
+.hextra-card .hextra-card-image {
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+}
+
+/* Team list on About: compact cards with a small round portrait beside name and role. */
+.team-cards .hextra-cards {
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .team-cards .hextra-cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1024px) {
+  .team-cards .hextra-cards {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.team-cards .hextra-card {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.875rem;
+  padding: 0.75rem;
+}
+
+.team-cards .hextra-card .hextra-card-image {
+  flex: 0 0 auto;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+}
+
+.team-cards .hextra-card .hextra-card-icon {
+  padding: 0;
+  font-size: 1.0625rem;
+  line-height: 1.25;
+}
+
+.team-cards .hextra-card .hextra-card-subtitle {
+  margin: 0.25rem 0 0;
+  padding: 0;
+  font-size: 0.875rem;
+}
+
+/* Blog list (layouts/blog/list.html): featured post and a grid of post cards. */
+.nb-post {
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  background-color: #f4f4f4;
+  color: inherit;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.nb-post:hover {
+  background-color: var(--nb-highlight);
+}
+
+.nb-post:focus-visible {
+  outline: 2px solid var(--nb-plomme);
+  outline-offset: 2px;
+}
+
+.nb-post__image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background-color: var(--nb-highlight);
+}
+
+.nb-post__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 1.25rem 1.5rem 1.5rem;
+}
+
+.nb-post__date {
+  margin: 0;
+  font-family: var(--hx-font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--hx-color-gray-600);
+}
+
+.nb-post__title {
+  margin: 0;
+  font-family: "Clearface", Georgia, serif;
+  font-size: 1.375rem;
+  font-weight: 400;
+  line-height: 1.25;
+  color: var(--nb-text);
+}
+
+.nb-post:hover .nb-post__title {
+  text-decoration: underline;
+  text-decoration-thickness: from-font;
+  text-underline-offset: 0.15em;
+}
+
+.nb-post__excerpt {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
+  margin: 0;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  color: var(--hx-color-gray-600);
+}
+
+.nb-post--featured {
+  margin-top: 2rem;
+}
+
+.nb-post--featured .nb-post__title {
+  font-size: clamp(1.625rem, 1.3rem + 1vw, 2.125rem);
+  line-height: 1.15;
+}
+
+.nb-post--featured .nb-post__excerpt {
+  -webkit-line-clamp: 4;
+  font-size: 1rem;
+}
+
+.nb-post--featured .nb-post__image {
+  aspect-ratio: 2 / 1;
+}
+
+@media (min-width: 768px) {
+  .nb-post--featured .nb-post__body {
+    padding: 1.75rem 2rem 2rem;
+  }
+}
+
+.nb-post-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .nb-post-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.dark .nb-post {
+  background-color: #28292d;
+}
+
+.dark .nb-post:hover {
+  background-color: #34353a;
+}
+
+.dark .nb-post:focus-visible {
+  outline-color: var(--nb-rose);
+}
+
+.dark .nb-post__title {
+  color: var(--hx-color-gray-100);
+}
+
+.dark .nb-post__date,
+.dark .nb-post__excerpt {
+  color: var(--hx-color-gray-400);
+}
+
+.nb-post__image--contain {
+  object-fit: contain;
+  background-color: #fff;
+}
+
+/*
+ * Tables in content: horizontal rules only, header as a Gerhard kicker (like
+ * "On this page"), roomier top-aligned cells, subtle row hover. Wide tables keep
+ * the theme's horizontal scrolling.
+ */
+.content table:not(.hextra-code-block table) {
+  border-collapse: collapse;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+.content table:not(.hextra-code-block table) thead {
+  background-color: transparent;
+}
+
+.content table:not(.hextra-code-block table) tr {
+  border-top: 0;
+  border-bottom: 1px solid var(--nb-highlight);
+}
+
+.content table:not(.hextra-code-block table) thead tr {
+  border-bottom: 1.5px solid var(--nb-text);
+}
+
+.content table:not(.hextra-code-block table) th,
+.content table:not(.hextra-code-block table) td {
+  border: 0;
+  padding: 0.75rem 1rem 0.75rem 0;
+  vertical-align: top;
+  text-align: left;
+}
+
+.content table:not(.hextra-code-block table) th:last-child,
+.content table:not(.hextra-code-block table) td:last-child {
+  padding-right: 0;
+}
+
+.content table:not(.hextra-code-block table) th {
+  padding-bottom: 0.5rem;
+  font-family: var(--hx-font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--hx-color-gray-600);
+}
+
+.content table:not(.hextra-code-block table) tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+.dark .content table:not(.hextra-code-block table) tr {
+  border-bottom-color: rgb(255 255 255 / 0.12);
+}
+
+.dark .content table:not(.hextra-code-block table) thead tr {
+  border-bottom-color: var(--hx-color-gray-100);
+}
+
+.dark .content table:not(.hextra-code-block table) th {
+  color: var(--hx-color-gray-400);
+}
+
+.dark .content table:not(.hextra-code-block table) tbody tr:hover {
+  background-color: rgb(255 255 255 / 0.03);
+}
+
+/* Lists inside table cells: no outer margins, so they line up with the other cells. */
+.content td > ul,
+.content td > ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 1.125rem;
+}
+
+.content td > ul > li,
+.content td > ol > li {
+  margin-top: 0;
+}
+
+.content td > ul > li + li,
+.content td > ol > li + li {
+  margin-top: 0.375rem;
+}
+
+/* Long code strings in table cells may break, so they do not push columns out of view.
+   Not in the first column, which usually holds short identifiers or field names. */
+.content td:not(:first-child) code {
+  overflow-wrap: anywhere;
+}
+
+.content td:first-child code {
+  white-space: nowrap;
+}
+
+/* Values inside header cells (e.g. event type names) keep their real case and weight. */
+.content th strong,
+.content th code {
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: 0.875rem;
+  color: var(--nb-text);
+}
+
+.dark .content th strong,
+.dark .content th code {
+  color: var(--hx-color-gray-100);
+}
+
+/*
+ * Callouts and alerts ([!NOTE] etc. and the callout shortcode): a soft surface with an
+ * accent bar on the left and the label as a Gerhard kicker. Note = Aubergine,
+ * important = Plomme on Fersken 20, tip/default = neutral, warning and caution use
+ * nb.no's system colours. The type is read from the theme's colour classes.
+ */
+.content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border {
+  --nb-callout-accent: var(--hx-color-gray-600);
+  --nb-callout-bg: #f4f4f4;
+  border: 0;
+  border-left: 3px solid var(--nb-callout-accent);
+  border-radius: 0 0.25rem 0.25rem 0;
+  background-color: var(--nb-callout-bg);
+  color: var(--nb-text);
+  padding: 0.875rem 1.125rem;
+}
+
+.content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border.hx\:bg-blue-100 {
+  --nb-callout-accent: #40263e;
+}
+
+.content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border.hx\:bg-purple-100 {
+  --nb-callout-accent: var(--nb-plomme);
+  --nb-callout-bg: #fdf2f2;
+}
+
+.content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border.hx\:bg-amber-100 {
+  --nb-callout-accent: #8f5515;
+  --nb-callout-bg: #fbf3ea;
+}
+
+.content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border.hx\:bg-red-100 {
+  --nb-callout-accent: #c72a2a;
+  --nb-callout-bg: #fbeded;
+}
+
+/* Label ("Note", "Warning", ...) as a kicker in the accent colour. */
+.content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border > p.hx\:font-medium {
+  gap: 0.5rem;
+  margin-bottom: 0.375rem;
+  font-family: var(--hx-font-mono);
+  font-size: 0.75rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--nb-callout-accent);
+}
+
+.content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border svg {
+  width: 1rem;
+  height: 1rem;
+  color: var(--nb-callout-accent);
+}
+
+/* Callouts without a label (the callout shortcode): icon column aligned with the text. */
+.content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border > div:first-child:not(.hx\:w-full) {
+  padding: 0.3rem 0.75rem 0 0;
+}
+
+.dark .content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border {
+  --nb-callout-accent: var(--hx-color-gray-400);
+  --nb-callout-bg: #28292d;
+  color: var(--hx-color-gray-100);
+}
+
+.dark .content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border.hx\:bg-blue-100 {
+  --nb-callout-accent: #ffc9c9;
+}
+
+.dark .content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border.hx\:bg-purple-100 {
+  --nb-callout-accent: var(--nb-rose);
+  --nb-callout-bg: #2e2329;
+}
+
+.dark .content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border.hx\:bg-amber-100 {
+  --nb-callout-accent: #e0a15a;
+  --nb-callout-bg: #2f2a23;
+}
+
+.dark .content .hx\:overflow-x-auto.hx\:rounded-lg.hx\:border.hx\:bg-red-100 {
+  --nb-callout-accent: #ef7b7b;
+  --nb-callout-bg: #302324;
 }

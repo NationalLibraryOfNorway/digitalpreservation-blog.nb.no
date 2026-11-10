@@ -1,0 +1,41 @@
+{{- /*
+  Returns the generated preview card (an image resource) for a page: the title in
+  ITC Clearface and a kicker in STK Gerhard on Fersken 20, with the emblem in Aubergine.
+  Used by og-image-url.html and as the fallback thumbnail in the blog list.
+*/ -}}
+{{- $page := . -}}
+{{- $base := resources.Get "images/og/base.png" -}}
+{{- $serif := resources.Get "fonts/ClearfaceStd-Regular.ttf" -}}
+{{- $mono := resources.Get "fonts/STKGerhard-Standard.ttf" -}}
+{{- $kicker := "DIGITAL PRESERVATION · NATIONAL LIBRARY OF NORWAY" -}}
+{{- if eq $page.Language.Lang "nb" -}}
+  {{- $kicker = "DIGITAL BEVARING · NASJONALBIBLIOTEKET" -}}
+{{- end -}}
+{{- $title := $page.Title | default site.Title -}}
+{{- $titleLength := strings.RuneCount $title -}}
+{{- $size := 72 -}}
+{{- if gt $titleLength 70 -}}
+  {{- $size = 52 -}}
+{{- else if gt $titleLength 40 -}}
+  {{- $size = 62 -}}
+{{- end -}}
+{{- /* images.Text only wraps at the image edge, so wrap by words here.
+         About 0.5 x font size per character keeps lines within ~1000 px. */ -}}
+{{- $maxChars := int (div 1000.0 (mul 0.5 $size)) -}}
+{{- $lines := slice -}}
+{{- $current := "" -}}
+{{- range split $title " " -}}
+  {{- $candidate := cond (eq $current "") . (printf "%s %s" $current .) -}}
+  {{- if and (gt (strings.RuneCount $candidate) $maxChars) (ne $current "") -}}
+  {{- $lines = $lines | append $current -}}
+  {{- $current = . -}}
+  {{- else -}}
+  {{- $current = $candidate -}}
+  {{- end -}}
+{{- end -}}
+{{- $lines = $lines | append $current -}}
+{{- $title = delimit $lines "\n" -}}
+{{- $kickerOpts := dict "color" "#40263E" "size" 22 "x" 80 "y" 80 "font" $mono -}}
+{{- $titleOpts := dict "color" "#40263E" "size" $size "linespacing" 10 "x" 80 "y" 150 "font" $serif -}}
+{{- $img := $base | images.Filter (images.Text $kicker $kickerOpts) (images.Text $title $titleOpts) -}}
+{{- return $img -}}
