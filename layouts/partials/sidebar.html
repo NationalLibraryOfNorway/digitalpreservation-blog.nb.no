@@ -1,4 +1,8 @@
-{{- /* Hextra v0.12.3, with optional section landing links on desktop and mobile. */ -}}
+{{- /*
+  Hextra v0.12.3, with optional section landing links on desktop and mobile. A section with
+  a landing link is not itself highlighted (its "Start here" entry is), and the mobile menu
+  does not list the current page's headings (see partials/toc-inline.html instead).
+*/ -}}
 {{- $context := .context -}}
 
 {{- $disableSidebar := .disableSidebar | default false -}}
@@ -178,13 +182,11 @@
                 <span class="hx:cursor-default">{{ index $entry "title" }}</span>
               </li>
             {{- else -}}
-              {{- $active := eq (strings.TrimSuffix "/" $pageURL) (strings.TrimSuffix "/" $item.RelPermalink) -}}
-              {{- $shouldOpen := or ($item.Params.sidebar.open) ($item.IsAncestor $page) $active | default true }}
+              {{- $current := eq (strings.TrimSuffix "/" $pageURL) (strings.TrimSuffix "/" $item.RelPermalink) -}}
+              {{- $active := and $current (not $item.Params.sidebar.landingTitle) -}}
+              {{- $shouldOpen := or ($item.Params.sidebar.open) ($item.IsAncestor $page) $current | default true }}
               <li class="{{ if $shouldOpen }}open{{ end }}">
                 {{- template "sidebar-item-link" dict "context" $item "active" $active "open" $shouldOpen "title" (index $entry "title") "link" $item.RelPermalink -}}
-                {{- if and $toc $active (ne $item.Params.toc false) -}}
-                  {{- template "sidebar-toc" dict "page" $item -}}
-                {{- end -}}
                 {{- template "sidebar-tree" dict "context" $item "page" $page "pageURL" $pageURL "level" (add $level 1) "toc" $toc -}}
               </li>
             {{- end -}}
@@ -220,14 +222,12 @@
               <span class="hx:cursor-default">{{ partial "utils/title" . }}</span>
             </li>
           {{- else -}}
-            {{- $active := eq $pageURL .RelPermalink -}}
-            {{- $shouldOpen := or (.Params.sidebar.open) (.IsAncestor $page) $active | default true }}
+            {{- $current := eq $pageURL .RelPermalink -}}
+            {{- $active := and $current (not .Params.sidebar.landingTitle) -}}
+            {{- $shouldOpen := or (.Params.sidebar.open) (.IsAncestor $page) $current | default true }}
             <li class="{{ if $shouldOpen }}open{{ end }}">
               {{- $linkTitle := partial "utils/title" . -}}
               {{- template "sidebar-item-link" dict "context" . "active" $active "open" $shouldOpen "title" $linkTitle "link" .RelPermalink -}}
-              {{- if and $toc $active (ne .Params.toc false) -}}
-                {{- template "sidebar-toc" dict "page" . -}}
-              {{- end -}}
               {{- template "sidebar-tree" dict "context" . "page" $page "pageURL" $pageURL "level" (add $level 1) "toc" $toc -}}
             </li>
           {{- end -}}
@@ -241,14 +241,12 @@
             <li>{{ template "sidebar-item-link" dict "active" $active "open" false "title" . "link" $context.RelPermalink }}</li>
           {{- end -}}
           {{- range $items.ByWeight }}
-            {{- $active := eq $pageURL .RelPermalink -}}
-            {{- $shouldOpen := or (.Params.sidebar.open) (.IsAncestor $page) $active | default true }}
+            {{- $current := eq $pageURL .RelPermalink -}}
+            {{- $active := and $current (not .Params.sidebar.landingTitle) -}}
+            {{- $shouldOpen := or (.Params.sidebar.open) (.IsAncestor $page) $current | default true }}
             {{- $linkTitle := partial "utils/title" . -}}
             <li class="hx:flex hx:flex-col {{ if $shouldOpen }}open{{ end }}">
               {{- template "sidebar-item-link" dict "context" . "active" $active "open" $shouldOpen "title" $linkTitle "link" .RelPermalink -}}
-              {{- if and $toc $active (ne .Params.toc false) -}}
-                {{ template "sidebar-toc" dict "page" . }}
-              {{- end }}
               {{ template "sidebar-tree" dict "context" . "page" $page "pageURL" $pageURL "level" (add $level 1) "toc" $toc }}
             </li>
           {{- end -}}
@@ -258,27 +256,6 @@
   {{- end -}}
 {{- end -}}
 
-{{- define "sidebar-toc" -}}
-  {{ $page := .page }}
-  {{ with $page.Fragments.Headings }}
-    <ul class='hx:flex hx:flex-col hx:gap-1 hx:relative hx:before:absolute hx:before:inset-y-1 hx:before:w-px hx:before:bg-gray-200 hx:before:content-[""] hx:dark:before:bg-neutral-800 hx:ltr:pl-3 hx:ltr:before:left-0 hx:rtl:pr-3 hx:rtl:before:right-0 hx:ltr:ml-3 hx:rtl:mr-3'>
-      {{- range . }}
-        {{- with .Headings }}
-          {{- range . -}}
-            <li>
-              <a
-                href="#{{ anchorize .ID }}"
-                class="hx:flex hx:rounded-sm hx:px-2 hx:py-1.5 hx:text-sm hx:transition-colors [word-break:break-word] hx:cursor-pointer [-webkit-tap-highlight-color:transparent] [-webkit-touch-callout:none] hx:contrast-more:border hx:gap-2 hx:before:opacity-25 hx:before:content-['#'] hx:text-gray-500 hx:hover:bg-gray-100 hx:hover:text-gray-900 hx:dark:text-neutral-400 hx:dark:hover:bg-primary-100/5 hx:dark:hover:text-gray-50 hx:contrast-more:text-gray-900 hx:contrast-more:dark:text-gray-50 hx:contrast-more:border-transparent hx:contrast-more:hover:border-gray-900 hx:contrast-more:dark:hover:border-gray-50"
-              >
-                {{- .Title | safeHTML | plainify | htmlUnescape -}}
-              </a>
-            </li>
-          {{ end -}}
-        {{ end -}}
-      {{ end -}}
-    </ul>
-  {{ end }}
-{{- end -}}
 
 {{- define "sidebar-footer" -}}
   {{- range site.Menus.sidebar -}}

@@ -1,0 +1,28 @@
+{{- /*
+  "On this page" for screens where Hextra hides the right-hand TOC (below xl; see
+  .nb-toc-inline in custom.css). Collapsed by default, placed under the page title.
+  Lists h2 and h3. Respects `toc: false`.
+*/ -}}
+{{- $count := 0 -}}
+{{- range .Fragments.Headings -}}{{- $count = add $count (len .Headings) -}}{{- end -}}
+{{- if and (ne .Params.toc false) (ge $count 2) -}}
+  <details class="nb-toc-inline">
+    <summary>{{ (T "onThisPage") | default "On this page" }}</summary>
+    <ul>
+      {{- range .Fragments.Headings }}
+        {{- range .Headings }}
+          <li>
+            <a href="#{{ anchorize .ID }}">{{ .Title | safeHTML | plainify | htmlUnescape }}</a>
+            {{- with .Headings }}
+              <ul>
+                {{- range . }}
+                  <li><a href="#{{ anchorize .ID }}">{{ .Title | safeHTML | plainify | htmlUnescape }}</a></li>
+                {{- end }}
+              </ul>
+            {{- end }}
+          </li>
+        {{- end }}
+      {{- end }}
+    </ul>
+  </details>
+{{- end -}}

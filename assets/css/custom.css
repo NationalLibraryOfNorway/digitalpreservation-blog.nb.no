@@ -215,6 +215,39 @@ nav .hextra-language-switcher:hover {
   color: var(--hx-color-gray-100);
 }
 
+/*
+ * Below lg the navbar is too narrow for everything: show the language switcher as an icon
+ * only (its aria-label keeps it named) and, from md, drop the external NB.no link (it
+ * stays in the mobile menu).
+ */
+@media (max-width: 1023px) {
+  nav .hextra-language-switcher span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/*
+ * On phones the theme and language switches are already at the bottom of the menu; in the
+ * bar they push the logo off-screen below ~380px.
+ */
+@media (max-width: 767px) {
+  nav > div:has(> .hextra-theme-toggle),
+  nav > div:has(> .hextra-language-switcher) {
+    display: none;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  nav > a[href^="https://nb.no"] {
+    display: none;
+  }
+}
+
 nav .hextra-language-switcher svg,
 nav .hextra-theme-toggle svg {
   width: 1.125rem;
@@ -223,6 +256,7 @@ nav .hextra-theme-toggle svg {
 
 /* Navbar title: logo lockup with the site's sub-label (see layouts/partials/navbar-title.html). */
 .nb-site-title {
+  flex-shrink: 0;
   gap: 0.875rem;
 }
 
@@ -241,7 +275,8 @@ nav .hextra-theme-toggle svg {
   border-left-color: rgb(255 255 255 / 0.2);
 }
 
-@media (min-width: 640px) {
+/* Below ~1150px the sub-label collides with the menu links (or, on phones, the icons). */
+@media (min-width: 1200px) {
   .nb-site-title__sublabel {
     display: inline;
   }
@@ -836,4 +871,95 @@ h1.hx\:text-center {
   overflow-x: auto;
   border-radius: var(--nb-radius);
   background-color: transparent;
+}
+
+/*
+ * "On this page" under the title (layouts/partials/toc-inline.html), for widths where the
+ * right-hand TOC is hidden. Same soft fill as the link cards.
+ */
+.nb-toc-inline {
+  margin: 0 0 1.5rem;
+  border-radius: var(--nb-radius);
+  background-color: #f4f4f4;
+  font-size: 0.875rem;
+}
+
+.dark .nb-toc-inline {
+  background-color: #28292d;
+}
+
+.nb-toc-inline summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.625rem 1rem;
+  cursor: pointer;
+  font-weight: 600;
+  list-style: none;
+}
+
+.nb-toc-inline summary::-webkit-details-marker {
+  display: none;
+}
+
+.nb-toc-inline summary::after {
+  content: "";
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  transform: translateY(-25%) rotate(45deg);
+  transition: transform 0.2s ease;
+}
+
+.nb-toc-inline[open] summary::after {
+  transform: translateY(25%) rotate(-135deg);
+}
+
+.nb-toc-inline > ul {
+  margin: 0;
+  padding: 0 1rem 0.75rem;
+  list-style: none;
+}
+
+.nb-toc-inline ul ul {
+  margin: 0;
+  padding-left: 1rem;
+  list-style: none;
+}
+
+.nb-toc-inline li {
+  margin: 0;
+}
+
+.nb-toc-inline a {
+  display: block;
+  padding: 0.3rem 0;
+  color: var(--hx-color-gray-600);
+  text-decoration: none;
+}
+
+.nb-toc-inline a:hover {
+  color: var(--nb-text);
+}
+
+.dark .nb-toc-inline a {
+  color: var(--hx-color-gray-400);
+}
+
+.dark .nb-toc-inline a:hover {
+  color: var(--hx-color-gray-100);
+}
+
+@media (min-width: 1280px) {
+  .nb-toc-inline {
+    display: none;
+  }
+}
+
+@media print {
+  .nb-toc-inline {
+    display: none;
+  }
 }
