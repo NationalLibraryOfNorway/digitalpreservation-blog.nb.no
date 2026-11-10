@@ -38,5 +38,5 @@ All tilgang og bruk styres av rollebasert tilgangskontroll knyttet til bevarings
 
 ## Les mer
 
-- [DPS sin rolle i NB](/nb/docs/dps/understanding/preservation-at-nln/): hvordan DPS henger sammen med Nasjonalbibliotekets andre systemer.
 - [Dataforvaltning](/nb/docs/dps/understanding/data-management/) og [Metadataforvaltning](/nb/docs/dps/understanding/metadata-management/): hva som skjer med data og metadata i DPS.
+- [DPS i Nasjonalbiblioteket](/nb/docs/dps/understanding/preservation-at-nln/): hvordan DPS passer inn i Nasjonalbibliotekets eget systemlandskap.

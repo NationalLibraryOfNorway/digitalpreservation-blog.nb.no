@@ -16,7 +16,7 @@ DPS er offentlig tilgjengelig, men tilgang krever en bevaringsavtale med Nasjona
 
 DPS bruker et offentlig API både for innlevering og utlevering av informasjon. Systemet tar imot informasjonspakker (SIP-er), validerer dem og lagrer data og metadata på en sikker måte. Systemet tilbyr utlevering av informasjonspakker (DIP-er) gjennom det samme API-et. All tilgang og bruk styres av rollebasert tilgangskontroll knyttet til bevaringsavtaler.
 
-[Slik fungerer DPS](/nb/docs/dps/understanding/how-dps-works/) beskriver tjenestene DPS består av, og [DPS sin rolle i NB](/nb/docs/dps/understanding/preservation-at-nln/) beskriver hvordan DPS henger sammen med Nasjonalbibliotekets andre systemer.
+[Slik fungerer DPS](/nb/docs/dps/understanding/how-dps-works/) beskriver tjenestene DPS består av.
 
 ## Forstå DPS
 
@@ -24,11 +24,11 @@ Disse sidene forklarer konsepter, ansvarsområder og hvordan DPS fungerer:
 
 {{< cards >}}
   {{< card link="understanding/how-dps-works" title="Slik fungerer DPS" subtitle="OAIS, tjenestene i DPS og hvordan de henger sammen" icon="cube" >}}
-  {{< card link="understanding/preservation-at-nln" title="DPS sin rolle i NB" subtitle="De tre systemdomenene og hvordan data og metadata flyter mellom dem" icon="map" >}}
   {{< card link="understanding/information-packages" title="Informasjonspakker" subtitle="Hva en pakke inneholder, typer metadata og pakkens omfang" icon="archive" >}}
   {{< card link="understanding/data-management" title="Dataforvaltning" subtitle="Hvordan data bevares, lagres og uthentes i DPS" icon="database" >}}
   {{< card link="understanding/metadata-management" title="Metadataforvaltning" subtitle="Hvordan metadata kommer inn, lagres og brukes i DPS" icon="tag" >}}
   {{< card link="understanding/access-and-agreements" title="Tilgangskontroll" subtitle="Hvordan roller, bevaringsavtaler og tillatelser styrer tilgang" icon="shield-check" >}}
+  {{< card link="understanding/preservation-at-nln" title="DPS i Nasjonalbiblioteket" subtitle="Nasjonalbibliotekets egne systemdomener og hvordan DPS passer inn" icon="map" >}}
 {{< /cards >}}
 
 ## Bruke DPS

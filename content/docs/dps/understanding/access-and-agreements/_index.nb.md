@@ -1,7 +1,7 @@
 ---
 title: Tilgangskontroll
 tags: [Digital bevaring, OAIS-modell, Rollebasert tilgang, Bevaringsavtaler, Informasjonspakker, Autorisasjonssystemer, Tilgangsstyring, Digitale arkiv]
-weight: 6
+weight: 5
 aliases:
   - /docs/services/dps/access-control/
   - /docs/dps/access-control/

@@ -1,6 +1,6 @@
 ---
 title: Metadata management
-weight: 5
+weight: 4
 aliases:
   - /docs/services/dps/metadata/
   - /docs/dps/metadata/

@@ -38,5 +38,5 @@ All access and use are governed by role-based access control linked to preservat
 
 ## Read more
 
-- [The role of DPS in the NLN](/docs/dps/understanding/preservation-at-nln/): how the DPS fits together with the National Library's other systems.
 - [Data management](/docs/dps/understanding/data-management/) and [Metadata management](/docs/dps/understanding/metadata-management/): what happens to data and metadata in the DPS.
+- [DPS at the National Library](/docs/dps/understanding/preservation-at-nln/): how the DPS fits into the National Library's own system landscape.

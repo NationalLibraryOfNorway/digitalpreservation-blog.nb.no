@@ -1,7 +1,7 @@
 ---
 title: Access control
 tags: [Digital Preservation, OAIS Model, Role-Based Access Control, Preservation Agreements, Information Packages, Authorization Systems, Access Management, Digital Archives]
-weight: 6
+weight: 5
 aliases:
   - /docs/services/dps/access-control/
   - /docs/dps/access-control/

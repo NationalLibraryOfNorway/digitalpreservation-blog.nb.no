@@ -1,6 +1,6 @@
 ---
 title: Information packages
-weight: 3
+weight: 2
 aliases:
   - /docs/dps/sip/scope/
   - /docs/dps/sip/1.0/scope/

@@ -1,19 +1,15 @@
 ---
-title: The role of DPS in the NLN
-weight: 2
+title: DPS at the National Library
+weight: 7
 aliases:
   - /system-architecture
   - /premis-architecture
   - /docs/dps/architecture/
 ---
 
-The Digital Preservation Services (DPS) is the National Library's system for long-term digital preservation.
-The DPS does not operate in isolation: it is one of three system domains that share responsibility for digital objects at the National Library. These domains operate independently, but each domain's responsibilities influence the others.
-This page describes the context the DPS was built in and how that context shapes the system.
+Within the National Library, the DPS is one of three system domains that share responsibility for digital objects. The domains operate independently, but each domain's responsibilities influence the others. This page describes the National Library's own system landscape: the context the DPS was built in, and how that context shapes the system.
 
-The three system domains described here reflect the National Library's internal operational landscape.
-
-External clients interact with the DPS directly through the API, bringing their own identifiers, metadata, and scope definitions.
+Organizations outside the National Library use the DPS directly through the API, with their own identifiers, metadata, and scope definitions. In their case, their own systems take the place of the National Library's metadata management systems and public access services.
 
 {{< figure src="onioncontext.svg" alt="DPS within the NLN organizational context" caption="DPS within the NLN organizational context" >}}
 

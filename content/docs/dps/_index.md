@@ -16,7 +16,7 @@ DPS is publicly available, but access requires a preservation agreement with the
 
 DPS uses a public API for both ingest and dissemination of information. The system receives Submission Information Packages (SIPs), validates them, and securely stores data and metadata. Dissemination is provided through the same API as Dissemination Information Packages (DIPs). All access and use are governed by role-based access control linked to preservation agreements.
 
-[How the DPS works](/docs/dps/understanding/how-dps-works/) describes the services the DPS consists of, and [The role of DPS in the NLN](/docs/dps/understanding/preservation-at-nln/) describes how the DPS fits together with the National Library's other systems.
+[How the DPS works](/docs/dps/understanding/how-dps-works/) describes the services the DPS consists of.
 
 ## Understanding the DPS
 
@@ -24,11 +24,11 @@ These pages explain concepts, responsibilities, and how the DPS works:
 
 {{< cards >}}
   {{< card link="understanding/how-dps-works" title="How the DPS works" subtitle="OAIS, the services in the DPS, and how they fit together" icon="cube" >}}
-  {{< card link="understanding/preservation-at-nln" title="The role of DPS in the NLN" subtitle="The three system domains and how data and metadata flow between them" icon="map" >}}
   {{< card link="understanding/information-packages" title="Information packages" subtitle="What a package contains, kinds of metadata, and package scope" icon="archive" >}}
   {{< card link="understanding/data-management" title="Data management" subtitle="How data is preserved, stored, and accessed in the DPS" icon="database" >}}
   {{< card link="understanding/metadata-management" title="Metadata management" subtitle="How metadata enters, is stored, and utilized in the DPS" icon="tag" >}}
   {{< card link="understanding/access-and-agreements" title="Access control" subtitle="How roles, agreements, and permissions govern access" icon="shield-check" >}}
+  {{< card link="understanding/preservation-at-nln" title="DPS at the National Library" subtitle="The National Library's own system domains and how the DPS fits among them" icon="map" >}}
 {{< /cards >}}
 
 ## Using the DPS

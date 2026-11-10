@@ -1,19 +1,15 @@
 ---
-title: DPS sin rolle i NB
-weight: 2
+title: DPS i Nasjonalbiblioteket
+weight: 7
 aliases:
   - /systemarkitektur
   - /forvaltningsarkitektur
   - /docs/dps/architecture/
 ---
 
-Digital Preservation Services (DPS) er Nasjonalbibliotekets system for langsiktig digital bevaring.
-DPS opererer ikke i et vakuum: det er ett av tre systemdomener som deler ansvaret for digitale objekter i Nasjonalbiblioteket. Disse domenene opererer selvstendig, men hvert domens ansvar påvirker de andre.
-Denne siden beskriver konteksten DPS ble bygget i, og hvordan denne konteksten former systemet.
+I Nasjonalbiblioteket er DPS ett av tre systemdomener som deler ansvaret for digitale objekter. Domenene opererer selvstendig, men hvert domenes ansvar påvirker de andre. Denne siden beskriver Nasjonalbibliotekets eget systemlandskap: konteksten DPS ble bygget i, og hvordan denne konteksten former systemet.
 
-De tre systemdomenene som beskrives her, gjenspeiler Nasjonalbibliotekets interne driftslandskap.
-
-Eksterne klienter samhandler med DPS direkte gjennom API-et og bringer sine egne identifikatorer, metadata og omfangsdefinisjoner.
+Organisasjoner utenfor Nasjonalbiblioteket bruker DPS direkte gjennom API-et, med egne identifikatorer, metadata og omfangsdefinisjoner. For dem er det deres egne systemer som fyller rollen til Nasjonalbibliotekets metadatasystemer og offentlige tilgangstjenester.
 
 {{< figure src="onioncontext.svg" alt="DPS innenfor NBs organisatoriske kontekst" caption="DPS innenfor NBs organisatoriske kontekst" >}}
 
