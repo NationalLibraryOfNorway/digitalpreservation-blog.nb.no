@@ -142,7 +142,7 @@ Endpoints for submitting content. For a step-by-step walkthrough, see [Submit co
 
 | Field        | Type    | Required | Description |
 |--------------|---------|----------|-------------|
-| `filePath`   | string  | Yes      | Relative path of the file within the submission. Must be unique within the submission, at most 900 characters, may only contain `a-z`, `A-Z`, `0-9`, `-`, `_`, `.`, `(`, `)` and `/`, and cannot start with `/` or `.`. |
+| `filePath`   | string  | Yes      | Relative path of the file within the submission. Must be unique within the submission, at most 900 characters, may only contain `a-z`, `A-Z`, `æøå`, `ÆØÅ`, `0-9`, space, `-`, `_`, `.`, `(`, `)` and `/`, and cannot start with `/` or `.`. |
 | `checksum`   | string  | Yes      | MD5 checksum of the file as 32 lowercase hexadecimal characters. |
 | `isPackaged` | boolean | No       | Whether the file is packaged temporarily for transfer only (for example as TAR or ZIP). Such files are unpacked by the preservation flow. Default is `false`. |
 

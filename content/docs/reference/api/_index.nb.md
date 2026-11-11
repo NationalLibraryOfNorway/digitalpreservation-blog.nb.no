@@ -146,7 +146,7 @@ Endepunkter for innlevering av materiale. En trinnvis gjennomgang finnes under [
 
 | Felt         | Type    | Påkrevd | Beskrivelse |
 |--------------|---------|---------|-------------|
-| `filePath`   | string  | Ja      | Relativ sti til filen i submissionen. Må være unik i submissionen, kan være maks 900 tegn, kan bare inneholde `a-z`, `A-Z`, `0-9`, `-`, `_`, `.`, `(`, `)` og `/`, og kan ikke starte med `/` eller `.`. |
+| `filePath`   | string  | Ja      | Relativ sti til filen i submissionen. Må være unik i submissionen, kan være maks 900 tegn, kan bare inneholde `a-z`, `A-Z`, `æøå`, `ÆØÅ`, `0-9`, mellomrom, `-`, `_`, `.`, `(`, `)` og `/`, og kan ikke starte med `/` eller `.`. |
 | `checksum`   | string  | Ja      | MD5-sjekksum for filen, som 32 heksadesimale tegn med små bokstaver. |
 | `isPackaged` | boolean | Nei     | Om filen er pakket midlertidig kun for overføring (for eksempel som TAR eller ZIP). Slike filer pakkes ut av bevaringsflyten. Standard er `false`. |
 
