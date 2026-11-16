@@ -7,6 +7,8 @@ draft: false
 authors: 
   - name: Lise-Lotte Melkild 
     image: /apple-touch-icon.png 
+images:
+- logoiPRES2026.png
 ---
 
 ![iPRES2026](logoiPRES2026.png)
