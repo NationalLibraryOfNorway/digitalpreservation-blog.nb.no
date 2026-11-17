@@ -196,7 +196,50 @@ p.hx\:opacity-50.hx\:text-sm.hx\:mt-4 {
   text-transform: uppercase;
 }
 
+/* Separate navigation and expansion targets so their clickable areas never overlap. */
+.nb-sidebar-branch {
+  --nb-sidebar-target: 2rem;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--nb-sidebar-target);
+  align-items: stretch;
+  gap: 0.125rem;
+}
+
+.nb-sidebar-branch > a {
+  min-width: 0;
+  min-height: var(--nb-sidebar-target);
+}
+
+.nb-sidebar-branch > .hextra-sidebar-collapsible-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--nb-sidebar-target);
+  border-radius: var(--nb-radius);
+}
+
+/* Include touch-capable laptops and tablets, even when a mouse is attached. */
+@media (any-pointer: coarse) {
+  .nb-sidebar-branch {
+    --nb-sidebar-target: 2.75rem;
+  }
+}
+
 /* Navbar: language switcher and icons at the same size and weight as the menu links. */
+.dark .hextra-search-wrapper kbd {
+  color: var(--hx-color-gray-300);
+}
+
+.nb-search-message {
+  padding: 0.5rem 0.75rem;
+  font-size: 0.875rem;
+  color: var(--nb-text);
+}
+
+.dark .nb-search-message {
+  color: var(--hx-color-gray-100);
+}
+
 nav .hextra-language-switcher {
   font-size: 0.875rem;
   font-weight: 400;
