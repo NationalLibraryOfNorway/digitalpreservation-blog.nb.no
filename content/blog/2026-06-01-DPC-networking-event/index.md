@@ -7,6 +7,8 @@ draft: false
 authors: 
   - name: Sandra Kråkstad & Johannes Karlsen
     image: /apple-touch-icon.png 
+images:
+- networking.png
 ---
 
 ![DPC Members Forum and Networking](/networking.png)

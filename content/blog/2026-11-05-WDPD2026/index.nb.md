@@ -7,6 +7,8 @@ draft: false
 authors: 
   - name: Trond Teigen  
     image: /apple-touch-icon.png 
+Images:
+- WDPD2026_Norwegian.png
 ---
 
 

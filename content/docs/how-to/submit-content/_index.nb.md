@@ -181,7 +181,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
 {
   "fileId": "1M0x4T9rN8Xc7B2Yq5L3zK",
   "filePath": "representations/primary_20250217/data/ranablad_20250215.pdf",
-  "s3ObjectKey": "examplebucket/myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
+  "s3ObjectKey": "myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
   "checksum": "d41d8cd98f00b204e9800998ecf8427e",
   "isPackaged": false,
   "uploadUrl": "https://s3.nb.no/examplebucket/...&X-Amz-Signature=..."
@@ -215,7 +215,7 @@ Hvis opplastingen feiler eller går ut på tid:
 Opplastingsprosessen følger disse stegene:
 1. **Registrer en fil** ved å sende POST til `/contracts/{contractId}/submissions/{submissionId}/files`
 2. **Hent ut s3ObjectKey** i responsen
-3. **Last opp filinnholdet** direkte til S3, med `s3://{s3ObjectKey}` som mål. `s3ObjectKey` starter med navnet på bøtta, etterfulgt av objektnøkkelen.
+3. **Last opp filinnholdet** direkte til S3, med `s3://{bøtte}/{s3ObjectKey}` som mål.
 
 Vi anbefaler å bruke AWS CLI til opplastingen. Dokumentasjon finnes her: https://docs.aws.amazon.com/cli/latest/reference/s3/cp.html
 
@@ -255,7 +255,7 @@ Authorization: Bearer eyJhbGciOxxxxxxx
     {
       "fileId": "1M0x4T9rN8Xc7B2Yq5L3zK",
       "filePath": "representations/primary_20250217/data/ranablad_20250215.pdf",
-      "s3ObjectKey": "examplebucket/myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
+      "s3ObjectKey": "myClientId/1234/8Z7x1T9rN0Xc2B5Yq4L3zP/representations/primary_20250217/data/ranablad_20250215.pdf",
       "checksum": "d41d8cd98f00b204e9800998ecf8427e",
       "isPackaged": false,
       "uploadUrl": "https://s3.nb.no/examplebucket/...&X-Amz-Signature=..."
