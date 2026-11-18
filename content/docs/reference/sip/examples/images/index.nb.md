@@ -49,8 +49,12 @@ aliases:
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
+<!--
+Tidligere tegning, erstattet av filtreet over. Beholdt for referanse.
+
 ## Eksempel på SIP for bilder
 
-{{< figure src="imagesip.nb.svg" caption="Røde rammer gjenspeiler MÅ-krav i pakkestrukturen" alt="Røde rammer gjenspeiler MÅ-krav i pakkestrukturen" >}}
+{{</* figure src="imagesip.nb.svg" caption="Røde rammer gjenspeiler MÅ-krav i pakkestrukturen" alt="Røde rammer gjenspeiler MÅ-krav i pakkestrukturen" */>}}
+-->
 
 ---

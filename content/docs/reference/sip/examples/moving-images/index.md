@@ -57,6 +57,9 @@ aliases:
 
 
 
+<!--
+Previous drawing, replaced by the filetree above. Kept for reference.
+
 ![Example SIP moving images](eksempel_levendebilder.png)
 
 **Explanation of symbols:**
@@ -64,3 +67,4 @@ aliases:
 - **Yellow boxes:** Files
 - **Red borders:** Indicate elements subject to mandatory (MUST) requirements in the package structure.
   
+-->

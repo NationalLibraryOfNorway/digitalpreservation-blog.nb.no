@@ -50,6 +50,10 @@ aliases:
   {{< /filetree/folder >}}
 {{< /filetree/container >}}
 
+<!--
+Previous drawing, replaced by the filetree above. Kept for reference.
+
 ## Example SIP for images
 
-{{< figure src="imagesip.nb.svg" caption="Red frames indicate MUST-requirements in the package structure" alt="Red frames indicate MUST-requirements in the package structure" >}}
+{{</* figure src="imagesip.nb.svg" caption="Red frames indicate MUST-requirements in the package structure" alt="Red frames indicate MUST-requirements in the package structure" */>}}
+-->

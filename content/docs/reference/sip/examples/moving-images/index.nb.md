@@ -58,6 +58,9 @@ aliases:
 
 
 
+<!--
+Tidligere tegning, erstattet av filtreet over. Beholdt for referanse.
+
 ![Eksempel SIP levende bilder ](eksempel_levendebilder.png)
 
 
@@ -65,3 +68,4 @@ aliases:
 - **Blå ruter:** Mapper
 - **Gule ruter:** Filer
 - **Røde rammer:** Viser elementer som er omfattet av MÅ-krav i pakkestrukturen.
+-->
