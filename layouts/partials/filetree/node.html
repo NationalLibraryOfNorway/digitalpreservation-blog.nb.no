@@ -1,0 +1,86 @@
+{{- /*
+One entry in a filetree diagram: a box with the name, followed by the
+folder's contents. Folder boxes have a tab, file boxes a folded corner (CSS,
+no icons). A visually hidden "folder"/"file" label carries the same
+information for screen readers.
+
+Every folder with contents can be opened and closed (native <details>):
+state="closed" folders start closed, all others start open. The box shows
+the number of entries inside and a chevron.
+
+Context: dict
+  node      the entry collected by the filetree shortcodes
+            (type "file" | "folder", name, state, children)
+  depth     0 for the top-level entry
+  vertical  true inside a stacked column: contents are always stacked below,
+            never spread sideways
+  root      true for the single top-level entry (drawn filled)
+
+A folder spreads its contents side by side only near the top of the tree
+(depth < $maxSpreadDepth) and only when that gives at least two columns;
+deeper levels stack, which keeps the diagram inside the content column.
+A folder that starts closed always stacks its contents.
+*/ -}}
+{{- /* 3 was tried: the SIP examples then overflow the 672px content column. */ -}}
+{{- $maxSpreadDepth := 2 -}}
+{{- $n := .node -}}
+{{- $depth := .depth | default 0 -}}
+{{- $isFolder := eq $n.type "folder" -}}
+{{- $kids := $n.children | default slice -}}
+{{- $hasKids := gt (len $kids) 0 -}}
+{{- $open := ne $n.state "closed" -}}
+{{- $rootClass := cond (.root | default false) " nb-ft-box--root" "" -}}
+
+{{- /* Name, with line-break opportunities after "_", before "." and between
+  CamelCase words (DILCIS|Extension|SIPMETS), for the rare name that wraps.
+  A file's extension stays attached to the name before it. */ -}}
+{{- $label := "" -}}
+{{- $rendered := cond $isFolder ($n.name | htmlEscape) ($n.name | markdownify | string) -}}
+{{- if strings.Contains $rendered "<" -}}
+  {{- $label = $rendered -}}
+{{- else -}}
+  {{- $ext := cond $isFolder "" (path.Ext $n.name) -}}
+  {{- $base := strings.TrimSuffix $ext $n.name -}}
+  {{- $label = printf "%s%s" ($base | htmlEscape
+    | replaceRE "([a-z])([A-Z])" "$1<wbr>$2"
+    | replaceRE "([A-Z])([A-Z][a-z])" "$1<wbr>$2"
+    | replaceRE "_" "_<wbr>"
+    | replaceRE "\\." "<wbr>.") ($ext | htmlEscape) -}}
+{{- end -}}
+{{- $label = $label | safeHTML -}}
+
+{{- if and $isFolder $hasKids -}}
+  {{- $items := T "filetreeItems" (len $kids) -}}
+  <details class="nb-ft-fold"{{ if $open }} open{{ end }}>
+    <summary class="nb-ft-box nb-ft-box--folder{{ $rootClass }}" title="{{ $items }}">
+      <span class="nb-ft-name">{{ $label }}</span>
+      <span class="nb-ft-sr">, {{ T "filetreeFolder" }}, {{ $items }}</span>
+      <span class="nb-ft-meta" aria-hidden="true">
+        <span class="nb-ft-count">{{ len $kids }}</span>
+        <span class="nb-ft-chevron">{{ partial "utils/icon" (dict "name" "chevron-right" "attributes" "width=0.9em") }}</span>
+      </span>
+    </summary>
+    {{- $vertical := or .vertical (not $open) -}}
+    {{- $columns := 0 -}}
+    {{- $inRun := false -}}
+    {{- range $kids -}}
+      {{- if and (eq .type "folder") (ne .state "closed") (gt (len (.children | default slice)) 0) -}}
+        {{- $columns = add $columns 1 -}}
+        {{- $inRun = false -}}
+      {{- else if not $inRun -}}
+        {{- $columns = add $columns 1 -}}
+        {{- $inRun = true -}}
+      {{- end -}}
+    {{- end -}}
+    {{- if and (not $vertical) (lt $depth $maxSpreadDepth) (ge $columns 2) -}}
+      {{- partial "filetree/group.html" (dict "children" $kids "depth" (add $depth 1) "root" false) -}}
+    {{- else -}}
+      {{- partial "filetree/stack.html" (dict "children" $kids "depth" (add $depth 1) "vertical" $vertical) -}}
+    {{- end -}}
+  </details>
+{{- else -}}
+  <div class="nb-ft-box {{ cond $isFolder "nb-ft-box--folder" "nb-ft-box--file" }}{{ $rootClass }}">
+    <span class="nb-ft-name">{{ $label }}</span>
+    <span class="nb-ft-sr">, {{ T (cond $isFolder "filetreeFolder" "filetreeFile") }}</span>
+  </div>
+{{- end -}}

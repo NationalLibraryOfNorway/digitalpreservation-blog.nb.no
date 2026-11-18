@@ -1,0 +1,12 @@
+{{- /*
+A file in a file tree. Overrides Hextra's filetree/file.
+
+Renders nothing itself: it registers with the enclosing folder or container,
+which draws the whole tree as a diagram (see partials/filetree/node.html).
+
+@param {string} name The name of the file.
+
+@example {{< filetree/file name="_index.md" >}}
+*/ -}}
+{{- $node := dict "type" "file" "name" (.Get "name") -}}
+{{- with .Parent }}{{ .Store.Add "ft-children" (slice $node) }}{{ end -}}

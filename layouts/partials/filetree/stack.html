@@ -1,0 +1,15 @@
+{{- /*
+Entries stacked in one column, hanging off a vertical line on the left.
+
+Context: dict
+  children  slice of filetree entries
+  depth     depth of the entries
+  vertical  true to keep everything below stacked as well (collapsed folders)
+*/ -}}
+{{- $depth := .depth -}}
+{{- $vertical := .vertical | default false -}}
+<ul class="nb-ft-stack">
+  {{- range .children -}}
+    <li>{{ partial "filetree/node.html" (dict "node" . "depth" $depth "vertical" $vertical) }}</li>
+  {{- end -}}
+</ul>

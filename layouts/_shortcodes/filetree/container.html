@@ -1,0 +1,24 @@
+{{- /*
+A file tree container. Overrides Hextra's filetree/container.
+
+The nested filetree/folder and filetree/file shortcodes only register
+themselves; this container draws the collected tree as a box-and-line diagram
+(partials/filetree/, styles in assets/css/custom.css). Each entry is a small
+folder glyph (with a tab) or file glyph (dog-eared sheet) with the name beside
+it, joined to its folder by right-angled lines. Near the top
+of the tree, a folder's contents are spread side by side in source order; a
+run of consecutive files and collapsed folders shares one stacked column to
+save width. Collapsed folders (state="closed") expand in place. Usage is
+unchanged from Hextra's filetree.
+
+@example {{< filetree/container >}}{{< /filetree/container >}}
+*/ -}}
+{{- $_ := .Inner -}}
+{{- $roots := .Store.Get "ft-children" | default slice -}}
+<div class="nb-filetree not-prose">
+  {{- if eq (len $roots) 1 -}}
+    {{- partial "filetree/node.html" (dict "node" (index $roots 0) "depth" 0 "root" true) -}}
+  {{- else -}}
+    {{- partial "filetree/group.html" (dict "children" $roots "depth" 0 "root" true) -}}
+  {{- end -}}
+</div>

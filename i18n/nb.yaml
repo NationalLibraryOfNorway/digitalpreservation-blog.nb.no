@@ -17,3 +17,9 @@ readMore: "Les mer →"
 searchPlaceholder: "Søk..."
 searchLoading: "Laster søket…"
 searchUnavailable: "Kunne ikke laste søket. Endre søket for å prøve igjen."
+# filetree shortcode (skjermleser-etiketter og antall i lukkede mapper)
+filetreeFolder: "mappe"
+filetreeFile: "fil"
+filetreeItems:
+  one: "{{ .Count }} element"
+  other: "{{ .Count }} elementer"

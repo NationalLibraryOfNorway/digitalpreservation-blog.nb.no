@@ -1,0 +1,46 @@
+{{- /*
+A folder's contents spread side by side, joined to the folder by a bar.
+
+Entries keep their source order. Each open folder with contents gets its own
+column; a run of consecutive files, empty folders and collapsed folders shares
+one stacked column, so a folder with many files does not make the diagram
+wide. Columns are independent, so expanding a folder in one never moves
+another. A run is a nested list inside the row's list: one honest extra
+level for assistive technology (role="none" would strip the entries' list
+semantics). Narrow screens show the same columns one below the other as a
+vertical tree.
+
+Context: dict
+  children  slice of filetree entries
+  depth     depth of the entries
+  root      true for several top-level entries: no parent, so no connectors
+*/ -}}
+{{- $depth := .depth -}}
+{{- $columns := slice -}}
+{{- $run := slice -}}
+{{- range .children -}}
+  {{- if and (eq .type "folder") (ne .state "closed") (gt (len (.children | default slice)) 0) -}}
+    {{- with $run }}{{ $columns = $columns | append (dict "run" .) }}{{ $run = slice }}{{ end -}}
+    {{- $columns = $columns | append (dict "branch" .) -}}
+  {{- else -}}
+    {{- $run = $run | append . -}}
+  {{- end -}}
+{{- end -}}
+{{- with $run }}{{ $columns = $columns | append (dict "run" .) }}{{ end -}}
+<ul class="nb-ft-row{{ if .root }} nb-ft-row--root{{ end }}">
+  {{- range $columns -}}
+    {{- if .branch -}}
+      <li class="nb-ft-col nb-ft-col--branch">
+        {{- partial "filetree/node.html" (dict "node" .branch "depth" $depth) -}}
+      </li>
+    {{- else -}}
+      <li class="nb-ft-col nb-ft-col--run">
+        <ul class="nb-ft-stack">
+          {{- range .run -}}
+            <li>{{ partial "filetree/node.html" (dict "node" . "depth" $depth) }}</li>
+          {{- end -}}
+        </ul>
+      </li>
+    {{- end -}}
+  {{- end -}}
+</ul>

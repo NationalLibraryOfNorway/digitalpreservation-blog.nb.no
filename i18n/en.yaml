@@ -1,2 +1,8 @@
 searchLoading: "Loading search…"
 searchUnavailable: "Search could not load. Edit your query to try again."
+# filetree shortcode (screen-reader labels and the collapsed-folder count)
+filetreeFolder: "folder"
+filetreeFile: "file"
+filetreeItems:
+  one: "{{ .Count }} item"
+  other: "{{ .Count }} items"

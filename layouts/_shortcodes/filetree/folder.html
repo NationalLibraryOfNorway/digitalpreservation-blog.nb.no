@@ -1,0 +1,20 @@
+{{- /*
+A folder in a file tree. Overrides Hextra's filetree/folder.
+
+Renders nothing itself: it collects its children and registers with the
+enclosing folder or container, which draws the whole tree as a diagram.
+
+@param {string} name The name of the folder.
+@param {string} state "open" (default) shows the contents; "closed" collapses
+  them behind a toggle (or, for an empty folder, just shows the folder).
+
+@example {{< filetree/folder name="docs" state="closed" >}}
+*/ -}}
+{{- $_ := .Inner -}}
+{{- $node := dict
+  "type" "folder"
+  "name" (.Get "name")
+  "state" (.Get "state" | default "open")
+  "children" (.Store.Get "ft-children" | default slice)
+-}}
+{{- with .Parent }}{{ .Store.Add "ft-children" (slice $node) }}{{ end -}}
