@@ -3,13 +3,12 @@ A file tree container. Overrides Hextra's filetree/container.
 
 The nested filetree/folder and filetree/file shortcodes only register
 themselves; this container draws the collected tree as a box-and-line diagram
-(partials/filetree/, styles in assets/css/custom.css). Each entry is a small
-folder glyph (with a tab) or file glyph (dog-eared sheet) with the name beside
-it, joined to its folder by right-angled lines. Near the top
-of the tree, a folder's contents are spread side by side in source order; a
-run of consecutive files and collapsed folders shares one stacked column to
-save width. Collapsed folders (state="closed") expand in place. Usage is
-unchanged from Hextra's filetree.
+(partials/filetree/, styles in assets/css/custom.css). Folders are boxes with
+a tab, files boxes with a folded corner, joined by right-angled lines. The
+top-level folder's contents are spread side by side in source order; a run of
+consecutive files and collapsed folders shares one stacked column to save
+width. Every folder with contents opens and closes in place; state="closed"
+folders start closed. Usage is unchanged from Hextra's filetree.
 
 @example {{< filetree/container >}}{{< /filetree/container >}}
 */ -}}

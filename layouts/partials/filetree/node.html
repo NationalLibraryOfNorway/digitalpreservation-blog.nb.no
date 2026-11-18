@@ -16,13 +16,15 @@ Context: dict
             never spread sideways
   root      true for the single top-level entry (drawn filled)
 
-A folder spreads its contents side by side only near the top of the tree
-(depth < $maxSpreadDepth) and only when that gives at least two columns;
+Only the top-level folder spreads its contents side by side
+(depth < $maxSpreadDepth), and only when that gives at least two columns;
 deeper levels stack, which keeps the diagram inside the content column.
 A folder that starts closed always stacks its contents.
 */ -}}
-{{- /* 3 was tried: the SIP examples then overflow the 672px content column. */ -}}
-{{- $maxSpreadDepth := 2 -}}
+{{- /* Only the top-level folder spreads. Deeper spreading (a representations
+  folder with primary and access side by side) overflows the 672px content
+  column. */ -}}
+{{- $maxSpreadDepth := 1 -}}
 {{- $n := .node -}}
 {{- $depth := .depth | default 0 -}}
 {{- $isFolder := eq $n.type "folder" -}}
