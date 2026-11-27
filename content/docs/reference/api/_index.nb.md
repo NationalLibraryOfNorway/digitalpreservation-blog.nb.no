@@ -347,8 +347,8 @@ Webhook sendt når et leveransesett (DIP) er gjort tilgjengelig for nedlasting.
     "files": [
       {
         "downloadURL": "https://minio.dev.nb.no/submission-service-stage/dissemination/5MfwdzCjkYW4c79MYorXy9/68d3a838a0be2b1d75eeef75/primary_20250325.tar?...",
-        "filename": "primary_20250325.tar",
-        "filesize": 3481600,
+        "filePath": "primary_20250325.tar",
+        "fileSize": 3481600,
         "expirationDate": "2025-10-03T09:18:01.023897767+02:00",
         "checksum": "ae958c69059974c63980035882d2178c",
         "checksumAlgorithm": "MD5"
@@ -368,8 +368,8 @@ Webhook sendt når et leveransesett (DIP) er gjort tilgjengelig for nedlasting.
 | `sumSizeInBytes`      | integer   | Total størrelse i bytes                                                                                                                                              |
 | `files`               | array     | Liste over filer i pakken                                                                                                                                            |
 | → `downloadURL`       | uri       | Presignert nedlastings-URL                                                                                                                                           |
-| → `filename`          | string    | Filnavn                                                                                                                                                              |
-| → `filesize`          | integer   | Filstørrelse i bytes                                                                                                                                                 |
+| → `filePath`          | string    | Relativ sti til den utleverte filen                                                                                                                                  |
+| → `fileSize`          | integer   | Filstørrelse i bytes                                                                                                                                                 |
 | → `expirationDate`    | date-time | Utløpsdato for URL                                                                                                                                                   |
 | → `checksum`          | string    | Sjekksum                                                                                                                                                             |
 | → `checksumAlgorithm` | enum      | Algoritme brukt for sjekksum                                                                                                                                         |

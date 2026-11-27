@@ -343,8 +343,8 @@ Webhook sent when a delivery package (DIP) is made available for download.
     "files": [
       {
         "downloadURL": "https://minio.dev.nb.no/submission-service-stage/dissemination/5MfwdzCjkYW4c79MYorXy9/68d3a838a0be2b1d75eeef75/primary_20250325.tar?...",
-        "filename": "primary_20250325.tar",
-        "filesize": 3481600,
+        "filePath": "primary_20250325.tar",
+        "fileSize": 3481600,
         "expirationDate": "2025-10-03T09:18:01.023897767+02:00",
         "checksum": "ae958c69059974c63980035882d2178c",
         "checksumAlgorithm": "MD5"
@@ -364,8 +364,8 @@ Webhook sent when a delivery package (DIP) is made available for download.
 | `sumSizeInBytes`      | integer   | Total size in bytes                                                                                                                                                |
 | `files`               | array     | List of files in the package                                                                                                                                       |
 | → `downloadURL`       | uri       | Pre-signed download URL                                                                                                                                            |
-| → `filename`          | string    | File name                                                                                                                                                          |
-| → `filesize`          | integer   | File size in bytes                                                                                                                                                 |
+| → `filePath`          | string    | Relative path to the delivered file                                                                                                                                |
+| → `fileSize`          | integer   | File size in bytes                                                                                                                                                 |
 | → `expirationDate`    | date-time | Expiration date for the URL                                                                                                                                        |
 | → `checksum`          | string    | Checksum                                                                                                                                                           |
 | → `checksumAlgorithm` | enum      | Algorithm used for checksum                                                                                                                                        |
