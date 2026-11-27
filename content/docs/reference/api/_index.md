@@ -274,6 +274,7 @@ Webhook sent when a SIP submission is preserved and stored permanently.
   "timestamp": "2025-09-10T00:08:11.407000+02:00",
   "data": {
     "contractId": "ef23",
+    "objectId": "digifoto_ae0690eb-22bf-4996-a6a0-9273b7cd9256",
     "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
     "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69"
   }
@@ -283,6 +284,7 @@ Webhook sent when a SIP submission is preserved and stored permanently.
 | Field          | Type   | Description                                                                                                                                                                                      |
 |----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `contractId`   | string | Identifier for the contract or agreement the submission is linked to                                                                                                                             |
+| `objectId`     | string | Object identifier from the depositor – same value as provided when creating the submission                                                                                                       |
 | `submissionId` | string | Unique identifier for the SIP submission                                                                                                                                                         |
 | `archiveId`    | string | Unique identifier for the preserved archive object in DPS. Assigned when the submission is archived. Use this ID to reference the object in future requests, e.g. when ordering a dissemination. |
 
@@ -297,6 +299,7 @@ Webhook sent when a SIP submission is rejected during validation or processing.
   "timestamp": "2025-09-10T00:08:11.407000+02:00",
   "data": {
     "contractId": "ef23",
+    "objectId": "digifoto_ae0690eb-22bf-4996-a6a0-9273b7cd9256",
     "submissionId": "8Z7x1T9rN0Xc2B5Yq4L3zP",
     "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
     "reasons": [
@@ -317,6 +320,7 @@ Webhook sent when a SIP submission is rejected during validation or processing.
 | Field          | Type   | Description                                                                                                                                                        |
 |----------------|--------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `contractId`   | string | Identifier for the contract or agreement the submission is linked to                                                                                               |
+| `objectId`     | string | Object identifier from the depositor – same value as provided when creating the submission                                                                         |
 | `submissionId` | string | Unique identifier for the SIP submission                                                                                                                           |
 | `archiveId`    | string | Unique identifier for the archive object in DPS                                                                                                                    |
 | `reasons`      | array  | List of reasons for rejection. At least one entry.                                                                                                                 |
@@ -337,14 +341,22 @@ Webhook sent when a delivery package (DIP) is made available for download.
     "archiveId": "019e404e-60ab-7457-b7c9-94c453242c69",
     "disseminationId": "5MfwdzCjkYW4c79MYorXy9",
     "objectId": "digifoto_ae0690eb-22bf-4996-a6a0-9273b7cd9256",
-    "clientId": "kulturit",
+    "clientId": "client-id",
     "contractId": "2d17",
-    "sumSizeInBytes": "1",
+    "sumSizeInBytes": 3645440,
     "files": [
       {
-        "downloadURL": "https://minio.dev.nb.no/submission-service-stage/dissemination/5MfwdzCjkYW4c79MYorXy9/68d3a838a0be2b1d75eeef75/primary_20250325.tar?...",
-        "filename": "primary_20250325.tar",
-        "filesize": 3481600,
+        "downloadURL": "https://storage.example.org/dissemination/5MfwdzCjkYW4c79MYorXy9/metadata.tar?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Expires=86400&X-Amz-Signature=...",
+        "filePath": "metadata.tar",
+        "fileSize": 163840,
+        "expirationDate": "2025-10-03T09:17:58.023897767+02:00",
+        "checksum": "65378a79d8a7b8da1a9c7dbd91abb887",
+        "checksumAlgorithm": "MD5"
+      },
+      {
+        "downloadURL": "https://storage.example.org/dissemination/5MfwdzCjkYW4c79MYorXy9/representations/primary_20250325/data/image_0001.tif?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Expires=86400&X-Amz-Signature=...",
+        "filePath": "representations/primary_20250325/data/image_0001.tif",
+        "fileSize": 3481600,
         "expirationDate": "2025-10-03T09:18:01.023897767+02:00",
         "checksum": "ae958c69059974c63980035882d2178c",
         "checksumAlgorithm": "MD5"
@@ -364,8 +376,8 @@ Webhook sent when a delivery package (DIP) is made available for download.
 | `sumSizeInBytes`      | integer   | Total size in bytes                                                                                                                                                |
 | `files`               | array     | List of files in the package                                                                                                                                       |
 | → `downloadURL`       | uri       | Pre-signed download URL                                                                                                                                            |
-| → `filename`          | string    | File name                                                                                                                                                          |
-| → `filesize`          | integer   | File size in bytes                                                                                                                                                 |
+| → `filePath`          | string    | Relative path of the file within the package                                                                                                                       |
+| → `fileSize`          | integer   | File size in bytes                                                                                                                                                 |
 | → `expirationDate`    | date-time | Expiration date for the URL                                                                                                                                        |
 | → `checksum`          | string    | Checksum                                                                                                                                                           |
 | → `checksumAlgorithm` | enum      | Algorithm used for checksum                                                                                                                                        |
